@@ -1,15 +1,16 @@
 # 项目交接文档 v3
 
 **项目**：CD4⁺T 细胞活化动态 eQTL → 黑色素瘤的孟德尔随机化研究
-**最后更新**：2026-08-12（**Step 87 后**；Step 83 之后新增 84–87，见文末第九、十节）
+**最后更新**：2026-08-13（**Step 93 后**；Step 83 之后新增 84–93，见文末第九至十二节）
 **取代**：`HANDOFF_v2.md`（其第七节"方法论纪律"与第八节"技术坑"仍有效，本文件补充）
 
 > **新会话阅读顺序**
 > 1. 本文件
 > 2. `manuscript/MANUSCRIPT_v2_dual_thread.md` ← **唯一正文源**
 > 3. `FINDINGS_step5_pigmentation.md` 的 Step 56 起（本轮全部记录）
-> 4. **四份预注册**：`PREREG_power_trajectory.md`（S9）、`PREREG_pozniak_replication.md`（S18）、
->    `PREREG_hcc_generalisation.md`（S20）、`PREREG_hcc_part2_generalisation.md`（S21）；
+> 4. **五份预注册**：`PREREG_power_trajectory.md`（S9）、`PREREG_pozniak_replication.md`（S18）、
+>    `PREREG_hcc_generalisation.md`（S20）、`PREREG_hcc_part2_generalisation.md`（S21）、
+>    **`PREREG_exposure_resource.md`（S22）**；
 >    以及 `SUPP_attempt_timeline.md`（完整分母，含新增 §5.4b 层 D）
 
 ---
@@ -368,3 +369,49 @@ S21 入清单（S9–S21 已核，无孤儿）· `METHODS_draft.md` 新增 §11b
 
 ⚠ 压缩原则（定死，防止越压越弱）：
 **优先降级到补充材料，而不是删除**。每删一条限定，都要确认它没有在别处被引用为"我们已声明过"。
+
+---
+
+## 十二、Step 91–93（2026-08-12/13）：第二轮审稿的"距离 8 分"与"距离 9 分"
+
+### 1. 距离 8 分：七条全做完（Step 90 + 93）
+
+见 FINDINGS Step 90 与 93。要点：Part II 三层口径拆分 · 11 项重分类为四分法
+（**"8/11" 已从摘要与结论全部撤下**）· 患者分析定死唯一 primary test（置换检验）·
+R3 的 10 处版本矛盾清零 · TPI1/coloc/whichever disease 三处收紧 ·
+中文笔记移出正文（`MANUSCRIPT_worknotes.md`）· Methods 由 `assemble.py` 合成 ·
+参考文献 ⟨⟩ 归零 · 代码仓库 402 文件已提交 · Fig 9 补 d/e 两面板。
+
+### 2. 距离 9 分：四条里做掉两条
+
+| 审稿人给的四选一 | 状态 |
+|---|---|
+| **换一套 eQTL 资源重复位点归因** | ✅ **Step 92 完成，判读落 A**（见下）|
+| **系统性文献审计** | ✅ **Step 91 完成，152 篇全文**（见下）|
+| 同疾病同治疗的独立患者复制 | ❌ 已穷尽：S14 检索只有一个合格队列，已用 |
+| in-sample LD 解 TPI1/ZFYVE19 coloc | ❌ **被堵死**：FinnGen 全基因组只精细定位 19 个区，本文候选位点无一在内（正文已写明）；meta 结局无 in-sample LD |
+
+**Step 92 结论（可进摘要）**：结局固定、暴露换成 eQTLGen 全血（n=31,684，约 300 倍），
+FDR<0.05 位点由 7 增至 30，已知位点占比由 42.9% 升至 **66.7%**，
+富集 **4.44× vs 4.09×** —— **两套毫无共同点的暴露资源给出几乎相同的倍数**。
+⚠ 但新位点基因交集 = 1（ZFYVE19），故**"新位点提名全部不可复现"是过强说法**，正文已改。
+
+**Step 91 结论**：152 篇全文中，**至多 12 篇（7.9%）**做过与自身结局已知位点的比较，
+**1 篇（0.7%）**报告过名单对结局 GWAS 的依赖。已写入 §4.5 诊断①。
+
+### 3. 新增纪律第 14 条
+
+**撤回一个统计量时，产出它的结果表列名也要一并标记。**
+Step 93 给 Fig 9 加面板时，又在 panel c 上抓到被撤回的二项 P 值——
+而 Step 88 明明已按第 13 条把图脚本扫了一遍。原因是
+`63c_patient_locked.tsv` 里**数据列就叫 `binom_p`**：
+只要有人再拿这张表画图，撤回的量就会从**数据侧**复活。
+→ 已在图脚本写死 "Do not restore the P values" 及理由。
+
+### 4. 仍未做
+
+- **正文长度**：约 11,600 词（又加了两块新结果），Abstract 约 450 词。
+  第二阶段压缩仍待定期刊。
+- **repository DOI**：需作者推 GitHub + Zenodo 发 release（`DEPOSIT.md` §5 有四步说明）
+- DepMap 的具体 release 号须与脚本核对
+- 距离 10 分的四条（个体级 genotype×time、功能扰动等）均需新实验，非本轮范围

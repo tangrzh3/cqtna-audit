@@ -1,6 +1,6 @@
 <!-- GENERATED FILE - do not edit by hand.
      Sources: MANUSCRIPT_v2_dual_thread.md + METHODS_draft.md
-     Regenerate with: python assemble.py   (last built 2026-08-12) -->
+     Regenerate with: python assemble.py   (last built 2026-08-13) -->
 
 # When a pathway can be interrogated genetically, and which gene gets named: an audit of dynamic-eQTL target nomination in melanoma
 
@@ -21,9 +21,12 @@ the pattern holds across five nested power levels of one GWAS resource, where no
 novel-locus gene reaches significance at any case number between 2,705 and 5,753,
 and it recurs when the exposure side is held fixed and hepatocellular carcinoma is
 substituted — three of four significant loci are known HCC loci, including
-*PNPLA3*, and the two tumours share no novel-locus nominations, though at 30% of
-melanoma's effective sample size that pre-registered test does not itself reach
-significance. Raising outcome power increased MR discoveries while *lowering*
+*PNPLA3*, though at 30% of melanoma's effective sample size that pre-registered
+test does not itself reach significance. **The mirror-image test gives the same
+answer**: holding the melanoma outcome fixed and replacing the exposure entirely
+with a whole-blood eQTL resource 300-fold larger raises significant loci from 7 to
+30 and leaves the attribution unchanged (66.7% known-locus, 4.44-fold,
+P = 3.7×10⁻¹¹, against 4.09-fold in CD4⁺ T cells). Raising outcome power increased MR discoveries while *lowering*
 colocalisation support and replaced the candidate list entirely: two lists from
 identical exposure data share no genes. Down-sampling, validated against twelve
 pre-registered predictions, shows the loss falls unevenly by locus class — at half
@@ -245,6 +248,27 @@ fixed, named *the textbook loci of each of the two diseases we placed on the
 outcome side*. Two diseases do not establish that this holds for any disease, and
 we do not claim it does; what they establish is that the pattern is not peculiar
 to melanoma.
+
+**And a second exposure resource.** Everything above varies the outcome while
+holding the exposure fixed, which leaves one alternative open: that the pattern is
+a property of *this* eQTL resource — 85–100 donors, CD4⁺ T cells, one laboratory.
+We therefore ran the mirror-image test, holding the melanoma outcome byte-for-byte
+fixed and replacing the exposure entirely with eQTLGen whole-blood cis-eQTLs
+(n = 31,684, a ~300-fold larger eQTL sample, a different cell composition and a
+different platform), again pre-registered with its reading table before the
+resource was downloaded (Supplementary S22). Instruments rose from 3,556 records
+to 12,835 and FDR-significant loci from 7 to 30, as a resource of that size
+should. The attribution did not move: **20 of 30 significant loci (66.7%) carry a
+known melanoma, naevus or pigmentation lead SNP, a 4.44-fold enrichment over this
+resource's own 15.0% background (one-sided P = 3.7×10⁻¹¹)**, against 4.09-fold in
+the CD4 analysis — the same fold from two exposure resources that share neither
+cell type, sample size, nor platform. The pre-registered matched-background
+version agrees (4.14–4.48-fold, empirical P = 10⁻⁴). One qualification is
+pre-specified and material: the two resources' novel-locus nominations intersect
+in exactly one gene, ZFYVE19 — the boundary of what we predicted (≤1), and
+notably the gene that carried the strongest colocalisation in the original
+analysis. **"Novel-locus nominations never reproduce" would therefore be too
+strong; across exposure resources, one of them did.**
 
 ## 2.3 Finding ②: SMR/HEIDI does not exclude the LD confounding colocalisation identifies
 
@@ -894,13 +918,15 @@ cross-disease cohort, and no single arm was confirmed in both.
 > contradicts. Two processing errors of ours are reported as results rather than in
 > Methods (§2.6), because they are instances of finding ⑦.
 >
-> **Four of our own methodological claims were pre-registered with failure
+> **Five of our own methodological claims were pre-registered with failure
 > conditions written before the data were read**: the power-trajectory predictions
-> (12 of 12 intervals hit), the same-disease replication of the patient
-> stratification (partial), the second-tumour generalisation (directionally
-> consistent, primary test not significant), and the patient stratification in that
-> second tumour (primary test passed). A fifth could not be run at all. **Two
-> passes, two partial results, one foreclosed.**
+> (12 of 12 intervals hit); the same-disease replication of the patient
+> stratification (partial); the second-tumour generalisation (directionally
+> consistent, primary test not significant); the patient stratification in that
+> second tumour (primary test passed); and the exposure-resource generalisation
+> (primary test passed, P = 3.7×10⁻¹¹). A sixth — extending compartment attribution
+> to a second tumour — could not be run at all. **Three passes, two partial
+> results, one foreclosed.**
 
 ---
 
@@ -1132,9 +1158,14 @@ analysis reported.
 independent loci rather than gene records.** Here that is 10 of 10 records in the
 first round, 3 of 7 loci under the meta outcome (4.1-fold, P = 0.028), no
 novel-locus gene at five nested power levels, and the same pattern in a second
-disease. None of the three comparable studies reports an equivalent attribution in
-its main text (Supplementary S16; the comparison is limited to main text, as
-supplementary material was not available for all three).
+disease. In a search-defined sample of 152 eQTL-instrumented MR
+target-nomination papers whose full text we could obtain, **at most 12 (7.9%)
+compare their significant signal against previously reported loci for their own
+outcome trait, and 1 (0.7%) reports how the candidate list depends on the outcome
+GWAS used** (Supplementary S23; three of those studies are also compared item by
+item in Supplementary S16). We are explicit that this counts phrases in text, not quality of
+practice, and that not performing a check is not evidence that a study's
+conclusions are wrong.
 
 **② Require colocalisation — preferably with explicit multiple-signal modelling
 and an LD reference matched to the outcome cohort — rather than treating
@@ -1898,10 +1929,19 @@ locked 16-gene signature, and the signature with TPI1 removed, at both timepoint
 **shown descriptively — inference is by composite signature score and label
 permutation (Supplementary Table S19), because these genes are correlated**.
 
-This figure deliberately does not show the multiome state characterisation, which
-is a separate analysis on a different dataset and is reported in the text and in
-Supplementary Fig S7; the panels here concern instrument availability and the
-patient comparison only.
+**d**, Family composition of the top of the residualised multiome axis: glycolysis
+is enriched 21.3-fold (15 genes) among the axis-defining genes, and none of the
+eleven biological modules tested exceeds a composition-matched null, so the axis is
+a definable state rather than a restatement of activation intensity. **e**, Motif
+enrichment in axis-high versus background peaks, restricted to
+activation-invariant peaks. ⚠ Panel **e** is an axis-level chromatin
+characterisation and is **not** the claim, withdrawn during revision, that the
+instrument acts by disrupting an AP-1 motif — that test returned an empirical
+P = 1.0 and is not shown anywhere in this paper.
+
+Panels **d** and **e** were added in revision: an earlier version of this figure
+omitted the multiome evidence and said so in its legend, which a reviewer
+correctly identified as declaring the gap rather than closing it.
 
 生成脚本 `figures/make_fig9_part2.py`。
 
@@ -1938,6 +1978,8 @@ patient comparison only.
 | S18 | **Pre-registration document** (independent-cohort replication), with its reading table | `PREREG_pozniak_replication.md` |
 | S19 | Patient-level inference: composite signature score, correlation-preserving label permutation, and all three treatments of repeated patients | `74a` |
 | S20 | **Pre-registration document** (second-tumour generalisation to HCC), with its five-cell reading table, results register and two logged deviations; accompanying tables: known-locus reference list, per-outcome MR results, significant-locus attribution, matched-power simulation, and the matched-background version of the enrichment test | `PREREG_hcc_generalisation.md`; `84a`, `84b`, `85a`–`85e` |
+| S22 | **Pre-registration document** (exposure-resource generalisation), with its reading table and results register; accompanying tables: eQTLGen instruments, MR records against the fixed melanoma outcome, locus attribution, and the matched-background version | `PREREG_exposure_resource.md`; `92a`–`92e` |
+| S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
 
 ---

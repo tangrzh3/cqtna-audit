@@ -6,8 +6,15 @@
      "16h 窗口"从"效应增强"更正为"可检测性"。
   b  锁定 signature 与背景的 lead-SE 比值随时点变化 —— 精度混杂的直接证据
   c  患者侧：锁定 16 / 去 TPI1 15 基因在两个时点的方向一致性
+  d  ★ 新增（回应 R3 / B3）：multiome 残差轴的家族组成 —— 该轴确实是一个可定义的
+     细胞状态，且与活化强度正交（43c 中全部生物学模块均未超过随机地板）
+  e  ★ 新增：该轴的染色质特征（活化不变 peak 内的 motif 富集）
+     ⚠ 这与 Step 65 被推翻的"工具变量经 AP-1 motif disruption 起作用"**不是同一件事**：
+     那条是关于单个变异是否破坏 motif（经验 p=1.0，已撤回）；这里是该轴的
+     染色质总体特征，两者不得混为一谈。
 
-数据：step62 的 beta/se 核查、63b_precision_by_profile.tsv、63c_patient_locked.tsv
+数据：step62 的 beta/se 核查、63b、63c、44b_family_composition.tsv、
+      43c_residual_axis_verdict.tsv、48b_motif_axis.tsv
 """
 import os
 import numpy as np
@@ -39,9 +46,9 @@ PV = {"Naive":  [1.51e-4, 1.74e-12, 3.50e-2, 8.27e-1],
 prec = pd.read_csv(f"{MR}/63b_precision_by_profile.tsv", sep="\t")
 pat = pd.read_csv(f"{MR}/63c_patient_locked.tsv", sep="\t")
 
-fig = plt.figure(figsize=(13, 4.6))
-gs = fig.add_gridspec(1, 3, width_ratios=[1.25, 1, 1], wspace=.30,
-                      left=.06, right=.985, top=.86, bottom=.14)
+fig = plt.figure(figsize=(19.5, 4.6))
+gs = fig.add_gridspec(1, 5, width_ratios=[1.25, 1, 1, 1.05, 1.15], wspace=.34,
+                      left=.042, right=.99, top=.86, bottom=.16)
 
 # ------------------------------------------------------------------ panel a
 ax = fig.add_subplot(gs[0, 0])
@@ -95,8 +102,13 @@ for j, (tpt, c) in enumerate([("Pre", "#7A5AA8"), ("Post", "#E8A33D")]):
     frac = d.higher_in_NR / d.n
     ax.bar(np.arange(3) + (j - .5) * w, frac, width=w, color=c,
            label=f"{tpt}-treatment", zorder=3)
-    for i, (f, k, n, p) in enumerate(zip(frac, d.higher_in_NR, d.n, d.binom_p)):
-        ax.text(i + (j - .5) * w, f + .015, f"{k}/{n}\nP={p:.0e}".replace("e-0", "e−"),
+    # NB: the binomial P values that used to be printed here were WITHDRAWN during
+    # revision -- the enzymes are correlated (effective n ~ 11.7 of 16), so a
+    # binomial against 1/2 is anticonservative by 2-3 orders of magnitude. Counts
+    # are descriptive; inference is the correlation-preserving permutation
+    # reported in the text (manuscript 2.5, 3.3). Do not restore the P values.
+    for i, (f, k, n) in enumerate(zip(frac, d.higher_in_NR, d.n)):
+        ax.text(i + (j - .5) * w, f + .015, "{}/{}".format(k, n),
                 ha="center", fontsize=6.4, color="#333")
 ax.axhline(.5, ls="--", lw=.9, color="#666", zorder=2)
 ax.text(2.45, .515, "chance", ha="right", fontsize=7, color="#555")
@@ -105,6 +117,52 @@ ax.set_ylim(0, 1.12)
 ax.set_ylabel("Fraction of enzymes higher in non-responders")
 ax.legend(frameon=False, fontsize=7.5, loc="lower center", ncol=2)
 ax.set_title("c  Patient CD4 cells: not driven by TPI1",
+             fontsize=9.5, loc="left", pad=6)
+
+# ------------------------------------------------------------------ panel d
+# the residual axis is a definable state, and it is orthogonal to activation
+fam = pd.read_csv(f"{MR}/44b_family_composition.tsv", sep="	")
+ver = pd.read_csv(f"{MR}/43c_residual_axis_verdict.tsv", sep="	")
+up = (fam[fam.direction == "up"].sort_values("enrichment", ascending=False)
+        .head(5).iloc[::-1])
+ax = fig.add_subplot(gs[0, 3])
+lbl = [f.replace("_", " ") for f in up.family]
+cols = [C_LOCK if "glyco" in f else C_BG for f in up.family]
+ax.barh(np.arange(len(up)), up.enrichment.values, color=cols, height=.62)
+for i, (e, n) in enumerate(zip(up.enrichment.values, up.n_in_top.values)):
+    ax.text(e + .5, i, f"{e:.1f}x  (n={n})", va="center", fontsize=7.4)
+ax.axvline(1, color="#999", lw=.8, ls=":")
+ax.set_yticks(np.arange(len(up))); ax.set_yticklabels(lbl, fontsize=7.8)
+ax.set_xlim(0, max(up.enrichment) * 1.42)
+ax.set_xlabel("Enrichment in the top of the residual axis")
+nnull = int((~ver.exceeds_null).sum())
+ax.text(.98, .04,
+        "all {} biological modules within\nthe matched null ({}/{})"
+        .format(len(ver), nnull, len(ver)),
+        transform=ax.transAxes, ha="right", va="bottom", fontsize=7.2,
+        color="#444", bbox=dict(fc="white", ec="#DDD", lw=.6, pad=2.5))
+ax.set_title("d  A definable state, orthogonal to activation",
+             fontsize=9.5, loc="left", pad=6)
+
+# ------------------------------------------------------------------ panel e
+# chromatin signature of the axis. NB this is NOT the withdrawn Step 65 claim
+# (that the instrument acts by disrupting an AP-1 motif; empirical p = 1.0).
+mot = pd.read_csv(f"{MR}/48b_motif_axis.tsv", sep="	")
+top = mot[mot.contrast == "glyco_high"].sort_values("odds", ascending=False).head(6).iloc[::-1]
+ax = fig.add_subplot(gs[0, 4])
+ax.barh(np.arange(len(top)), top.odds.values, color="#8E6BB3", height=.62)
+for i, (o, q) in enumerate(zip(top.odds.values, top.FDR.values)):
+    ax.text(o + .03, i, f"FDR {q:.0e}", va="center", fontsize=7.0)
+ax.axvline(1, color="#999", lw=.8, ls=":")
+ax.set_yticks(np.arange(len(top)))
+ax.set_yticklabels([m[:14] for m in top.motif], fontsize=7.6)
+ax.set_xlim(0, max(top.odds) * 1.30)
+ax.set_xlabel("Motif odds ratio, axis-high vs background peaks")
+ax.text(.98, .04,
+        "axis-level chromatin;\nnot the withdrawn\nmotif-disruption claim",
+        transform=ax.transAxes, ha="right", va="bottom", fontsize=7.0,
+        color="#444", bbox=dict(fc="white", ec="#DDD", lw=.6, pad=2.5))
+ax.set_title("e  Chromatin signature of the same axis",
              fontsize=9.5, loc="left", pad=6)
 
 fig.suptitle("Instrument availability, the glycolytic CD4 state, and checkpoint-blockade response",

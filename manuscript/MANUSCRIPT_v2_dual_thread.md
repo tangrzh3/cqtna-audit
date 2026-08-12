@@ -1298,10 +1298,19 @@ locked 16-gene signature, and the signature with TPI1 removed, at both timepoint
 **shown descriptively — inference is by composite signature score and label
 permutation (Supplementary Table S19), because these genes are correlated**.
 
-This figure deliberately does not show the multiome state characterisation, which
-is a separate analysis on a different dataset and is reported in the text and in
-Supplementary Fig S7; the panels here concern instrument availability and the
-patient comparison only.
+**d**, Family composition of the top of the residualised multiome axis: glycolysis
+is enriched 21.3-fold (15 genes) among the axis-defining genes, and none of the
+eleven biological modules tested exceeds a composition-matched null, so the axis is
+a definable state rather than a restatement of activation intensity. **e**, Motif
+enrichment in axis-high versus background peaks, restricted to
+activation-invariant peaks. ⚠ Panel **e** is an axis-level chromatin
+characterisation and is **not** the claim, withdrawn during revision, that the
+instrument acts by disrupting an AP-1 motif — that test returned an empirical
+P = 1.0 and is not shown anywhere in this paper.
+
+Panels **d** and **e** were added in revision: an earlier version of this figure
+omitted the multiome evidence and said so in its legend, which a reviewer
+correctly identified as declaring the gap rather than closing it.
 
 生成脚本 `figures/make_fig9_part2.py`。
 
