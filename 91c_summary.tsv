@@ -1,0 +1,6 @@
+criterion	n_with	n_total	pct
+C1_known_locus	2	152	1.3
+C2_coloc	90	152	59.2
+C3_power_stability	1	152	0.7
+C4_instrument_count	25	152	16.4
+C5_smr_heidi	0	152	0.0

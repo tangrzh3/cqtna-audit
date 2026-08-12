@@ -1,0 +1,2 @@
+real_hits	real_genes	real_jaccard	sim_hits	sim_jaccard	sim_lo	sim_hi	calibrated
+10	6	0.45454545454545453	10.215	0.5167295204795205	0.36363636363636365	0.7272727272727273	True

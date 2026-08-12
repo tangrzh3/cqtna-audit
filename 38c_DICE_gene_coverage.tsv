@@ -1,0 +1,16 @@
+dataset	cell	condition	n	TPI1_quantified	TPI1_median_tpm	TPI1_http	SPSB2_quantified	SPSB2_median_tpm	SPSB2_http
+QTD000439	Tfh_memory	naive	89	False		400.0	False		400.0
+QTD000444	Th17_memory	naive	89	False		400.0	True	8.53	
+QTD000449	Th1_memory	naive	82	False		400.0	True	8.013	
+QTD000454	Th2_memory	naive	89	False		400.0	True	7.614	
+QTD000459	Th1-17_memory	naive	88	True	154.804		True	5.751	
+QTD000464	Treg_memory	naive	89	True	194.25		True	11.495	
+QTD000469	Treg_naive	naive	89	False		400.0	True	8.836	
+QTD000474	B-cell_naive	naive	91	False		400.0	True	3.021	
+QTD000479	CD4_T-cell_naive	naive	88	True	97.86		True	5.511	
+QTD000484	CD4_T-cell_anti-CD3-CD28	anti-CD3-CD28_4h	89	False		400.0	True	5.068	
+QTD000489	CD8_T-cell_naive	naive	89	True	126.102		True	7.41	
+QTD000494	CD8_T-cell_anti-CD3-CD28	anti-CD3-CD28_4h	88	False		400.0	True	6.497	
+QTD000499	monocyte_CD16_naive	naive	90	False		400.0	True	5.268	
+QTD000504	monocyte_naive	naive	91	False		400.0	True	4.376	
+QTD000509	NK-cell_naive	naive	90	False		400.0	False		400.0

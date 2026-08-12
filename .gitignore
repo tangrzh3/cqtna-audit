@@ -1,0 +1,38 @@
+# Deposit rule: SCRIPTS and RESULT TABLES are versioned; RAW/DERIVED DATA is not.
+#
+# The repository must stay small enough to be a code record. Everything excluded
+# here is either (a) third-party data that must be obtained from its own source
+# under its own licence, or (b) large intermediate objects regenerable by the
+# scripts that are included. Accession numbers and URLs for every excluded input
+# are listed in manuscript/REFERENCES.md and in DEPOSIT.md.
+
+# --- third-party GWAS / eQTL summary statistics (obtain from source) ---
+*.gz
+*.ma
+!landi2020_known_loci_grch38.csv
+eqtlgen/
+hcc/
+pheno/
+release_extracts/
+litaudit/
+
+# --- large single-cell / Seurat objects (regenerable, or third-party) ---
+*.rds
+*.h5ad
+*.h5
+
+# --- R / Python working state ---
+.RData
+.Rhistory
+.Rproj.user/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- scratch ---
+scratch_*
+backup_*
+*.tmp
+
+# --- keep: every step*.py / step*.R, every numbered result table (*.tsv, *.csv),
+#     figures/*.py, manuscript/*.md, FINDINGS, HANDOFF ---

@@ -1,0 +1,6 @@
+cancer	n_genes	overlap_with_melanoma	jaccard	pct_known_pigment_or_nevus	shared_genes
+Lung	12	0	0.0	30.8	-
+Colorectal	6	0	0.0	21.1	-
+Pancreas	0	0	0.0	0	-
+Breast	26	1	0.029	8.6	SMC2
+Prostate	35	1	0.023	14.0	MDM4

@@ -1,0 +1,9 @@
+study	dataset	cell	condition	n	TPI1	TPI1_tpm	SPSB2	SPSB2_tpm
+Schmiedel_2018	QTD000484	CD4_T-cell_anti-CD3-CD28	anti-CD3-CD28_4h	89	False		True	5.068
+Schmiedel_2018	QTD000494	CD8_T-cell_anti-CD3-CD28	anti-CD3-CD28_4h	88	False		True	6.497
+Nathan_2022	QTD000666	CD4+_activated	naive	248	False		True	
+Nathan_2022	QTD000684	CD8+_activated	naive	232	False		False	
+Cytoimmgen	QTD000690	combined_CD4_Naive_STIM_40H	anti-CD3-CD28_40h	94	False		True	
+Cytoimmgen	QTD000691	combined_CD4_Memory_STIM_40H	anti-CD3-CD28_40h	94	False		True	
+Cytoimmgen	QTD000692	combined_CD4_Memory_STIM_5D	anti-CD3-CD28_5D	93	False		True	
+Cytoimmgen	QTD000693	combined_CD4_Naive_STIM_16H	anti-CD3-CD28_16h	99	False		True	

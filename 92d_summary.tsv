@@ -1,0 +1,2 @@
+exposure	n_instruments	bg_loci	bg_known	sig_records	sig_loci	sig_known	pct_known	fold	fisher_p
+eQTLGen_wholeblood	12835	559	84	72	30	20	66.66666666666667	4.436507936507936	3.724056802770761e-11

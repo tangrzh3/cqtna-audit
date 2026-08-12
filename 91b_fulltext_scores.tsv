@@ -1,0 +1,153 @@
+pmid	pmc	year	journal	title	chars	C1_known_locus	C2_coloc	C3_power_stability	C4_instrument_count	C5_smr_heidi
+37799268	PMC10554754	2023	Frontiers in lupus	Modeling of horizontal pleiotropy identifies possible causal gene expression in systemic lupus erythematosus.	142302	0	0	0	0	0
+38316767	PMC10844634	2024	Translational psychiatry	Brain tissue- and cell type-specific eQTL Mendelian randomization reveals efficacy of FADS1 and FADS2 on cognitive funct	56926	0	1	0	1	0
+38566986	PMC10985171	2024	Frontiers in immunology	Transcriptomics in idiopathic pulmonary fibrosis unveiled: a new perspective from differentially expressed genes to ther	49763	0	0	0	0	0
+38671846	PMC11047424	2024	Antioxidants (Basel, Switzerland)	The Association of Redox Regulatory Drug Target Genes with Psychiatric Disorders: A Mendelian Randomization Study.	57661	0	1	0	1	0
+38735387	PMC11976564	2025	Journal of advanced research	Association of intestinal anti-inflammatory drug target genes with psychiatric Disorders: A Mendelian randomization stud	43677	0	1	0	0	0
+38783236	PMC11118997	2024	Respiratory research	Identifying potential drug targets for idiopathic pulmonary fibrosis: a mendelian randomization study based on the drugg	31076	0	1	0	0	0
+38903171	PMC11187347	2024	Frontiers in neurology	Therapeutic targets for age-related macular degeneration: proteome-wide Mendelian randomization and colocalization analy	54107	0	1	0	1	0
+39040085	PMC11261789	2024	The World Allergy Organization journal	Unraveling genetic threads: Identifying novel therapeutic targets for allergic rhinitis through Mendelian randomization.	35476	0	1	0	0	0
+39055656	PMC11269132	2024	Frontiers in cardiovascular medicine	Identification of atrial fibrillation-related genes through transcriptome data analysis and Mendelian randomization.	65931	0	0	0	0	0
+39076991	PMC11284051	2024	Frontiers in immunology	Integrated analyses of single-cell transcriptome and Mendelian randomization reveal the protective role of FCRL3 in mult	36103	0	1	0	0	0
+39130628	PMC11310057	2024	Frontiers in pharmacology	Integrating Mendelian randomization and single-cell RNA sequencing to identify therapeutic targets of baicalin for type 	78671	0	1	0	0	0
+39268462	PMC11390638	2024	Frontiers in pharmacology	Identification of biomarkers and potential drug targets in osteoarthritis based on bioinformatics analysis and mendelian	66495	0	0	0	0	0
+39354406	PMC11443760	2024	BMC cardiovascular disorders	Exploration of protein and genetic targets causing atrioventricular block: mendelian-randomization analyses based on eQT	59930	0	1	0	1	0
+39358799	PMC11446024	2024	Journal of ovarian research	Identifying therapeutic targets for primary ovarian insufficiency through integrated genomic analyses.	42343	0	1	0	0	0
+39379957	PMC11463126	2024	BMC medical genomics	Lipid-lowering drugs and risk of rapid renal function decline: a mendelian randomization study.	39908	0	0	0	0	0
+39614330	PMC11606077	2024	Breast cancer research : BCR	Uncovering immune cell-associated genes in breast cancer: based on summary data-based Mendelian randomized analysis and 	57481	0	1	0	0	0
+39716115	PMC11668092	2024	BMC pregnancy and childbirth	Systematic druggable genome-wide Mendelian randomization identifies therapeutic targets for hyperemesis gravidarum.	45554	0	1	0	0	0
+39716299	PMC11667973	2024	Biology direct	Integrated Mendelian randomization and single-cell RNA-sequencing analyses identified OAS1 as a novel therapeutic target	19330	0	0	0	0	0
+39762453	PMC11703992	2025	Inflammation research : official journal of the European Histamine Research Society ... [et al.]	Causal genes identification of giant cell arteritis in CD4+&#x2009;Memory t cells: an integration of multi-omics and exp	109952	0	1	0	1	0
+39794838	PMC11720623	2025	Alzheimer's research &amp; therapy	Association of antihypertensive drug target genes with alzheimer's disease: a mendelian randomization study.	46346	0	1	0	0	0
+39799347	PMC11725218	2025	Journal of translational medicine	Possible linking and treatment between Parkinson's disease and inflammatory bowel disease: a study of Mendelian randomiz	78505	0	1	0	0	0
+39821516	PMC11771784	2025	Journal of clinical hypertension (Greenwich, Conn.)	Dissecting Causal Relationships Between Antihypertensive Drug, Gut Microbiota, and Type 2 Diabetes Mellitus and Its Comp	43392	0	1	0	0	0
+39830273	PMC11741481	2025	medRxiv : the preprint server for health sciences	Multi-Omics Analysis for Identifying Cell-Type-Specific Druggable Targets in Alzheimer's Disease.	70854	0	1	0	0	0
+39833228	PMC11746978	2025	Scientific reports	Brain gliomas new transcriptomic discoveries from differentially expressed genes to therapeutic targets.	64422	0	0	0	0	0
+39868518	PMC12074789	2025	Journal of the American Heart Association	Insights Into Causal Effects of Genetically Proxied Lipids and Lipid-Modifying Drug Targets on Cardiometabolic Diseases.	97712	0	1	0	0	0
+39926389	PMC11802419	2024	Frontiers in endocrinology	Associations between lipid-lowering drugs and urate and gout outcomes: a Mendelian randomization study.	41931	0	0	0	0	0
+39933264	PMC11867302	2025	EBioMedicine	Single-cell transcriptome-wide Mendelian randomization and colocalization reveals immune-mediated regulatory mechanisms 	71362	0	1	0	1	0
+39949133	PMC11825984	2025	Journal of cachexia, sarcopenia and muscle	Association Analysis of the Circulating Proteome With Sarcopenia-Related Traits Reveals Potential Drug Targets for Sarco	75382	0	1	0	0	0
+39950180	PMC11821612	2025	Frontiers in psychiatry	NEK4: prediction of available drug targets and common genetic linkages in bipolar disorder and major depressive disorder	40944	0	0	0	0	0
+39966747	PMC11834470	2025	BMC cancer	Multi-omics integration analysis of the amino-acid metabolism-related genes identifies putatively causal variants of ACC	67644	0	1	0	0	0
+40087664	PMC11909985	2025	BMC cancer	Genetically proxied therapeutic inhibition of antihypertensive drug targets and risk of pancreatic cancer: a mendelian r	54729	0	0	0	1	0
+40095250	PMC11914663	2025	Discover oncology	Genetic association of lipids and lipid-lowering drug target genes with breast cancer.	92088	0	0	0	0	0
+40116326	PMC11927037	2025	Journal of global health	Identifying potential drug targets for sepsis-related adult respiratory distress syndrome through comprehensive genetic 	40925	0	0	0	0	0
+40131544	PMC11937463	2025	Cancer immunology, immunotherapy : CII	DNA methylation-regulated HLA-C expression modulates immune responses and metabolic alterations to influence prognosis i	60530	0	0	0	0	0
+40140823	PMC11938603	2025	Lipids in health and disease	Druggable genome-wide Mendelian randomization identifies therapeutic targets for metabolic dysfunction-associated steato	74706	0	1	0	1	0
+40149725	PMC11939929	2025	Biomedicines	Multi-Omics Integration Reveals Mitochondrial Gene Regulation as a Determinant of Tuberculosis Susceptibility: A Mendeli	44583	0	1	0	0	0
+40211130	PMC11983800	2025	BMC cancer	Investigating potential drug targets for the treatment of glioblastoma: a Mendelian randomization study.	93701	0	1	0	1	0
+40248742	PMC12000963	2025	Translational lung cancer research	Single cell RNA-seq and bulk RNA-seq analysis identifies MUC1 as a key gene for lung adenocarcinoma to neuroendocrine tr	50464	0	1	0	0	0
+40301928	PMC12039192	2025	Diabetology &amp; metabolic syndrome	Identifying therapeutic target genes for diabetic retinopathy using systematic druggable genome-wide Mendelian randomiza	61199	0	1	0	0	0
+40360443	PMC12074867	2025	Journal of cellular and molecular medicine	Revealing Putative Causal Genes by Establishing the Causality Between Different Lymphomas and Immune Cells.	38724	0	1	0	0	0
+40374962	PMC12081795	2025	Discover oncology	Deciphering the role of acetylation-related gene NAT10 in colon cancer progression and immune evasion: implications for 	66964	0	0	0	0	0
+40443776	PMC12121511	2025	Food science &amp; nutrition	Mendelian Randomization Assessment of the Genetic Effects of Lipid-Lowering Drugs on Digestive System Cancers.	53391	0	1	0	0	0
+40463915	PMC12130657	2025	Clinical Medicine Insights. Oncology	Causal Association Between Lung Cancer and Rash: A Bidirectional Mendelian Randomization Study.	39943	0	0	0	0	0
+40495162	PMC12150496	2025	Nutrition &amp; metabolism	Integrative multi-omics investigation of sleep apnea: gut microbiome metabolomics, proteomics and phenome-wide associati	123516	0	1	0	0	0
+40496862	PMC12149120	2025	Frontiers in immunology	Integrative genomic and single-cell framework identifies druggable targets for colorectal cancer precision therapy.	73584	0	1	0	0	0
+40536885	PMC12184172	2025	Epigenetics	DNA methylation and bronchiectasis: a Mendelian randomization analysis to investigate causal link and therapeutic target	44991	0	1	0	0	0
+40555237	PMC12256824	2025	American journal of human genetics	Single-cell transcriptome-wide Mendelian randomization and colocalization analyses uncover cell-specific mechanisms in a	63626	0	1	0	1	0
+40596422	PMC12217002	2025	Scientific reports	Genetic association analysis between LDL-c lowering drugs and portal hypertension using Mendelian randomization analysis	55752	0	1	0	0	0
+40611294	PMC12231756	2025	Journal of translational medicine	Identification of key genes as diagnostic biomarkers for IBD using bioinformatics and machine learning.	58230	0	1	0	0	0
+40616157	PMC12231758	2025	Diabetology &amp; metabolic syndrome	Cathepsin H increases the risk of diabetic retinopathy: evidence from Mendelian randomization and bioinformatic analysis	70419	0	0	0	0	0
+40629249	PMC12511179	2025	Molecular neurobiology	EP300 Regulates CD8br AC (TBNK Panel) to Facilitate Insomnia.	51165	0	0	0	0	0
+40638267	PMC12626534	2025	International journal of surgery (London, England)	Integrative multi-omics analysis reveal novel therapeutic targets for glioblastoma.	48423	0	1	0	0	0
+40653474	PMC12257857	2025	Journal of cardiothoracic surgery	Identification of potential drug targets for achalasia from genetic insights: a Mendelian randomization study.	40175	0	1	0	0	0
+40653482	PMC12257706	2025	Journal of translational medicine	Multi-omics analysis for identifying cell-type-specific and bulk-level druggable targets in Alzheimer's disease.	95175	0	1	0	0	0
+40676348	PMC12270988	2025	Discover oncology	Cross-tissue transcriptome-wide analysis reveals novel insights into thyroid cancer etiology.	43692	0	1	0	0	0
+40687153	PMC12275929	2025	Journal of inflammation research	Characterizing Duodenal Immune Microenvironment in Functional Dyspepsia: An AutoML-Driven Diagnostic Framework.	95389	0	0	0	0	0
+40760609	PMC12323976	2025	Medicine	Mendelian randomization reveals causal circulatory microRNAs in prostate cancer pathogenesis and prognosis.	38279	0	0	0	1	0
+40771899	PMC12327419	2025	Journal of inflammation research	VOPP1 as a Novel Susceptibility Gene in Rheumatoid Arthritis: Insights Into Its Mechanisms From Mendelian Randomization 	50657	0	1	0	0	0
+40775364	PMC12329876	2025	Human genomics	TRP channels in hepatocellular carcinoma: integrative Mendelian randomization and multi-omics analyses highlight MCOLN3/	61538	0	0	0	0	0
+40895540	PMC12391104	2025	Frontiers in immunology	eQTL and multi-omics integration reveal PPIH as a prognostic and immunotherapeutic biomarker.	75533	0	0	0	0	0
+40934270	PMC12425328	2025	PloS one	Genetic association of lipids characteristics and lipid lowering drug target genes with sepsis.	45412	0	0	0	0	0
+40988222	PMC12459491	2025	Medicine	Inhibition of lactylation by LRP1 expression increases the risk of intervertebral disc degeneration: A multi-omics summa	48106	0	0	0	0	0
+40996626	PMC12463778	2025	Discover oncology	Integrated single-cell transcriptomics and Mendelian randomization identify neutrophil-associated biomarker genes in col	72287	0	1	0	0	0
+41023518	PMC12552295	2025	Inflammopharmacology	Genetic insights into the relationship between anti-inflammatory drug target genes and oral diseases.	82310	0	0	0	0	0
+41029193	PMC12487071	2025	The journal of headache and pain	Dissecting immune cell-specific genetics in migraine: a multi-omics framework for target discovery and therapeutic prior	88937	0	1	0	1	0
+41029778	PMC12487246	2025	Hereditas	Multi-omics Mendelian randomization integrating RNA-seq, eQTL and pQTL data revealed CPXM1 as a potential drug target fo	65005	0	0	0	0	0
+41056019	PMC12825853	2026	International journal of surgery (London, England)	Elucidating the causal effects of plasma metabolites on breast cancer from multiple perspectives.	64066	0	0	0	0	0
+41060947	PMC12511739	2025	Clinical and applied thrombosis/hemostasis : official journal of the International Academy of Clinical and Applied Thrombosis/Hemostasis	Exploring the Causal Relationship Between Circulating miRNAs and Sepsis Through Mendelian Randomization Analysis.	39201	0	0	0	0	0
+41104896	PMC12572761	2026	Molecular medicine reports	Exploring the role of cytochrome P450 family 1 subfamily B member 1 and quercetin in modulating neuropathic pain after s	95832	0	0	0	0	0
+41118084	PMC12540951	2025	Discover oncology	Association of antipsychotic drug target genes and risk of lung cancer: a Mendelian randomization study.	62464	0	1	0	1	0
+41120349	PMC12540756	2025	NPJ Parkinson's disease	Peripheral immune cell-specific genes in Parkinson's disease uncovered by multi-omics with therapeutic implications.	84814	0	1	0	1	0
+41143248	PMC12549628	2025	Frontiers in aging neuroscience	Deciphering Alzheimer's disease transcriptomics: exploration and validation of core genes in tau and A&#x3b2; pathologic	70809	0	0	0	0	0
+41165397	PMC12584030	2025	Translational vision science &amp; technology	Druggable Genome Mendelian Randomization and GWAS-sceQTLs MR Analysis Reveal Genetic Associations Between Open-Angle Gla	43977	0	1	0	0	0
+41204543	PMC12599766	2025	Medicine	Development and validation of a prognostic model for endometrial carcinoma using causal genes identified by Mendelian ra	42726	0	0	0	0	0
+41209747	PMC12595932	2025	Journal of pain research	Druggable Genome-Wide Mendelian Randomization Identifies Distinct Therapeutic Targets for Low Back Pain, Intervertebral 	45011	0	1	0	1	0
+41210684	PMC12595268	2025	Journal of Cancer	Integrative Analysis of GEO Datasets and Mendelian Randomization Reveals a Potential Role ofISOC1 in Renal Cell Carcinom	57751	0	0	0	0	0
+41216857	PMC12697907	2025	Advanced science (Weinheim, Baden-Wurttemberg, Germany)	Integrating Single-Cell Transcriptome-Wide Mendelian Randomization and Differentially Expressed Gene Analyses to Priorit	123351	0	1	1	1	0
+41233745	PMC12613605	2025	The journal of headache and pain	A single-cell multi-omics framework identifies immune cell drivers of migraine and repurposable therapeutics.	58506	0	1	0	0	0
+41254692	PMC12625014	2025	Journal of translational medicine	Integrative multi-omics and Mendelian randomization identify WWOX and THBS2 as potential therapeutic targets in mature T	81324	0	1	0	0	0
+41254735	PMC12625036	2025	Journal of translational medicine	HLA-A drives diabetic retinopathy pathogenesis: multi-omics integration reveals resveratrol's therapeutic potential via 	58425	0	1	0	0	0
+41258624	PMC12630431	2025	Discover oncology	Integrative genomic analysis reveals causal relationships between breast mammary tissue gene expression and breast cance	57128	0	0	0	0	0
+41261637	PMC12582833	2025	Medicine	Identifying potential drug targets for cerebral amyloid angiopathy: A Mendelian randomization study based on the druggab	32839	0	1	0	0	0
+41288822	PMC12647496	2025	Discover oncology	Integration of Mendelian randomization and transcriptome wide association studies for causal gene identification in ovar	44580	0	0	0	0	0
+41296236	PMC12657707	2025	Discover oncology	Identification of potential bladder cancer drug targets through Mendelian randomization and molecular docking.	71714	0	1	0	0	0
+41310897	PMC12661753	2025	Hereditas	Integrative multi-omics and single-cell transcriptomics reveal ARHGEF12 driving chemoresistance in bladder cancer.	59616	0	0	0	0	0
+41346997	PMC12672242	2025	Frontiers in medicine	Neuromedin B identified as a therapeutic target for atopic dermatitis: evidence from Mendelian randomization and PCR val	49921	0	1	0	0	0
+41366697	PMC12801670	2025	Human genomics	Multi-omics and comprehensive multi-trait analysis identify shared genetic etiology of heart failure and related cancers	75708	0	1	0	0	0
+41368242	PMC12683474	2025	Translational andrology and urology	Integration of genetic, proteomic, and transcriptomic data identifies therapeutic targets and prognostic biomarkers in b	63397	0	1	0	0	0
+41369912	PMC12696314	2025	Science progress	From genetic causality to druggable targets: A multiomics framework identifies ZSCAN16 in gout pathogenesis.	72829	0	1	0	1	0
+41372872	PMC12822165	2025	BMC cancer	New drug targets for acute myeloid leukemia identified through a comprehensive analysis of the plasma protein.	69488	0	1	0	1	0
+41378022	PMC12686208	2025	Translational cancer research	Genetic insights into colorectal cancer pathogenesis: a multi-omics and immunity perspective.	56711	0	0	0	1	0
+41378860	PMC12699778	2025	European journal of psychotraumatology	Integrating multi-omics to reveal the causal effect of gut microbiota on post-traumatic stress disorder and potential dr	68003	0	1	0	0	0
+41382013	PMC12696905	2025	The journal of headache and pain	L3MBTL2 as a novel therapeutic target for trigeminal neuralgia: evidence from integrated TWAS, multi-tissue MR, and expe	97409	0	1	0	0	0
+41388545	PMC12699805	2025	Journal of ovarian research	Integrative multi-omics analysis of druggable genes for therapeutic target identification in polycystic ovary syndrome.	83727	0	1	0	0	0
+41415264	PMC12709030	2025	Cancer informatics	Integrative Analysis of eQTL Genes Reveals Key Biomarkers and Mechanisms for Early Diagnosis of Pancreatic Ductal Adenoc	57869	0	1	0	0	0
+41415292	PMC12708247	2025	Frontiers in immunology	Causal inference of CLEC5A and ISG20 in atherosclerosis: integrating Mendelian randomization and eQTL evidence.	75699	0	0	0	0	0
+41431740	PMC12718510	2025	Breast cancer (Dove Medical Press)	Mendelian Randomization Integrating GWAS and eQTL Data Reveals DAAM1, a Potential Immune-Related Biomarker for Breast Ca	41257	0	0	0	0	0
+41436647	PMC12848082	2025	Scientific reports	Unveiling novel potential drug targets for lung cancer through Mendelian randomization analysis.	71797	0	1	0	0	0
+41465920	PMC12746970	2025	Medicine	Causal relationship between palmitoylation genes mediated by immune cell phenotypes and oral cancer: A Mendelian randomi	44029	0	0	0	0	0
+41496791	PMC12767815	2026	The World Allergy Organization journal	The exploration of immunological landscape and drug targets in chronic rhinosinusitis with nasal polyps.	51274	0	0	0	0	0
+41499168	PMC13138598	2026	European thyroid journal	Network toxicology and Mendelian randomization reveal pathogenic factors of monoethyl phthalate-induced thyroid cancer.	45078	0	0	0	0	0
+41507915	PMC12964953	2026	World journal of surgical oncology	Identification of novel circulating protein biomarkers for hepatocellular carcinoma superior to alpha-fetoprotein throug	78636	0	0	0	0	0
+41528614	PMC12886693	2026	Discover oncology	Mendelian randomization analysis of PKD1 in endometrial cancer and comparative multi-cancer study with renal cell carcin	54174	0	0	0	0	0
+41596712	PMC12842411	2026	International journal of molecular sciences	Gut Microbiota and Type 2 Diabetes: Genetic Associations, Biological Mechanisms, Drug Repurposing, and Diagnostic Modeli	66983	0	0	0	0	0
+41603583	PMC12850000	2026	FASEB journal : official publication of the Federation of American Societies for Experimental Biology	Mining Potential Therapeutic Targets for T Cell Exhaustion in Osteoarthritis by Integrating Mendelian Randomization and 	92874	1	0	0	0	0
+41650073	PMC12885728	2026	Medicine	Identification of putative causal associations between MicroRNAs and breast cancer via Mendelian randomization and bioin	45771	0	0	0	0	0
+41674976	PMC12885902	2026	Translational cancer research	Key genes and pathway differences between serrated polyps and conventional adenomas: insights from multi-omics.	66604	0	1	0	0	0
+41680825	PMC12998095	2026	Biology direct	Comprehensive analysis of the causal risk factor from hypertension associated with prognosis and therapeutic response in	67819	0	0	0	0	0
+41685341	PMC12891442	2026	Mediators of inflammation	PSMA4 as a Druggable Target in Hidradenitis Suppurativa: Evidence From Mendelian Randomization and Single-Cell Transcrip	49856	0	1	0	0	0
+41749353	PMC13041394	2026	Journal of translational medicine	Programmed cell death and risk of diabetic retinopathy: a Mendelian randomization study.	101118	0	1	0	0	0
+41778435	PMC12958419	2025	Archives of Iranian medicine	Potential Therapeutic Targets for Neuroblastoma Screened through Mendelian Randomization Analysis.	46669	0	1	0	0	0
+41779063	PMC12960442	2026	Molecular genetics and genomics : MGG	Single-cell transcriptomic profiling combined with Mendelian randomization illuminates molecular drivers of bladder canc	87586	0	0	0	0	0
+41810643	PMC12971012	2026	Brazilian journal of medical and biological research = Revista brasileira de pesquisas medicas e biologicas	Exploring the causal impact of mitochondrial dysfunction on epilepsy: a mendelian randomization study.	52308	0	1	0	0	0
+41822323	PMC12978397	2026	World journal of oncology	Multi-Omics and Single-Cell Mendelian Randomization Reveal a Potential Role of VNN2 in Lung Adenocarcinoma in Resting Na	44454	0	1	0	1	0
+41824808	PMC12991644	2026	Medicine	Erythropoietin drug targets and cancer risk: A two-sample Mendelian randomization study.	34179	0	0	0	1	0
+41828452	PMC12985171	2026	International journal of molecular sciences	Single-Cell cis-Mendelian Randomization Reveals Cell-Specific Genetic Mechanisms Underlying Atopic Dermatitis.	52664	1	1	0	0	0
+41832569	PMC13101377	2026	Journal of orthopaedic surgery and research	Multi-omics Mendelian randomization prioritizes BMP6 as a candidate therapeutic target in intervertebral disc degenerati	76683	0	1	0	1	0
+41836872	PMC12979158	2026	Frontiers in molecular biosciences	Integrated bioinformatics and mendelian randomization reveal a six-gene diagnostic signature and key role of CYP26B1 in 	84434	0	0	0	0	0
+41837832	PMC13140309	2026	Mediators of inflammation	Mendelian Randomization Identified SLC2A9 as a Novel cis-eQTL-Mediated Susceptibility Gene in Suppressing Renal Cancer a	44958	0	0	0	0	0
+41845457	PMC12998140	2026	Journal of translational medicine	Targeting the PINK1/Parkin-FNDC5 pathway: a novel mechanism of icariin in regulating muscle-bone metabolic coupling in o	86509	0	1	0	0	0
+41884417	PMC13012330	2026	Breast cancer (Dove Medical Press)	Identification of Potential Therapeutic Targets for Xihuang Pill in Breast Cancer: A Mendelian Randomization and Experim	71985	0	0	0	0	0
+41890150	PMC13016404	2026	Orthopedic research and reviews	Multi-Omics Bioinformatic Analyses Linking LOXL4 with Spondylolisthesis.	72873	0	1	0	1	0
+41908841	PMC13024411	2026	International journal of women's health	Antihypertensive Drug Target Genes and Epithelial Ovarian Cancer Risk: A Two-Sample Mendelian Randomization Study.	38879	0	0	0	0	0
+41913250	PMC13154425	2026	Journal of ovarian research	Identification of DHX58 as a potential therapeutic target for ovarian cancer through multi-omics Mendelian randomization	62246	0	1	0	0	0
+41930463	PMC13051255	2026	Molecular medicine reports	Identification of STMN1 as a lactylation&#x2011;related driver of lung cancer progression using Mendelian randomization.	95062	0	0	0	0	0
+41992590	PMC13087095	2026	CNS neuroscience &amp; therapeutics	Genetic Association of Sexual Behavior, Sildenafil, and Hormonal Contraceptives With Mental Disorders.	55633	0	0	0	0	0
+41995537	PMC13095310	2026	Medicine	Causal evidence linking injury-associated DNA methylation to the risk of developing depression or post-traumatic stress 	46207	0	0	0	0	0
+41995544	PMC13095335	2026	Medicine	Identification of allergic rhinitis-related genes and mediating immune cells based on cis-eQTL: A Mendelian randomizatio	31678	0	1	0	0	0
+42004723	PMC13089222	2026	PeerJ	Identification of colorectal cancer immune biomarkers via eQTL mapping: a Mendelian randomization and transcriptomic ana	54906	0	0	0	0	0
+42021999	PMC13097301	2025	Clinical and experimental hepatology	Identification of novel therapeutic targets for liver fibrosis, cirrhosis, and hepatocellular carcinoma via dual-omics a	41788	0	1	0	0	0
+42022794	PMC13096692	2026	Human mutation	Single-Cell Sequencing and Mendelian Randomization Reveal T Cell Nuclear Factor Genes in Hepatocellular Carcinoma Progre	58180	0	0	0	0	0
+42033474	PMC13247016	2026	Cellular and molecular neurobiology	Mapping the Neurovascular Unit Genetic Architecture of Early-Onset Ischemic Stroke: A Single-Cell Causal Framework for T	61251	0	1	0	0	0
+42038475	PMC13108463	2026	PeerJ	Multi-omics analysis reveals key genes associated with clear cell renal cell carcinoma.	51401	0	0	0	0	0
+42089751	PMC13147455	2026	Briefings in bioinformatics	From early-onset asthma to chronic obstructive pulmonary disease: potential mediating proteins and therapeutic targets.	63279	0	1	0	0	0
+42098041	PMC13167369	2026	Technology in cancer research &amp; treatment	Druggable Genome-Wide Mendelian Randomization Identifies Therapeutic Targets and DNA Methylation-Mediated Regulation in 	85743	0	1	0	0	0
+42103327	PMC13167297	2026	The Journal of international medical research	Prognostic biomarkers for lung adenocarcinoma based on Mendelian randomization analysis.	36330	0	0	0	0	0
+42116389	PMC13166711	2026	Medicine	Identifying therapeutic target genes for stroke through systematic druggable Mendelian randomization analysis.	66310	0	1	0	0	0
+42117609	PMC13162345	2026	Journal of cellular and molecular medicine	Single-Cell Transcriptome-Wide Mendelian Randomization and Colocalization Uncover Potential Immunocytes-Related Therapeu	54879	0	1	0	0	0
+42147232	PMC13175845	2026	Frontiers in oncology	Multi-omics integration and Mendelian randomization elucidate the PARP16-UPR axis driving chemoresistancein gastric canc	64748	0	1	0	0	0
+42147334	PMC13171477	2026	Frontiers in pharmacology	Unraveling novel therapeutic targets for diffuse large B-cell lymphoma: a plasma multi-omics study.	65208	0	1	0	1	0
+42164281	PMC13185962	2026	International journal of women's health	Bidirectional Mendelian Randomization and Single&#x2011;Cell RNA Sequencing Reveal an NK Cell-Mediated Causal Link Betwe	59431	0	1	0	0	0
+42175501	PMC13201033	2026	Medicine	Revealing drug targets for sepsis: An association study integrating Mendelian randomization, eQTL, pQTL, and protein-pro	47145	0	1	0	1	0
+42183069	PMC13197831	2026	International journal of endocrinology	Mendelian Randomization Revealed Potential of mTOR Inhibitors for Treatment of Osteoporosis: Evidence From GWAS and Tran	60517	0	1	0	0	0
+42193490	PMC13204727	2026	Biomedicines	Integrative Analysis of Major Depressive Disorder and Ovarian Cancer: From Genetic Association to Single-Cell Mechanisms	54819	0	1	0	0	0
+42232515	PMC13225775	2026	Frontiers in genetics	Multi-omics mendelian randomization integrating GWAS and eQTL data revealed potential drug target for irritable bowel sy	65978	0	1	0	0	0
+42292469	PMC13254516	2026	Frontiers in immunology	Metabolic-immune crosstalk in head and neck squamous cell carcinoma: CD44 and APP identified as causal therapeutic targe	67656	0	0	0	0	0
+42293830	PMC13263863	2026	Translational andrology and urology	The role of lipid-lowering drugs in urologic and male reproductive cancers: a Mendelian randomization study.	50172	0	1	0	0	0
+42305302	PMC13266786	2026	Archives of medical science : AMS	Identification of potential drug target genes for atopic dermatitis leveraging Mendelian randomization, single-cell tran	39413	0	1	0	0	0
+42445075	PMC13358490	2026	Gland surgery	An integrated multiomics-based risk model for predicting the prognosis and immune microenvironment status in patients wi	66420	0	0	0	0	0
+42500538	PMC13395884	2026	Frontiers in medicine	Integrative genomic profiling identifies MLPH as a candidate gene in prostate cancer.	78612	0	1	0	0	0
+42518368	PMC13383006	2026	Human mutation	Integrative Mendelian Randomization and Single-Cell Pseudotime Analysis Reveal DKK3 as a PI3K-AKT-Modulated Driver of Es	76288	0	0	0	0	0
+42563458	PMC13448146	2026	Pain research &amp; management	Purine Metabolism-Related Pathogenic Genes in Trigeminal Neuralgia: A Multiomics Mendelian Randomization Study.	78138	0	1	0	0	0

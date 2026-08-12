@@ -1,0 +1,4 @@
+analysis	TPI1_Pre	TPI1_Post	Glyco_Pre	Glyco_Post
+published (double-normalised, samples collapsed)	0.0101	0.0022	0.133	0.0094
+correct scale, samples collapsed	0.00762	0.01145	0.1564	0.0134
+correct scale, GEO sample IDs (definitive)	0.0076208621100262	0.00565231869579696	0.156400874667129	0.00168784516610604

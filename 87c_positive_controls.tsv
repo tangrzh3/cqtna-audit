@@ -1,0 +1,5 @@
+control	value	pass_
+PC1 glycolysis Myeloid > naive CD4	0.2102	True
+PC2 PTPRC detected fraction	0.9192	True
+PC3a CD8A/CD8B higher in CD8T	1.19	True
+PC3b CD40LG/IL7R higher in CD4T	0.7139	True

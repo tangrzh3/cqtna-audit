@@ -1,0 +1,3 @@
+matched_to	target_neff	median_sig_loci	median_known_loci	median_novel_loci	loci_p05	loci_p95	novel_p05	novel_p95
+HCC_high	14961.87589235741	2.0	1.0	1.0	1.0	6.0	0.0	3.049999999999983
+HCC_low	3778.552347140871	1.0	1.0	0.0	0.0	2.0	0.0	1.0

@@ -1,0 +1,17 @@
+hypothesis	tissue	timepoint	cd4_def	signature	n_R	n_NR	delta_NR_minus_R	p_perm_onesided	min_possible_p	p_wilcoxon	direction
+H1	T	post	all	sig15_noTPI1	4	4	0.9169	0.04286	0.01429	0.11429	NR>R
+H1	T	post	all	sig16	4	4	0.8686	0.04286	0.01429	0.11429	NR>R
+H1	T	post	nonTreg	sig15_noTPI1	4	4	0.9224	0.04286	0.01429	0.11429	NR>R
+H1	T	post	nonTreg	sig16	4	4	0.8744	0.04286	0.01429	0.11429	NR>R
+H2	T	pre	all	sig15_noTPI1	4	2	0.1459	0.26667	0.06667	0.53333	NR>R
+H2	T	pre	all	sig16	4	2	0.0847	0.26667	0.06667	0.53333	NR>R
+H2	T	pre	nonTreg	sig15_noTPI1	4	2	0.1394	0.26667	0.06667	0.53333	NR>R
+H2	T	pre	nonTreg	sig16	4	2	0.0774	0.26667	0.06667	0.53333	NR>R
+H3	P	post	all	sig15_noTPI1	4	5	-0.0051	0.52381	0.00794	0.90476	R>NR
+H3	P	post	all	sig16	4	5	-0.0038	0.52381	0.00794	0.90476	R>NR
+H3	P	post	nonTreg	sig15_noTPI1	4	5	-0.0546	0.56349	0.00794	0.90476	R>NR
+H3	P	post	nonTreg	sig16	4	5	-0.0507	0.57143	0.00794	0.90476	R>NR
+H4	P	pre	all	sig15_noTPI1	4	3	0.759	0.05714	0.02857	0.11429	NR>R
+H4	P	pre	all	sig16	4	3	0.7499	0.05714	0.02857	0.11429	NR>R
+H4	P	pre	nonTreg	sig15_noTPI1	4	3	0.7664	0.05714	0.02857	0.11429	NR>R
+H4	P	pre	nonTreg	sig16	4	3	0.7458	0.05714	0.02857	0.11429	NR>R

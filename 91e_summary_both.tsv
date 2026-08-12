@@ -1,0 +1,6 @@
+criterion	n	strict_n	strict_pct	wide_n	wide_pct
+C1_known_locus	152	2	1.3	12	7.9
+C2_coloc	152	90	59.2	91	59.9
+C3_power_stability	152	1	0.7	54	35.5
+C4_instrument_count	152	69	45.4	72	47.4
+C5_smr_heidi	152	72	47.4	74	48.7
