@@ -13,8 +13,37 @@
 eqtlgen/
 hcc/
 pheno/
+r13/
 release_extracts/
 litaudit/
+soskic/
+orcs/
+icb_bulk/
+cancer_extracts_eqtlgen/
+hg19ToHg38.over.chain
+
+# --- SMR / plink working trees and binaries (regenerable by build_besd_*.py) ---
+bin/
+ref/
+besd/
+besd_meta/
+esd/
+esd_meta/
+smr_out/
+smr_meta/
+clump_tmp/
+clump_tmp_meta/
+cache_47/
+tmp/
+*.vcor
+*.vcor1
+*.vcor1.vars
+*.pgen
+*.pvar
+*.psam
+*.bed
+*.bim
+*.fam
 
 # --- large single-cell / Seurat objects (regenerable, or third-party) ---
 *.rds
