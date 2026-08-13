@@ -63,9 +63,11 @@ empirically, on two diseases and two exposure resources.
 
 Eight CD4⁺ T cell activation profiles yielded 3,556 exposure records passing
 eQTL P < 5×10⁻⁸ and F > 10 after harmonisation with the outcome. Pre-specified
-positive controls all passed: 157 known melanoma loci were recovered, PARP1
-reproduced its published direction, and the MC1R region gave the strongest
-associations in the study at P = 4×10⁻³⁷ (Fig. 1). The pipeline is working.
+controls all passed. Recovery of the 157 known melanoma loci is an integrity
+check on the outcome data rather than on the pipeline — it involves no instrument
+and no MR; the end-to-end controls are that PARP1 reproduced its published
+direction and that the MC1R region gave the strongest associations in the study
+at P = 4×10⁻³⁷ (Fig. 1).
 
 ### Significant signal sits on loci already known for the outcome
 
@@ -127,7 +129,11 @@ rather than six independent significant tests. The pre-registered negative
 control is what makes it interpretable: scoring the same cells against the wrong
 disease's list collapses the enrichment (HCC's list on melanoma, 1.30-fold,
 P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so the effect is specific
-to each outcome's own genetics and is not an artefact of locus density (Fig. 2).
+to each outcome's own genetics (Fig. 2). A mismatched list rules out enrichment
+on loci indiscriminately dense across diseases, not a density that is itself
+disease-specific; the permutation control matches on eQTL-p decile and
+allele-frequency quintile (4.36-fold, P = 0.023), so instrument strength and
+allele frequency are controlled but **locus density is not**.
 
 One observation separates the two sides. Swapping in the eQTLGen resource
 multiplied significant loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3):
@@ -225,9 +231,12 @@ higher in malignant cells than in CD4⁺ T cells (16 of 16 patients, P = 3×10�
 2.4-fold in a second cohort (11 of 11, P = 1×10⁻³), and concordant in direction
 in a third; the difference survives cell-level depth matching. With those ratios
 and the cell-type proportions typical of melanoma tissue, CD4⁺ T cells contribute
-one to two per cent of the tissue-level signal. **A tissue-level measurement of
-this gene is a measurement of tumour** (Fig. 6), whatever its P value — which
-bounds what bulk validation of such a nomination can mean.
+one to two per cent of the tissue-level signal. **Bulk-tissue TPI1 abundance is
+dominated by the malignant compartment and therefore cannot validate a
+CD4-specific mechanism** (Fig. 6). It may still covary with outcome through
+infiltration, purity or a shared metabolic state; what the ratio establishes is
+that such an association cannot be attributed to CD4⁺ T cells, not that it is
+spurious.
 
 ### Does the pipeline attribute the right gene where the answer is known?
 
@@ -320,8 +329,9 @@ control-exclusion rule — read from the summary line, pure phenotype drift is
 scored as instability of the candidate list. Where the definition does differ the
 comparison is a transfer test, not a power point; ours transfers intact (the same
 six genes at the same two loci, no novel-locus gene, 3.7- to 17.6-fold
-enrichment) while none of the 3,434 underlying statistics is unchanged and 51 of
-275 nominally significant records are replaced.
+enrichment) while the underlying statistics correlate at |z| r = 0.94 with
+standard errors 3.85% smaller, and 51 of 275 nominally significant records are
+replaced.
 
 The worked example is best read as a ladder rather than a verdict: as a causal
 target for melanoma, not supported; as a dynamic *genetic* effect, not supported;

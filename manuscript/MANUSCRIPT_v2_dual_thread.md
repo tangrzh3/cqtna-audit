@@ -15,8 +15,9 @@ Nomination proved highly sensitive to the outcome GWAS used. Significant signal 
 dominated by loci already known for the outcome (4.1-fold by independent locus);
 the pattern holds across five nested power levels of one GWAS resource, where no
 novel-locus gene reaches significance at any case number between 2,705 and 5,753,
-and it transfers unchanged to that resource's current release although not one of
-the 3,434 underlying test statistics does;
+and it transfers unchanged to that resource's current release, whose test
+statistics correlate with the previous ones at 0.94 with standard errors 3.85%
+smaller;
 it recurs when the exposure side is held fixed and hepatocellular carcinoma is
 substituted — three of four significant loci are known HCC loci, including
 *PNPLA3*, though at 30% of melanoma's effective sample size that pre-registered
@@ -163,25 +164,31 @@ below can be read. The 3,556 records carry only **2,126 unique variants and 1,19
 unique genes**, because one variant can be the lead eQTL for a gene in several
 profiles and for more than one gene; the multiple-testing family is therefore
 records, while the candidate list is reported by gene and the attribution result
-by independent locus. **We declare the record level primary**, for the sole reason
-that it is what every analysis in this paper was built on — the registered
-down-sampling predictions, the release trajectory, both generalisations and the
-grid. Re-declaring it now, after seeing which unit yields the longest list, is
-the selective emphasis this paper exists to detect.
+by independent locus. Records are therefore **not independent**, and
+Benjamini–Hochberg over them carries no clean guarantee under that dependence.
 
-Because that choice cannot be defended by argument alone, we recomputed the
-FDR < 0.05 list under every unit the paper uses — variant, gene and independent
-locus, each by both minimum-p and Simes combination, plus a two-stage
-hierarchical procedure selecting genes and then records within them
-(Supplementary S26). Three results matter. First, **the record level is the most
-conservative of the seven alternatives**: no gene is lost under any other unit,
-and between 1 and 43 are added, so every significance claim in this paper is a
-subset of what a looser unit would license. Second, **the quantity the argument
-actually runs on barely moves** — 7 to 9 independent loci against the 7 reported,
-and 2 under every single unit in the FinnGen round. Third, and decisively for
-Part I, **the attribution conclusion is unit-independent**: the known-locus share
-of significant loci ranges 42.9–55.6% against the 42.9% reported, and is 100% at
-every unit in the FinnGen round.
+We resolve this by separating the two jobs the record level had been doing at
+once. **The record-level analysis reproduces the nomination pipeline under
+audit** — it is what the studies being examined run, and what the registered
+down-sampling predictions, the release trajectory, both generalisations and the
+grid were computed on — so it is left exactly as published, in that role.
+**The independent locus is the unit in which this audit states its own
+conclusions.** That division is not a convenience chosen after the fact: we
+recomputed the FDR < 0.05 list under every unit the paper uses — variant, gene
+and independent locus, each by both minimum-p and Simes combination, plus a
+two-stage hierarchical procedure selecting genes and then records within them
+(Supplementary S26) — and **the quantity the audit argues from barely moves**
+(7 to 9 independent loci against the 7 reported; 2 under every single unit in the
+FinnGen round), while **the attribution conclusion is unit-independent** (the
+known-locus share of significant loci ranges 42.9–55.6% against the 42.9%
+reported, and is 100% at every unit in the FinnGen round). The audit conclusion
+therefore does not rest on the contested unit at all.
+
+The record level is also the most conservative of the eight — no gene is lost
+under any other unit and between 1 and 43 are added, so every significance claim
+here is a subset of what a looser unit would license. ⚠ **That is an empirical
+statement about list length, not a demonstration that FDR is correctly controlled
+under this dependence structure, and we do not offer it as one.**
 
 One row of that table is worth reading as a finding rather than a check. Testing
 at the locus level leaves the significant-locus count almost unchanged but
@@ -204,6 +211,11 @@ The outcome combined FinnGen R12 (5,753 cases) with Rashkin et al. (6,777 cases)
 by fixed-effect inverse-variance meta-analysis: 12,530 cases and 789,099
 controls. It behaves as expected — all 157 known melanoma loci recovered and 136
 (86.6%) strengthened; genome-wide significant variants rose from 2,871 to 4,552.
+**That recovery is an integrity check on the outcome data and the meta-analysis
+step, not a positive control on the nomination pipeline**: it involves no
+instrument, no MR and no colocalisation, and a pipeline could pass it while
+failing at every joint tested below. The end-to-end controls are the ones in the
+next paragraph.
 Rashkin standard errors were reconstructed from odds ratios and P values;
 Cochran's Q was significant for 5.33% of variants against a 5% expectation, which
 shows no gross miscalibration but is not positive evidence that the reconstruction
@@ -276,10 +288,11 @@ The list transfers intact. At 6,226 cases the FDR-significant set is the same si
 genes at the same two independent loci, still with no novel-locus gene, and locus
 attribution is 9.6-fold (P = 0.011); the three remaining exposure-by-disease
 pairs move the same way (3.7-, 17.6- and 9.8-fold). **The stability is not an
-artefact of reusing data.** Not one of the 3,434 test statistics is identical
-between the two releases (correlation of |z| = 0.937), standard errors shrink by
-3.85% against the 3.8% the added cases predict, and 51 of the 275 nominally
-significant records are replaced. What holds still is the FDR-significant tier;
+artefact of reusing data.** The two releases' test statistics correlate at
+|z| r = 0.937 rather than being identical; standard errors shrink by a median of
+3.85%, against the 3.8% the added cases predict, which is the internal check that
+R13 really is the higher-powered computation and not a copy; and 51 of the 275
+nominally significant records are replaced. What holds still is the FDR-significant tier;
 the tier immediately below it turns over by roughly a fifth in a single release.
 Because every difference between the releases points the same way, we do not read
 this as an effect of power alone, and because R13 contains R12's participants it
@@ -382,8 +395,21 @@ consistent in every cell**, not six independent significant tests. The
 pre-registered negative control is what makes it interpretable: scoring the same
 cells against the *wrong* disease's list collapses the enrichment (HCC's list on
 melanoma, 1.30-fold, P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so
-the effect is specific to each outcome's own genetics and is not an artefact of
-locus density.
+the effect is specific to each outcome's own genetics.
+
+**That control is narrower than it may appear, and we state its limit rather than
+leave it to be inferred.** A mismatched list rules out enrichment on loci that
+are indiscriminately dense across diseases; it does not rule out enrichment
+driven by a density that is itself disease-specific, since a disease's known loci
+and its instrumentable regions can be co-located for reasons unrelated to causal
+attribution. The permutation control that does exist here matches significant to
+background loci on exposure eQTL-p decile and outcome allele-frequency quintile
+(4.36-fold, empirical P = 0.023 for melanoma; 5.45- and 13.7-fold for the two HCC
+levels), so instrument strength and allele frequency are controlled — **but not
+locus or gene density, which would require a density-matched permutation we have
+not run.** The claim we make is therefore that the enrichment is specific to the
+outcome's own genetics and is not explained by instrument strength or allele
+frequency; **we do not claim that locus density has been excluded.**
 
 One unplanned observation from the grid is worth stating, with a caveat about
 what it can attribute. Swapping in the eQTLGen resource multiplied significant
@@ -655,9 +681,18 @@ signature, with and without TPI1 (Fig 5).
 
 The arithmetic consequence is what matters. With a 6.7-fold per-cell ratio and the
 cell-type proportions typical of melanoma tissue, CD4⁺ T cells contribute on the
-order of one to two per cent of the tissue-level TPI1 signal. **A tissue-level
-measurement of this gene is a measurement of tumour glycolysis**, whatever its
-P value.
+order of one to two per cent of the tissue-level TPI1 signal. **Bulk-tissue TPI1
+abundance is dominated by the malignant compartment and therefore cannot validate
+a CD4-specific mechanism**, whatever its P value.
+
+The precise form of that statement matters, because the looser version — that a
+tissue-level measurement simply *is* a measurement of tumour glycolysis — claims
+more than the arithmetic supports. Bulk TPI1 can still covary with clinical
+outcome through immune infiltration, tumour purity, or a metabolic state shared
+across compartments, and any of those would produce a real association that has
+nothing to do with a CD4-specific effect. What the compartment ratio establishes
+is that such an association **cannot be attributed** to CD4⁺ T cells, not that
+the association is spurious.
 
 Spatial transcriptomics gives the same answer with spatial context (four patients,
 eight sections, 2,317 spots): tissue-level TPI1 tracks the glycolytic module

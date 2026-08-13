@@ -13,33 +13,33 @@
 **Background.** Context-specific expression quantitative trait loci (eQTLs)
 combined with Mendelian randomization (MR) are widely used to nominate immune
 targets in cancer. An instrument selected in one cell state at one timepoint is
-usually a single variant, so the Wald ratio has test statistic z = β_out/se_out
-and the outcome GWAS supplies every MR significance claim. We audited what that
-implies in practice, using CD4⁺ T cell cis-eQTLs from eight activation profiles
-against a 12,530-case melanoma meta-analysis, then varied outcome and exposure
-resource independently.
+usually a single variant, so in the single-instrument first-order Wald
+implementation this framework uses, z = β_out/se_out and the outcome GWAS
+supplies the significance claim. We audited what that implies, using CD4⁺ T cell
+cis-eQTLs from eight activation profiles against a 12,530-case melanoma
+meta-analysis, then varied outcome and exposure resource independently.
 
 **Results.** Significant signal concentrates on loci already known for the
 outcome: 4.09-fold by independent locus. The pattern recurs across five nested
 power levels of one GWAS resource, where no novel-locus gene reaches significance
 at any case number between 2,705 and 5,753, and it transfers unchanged to that
-resource's current release although not one of the 3,434 test statistics does; in
+resource's current release, whose statistics correlate with the previous ones at
+0.94 with standard errors 3.85% smaller; in
 a second disease, where three of four significant loci are known hepatocellular
 carcinoma loci including *PNPLA3*; and when the exposure resource is replaced by
 a whole-blood eQTL dataset 300-fold larger, which raises significant loci from 7
 to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
 disease-by-resource combinations enrich, against a mismatched-locus control that
-does not. Replacing the outcome with a higher-powered meta-analysis — which
-changes study composition as well as power — increased MR discoveries while
-lowering colocalisation support and replaced the candidate list entirely: two
-lists from identical exposure data share no genes. Down-sampling shows the loss
-falls unevenly by effect size and hence by locus class: at half power,
-known-locus genes recover 85.8% of the time against 22.8%, of which 68–80% is
-reproduced by a model using full-power |z| alone. Of 28 glycolytic genes, 3 are
-instrumentable, 2 analysable against this outcome and 1 yields a nominal
-association; that gene is 6.7-fold higher in malignant cells than in CD4⁺ T
-cells, so tissue-level validation of it measures tumour. At most 7.9% of 152
-comparable studies perform the locus-attribution check.
+does not. Swapping in a higher-powered meta-analysis — which changes study
+composition as well as power — increased MR discoveries, lowered colocalisation
+support and replaced the candidate list entirely, two lists from identical
+exposure data sharing no genes. Down-sampling shows the loss falls by effect size
+and hence by locus class: at half power known-locus genes recover 85.8% against
+22.8%, of which 68–80% is reproduced using full-power |z| alone. Of 28 glycolytic
+genes, 3 are instrumentable, 2 analysable against this outcome and 1 yields a
+nominal association; that gene is 6.7-fold higher in malignant cells than in CD4⁺
+T cells, so bulk tissue cannot validate a CD4-specific mechanism. At most 7.9% of
+152 comparable studies perform the locus-attribution check.
 
 **Conclusions.** In this analysis, and within the power range we could observe,
 the reproducible part of a candidate list produced by this framework was the part
@@ -100,10 +100,13 @@ target, but what the nomination is a function of.
 Eight CD4⁺ T cell activation profiles (naive and memory, 0 h to 5 d) provided
 exposures. Instruments were selected at eQTL P < 5×10⁻⁸ with F > 10, one variant
 per exposure, giving 3,556 records after harmonisation with the outcome. Every
-pre-specified positive control passed: all 157 known melanoma loci were recovered
-and 136 strengthened under the meta outcome; genome-wide significant variants rose
-from 2,871 to 4,552; PARP1 reproduced its published direction; and the MC1R region
-gave the strongest associations in the study, at P = 4×10⁻³⁷ (Fig. 1).
+pre-specified control passed. Recovery of all 157 known melanoma loci, 136 of
+them strengthened, with genome-wide significant variants rising from 2,871 to
+4,552, is an **integrity check on the outcome data and the meta-analysis step**
+rather than a positive control on the nomination pipeline — it involves no
+instrument, no MR and no colocalisation. The end-to-end controls are that PARP1
+reproduced its published direction and that the MC1R region gave the strongest
+associations in the study, at P = 4×10⁻³⁷ (Fig. 1).
 
 One property of the design governs everything that follows. With one instrument
 per exposure, the Wald z equals β_out/se_out, so **given the instrument set**, MR
@@ -117,23 +120,31 @@ The same constraint creates a units problem that must be settled before any coun
 below is read. Those 3,556 records carry only **2,126 unique variants and 1,195
 unique genes**, because one variant can be the lead eQTL for a gene in several
 profiles and for more than one gene, so the testing family is records while the
-list is reported by gene and the attribution by independent locus. **The record
-level is primary**, for the single reason that every analysis here was built on
-it — the registered predictions, the release trajectory, both generalisations,
-the grid. Choosing a unit now, after seeing which one yields the longest list, is
-the selective emphasis this paper exists to detect. We instead recomputed the
-FDR < 0.05 list under all seven alternatives — variant, gene and locus, each by
-minimum-p and by Simes, plus a two-stage hierarchical procedure (Supplementary
-S26). **The record level is the most conservative of them**: no gene is lost
-under any other unit and up to 43 are added, so every claim here is a subset of
-what a looser unit would license. The quantities the argument runs on are stable
-— 7 to 9 independent loci against the 7 reported, 2 under every unit in the
-FinnGen round — and the attribution result does not depend on the unit at all
-(known-locus share 42.9–55.6% against 42.9% reported; 100% at every unit in
-FinnGen). One row reads as a finding rather than a check: testing at locus level
-leaves the locus count almost unchanged but inflates the gene list from 10 to 53,
-of which 22 are in the MHC and 7 in the chr17q21.31 inversion, because a
-significant locus does not name a gene.
+list is reported by gene and the attribution by independent locus. Records are
+therefore not independent, and a Benjamini–Hochberg procedure over them does not
+have a clean guarantee under that dependence.
+
+We resolve this by separating the two things the record level is being asked to
+do. **The record-level analysis reproduces the nomination pipeline being
+audited** — it is what the studies under examination run, and what every
+registered prediction, the release trajectory, both generalisations and the grid
+were computed on, so it stays exactly as published. **The independent locus is
+the unit the audit's own conclusions are stated in.** That is not a convenience:
+the FDR < 0.05 list recomputed under all seven alternatives — variant, gene and
+locus, each by minimum-p and by Simes, plus a two-stage hierarchical procedure —
+leaves the locus count stable at 7 to 9 against the 7 reported and 2 under every
+unit in the FinnGen round, and leaves the attribution result unchanged
+(known-locus share 42.9–55.6% against 42.9%; 100% at every unit in FinnGen)
+(Supplementary S26). The audit conclusion therefore does not rest on the disputed
+unit at all. The record level is also the most conservative of the eight — no
+gene is lost under any other unit and up to 43 are added — but that is an
+empirical observation about list length, **not evidence that FDR is correctly
+controlled under this dependence**, and we do not use it as such.
+
+One row reads as a finding rather than a check: testing at locus level leaves the
+locus count almost unchanged but inflates the gene list from 10 to 53, of which 22
+are in the MHC and 7 in the chr17q21.31 inversion, because a significant locus
+does not name a gene.
 
 ### Significant signal sits on loci already known for the outcome
 
@@ -173,9 +184,11 @@ pre-registered, with the direction of every difference recorded before the resul
 was seen — the list survives it unchanged: at 6,226 cases the significant list is
 the same six genes at the same two loci, still with no novel-locus gene, and
 locus attribution is 9.6-fold (P = 0.011). The stability is not an artefact of
-reusing data. Not one of the 3,434 test statistics is unchanged between the two
-releases, standard errors shrink by 3.85% against the 3.8% the added cases
-predict, and 51 of the 275 nominally significant records are replaced. What holds still is the
+reusing data: the two releases' statistics correlate at |z| r = 0.937 rather than
+being identical, standard errors shrink by a median 3.85% against the 3.8% the
+added cases predict — the internal check that R13 is the higher-powered
+computation and not a copy — and 51 of the 275 nominally significant records are
+replaced. What holds still is the
 significant tier; the tier below it churns. Because the extra cases and the
 broadened control exclusion both push towards more signal, a successful transfer
 here is partly confounded and we do not read it as power alone.
@@ -234,7 +247,13 @@ than six independent significant tests. A pre-registered mismatched-locus contro
 makes it interpretable: scoring the same combinations against the wrong disease's
 list collapses the enrichment — HCC's list on melanoma gives 1.30-fold (P = 0.41),
 melanoma's list on HCC gives 0.00-fold (P = 1.0) — so the effect is specific to
-each outcome's own genetics and is not an artefact of locus density.
+each outcome's own genetics. That control is narrower than it looks and we state
+its limit: a mismatched list rules out enrichment on loci that are
+indiscriminately dense across diseases, not enrichment driven by a density that
+is itself disease-specific. The permutation control matches significant to
+background loci on eQTL-p decile and allele-frequency quintile (4.36-fold,
+empirical P = 0.023), so instrument strength and allele frequency are controlled
+— **locus and gene density are not**, and we do not claim they have been excluded.
 
 One observation from the grid places this work against the complementary
 literature. Swapping in the eQTLGen resource multiplied significant loci in
@@ -387,7 +406,7 @@ intensity leaves an axis enriched 21.3-fold for glycolysis and 10.3-fold for
 ribosomal proteins, while **none of the eleven biological modules tested exceeds
 a composition-matched null**, so the axis is a definable anabolic state rather
 than a restatement of activation strength; its chromatin signature is concordant,
-with AP-1 motif enrichment that persists in activation-invariant peaks (Fig. 9).
+with AP-1 motif enrichment that persists in activation-invariant peaks (Fig. 7).
 This characterises what the nominated gene co-varies with and not that its
 variant causes the state — a separate test of that, whether the instrument
 disrupts an AP-1 motif, returned an empirical P = 1.0.
@@ -401,14 +420,19 @@ T cells. The difference survives cell-level matching on sequencing depth (+2.03,
 10 of 11 patients) and replicates in an independent cohort (+1.28, 11 of 11,
 P = 1×10⁻³), with pre-specified positive controls passing in both, and is
 concordant in direction in a third cohort. The same holds for the locked
-glycolytic signature with and without TPI1 (Fig. 7).
+glycolytic signature with and without TPI1 (Fig. 8).
 
 The arithmetic consequence is what matters. With those ratios and the cell-type
 proportions typical of melanoma tissue, CD4⁺ T cells contribute on the order of
-one to two per cent of the tissue-level TPI1 signal. **A tissue-level measurement
-of this gene is a measurement of tumour glycolysis**, whatever its P value. This
-bounds what bulk validation of such a nomination can establish, and the check that
-would have caught it costs minutes.
+one to two per cent of the tissue-level TPI1 signal. **Bulk-tissue TPI1 abundance
+is dominated by the malignant compartment and therefore cannot validate a
+CD4-specific mechanism**, whatever its P value. The looser claim — that a
+tissue-level measurement simply is a measurement of tumour glycolysis — would
+overstate it: bulk TPI1 can still covary with outcome through immune
+infiltration, tumour purity or a metabolic state shared across compartments. What
+the ratio establishes is that such an association cannot be *attributed* to CD4⁺
+T cells, not that it is spurious. That bounds what bulk validation of such a
+nomination can establish, and the check costs minutes.
 
 ### Does the pipeline attribute the right gene where the answer is known?
 
@@ -463,7 +487,7 @@ search returned, and a cross-disease cohort that became available during revisio
 pre-treatment matches in magnitude in the same-disease cohort but is underpowered
 there and absent in the cross-disease one, while post-treatment reverses in the
 same-disease cohort and reproduces at full magnitude in the cross-disease one
-(Δ = +0.874, P = 0.043) (Fig. 8). The per-arm estimates, the three treatments of
+(Δ = +0.874, P = 0.043) (Fig. 9). The per-arm estimates, the three treatments of
 repeated patients and the sign dependence on regulatory T cells are Supplementary
 S19 and S21.
 
@@ -621,6 +645,22 @@ least likely to replicate. The eight checks above cost little and would have
 changed what this analysis reported at nearly every stage.
 
 ---
+
+## Figures
+
+Fig. 1 Locus attribution under both outcomes, by independent locus ·
+Fig. 2 Generality: five nested releases, the transfer test, the second disease,
+the second exposure resource, and the crossed grid with its mismatched-locus
+control · Fig. 3 Colocalisation versus SMR/HEIDI, with in-sample fine-mapping ·
+Fig. 4 Power and list stability by locus class, and the same stratification
+against full-power |z| · Fig. 5 Instrument availability across the pathway at
+three levels · Fig. 6 Self-administered attribution check at loci with an
+accepted causal gene · Fig. 7 The CD4⁺ metabolic axis and its chromatin
+signature · Fig. 8 Compartment attribution · Fig. 9 Patients across three
+cohorts.
+
+⚠ Figure numbering here is this version's own and follows its reading order; it
+does not match the numbering in the full reference document.
 
 ## Methods
 
