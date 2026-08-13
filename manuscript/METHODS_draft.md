@@ -95,6 +95,22 @@ independent discovery, and state this limitation in the text.
 Multiple testing was controlled by Benjamini–Hochberg FDR within each analysis
 family, with the family defined before the analysis was run.
 
+**Provenance of the HCC known-locus reference.** Seventy-three loci were
+assembled from a GWAS Catalog query and from the higher-powered outcome
+publication's own table, ten from the latter. Because that outcome supplies the
+MR p-values, loci taken from it are a circular reference to the extent that they
+rest on it alone, and the deposited Catalog file retained no study accession with
+which to separate them. Provenance was therefore resolved through the Catalog
+REST API: the outcome study's own reported associations were retrieved, and every
+locus appearing among them was queried for the number of other studies reporting
+it. Seven proved to have substantial independent support and three none. Locus
+attribution was recomputed against three references — the published list, the
+list with the three outcome-only loci removed (primary), and the list with all
+ten paper-sourced loci removed as an over-corrected bound — with the machinery
+otherwise unchanged. Note that removing known loci can only shrink the background
+and therefore can only raise the enrichment, so the over-corrected bound is not a
+stricter test.
+
 **Effect-size matching for the locus-class differential.** The down-sampling
 model recomputes Wald ratios and BH-FDR from summary statistics and takes no
 class label as input, so recovery is a function of full-power |z| and the global

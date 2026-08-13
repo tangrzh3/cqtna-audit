@@ -307,6 +307,28 @@ reach significance (P = 0.110)**. The single novel-locus nomination, SUPV3L1,
 appears only at the higher power level and has FDR = 0.98 at the lower one; the
 two tumours' novel-locus nominations share no genes.
 
+**One part of that reference list came from the outcome GWAS itself, and we
+measured how much (Supplementary S29).** Of its 73 loci, 10 were taken from the
+higher-powered outcome publication's own table — asking whether hits computed
+against a GWAS fall on loci that GWAS reported is circular to that extent.
+Checking each against the GWAS Catalog, **7 carry heavy independent support**
+(APOE in 1,399 studies, *TM6SF2* E167K in 1,073, the *PNPLA3* lead in 225) and
+**3 rest on the outcome publication alone**. Removing those three changes
+nothing at all — 8.85-fold and 17.6-fold to the same decimals — because no
+instrument falls within 1 Mb of any of them, so they enter neither the numerator
+nor the background. **We report this as a measurement of the circularity (3 of
+73, none of them near a significant locus) rather than as a robustness check: by
+construction it could not have moved the result.** Two limits belong with it.
+Dropping all 10 paper-sourced loci instead *raises* the enrichment (to 10.2- and
+20.1-fold), because removing known loci only shrinks the background — so
+over-correction flatters this test and should not be cited as a stricter
+standard. And the GWAS Catalog carries no cohort-level overlap information, so
+this addresses circular *locus attribution* and not sample overlap between the
+reference studies and the outcome. The melanoma reference list does not have this
+structure at all: it comes from a separate publication rather than from the
+outcome GWAS, though sample overlap between that publication and the outcome
+meta-analysis cannot be excluded either.
+
 The caution is power, and we measured it rather than asserting it. HCC-high
 carries 30.3% of melanoma's effective sample size. Down-sampling melanoma to that
 level (§2.4) predicts a median of 2 significant loci [5–95%: 1–6], 1 known and 1
@@ -1565,6 +1587,22 @@ independent discovery, and state this limitation in the text.
 Multiple testing was controlled by Benjamini–Hochberg FDR within each analysis
 family, with the family defined before the analysis was run.
 
+**Provenance of the HCC known-locus reference.** Seventy-three loci were
+assembled from a GWAS Catalog query and from the higher-powered outcome
+publication's own table, ten from the latter. Because that outcome supplies the
+MR p-values, loci taken from it are a circular reference to the extent that they
+rest on it alone, and the deposited Catalog file retained no study accession with
+which to separate them. Provenance was therefore resolved through the Catalog
+REST API: the outcome study's own reported associations were retrieved, and every
+locus appearing among them was queried for the number of other studies reporting
+it. Seven proved to have substantial independent support and three none. Locus
+attribution was recomputed against three references — the published list, the
+list with the three outcome-only loci removed (primary), and the list with all
+ten paper-sourced loci removed as an over-corrected bound — with the machinery
+otherwise unchanged. Note that removing known loci can only shrink the background
+and therefore can only raise the enrichment, so the over-corrected bound is not a
+stricter test.
+
 **Effect-size matching for the locus-class differential.** The down-sampling
 model recomputes Wald ratios and BH-FDR from summary statistics and takes no
 class label as input, so recovery is a function of full-power |z| and the global
@@ -2303,6 +2341,7 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S29 | **Pre-registration document** (HCC known-locus de-circularisation), with the per-variant GWAS Catalog provenance of all ten outcome-sourced loci, the three references scored, and two items its section 0.3 fixed in advance: that the test could not have changed the result because the circular loci lie far from any significant one, and that over-correction raises the enrichment and must not be cited as a stricter standard | `PREREG_hcc_decircularisation.md`; `102a` |
 | S28 | **Pre-registration document** (effect-size matching), registered before any matched analysis was run, including the finding — stated in its section 0 — that the down-sampling model contains no class label and the differential can therefore only follow from the |z| distributions; the pre-committed replacement wording; and two items logged against ourselves: a process control that failed on first run through a random-number-ordering bug, and a design flaw in the pre-registration itself, which permitted the matched comparison to collapse onto a single known anchor | `PREREG_effect_size_matching.md`; `101a`–`101c` |
 | S27 | **Self-administered attribution check**: the accepted-causal-gene list assembled before the comparison, the ten loci reached under the eQTLGen exposure, and the named gene at each | `96a` |
 | S26 | **Multiple-testing unit sensitivity**: the FDR < 0.05 list recomputed over records, unique variants, genes and independent loci, each by minimum-p and by Simes combination, plus a two-stage hierarchical procedure; reported for both the meta and FinnGen rounds, with the gene list under each unit | `100a`, `100b` |

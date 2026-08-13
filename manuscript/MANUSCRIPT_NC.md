@@ -93,7 +93,14 @@ rs2294915 in the *PNPLA3* region, and ZNF506 in the chr19 *TM6SF2* region at bot
 levels. Enrichment is 17.6-fold in the lower-powered outcome (P = 0.0031) and
 8.9-fold in the higher-powered one, where it does not reach significance
 (P = 0.110). The single novel nomination, SUPV3L1, appears only at high power and
-has FDR = 0.98 at low power. Because the higher-powered HCC study carries 30.3%
+has FDR = 0.98 at low power. Ten of that reference list's 73 loci came from the
+higher-powered outcome's own publication; checked against the GWAS Catalog, 7
+carry heavy independent support and **3 rest on that publication alone**, and
+removing those three leaves both enrichments unchanged because no instrument lies
+within 1 Mb of any. That measures the circularity rather than testing robustness
+— by construction it could not have moved the result — and dropping all 10
+instead *raises* the enrichment, since removing known loci only shrinks the
+background (Supplementary S29). Because the higher-powered HCC study carries 30.3%
 of melanoma's effective sample size, we down-sampled melanoma to match: the
 predicted median is 2 significant loci [5–95%: 1–6], one known and one novel, and
 **the observed HCC counts are compatible with that melanoma-derived prediction
@@ -357,7 +364,7 @@ Colocalisation versus SMR/HEIDI · Fig. 4 Power and list stability by locus clas
 Fig. 5 Instrument availability across the pathway · Fig. 6 Compartment
 attribution · Fig. 7 Patients across three cohorts.
 
-Methods, References, and Supplementary Information (including the eight
+Methods, References, and Supplementary Information (including the nine
 pre-registration documents, the multiple-testing unit and effect-size sensitivity
 analyses, the complete record of target-substantiation attempts, and the
 literature audit) accompany this manuscript separately.

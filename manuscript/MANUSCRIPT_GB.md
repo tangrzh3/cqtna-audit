@@ -187,7 +187,24 @@ HCC lead SNP: SAMM50, 26 kb from rs2294915 in the *PNPLA3* region, and ZNF506 in
 the chr19 *TM6SF2* region at both levels. Enrichment is 17.6-fold in the
 lower-powered outcome (P = 0.0031) and 8.9-fold in the higher-powered one, where
 it does not reach significance (P = 0.110). The single novel nomination, SUPV3L1,
-appears only at high power and has FDR = 0.98 at low power. The higher-powered
+appears only at high power and has FDR = 0.98 at low power.
+
+Ten of that reference list's 73 loci were taken from the higher-powered outcome
+publication's own table, which is circular to that extent. Checked individually
+against the GWAS Catalog, 7 carry heavy independent support (APOE in 1,399
+studies, *TM6SF2* E167K in 1,073) and **3 rest on the outcome publication alone**;
+removing those three leaves both enrichments unchanged to the same decimals,
+because no instrument lies within 1 Mb of any of them. We report that as a
+measurement of the circularity — 3 of 73, none near a significant locus — not as
+a robustness check, since by construction it could not have moved the result.
+Dropping all 10 instead *raises* the enrichment, as removing known loci only
+shrinks the background, so over-correction flatters this test; and the Catalog
+carries no cohort-level information, so this addresses circular locus attribution
+and not sample overlap (Supplementary S29). The melanoma reference list comes
+from a separate publication and does not have this structure, though sample
+overlap with the outcome meta-analysis cannot be excluded.
+
+The higher-powered
 HCC study carries 30.3% of melanoma's effective sample size, so we down-sampled
 melanoma to match: the predicted median is 2 significant loci [5–95%: 1–6], one
 known and one novel, and **the observed HCC counts are compatible with that
@@ -481,7 +498,7 @@ candidate under a ranking criterion that was never fixed in advance, and the
 first four designations were overturned. That is this project's own history and
 not an estimate of how often the framework fails, and the itemised record — every
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
-eight pre-registrations and the technical account of two processing errors of
+nine pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
 
 Eight checks follow directly, each cheap and each capable of changing what a study
@@ -559,7 +576,7 @@ biological importance are separable — the strongest enzyme in the functional d
 carries no instrument, and the gene that does carry one is principally expressed
 by tumour. The complete record of which claims about it were raised, tested and
 withdrawn, together with the selection denominators at gene, pathway and mechanism
-level and the eight pre-registration documents, is Supplementary S12 and S18–S28.
+level and the nine pre-registration documents, is Supplementary S12 and S18–S29.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -611,7 +628,7 @@ Full Methods accompany this manuscript.
 
 ## Supplementary information
 
-S9–S28, including the eight pre-registration documents with their reading tables
+S9–S29, including the nine pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the

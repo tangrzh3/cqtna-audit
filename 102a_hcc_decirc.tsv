@@ -1,0 +1,7 @@
+cell	reference	n_known_list	bg_known	bg_loci	sig_known	sig_loci	pct_known	fold	fisher_p
+HCC-high	F full (published)	73	31	549	1	2	50.0	8.855	0.10984138380326619
+HCC-high	P drop outcome-only	70	31	549	1	2	50.0	8.855	0.10984138380326619
+HCC-high	C drop all paper-sourced	63	27	549	1	2	50.0	10.167	0.09602728251766152
+HCC-low	F full (published)	73	32	564	2	2	100.0	17.625	0.0031240945794450406
+HCC-low	P drop outcome-only	70	32	564	2	2	100.0	17.625	0.0031240945794450406
+HCC-low	C drop all paper-sourced	63	28	564	2	2	100.0	20.143	0.002380862401270905
