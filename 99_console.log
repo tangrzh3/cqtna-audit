@@ -1,0 +1,100 @@
+known-locus reference lists: melanoma 157, HCC 73
+
+Soskic x melanoma instruments: 3,434 records / 1,199 genes
+Soskic x HCC instruments: 3,686 records
+eQTLGen instruments: 12,835 records / 12,835 genes
+
+positions to look up: melanoma 14,255, HCC 14,413
+
+=== scanning outcomes ===
+    R13_melanoma: 5M rows, 3,391 positions, 25s
+    R13_melanoma: 10M rows, 5,754 positions, 48s
+    R13_melanoma: 15M rows, 8,942 positions, 71s
+    R13_melanoma: 20M rows, 13,661 positions, 93s
+  R13_melanoma: 21,324,985 rows scanned, 14,255 positions matched (94 multi-allelic), 99s
+    R13_HCC: 5M rows, 3,424 positions, 22s
+    R13_HCC: 10M rows, 5,819 positions, 45s
+    R13_HCC: 15M rows, 9,041 positions, 68s
+    R13_HCC: 20M rows, 13,808 positions, 91s
+  R13_HCC: 21,324,841 rows scanned, 14,413 positions matched (87 multi-allelic), 97s
+    R12_melanoma: 5M rows, 2,923 positions, 22s
+    R12_melanoma: 10M rows, 4,926 positions, 44s
+    R12_melanoma: 15M rows, 7,664 positions, 67s
+    R12_melanoma: 20M rows, 11,818 positions, 90s
+  R12_melanoma: 21,325,163 rows scanned, 12,318 positions matched (66 multi-allelic), 96s
+    R12_HCC: 5M rows, 2,923 positions, 23s
+    R12_HCC: 10M rows, 4,926 positions, 46s
+    R12_HCC: 15M rows, 7,664 positions, 72s
+    R12_HCC: 20M rows, 11,818 positions, 96s
+  R12_HCC: 21,325,048 rows scanned, 12,318 positions matched (66 multi-allelic), 102s
+
+=== C1  Soskic CD4 x melanoma ===
+  C1 coverage: R12 3,434 -> R13 3,434 (100.0% of R12)
+    [C1 Soskic x melanoma R12] background known 57/546 = 10.4%  |  FDR<0.05 2/2 known = 100.0%  ->  9.58x, P = 0.0107
+    [C1 Soskic x melanoma R13] background known 57/546 = 10.4%  |  FDR<0.05 2/2 known = 100.0%  ->  9.58x, P = 0.0107
+    [NC C1 R13 scored with HCC list] background known 31/546 = 5.7%  |  FDR<0.05 0/2 known = 0.0%  ->  0.00x, P = 1
+
+=== C2  eQTLGen x melanoma ===
+    [REF eQTLGen x melanoma META (S22)] background known 84/559 = 15.0%  |  FDR<0.05 20/30 known = 66.7%  ->  4.44x, P = 3.72e-11
+    [C2 eQTLGen x melanoma R12] background known 84/559 = 15.0%  |  FDR<0.05 10/18 known = 55.6%  ->  3.70x, P = 5.6e-05
+    [C2 eQTLGen x melanoma R13] background known 84/559 = 15.0%  |  FDR<0.05 9/16 known = 56.2%  ->  3.74x, P = 0.000122
+
+=== C3  Soskic CD4 x HCC ===
+    [C3 Soskic x HCC R12] background known 32/564 = 5.7%  |  FDR<0.05 2/2 known = 100.0%  ->  17.62x, P = 0.00312
+    [C3 Soskic x HCC R13] background known 32/564 = 5.7%  |  FDR<0.05 2/2 known = 100.0%  ->  17.62x, P = 0.00312
+
+=== C4  eQTLGen x HCC ===
+    [C4 eQTLGen x HCC R12] background known 43/559 = 7.7%  |  FDR<0.05 2/3 known = 66.7%  ->  8.67x, P = 0.0165
+    [C4 eQTLGen x HCC R13] background known 43/559 = 7.7%  |  FDR<0.05 3/4 known = 75.0%  ->  9.75x, P = 0.00161
+
+============================================================================================
+C1 trajectory (main analysis = instruments shared by R12 and R13)
+============================================================================================
+  mode               cell release  cases  controls  n_eff  n_tested  n_nominal  n_hits  n_genes  n_loci  n_novel_genes
+common C1_Soskic_melanoma     R12   5753    378749  22668      3434        275      10        6       2              0
+common C1_Soskic_melanoma     R13   6226    372159  24494      3434        275      10        6       2              0
+
+secondary (each release's own coverage)
+mode               cell release  cases  controls  n_eff  n_tested  n_nominal  n_hits  n_genes  n_loci  n_novel_genes
+ own C1_Soskic_melanoma     R12   5753    378749  22668      3434        275      10        6       2              0
+ own C1_Soskic_melanoma     R13   6226    372159  24494      3434        275      10        6       2              0
+
+============================================================================================
+FDR<0.05 gene lists
+============================================================================================
+  R12: CDK10,CHMP1A,CTU2,PARP1,SPATA33,VPS9D1-AS1
+       novel-locus genes: -
+  R13: CDK10,CHMP1A,CTU2,PARP1,SPATA33,VPS9D1-AS1
+       novel-locus genes: -
+
+============================================================================================
+PRE-REGISTERED CHECKS  (S25 ¡ì5-¡ì7)
+============================================================================================
+  PC1 R12 reproduction  : 10 records / 6 genes / 2 loci, list==True   -> PASS
+  PC2 MC1R cluster in R13: ['CDK10', 'CHMP1A', 'SPATA33', 'VPS9D1-AS1']   -> PASS
+  PC3 coverage           : 100.0% of R12 instruments   -> PASS
+  NC  mismatched list    : fold 0.0, P = 1   -> PASS (null)
+
+  P1 n records             observed  10   registered 11 [9,14]   -> MET
+  P2 n genes               observed   6   registered 6 [5,8]   -> MET
+  P3 recovery of R12's 6   observed   6   registered 6 [5,6]   -> MET
+  P4 novel-locus genes     observed   0   registered 0 [0,1]   -> MET
+  P6 n independent loci    observed   2   registered 2 [2,4]   -> MET
+  P5 attribution fold      observed 9.579   registered >1   -> MET
+
+============================================================================================
+attribution across all cells (R12 comparator vs R13)
+============================================================================================
+                             cell  bg_known  bg_loci  sig_known  sig_loci  pct_known   fold     fisher_p  coverage_pct
+         C1 Soskic x melanoma R12        57      546          2         2      100.0  9.579 1.072689e-02           NaN
+         C1 Soskic x melanoma R13        57      546          2         2      100.0  9.579 1.072689e-02           NaN
+   NC C1 R13 scored with HCC list        31      546          0         2        0.0  0.000 1.000000e+00           NaN
+REF eQTLGen x melanoma META (S22)        84      559         20        30       66.7  4.437 3.724057e-11         100.0
+        C2 eQTLGen x melanoma R12        84      559         10        18       55.6  3.697 5.598104e-05         100.0
+        C2 eQTLGen x melanoma R13        84      559          9        16       56.2  3.743 1.222789e-04         100.0
+              C3 Soskic x HCC R12        32      564          2         2      100.0 17.625 3.124095e-03         100.0
+              C3 Soskic x HCC R13        32      564          2         2      100.0 17.625 3.124095e-03         100.0
+             C4 eQTLGen x HCC R12        43      559          2         3       66.7  8.667 1.651735e-02         100.0
+             C4 eQTLGen x HCC R13        43      559          3         4       75.0  9.750 1.612766e-03         100.0
+
+wrote 99a / 99b / 99c

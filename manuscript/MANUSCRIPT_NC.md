@@ -237,23 +237,15 @@ pre-treatment matches in magnitude in the same-disease cohort (+0.56 versus
 post-treatment reverses in the same-disease cohort and reproduces at full
 magnitude in the cross-disease one (Δ = +0.874, P = 0.043) (Fig. 7).
 
-### What a perturbation screen can and cannot say about this gene
-
-Whether the nominated gene has immunological consequences is the question our
-design cannot answer, and it is worth stating why a perturbation experiment would
-not answer it either. Across **1,471 human CRISPR screens** in BioGRID ORCS
-in which TPI1 was measured, it scores as a hit in **628 (42.7%)** —
-the profile of a core-essential gene, alongside GAPDH (46.6%) and PGAM1 (47.2%),
-and an order of magnitude above lineage-defining or trait-specific genes measured
-in the same screens (IRF4 3.9%, FOXP3 1.5%, MC1R 1.1%, ZFYVE19 1.2%). A knockout
-of this gene therefore produces a fitness phenotype in almost any cell type, so
-neither a real nor a simulated knockout can isolate a CD4-specific immunological
-role; the intervention is also not comparable to the small expression shift an
-eQTL represents. This is why we report no perturbation experiment rather than an
-in silico substitute, and it independently corroborates the reason we make no
-target claim. Notably PGAM1 — the strongest enzyme in the functional data, and the
-one MR cannot see — has the same pan-essential profile, so this property belongs
-to the pathway rather than to the gene MR happened to name.
+Perturbation would not settle it either. TPI1 is a hit in **628 of the 1,471
+human CRISPR screens** in BioGRID ORCS that measured it (**42.7%**), a
+core-essential profile alongside GAPDH (46.6%) and PGAM1 (47.2%) and an order of
+magnitude above lineage-defining genes in the same screens (IRF4 3.9%, FOXP3
+1.5%, MC1R 1.1%). Because the knockout is lethal in almost any cell type,
+**a knockout cannot isolate a CD4-specific role** — a boundary on what
+perturbation could add here, not evidence for the nomination. PGAM1, the
+strongest enzyme in the functional data and the one MR cannot see, has the same
+profile, so the property belongs to the pathway rather than to the named gene.
 
 ### The checks are rare in practice
 
@@ -279,7 +271,7 @@ estimate of how often the framework fails; what it licenses is narrower and more
 useful — each overturned claim was overturned by a check a study of this kind
 could run and typically does not.
 
-Seven such checks follow from the findings above. **(i)** Annotate the signal
+Eight such checks follow from the findings above. **(i)** Annotate the signal
 against the outcome's own known loci, counting independent loci rather than gene
 records. **(ii)** Require colocalisation, preferably with explicit multiple-signal
 modelling and an LD reference matched to the outcome cohort, rather than treating
@@ -296,7 +288,16 @@ validation; this costs minutes. **(vi)** Report instrument availability at each 
 the three levels it passes through — instrumentable, analysable against this
 outcome, nominally associated — and do not compress them. **(vii)** When splitting
 cells by a score, match on lineage composition as well as depth, at the cell
-level.
+level. **(viii)** Before comparing lists across releases of one GWAS resource,
+verify code-by-code that the endpoint is the same: FinnGen R13 describes our
+endpoint's successor as "including Hilmo", which reads as newly added cases,
+whereas the code-level definitions show identical cases and a changed
+control-exclusion rule — read from the summary line, pure phenotype drift is
+scored as instability of the candidate list. Where the definition does differ the
+comparison is a transfer test, not a power point; ours transfers intact (the same
+six genes at the same two loci, no novel-locus gene, 3.7- to 17.6-fold
+enrichment) while none of the 3,434 underlying statistics is unchanged and 51 of
+275 nominally significant records are replaced.
 
 The worked example is best read as a ladder rather than a verdict: as a causal
 target for melanoma, not supported; as a dynamic *genetic* effect, not supported;

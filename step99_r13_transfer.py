@@ -44,6 +44,16 @@ LOCUS_KB = KNOWN_KB = 1000
 
 R13_MEL = f"{MR}/r13/finngen_R13_C3_MELANOMA_SKIN_WIDE.gz"
 R13_HCC = f"{MR}/r13/finngen_R13_C3_HEPATOCELLU_CARC_WIDE.gz"
+R12_MEL = f"{MR}/finngen_R12_C3_MELANOMA_SKIN_EXALLC.gz"
+R12_HCC = f"{MR}/hcc/finngen_R12_C3_HEPATOCELLU_CARC_EXALLC.gz"
+
+# ⚠ 92c_locus_annotated.tsv was built against meta_melanoma_final.tsv.gz (the
+# FinnGen+Rashkin meta, N_eff 49,337), NOT against FinnGen R12 (N_eff 22,668).
+# Its beta_out/se_out columns are therefore NOT the R12 comparator for the
+# eQTLGen cells, and using them as one compares two releases AND two datasets at
+# the same time -- exactly the confound this whole paper is about. The R12
+# comparator for C2 is computed here from the R12 file; the meta cell is carried
+# alongside as a separately labelled reference row (this is S22's 4.44x).
 
 # metadata only (manifest), registered in prereg §1
 META = {"R12_mel": (5753, 378749), "R13_mel": (6226, 372159),
@@ -132,7 +142,25 @@ def scan(path, want, label):
     """One pass over a FinnGen sumstats file, keeping every row at a wanted
     (chr,pos). Multi-allelic positions carry several rows and the allele choice
     must be made later against the instrument, not here -- this project already
-    has one indel-representation ambiguity on record (step59b)."""
+    has one indel-representation ambiguity on record (step59b).
+
+    Extracts are cached: each of these files is ~0.8 GB and a re-run that only
+    changes the analysis must not have to pay for the scan again."""
+    os.makedirs(f"{MR}/r13_extracts", exist_ok=True)
+    cache = f"{MR}/r13_extracts/{label}.tsv"
+    if os.path.exists(cache):
+        got = {}
+        with open(cache, encoding="utf-8") as fh:
+            rd = csv.reader(fh, delimiter="\t")
+            next(rd)
+            for c, p, ref, alt, b, s in rd:
+                got.setdefault((c, int(p)), []).append((ref, alt, float(b), float(s)))
+        if set(got) >= want:
+            print(f"  {label}: {len(got):,} positions from cache")
+            return got
+        print(f"  {label}: cache covers {len(got):,} positions but "
+              f"{len(want - set(got)):,} are missing; rescanning")
+
     got, n, t0 = {}, 0, time.time()
     with gzip.open(path, "rt") as fh:
         rd = csv.reader(fh, delimiter="\t")
@@ -160,6 +188,12 @@ def scan(path, want, label):
     multi = sum(1 for v in got.values() if len(v) > 1)
     print(f"  {label}: {n:,} rows scanned, {len(got):,} positions matched "
           f"({multi} multi-allelic), {time.time()-t0:.0f}s", flush=True)
+    with open(cache, "w", newline="", encoding="utf-8") as fo:
+        w = csv.writer(fo, delimiter="\t")
+        w.writerow(["chr", "pos", "ref", "alt", "beta", "sebeta"])
+        for (c, p), v in got.items():
+            for ref, alt, b, s in v:
+                w.writerow([c, p, ref, alt, b, s])
     return got
 
 
@@ -284,39 +318,39 @@ def soskic_melanoma_cells(d, got13, hcc_known_fn):
     return rows, lists, attrib, matched13
 
 
-def simple_cell(inst, got13, r12_cols, known_flags, label12, label13,
-                allele_aware, meta_key12, meta_key13):
-    """C2/C3/C4: p-value-only cells (attribution is orientation-free)."""
-    out = []
-    # ---- R12 comparator, from the already-computed outcome columns
-    z12 = inst[r12_cols[0]].values / inst[r12_cols[1]].values
-    f12 = bh(two_sided(z12))
-    out.append(attribution(inst.chr.tolist(), inst.pos.tolist(), f12,
-                           known_flags, label12))
-    # ---- R13
-    keep, z13 = [], []
+def scanned_cell(inst, got, known_flags, label, allele_aware):
+    """C2/C3/C4 against a scanned outcome file. Attribution is orientation-free,
+    so only |z| matters and the allele pass is a filter, not a sign fix."""
+    keep, z = [], []
     for i, r in enumerate(inst.itertuples()):
-        cands = got13.get((r.chr, r.pos), [])
+        cands = got.get((r.chr, r.pos), [])
         if not cands:
             continue
         if allele_aware:
             hit = pick(cands, r.ea, r.oa)
         else:
             # 92c carries no alleles; step94d's convention (first row) is kept
-            ref, alt, b, s = cands[0]
-            hit = (b, s)
+            hit = (cands[0][2], cands[0][3])
         if hit is None or hit[1] <= 0:
             continue
         keep.append(i)
-        z13.append(hit[0] / hit[1])
+        z.append(hit[0] / hit[1])
     sub = inst.iloc[keep].reset_index(drop=True)
-    f13 = bh(two_sided(np.array(z13)))
-    kf = [known_flags[i] for i in keep]
-    print(f"  {label13} coverage: R12 {len(inst):,} -> R13 {len(sub):,} "
-          f"({100*len(sub)/len(inst):.1f}%)")
-    out.append(attribution(sub.chr.tolist(), sub.pos.tolist(), f13, kf, label13))
-    out[-1]["coverage_pct"] = round(100 * len(sub) / len(inst), 1)
-    return out
+    f = bh(two_sided(np.array(z)))
+    res = attribution(sub.chr.tolist(), sub.pos.tolist(), f,
+                      [known_flags[i] for i in keep], label)
+    res["n_records"] = len(sub)
+    res["coverage_pct"] = round(100 * len(sub) / len(inst), 1)
+    return res
+
+
+def precomputed_cell(inst, bcol, scol, known_flags, label):
+    """a cell whose outcome columns are already in the table (the S22 meta row)"""
+    f = bh(two_sided(inst[bcol].values / inst[scol].values))
+    res = attribution(inst.chr.tolist(), inst.pos.tolist(), f, known_flags, label)
+    res["n_records"] = len(inst)
+    res["coverage_pct"] = 100.0
+    return res
 
 
 def main():
@@ -332,60 +366,45 @@ def main():
     want_hcc = set(zip(d_hcc.chr, d_hcc.pos)) | set(zip(d_eq.chr, d_eq.pos))
     print(f"\npositions to look up: melanoma {len(want_mel):,}, HCC {len(want_hcc):,}\n")
 
-    for p in (R13_MEL, R13_HCC):
+    for p in (R13_MEL, R13_HCC, R12_MEL, R12_HCC):
         if not os.path.exists(p):
             sys.exit(f"missing outcome file: {p}")
 
-    print("=== scanning R13 melanoma ===", flush=True)
-    got_mel = scan(R13_MEL, want_mel, "R13_melanoma")
-    print("=== scanning R13 HCC ===", flush=True)
-    got_hcc = scan(R13_HCC, want_hcc, "R13_HCC")
+    print("=== scanning outcomes ===", flush=True)
+    got_mel13 = scan(R13_MEL, want_mel, "R13_melanoma")
+    got_hcc13 = scan(R13_HCC, want_hcc, "R13_HCC")
+    got_mel12 = scan(R12_MEL, set(zip(d_eq.chr, d_eq.pos)), "R12_melanoma")
+    got_hcc12 = scan(R12_HCC, set(zip(d_eq.chr, d_eq.pos)), "R12_HCC")
 
     print("\n=== C1  Soskic CD4 x melanoma ===")
-    rows, lists, attrib, matched13 = soskic_melanoma_cells(d_mel, got_mel, hcc_known_fn)
+    rows, lists, attrib, matched13 = soskic_melanoma_cells(d_mel, got_mel13, hcc_known_fn)
+
+    mel_flags = d_eq.known.astype(bool).tolist()
+    hcc_flags = [hcc_known_fn(c, p) for c, p in zip(d_eq.chr, d_eq.pos)]
 
     print("\n=== C2  eQTLGen x melanoma ===")
-    attrib += simple_cell(d_eq, got_mel, ("beta_out", "se_out"),
-                          d_eq.known.astype(bool).tolist(),
-                          "C2 eQTLGen x melanoma R12", "C2 eQTLGen x melanoma R13",
-                          allele_aware=False, meta_key12="R12_mel", meta_key13="R13_mel")
+    # the S22 reference row: same instruments, but the FinnGen+Rashkin META
+    # outcome. Kept because it is the published 4.44x, and labelled so that it is
+    # never read as R12.
+    attrib.append(precomputed_cell(d_eq, "beta_out", "se_out", mel_flags,
+                                   "REF eQTLGen x melanoma META (S22)"))
+    attrib.append(scanned_cell(d_eq, got_mel12, mel_flags,
+                               "C2 eQTLGen x melanoma R12", allele_aware=False))
+    attrib.append(scanned_cell(d_eq, got_mel13, mel_flags,
+                               "C2 eQTLGen x melanoma R13", allele_aware=False))
 
     print("\n=== C3  Soskic CD4 x HCC ===")
-    attrib += simple_cell(d_hcc, got_hcc, ("beta_out", "se_out"),
-                          d_hcc.known.astype(bool).tolist(),
-                          "C3 Soskic x HCC R12", "C3 Soskic x HCC R13",
-                          allele_aware=True, meta_key12="R12_hcc", meta_key13="R13_hcc")
+    hcc_inst_flags = d_hcc.known.astype(bool).tolist()
+    attrib.append(precomputed_cell(d_hcc, "beta_out", "se_out", hcc_inst_flags,
+                                   "C3 Soskic x HCC R12"))
+    attrib.append(scanned_cell(d_hcc, got_hcc13, hcc_inst_flags,
+                               "C3 Soskic x HCC R13", allele_aware=True))
 
     print("\n=== C4  eQTLGen x HCC ===")
-    d_eq_hcc = d_eq.copy()
-    hcc_flags = [hcc_known_fn(c, p) for c, p in zip(d_eq_hcc.chr, d_eq_hcc.pos)]
-    # the R12 comparator for this cell needs the R12 HCC outcome, not melanoma's
-    got_hcc_r12 = scan(f"{MR}/hcc/finngen_R12_C3_HEPATOCELLU_CARC_EXALLC.gz",
-                       set(zip(d_eq_hcc.chr, d_eq_hcc.pos)), "R12_HCC")
-    keep, z = [], []
-    for i, r in enumerate(d_eq_hcc.itertuples()):
-        c = got_hcc_r12.get((r.chr, r.pos), [])
-        if not c or c[0][3] <= 0:
-            continue
-        keep.append(i)
-        z.append(c[0][2] / c[0][3])
-    sub12 = d_eq_hcc.iloc[keep].reset_index(drop=True)
-    attrib.append(attribution(sub12.chr.tolist(), sub12.pos.tolist(),
-                              bh(two_sided(np.array(z))),
-                              [hcc_flags[i] for i in keep],
-                              "C4 eQTLGen x HCC R12"))
-    keep, z = [], []
-    for i, r in enumerate(d_eq_hcc.itertuples()):
-        c = got_hcc.get((r.chr, r.pos), [])
-        if not c or c[0][3] <= 0:
-            continue
-        keep.append(i)
-        z.append(c[0][2] / c[0][3])
-    sub13 = d_eq_hcc.iloc[keep].reset_index(drop=True)
-    attrib.append(attribution(sub13.chr.tolist(), sub13.pos.tolist(),
-                              bh(two_sided(np.array(z))),
-                              [hcc_flags[i] for i in keep],
-                              "C4 eQTLGen x HCC R13"))
+    attrib.append(scanned_cell(d_eq, got_hcc12, hcc_flags,
+                               "C4 eQTLGen x HCC R12", allele_aware=False))
+    attrib.append(scanned_cell(d_eq, got_hcc13, hcc_flags,
+                               "C4 eQTLGen x HCC R13", allele_aware=False))
 
     # ------------------------------------------------------------------ output
     traj = pd.DataFrame(rows)
@@ -456,8 +475,8 @@ def main():
     print("attribution across all cells (R12 comparator vs R13)")
     print("=" * 92)
     print(pd.DataFrame(attrib)[["cell", "bg_known", "bg_loci", "sig_known",
-                                "sig_loci", "pct_known", "fold",
-                                "fisher_p"]].to_string(index=False))
+                                "sig_loci", "pct_known", "fold", "fisher_p",
+                                "coverage_pct"]].to_string(index=False))
     print("\nwrote 99a / 99b / 99c")
 
 

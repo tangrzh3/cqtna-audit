@@ -1,0 +1,5 @@
+mode	cell	release	cases	controls	n_eff	n_tested	n_nominal	n_hits	n_genes	n_loci	n_novel_genes
+common	C1_Soskic_melanoma	R12	5753	378749	22668	3434	275	10	6	2	0
+common	C1_Soskic_melanoma	R13	6226	372159	24494	3434	275	10	6	2	0
+own	C1_Soskic_melanoma	R12	5753	378749	22668	3434	275	10	6	2	0
+own	C1_Soskic_melanoma	R13	6226	372159	24494	3434	275	10	6	2	0

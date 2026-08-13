@@ -4,9 +4,10 @@
      Built to Reviewer 3's compression brief: the failure history and revision
      record, every stopping-rule instance, the technical account of our own
      processing errors, the candidate-selection timeline, and repeated claim
-     boundaries are in Supplementary, not here. The seven diagnostics are the
+     boundaries are in Supplementary, not here. The eight diagnostics are the
      backbone. Every number is identical to MANUSCRIPT_v2_dual_thread.md, which
-     remains the reference document. -->
+     remains the reference document, EXCEPT for the ORCS paragraph and
+     diagnostic (viii), which postdate it (Steps 97 and 99). -->
 
 ## Abstract
 
@@ -22,30 +23,30 @@ outcome and the exposure resource independently.
 **Results.** Significant signal concentrates on loci already known for the
 outcome: 4.09-fold by independent locus. The pattern recurs across five nested
 power levels of one GWAS resource, where no novel-locus gene reaches significance
-at any case number between 2,705 and 5,753; in a second disease, where three of
-four significant loci are known hepatocellular carcinoma loci including *PNPLA3*;
-and when the exposure resource is replaced entirely by a whole-blood eQTL dataset
-300-fold larger, which raises significant loci from 7 to 30 and leaves enrichment
-at 4.44-fold (P = 3.7×10⁻¹¹). All six disease-by-resource combinations enrich,
-against a mismatched-locus control that does not. Raising outcome power increased
-MR discoveries while lowering colocalisation support and replaced the candidate
-list entirely: two lists from identical exposure data share no genes.
-Down-sampling shows the loss falls unevenly by locus class: at half of observed
-power, known-locus genes are recovered 85.8% of the time against 22.8% for
-novel-locus genes. Of 28 glycolytic genes, 3 are instrumentable in this exposure
-resource, 2 remain analysable against this outcome and 1 yields a nominal
-association; that gene is 6.7-fold higher in malignant cells than in CD4⁺ T cells,
-so tissue-level validation of it measures tumour, and published
-genotype × pseudotime tests show no dynamic genetic effect for it despite strongly
-dynamic expression. In 152 comparable studies, at most 7.9% perform the
-locus-attribution check.
+at any case number between 2,705 and 5,753, and it transfers unchanged to that
+resource's current release although not one of the 3,434 test statistics is; in a
+second disease, where three of four significant loci are known hepatocellular
+carcinoma loci including *PNPLA3*; and when the exposure resource is replaced
+entirely by a whole-blood eQTL dataset 300-fold larger, which raises significant
+loci from 7 to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
+disease-by-resource combinations enrich, against a mismatched-locus control that
+does not. Raising outcome power increased MR discoveries while lowering
+colocalisation support and replaced the candidate list entirely: two lists from
+identical exposure data share no genes. Down-sampling shows the loss falls
+unevenly by locus class: at half of observed power, known-locus genes are
+recovered 85.8% of the time against 22.8% for novel-locus genes. Of 28 glycolytic
+genes, 3 are instrumentable, 2 remain analysable against this outcome and 1
+yields a nominal association; that gene is 6.7-fold higher in malignant cells
+than in CD4⁺ T cells, so tissue-level validation of it measures tumour, and
+published genotype × pseudotime tests show no dynamic genetic effect for it. In
+152 comparable studies, at most 7.9% perform the locus-attribution check.
 
 **Conclusions.** In this analysis, and within the power range we could observe,
 the reproducible part of a candidate list produced by this framework was the part
 that did not constitute a discovery. Nomination is a property of the outcome
 GWAS. What survives it is a statement about the state in which a pathway's
 regulation can be measured precisely enough to yield an instrument at all, and
-seven inexpensive checks follow directly.
+eight inexpensive checks follow directly.
 
 **Keywords** Mendelian randomization · context-specific eQTL · target nomination ·
 colocalisation · statistical power · reproducibility · compartment attribution ·
@@ -142,6 +143,22 @@ significant list at three consecutive releases without change, four already
 present at 47% of reference power. And **no novel-locus gene reaches FDR < 0.05 in
 any release**. Because releases are nested, agreement between them exceeds that
 between independent studies of equal size, so this is an upper bound on stability.
+
+That series stops where it does for a reason. The release after it, R13, retired
+the endpoint we had used and replaced it with one whose cases are defined by the
+same codes but whose controls are screened by a different exclusion rule, so it
+cannot be a sixth power level; treating it as one would score a change of
+phenotype definition as a change in power. Analysed instead as a transfer test —
+pre-registered, with the direction of every difference recorded before the result
+was seen — the list survives it unchanged: at 6,226 cases the significant list is
+the same six genes at the same two loci, still with no novel-locus gene, and
+locus attribution is 9.6-fold (P = 0.011). The stability is not an artefact of
+reusing data. Not one of the 3,434 test statistics is unchanged between the two
+releases, standard errors shrink by the 3.8% that the added cases predict, and
+51 of the 275 nominally significant records (19%) are replaced. What holds still is the
+significant tier; the tier below it churns. Because the extra cases and the
+broadened control exclusion both push towards more signal, a successful transfer
+here is partly confounded and we do not read it as power alone.
 
 **A second disease.** Repeating the nomination against hepatocellular carcinoma
 with the exposure side unaltered, at two outcome power levels (3,748 and 947
@@ -363,23 +380,18 @@ purity control is applied determines whether it works. Two processing errors of
 our own, detected by these controls, are described in Supplementary S12; they are
 instances of the same failure mode.
 
-### What a perturbation screen can and cannot say about this gene
-
-Whether the nominated gene has immunological consequences is the question our
-design cannot answer, and it is worth stating why a perturbation experiment would
-not answer it either. Across **1,471 human CRISPR screens** in BioGRID ORCS
-in which TPI1 was measured, it scores as a hit in **628 (42.7%)** —
-the profile of a core-essential gene, alongside GAPDH (46.6%) and PGAM1 (47.2%),
-and an order of magnitude above lineage-defining or trait-specific genes measured
-in the same screens (IRF4 3.9%, FOXP3 1.5%, MC1R 1.1%, ZFYVE19 1.2%). A knockout
-of this gene therefore produces a fitness phenotype in almost any cell type, so
-neither a real nor a simulated knockout can isolate a CD4-specific immunological
-role; the intervention is also not comparable to the small expression shift an
-eQTL represents. This is why we report no perturbation experiment rather than an
-in silico substitute, and it independently corroborates the reason we make no
-target claim. Notably PGAM1 — the strongest enzyme in the functional data, and the
-one MR cannot see — has the same pan-essential profile, so this property belongs
-to the pathway rather than to the gene MR happened to name.
+The perturbation layer is bounded in the same way. Across **1,471 human CRISPR
+screens** in BioGRID ORCS in which TPI1 was measured it scores as a hit in
+**628 (42.7%)**, a core-essential profile alongside GAPDH (46.6%) and PGAM1
+(47.2%) and an order of magnitude above lineage-defining genes measured in the
+same screens (IRF4 3.9%, FOXP3 1.5%, MC1R 1.1%). Because a knockout of this gene
+produces a fitness phenotype in almost any cell type, **a knockout cannot isolate
+a CD4-specific role**, and the intervention is in any case not comparable to the
+small expression shift an eQTL represents — which is why we report no
+perturbation experiment rather than an in silico substitute. This is a boundary
+on what perturbation could add here, not evidence for the nomination. PGAM1 — the
+strongest enzyme in the functional data, and the one MR cannot see — has the same
+profile, so the property belongs to the pathway rather than to the gene MR named.
 
 ### In patients: present in each cohort, confirmed in none twice
 
@@ -441,7 +453,7 @@ regulation can be measured precisely enough to yield an instrument at all.
 > stopping rule, every withdrawal, the candidate-selection timeline and the
 > technical account of two processing errors of ours — is Supplementary S12.
 
-Seven checks follow directly, each cheap and each capable of changing what a study
+Eight checks follow directly, each cheap and each capable of changing what a study
 of this kind reports.
 
 **(i) Annotate the signal against the outcome's own known loci, counting
@@ -485,6 +497,25 @@ outcome, nominally associated — and do not compress them.** Here, 3, 2 and 1 o
 depth, at the cell level.** A cluster-level control passed while the cell-level
 control failed.
 
+**(viii) Before comparing candidate lists across releases of the same GWAS
+resource, verify code-by-code that the endpoint definition is the same one.**
+Release notes are not sufficient: FinnGen R13 describes our endpoint's successor
+as "including Hilmo", which reads as newly added hospital-register cases, whereas
+the code-level definitions show the cases are identically defined and what
+changed is the control-exclusion rule. A study that reads the summary line and
+compares anyway will attribute pure phenotype drift to instability of its
+candidate list — the very quantity such a comparison is meant to measure. Where
+the definition does differ, the comparison is still worth making but is a
+transfer test rather than a power point, and the direction of each difference
+should be recorded before the result is seen: here both the extra cases and the
+broadened control exclusion push towards more and stronger signal, so a
+successful transfer is partly confounded while a failed one could not have been
+blamed on the definition. Under that reading our list transfers intact — the same
+six genes at the same two loci, no novel-locus gene, and enrichment of 9.6-, 3.7-,
+17.6- and 9.8-fold across the four exposure-by-disease pairs — while none of the
+3,434 underlying test statistics is unchanged and 51 of 275 nominally significant
+records are replaced.
+
 The worked example should be read in that light, and is best stated as a ladder
 rather than a verdict — the same layered reporting Howe et al. use when a cellular
 model proves only partly transportable [ref]:
@@ -511,7 +542,7 @@ by tumour. The complete record of which claims about it were raised, tested and
 withdrawn, together with the selection denominators at gene, pathway and mechanism
 level and the six pre-registration documents, is Supplementary S12 and S18–S24.
 
-**Relation to existing guidance.** These seven are additions to, not a
+**Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
 cis analyses must be tailored to local biology, that an expression biomarker is
 not an intervention, that co-regulation of neighbouring genes can act as
@@ -550,7 +581,7 @@ perturbation.
 power should be reported as the set of genes that passed screening under these
 conditions, not as targets — and because the fragile part of such a list is
 precisely its novel-locus part, the headline of a study of this kind is the part
-least likely to replicate. The seven checks above cost little and would have
+least likely to replicate. The eight checks above cost little and would have
 changed what this analysis reported at nearly every stage.
 
 ---
