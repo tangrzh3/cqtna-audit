@@ -29,15 +29,17 @@ carcinoma loci including *PNPLA3*; and when the exposure resource is replaced by
 a whole-blood eQTL dataset 300-fold larger, which raises significant loci from 7
 to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
 disease-by-resource combinations enrich, against a mismatched-locus control that
-does not. Raising outcome power increased MR discoveries while lowering
-colocalisation support and replaced the candidate list entirely: two lists from
-identical exposure data share no genes. Down-sampling shows the loss falls
-unevenly by locus class: at half of observed power, known-locus genes are
-recovered 85.8% of the time against 22.8% for novel-locus genes. Of 28 glycolytic
-genes, 3 are instrumentable, 2 analysable against this outcome and 1 yields a
-nominal association; that gene is 6.7-fold higher in malignant cells than in CD4⁺
-T cells, so tissue-level validation of it measures tumour. In 152 comparable
-studies, at most 7.9% perform the locus-attribution check.
+does not. Replacing the outcome with a higher-powered meta-analysis — which
+changes study composition as well as power — increased MR discoveries while
+lowering colocalisation support and replaced the candidate list entirely: two
+lists from identical exposure data share no genes. Down-sampling shows the loss
+falls unevenly by effect size and hence by locus class: at half power,
+known-locus genes recover 85.8% of the time against 22.8%, of which 68–80% is
+reproduced by a model using full-power |z| alone. Of 28 glycolytic genes, 3 are
+instrumentable, 2 analysable against this outcome and 1 yields a nominal
+association; that gene is 6.7-fold higher in malignant cells than in CD4⁺ T
+cells, so tissue-level validation of it measures tumour. At most 7.9% of 152
+comparable studies perform the locus-attribution check.
 
 **Conclusions.** In this analysis, and within the power range we could observe,
 the reproducible part of a candidate list produced by this framework was the part
@@ -230,12 +232,15 @@ so the outcome-side half of that statement is supported while the exposure-side
 half names a resource rather than a sample size. Rosen et al. have shown that raising *eQTL* sample
 size uncovers additional independent regulatory signals and closes part of the
 gap between eQTL and GWAS colocalisation [37]. Our design asks the mirror
-question — with the exposure held fixed, does raising *outcome* power make target
-nomination more reliable? — and the answer here is that it does not: more outcome
-power produced more MR discoveries, lower colocalisation support, and a candidate
-list with no genes in common with the previous one. The two axes are therefore
-not interchangeable, and a study that is underpowered on one cannot be rescued by
-the other. Reporting which axis a given claim rests on should be routine.
+question — with the exposure held fixed, does a *higher-powered outcome* make
+target nomination more reliable? — and the answer here is that it does not: the
+meta-analysis produced more MR discoveries, lower colocalisation support, and a
+candidate list with no genes in common with the previous one. That outcome
+differs from its predecessor in study composition as well as power, so this is
+not a power experiment either; only the nested-release series isolates power, and
+there the significant list is stable rather than replaced. The two axes are not
+interchangeable, and a study underpowered on one cannot be rescued by the other.
+Reporting which axis a claim rests on should be routine.
 
 ### Colocalisation and SMR/HEIDI disagree, and the disagreement is consequential
 
@@ -299,6 +304,20 @@ naevus-locus genes are recovered against **0.4%** of novel-locus genes; at 50%
 power, 85.8% versus 22.8%. Reaching 50% recovery requires 2,506 cases for
 known-locus genes and 8,771 for novel-locus genes — 3.5-fold. Studies using this
 framework commonly analyse 3,000–8,000 cases, where novel-locus recovery is 6–40%.
+
+That differential is mostly a statement about effect size, and we tested how much
+of it survives conditioning on effect size. Candidates at novel loci sit against
+the detection threshold by construction — their full-power |z| all lie between
+3.73 and 4.55, while known-locus candidates reach 15.99 (medians 4.23 and 11.07) —
+and recovery under down-sampling is a monotone function of |z|. **A model using
+|z| with no class label reproduces 68–80% of the gap**; matched on |z|, the
+residual is **+5.2 percentage points [−1.6, +12.0] by independent locus** and
++6.4 [+0.9, +12.0] by gene, against raw gaps of 47.6 and 63.0. Only one known
+locus falls inside the novel |z| range, so the remaining 20–32% is not separable
+from the failure of matching and we do not attribute it. What we retain is
+threshold proximity rather than a property of the category — and the practical
+consequence is the same either way: **for anyone holding such a list, the
+novel-locus part is the part that will not replicate** (Supplementary S28).
 
 > In this analysis, and within the range of outcome power we could observe, the
 > reproducible part of the candidate list was precisely the part that did not
@@ -462,7 +481,7 @@ candidate under a ranking criterion that was never fixed in advance, and the
 first four designations were overturned. That is this project's own history and
 not an estimate of how often the framework fails, and the itemised record — every
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
-seven pre-registrations and the technical account of two processing errors of
+eight pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
 
 Eight checks follow directly, each cheap and each capable of changing what a study
@@ -540,7 +559,7 @@ biological importance are separable — the strongest enzyme in the functional d
 carries no instrument, and the gene that does carry one is principally expressed
 by tumour. The complete record of which claims about it were raised, tested and
 withdrawn, together with the selection denominators at gene, pathway and mechanism
-level and the seven pre-registration documents, is Supplementary S12 and S18–S27.
+level and the eight pre-registration documents, is Supplementary S12 and S18–S28.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -592,7 +611,7 @@ Full Methods accompany this manuscript.
 
 ## Supplementary information
 
-S9–S27, including the seven pre-registration documents with their reading tables
+S9–S28, including the eight pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the

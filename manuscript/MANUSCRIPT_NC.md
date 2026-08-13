@@ -10,17 +10,17 @@
 
 Context-specific expression quantitative trait loci (eQTLs) combined with
 Mendelian randomization are widely used to nominate immune targets in cancer. We
-audited this design in melanoma, using CD4⁺ T cell cis-eQTLs from eight
-activation profiles against a 12,530-case meta-analysis, and asked what the
-nomination depends on. Significant signal concentrates on loci already known for
-the outcome, across five nested power levels of one resource, in a second
-disease, and when the exposure is replaced by a whole-blood eQTL dataset
-300-fold larger — six of six disease-by-resource combinations, against a clean
-mismatched-locus control. Raising outcome power replaced the candidate list
-entirely. Of 28 glycolytic genes, three carry instruments, two survive
-harmonisation and one yields an association, and that gene is principally
+audited it in melanoma, instrumenting CD4⁺ T cell cis-eQTLs from eight activation
+profiles against a 12,530-case meta-analysis. Significant signal
+concentrates on loci already known for the outcome — across five nested power
+levels of one resource, in a second disease, and when the exposure is replaced by
+a whole-blood eQTL dataset 300-fold larger — in six of six disease-by-resource
+combinations, against a clean mismatched-locus control. Swapping the outcome for
+a higher-powered meta-analysis, which also changes study composition, replaced
+the candidate list entirely. Of 28 glycolytic genes, three carry instruments, two
+survive harmonisation and one yields an association, and that gene is principally
 expressed by tumour rather than T cells. Which loci a nomination lands on is set
-by the outcome GWAS; how many instruments exist is set by the exposure resource.
+by the outcome GWAS; how many instruments exist, by the exposure resource.
 
 ---
 
@@ -130,10 +130,12 @@ platform together, so it does not isolate exposure sample size; what is
 identified is the asymmetry, since the outcome is the only thing differing
 between the two arms. Raising eQTL sample size is known to uncover additional
 independent regulatory signals and close part of the eQTL–GWAS colocalisation
-gap; the mirror question, asked here with the exposure held fixed, is whether
-raising outcome power makes nomination more reliable. It does not: more outcome
-power gave more MR discoveries, lower colocalisation support, and a candidate list
-sharing no genes with the previous one.
+gap; the mirror question, asked here with the exposure held fixed, is whether a
+higher-powered outcome makes nomination more reliable. It does not: the
+higher-powered meta-analysis gave more MR discoveries, lower colocalisation
+support, and a candidate list sharing no genes with the previous one — though
+that outcome differs in composition as well as power, so this is not a power
+experiment either.
 
 ### Colocalisation and SMR/HEIDI disagree, and the disagreement matters
 
@@ -174,6 +176,16 @@ power, 85.8% versus 22.8%. Reaching 50% recovery needs 2,506 cases for
 known-locus genes and 8,771 for novel-locus genes — 3.5-fold (Fig. 4). Studies
 using this framework commonly analyse 3,000–8,000 cases, where novel-locus
 recovery is 6–40%.
+
+That differential is mostly effect size. Novel-locus candidates sit against the
+detection threshold by construction (full-power |z| 3.73–4.55 against up to 15.99
+for known loci), and **a model using |z| with no class label reproduces 68–80% of
+the gap**; matched on |z| the residual is +5.2 percentage points [−1.6, +12.0] by
+locus. With only one known locus inside the novel |z| range, the remainder is not
+separable from the failure of matching, so we claim threshold proximity rather
+than a property of the category. The practical consequence is unchanged: for
+anyone holding such a list, the novel-locus part is the part that will not
+replicate.
 
 ### What can be interrogated at all, stated at the level it applies to
 
@@ -345,7 +357,7 @@ Colocalisation versus SMR/HEIDI · Fig. 4 Power and list stability by locus clas
 Fig. 5 Instrument availability across the pathway · Fig. 6 Compartment
 attribution · Fig. 7 Patients across three cohorts.
 
-Methods, References, and Supplementary Information (including the seven
-pre-registration documents, the multiple-testing unit sensitivity analysis, the
-complete record of target-substantiation attempts, and the literature audit)
-accompany this manuscript separately.
+Methods, References, and Supplementary Information (including the eight
+pre-registration documents, the multiple-testing unit and effect-size sensitivity
+analyses, the complete record of target-substantiation attempts, and the
+literature audit) accompany this manuscript separately.

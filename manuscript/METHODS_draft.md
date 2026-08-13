@@ -95,6 +95,25 @@ independent discovery, and state this limitation in the text.
 Multiple testing was controlled by Benjamini–Hochberg FDR within each analysis
 family, with the family defined before the analysis was run.
 
+**Effect-size matching for the locus-class differential.** The down-sampling
+model recomputes Wald ratios and BH-FDR from summary statistics and takes no
+class label as input, so recovery is a function of full-power |z| and the global
+threshold alone and the known-versus-novel differential can only follow from the
+two classes' |z| distributions. To quantify that, each unit's recovery frequency
+at half power was regressed on log|z| with and without the class label, and novel
+units were matched to known units within a pre-registered caliper of 0.20 on
+log|z|, with replacement, nearest first; the residual differential was
+bootstrapped over matched pairs. Common support was recorded, since the matched
+comparison is only interpretable where the two |z| distributions overlap. The
+analysis was run at gene and at independent-locus level, with the locus level
+pre-specified as primary. A process control required the new implementation to
+reproduce the published recovery curve bitwise before any matched result was
+read; this failed on first run because the published script draws from a single
+generator consumed across all power points while the reimplementation re-seeded
+per point, and was resolved by matching the draw sequence rather than by
+loosening the tolerance. Design, criteria and the replacement wording were fixed
+in a pre-registration written before the analysis.
+
 **Unit of inference.** The family is gene × profile records, and the record level
 is the primary unit throughout: the registered down-sampling predictions, the
 sequential-release trajectory, both generalisations and the disease × resource

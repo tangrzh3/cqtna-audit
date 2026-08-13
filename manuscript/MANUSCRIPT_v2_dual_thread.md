@@ -26,10 +26,12 @@ with a whole-blood eQTL resource 300-fold larger — which changes donors, cell
 composition and platform together, and so identifies a resource rather than a
 sample size — raises significant loci from 7 to 30 and leaves the attribution
 unchanged (66.7% known-locus, 4.44-fold, P = 3.7×10⁻¹¹, against 4.09-fold in
-CD4⁺ T cells). Raising outcome power increased MR discoveries while *lowering*
-colocalisation support and replaced the candidate list entirely: two lists from
-identical exposure data share no genes. Down-sampling, validated against twelve
-pre-registered predictions, shows the loss falls unevenly by locus class — at half
+CD4⁺ T cells). Replacing the outcome with a higher-powered meta-analysis — which
+changes study composition as well as power, so the two cannot be separated —
+increased MR discoveries while *lowering* colocalisation support and replaced the
+candidate list entirely: two lists from identical exposure data share no genes. Down-sampling, validated against twelve
+pre-registered predictions, shows the loss falls unevenly by effect size and
+therefore by locus class — at half
 of observed power, known-locus genes are recovered about four times as often as
 novel-locus ones. Within this project's fully enumerated
 target-substantiation record — eleven tests, not a sample of any framework's
@@ -511,6 +513,26 @@ recovered against **0.4%** of novel-locus genes; at 50% power, 85.8% versus
 22.8%. Reaching 50% recovery requires 2,506 cases for known-locus genes and 8,771
 for novel-locus genes — 3.5-fold. Studies using this framework commonly analyse
 3,000–8,000 cases, where novel-locus recovery is 6–40%.
+
+**That differential is mostly a statement about effect size, and we tested how
+much of it survives conditioning on effect size (Supplementary S28).** Candidates
+at novel loci sit against the detection threshold by construction: their
+full-power |z| all fall between 3.73 and 4.55, while candidates at known loci
+reach 15.99 (medians 4.23 and 11.07). Since recovery under down-sampling is a
+monotone function of |z|, part of the gap must follow from that alone — and it
+does: **a model using full-power |z| with no class label reproduces 68–80% of it**
+(locus and gene level respectively). Matched on |z|, the residual differential is
+**+5.2 percentage points [−1.6, +12.0] by independent locus** and +6.4 [+0.9,
++12.0] by gene, against raw gaps of 47.6 and 63.0. The two classes barely overlap
+in |z| — only one known locus falls inside the novel range — so the remaining
+20–32% cannot be attributed: it is not separable from the failure of matching.
+The claim we retain is therefore about threshold proximity rather than about the
+category. The practical consequence is unchanged, and does not depend on which
+reading is right: **for anyone holding such a candidate list, the novel-locus part
+is the part that will not replicate.** What we cannot separate is whether known
+loci recover better because they are genuinely larger effects or because novel
+loci were selected at the threshold; both are true here, and this design cannot
+apportion them.
 
 > In this analysis, and within the range of outcome power we could observe, the
 > reproducible part of the candidate list was precisely the part that did not
@@ -1484,6 +1506,10 @@ that round is a component of the meta outcome, so the calibration is empirical
 rather than external (§2.5).
 **b**, Five cancers. **c**, Stratified by locus class: known loci recover at 46%
 where novel loci are at 0.4%; 50% recovery needs 2,506 versus 8,771 cases.
+**d**, The same stratification against full-power |z|. The two classes barely
+overlap (novel 3.73–4.55; known to 15.99), and a |z|-only model with no class
+label reproduces 68–80% of the gap, so panel **c** is read as threshold proximity
+rather than as a property of the category (§2.5, Supplementary S28).
 
 **Fig 5 | Compartment attribution: a gene nominated with CD4-specific instruments
 is measured, in tissue, as tumour.** **a**, TPI1 by annotated cell type in
@@ -1576,6 +1602,7 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S28 | **Pre-registration document** (effect-size matching), registered before any matched analysis was run, including the finding — stated in its section 0 — that the down-sampling model contains no class label and the differential can therefore only follow from the |z| distributions; the pre-committed replacement wording; and two items logged against ourselves: a process control that failed on first run through a random-number-ordering bug, and a design flaw in the pre-registration itself, which permitted the matched comparison to collapse onto a single known anchor | `PREREG_effect_size_matching.md`; `101a`–`101c` |
 | S27 | **Self-administered attribution check**: the accepted-causal-gene list assembled before the comparison, the ten loci reached under the eQTLGen exposure, and the named gene at each | `96a` |
 | S26 | **Multiple-testing unit sensitivity**: the FDR < 0.05 list recomputed over records, unique variants, genes and independent loci, each by minimum-p and by Simes combination, plus a two-stage hierarchical procedure; reported for both the meta and FinnGen rounds, with the gene list under each unit | `100a`, `100b` |
 | S25 | **Pre-registration document** (FinnGen R13 transfer test), with the endpoint mapping that excludes R13 from the power trajectory, the pre-committed direction of every difference between the two releases, six point predictions with intervals, three process controls, the mismatched-list negative control, and its results register — including four items registered against ourselves: a point prediction that did not come true although it fell inside its interval, two identical cells that are arithmetic rather than confirmation, an identical count over non-identical record sets, and a comparator-identity bug of ours that compared a meta-analysis to a release | `PREREG_r13_transfer.md`; `99a`–`99c` |
