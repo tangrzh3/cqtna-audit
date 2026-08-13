@@ -6,8 +6,11 @@
      processing errors, the candidate-selection timeline, and repeated claim
      boundaries are in Supplementary, not here. The eight diagnostics are the
      backbone. Every number is identical to MANUSCRIPT_v2_dual_thread.md, which
-     remains the reference document, EXCEPT for the ORCS paragraph and
-     diagnostic (viii), which postdate it (Steps 97 and 99). -->
+     remains the single reference document: the ORCS paragraph (Step 97) and
+     diagnostic (viii) with the R13 transfer test (Step 99) were backfilled into
+     it, so this version is once again a pure derivative with nothing of its own.
+     Step 96's self-imposed ground truth is in none of the three files and is
+     still an open decision. -->
 
 ## Abstract
 
@@ -16,30 +19,29 @@ combined with Mendelian randomization (MR) are widely used to nominate immune
 targets in cancer. An instrument selected in one cell state at one timepoint is
 usually a single variant, so the Wald ratio has test statistic z = β_out/se_out
 and the outcome GWAS supplies every MR significance claim. We audited what that
-constraint implies in practice, using CD4⁺ T cell cis-eQTLs from eight activation
-profiles against a 12,530-case melanoma meta-analysis, and then varied the
-outcome and the exposure resource independently.
+implies in practice, using CD4⁺ T cell cis-eQTLs from eight activation profiles
+against a 12,530-case melanoma meta-analysis, then varied outcome and exposure
+resource independently.
 
 **Results.** Significant signal concentrates on loci already known for the
 outcome: 4.09-fold by independent locus. The pattern recurs across five nested
 power levels of one GWAS resource, where no novel-locus gene reaches significance
 at any case number between 2,705 and 5,753, and it transfers unchanged to that
-resource's current release although not one of the 3,434 test statistics is; in a
-second disease, where three of four significant loci are known hepatocellular
-carcinoma loci including *PNPLA3*; and when the exposure resource is replaced
-entirely by a whole-blood eQTL dataset 300-fold larger, which raises significant
-loci from 7 to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
+resource's current release although not one of the 3,434 test statistics does; in
+a second disease, where three of four significant loci are known hepatocellular
+carcinoma loci including *PNPLA3*; and when the exposure resource is replaced by
+a whole-blood eQTL dataset 300-fold larger, which raises significant loci from 7
+to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
 disease-by-resource combinations enrich, against a mismatched-locus control that
 does not. Raising outcome power increased MR discoveries while lowering
 colocalisation support and replaced the candidate list entirely: two lists from
 identical exposure data share no genes. Down-sampling shows the loss falls
 unevenly by locus class: at half of observed power, known-locus genes are
 recovered 85.8% of the time against 22.8% for novel-locus genes. Of 28 glycolytic
-genes, 3 are instrumentable, 2 remain analysable against this outcome and 1
-yields a nominal association; that gene is 6.7-fold higher in malignant cells
-than in CD4⁺ T cells, so tissue-level validation of it measures tumour, and
-published genotype × pseudotime tests show no dynamic genetic effect for it. In
-152 comparable studies, at most 7.9% perform the locus-attribution check.
+genes, 3 are instrumentable, 2 analysable against this outcome and 1 yields a
+nominal association; that gene is 6.7-fold higher in malignant cells than in CD4⁺
+T cells, so tissue-level validation of it measures tumour. In 152 comparable
+studies, at most 7.9% perform the locus-attribution check.
 
 **Conclusions.** In this analysis, and within the power range we could observe,
 the reproducible part of a candidate list produced by this framework was the part
@@ -154,8 +156,8 @@ was seen — the list survives it unchanged: at 6,226 cases the significant list
 the same six genes at the same two loci, still with no novel-locus gene, and
 locus attribution is 9.6-fold (P = 0.011). The stability is not an artefact of
 reusing data. Not one of the 3,434 test statistics is unchanged between the two
-releases, standard errors shrink by the 3.8% that the added cases predict, and
-51 of the 275 nominally significant records (19%) are replaced. What holds still is the
+releases, standard errors shrink by 3.85% against the 3.8% the added cases
+predict, and 51 of the 275 nominally significant records are replaced. What holds still is the
 significant tier; the tier below it churns. Because the extra cases and the
 broadened control exclusion both push towards more signal, a successful transfer
 here is partly confounded and we do not read it as power alone.

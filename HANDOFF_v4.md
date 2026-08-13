@@ -7,7 +7,8 @@
 > **新会话阅读顺序**
 > 1. 本文件
 > 2. 两版投稿稿：`manuscript/MANUSCRIPT_GB.md`、`manuscript/MANUSCRIPT_NC.md`
-> 3. 全文源 `manuscript/MANUSCRIPT_v2_dual_thread.md`（⚠ **已不是唯一正文源**，见 §三）
+> 3. 全文源 `manuscript/MANUSCRIPT_v2_dual_thread.md`（**唯一正文源**，两版都是派生物；
+>    Step 99 的回填已把它恢复到这个地位，见 §三）
 > 4. `FINDINGS_step5_pigmentation.md` 的 Step 84 起
 > 5. **七份预注册**（S9/S18/S20/S21/S22/S24/**S25**）+ `SUPP_attempt_timeline.md`
 
@@ -102,26 +103,35 @@ worked example：TPI1，定性为 **instrument-visibility 的示例**，不承�
 **两版都已按 R3 的五类移出过程性内容**：失败全过程与修改历史、stopping-rule 实例、
 处理错误的技术经过、候选选择时间线、重复的 claim boundaries —— 全部只在 Supplementary。
 
-Step 99 后两版的字数（含摘要与关键词）：GB **6,024**、NC **3,235**；
-NC 摘要 **141**（限 150 ✅）。GB 摘要约 **395–410**，**本来就超出 ~350 的目标**，
-Step 99 的改动已尽量抵消但没解决——这是一个**待办**，不是本轮引入的问题。
+### ✅ "唯一正文源"已恢复（选了方案 a，回填完成）
 
-### ⚠ "唯一正文源"已经不成立了（本轮发现，须尽早决断）
+Step 99 一度出现"三份文件各自为源"：ORCS（Step 97）与第八条诊断 + R13（Step 99）
+只在 GB/NC，全文源没有。**已按方案 (a) 回填，现在全文源重新是唯一源，
+GB/NC 都是纯派生物，没有任何自己独有的内容。**
 
-`MANUSCRIPT_v2_dual_thread.md`（14,664 词）**缺少两块只存在于 GB/NC 的内容**：
+回填的四处：
 
-| 内容 | 全文源 | GB | NC |
+| 位置 | 内容 |
+|---|---|
+| §2.7「What cannot be claimed」之后 | **ORCS 段**（接在 DepMap-essential 那句后面，是它的延伸）。措辞锁死 "a knockout cannot isolate a CD4-specific role"，并明写 "not evidence for the nomination" |
+| §2.2 五个 release 段之后 | **「Why the series stops at R12」+ R13 转移测试**两段，含 S25 §1 的方向不对称论证 |
+| §4.5 | **第八条诊断 ⑧**；标题改为 "Eight diagnostics"；摘要加一句 R13 转移 |
+| Supplementary 表 + Methods | **S25 行**（含四条自我登记项）；`METHODS_draft.md` 新增 **§5c**，`assemble.py` 会自动renumber 成 §5.5c |
+
+⚠ **Step 96 的自我 ground truth（6/10）仍然三份都没写**，是独立的待办，不在本次回填范围。
+
+### 字数现状
+
+| | 词数 | 摘要 | 状态 |
 |---|---|---|---|
-| ORCS / CRISPR（Step 97）| **无** | 有 | 有 |
-| 第八条诊断 + R13 转移测试（Step 99）| **无** | 有 | 有 |
-| eQTLGen、4.44×、错配对照（Step 92/94）| 有 | 有 | 有 |
-| 自我 ground truth 6/10（Step 96）| **无** | 无 | 无 |
+| 全文源 | 15,880（回填前 14,664）| — | — |
+| `MANUSCRIPT_assembled.md` | 23,099 | — | 由 `assemble.py` 生成，**永不手改** |
+| GB | 6,005 | **370** | 正文进入 6,000–8,000 惯例区间 ✅；摘要仍超 ~350 目标 **20 词** |
+| NC | 3,235 | **141** | 限 150 ✅；正文限 5,000 ✅ |
 
-→ 现在是**三份文件各自为源**。两条路，**必须选一条**：
-(a) 把 ORCS 段与第八条诊断回填进全文源，恢复"单一源 + 派生物"；
-(b) 正式宣布 GB/NC 为投稿主体，全文源降级为**存档**。
-GB 头部注释已改为如实说明（"Every number is identical … EXCEPT …"），
-但那只是止血。**Step 96 的 6/10 三份都没写，需单独决定是否进正文。**
+GB 摘要**回填前是 382**，加了 R13 那句之后压到 **370**——比原来还短，
+但仍超目标。再砍就要动"In this analysis, and within the power range we could
+observe"这类限定语，**那与本文的立场相悖，故停在 370，留给投稿时定夺。**
 
 `assemble.py` 负责把 Methods 与 References 装配进全文版（生成 `MANUSCRIPT_assembled.md`，
 **永不手改**）。`build_gb.py` 是早期的减法脚本，**已被手写 GB 版取代，可删**。
@@ -175,17 +185,18 @@ R13 HCC 的对应数字（S25 的 C3/C4 格用到）：`C3_HEPATOCELLU_CARC_WIDE
 
 ## 五、下一轮的工作顺序
 
-**v4 原列的 1–4 项已全部完成**（第七份预注册已跑完并填结果、git 已提交三个 commit、
-ORCS 已压成一段、第八条诊断已立并写进 §2.2 轨迹段）。剩下的：
+**v4 原列的 1–4 项已全部完成**，"三份文件各自为源"也已按方案 (a) 回填解决（见 §三）。
+剩下的：
 
-1. **决断"三份文件各自为源"**（见 §三的表）。这是现在最大的结构性风险：
-   ORCS 段与第八条诊断只在 GB/NC，全文源没有。**继续往下写之前先选 (a) 或 (b)。**
-2. **Step 96 的自我 ground truth（6/10）三份稿子都没写。** 决定进不进正文。
+1. **Step 96 的自我 ground truth（6/10）三份稿子都没写。** 决定进不进正文。
    进的话注意它的限定：样本小、公认基因清单是我们自己定的（跑前定死但非预注册）。
-3. **GB 摘要超长**（约 395–410 vs 目标 ~350），需要砍约 50 词。
-4. GB 正文仍有余量（约 5,600 vs 惯例 6,000–8,000），可加回：
+   若要进，**回填顺序仍是先全文源、再 GB/NC**——这是本轮刚恢复的纪律，别再破。
+2. **GB 摘要 370 词，超 ~350 目标 20 词。** 能砍的都砍过了；再砍会动到限定语。
+   投稿时若期刊硬性卡 350，优先删"Down-sampling shows the loss falls unevenly…"
+   那句的百分比细节，**不要删限定语**。
+3. GB 正文 6,005 词，已进惯例区间但仍偏下沿，可加回：
    coloc 窗口/先验敏感性的完整表述、匹配功效模拟的校准细节、患者部分的三种重复样本处理。
-5. §六待核实清单仍未清（Chen et al. 的两个 FDR、DepMap release 号、6 处 `[ref]`）。
+4. §六待核实清单仍未清（Chen et al. 的两个 FDR、DepMap release 号、6 处 `[ref]`）。
 
 ---
 

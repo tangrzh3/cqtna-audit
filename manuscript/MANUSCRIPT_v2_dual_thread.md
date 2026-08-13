@@ -15,7 +15,9 @@ Nomination proved highly sensitive to the outcome GWAS used. Significant signal 
 dominated by loci already known for the outcome (4.1-fold by independent locus);
 the pattern holds across five nested power levels of one GWAS resource, where no
 novel-locus gene reaches significance at any case number between 2,705 and 5,753,
-and it recurs when the exposure side is held fixed and hepatocellular carcinoma is
+and it transfers unchanged to that resource's current release although not one of
+the 3,434 underlying test statistics does;
+it recurs when the exposure side is held fixed and hepatocellular carcinoma is
 substituted — three of four significant loci are known HCC loci, including
 *PNPLA3*, though at 30% of melanoma's effective sample size that pre-registered
 test does not itself reach significance. **The mirror-image test gives the same
@@ -211,6 +213,36 @@ agreement between them exceeds that between independent studies of equal size, s
 this is an upper bound on stability; and because no novel-locus candidate exists
 anywhere in the range, the trajectory shows only that they do not appear, not
 that they turn over.
+
+**Why the series stops at R12, and what the release after it shows instead.** The
+next release, R13, retired the endpoint used above and replaced it with a
+successor whose cases are defined by exactly the same codes but whose controls are
+screened by a different cancer-exclusion rule (6,226 cases and 372,159 controls
+against 5,753 and 378,749). It therefore fails the comparability gate the
+trajectory design imposed in advance — the same gate that excluded FinnGen R6 —
+and admitting it as a sixth power level would score a change of phenotype
+definition as a change in power. We analysed it instead as a **transfer test**,
+registered in full before any R13 statistic was read, including the direction of
+each difference: the added cases raise power, the control pool contributes only
+1.6% of effective sample size, and a broadened cancer exclusion leaves cleaner
+controls, so **every difference pushes towards more and stronger signal**. That
+asymmetry was recorded precisely so that a successful transfer would count as
+partly confounded while a failed one could not be blamed on the definition change
+(Supplementary S25).
+
+The list transfers intact. At 6,226 cases the FDR-significant set is the same six
+genes at the same two independent loci, still with no novel-locus gene, and locus
+attribution is 9.6-fold (P = 0.011); the three remaining exposure-by-disease
+pairs move the same way (3.7-, 17.6- and 9.8-fold). **The stability is not an
+artefact of reusing data.** Not one of the 3,434 test statistics is identical
+between the two releases (correlation of |z| = 0.937), standard errors shrink by
+3.85% against the 3.8% the added cases predict, and 51 of the 275 nominally
+significant records are replaced. What holds still is the FDR-significant tier;
+the tier immediately below it turns over by roughly a fifth in a single release.
+Because every difference between the releases points the same way, we do not read
+this as an effect of power alone, and because R13 contains R12's participants it
+is not an independent replication — it answers only the question a reader
+re-running this audit on today's data would be asking.
 
 **A second disease.** If the pattern is a property of the framework rather than
 of melanoma, it should recur when only the outcome changes. We repeated the
@@ -577,6 +609,28 @@ outcome GWAS. Calling it "the gene MR named" is accurate; calling it a discovery
 is not. The genetic side of this nomination is weaker than four passed filters
 make it appear, and reporting it as such is the point of the worked example rather
 than a caveat attached to it. **Part II does not depend on any of it.**
+
+**A perturbation experiment would not settle it either, and the reason is
+measurable.** Whether the nominated gene has immunological consequences is the
+question this design cannot answer, and the obvious next experiment — knock it out
+and look — is bounded by the same property that makes it DepMap-essential. Across
+the **1,471 human CRISPR screens** in BioGRID ORCS in which TPI1 was measured it
+scores as a hit in **628 (42.7%)**. That is the profile of a core-essential gene:
+GAPDH is 46.6% and PGAM1 47.2% in the same library, while lineage-defining or
+trait-specific genes measured in the same screens sit an order of magnitude lower
+(IRF4 3.9%, FOXP3 1.5%, MC1R 1.1%, ZFYVE19 1.2%). A knockout of this gene
+therefore produces a fitness phenotype in almost any cell type, so **a knockout
+cannot isolate a CD4-specific role** — neither a real one nor an in silico
+substitute — and the intervention is in any case not comparable to the small,
+graded expression shift an eQTL represents. This is why we report no perturbation
+experiment rather than a simulated one. It is a boundary on what perturbation
+could add here, **not evidence for the nomination**, and it should not be read as
+CRISPR data supporting our conclusion. The observation that carries further is
+about the pathway rather than the gene: **PGAM1 — the strongest baseline enzyme in
+the functional data (§2.5), and the one MR cannot see at all because it carries no
+instrument — has the same pan-essential profile.** Essentiality is a property of
+glycolysis here, not of the gene MR happened to name, which makes it a second
+instance of finding ⑥ rather than an independent observation.
 
 **No candidate is strong on all axes (Fig 8).** Statistical strength, pathway attribution and druggability point at different
 genes. ZFYVE19 has the strongest colocalisation (PP.H4 = 0.99, peaks coincident,
@@ -1212,7 +1266,7 @@ perturbation, not observation. These two need
 new data rather than new analysis, and we would rather say so than present further
 re-analyses of the same data as though they closed the gap.
 
-### 4.5 Seven diagnostics, and what should change in practice
+### 4.5 Eight diagnostics, and what should change in practice
 
 Each finding yields a check that costs little and would have changed what this
 analysis reported.
@@ -1272,6 +1326,25 @@ biology.
 depth, at the cell level.** Splitting by score splits purity; depth matching does
 not fix it; our cluster-level control passed while the cell-level control failed.
 
+**⑧ Before comparing candidate lists across releases of the same GWAS resource,
+verify code by code that the endpoint definition is the same one.** Release notes
+are not sufficient. FinnGen R13 describes the successor to our endpoint as
+"including Hilmo", its hospital discharge register, which reads as a newly widened
+case definition; the code-level definitions show the cases are identically defined
+and that what changed is the rule screening cancers out of the controls. We drew
+the wrong conclusion from that one line ourselves before checking the definitions
+(Supplementary S12). The cost of not checking is specific: a study that reads the
+summary line and compares anyway will score pure phenotype drift as instability of
+its candidate list — the very quantity such a comparison exists to measure — and
+will do so in the direction that makes its own list look less reproducible than it
+is. Where the definitions genuinely differ, the comparison is still worth making,
+but it is a transfer test rather than a power point, and the direction of every
+difference should be written down before the result is seen. Ours transfers
+intact: the same six genes at the same two loci, no novel-locus gene, 3.7- to
+17.6-fold attribution across four exposure-by-disease pairs, while not one of
+3,434 underlying test statistics is unchanged and 51 of 275 nominally significant
+records are replaced.
+
 More generally: a candidate list produced by this framework at current outcome
 power should be reported as *the set of genes that passed screening under these
 conditions*, not as targets — and because the fragile part of such a list is
@@ -1291,6 +1364,7 @@ power because it never depends on it.
 
 §5.1 暴露数据 · §5.2 结局与 meta · §5.3 工具变量 · §5.4 MR 与 Steiger ·
 §5.5 共定位（含多信号敏感性与 MC1R 校准对照）· §5.5b **release 功效轨迹（含预注册）** ·
+§5.5c **R13 转移测试（含预注册 S25、endpoint 定义核对、提取缓存）** ·
 §5.6 SMR/HEIDI · §5.7 位点标注与富集（按独立位点计）· §5.8 阴性对照表型 ·
 §5.9 跨癌种 · §5.9b **第二瘤种泛化（HCC，含预注册与两处偏离）** ·
 §5.10 功效-稳定性模拟 · §5.11 单细胞队列（归一化判据、样本定义）· §5.11b **第二瘤种患者分层（GSE235863，含预注册）** ·
@@ -1417,6 +1491,7 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S25 | **Pre-registration document** (FinnGen R13 transfer test), with the endpoint mapping that excludes R13 from the power trajectory, the pre-committed direction of every difference between the two releases, six point predictions with intervals, three process controls, the mismatched-list negative control, and its results register — including four items registered against ourselves: a point prediction that did not come true although it fell inside its interval, two identical cells that are arithmetic rather than confirmation, an identical count over non-identical record sets, and a comparator-identity bug of ours that compared a meta-analysis to a release | `PREREG_r13_transfer.md`; `99a`–`99c` |
 
 ---
 

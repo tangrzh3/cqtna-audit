@@ -169,6 +169,40 @@ novel-locus gene, the stratified comparison used a pre-specified relaxed referen
 (FDR < 0.20), and the absence of novel-locus genes at FDR < 0.05 is reported as a
 result in its own right.
 
+### 5c. FinnGen R13 transfer test
+
+The release following R12 replaced `C3_MELANOMA_SKIN_EXALLC` with
+`C3_MELANOMA_SKIN_WIDE` (6,226 cases, 372,159 controls) and the hepatocellular
+endpoint likewise with `C3_HEPATOCELLU_CARC_WIDE` (1,070 cases). Endpoint
+definitions were compared code by code in Risteys rather than read from the
+release manifest, whose one-line phenotype description ("including Hilmo") had
+led us to the wrong conclusion at first: the two melanoma endpoints select cases
+with the same codes (C43, 172, C44 plus melanoma morphology) and differ in the
+rule excluding cancers from the controls (`C3_CANCER_WIDE_EXALLC` against
+`C3_CANCER_WIDE`). The `_EXALLC` suffix occurs zero times in the R13 manifest, so
+the endpoint used in the trajectory has no same-name successor, and the bare
+`C3_MELANOMA_SKIN` endpoint was not substituted because R13 defines it more
+narrowly still.
+
+R13 was therefore excluded from the sequential-release trajectory of §5b, whose
+comparability gate requires verbatim-identical endpoints, and was analysed as a
+transfer test with everything except the outcome file held fixed as in §5b. Four
+exposure-by-outcome cells were run — the dynamic CD4⁺ T cell and whole-blood
+eQTL exposures against each of the two diseases — each paired with an R12
+comparator computed through the same code path from the R12 summary statistics
+rather than from any previously stored result, because the stored eQTLGen outcome
+columns were computed against the melanoma meta-analysis and not against R12.
+Locus attribution used each disease's own known-locus list as in §7, with a
+mismatched-list negative control. Three process controls were required before any
+R13 number was interpreted: exact reproduction of the R12 candidate list through
+the new code path, presence of the large-effect MC1R-region genes, and instrument
+coverage of at least 95% of the R12 set. Six point predictions with intervals,
+the reading table, the direction of every difference between the releases, and
+the results register are provided as a supplementary pre-registration document,
+registered before any R13 association statistic was read. Instrument-position
+extracts from each scanned file were cached so that the analysis can be re-run
+without rescanning 3.2 GB of summary statistics.
+
 ## 6. SMR and HEIDI
 
 SMR v1.3.1 was run against the same GRCh38 EUR reference panel (525
