@@ -52,3 +52,21 @@
 - release 轨迹：已知位点支有真实纵向证据；**新位点支只能说"不出现"，不得说"反复更替"**
 - 多信号：**PARP1 排除，ZFYVE19/TPI1 无法判定**，不得写成"整体排除"
 - **Part II 任何一句都不得出现黑色素瘤风险**
+
+---
+
+## 三、待核实后才可写入正文的一条（2026-08-13）
+
+审稿人指出可用 **Chen KY, Kibayashi T, Giguelay A, et al. Genome-wide CRISPR screen
+in human T cells reveals regulators of FOXP3. *Nature* 2025;642:191–200,
+doi:10.1038/s41586-025-08795-5**（PMID 40140585，**论文身份已核实**）作为
+TPI1 的真实实验约束：据称 TPI1 有 4 条 sgRNA，在该 FOXP3 诱导表型上
+**不是显著命中**（gene-level FDR 约 0.999 与 0.480）。
+
+⚠ **这两个 FDR 数字尚未核实**：该文的补充表在 Springer 静态路径上只取到一个 17 KB 的
+附件，基因组级筛选结果不在其中（可能在 Source Data 或需订阅）。
+**已从正文撤下，不得在核实之前写入。**
+
+核实途径（按优先级）：① 期刊 Source Data 文件；② 作者 GitHub/Zenodo 沉积；
+③ BioGRID ORCS 收录的该筛选。核实后应写成"**constrains but does not exclude**"，
+且只能放 Discussion 的边界段，**不得**当作 TPI1 的功能验证。

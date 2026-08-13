@@ -202,3 +202,31 @@
    须与脚本核对
 2. 统一到目标期刊的著录格式（本文件为作者-年-卷-页-DOI 的中性格式）
 3. 若期刊要求，补全 3 位以上作者的完整列表
+
+## E. 对照研究（2026-08-13 新增，全部经 CrossRef 核实）
+
+35. Reales G, et al. Design and interpretation of eQTL–GWAS colocalisation studies:
+    lessons from a large-scale evaluation. *PLOS Genetics* 2026.
+    doi:10.1371/journal.pgen.1012141 [已核实]
+
+36. Tambets R, et al. Extensive co-regulation of neighboring genes complicates the
+    use of eQTLs in target gene prioritization. *Human Genetics and Genomics
+    Advances* 2024;5:100348. doi:10.1016/j.xhgg.2024.100348 [已核实]
+
+37. Rosen JD, et al. Higher eQTL power reveals signals that boost GWAS
+    colocalization. *American Journal of Human Genetics* 2026.
+    doi:10.1016/j.ajhg.2026.02.009 [已核实]
+
+38. Howe LJ, et al. Evaluating transportability of in vitro cellular models to
+    in vivo human phenotypes using gene perturbation data. *Nature Communications*
+    2025. doi:10.1038/s41467-025-67199-1 [已核实]
+
+39. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to
+    drug target discovery. *Nature Communications* 2024.
+    doi:10.1038/s41467-024-50385-y [已核实]
+
+40. Karhunen V, et al. Integrating genetic data with biological insight: a
+    practical guide to cis-Mendelian randomization. *American Journal of Human
+    Genetics* 2026. doi:10.1016/j.ajhg.2026.03.011 [已核实]
+
+⚠ 正文中标 `[ref]` 的六处引用点对应 35–40，装配前须替换为期刊要求的编号格式。

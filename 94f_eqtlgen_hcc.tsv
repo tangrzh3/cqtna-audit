@@ -1,0 +1,3 @@
+exposure	disease	bg_loci	bg_known	sig_records	sig_loci	sig_known	pct_known	fold	fisher_p	nominal_hits
+eQTLGen_blood	HCC_low	559	43	7	3	2	66.7	8.67	0.01651735264985361	735
+eQTLGen_blood	HCC_high	562	44	9	5	2	40.0	5.11	0.051493999340511624	768

@@ -27,9 +27,10 @@ colocalisation support and replaced the candidate list entirely: two lists from
 identical exposure data share no genes. Down-sampling, validated against twelve
 pre-registered predictions, shows the loss falls unevenly by locus class — at half
 of observed power, known-locus genes are recovered about four times as often as
-novel-locus ones. Of eleven target-level tests, seven overturned the claim under
-test, three were inconclusive and one was significant on discovery but not
-confirmed on transfer. **In this analysis, and within the power range we could
+novel-locus ones. Within this project's fully enumerated
+target-substantiation record — eleven tests, not a sample of any framework's
+failure rate — seven overturned the claim under examination, three were
+inconclusive, and one was significant on discovery but not confirmed on transfer. **In this analysis, and within the power range we could
 observe, the reproducible part of the candidate list was the part that did not
 constitute a discovery.**
 
@@ -97,7 +98,9 @@ alone.
 This paper has two parts, and the division between them is not rhetorical. **Part
 I asks what this framework can nominate, and finds that everything depending on
 the outcome GWAS is unstable.** Every check we added in order to *strengthen* a
-target claim returned a negative; eight times. **Part II asks what the same data
+target claim that returned a verdict returned a negative, seven times of eleven
+tests, with three inconclusive and one significant on discovery but unconfirmed on
+transfer (Box 1). **Part II asks what the same data
 still establish once nomination is set aside, and finds that the exposure side
 supports claims the outcome side cannot.** Because a single-instrument Wald ratio
 has test statistic z = β_out/se_out, the outcome GWAS supplies every MR
@@ -265,6 +268,28 @@ in exactly one gene, ZFYVE19 — the boundary of what we predicted (≤1), and
 notably the gene that carried the strongest colocalisation in the original
 analysis. **"Novel-locus nominations never reproduce" would therefore be too
 strong; across exposure resources, one of them did.**
+
+**The two axes crossed.** Varying each axis separately leaves one reading open —
+that the whole-blood result is peculiar to melanoma, or that the HCC result is
+weak because the CD4 exposure is small. We therefore filled the grid, scoring
+every cell against **its own disease's** known-locus list, again pre-registered
+(Supplementary S24). All six cells enrich: melanoma 4.09-fold (CD4) and 4.44-fold
+(blood); HCC-high 8.85-fold and 5.11-fold; HCC-low 17.6-fold and 8.67-fold. Three
+of the six reach P < 0.05 and three do not (P = 0.052–0.110) on numerators as
+small as one of two loci, so this is a statement about **direction being
+consistent in every cell**, not six independent significant tests. The
+pre-registered negative control is what makes it interpretable: scoring the same
+cells against the *wrong* disease's list collapses the enrichment (HCC's list on
+melanoma, 1.30-fold, P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so
+the effect is specific to each outcome's own genetics and is not an artefact of
+locus density.
+
+One unplanned observation from the grid is worth stating because it separates the
+two sides cleanly. Moving to an exposure resource 300-fold larger multiplied
+significant loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3). **Exposure
+power sets how many instruments exist; outcome power sets how many of them can
+reach significance** — which is what z = β_out/se_out predicts, arrived at here
+from the data rather than from the algebra.
 
 ## 2.3 Finding ②: SMR/HEIDI does not exclude the LD confounding colocalisation identifies
 
@@ -648,8 +673,31 @@ statement is about measurement, not regulation:
 > from a true null.
 
 Distinguishing activation-dependent *regulation* from activation-dependent
-*measurability* requires a genotype × time interaction test on individual-level
-data, which is not available for this resource. We do not claim the former.
+*measurability* requires a genotype × pseudotime interaction test, and that test
+has already been run and published for this resource. Its Supplementary Table 8
+reports linear and quadratic interaction models for every lead eQTL variant, and
+**all three TPI1 lead variants tested return no evidence of interaction**: in
+memory cells, `12_6908821_T_C` gives linear P = 0.974 and quadratic P = 0.992; in
+naive cells, `12_6868195_A_G` — 1,063 bp from our instrument and in high LD with
+it — gives 0.707 and 0.891, and `12_6908616_AAAAACC_A` gives 0.378 and 0.605.
+Meanwhile the *expression* of TPI1 is among the most strongly pseudotime-dependent
+in the dataset (Moran's I = 0.664, q ≈ 0; Supplementary Table 6).
+
+Three things are therefore separable here, and the published interaction test
+tells them apart:
+
+| | TPI1 |
+|---|---|
+| **Dynamic expression** — does the gene's level change with activation? | **Yes**, strongly (Moran's I = 0.664) |
+| **Time-specific eQTL significance** — does the eQTL P value change with time? | **Yes** — genome-wide significant at 16 h only |
+| **Dynamic genetic effect** — does the genotype's effect change with time? | **No evidence**, in any of three lead-variant tests |
+
+**We therefore state the conclusion positively rather than as a limitation: the
+apparent 16-hour specificity of this instrument reflects time-dependent
+detectability, not a demonstrated dynamic genetic effect.** An earlier version of
+this manuscript said the interaction test required individual-level data we did
+not have; that was wrong — the test is public, we have now used it, and it
+supports the measurement reading over the regulation reading.
 
 **Is this gene quantified reliably at all?** The question is forced on us by an
 unusual pattern: TPI1 is missing from all eight stimulated T-cell datasets we
@@ -855,7 +903,8 @@ an instrument exists at one timepoint only.
 **Not licensed.** We do not claim that instruments for this pathway are confined
 to activated states — the full matrix refutes it. We do not claim that genetic
 regulation is activation-dependent; measurability is, and the two cannot be
-separated without individual-level genotype × time data. We do not join the Part I result to the response association: the two are
+separated by us; the published genotype × pseudotime interaction test settles it
+in favour of measurability (§2.7). We do not join the Part I result to the response association: the two are
 different estimands, measured in different data, and their directional concordance
 is worth stating but is not a causal chain. We
 make no target claim: TPI1 is DepMap-essential, and it is the instrumentable
@@ -914,15 +963,16 @@ cross-disease cohort, and no single arm was confirmed in both.
 > contradicts. Two processing errors of ours are reported as results rather than in
 > Methods (§2.6), because they are instances of finding ⑦.
 >
-> **Five of our own methodological claims were pre-registered with failure
+> **Six of our own methodological claims were pre-registered with failure
 > conditions written before the data were read**: the power-trajectory predictions
 > (12 of 12 intervals hit); the same-disease replication of the patient
 > stratification (partial); the second-tumour generalisation (directionally
 > consistent, primary test not significant); the patient stratification in that
-> second tumour (primary test passed); and the exposure-resource generalisation
-> (primary test passed, P = 3.7×10⁻¹¹). A sixth — extending compartment attribution
-> to a second tumour — could not be run at all. **Three passes, two partial
-> results, one foreclosed.**
+> second tumour (primary test passed); the exposure-resource generalisation
+> (primary test passed, P = 3.7×10⁻¹¹); and the disease × resource grid (all six
+> cells concordant in direction, negative control clean). A seventh — extending
+> compartment attribution to a second tumour — could not be run at all.
+> **Three passes, two partial results, one reduced in scope, one foreclosed.**
 
 ---
 
@@ -1015,7 +1065,8 @@ named gene means were formulated and tested; twelve returned a verdict — eight
 overturned, three supported by positive results rather than by non-significant
 ones (TPI1 marks the glycolytic programme; the class-level avoidance of the
 resting state; compartment attribution), one partial — and three returned none.
-*Our own methodological claims*: four were pre-registered, two passed (Box 1).
+*Our own methodological claims*: six were pre-registered with failure conditions
+written in advance, and three passed (Box 1).
 
 The consequence for Part II is structural. Because gene-level selection is the
 part we cannot defend as pre-specified, Part II's load-bearing conclusions are
@@ -1057,8 +1108,9 @@ instrument exists at one timepoint and at no other, driven by measurability rath
 than by effect size, since at the same variant its effect estimate is largest at
 rest and simply far noisier there. We therefore do not claim that regulation
 itself is activation-dependent; separating the two requires individual-level
-genotype × time data we do not have. The design consequence is unaffected by which
-explanation is correct: a study using a resting-state resource would find nothing
+genotype × pseudotime interaction test — which is public, which we now use, and
+which returns no evidence of interaction for any TPI1 lead variant (§2.7). The
+design consequence is unaffected by which explanation holds: a study using a resting-state resource would find nothing
 here and could not distinguish that from a true null. **The generalisable question
 for any pathway is not whether its genes have eQTLs, but in which state they can
 be measured well enough to yield one.**
@@ -1093,7 +1145,7 @@ labels, so all patient-level results are reported under three ways of handling t
 repetition. The patient-level analysis rests on three small cohorts (9 versus 10 donors
 pre-treatment on discovery; 8 versus 3 in replication), and the replication
 cohort's non-responder group is small enough that no configuration could have
-reached significance at the observed effect size. Two claims in an earlier version
+reached significance at the observed effect size.
 Colocalisation results were checked across four analysis windows and four values
 of the shared-variant prior: window size is immaterial, but four of eleven
 examined loci — including TPI1 — change criterion status with the prior, so for
@@ -1144,6 +1196,21 @@ cancer under a different regimen, so it strengthens no claim to the degree a
 same-disease replication would. Finally, the
 colocalisation supporting our worked nomination sits in a region the outcome GWAS
 cannot fine-map — stated rather than absorbed.
+
+Finally, the boundary of what this design can establish is reached, and we name it
+rather than leave it to be found. **Whether activation-dependence is regulation or
+measurement** is the one question of the three that turned out to be answerable
+from public data, and it is answered against the regulation reading: no TPI1 lead
+variant shows a genotype × pseudotime interaction, while the gene's expression is
+strongly pseudotime-dependent (§2.7). What remains open is narrower — the
+interaction test covers lead variants under linear and quadratic models, so a
+non-monotonic effect at a non-lead variant is not excluded. **Whether the patient
+stratification is real** requires a same-disease, same-regimen, CD4-resolved cohort
+beyond the single one our pre-fixed search identified; none exists publicly at the
+time of writing. **Whether the state has immunological consequences** requires
+perturbation, not observation. These two need
+new data rather than new analysis, and we would rather say so than present further
+re-analyses of the same data as though they closed the gap.
 
 ### 4.5 Seven diagnostics, and what should change in practice
 
@@ -1312,7 +1379,6 @@ Panels **d** and **e** were added in revision: an earlier version of this figure
 omitted the multiome evidence and said so in its legend, which a reviewer
 correctly identified as declaring the gap rather than closing it.
 
-生成脚本 `figures/make_fig9_part2.py`。
 
 ---
 
@@ -1348,6 +1414,7 @@ correctly identified as declaring the gap rather than closing it.
 | S19 | Patient-level inference: composite signature score, correlation-preserving label permutation, and all three treatments of repeated patients | `74a` |
 | S20 | **Pre-registration document** (second-tumour generalisation to HCC), with its five-cell reading table, results register and two logged deviations; accompanying tables: known-locus reference list, per-outcome MR results, significant-locus attribution, matched-power simulation, and the matched-background version of the enrichment test | `PREREG_hcc_generalisation.md`; `84a`, `84b`, `85a`–`85e` |
 | S22 | **Pre-registration document** (exposure-resource generalisation), with its reading table and results register; accompanying tables: eQTLGen instruments, MR records against the fixed melanoma outcome, locus attribution, and the matched-background version | `PREREG_exposure_resource.md`; `92a`–`92e` |
+| S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
 
@@ -1355,8 +1422,7 @@ correctly identified as declaring the gap rather than closing it.
 
 ## 8. References
 
-见 `manuscript/REFERENCES.md`。三篇同框架对照研究的 DOI 已从本地全文核实；
-其余条目按 [已核实]/[部分]/[待查] 三级标注，**未从记忆填写任何卷期页码**。
-本机无法访问 CrossRef 与 NCBI，投稿前须在有网络的机器上逐条核实。
+References are maintained in `REFERENCES.md` and are assembled into this document
+by `assemble.py` at build time. All entries have been verified against CrossRef
+and PubMed; no volume, issue or page number has been supplied from memory.
 
----

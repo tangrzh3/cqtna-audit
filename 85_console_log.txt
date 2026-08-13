@@ -1,0 +1,40 @@
+known HCC loci with GRCh38 coordinates: 73
+
+[HCC_high]  strict records 3398, instrument loci 549 (known background 31/549 = 5.6%)
+  FDR<0.05: 7 records across 2 independent loci, 1 known -> 8.85x, Fisher one-sided P = 0.1098
+    10_11    known=False pos=69216160-69216160 genes=ENSG00000156502 n_rec=2 minP=4.34e-06
+    19_7     known=True pos=19775388-19815751 genes=ENSG00000081665 n_rec=5 minP=4.32e-07
+
+[HCC_low]  strict records 3686, instrument loci 564 (known background 32/564 = 5.7%)
+  FDR<0.05: 9 records across 2 independent loci, 2 known -> 17.62x, Fisher one-sided P = 0.003124
+    19_7     known=True pos=19768293-19815751 genes=ENSG00000081665 n_rec=7 minP=4.91e-10
+    22_9     known=True pos=43971369-43981677 genes=ENSG00000100347 n_rec=2 minP=2.12e-05
+
+=== G2: novel-locus gene nominations, HCC vs melanoma ===
+  melanoma meta novel-locus genes at FDR<0.05: 4 ['KANSL1', 'KIAA0040', 'SMC2', 'ZFYVE19']
+  HCC novel-locus genes at FDR<0.05: 1 ['ENSG00000156502']
+  INTERSECTION: []  (n=0)
+
+=== G3 (DESCRIPTIVE ONLY -- outcomes not independent) ===
+  known  low-power genes 2, high-power genes 1, recovered 1 -> 50.0%
+  novel  low-power genes 0 -- recovery undefined
+
+=== MP: melanoma down-sampled to HCC-high effective size ===
+  Neff  melanoma-meta 49,337 | HCC-high 14,962 (30.3% of melanoma) | HCC-low 3,779 (7.7%)
+  melanoma strict records used: 3556 across 554 instrument loci
+  melanoma @ HCC_high power (Neff 14,962): median 2 significant LOCI [5-95%: 1-6] = 1 known / 1 novel (novel 5-95% [0, 3])
+  melanoma @ HCC_low power (Neff 3,779): median 1 significant LOCI [5-95%: 0-2] = 1 known / 0 novel (novel 5-95% [0, 1])
+
+=== distance from each significant HCC locus to its nearest known lead SNP ===
+  HCC_high  10_11    genes=ENSG00000156502 nearest known = rs1590566 at 20563 kb
+  HCC_high  19_7     genes=ENSG00000081665 nearest known = rs56255430 at 408 kb
+  HCC_low   19_7     genes=ENSG00000081665 nearest known = rs56255430 at 401 kb
+  HCC_low   22_9     genes=ENSG00000100347 nearest known = rs2294915 at 26 kb
+
+=== cross-power behaviour of every significant HCC locus ===
+  ENSG00000081665 significant in HCC_low: in HCC_high min P = 4.32e-07, min FDR = 0.000367 -> still FDR<0.05
+  ENSG00000100347 significant in HCC_low: in HCC_high min P = 0.000215, min FDR = 0.081 -> DROPS OUT
+  ENSG00000081665 significant in HCC_high: in HCC_low min P = 4.91e-10, min FDR = 1.11e-06 -> still FDR<0.05
+  ENSG00000156502 significant in HCC_high: in HCC_low min P = 0.28, min FDR = 0.98 -> DROPS OUT
+
+wrote 85a-85d

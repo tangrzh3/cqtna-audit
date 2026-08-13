@@ -62,6 +62,20 @@ def main():
         + main_text[end:]
     )
 
+    # references: splice REFERENCES.md in place of the pointer paragraph, so the
+    # assembled document is submission-shaped and the bibliography stays single-copy
+    refs_path = os.path.join(HERE, "REFERENCES.md")
+    if os.path.exists(refs_path):
+        rl = io.open(refs_path, encoding="utf-8").read().split("\n")
+        if rl and rl[0].startswith("# "):
+            rl = rl[1:]
+        refs = "\n".join(rl).strip()
+        i = assembled.index("## 8. References")
+        tail = assembled[i + 20:]
+        k = tail.find("\n## ")
+        j2 = (i + 20 + k) if k >= 0 else len(assembled)
+        assembled = (assembled[:i] + "## 8. References\n\n"
+                     + refs + "\n" + assembled[j2:])
     io.open(OUT, "w", encoding="utf-8").write(BANNER + assembled)
     nw = len(assembled.split())
     print(f"wrote {os.path.basename(OUT)}: {len(assembled.splitlines())} lines, ~{nw:,} words")

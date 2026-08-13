@@ -1,0 +1,36 @@
+PLINK v2.0.0-a.7.2 64-bit (5 Aug 2026)
+Options in effect:
+  --bfile D:\R_ex\MR\ref\1kg_eur
+  --chr 12
+  --from-bp 6860000
+  --ld-snp rs12302749
+  --ld-window 99999
+  --ld-window-kb 100
+  --ld-window-r2 0
+  --out D:\R_ex\MR\tmp_tpi1_ld
+  --r2-unphased
+  --to-bp 6915000
+
+Hostname: TANGRZ3
+Working directory: D:\R_ex\MR
+Start time: Thu Aug 13 02:01:20 2026
+
+Random number seed: 1786557680
+31924 MiB RAM detected; reserving 15962 MiB for main workspace.
+Allocated 11971 MiB successfully, after larger attempt(s) failed.
+Using up to 24 threads (change this with --threads).
+525 samples (274 females, 251 males; 524 founders) loaded from
+D:\R_ex\MR\ref\1kg_eur.fam.
+94979 variants in D:\R_ex\MR\ref\1kg_eur.bim; 90848 excluded by --chr, 4131
+remaining.
+Note: No phenotype data present.
+Calculating allele frequencies... done.
+93 variants remaining after main filters.
+Running --r2-unphased with the following filters:
+  --ld-window: 99999
+  --ld-window-kb: 100
+  --ld-window-r2: 0
+  --ld-snp[s]
+--r2-unphased: Results written to D:\R_ex\MR\tmp_tpi1_ld.vcor .
+
+End time: Thu Aug 13 02:01:21 2026

@@ -1,0 +1,22 @@
+PLINK v2.0.0-a.7.2 64-bit (5 Aug 2026)
+Options in effect:
+  --out D:/R_ex/MR\regions\MC1R_ld
+  --pfile D:/R_ex/MR\regions\MC1R_tmp
+  --r-unphased square ref-based
+
+Hostname: TANGRZ3
+Working directory: D:\R_ex\MR
+Start time: Tue Aug 11 16:45:03 2026
+
+Random number seed: 1786437903
+31924 MiB RAM detected; reserving 15962 MiB for main workspace.
+Using up to 24 threads (change this with --threads).
+525 samples (274 females, 251 males; 524 founders) loaded from
+D:/R_ex/MR\regions\MC1R_tmp.psam.
+3202 variants loaded from D:/R_ex/MR\regions\MC1R_tmp.pvar.
+2 categorical phenotypes loaded.
+--r-unphased: Variant IDs written to
+D:/R_ex/MR\regions\MC1R_ld.unphased.vcor1.vars .
+--r-unphased: Matrix written to D:/R_ex/MR\regions\MC1R_ld.unphased.vcor1 .
+
+End time: Tue Aug 11 16:45:04 2026

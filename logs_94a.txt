@@ -1,0 +1,32 @@
+eQTLGen instrument positions to extract: 12,318
+[start] C3_BRONCHUS_LUNG_EXALLC
+    C3_BRONCHUS_LUNG_EXALLC: 5,000,000 lines, 2,936 kept, 24s
+    C3_BRONCHUS_LUNG_EXALLC: 10,000,000 lines, 4,953 kept, 42s
+    C3_BRONCHUS_LUNG_EXALLC: 15,000,000 lines, 7,705 kept, 61s
+    C3_BRONCHUS_LUNG_EXALLC: 20,000,000 lines, 11,882 kept, 80s
+[done] C3_BRONCHUS_LUNG_EXALLC: 12,385 rows kept of 21,325,248 (85s)
+[start] C3_COLORECTAL_EXALLC
+    C3_COLORECTAL_EXALLC: 5,000,000 lines, 2,936 kept, 23s
+    C3_COLORECTAL_EXALLC: 10,000,000 lines, 4,953 kept, 41s
+    C3_COLORECTAL_EXALLC: 15,000,000 lines, 7,705 kept, 59s
+    C3_COLORECTAL_EXALLC: 20,000,000 lines, 11,882 kept, 91s
+[done] C3_COLORECTAL_EXALLC: 12,385 rows kept of 21,325,295 (116s)
+[start] C3_PANCREAS_EXALLC
+    C3_PANCREAS_EXALLC: 5,000,000 lines, 2,936 kept, 73s
+    C3_PANCREAS_EXALLC: 10,000,000 lines, 4,953 kept, 123s
+    C3_PANCREAS_EXALLC: 15,000,000 lines, 7,705 kept, 142s
+    C3_PANCREAS_EXALLC: 20,000,000 lines, 11,882 kept, 160s
+[done] C3_PANCREAS_EXALLC: 12,385 rows kept of 21,325,099 (165s)
+[start] C3_BREAST_EXALLC
+    C3_BREAST_EXALLC: 5,000,000 lines, 2,937 kept, 21s
+    C3_BREAST_EXALLC: 10,000,000 lines, 4,957 kept, 41s
+    C3_BREAST_EXALLC: 15,000,000 lines, 7,711 kept, 61s
+    C3_BREAST_EXALLC: 20,000,000 lines, 11,882 kept, 82s
+[done] C3_BREAST_EXALLC: 12,385 rows kept of 21,319,111 (87s)
+[start] C3_PROSTATE_EXALLC
+    C3_PROSTATE_EXALLC: 5,000,000 lines, 2,937 kept, 24s
+    C3_PROSTATE_EXALLC: 10,000,000 lines, 4,963 kept, 44s
+    C3_PROSTATE_EXALLC: 15,000,000 lines, 7,721 kept, 63s
+    C3_PROSTATE_EXALLC: 20,000,000 lines, 11,882 kept, 82s
+[done] C3_PROSTATE_EXALLC: 12,385 rows kept of 21,310,601 (86s)
+all done

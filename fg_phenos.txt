@@ -1,0 +1,7 @@
+CD2_BENIGN_MELANOCYTIC	https://storage.googleapis.com/finngen-public-data-r12/summary_stats/release/finngen_R12_CD2_BENIGN_MELANOCYTIC.gz	13357	486991
+L12_VITILIGO	https://storage.googleapis.com/finngen-public-data-r12/summary_stats/release/finngen_R12_L12_VITILIGO.gz	391	465673
+M13_RHEUMA	https://storage.googleapis.com/finngen-public-data-r12/summary_stats/release/finngen_R12_M13_RHEUMA.gz	16314	315115
+L12_PSORIASIS	https://storage.googleapis.com/finngen-public-data-r12/summary_stats/release/finngen_R12_L12_PSORIASIS.gz	12760	482181
+K11_IBD_STRICT	https://storage.googleapis.com/finngen-public-data-r12/summary_stats/release/finngen_R12_K11_IBD_STRICT.gz	10960	489388
+T1D	https://storage.googleapis.com/finngen-public-data-r12/summary_stats/release/finngen_R12_T1D.gz	4721	403489
+AUTOIMMUNE_NONTHYROID	https://storage.googleapis.com/finngen-public-data-r12/summary_stats/release/finngen_R12_AUTOIMMUNE_NONTHYROID.gz	70570	371089

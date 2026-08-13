@@ -31,9 +31,10 @@ colocalisation support and replaced the candidate list entirely: two lists from
 identical exposure data share no genes. Down-sampling, validated against twelve
 pre-registered predictions, shows the loss falls unevenly by locus class — at half
 of observed power, known-locus genes are recovered about four times as often as
-novel-locus ones. Of eleven target-level tests, seven overturned the claim under
-test, three were inconclusive and one was significant on discovery but not
-confirmed on transfer. **In this analysis, and within the power range we could
+novel-locus ones. Within this project's fully enumerated
+target-substantiation record — eleven tests, not a sample of any framework's
+failure rate — seven overturned the claim under examination, three were
+inconclusive, and one was significant on discovery but not confirmed on transfer. **In this analysis, and within the power range we could
 observe, the reproducible part of the candidate list was the part that did not
 constitute a discovery.**
 
@@ -101,7 +102,9 @@ alone.
 This paper has two parts, and the division between them is not rhetorical. **Part
 I asks what this framework can nominate, and finds that everything depending on
 the outcome GWAS is unstable.** Every check we added in order to *strengthen* a
-target claim returned a negative; eight times. **Part II asks what the same data
+target claim that returned a verdict returned a negative, seven times of eleven
+tests, with three inconclusive and one significant on discovery but unconfirmed on
+transfer (Box 1). **Part II asks what the same data
 still establish once nomination is set aside, and finds that the exposure side
 supports claims the outcome side cannot.** Because a single-instrument Wald ratio
 has test statistic z = β_out/se_out, the outcome GWAS supplies every MR
@@ -269,6 +272,28 @@ in exactly one gene, ZFYVE19 — the boundary of what we predicted (≤1), and
 notably the gene that carried the strongest colocalisation in the original
 analysis. **"Novel-locus nominations never reproduce" would therefore be too
 strong; across exposure resources, one of them did.**
+
+**The two axes crossed.** Varying each axis separately leaves one reading open —
+that the whole-blood result is peculiar to melanoma, or that the HCC result is
+weak because the CD4 exposure is small. We therefore filled the grid, scoring
+every cell against **its own disease's** known-locus list, again pre-registered
+(Supplementary S24). All six cells enrich: melanoma 4.09-fold (CD4) and 4.44-fold
+(blood); HCC-high 8.85-fold and 5.11-fold; HCC-low 17.6-fold and 8.67-fold. Three
+of the six reach P < 0.05 and three do not (P = 0.052–0.110) on numerators as
+small as one of two loci, so this is a statement about **direction being
+consistent in every cell**, not six independent significant tests. The
+pre-registered negative control is what makes it interpretable: scoring the same
+cells against the *wrong* disease's list collapses the enrichment (HCC's list on
+melanoma, 1.30-fold, P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so
+the effect is specific to each outcome's own genetics and is not an artefact of
+locus density.
+
+One unplanned observation from the grid is worth stating because it separates the
+two sides cleanly. Moving to an exposure resource 300-fold larger multiplied
+significant loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3). **Exposure
+power sets how many instruments exist; outcome power sets how many of them can
+reach significance** — which is what z = β_out/se_out predicts, arrived at here
+from the data rather than from the algebra.
 
 ## 2.3 Finding ②: SMR/HEIDI does not exclude the LD confounding colocalisation identifies
 
@@ -652,8 +677,31 @@ statement is about measurement, not regulation:
 > from a true null.
 
 Distinguishing activation-dependent *regulation* from activation-dependent
-*measurability* requires a genotype × time interaction test on individual-level
-data, which is not available for this resource. We do not claim the former.
+*measurability* requires a genotype × pseudotime interaction test, and that test
+has already been run and published for this resource. Its Supplementary Table 8
+reports linear and quadratic interaction models for every lead eQTL variant, and
+**all three TPI1 lead variants tested return no evidence of interaction**: in
+memory cells, `12_6908821_T_C` gives linear P = 0.974 and quadratic P = 0.992; in
+naive cells, `12_6868195_A_G` — 1,063 bp from our instrument and in high LD with
+it — gives 0.707 and 0.891, and `12_6908616_AAAAACC_A` gives 0.378 and 0.605.
+Meanwhile the *expression* of TPI1 is among the most strongly pseudotime-dependent
+in the dataset (Moran's I = 0.664, q ≈ 0; Supplementary Table 6).
+
+Three things are therefore separable here, and the published interaction test
+tells them apart:
+
+| | TPI1 |
+|---|---|
+| **Dynamic expression** — does the gene's level change with activation? | **Yes**, strongly (Moran's I = 0.664) |
+| **Time-specific eQTL significance** — does the eQTL P value change with time? | **Yes** — genome-wide significant at 16 h only |
+| **Dynamic genetic effect** — does the genotype's effect change with time? | **No evidence**, in any of three lead-variant tests |
+
+**We therefore state the conclusion positively rather than as a limitation: the
+apparent 16-hour specificity of this instrument reflects time-dependent
+detectability, not a demonstrated dynamic genetic effect.** An earlier version of
+this manuscript said the interaction test required individual-level data we did
+not have; that was wrong — the test is public, we have now used it, and it
+supports the measurement reading over the regulation reading.
 
 **Is this gene quantified reliably at all?** The question is forced on us by an
 unusual pattern: TPI1 is missing from all eight stimulated T-cell datasets we
@@ -859,7 +907,8 @@ an instrument exists at one timepoint only.
 **Not licensed.** We do not claim that instruments for this pathway are confined
 to activated states — the full matrix refutes it. We do not claim that genetic
 regulation is activation-dependent; measurability is, and the two cannot be
-separated without individual-level genotype × time data. We do not join the Part I result to the response association: the two are
+separated by us; the published genotype × pseudotime interaction test settles it
+in favour of measurability (§2.7). We do not join the Part I result to the response association: the two are
 different estimands, measured in different data, and their directional concordance
 is worth stating but is not a causal chain. We
 make no target claim: TPI1 is DepMap-essential, and it is the instrumentable
@@ -918,15 +967,16 @@ cross-disease cohort, and no single arm was confirmed in both.
 > contradicts. Two processing errors of ours are reported as results rather than in
 > Methods (§2.6), because they are instances of finding ⑦.
 >
-> **Five of our own methodological claims were pre-registered with failure
+> **Six of our own methodological claims were pre-registered with failure
 > conditions written before the data were read**: the power-trajectory predictions
 > (12 of 12 intervals hit); the same-disease replication of the patient
 > stratification (partial); the second-tumour generalisation (directionally
 > consistent, primary test not significant); the patient stratification in that
-> second tumour (primary test passed); and the exposure-resource generalisation
-> (primary test passed, P = 3.7×10⁻¹¹). A sixth — extending compartment attribution
-> to a second tumour — could not be run at all. **Three passes, two partial
-> results, one foreclosed.**
+> second tumour (primary test passed); the exposure-resource generalisation
+> (primary test passed, P = 3.7×10⁻¹¹); and the disease × resource grid (all six
+> cells concordant in direction, negative control clean). A seventh — extending
+> compartment attribution to a second tumour — could not be run at all.
+> **Three passes, two partial results, one reduced in scope, one foreclosed.**
 
 ---
 
@@ -1019,7 +1069,8 @@ named gene means were formulated and tested; twelve returned a verdict — eight
 overturned, three supported by positive results rather than by non-significant
 ones (TPI1 marks the glycolytic programme; the class-level avoidance of the
 resting state; compartment attribution), one partial — and three returned none.
-*Our own methodological claims*: four were pre-registered, two passed (Box 1).
+*Our own methodological claims*: six were pre-registered with failure conditions
+written in advance, and three passed (Box 1).
 
 The consequence for Part II is structural. Because gene-level selection is the
 part we cannot defend as pre-specified, Part II's load-bearing conclusions are
@@ -1061,8 +1112,9 @@ instrument exists at one timepoint and at no other, driven by measurability rath
 than by effect size, since at the same variant its effect estimate is largest at
 rest and simply far noisier there. We therefore do not claim that regulation
 itself is activation-dependent; separating the two requires individual-level
-genotype × time data we do not have. The design consequence is unaffected by which
-explanation is correct: a study using a resting-state resource would find nothing
+genotype × pseudotime interaction test — which is public, which we now use, and
+which returns no evidence of interaction for any TPI1 lead variant (§2.7). The
+design consequence is unaffected by which explanation holds: a study using a resting-state resource would find nothing
 here and could not distinguish that from a true null. **The generalisable question
 for any pathway is not whether its genes have eQTLs, but in which state they can
 be measured well enough to yield one.**
@@ -1097,7 +1149,7 @@ labels, so all patient-level results are reported under three ways of handling t
 repetition. The patient-level analysis rests on three small cohorts (9 versus 10 donors
 pre-treatment on discovery; 8 versus 3 in replication), and the replication
 cohort's non-responder group is small enough that no configuration could have
-reached significance at the observed effect size. Two claims in an earlier version
+reached significance at the observed effect size.
 Colocalisation results were checked across four analysis windows and four values
 of the shared-variant prior: window size is immaterial, but four of eleven
 examined loci — including TPI1 — change criterion status with the prior, so for
@@ -1148,6 +1200,21 @@ cancer under a different regimen, so it strengthens no claim to the degree a
 same-disease replication would. Finally, the
 colocalisation supporting our worked nomination sits in a region the outcome GWAS
 cannot fine-map — stated rather than absorbed.
+
+Finally, the boundary of what this design can establish is reached, and we name it
+rather than leave it to be found. **Whether activation-dependence is regulation or
+measurement** is the one question of the three that turned out to be answerable
+from public data, and it is answered against the regulation reading: no TPI1 lead
+variant shows a genotype × pseudotime interaction, while the gene's expression is
+strongly pseudotime-dependent (§2.7). What remains open is narrower — the
+interaction test covers lead variants under linear and quadratic models, so a
+non-monotonic effect at a non-lead variant is not excluded. **Whether the patient
+stratification is real** requires a same-disease, same-regimen, CD4-resolved cohort
+beyond the single one our pre-fixed search identified; none exists publicly at the
+time of writing. **Whether the state has immunological consequences** requires
+perturbation, not observation. These two need
+new data rather than new analysis, and we would rather say so than present further
+re-analyses of the same data as though they closed the gap.
 
 ### 4.5 Seven diagnostics, and what should change in practice
 
@@ -1943,7 +2010,6 @@ Panels **d** and **e** were added in revision: an earlier version of this figure
 omitted the multiome evidence and said so in its legend, which a reviewer
 correctly identified as declaring the gap rather than closing it.
 
-生成脚本 `figures/make_fig9_part2.py`。
 
 ---
 
@@ -1979,6 +2045,7 @@ correctly identified as declaring the gap rather than closing it.
 | S19 | Patient-level inference: composite signature score, correlation-preserving label permutation, and all three treatments of repeated patients | `74a` |
 | S20 | **Pre-registration document** (second-tumour generalisation to HCC), with its five-cell reading table, results register and two logged deviations; accompanying tables: known-locus reference list, per-outcome MR results, significant-locus attribution, matched-power simulation, and the matched-background version of the enrichment test | `PREREG_hcc_generalisation.md`; `84a`, `84b`, `85a`–`85e` |
 | S22 | **Pre-registration document** (exposure-resource generalisation), with its reading table and results register; accompanying tables: eQTLGen instruments, MR records against the fixed melanoma outcome, locus attribution, and the matched-background version | `PREREG_exposure_resource.md`; `92a`–`92e` |
+| S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
 
@@ -1986,8 +2053,233 @@ correctly identified as declaring the gap rather than closing it.
 
 ## 8. References
 
-见 `manuscript/REFERENCES.md`。三篇同框架对照研究的 DOI 已从本地全文核实；
-其余条目按 [已核实]/[部分]/[待查] 三级标注，**未从记忆填写任何卷期页码**。
-本机无法访问 CrossRef 与 NCBI，投稿前须在有网络的机器上逐条核实。
+**核实状态**：2026-08-11 通过 CrossRef API 与 NCBI E-utilities 逐条核实。
+下列条目的作者、期刊、年、卷、页、DOI **均来自查询返回**，非从记忆填写。
+
+⚠ 核实过程中发现的坑，记下以免复查时重蹈：
+- CrossRef 的 `query.bibliographic` 会把 **Faculty Opinions 的推荐短文**、**预印本**、
+  **会议摘要**排在前面（Sade-Feldman、Jerby-Arnon、Tirosh、DICE、TCGA-CDR 均如此），
+  须过滤 `type == "posted-content"` 与容器名含 "Faculty Opinions"/"Abstract"
+- 少数标题检索会返回完全不相干的文献（Landi 2020 曾匹配到蜜蜂抗螨、FinnGen 曾匹配到核桃树病原菌）
+- PubMed 检索 FinnGen 时**更正声明（Author Correction）排在原文之前**，须取后者
+- 仍待补：**GSE282266 与 GSE199994 的关联论文**（项目中只用了 GEO 号），
+  以及 GSE316760 / GSE300445 的著录
 
 ---
+
+## A. 同框架对照研究
+
+1. Zheng J, Yang Q, Liu H, et al. Integrating single-cell transcriptome-wide Mendelian
+   randomization and differentially expressed gene analyses to prioritize dynamic
+   immune-related drug targets for cancers. *Advanced Science* 2025;12:e07451.
+   doi:10.1002/advs.202507451
+
+2. Wu X, Ying H, Yang Q, et al. Transcriptome-wide Mendelian randomization during
+   CD4⁺ T cell activation reveals immune-related drug targets for cardiometabolic
+   diseases. *Nature Communications* 2024;15:9302. doi:10.1038/s41467-024-53621-7
+
+3. Cui K, Zou Q, Qu X, et al. Transcriptome-wide Mendelian randomization and
+   single-cell analysis during CD4⁺ T cell activation deciphers immunotherapeutic
+   targets for colorectal cancer. *npj Precision Oncology* 2025;10:32.
+   doi:10.1038/s41698-025-01236-6
+
+> 逐项对照证据见 `SUPP_comparator_studies.md`；正文对这三篇的主张限定为"正文中未见"。
+
+## B. 暴露与结局
+
+4. **Soskic B, Cano-Gamez K, Smyth DJ, et al. Immune disease risk variants regulate
+   gene expression dynamics during CD4⁺ T cell activation. *Nature Genetics*
+   2022;54:817–826. doi:10.1038/s41588-022-01066-3** ← 本文暴露数据来源
+
+5. Kurki MI, Karjalainen J, Palta P, et al. FinnGen provides genetic insights from a
+   well-phenotyped isolated population. *Nature* 2023;613:508–518.
+   doi:10.1038/s41586-022-05473-8
+   （另见 Author Correction: *Nature* 2023;615:E19. doi:10.1038/s41586-023-05837-8）
+
+6. Rashkin SR, Graff RE, Kachuri L, et al. Pan-cancer study detects genetic risk
+   variants and shared genetic basis in two large cohorts. *Nature Communications*
+   2020;11:4423. doi:10.1038/s41467-020-18246-6　（GWAS Catalog GCST90011809）
+
+7. Landi MT, Bishop DT, MacGregor S, et al. Genome-wide association meta-analyses
+   combining multiple risk phenotypes provide insights into the genetic architecture
+   of cutaneous melanoma susceptibility. *Nature Genetics* 2020;52:494–504.
+   doi:10.1038/s41588-020-0611-8　（GCST010302 / GCST010303 / GCST010304）
+
+8. Nathan A, Asgari S, Ishigaki K, et al. Single-cell eQTL models reveal dynamic
+   T cell state dependence of disease loci. *Nature* 2022;606:120–128.
+   doi:10.1038/s41586-022-04713-1　（非对照研究；为 §3.1 核查过的资源之一）
+
+## C. 功能与验证数据集
+
+9. Sade-Feldman M, Yizhak K, Bjorgaard SL, et al. Defining T cell states associated
+   with response to checkpoint immunotherapy in melanoma. *Cell* 2018;175:998–1013.e20.
+   doi:10.1016/j.cell.2018.10.038　（GSE120575）
+
+10. Jerby-Arnon L, Shah P, Cuoco MS, et al. A cancer cell program promotes T cell
+    exclusion and resistance to checkpoint blockade. *Cell* 2018;175:984–997.e24.
+    doi:10.1016/j.cell.2018.09.006　（GSE115978）
+
+11. Tirosh I, Izar B, Prakadan SM, et al. Dissecting the multicellular ecosystem of
+    metastatic melanoma by single-cell RNA-seq. *Science* 2016;352:189–196.
+    doi:10.1126/science.aad0501　（GSE72056；本文独立复现队列）
+
+12. Hugo W, Zaretsky JM, Sun L, et al. Genomic and transcriptomic features of response
+    to anti-PD-1 therapy in metastatic melanoma. *Cell* 2016;165:35–44.
+    doi:10.1016/j.cell.2016.02.065　（GSE78220）
+
+13. Riaz N, Havel JJ, Makarov V, et al. Tumor and microenvironment evolution during
+    immunotherapy with nivolumab. *Cell* 2017;171:934–949.e16.
+    doi:10.1016/j.cell.2017.09.028　（GSE91061）
+
+14. Thrane K, Eriksson H, Maaskola J, et al. Spatially resolved transcriptomics enables
+    dissection of genetic heterogeneity in stage III cutaneous malignant melanoma.
+    *Cancer Research* 2018;78:5970–5979. doi:10.1158/0008-5472.CAN-18-0747
+
+15. Katko A, Potter SJ, et al. Gene regulatory network determinants of rapid recall in
+    human memory CD4⁺ T cells. *Cell Reports* 2026;45(4):117103.
+    doi:10.1016/j.celrep.2026.117103 — data: NCBI GEO **GSE282266**. [已核实]
+
+16. Boukhaled GM, Gadalla R, et al. Pre-encoded responsiveness to type I interferon in
+    the peripheral immune system defines outcome of PD1 blockade therapy.
+    *Nature Immunology* 2022;23(8):1273–1283. doi:10.1038/s41590-022-01262-7
+    — data: NCBI GEO **GSE199994**. [已核实]
+
+17. Virós A, et al. Spatial transcriptomics of primary cutaneous melanoma.
+    NCBI GEO **GSE316760** (submitted 2026-01-16); no associated publication indexed
+    at the time of writing. [已核实为数据集，无关联论文]
+
+17b. Pham F, Dufeu M, Benboubker V, et al. Spatial tumour-immune ecosystems shape the
+    efficacy of anti-PD1 immunotherapy in primary cutaneous melanoma
+    [Spatial Transcriptomics]. NCBI GEO **GSE300445** (submitted 2025-06-23);
+    no associated publication indexed at the time of writing.
+    [已核实为数据集，无关联论文]
+
+17c. Guo X, et al. Contrasting cytotoxic and regulatory T cell responses underlying
+    distinct clinical outcomes to anti-PD-1 plus lenvatinib therapy in hepatocellular
+    carcinoma. *Cancer Cell* 2025;43(2):248–268.e9. doi:10.1016/j.ccell.2025.01.001
+    — data: NCBI GEO **GSE235863**. [已核实]
+
+17d. Ghouse J, Gellert-Kristensen H, O'Rourke CJ, et al. Genome-wide meta-analysis
+    identifies nine loci associated with higher risk of hepatocellular carcinoma.
+    *JHEP Reports* 2025;7(9):101485. doi:10.1016/j.jhepr.2025.101485
+    — GWAS Catalog **GCST90809296**. [已核实]
+
+17e. Võsa U, Claringbould A, Westra H-J, et al. Large-scale cis- and trans-eQTL analyses
+    identify thousands of genetic loci and polygenic scores that regulate blood gene
+    expression. *Nature Genetics* 2021;53:1300–1310. doi:10.1038/s41588-021-00913-z
+    — eQTLGen Consortium, 2019-12-11 cis-eQTL release (n = 31,684). [已核实]
+
+17f. FinnGen. Release R12 (2024), endpoints `C3_MELANOMA_SKIN_EXALLC` and
+    `C3_HEPATOCELLU_CARC_EXALLC`. https://www.finngen.fi/en/access_results
+    [数据集，按 FinnGen 引用规范著录]
+
+## D. 参考面板、方法与工具
+
+18. Byrska-Bishop M, Evani US, Zhao X, et al. High-coverage whole-genome sequencing of
+    the expanded 1000 Genomes Project cohort including 602 trios. *Cell*
+    2022;185:3426–3440.e19. doi:10.1016/j.cell.2022.08.004
+
+19. Giambartolomei C, Vukcevic D, Schadt EE, et al. Bayesian test for colocalisation
+    between pairs of genetic association studies using summary statistics.
+    *PLoS Genetics* 2014;10:e1004383. doi:10.1371/journal.pgen.1004383
+
+20. Wang G, Sarkar A, Carbonetto P, Stephens M. A simple new approach to variable
+    selection in regression, with application to genetic fine mapping. *Journal of the
+    Royal Statistical Society Series B* 2020;82:1273–1300. doi:10.1111/rssb.12388
+
+21. Zhu Z, Zhang F, Hu H, et al. Integration of summary data from GWAS and eQTL studies
+    predicts complex trait gene targets. *Nature Genetics* 2016;48:481–487.
+    doi:10.1038/ng.3538
+
+22. Hemani G, Zheng J, Elsworth B, et al. The MR-Base platform supports systematic
+    causal inference across the human phenome. *eLife* 2018;7:e34408.
+    doi:10.7554/eLife.34408
+
+23. Chang CC, Chow CC, Tellier LC, et al. Second-generation PLINK: rising to the
+    challenge of larger and richer datasets. *GigaScience* 2015;4:s13742-015-0047-8.
+    doi:10.1186/s13742-015-0047-8
+
+24. Hao Y, Stuart T, Kowalski MH, et al. Dictionary learning for integrative, multimodal
+    and scalable single-cell analysis. *Nature Biotechnology* 2024;42:293–304.
+    doi:10.1038/s41587-023-01767-y
+
+25. Fornes O, Castro-Mondragon JA, Khan A, et al. JASPAR 2020: update of the
+    open-access database of transcription factor binding profiles. *Nucleic Acids
+    Research* 2020;48:D87–D92. doi:10.1093/nar/gkz1001
+
+26. Schep AN, Wu B, Buenrostro JD, Greenleaf WJ. chromVAR: inferring
+    transcription-factor-associated accessibility from single-cell epigenomic data.
+    *Nature Methods* 2017;14:975–978. doi:10.1038/nmeth.4401
+
+## E. 资源与数据门户
+
+27. Schmiedel BJ, Singh D, Madrigal A, et al. Impact of genetic polymorphisms on human
+    immune cell gene expression. *Cell* 2018;175:1701–1715.e16.
+    doi:10.1016/j.cell.2018.10.022　（DICE）
+
+28. Kerimov N, Hayhurst JD, Peikova K, et al. A compendium of uniformly processed human
+    gene expression and splicing quantitative trait loci. *Nature Genetics*
+    2021;53:1290–1299. doi:10.1038/s41588-021-00924-w　（eQTL Catalogue）
+
+29. Sollis E, Mosaku A, Abid A, et al. The NHGRI-EBI GWAS Catalog: knowledgebase and
+    deposition resource. *Nucleic Acids Research* 2023;51:D977–D985.
+    doi:10.1093/nar/gkac1010
+
+30. Ochoa D, Hercules A, Carmona M, et al. The next-generation Open Targets Platform:
+    reimagined, redesigned, rebuilt. *Nucleic Acids Research* 2023;51:D1353–D1359.
+    doi:10.1093/nar/gkac1046
+
+31. Sun D, Wang J, Han Y, et al. TISCH: a comprehensive web resource enabling
+    interactive single-cell transcriptome visualization of tumor microenvironment.
+    *Nucleic Acids Research* 2021;49:D1420–D1430. doi:10.1093/nar/gkaa1020
+
+32. Goldman MJ, Craft B, Hastie M, et al. Visualizing and interpreting cancer genomics
+    data via the Xena platform. *Nature Biotechnology* 2020;38:675–678.
+    doi:10.1038/s41587-020-0546-8
+
+33. Liu J, Lichtenberg T, Hoadley KA, et al. An integrated TCGA pan-cancer clinical data
+    resource to drive high-quality survival outcome analytics. *Cell* 2018;173:400–416.e11.
+    doi:10.1016/j.cell.2018.02.052
+
+34. Tsherniak A, Vazquez F, Montgomery PG, et al. Defining a cancer dependency map.
+    *Cell* 2017;170(3):564–576.e16. doi:10.1016/j.cell.2017.06.010 — portal:
+    DepMap, Broad Institute, https://depmap.org (release used: 22Q2 common-essential
+    and gene-effect calls). [已核实；⚠ 具体 release 号须与分析脚本核对后定稿]
+
+---
+
+## 投稿前仍须处理
+
+1. ~~条目 15–17、34 的著录~~ ✅ 2026-08-12 完成（含新增 17c–17f：GSE235863、
+   GCST90809296、eQTLGen、FinnGen R12）。**唯一残留**：条目 34 的 DepMap release 号
+   须与脚本核对
+2. 统一到目标期刊的著录格式（本文件为作者-年-卷-页-DOI 的中性格式）
+3. 若期刊要求，补全 3 位以上作者的完整列表
+
+## E. 对照研究（2026-08-13 新增，全部经 CrossRef 核实）
+
+35. Reales G, et al. Design and interpretation of eQTL–GWAS colocalisation studies:
+    lessons from a large-scale evaluation. *PLOS Genetics* 2026.
+    doi:10.1371/journal.pgen.1012141 [已核实]
+
+36. Tambets R, et al. Extensive co-regulation of neighboring genes complicates the
+    use of eQTLs in target gene prioritization. *Human Genetics and Genomics
+    Advances* 2024;5:100348. doi:10.1016/j.xhgg.2024.100348 [已核实]
+
+37. Rosen JD, et al. Higher eQTL power reveals signals that boost GWAS
+    colocalization. *American Journal of Human Genetics* 2026.
+    doi:10.1016/j.ajhg.2026.02.009 [已核实]
+
+38. Howe LJ, et al. Evaluating transportability of in vitro cellular models to
+    in vivo human phenotypes using gene perturbation data. *Nature Communications*
+    2025. doi:10.1038/s41467-025-67199-1 [已核实]
+
+39. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to
+    drug target discovery. *Nature Communications* 2024.
+    doi:10.1038/s41467-024-50385-y [已核实]
+
+40. Karhunen V, et al. Integrating genetic data with biological insight: a
+    practical guide to cis-Mendelian randomization. *American Journal of Human
+    Genetics* 2026. doi:10.1016/j.ajhg.2026.03.011 [已核实]
+
+⚠ 正文中标 `[ref]` 的六处引用点对应 35–40，装配前须替换为期刊要求的编号格式。

@@ -1,0 +1,33 @@
+工具变量 SNP 数: 2,142
+[start] R8  https://storage.googleapis.com/finngen-public-data-r8/summary_stats/finngen_R8_C3_MELANOMA_SKIN_EXALLC.gz
+   R8 5M 行, 命中 515, 41s
+   R8 10M 行, 命中 913, 74s
+   R8 15M 行, 命中 1,394, 109s
+   R8 20M 行, 命中 2,053, 141s
+[done] R8: 20,166,573 行扫描, 2,053 命中, 142s -> D:/R_ex/MR\release_extracts\R8_C3_MELANOMA_SKIN_EXALLC.tsv
+[start] R9  https://storage.googleapis.com/finngen-public-data-r9/summary_stats/finngen_R9_C3_MELANOMA_SKIN_EXALLC.gz
+   R9 5M 行, 命中 515, 37s
+   R9 10M 行, 命中 913, 69s
+   R9 15M 行, 命中 1,394, 101s
+   R9 20M 行, 命中 2,053, 133s
+[done] R9: 20,167,616 行扫描, 2,053 命中, 134s -> D:/R_ex/MR\release_extracts\R9_C3_MELANOMA_SKIN_EXALLC.tsv
+[start] R10  https://storage.googleapis.com/finngen-public-data-r10/summary_stats/finngen_R10_C3_MELANOMA_SKIN_EXALLC.gz
+[FAIL] R10: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>
+[start] R11  https://storage.googleapis.com/finngen-public-data-r11/summary_stats/finngen_R11_C3_MELANOMA_SKIN_EXALLC.gz
+   R11 5M 行, 命中 528, 38s
+   R11 10M 行, 命中 925, 71s
+   R11 15M 行, 命中 1,441, 104s
+   R11 20M 行, 命中 2,077, 144s
+[done] R11: 21,304,646 行扫描, 2,183 命中, 155s -> D:/R_ex/MR\release_extracts\R11_C3_MELANOMA_SKIN_EXALLC.tsv
+全部完成
+工具变量 SNP 数: 2,142
+[skip] R8 已提取
+[skip] R9 已提取
+[start] R10  https://storage.googleapis.com/finngen-public-data-r10/summary_stats/finngen_R10_C3_MELANOMA_SKIN_EXALLC.gz
+   R10 5M 行, 命中 533, 73s
+   R10 10M 行, 命中 925, 106s
+   R10 15M 行, 命中 1,441, 138s
+   R10 20M 行, 命中 2,077, 171s
+[done] R10: 21,303,931 行扫描, 2,183 命中, 179s -> D:/R_ex/MR\release_extracts\R10_C3_MELANOMA_SKIN_EXALLC.tsv
+[skip] R11 已提取
+全部完成

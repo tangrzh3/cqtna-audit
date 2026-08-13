@@ -1,0 +1,42 @@
+PLINK v2.0.0-a.7.2 64-bit (5 Aug 2026)
+Options in effect:
+  --chr 1
+  --from-bp 225849687
+  --keep D:/R_ex/MR\regions\eur.keep
+  --maf 0.01
+  --make-pgen
+  --max-alleles 2
+  --new-id-max-allele-len 60 missing
+  --out D:/R_ex/MR\regions\PARP1_tmp
+  --pfile D:/R_ex/MR\ref\all_hg38 vzs
+  --rm-dup exclude-all
+  --set-all-var-ids @:#:$r:$a
+  --snps-only
+  --to-bp 226849687
+
+Hostname: TANGRZ3
+Working directory: D:\R_ex\MR
+Start time: Tue Aug 11 16:40:55 2026
+
+Random number seed: 1786437655
+31924 MiB RAM detected; reserving 15962 MiB for main workspace.
+Using up to 24 threads (change this with --threads).
+3202 samples (1603 females, 1598 males, 1 ambiguous; 2583 founders) loaded from
+D:/R_ex/MR\ref\all_hg38.psam.
+Note: 2585 nonstandard chromosome codes present.
+75193455 variants in D:/R_ex/MR\ref\all_hg38.pvar.zst; 70179838 excluded by
+--chr + --max-alleles + --snps-only, 5013617 remaining.
+2 categorical phenotypes loaded.
+Note: Skipping --rm-dup since no duplicate IDs are present.
+--keep: 525 samples remaining.
+525 samples (274 females, 251 males; 524 founders) remaining after main
+filters.
+Calculating allele frequencies... done.
+17501 variants removed due to allele frequency threshold(s)
+(--maf/--max-maf/--mac/--max-mac).
+2429 variants remaining after main filters.
+Writing D:/R_ex/MR\regions\PARP1_tmp.psam ... done.
+Writing D:/R_ex/MR\regions\PARP1_tmp.pvar ... done.
+Writing D:/R_ex/MR\regions\PARP1_tmp.pgen ... done.
+
+End time: Tue Aug 11 16:41:43 2026

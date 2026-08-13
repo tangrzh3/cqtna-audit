@@ -1,0 +1,7 @@
+exposure	disease	bg_loci	bg_known	sig_records	sig_loci	sig_known	pct_known	fold	fisher_p	nominal_hits	source	n_known_list
+Soskic_CD4	melanoma	554	58	21	7	3	42.9	4.09	0.028123181205575935	371	13	
+Soskic_CD4	HCC_high	549	31	7	2	1	50.0	8.85	0.10984138380326619	240	85a	
+Soskic_CD4	HCC_low	564	32	9	2	2	100.0	17.62	0.0031240945794450406	212	85a	
+eQTLGen_blood	melanoma	559	84	72	30	20	66.7	4.44	3.724056802770761e-11	1115	92c	
+eQTLGen_blood	lung	559	2	16	8	0	0.0	0.0	0.9999999999996588	1044	94a	316.0
+eQTLGen_blood	colorectal	559	5	36	22	3	13.6	15.25	0.0005049201889729526	1133	94a	833.0
