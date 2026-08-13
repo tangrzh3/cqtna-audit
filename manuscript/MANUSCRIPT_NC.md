@@ -1,4 +1,4 @@
-# Target nomination from context-specific eQTLs is set by the outcome GWAS, not by the exposure
+# Outcome GWAS architecture shapes target nomination from context-specific eQTLs
 
 <!-- Nature Communications format: abstract 150 words (unstructured, no references);
      main text (Introduction + Results + Discussion) target 5,000 words;
@@ -11,16 +11,16 @@
 Context-specific expression quantitative trait loci (eQTLs) combined with
 Mendelian randomization are widely used to nominate immune targets in cancer. We
 audited this design in melanoma, using CD4⁺ T cell cis-eQTLs from eight
-activation profiles against a 12,530-case meta-analysis, and then asked what the
+activation profiles against a 12,530-case meta-analysis, and asked what the
 nomination depends on. Significant signal concentrates on loci already known for
-the outcome, and this recurs across five nested power levels of one resource, in
-a second disease, and when the exposure resource is replaced by a whole-blood
-eQTL dataset 300-fold larger — six of six disease-by-resource combinations,
-against a clean mismatched-locus control. Raising outcome power replaced the
-candidate list entirely. Across 28 glycolytic genes, three carry instruments, two
-survive harmonisation and one yields an association, and the nominated gene is
-principally expressed by tumour rather than T cells. Nomination is a property of
-the outcome GWAS.
+the outcome, across five nested power levels of one resource, in a second
+disease, and when the exposure is replaced by a whole-blood eQTL dataset
+300-fold larger — six of six disease-by-resource combinations, against a clean
+mismatched-locus control. Raising outcome power replaced the candidate list
+entirely. Of 28 glycolytic genes, three carry instruments, two survive
+harmonisation and one yields an association, and that gene is principally
+expressed by tumour rather than T cells. Which loci a nomination lands on is set
+by the outcome GWAS; how many instruments exist is set by the exposure resource.
 
 ---
 
@@ -96,8 +96,10 @@ levels. Enrichment is 17.6-fold in the lower-powered outcome (P = 0.0031) and
 has FDR = 0.98 at low power. Because the higher-powered HCC study carries 30.3%
 of melanoma's effective sample size, we down-sampled melanoma to match: the
 predicted median is 2 significant loci [5–95%: 1–6], one known and one novel, and
-the observed HCC counts fall inside that interval. The two diseases behave alike
-once power is equalised.
+**the observed HCC counts are compatible with that melanoma-derived prediction
+interval**. Compatibility with an interval spanning 1 to 6 loci is not
+equivalence, so this shows the HCC result is not evidence against the pattern
+rather than that the two diseases behave alike.
 
 **A second exposure resource.** Holding the melanoma outcome fixed and replacing
 the exposure entirely with eQTLGen whole-blood cis-eQTLs (n = 31,684, ~300-fold
@@ -120,10 +122,13 @@ disease's list collapses the enrichment (HCC's list on melanoma, 1.30-fold,
 P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so the effect is specific
 to each outcome's own genetics and is not an artefact of locus density (Fig. 2).
 
-One observation separates the two sides cleanly. The 300-fold larger exposure
-multiplied significant loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3).
-**Exposure power sets how many instruments exist; outcome power sets how many can
-reach significance.** Raising eQTL sample size is known to uncover additional
+One observation separates the two sides. Swapping in the eQTLGen resource
+multiplied significant loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3):
+**the exposure resource sets how many instruments exist; outcome power sets how
+many can reach significance.** The swap changes donors, cell composition and
+platform together, so it does not isolate exposure sample size; what is
+identified is the asymmetry, since the outcome is the only thing differing
+between the two arms. Raising eQTL sample size is known to uncover additional
 independent regulatory signals and close part of the eQTL–GWAS colocalisation
 gap; the mirror question, asked here with the exposure held fixed, is whether
 raising outcome power makes nomination more reliable. It does not: more outcome
@@ -218,7 +223,7 @@ HERC2P9 rather than HERC2. At *TYR* it names ODF3, and at the CDKN2A/MTAP locus
 C9orf66. Where it succeeds it often does so cleanly: IRF4 and MX2 are each named
 alone and correctly.
 
-This is the co-regulation problem of Tambets et al. [ref] observed at the top of
+This is the co-regulation problem of Tambets et al. [36] observed at the top of
 the effect-size distribution, and it bounds the whole design: a framework that
 misassigns the gene at the best-characterised locus in its own disease should not
 be read as assigning genes at uncharacterised ones. It is also why we report
@@ -340,6 +345,7 @@ Colocalisation versus SMR/HEIDI · Fig. 4 Power and list stability by locus clas
 Fig. 5 Instrument availability across the pathway · Fig. 6 Compartment
 attribution · Fig. 7 Patients across three cohorts.
 
-Methods, References, and Supplementary Information (including the six
-pre-registration documents, the complete record of target-substantiation
-attempts, and the literature audit) accompany this manuscript separately.
+Methods, References, and Supplementary Information (including the seven
+pre-registration documents, the multiple-testing unit sensitivity analysis, the
+complete record of target-substantiation attempts, and the literature audit)
+accompany this manuscript separately.

@@ -22,9 +22,11 @@ substituted — three of four significant loci are known HCC loci, including
 *PNPLA3*, though at 30% of melanoma's effective sample size that pre-registered
 test does not itself reach significance. **The mirror-image test gives the same
 answer**: holding the melanoma outcome fixed and replacing the exposure entirely
-with a whole-blood eQTL resource 300-fold larger raises significant loci from 7 to
-30 and leaves the attribution unchanged (66.7% known-locus, 4.44-fold,
-P = 3.7×10⁻¹¹, against 4.09-fold in CD4⁺ T cells). Raising outcome power increased MR discoveries while *lowering*
+with a whole-blood eQTL resource 300-fold larger — which changes donors, cell
+composition and platform together, and so identifies a resource rather than a
+sample size — raises significant loci from 7 to 30 and leaves the attribution
+unchanged (66.7% known-locus, 4.44-fold, P = 3.7×10⁻¹¹, against 4.09-fold in
+CD4⁺ T cells). Raising outcome power increased MR discoveries while *lowering*
 colocalisation support and replaced the candidate list entirely: two lists from
 identical exposure data share no genes. Down-sampling, validated against twelve
 pre-registered predictions, shows the loss falls unevenly by locus class — at half
@@ -140,8 +142,11 @@ in both. Three consequences follow, and they run in different directions:
 
 1. Cell-type and temporal specificity **cannot** be argued from differences in
    MR P value. The admissible statement is which profile contains the instrument.
-2. Everything in Part I — discovery counts, list composition, colocalisation —
-   is a function of the outcome GWAS.
+2. **Given the instrument set, everything in Part I** — which records reach
+   significance, what the list contains, how colocalisation resolves — **is a
+   function of the outcome GWAS.** The qualifier is not decoration: the exposure
+   resource fixes how many instruments exist to be tested at all (§2.2), so the
+   outcome determines which of a supplied set is named, not how large that set is.
 3. Conversely, **where an instrument appears in the time course is a property of
    the exposure data alone**, and no change in outcome power can alter it. This
    is what Part II rests on.
@@ -149,6 +154,41 @@ in both. Three consequences follow, and they run in different directions:
 Of the three studies we identified using this framework, none states this
 consequence in its main text; one refers to the single-variant setting without
 drawing the inference (Supplementary Table S10).
+
+**Which unit the inference belongs to, and what happens if it is changed.** The
+same constraint creates a units problem that has to be settled before any count
+below can be read. The 3,556 records carry only **2,126 unique variants and 1,195
+unique genes**, because one variant can be the lead eQTL for a gene in several
+profiles and for more than one gene; the multiple-testing family is therefore
+records, while the candidate list is reported by gene and the attribution result
+by independent locus. **We declare the record level primary**, for the sole reason
+that it is what every analysis in this paper was built on — the registered
+down-sampling predictions, the release trajectory, both generalisations and the
+grid. Re-declaring it now, after seeing which unit yields the longest list, is
+the selective emphasis this paper exists to detect.
+
+Because that choice cannot be defended by argument alone, we recomputed the
+FDR < 0.05 list under every unit the paper uses — variant, gene and independent
+locus, each by both minimum-p and Simes combination, plus a two-stage
+hierarchical procedure selecting genes and then records within them
+(Supplementary S26). Three results matter. First, **the record level is the most
+conservative of the seven alternatives**: no gene is lost under any other unit,
+and between 1 and 43 are added, so every significance claim in this paper is a
+subset of what a looser unit would license. Second, **the quantity the argument
+actually runs on barely moves** — 7 to 9 independent loci against the 7 reported,
+and 2 under every single unit in the FinnGen round. Third, and decisively for
+Part I, **the attribution conclusion is unit-independent**: the known-locus share
+of significant loci ranges 42.9–55.6% against the 42.9% reported, and is 100% at
+every unit in the FinnGen round.
+
+One row of that table is worth reading as a finding rather than a check. Testing
+at the locus level leaves the significant-locus count almost unchanged but
+inflates the gene list from 10 to 53, because a significant locus does not name a
+gene — **22 of those 53 sit in the MHC and a further 7 in the chr17q21.31
+inversion**, the two regions this paper already identifies as attribution traps.
+That is finding ② arriving through a
+different door, and it is the reason we count independent loci rather than gene
+records wherever a count carries an argument.
 
 Steiger filtering is near-deterministic at this scale: all 6,943 harmonised
 records had the correct direction, with R²_exposure (median 0.152) exceeding
@@ -264,9 +304,14 @@ two tumours' novel-locus nominations share no genes.
 The caution is power, and we measured it rather than asserting it. HCC-high
 carries 30.3% of melanoma's effective sample size. Down-sampling melanoma to that
 level (§2.4) predicts a median of 2 significant loci [5–95%: 1–6], 1 known and 1
-novel; the observed HCC counts sit inside those intervals, so the two tumours
-behave alike once power is equalised and the non-significant primary test is what
-a test with two significant loci is expected to deliver. We register this as
+novel; **the observed HCC counts are compatible with that melanoma-derived
+prediction interval**, and the non-significant primary test is what a test with
+two significant loci is expected to deliver. Compatibility with an interval is
+not equivalence: an interval this wide (1 to 6 loci) would also accommodate
+outcomes we would have read as a difference, so this establishes that the HCC
+result is *not evidence against* the pattern, not that the two tumours behave
+alike. Two significant loci cannot distinguish between those readings, and we do
+not claim they do. We register this as
 **supporting but short of the criterion we set ourselves**: by our own reading
 table this is not an established generalisation, though neither is it the
 contradictory result the table anticipated. Two further limits were
@@ -316,12 +361,24 @@ melanoma, 1.30-fold, P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so
 the effect is specific to each outcome's own genetics and is not an artefact of
 locus density.
 
-One unplanned observation from the grid is worth stating because it separates the
-two sides cleanly. Moving to an exposure resource 300-fold larger multiplied
-significant loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3). **Exposure
-power sets how many instruments exist; outcome power sets how many of them can
-reach significance** — which is what z = β_out/se_out predicts, arrived at here
-from the data rather than from the algebra.
+One unplanned observation from the grid is worth stating, with a caveat about
+what it can attribute. Swapping in the eQTLGen resource multiplied significant
+loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3). The natural reading is
+that **the exposure resource sets how many instruments exist while outcome power
+sets how many of them can reach significance**, which is what z = β_out/se_out
+predicts, arrived at here from the data rather than from the algebra.
+
+⚠ **This swap is not a clean manipulation of exposure sample size, and must not
+be described as one.** eQTLGen differs from the Soskic data in at least three
+respects at once — ~300-fold more donors, whole blood rather than sorted and
+stimulated CD4⁺ T cells, and a different platform and processing pipeline. Any of
+the three could multiply the instrument count, and this design cannot separate
+them. What the comparison does establish is the asymmetry itself: whatever it is
+about the exposure resource that changes the instrument count, it changed the
+melanoma count fourfold and left the HCC counts almost unmoved, and the only
+quantity differing between those two arms is the outcome. **The outcome-side half
+of the statement is identified; the exposure-side half names a resource, not a
+sample size.**
 
 ## 2.3 Finding ②: SMR/HEIDI does not exclude the LD confounding colocalisation identifies
 
@@ -411,6 +468,29 @@ expecting confirmation. PADI4, supported by an independent breast cancer study
 and an ongoing Phase I programme, collapsed under multi-instrument analysis
 (OR 1.087, P = 1.7×10⁻³ → IVW 1.033, P = 0.085; weighted median 1.004, P = 0.835
 over seven instruments). GDI2 was removed by heterogeneity (Cochran's Q P = 0.01).
+
+**Administering the criticism to ourselves: does the pipeline name the right gene
+where the answer is known?** The objection this paper raises against nomination
+can be tested on the pipeline that raises it. We took melanoma loci at which a
+causal gene is generally accepted and asked whether our own FDR-significant
+nomination names it. Of ten such loci reached under the larger exposure resource,
+**six name the accepted gene and four do not**, and the four failures are the
+informative half. At the MC1R region — the strongest melanoma locus in the genome
+— the nomination spans **sixteen genes and MC1R is not among them**. At OCA2/HERC2
+it names the pseudogene HERC2P9 rather than HERC2; at *TYR* it names ODF3; at
+CDKN2A/MTAP, C9orf66. Where it succeeds it often succeeds cleanly, IRF4 and MX2
+each being named alone and correctly.
+
+Two limits on how far this can be pushed. The accepted-gene list is one we
+assembled ourselves — fixed before the comparison was run, but not
+pre-registered — and ten loci is a small denominator, so the ratio is an
+illustration and not an error rate. What it does establish is directional and
+does not need precision: a framework that misassigns the gene at the
+best-characterised locus in its own disease should not be read as assigning genes
+at uncharacterised ones. This is the co-regulation problem of Tambets et al.
+observed at the top of the effect-size distribution, and it is why we report
+compartment attribution separately from gene attribution — the two fail
+independently.
 
 **The reproducible part of the list is the part that is not a discovery.** Finding
 ④a is an anecdote unless it is shown to be a property of the design, so we
@@ -1017,16 +1097,19 @@ cross-disease cohort, and no single arm was confirmed in both.
 > contradicts. Two processing errors of ours are reported as results rather than in
 > Methods (§2.6), because they are instances of finding ⑦.
 >
-> **Six of our own methodological claims were pre-registered with failure
+> **Seven of our own methodological claims were pre-registered with failure
 > conditions written before the data were read**: the power-trajectory predictions
 > (12 of 12 intervals hit); the same-disease replication of the patient
 > stratification (partial); the second-tumour generalisation (directionally
 > consistent, primary test not significant); the patient stratification in that
 > second tumour (primary test passed); the exposure-resource generalisation
-> (primary test passed, P = 3.7×10⁻¹¹); and the disease × resource grid (all six
-> cells concordant in direction, negative control clean). A seventh — extending
-> compartment attribution to a second tumour — could not be run at all.
-> **Three passes, two partial results, one reduced in scope, one foreclosed.**
+> (primary test passed, P = 3.7×10⁻¹¹); the disease × resource grid (all six
+> cells concordant in direction, negative control clean); and the transfer test to
+> the current release of the outcome resource (all six point predictions inside
+> their registered intervals, though the point value of the first was not
+> attained). An eighth — extending compartment attribution to a second tumour —
+> could not be run at all. **Four passes, two partial results, one reduced in
+> scope, one foreclosed.**
 
 ---
 
@@ -1036,10 +1119,12 @@ A paper that spends its first half showing candidate lists are unstable owes an
 account of why its second half is exempt. The account is structural, not
 special pleading.
 
-With one instrument per exposure, z = β_out/se_out. Every quantity in Part I —
-which genes reach significance, how many, whether colocalisation calls H3 or H4,
-what the list contains — is a function of the outcome GWAS, and we show it
-changes when that GWAS changes. Every quantity in Part II is either a property of
+With one instrument per exposure, z = β_out/se_out. Given the instrument set,
+every quantity in Part I — which genes reach significance, whether colocalisation
+calls H3 or H4, what the list contains — is a function of the outcome GWAS, and
+we show it changes when that GWAS changes. The size of the instrument set is not:
+that is set by the exposure resource, which is why swapping the exposure
+multiplies the number of tests without altering where the significant ones land. Every quantity in Part II is either a property of
 the exposure data (which timepoint carries the strongest eQTL; whether the
 strongest eQTLs of a gene class avoid rest) or of cell-resolved patient data
 (whether a state separates response groups). **No amount of outcome-side
@@ -1491,6 +1576,8 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S27 | **Self-administered attribution check**: the accepted-causal-gene list assembled before the comparison, the ten loci reached under the eQTLGen exposure, and the named gene at each | `96a` |
+| S26 | **Multiple-testing unit sensitivity**: the FDR < 0.05 list recomputed over records, unique variants, genes and independent loci, each by minimum-p and by Simes combination, plus a two-stage hierarchical procedure; reported for both the meta and FinnGen rounds, with the gene list under each unit | `100a`, `100b` |
 | S25 | **Pre-registration document** (FinnGen R13 transfer test), with the endpoint mapping that excludes R13 from the power trajectory, the pre-committed direction of every difference between the two releases, six point predictions with intervals, three process controls, the mismatched-list negative control, and its results register — including four items registered against ourselves: a point prediction that did not come true although it fell inside its interval, two identical cells that are arithmetic rather than confirmation, an identical count over non-identical record sets, and a comparator-identity bug of ours that compared a meta-analysis to a release | `PREREG_r13_transfer.md`; `99a`–`99c` |
 
 ---

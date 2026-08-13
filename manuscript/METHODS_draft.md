@@ -95,6 +95,24 @@ independent discovery, and state this limitation in the text.
 Multiple testing was controlled by Benjamini–Hochberg FDR within each analysis
 family, with the family defined before the analysis was run.
 
+**Unit of inference.** The family is gene × profile records, and the record level
+is the primary unit throughout: the registered down-sampling predictions, the
+sequential-release trajectory, both generalisations and the disease × resource
+grid were all computed on it. Records are not independent — 3,556 of them carry
+2,126 unique variants and 1,195 unique genes, since one variant can be the lead
+cis-eQTL for a gene in several activation profiles and for more than one gene —
+so the list was recomputed under every other unit the paper uses as a sensitivity
+analysis rather than as an alternative primary. Variant, gene and independent
+locus (1 Mb single-linkage) were each collapsed twice, once by taking the minimum
+p-value in the group and once by Simes combination, the latter because a minimum
+over correlated tests is anticonservative when treated as a single test; a
+two-stage hierarchical procedure selecting genes by Simes and then records within
+selected genes was run alongside. All seven alternatives return a superset of the
+record-level gene list, so the published claims are the most conservative
+available under any of these choices, and both the independent-locus count and
+the known-locus share are stable across them. Full results are given as a
+supplementary table.
+
 Steiger filtering used the recovered per-profile exposure sample sizes,
 `units.exposure = "SD"`, `units.outcome = "log odds"`, and outcome prevalence
 0.014962. All 6,943 records had the correct direction. TwoSampleMR's R² formula

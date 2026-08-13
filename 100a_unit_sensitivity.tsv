@@ -1,0 +1,17 @@
+round	unit	n_tests	n_significant	n_genes	n_loci	n_known_loci	pct_known	genes_vs_record_shared	genes_vs_record_added	genes_vs_record_lost
+meta	record	3556	21	10	7	3	42.9	10	0	0
+meta	snp	2126	15	11	7	3	42.9	10	1	0
+meta	snp_simes	2126	15	11	7	3	42.9	10	1	0
+meta	gene	1255	13	13	9	5	55.6	10	3	0
+meta	gene_simes	1255	13	13	9	5	55.6	10	3	0
+meta	locus	554	9	53	9	5	55.6	10	43	0
+meta	locus_simes	554	8	28	8	4	50.0	10	18	0
+meta	hierarchical	1255	31	13	9	5	55.6	10	3	0
+finngen_R12	record	3579	10	6	2	2	100.0	6	0	0
+finngen_R12	snp	2142	8	6	2	2	100.0	6	0	0
+finngen_R12	snp_simes	2142	8	6	2	2	100.0	6	0	0
+finngen_R12	gene	1259	6	6	2	2	100.0	6	0	0
+finngen_R12	gene_simes	1259	6	6	2	2	100.0	6	0	0
+finngen_R12	locus	555	2	9	2	2	100.0	6	3	0
+finngen_R12	locus_simes	555	2	9	2	2	100.0	6	3	0
+finngen_R12	hierarchical	1259	11	6	2	2	100.0	6	0	0
