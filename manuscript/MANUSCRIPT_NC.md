@@ -121,20 +121,21 @@ version agrees (4.14–4.48-fold, empirical P = 10⁻⁴). The two resources' no
 nominations intersect in exactly one gene, ZFYVE19, so "novel nominations never
 reproduce" would be too strong.
 
-**Outside cancer, where CD4 is the causal cell type.** In melanoma and HCC the
-CD4⁺ T cell is not the accepted causal cell type, so the finding could be what
-happens when the exposure is irrelevant to the disease. Rheumatoid arthritis
-removes that: CD4⁺ T cells are canonically causal there, and its 16,775 cases
-exceed the melanoma meta's 12,530, so a null could not be blamed on power. Scored
-against Okada et al. 2014 lead SNPs — published before FinnGen existed, from
-cohorts excluding it, registered in advance — **16 of 36 significant loci are
-known RA loci against a 19.2% background, 2.31-fold, P = 3.0×10⁻⁴** (whole blood
-2.25-fold, P = 1.9×10⁻⁹). It is the weakest of the four outcomes and yields the
-most nominations (36 loci against melanoma's 7 under the same exposure), an
-ordering consistent with our proposed mechanism but noticed after the fact on
-four outcomes, so reported as observation not result. The 2014 reference biases
-the fold downward, and the mismatched-list control is less clean here (1.60-fold,
-P = 0.16) because RA and melanoma share MHC loci.
+**Outside cancer, where CD4 is part of the causal compartment.** In neither
+melanoma nor HCC is the CD4⁺ T cell an accepted causal cell type, so the finding
+could be what happens when the exposure is irrelevant to the disease. Rheumatoid
+arthritis removes that: **CD4⁺ T cells constitute a well-established pathogenic
+immune compartment in RA**, and its effective sample size is about 29% larger
+than the melanoma meta's, so a null could not readily be attributed to a smaller
+outcome effective sample size. Scored against Okada et al. 2014 lead SNPs —
+published before FinnGen existed, from cohorts excluding it, registered in
+advance — **13 of 36 significant loci are known RA loci against a 10.4%
+background, 3.46-fold, P = 1.7×10⁻⁵** (whole blood 3.57-fold, P = 7.7×10⁻¹⁴), and
+the result does not rest on the MHC: excluding it leaves 3.03- and 3.32-fold. The
+2014 reference biases the fold downward and makes magnitudes non-comparable
+across diseases, and the mismatched-list control is less clean here (1.60-fold,
+P = 0.16) because RA and melanoma share MHC loci. One autoimmune outcome does not
+establish generality across diseases.
 
 **Both axes crossed.** Scoring every disease-by-resource combination against its
 own disease's known loci, all six enrich (4.09 and 4.44 for melanoma; 8.85 and

@@ -2,20 +2,24 @@ instruments: Soskic 3,434, eQTLGen 12,835
 known-locus references: Okada 2014 87 rsIDs; Landi melanoma 157 loci (negative control)
 
 scanning finngen_R13_M13_RHEUMA.gz ...
-    5M rows, 3,397 instrument positions, 54 known loci placed
-    10M rows, 5,754 instrument positions, 103 known loci placed
-    15M rows, 8,942 instrument positions, 171 known loci placed
-    20M rows, 13,661 instrument positions, 223 known loci placed
-  scanned 21,323,448 rows; 14,255 instrument positions; 238 of 244 known rsIDs placed
-  Okada loci placed on GRCh38: 238
-  [N1 Soskic x RA] records 3,434; background known 105/546 = 19.2%; FDR<0.05 169 records / 36 loci, 16 known -> 2.31x, P = 0.000296; MHC nominal 69
-  [N2 eQTLGen x RA] records 12,835; background known 131/559 = 23.4%; FDR<0.05 247 records / 76 loci, 40 known -> 2.25x, P = 1.9e-09; MHC nominal 53
+    5M rows, 3,397 instrument positions, placed {'okada_RA': 25, 'landi_melanoma': 29}
+    10M rows, 5,754 instrument positions, placed {'okada_RA': 39, 'landi_melanoma': 64}
+    15M rows, 8,942 instrument positions, placed {'okada_RA': 61, 'landi_melanoma': 110}
+    20M rows, 13,661 instrument positions, placed {'okada_RA': 76, 'landi_melanoma': 147}
+  okada_RA: 83 positions placed from 87 rsIDs
+  landi_melanoma: 155 positions placed from 157 rsIDs
+  scanned 21,323,448 rows; 14,255 instrument positions
+  Okada RA loci placed on GRCh38: 83 of 87 rsIDs
+  [N1 Soskic x RA] records 3,434; background known 57/546 = 10.4%; FDR<0.05 169 records / 36 loci, 13 known -> 3.46x, P = 1.65e-05; MHC nominal 69
+  [N2 eQTLGen x RA] records 12,835; background known 66/559 = 11.8%; FDR<0.05 247 records / 76 loci, 32 known -> 3.57x, P = 7.7e-14; MHC nominal 53
   [NC Soskic x RA scored with melanoma list] records 3,434; background known 57/546 = 10.4%; FDR<0.05 169 records / 36 loci, 6 known -> 1.60x, P = 0.161; MHC nominal 69
+  [N1 Soskic x RA, MHC excluded] records 3,340; background known 56/546 = 10.3%; FDR<0.05 88 records / 29 loci, 9 known -> 3.03x, P = 0.00131; MHC nominal 0
+  [N2 eQTLGen x RA, MHC excluded] records 12,752; background known 66/559 = 11.8%; FDR<0.05 204 records / 74 loci, 29 known -> 3.32x, P = 2.07e-11; MHC nominal 0
 
 ========================================================================================
 VERDICT (S33 section 6)
 ========================================================================================
-  N1: 2.311x, P = 0.000296, background 19.23%, MHC nominal 69
+  N1: 3.459x, P = 1.65e-05, background 10.44%, MHC nominal 69
   -> A: attribution holds outside cancer, where CD4 is the causal cell type
   NC mismatched melanoma list: 1.596x, P = 0.161 (clean)
 

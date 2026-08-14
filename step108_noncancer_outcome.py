@@ -81,9 +81,24 @@ def flagger(pos_by_chr):
     return f
 
 
-def scan(path, want_pos, want_rs):
-    """one pass: instrument rows, and the coordinates of every known rsID"""
-    got, known = {}, {}
+def scan(path, want_pos, rs_sets):
+    """One pass: instrument rows, plus the coordinates of each reference list's
+    rsIDs kept SEPARATE.
+
+    ⚠ The first version of this function took a single union of all wanted
+    rsIDs and returned one coordinate map, which was then handed to the Okada
+    reference wholesale. That silently scored RA against Okada PLUS the melanoma
+    negative-control list -- 244 rsIDs instead of 87 -- and inflated nothing but
+    corrupted everything: the reference under test contained the list it was
+    supposed to be contrasted with. rs_sets is now a dict of name -> rsID set and
+    the maps come back keyed by name, so the two can no longer merge.
+    """
+    got = {}
+    known = {name: {} for name in rs_sets}
+    lookup = {}
+    for name, s in rs_sets.items():
+        for r in s:
+            lookup.setdefault(r, []).append(name)
     n = 0
     with gzip.open(path, "rt") as fh:
         rd = csv.reader(fh, delimiter="\t")
@@ -108,18 +123,22 @@ def scan(path, want_pos, want_rs):
             rs = row[irs] if irs < len(row) else ""
             if rs:
                 for one in rs.split(","):
-                    if one in want_rs:
-                        known.setdefault(str(c), set()).add(p)
+                    for name in lookup.get(one, ()):
+                        known[name].setdefault(str(c), set()).add(p)
             if n % 5_000_000 == 0:
+                tot = {k: sum(len(v) for v in m.values()) for k, m in known.items()}
                 print(f"    {n/1e6:.0f}M rows, {len(got):,} instrument positions, "
-                      f"{sum(len(v) for v in known.values())} known loci placed",
-                      flush=True)
-    print(f"  scanned {n:,} rows; {len(got):,} instrument positions; "
-          f"{sum(len(v) for v in known.values())} of {len(want_rs)} known rsIDs placed")
-    return got, {c: np.sort(np.array(sorted(v))) for c, v in known.items()}
+                      f"placed {tot}", flush=True)
+    out = {}
+    for name, m in known.items():
+        placed = sum(len(v) for v in m.values())
+        print(f"  {name}: {placed} positions placed from {len(rs_sets[name])} rsIDs")
+        out[name] = {c: np.sort(np.array(sorted(v))) for c, v in m.items()}
+    print(f"  scanned {n:,} rows; {len(got):,} instrument positions")
+    return got, out
 
 
-def cell(inst, got, is_known, label, allele_aware):
+def cell(inst, got, is_known, label, allele_aware, drop_mhc=False):
     keep, z = [], []
     for i, r in enumerate(inst.itertuples()):
         cands = got.get((r.chr, r.pos), [])
@@ -138,6 +157,10 @@ def cell(inst, got, is_known, label, allele_aware):
             continue
         keep.append(i); z.append(hit[0] / hit[1])
     sub = inst.iloc[keep].reset_index(drop=True)
+    if drop_mhc:
+        m = ~((sub.chr == MHC[0]) & sub.pos.between(MHC[1], MHC[2]))
+        z = list(np.array(z)[m.values])
+        sub = sub[m].reset_index(drop=True)
     p = two_sided(np.array(z))
     f = bh(p)
     loci = assign_loci(sub.chr.tolist(), sub.pos.tolist())
@@ -196,27 +219,26 @@ def main():
           f"Landi melanoma {len(landi)} loci (negative control)")
 
     want_pos = set(zip(d_sos.chr, d_sos.pos)) | set(zip(d_eq.chr, d_eq.pos))
-    want_rs = okada | set(landi.rsid.astype(str))
     print(f"\nscanning {os.path.basename(RA)} ...", flush=True)
-    got, placed = scan(RA, want_pos, want_rs)
-
-    # split the placed coordinates back into the two references
-    ok_pos, mel_pos = {}, {}
-    mel_rs = set(landi.rsid.astype(str))
-    # re-derive which placed positions belong to which list by a second cheap pass
-    # over the reference tables is unnecessary: Landi carries its own GRCh38
-    # coordinates, so use them directly and keep the scan only for Okada.
+    got, placed = scan(RA, want_pos,
+                       {"okada_RA": okada, "landi_melanoma": set(landi.rsid.astype(str))})
+    ok_pos = placed["okada_RA"]
+    # Landi carries its own GRCh38 coordinates, so use them rather than the scan
     mel_pos = {c: np.sort(s.pos.values)
                for c, s in landi.astype({"chr": str}).groupby("chr")}
-    ok_pos = placed  # scan collected both, but Okada is the one lacking coordinates
     n_ok = sum(len(v) for v in ok_pos.values())
-    print(f"  Okada loci placed on GRCh38: {n_ok}")
+    print(f"  Okada RA loci placed on GRCh38: {n_ok} of {len(okada)} rsIDs")
 
     rows = []
     rows.append(cell(d_sos, got, flagger(ok_pos), "N1 Soskic x RA", True))
     rows.append(cell(d_eq, got, flagger(ok_pos), "N2 eQTLGen x RA", False))
     rows.append(cell(d_sos, got, flagger(mel_pos),
                      "NC Soskic x RA scored with melanoma list", True))
+    # MHC drives much of RA's genetics; the attribution should not rest on it
+    rows.append(cell(d_sos, got, flagger(ok_pos), "N1 Soskic x RA, MHC excluded",
+                     True, drop_mhc=True))
+    rows.append(cell(d_eq, got, flagger(ok_pos), "N2 eQTLGen x RA, MHC excluded",
+                     False, drop_mhc=True))
     out = pd.DataFrame(rows)
     out.to_csv(f"{MR}/108a_ra_attribution.tsv", sep="\t", index=False)
 

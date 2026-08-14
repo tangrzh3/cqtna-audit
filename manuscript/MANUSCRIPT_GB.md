@@ -27,11 +27,10 @@ resource's current release, whose statistics correlate with the previous ones at
 0.94 with standard errors 3.85% smaller; in
 a second disease, where three of four significant loci are known hepatocellular
 carcinoma loci including *PNPLA3*; outside cancer in rheumatoid arthritis, where
-CD4⁺ T cells ARE the accepted causal cell type and cases exceed the melanoma
-meta-analysis (2.31-fold, P = 3.0×10⁻⁴, the weakest of the four outcomes); and
-when the exposure resource is replaced by
-a whole-blood eQTL dataset 300-fold larger, which raises significant loci from 7
-to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
+CD4⁺ T cells are a well-established pathogenic immune compartment (3.46-fold,
+P = 1.7×10⁻⁵; 3.03-fold excluding the MHC); and when the exposure resource is
+replaced by a whole-blood eQTL dataset 300-fold larger, which raises significant
+loci from 7 to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
 disease-by-resource combinations enrich, against a mismatched-locus control that
 does not. Swapping in a higher-powered meta-analysis — which changes study
 composition as well as power — increased MR discoveries, lowered colocalisation
@@ -243,28 +242,32 @@ figure, not to be read back up. HCC-high's shortfall here is the same power limi
 that left it at P = 0.110 before density was controlled.
 
 One observation from the grid places this work against the complementary
-**Outside cancer, where the exposure cell type is the causal one.** In both
-melanoma and HCC the CD4⁺ T cell is not the accepted causal cell type, so the
-attribution finding could be what happens when the exposure tissue is irrelevant
-to the disease. Rheumatoid arthritis removes that objection — CD4⁺ T cells are
-canonically causal in RA — and FinnGen's RA endpoint has 16,775 cases against the
-melanoma meta's 12,530, so a null could not be blamed on power. Scored against
-Okada et al.'s 2014 lead SNPs, published before FinnGen existed and from cohorts
-that exclude it, registered in advance (Supplementary S33): **16 of 36
-FDR-significant loci carry a known RA lead SNP against a 19.2% background,
-2.31-fold, P = 3.0×10⁻⁴**, with the whole-blood exposure at 2.25-fold
-(P = 1.9×10⁻⁹) and the MHC positive control passing.
+**Outside cancer, where the exposure cell type is part of the causal
+compartment.** In neither melanoma nor HCC is the CD4⁺ T cell an accepted causal
+cell type, so the attribution finding could be what happens when the exposure
+tissue is irrelevant to the disease. Rheumatoid arthritis removes that objection:
+**CD4⁺ T cells constitute a well-established pathogenic immune compartment in
+RA** — one among several that also include B cells, myeloid cells and synovial
+fibroblasts — and FinnGen's RA endpoint has 16,775 cases against the melanoma
+meta's 12,530, an effective sample size about 29% larger, so **a null could not
+readily be attributed to a smaller outcome effective sample size**. Scored
+against Okada et al.'s 2014 lead SNPs, published before FinnGen existed and from
+cohorts that exclude it, registered in advance (Supplementary S33): **13 of 36
+FDR-significant loci carry a known RA lead SNP against a 10.4% background,
+3.46-fold, P = 1.7×10⁻⁵**, with the whole-blood exposure at 3.57-fold
+(P = 7.7×10⁻¹⁴). The MHC positive control passes, and the result does not rest on
+that region — excluding it leaves 3.03-fold (P = 1.3×10⁻³) and 3.32-fold
+(P = 2.1×10⁻¹¹).
 
-The enrichment is nonetheless the weakest of the four outcomes — 17.6- and
-8.85-fold in HCC, 4.09-fold in melanoma, 2.31-fold in RA — while the nomination
-count moves the other way, 36 significant loci here against 7 for melanoma under
-the same exposure. That ordering is consistent with the mechanism we propose, but
-it was noticed after the fact on four outcomes with a causal-cell-type
-classification of our own, so we report it as an observation rather than a tested
-result. Okada 2014 predates a decade of later RA loci, which count as novel here
-and bias the 2.31-fold downward; and the mismatched-list control is less clean
-than in cancer (1.60-fold, P = 0.16), since RA and melanoma share immune loci
-across the MHC — not significant, so not disqualifying, but not a clean negative.
+Okada 2014 predates a decade of later RA loci, which count as novel here and bias
+the 3.46-fold downward; for the same reason enrichment magnitudes are **not
+comparable across diseases**, each reference list differing in age and
+completeness. The mismatched-list control is less clean than in cancer
+(1.60-fold, P = 0.16), since RA and melanoma share immune loci across the MHC —
+not significant, so not disqualifying, but not a clean negative. The strongest
+supported statement is narrow: enrichment on known outcome loci is neither
+confined to cancer nor dependent on an exposure cell type unrelated to the
+disease, but one autoimmune outcome does not establish generality across diseases.
 
 Swapping in the eQTLGen resource multiplied significant loci in
 melanoma (7 → 30) but not in HCC (2 → 5 and 2 → 3), suggesting that **the exposure
