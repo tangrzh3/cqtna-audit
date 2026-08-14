@@ -397,19 +397,33 @@ cells against the *wrong* disease's list collapses the enrichment (HCC's list on
 melanoma, 1.30-fold, P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so
 the effect is specific to each outcome's own genetics.
 
-**That control is narrower than it may appear, and we state its limit rather than
-leave it to be inferred.** A mismatched list rules out enrichment on loci that
-are indiscriminately dense across diseases; it does not rule out enrichment
-driven by a density that is itself disease-specific, since a disease's known loci
-and its instrumentable regions can be co-located for reasons unrelated to causal
-attribution. The permutation control that does exist here matches significant to
-background loci on exposure eQTL-p decile and outcome allele-frequency quintile
+**A mismatched list is a narrower control than it looks**, and on its own it
+would not settle the question. It rules out enrichment on loci that are
+indiscriminately dense across diseases, but not enrichment driven by a density
+that is itself disease-specific, since a disease's known loci and its
+instrumentable regions can be co-located for reasons unrelated to causal
+attribution. Two permutation controls close that gap from different directions.
+Matching significant to background loci on exposure eQTL-p decile and outcome
+allele-frequency quintile controls instrument strength and allele frequency
 (4.36-fold, empirical P = 0.023 for melanoma; 5.45- and 13.7-fold for the two HCC
-levels), so instrument strength and allele frequency are controlled — **but not
-locus or gene density, which would require a density-matched permutation we have
-not run.** The claim we make is therefore that the enrichment is specific to the
-outcome's own genetics and is not explained by instrument strength or allele
-frequency; **we do not claim that locus density has been excluded.**
+levels). Matching instead on **density** — quintile of instrument records per
+locus crossed with tertile of genes per locus, pre-registered with its reading
+table before it was run (Supplementary S30) — gives **3.44-fold, empirical
+P = 0.041** for melanoma, 11.98-fold (P = 0.005) for HCC-low and 4.13-fold
+(P = 0.23) for HCC-high, with a second density proxy (physical span crossed with
+gene count) returning 3.50-fold and P = 0.038. No significant locus required the
+stratification to be relaxed in any cell.
+
+**The attenuation is part of the result and we report it as such.** Density
+matching lowers the melanoma enrichment from 4.09- to 3.44-fold, and the two HCC
+cells by 32% and 53%. The significant loci genuinely are denser than background —
+three of the seven carry six to eight genes where the background median is one —
+so density does explain part of the enrichment. What the control establishes is
+that it does not explain all of it. The HCC-high cell falls short of significance
+here, but it was already short of it before density was controlled (P = 0.110 on
+two significant loci), so that is a power limit rather than something density
+matching revealed. The 3.44-fold figure is a deliberately conservative estimate
+and should not be read back up towards 4.09.
 
 One unplanned observation from the grid is worth stating, with a caveat about
 what it can attribute. Swapping in the eQTLGen resource multiplied significant
@@ -1681,6 +1695,7 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, the PRISMA-style flow from 469 screened records, and the **validation of the automated coder against manual adjudication of a fixed-seed random 30% subsample** — per-paper codes, the passages each was judged on, measured precision and recall, and the precision-corrected field-level estimates that supersede both the generous and the strict counts | `SUPP_literature_audit.md`; `91a`–`91e`, `104a`–`104c` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S30 | **Pre-registration document** (density-matched permutation), registered before the test was run, with both failure modes fixed in advance — under-matching leaves the artefact, over-matching removes signal that gene-dense regions genuinely carry — and the result: the enrichment survives density matching at 3.44-fold (P = 0.041) with the attenuation from 4.09-fold reported as part of the finding | `PREREG_density_matched.md`; `103a` |
 | S29 | **Pre-registration document** (HCC known-locus de-circularisation), with the per-variant GWAS Catalog provenance of all ten outcome-sourced loci, the three references scored, and two items its section 0.3 fixed in advance: that the test could not have changed the result because the circular loci lie far from any significant one, and that over-correction raises the enrichment and must not be cited as a stricter standard | `PREREG_hcc_decircularisation.md`; `102a` |
 | S28 | **Pre-registration document** (effect-size matching), registered before any matched analysis was run, including the finding — stated in its section 0 — that the down-sampling model contains no class label and the differential can therefore only follow from the |z| distributions; the pre-committed replacement wording; and two items logged against ourselves: a process control that failed on first run through a random-number-ordering bug, and a design flaw in the pre-registration itself, which permitted the matched comparison to collapse onto a single known anchor | `PREREG_effect_size_matching.md`; `101a`–`101c` |
 | S27 | **Self-administered attribution check**: the accepted-causal-gene list assembled before the comparison, the ten loci reached under the eQTLGen exposure, and the named gene at each | `96a` |

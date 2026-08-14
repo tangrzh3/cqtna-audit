@@ -1,0 +1,22 @@
+CODING RULES -- apply to the passages in the `evidence` column only.
+Enter 1 or 0 in the `coder2` column. Leave blank if you truly cannot decide.
+
+C1_known_locus = 1 only if the paper compares ITS OWN significant signal against
+  previously reported loci for ITS OWN outcome trait. Examples that are 1: "of
+  our N significant genes, k lie within known risk loci for <outcome>"; "we
+  checked our candidates against the GWAS Catalog entries for <outcome>".
+  Examples that are 0: any match falling inside a reference-list entry; a cited
+  paper's title containing "novel loci"; a statement about another study's locus
+  count; "annotated to known cell types"; naming a locus without comparing the
+  paper's own results to a prior list.
+
+C3_power_stability = 1 only if the paper reports how ITS CANDIDATE LIST depends
+  on the outcome GWAS used. Examples that are 1: repeating the analysis against a
+  second outcome dataset and comparing the resulting lists; down-sampling the
+  outcome; explicitly discussing that more or fewer findings arise with a
+  higher-powered outcome GWAS. Examples that are 0: generic "statistical power"
+  of the instruments, F-statistics, the eQTL sample size, power calculations for
+  detecting an effect, or a limitations sentence saying the cohort was small.
+
+The passages are the same ones the first coder saw. "(none found)" means no
+passage matched, which is normally 0.

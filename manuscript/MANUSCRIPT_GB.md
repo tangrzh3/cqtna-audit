@@ -247,13 +247,20 @@ than six independent significant tests. A pre-registered mismatched-locus contro
 makes it interpretable: scoring the same combinations against the wrong disease's
 list collapses the enrichment — HCC's list on melanoma gives 1.30-fold (P = 0.41),
 melanoma's list on HCC gives 0.00-fold (P = 1.0) — so the effect is specific to
-each outcome's own genetics. That control is narrower than it looks and we state
-its limit: a mismatched list rules out enrichment on loci that are
-indiscriminately dense across diseases, not enrichment driven by a density that
-is itself disease-specific. The permutation control matches significant to
-background loci on eQTL-p decile and allele-frequency quintile (4.36-fold,
-empirical P = 0.023), so instrument strength and allele frequency are controlled
-— **locus and gene density are not**, and we do not claim they have been excluded.
+each outcome's own genetics. A mismatched list is a narrower control than it
+looks — it rules out enrichment on loci indiscriminately dense across diseases,
+not a density that is itself disease-specific — so two permutations close the gap
+from different sides. Matching on eQTL-p decile and allele-frequency quintile
+controls instrument strength and frequency (4.36-fold, empirical P = 0.023).
+Matching on **density**, pre-registered before it was run (Supplementary S30),
+gives **3.44-fold (P = 0.041)** for melanoma, 11.98-fold (P = 0.005) for HCC-low
+and 4.13-fold (P = 0.23) for HCC-high, with a second density proxy returning
+3.50-fold. The attenuation is part of the result: density matching drops melanoma
+from 4.09- to 3.44-fold, because the significant loci genuinely are denser — three
+of seven carry six to eight genes against a background median of one. Density
+explains part of the enrichment and not all of it, and 3.44 is the conservative
+figure, not to be read back up. HCC-high's shortfall here is the same power limit
+that left it at P = 0.110 before density was controlled.
 
 One observation from the grid places this work against the complementary
 literature. Swapping in the eQTLGen resource multiplied significant loci in
@@ -538,7 +545,7 @@ candidate under a ranking criterion that was never fixed in advance, and the
 first four designations were overturned. That is this project's own history and
 not an estimate of how often the framework fails, and the itemised record — every
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
-nine pre-registrations and the technical account of two processing errors of
+ten pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
 
 Eight checks follow directly, each cheap and each capable of changing what a study
@@ -616,7 +623,7 @@ biological importance are separable — the strongest enzyme in the functional d
 carries no instrument, and the gene that does carry one is principally expressed
 by tumour. The complete record of which claims about it were raised, tested and
 withdrawn, together with the selection denominators at gene, pathway and mechanism
-level and the nine pre-registration documents, is Supplementary S12 and S18–S29.
+level and the ten pre-registration documents, is Supplementary S12 and S18–S30.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -684,7 +691,7 @@ Full Methods accompany this manuscript.
 
 ## Supplementary information
 
-S9–S29, including the nine pre-registration documents with their reading tables
+S9–S30, including the ten pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the

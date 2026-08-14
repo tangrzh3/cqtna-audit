@@ -130,10 +130,13 @@ control is what makes it interpretable: scoring the same cells against the wrong
 disease's list collapses the enrichment (HCC's list on melanoma, 1.30-fold,
 P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so the effect is specific
 to each outcome's own genetics (Fig. 2). A mismatched list rules out enrichment
-on loci indiscriminately dense across diseases, not a density that is itself
-disease-specific; the permutation control matches on eQTL-p decile and
-allele-frequency quintile (4.36-fold, P = 0.023), so instrument strength and
-allele frequency are controlled but **locus density is not**.
+on loci indiscriminately dense across diseases but not a density that is itself
+disease-specific, so two permutations close the gap: matching on eQTL-p decile
+and allele-frequency quintile gives 4.36-fold (P = 0.023), and matching on
+**density** — records and genes per locus, pre-registered — gives **3.44-fold
+(P = 0.041)**. The attenuation from 4.09 is part of the result: the significant
+loci genuinely are denser, so density explains part of the enrichment and not
+all of it.
 
 One observation separates the two sides. Swapping in the eQTLGen resource
 multiplied significant loci in melanoma (7 → 30) but not in HCC (2 → 5, 2 → 3):
@@ -381,7 +384,7 @@ Colocalisation versus SMR/HEIDI · Fig. 4 Power and list stability by locus clas
 Fig. 5 Instrument availability across the pathway · Fig. 6 Compartment
 attribution · Fig. 7 Patients across three cohorts.
 
-Methods, References, and Supplementary Information (including the nine
+Methods, References, and Supplementary Information (including the ten
 pre-registration documents, the multiple-testing unit and effect-size sensitivity
 analyses, the complete record of target-substantiation attempts, and the
 literature audit) accompany this manuscript separately.

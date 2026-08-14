@@ -1,0 +1,5 @@
+cell	n_sig	obs_known	exp_known	fold	emp_p	relax_to_fallback	relax_to_pool
+melanoma-meta primary	7	3	0.872	3.439	0.0411	0	0
+melanoma-meta secondary	7	3	0.857	3.5	0.038	0	0
+HCC-high primary	2	1	0.242	4.134	0.22718	0	0
+HCC-low primary	2	2	0.167	11.976	0.0046	0	0
