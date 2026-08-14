@@ -95,6 +95,11 @@ target, but what the nomination is a function of.
 
 ## Results
 
+### Part 1 — Why the nomination is unstable
+
+The first four results establish what a candidate list from this framework is a
+function of, and how much of it survives a change in the outcome GWAS.
+
 ### Design and positive controls
 
 Eight CD4⁺ T cell activation profiles (naive and memory, 0 h to 5 d) provided
@@ -111,40 +116,11 @@ associations in the study, at P = 4×10⁻³⁷ (Fig. 1).
 One property of the design governs everything that follows. With one instrument
 per exposure, the Wald z equals β_out/se_out, so **given the instrument set**, MR
 significance is a property of the outcome GWAS; the exposure data determine which
-variants are asked about and how many there are, but not which of them answers. Steiger filtering cannot arbitrate direction here either, since cis-eQTL
+variants are asked about and how many there are, but not which of them answers.
+Steiger filtering cannot arbitrate direction here either, since cis-eQTL
 and disease R² differ by orders of magnitude and the test passes almost by
 construction. We therefore state at the outset what the design can and cannot
 decide, and test the consequences empirically rather than asserting them.
-
-The same constraint creates a units problem that must be settled before any count
-below is read. Those 3,556 records carry only **2,126 unique variants and 1,195
-unique genes**, because one variant can be the lead eQTL for a gene in several
-profiles and for more than one gene, so the testing family is records while the
-list is reported by gene and the attribution by independent locus. Records are
-therefore not independent, and a Benjamini–Hochberg procedure over them does not
-have a clean guarantee under that dependence.
-
-We resolve this by separating the two things the record level is being asked to
-do. **The record-level analysis reproduces the nomination pipeline being
-audited** — it is what the studies under examination run, and what every
-registered prediction, the release trajectory, both generalisations and the grid
-were computed on, so it stays exactly as published. **The independent locus is
-the unit the audit's own conclusions are stated in.** That is not a convenience:
-the FDR < 0.05 list recomputed under all seven alternatives — variant, gene and
-locus, each by minimum-p and by Simes, plus a two-stage hierarchical procedure —
-leaves the locus count stable at 7 to 9 against the 7 reported and 2 under every
-unit in the FinnGen round, and leaves the attribution result unchanged
-(known-locus share 42.9–55.6% against 42.9%; 100% at every unit in FinnGen)
-(Supplementary S26). The audit conclusion therefore does not rest on the disputed
-unit at all. The record level is also the most conservative of the eight — no
-gene is lost under any other unit and up to 43 are added — but that is an
-empirical observation about list length, **not evidence that FDR is correctly
-controlled under this dependence**, and we do not use it as such.
-
-One row reads as a finding rather than a check: testing at locus level leaves the
-locus count almost unchanged but inflates the gene list from 10 to 53, of which 22
-are in the MHC and 7 in the chr17q21.31 inversion, because a significant locus
-does not name a gene.
 
 ### Significant signal sits on loci already known for the outcome
 
@@ -285,22 +261,6 @@ there the significant list is stable rather than replaced. The two axes are not
 interchangeable, and a study underpowered on one cannot be rescued by the other.
 Reporting which axis a claim rests on should be routine.
 
-### Colocalisation and SMR/HEIDI disagree, and the disagreement is consequential
-
-Colocalisation assigned the MC1R-region signals — the strongest MR associations in
-the study — to distinct causal variants, with PP.H3 dominant and PP.H4 at or near
-zero (CHMP1A 0.99; VPS9D1-AS1 0.96; SPATA33 0.92–1.00). FinnGen's own in-sample
-fine-mapping of this endpoint independently resolves three high-purity credible
-sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
-independent causal signals: precisely the configuration in which a neighbouring
-gene's eQTL can be tagged by one of them without sharing it.
-
-SMR/HEIDI did not reproduce this. Of 291 records that colocalisation assigned to
-distinct causal variants, HEIDI failed to reject homogeneity for 253 (86.9%),
-including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
-per test (Fig. 3). Evidence tiers that accept MR plus SMR without colocalisation
-would have reported MC1R linkage spillover as CD4-mediated immune targets.
-
 ### More outcome power moves the two methods in opposite directions
 
 Meta-analysis raised MR discoveries from 10 to 21 records while *lowering*
@@ -334,7 +294,7 @@ share no genes**, from identical exposure data under an identical pipeline.
 
 We measured candidate-list recovery as a function of outcome power by
 down-sampling in summary space, recomputing Wald ratios and FDR, and comparing
-with the full-power list (Fig. 4). The simulation is calibrated empirically — not
+with the full-power list (Fig. 3). The simulation is calibrated empirically — not
 externally, since FinnGen contributes to the meta outcome — against a separately
 observed lower-power round, which it reproduces (10.2 simulated versus 10 real
 discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
@@ -365,6 +325,86 @@ novel-locus part is the part that will not replicate** (Supplementary S28).
 > In this analysis, and within the range of outcome power we could observe, the
 > reproducible part of the candidate list was precisely the part that did not
 > constitute a discovery.
+
+### Part 2 — Why a significant locus is not a target gene
+
+Even where the signal is stable, the step from a significant locus to a named
+gene fails independently, and fails in ways the significance test cannot
+register.
+
+### Colocalisation and SMR/HEIDI disagree, and the disagreement is consequential
+
+Colocalisation assigned the MC1R-region signals — the strongest MR associations in
+the study — to distinct causal variants, with PP.H3 dominant and PP.H4 at or near
+zero (CHMP1A 0.99; VPS9D1-AS1 0.96; SPATA33 0.92–1.00). FinnGen's own in-sample
+fine-mapping of this endpoint independently resolves three high-purity credible
+sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
+independent causal signals: precisely the configuration in which a neighbouring
+gene's eQTL can be tagged by one of them without sharing it.
+
+SMR/HEIDI did not reproduce this. Of 291 records that colocalisation assigned to
+distinct causal variants, HEIDI failed to reject homogeneity for 253 (86.9%),
+including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
+per test (Fig. 4). Evidence tiers that accept MR plus SMR without colocalisation
+would have reported MC1R linkage spillover as CD4-mediated immune targets.
+
+### Does the pipeline attribute the right gene where the answer is known?
+
+The criticism this paper makes of nomination applies to this paper, and can be
+administered to it. At melanoma loci where a causal gene is generally accepted, we
+asked whether the pipeline's own significant nomination names that gene. Of ten
+such loci reached under the larger exposure resource, **six name the accepted gene
+and four do not**, and the failures are the informative ones. At the MC1R region —
+the strongest melanoma locus in the genome — the nomination spans **sixteen genes
+and MC1R is not among them**. At the OCA2/HERC2 locus it names the pseudogene
+HERC2P9 rather than HERC2. At *TYR* it names ODF3, and at the CDKN2A/MTAP locus
+C9orf66. Where it succeeds it often does so cleanly: IRF4 and MX2 are each named
+alone and correctly.
+
+This is the co-regulation problem of Tambets et al. [36] observed at the top of
+the effect-size distribution, and it bounds the whole design: a framework that
+misassigns the gene at the best-characterised locus in its own disease should not
+be read as assigning genes at uncharacterised ones. It is also why we report
+compartment attribution separately from gene attribution — the two fail
+independently.
+
+### Which unit the significance belongs to
+
+A units problem has to be settled before any of the counts above is read. Those
+3,556 records carry only **2,126 unique variants and 1,195
+unique genes**, because one variant can be the lead eQTL for a gene in several
+profiles and for more than one gene, so the testing family is records while the
+list is reported by gene and the attribution by independent locus. Records are
+therefore not independent, and a Benjamini–Hochberg procedure over them does not
+have a clean guarantee under that dependence.
+
+We resolve this by separating the two things the record level is being asked to
+do. **The record-level analysis reproduces the nomination pipeline being
+audited** — it is what the studies under examination run, and what every
+registered prediction, the release trajectory, both generalisations and the grid
+were computed on, so it stays exactly as published. **The independent locus is
+the unit the audit's own conclusions are stated in.** That is not a convenience:
+the FDR < 0.05 list recomputed under all seven alternatives — variant, gene and
+locus, each by minimum-p and by Simes, plus a two-stage hierarchical procedure —
+leaves the locus count stable at 7 to 9 against the 7 reported and 2 under every
+unit in the FinnGen round, and leaves the attribution result unchanged
+(known-locus share 42.9–55.6% against 42.9%; 100% at every unit in FinnGen)
+(Supplementary S26). The audit conclusion therefore does not rest on the disputed
+unit at all. The record level is also the most conservative of the eight — no
+gene is lost under any other unit and up to 43 are added — but that is an
+empirical observation about list length, **not evidence that FDR is correctly
+controlled under this dependence**, and we do not use it as such.
+
+One row reads as a finding rather than a check: testing at locus level leaves the
+locus count almost unchanged but inflates the gene list from 10 to 53, of which 22
+are in the MHC and 7 in the chr17q21.31 inversion, because a significant locus
+does not name a gene.
+
+### Part 3 — What survives the audit
+
+What is left once nomination is set aside is a narrower statement about where a
+pathway can be interrogated at all, and it is reported as a ladder rather than a
+verdict.
 
 ### What can be interrogated, stated at the level it applies to
 
@@ -452,26 +492,6 @@ infiltration, tumour purity or a metabolic state shared across compartments. Wha
 the ratio establishes is that such an association cannot be *attributed* to CD4⁺
 T cells, not that it is spurious. That bounds what bulk validation of such a
 nomination can establish, and the check costs minutes.
-
-### Does the pipeline attribute the right gene where the answer is known?
-
-The criticism this paper makes of nomination applies to this paper, and can be
-administered to it. At melanoma loci where a causal gene is generally accepted, we
-asked whether the pipeline's own significant nomination names that gene. Of ten
-such loci reached under the larger exposure resource, **six name the accepted gene
-and four do not**, and the failures are the informative ones. At the MC1R region —
-the strongest melanoma locus in the genome — the nomination spans **sixteen genes
-and MC1R is not among them**. At the OCA2/HERC2 locus it names the pseudogene
-HERC2P9 rather than HERC2. At *TYR* it names ODF3, and at the CDKN2A/MTAP locus
-C9orf66. Where it succeeds it often does so cleanly: IRF4 and MX2 are each named
-alone and correctly.
-
-This is the co-regulation problem of Tambets et al. [36] observed at the top of
-the effect-size distribution, and it bounds the whole design: a framework that
-misassigns the gene at the best-characterised locus in its own disease should not
-be read as assigning genes at uncharacterised ones. It is also why we report
-compartment attribution separately from gene attribution — the two fail
-independently.
 
 ### The functional layer has its own failure modes
 
@@ -686,9 +706,9 @@ changed what this analysis reported at nearly every stage.
 Fig. 1 Locus attribution under both outcomes, by independent locus ·
 Fig. 2 Generality: five nested releases, the transfer test, the second disease,
 the second exposure resource, and the crossed grid with its mismatched-locus
-control · Fig. 3 Colocalisation versus SMR/HEIDI, with in-sample fine-mapping ·
-Fig. 4 Power and list stability by locus class, and the same stratification
-against full-power |z| · Fig. 5 Instrument availability across the pathway at
+control · Fig. 3 Power and list stability by locus class, and the same stratification
+against full-power |z| · Fig. 4 Colocalisation versus SMR/HEIDI, with in-sample
+fine-mapping · Fig. 5 Instrument availability across the pathway at
 three levels · Fig. 6 Self-administered attribution check at loci with an
 accepted causal gene · Fig. 7 The CD4⁺ metabolic axis and its chromatin
 signature · Fig. 8 Compartment attribution · Fig. 9 Patients across three
