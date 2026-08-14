@@ -1,0 +1,43 @@
+==============================================================================
+Step 115 -- S35 gate 1: circularity hand check
+==============================================================================
+our exposure: naive and memory CD4 at 0 h, 16 h, 40 h and 5 d; 85-100 donors per profile; anti-CD3/CD28; Nature Genetics 2022
+
+==============================================================================
+Nathan_2022
+==============================================================================
+  datasets in catalogue: 28   registered for S35: ['QTD000666']
+  pmid: ['35545678']
+    QTD000666  CD4+_activated             cond=naive                n=147 type=single-cell
+  all sample sizes in this study: [42, 62, 74, 99, 119, 126, 133, 134, 147, 151, 153, 154, 174, 180, 188, 189, 193, 195, 196, 197, 199, 200, 201, 202, 203]
+  --- donor / cohort statements from the abstract:
+      * Using more than 500,000 
+unstimulated memory T cells from 259 Peruvian individuals, we show that around 
+one-third of 6,511 cis-eQTLs had effects that were mediated by continuous 
+multimodally defined cell states, such as cytotoxicity and regulatory capacity.
+
+==============================================================================
+Randolph_2021
+==============================================================================
+  datasets in catalogue: 12   registered for S35: ['QTD000588']
+  pmid: ['34822289']
+    QTD000588  CD4_T_flu                  cond=Influenza_6h         n=89 type=single-cell
+  all sample sizes in this study: [52, 78, 83, 84, 85, 87, 88, 89]
+  --- donor / cohort statements from the abstract:
+      (none found in abstract; full text needed for a firm call)
+
+==============================================================================
+Schmiedel_2018
+==============================================================================
+  datasets in catalogue: 90   registered for S35: ['QTD000484']
+  pmid: ['30449622']
+    QTD000484  CD4_T-cell_anti-CD3-CD28   cond=anti-CD3-CD28_4h     n=89 type=bulk
+  all sample sizes in this study: [82, 88, 89, 90, 91]
+  --- donor / cohort statements from the abstract:
+      (none found in abstract; full text needed for a firm call)
+
+==============================================================================
+wrote 115a_study_evidence.txt, 115b_gate1.tsv
+The verdict per resource is a hand judgement to be entered in S35 §10.1.
+No eQTL statistic has been read.
+==============================================================================

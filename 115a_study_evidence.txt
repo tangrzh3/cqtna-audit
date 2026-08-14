@@ -1,0 +1,179 @@
+
+
+==============================================================================
+### Nathan_2022  pmid=['35545678']
+==============================================================================
+1. Nature. 2022 Jun;606(7912):120-128. doi: 10.1038/s41586-022-04713-1. Epub 2022
+ May 11.
+
+Single-cell eQTL models reveal dynamic T cell state dependence of disease loci.
+
+Nathan A(1)(2)(3)(4)(5), Asgari S(1)(2)(3)(4)(5), Ishigaki K(1)(2)(3)(4)(5), 
+Valencia C(1)(2)(3)(4)(5), Amariuta T(4)(6), Luo Y(1)(2)(3)(4)(5), Beynor 
+JI(1)(2)(3)(4)(5), Baglaenko Y(1)(2)(3)(4)(5), Suliman S(2), Price AL(4)(6)(7), 
+Lecca L(8)(9), Murray MB(8)(10), Moody DB(2), Raychaudhuri 
+S(11)(12)(13)(14)(15)(16).
+
+Author information:
+(1)Center for Data Sciences, Brigham and Women's Hospital and Harvard Medical 
+School, Boston, MA, USA.
+(2)Division of Rheumatology, Inflammation, and Immunity, Department of Medicine, 
+Brigham and Women's Hospital and Harvard Medical School, Boston, MA, USA.
+(3)Division of Genetics, Department of Medicine, Brigham and Women's Hospital 
+and Harvard Medical School, Boston, MA, USA.
+(4)Program in Medical and Population Genetics, Broad Institute of MIT and 
+Harvard, Cambridge, MA, USA.
+(5)Department of Biomedical Informatics, Harvard Medical School, Boston, MA, 
+USA.
+(6)Department of Epidemiology, Harvard T.H. Chan School of Public Health, 
+Boston, MA, USA.
+(7)Department of Biostatistics, Harvard T.H. Chan School of Public Health, 
+Boston, MA, USA.
+(8)Department of Global Health and Social Medicine, Harvard Medical School, 
+Boston, MA, USA.
+(9)Socios En Salud Sucursal Peru, Lima, Peru.
+(10)Division of Global Health Equity, Department of Medicine, Brigham and 
+Women's Hospital and Harvard Medical School, Boston, MA, USA.
+(11)Center for Data Sciences, Brigham and Women's Hospital and Harvard Medical 
+School, Boston, MA, USA. soumya@broadinstitute.org.
+(12)Division of Rheumatology, Inflammation, and Immunity, Department of 
+Medicine, Brigham and Women's Hospital and Harvard Medical School, Boston, MA, 
+USA. soumya@broadinstitute.org.
+(13)Division of Genetics, Department of Medicine, Brigham and Women's Hospital 
+and Harvard Medical School, Boston, MA, USA. soumya@broadinstitute.org.
+(14)Program in Medical and Population Genetics, Broad Institute of MIT and 
+Harvard, Cambridge, MA, USA. soumya@broadinstitute.org.
+(15)Department of Biomedical Informatics, Harvard Medical School, Boston, MA, 
+USA. soumya@broadinstitute.org.
+(16)Centre for Genetics and Genomics Versus Arthritis, Manchester Academic 
+Health Science Centre, University of Manchester, Manchester, UK. 
+soumya@broadinstitute.org.
+
+Non-coding genetic variants may cause disease by modulating gene expression. 
+However, identifying these expression quantitative trait loci (eQTLs) is 
+complicated by differences in gene regulation across fluid functional cell 
+states within cell types. These states-for example, neurotransmitter-driven 
+programs in astrocytes or perivascular fibroblast differentiation-are obscured 
+in eQTL studies that aggregate cells1,2. Here we modelled eQTLs at single-cell 
+resolution in one complex cell type: memory T cells. Using more than 500,000 
+unstimulated memory T cells from 259 Peruvian individuals, we show that around 
+one-third of 6,511 cis-eQTLs had effects that were mediated by continuous 
+multimodally defined cell states, such as cytotoxicity and regulatory capacity. 
+In some loci, independent eQTL variants had opposing cell-state relationships. 
+Autoimmune variants were enriched in cell-state-dependent eQTLs, including risk 
+variants for rheumatoid arthritis near ORMDL3 and CTLA4; this indicates that 
+cell-state context is crucial to understanding potential eQTL pathogenicity. 
+Moreover, continuous cell states explained more variation in eQTLs than did 
+conventional discrete categories, such as CD4+ versus CD8+, suggesting that 
+modelling eQTLs and cell states at single-cell resolution can expand insight 
+into gene regulation in functionally heterogeneous cell types.
+
+© 2022. The Author(s), under exclusive licence to Springer Nature Limited.
+
+DOI: 10.1038/s41586-022-04713-1
+PMCID: PMC9842455
+PMID: 35545678 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests The authors declare no 
+competing interests.
+
+==============================================================================
+### Randolph_2021  pmid=['34822289']
+==============================================================================
+1. Science. 2021 Nov 26;374(6571):1127-1133. doi: 10.1126/science.abg0928. Epub 
+2021 Nov 25.
+
+Genetic ancestry effects on the response to viral infection are pervasive but 
+cell type specific.
+
+Randolph HE(1), Fiege JK(2)(3), Thielen BK(4), Mickelson CK(2)(3), Shiratori 
+M(5), Barroso-Batista J(5), Langlois RA(2)(3), Barreiro LB(1)(5)(6).
+
+Author information:
+(1)Committee on Genetics, Genomics, and Systems Biology, University of Chicago, 
+Chicago, IL, USA.
+(2)Center for Immunology, University of Minnesota, Minneapolis, MN, USA.
+(3)Department of Microbiology and Immunology, University of Minnesota, 
+Minneapolis, MN, USA.
+(4)Division of Pediatric Infectious Diseases and Immunology, Department of 
+Pediatrics, University of Minnesota, Minneapolis, MN, USA.
+(5)Section of Genetic Medicine, Department of Medicine, University of Chicago, 
+Chicago, IL, USA.
+(6)Committee on Immunology, University of Chicago, Chicago, IL, USA.
+
+Comment in
+    Nat Rev Genet. 2022 Feb;23(2):72. doi: 10.1038/s41576-021-00442-9.
+
+Humans differ in their susceptibility to infectious disease, partly owing to 
+variation in the immune response after infection. We used single-cell RNA 
+sequencing to quantify variation in the response to influenza infection in 
+peripheral blood mononuclear cells from European- and African-ancestry males. 
+Genetic ancestry effects are common but highly cell type specific. Higher levels 
+of European ancestry are associated with increased type I interferon pathway 
+activity in early infection, which predicts reduced viral titers at later time 
+points. Substantial population-associated variation is explained by 
+cis-expression quantitative trait loci that are differentiated by genetic 
+ancestry. Furthermore, genetic ancestry–associated genes are enriched among 
+genes correlated with COVID-19 disease severity, suggesting that the early 
+immune response contributes to ancestry-associated differences for multiple 
+viral infection outcomes.
+
+DOI: 10.1126/science.abg0928
+PMCID: PMC8957271
+PMID: 34822289 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: Authors have no competing 
+interests to declare.
+
+==============================================================================
+### Schmiedel_2018  pmid=['30449622']
+==============================================================================
+1. Cell. 2018 Nov 29;175(6):1701-1715.e16. doi: 10.1016/j.cell.2018.10.022. Epub 
+2018 Nov 15.
+
+Impact of Genetic Polymorphisms on Human Immune Cell Gene Expression.
+
+Schmiedel BJ(1), Singh D(1), Madrigal A(1), Valdovino-Gonzalez AG(1), White 
+BM(1), Zapardiel-Gonzalo J(1), Ha B(1), Altay G(1), Greenbaum JA(1), McVicker 
+G(2), Seumois G(1), Rao A(3), Kronenberg M(4), Peters B(5), Vijayanand P(6).
+
+Author information:
+(1)La Jolla Institute for Allergy and Immunology, La Jolla, CA 92037, USA.
+(2)Salk Institute for Biological Studies, La Jolla, CA 92037, USA.
+(3)La Jolla Institute for Allergy and Immunology, La Jolla, CA 92037, USA; 
+Sanford Consortium for Regenerative Medicine, La Jolla, CA 92037, USA; 
+Department of Pharmacology and Moores Cancer Centre, University of California 
+San Diego (UCSD), La Jolla, CA 92037, USA.
+(4)La Jolla Institute for Allergy and Immunology, La Jolla, CA 92037, USA; 
+Division of Biological Sciences, University of California San Diego, La Jolla, 
+CA 92037, USA.
+(5)La Jolla Institute for Allergy and Immunology, La Jolla, CA 92037, USA; 
+Department of Medicine, University of California San Diego, La Jolla, CA 92093, 
+USA.
+(6)La Jolla Institute for Allergy and Immunology, La Jolla, CA 92037, USA; 
+Department of Medicine, University of California San Diego, La Jolla, CA 92093, 
+USA; University of Southampton, Faculty of Medicine, Southampton SO16 6YD, UK. 
+Electronic address: vijay@lji.org.
+
+While many genetic variants have been associated with risk for human diseases, 
+how these variants affect gene expression in various cell types remains largely 
+unknown. To address this gap, the DICE (database of immune cell expression, 
+expression quantitative trait loci [eQTLs], and epigenomics) project was 
+established. Considering all human immune cell types and conditions studied, we 
+identified cis-eQTLs for a total of 12,254 unique genes, which represent 61% of 
+all protein-coding genes expressed in these cell types. Strikingly, a large 
+fraction (41%) of these genes showed a strong cis-association with genotype only 
+in a single cell type. We also found that biological sex is associated with 
+major differences in immune cell gene expression in a highly cell-specific 
+manner. These datasets will help reveal the effects of disease risk-associated 
+genetic polymorphisms on specific immune cell types, providing mechanistic 
+insights into how they might influence pathogenesis (https://dice-database.org).
+
+Copyright © 2018 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.cell.2018.10.022
+PMCID: PMC6289654
+PMID: 30449622 [Indexed for MEDLINE]
+
+Conflict of interest statement: DECLARATION OF INTERESTS The authors declare no 
+competing interests.
