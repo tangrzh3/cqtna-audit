@@ -1,0 +1,51 @@
+study	n_datasets	n_stim_datasets	n_conditions	max_n	max_n_stim	n_stim_datasets_ge100	conditions
+MacroMap	24	24	24	199	199.0	24	CIL_24h; CIL_6h; IFNb_24h; IFNb_6h; IFNg_24h; IFNg_6h; IL4_24h; IL4_6h; LIL10_24h; LIL10_6h; LPS_24h; LPS_6h; MBP_24h; MBP_6h; PIC_24h; PIC_6h; Pam3CSK4_24h; Pa
+Quach_2016	5	4	4	200	198.0	4	Influenza_6h; LPS_6h; Pam3CSK4_6h; R848_6h
+Jerber_2021	25	25	4	167	167.0	16	naive_D11; naive_D30; naive_D52; rotenone_D52
+Cytoimmgen_reannotated	15	15	4	106	106.0	2	anti-CD3-CD28_16H; anti-CD3-CD28_40H; anti-CD3-CD28_5D; naive_16H
+Cytoimmgen	48	40	3	106	99.0	0	anti-CD3-CD28_16h; anti-CD3-CD28_40h; anti-CD3-CD28_5D
+Alasoo_2018	4	3	3	84	84.0	0	IFNg_18h; IFNg_18h+Salmonella_5h; Salmonella_5h
+Nassiri_2025	3	2	2	177	176.0	2	IFNg_24h; LPS_24h
+Nedelec_2016	3	2	2	167	167.0	2	Listeria_5h; Salmonella_5h
+GAinS	1	1	1	630	630.0	1	sepsis
+CAP	2	1	1	148	148.0	1	statin
+Randolph_2021	12	7	1	89	89.0	0	Influenza_6h
+Randolph_2021_reannotated	22	10	1	89	89.0	0	Influenza_6h
+Schmiedel_2018	15	2	1	91	89.0	0	anti-CD3-CD28_4h
+AFR_LCL	1	0	0	659		0	
+Aygun_2021	2	0	0	85		0	
+BLUEPRINT	3	0	0	196		0	
+Bossini-Castillo_2019	1	0	0	119		0	
+BrainSeq	1	0	0	479		0	
+Braineac2	2	0	0	102		0	
+CommonMind	1	0	0	586		0	
+DICE	8	0	0	77		0	
+DICE_reannotated	6	0	0	77		0	
+FUSION	2	0	0	288		0	
+GENCORD	3	0	0	190		0	
+GEUVADIS	1	0	0	445		0	
+GTEx_v10	49	0	0	871		0	
+HipSci	1	0	0	322		0	
+IBDverse	72	0	0	359		0	
+INTERVAL_RNA	1	0	0	4729		0	
+INTERVAL_RNA_WGS	1	0	0	2892		0	
+Lepik_2017	1	0	0	443		0	
+MAGE	1	0	0	675		0	
+Nathan_2022	28	0	0	203		0	
+Nathan_2022_reannotated	7	0	0	205		0	
+Natri_2024	21	0	0	105		0	
+OneK1K	17	0	0	954		0	
+OneK1K_reannotated	15	0	0	997		0	
+PISA	1	0	0	127		0	
+Peng_2018	1	0	0	149		0	
+Perez_2022	8	0	0	165		0	
+Perez_2022_reannotated	17	0	0	157		0	
+PhLiPS	2	0	0	83		0	
+ROSMAP	1	0	0	560		0	
+Schwartzentruber_2018	1	0	0	98		0	
+Steinberg_2020	3	0	0	72		0	
+TwinsUK	4	0	0	418		0	
+Walker_2019	1	0	0	211		0	
+Young_2019	1	0	0	104		0	
+iPSCORE	1	0	0	101		0	
+van_de_Bunt_2015	1	0	0	117		0	

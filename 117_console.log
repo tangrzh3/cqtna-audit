@@ -1,0 +1,37 @@
+==============================================================================
+Step 117 -- multi-condition eQTL resources with usable donor numbers
+==============================================================================
+gene-expression datasets: 466   studies: 50
+
+==============================================================================
+studies with >1 non-resting condition (any donor count)
+==============================================================================
+  MacroMap                    conditions=24 max n(stim)=199.0 stim datasets n>=100: 24  <== MEETS ALL THREE
+      CIL_24h; CIL_6h; IFNb_24h; IFNb_6h; IFNg_24h; IFNg_6h; IL4_24h; IL4_6h; LIL10_24h; LIL10_6h; LPS_24h; LPS_6h; MBP_24h; MBP_6h; PIC_24h; PIC_6h; Pam3CSK4_24h; Pa
+  Quach_2016                  conditions=4  max n(stim)=198.0 stim datasets n>=100: 4  <== MEETS ALL THREE
+      Influenza_6h; LPS_6h; Pam3CSK4_6h; R848_6h
+  Jerber_2021                 conditions=4  max n(stim)=167.0 stim datasets n>=100: 16  <== MEETS ALL THREE
+      naive_D11; naive_D30; naive_D52; rotenone_D52
+  Cytoimmgen_reannotated      conditions=4  max n(stim)=106.0 stim datasets n>=100: 2  <== MEETS ALL THREE
+      anti-CD3-CD28_16H; anti-CD3-CD28_40H; anti-CD3-CD28_5D; naive_16H
+  Cytoimmgen                  conditions=3  max n(stim)=99.0  stim datasets n>=100: 0
+      anti-CD3-CD28_16h; anti-CD3-CD28_40h; anti-CD3-CD28_5D
+  Alasoo_2018                 conditions=3  max n(stim)=84.0  stim datasets n>=100: 0
+      IFNg_18h; IFNg_18h+Salmonella_5h; Salmonella_5h
+  Nassiri_2025                conditions=2  max n(stim)=176.0 stim datasets n>=100: 2  <== MEETS ALL THREE
+      IFNg_24h; LPS_24h
+  Nedelec_2016                conditions=2  max n(stim)=167.0 stim datasets n>=100: 2  <== MEETS ALL THREE
+      Listeria_5h; Salmonella_5h
+
+==============================================================================
+criterion 3 alone: studies with >1 condition = 8
+all three criteria (>1 condition AND a stimulated dataset at n>=100): 6
+==============================================================================
+  MacroMap: 24 conditions, 24 stimulated datasets at n>=100, max n 199.0
+  Quach_2016: 4 conditions, 4 stimulated datasets at n>=100, max n 198.0
+  Jerber_2021: 4 conditions, 16 stimulated datasets at n>=100, max n 167.0
+  Cytoimmgen_reannotated: 4 conditions, 2 stimulated datasets at n>=100, max n 106.0
+  Nassiri_2025: 2 conditions, 2 stimulated datasets at n>=100, max n 176.0
+  Nedelec_2016: 2 conditions, 2 stimulated datasets at n>=100, max n 167.0
+
+wrote 117a_multicondition_studies.tsv

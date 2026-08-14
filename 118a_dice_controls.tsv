@@ -1,0 +1,6 @@
+control	fold	p	note
+primary_fisher	3.361702127659574	0.11155162274329213	bg 47/474, sig 2/6
+mismatched_list	6.583333333333333	0.03256575453603467	HCC list; bg 24/474, sig 2/6
+strength_frequency	6.743088334457182	0.026197380261973803	decile x quintile; relaxations 0
+density	3.100294527980158	0.12428757124287572	records quintile x genes tertile; relaxations 0
+density_span_proxy	2.5660764690787787	0.1740825917408259	span quintile x genes tertile; relaxations 0

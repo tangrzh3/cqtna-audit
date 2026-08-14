@@ -1,0 +1,35 @@
+==============================================================================
+Step 118 -- S35 registered controls, DICE cell
+==============================================================================
+records 860   significant records 10
+background loci 474 (47 known)   significant 6 (2 known)   fold 3.36
+
+==============================================================================
+control 1 -- mismatched list (HCC known loci on a melanoma outcome)
+==============================================================================
+  background 24/474 known under HCC list; significant 2/6
+  fold 6.58   one-sided Fisher P 0.03257
+
+==============================================================================
+control 2 -- eQTL-p decile x outcome EAF quintile
+==============================================================================
+  strength x frequency: expected known 0.30, observed 2  -> fold 6.74, empirical P 0.0262   (stratum relaxations 0)
+
+==============================================================================
+control 3 -- density (records quintile x genes tertile), and span proxy
+==============================================================================
+  density: expected known 0.65, observed 2  -> fold 3.10, empirical P 0.1243   (stratum relaxations 0)
+  density (span proxy): expected known 0.78, observed 2  -> fold 2.57, empirical P 0.1741   (stratum relaxations 0)
+
+==============================================================================
+           control     fold        p                                            note
+    primary_fisher 3.361702 0.111552                              bg 47/474, sig 2/6
+   mismatched_list 6.583333 0.032566                    HCC list; bg 24/474, sig 2/6
+strength_frequency 6.743088 0.026197                decile x quintile; relaxations 0
+           density 3.100295 0.124288 records quintile x genes tertile; relaxations 0
+density_span_proxy 2.566076 0.174083    span quintile x genes tertile; relaxations 0
+==============================================================================
+
+⚠ Read with the numerator in mind: 2 known of 6 significant loci. These
+controls cannot make a non-significant cell significant, and are reported
+because S35 §3 registered them, not as support for a positive result.
