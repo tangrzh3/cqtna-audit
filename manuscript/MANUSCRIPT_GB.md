@@ -205,6 +205,24 @@ matched-background version agrees (4.14–4.48-fold, empirical P = 10⁻⁴). Th
 resources' novel nominations intersect in exactly one gene, ZFYVE19, so the
 stronger claim that novel nominations never reproduce is not supported.
 
+**Three further exposure resources, and why they settle nothing.** eQTLGen is a
+large whole-blood dataset, not a second stimulation time course, so we
+pre-registered an attempt to add context-specific CD4⁺ resources with the outcome
+held byte-identical (Supplementary S35): anti-CD3/CD28 at 4 h, influenza
+infection at 6 h, and an activation-state resource in unstimulated memory cells.
+None supports the attribution claim. Two fall below the registered floors — 2
+significant loci and none at all — and are reported as underpowered rather than
+as nulls, since a locus-level test on such numerators has no power to be either.
+The third clears both floors at 3.36-fold, but **its pre-registered
+mismatched-list control fails: the wrong disease's known loci give 6.58-fold
+(P = 0.033) against 3.36-fold (P = 0.11) for melanoma's own**, each list hitting
+two of six significant loci and not the same two — and a mismatched list that
+also enriches voids the cell. Why these resources cannot decide is itself the
+point: at 89 to 147 donors they yield 112 to 860 usable instruments and 0 to 6
+significant loci, against 3,556 and 7 for the CD4⁺ time course and 12,835 and 30
+for whole blood. **The finding rests on two exposure resources and we could not
+extend it to a third.**
+
 **Outside cancer, where the exposure cell type is part of the causal
 compartment.** In neither melanoma nor HCC is the CD4⁺ T cell an accepted causal
 cell type, so the attribution finding could be what happens when the exposure
@@ -400,20 +418,16 @@ the best-characterised locus in its own disease should not be read as assigning
 genes at uncharacterised ones.
 
 Turning it into a rate would need an external, pre-defined benchmark, and we
-pre-registered the attempt before running it (Supplementary S34), including the
-floor of 30 evaluable loci below which we would not report a rate at all. It
-could not be met. Scoring our 30 significant loci against the largest such
-resource — 2,435 curated GWAS locus-to-gene assignments, restricted in advance to
-the evidence classes that do not themselves rest on molecular-QTL colocalisation
-— leaves **16 evaluable loci, and only 2 when the benchmark is restricted to
-melanoma and its related traits**, against the 40 melanoma-relevant sentinels the
-resource contains in total. The binding constraint is coverage rather than
-circularity: excluding the colocalisation-based evidence class costs only two
-loci. So the rate is not reported, the ten-locus illustration stands as it is,
-and the reason is worth stating plainly — for a disease whose common-variant
+pre-registered the attempt (Supplementary S34) with a floor of 30 evaluable loci
+below which no rate would be reported. It could not be met: scoring our 30
+significant loci against 2,435 curated GWAS locus-to-gene assignments, restricted
+in advance to evidence classes that do not themselves rest on molecular-QTL
+colocalisation, leaves **16 evaluable loci and only 2 when the benchmark is
+restricted to melanoma and related traits**. The binding constraint is coverage,
+not circularity — the class restriction costs two loci. For a disease whose
 architecture is dominated by pigmentation and naevus loci, curated locus-to-gene
-truth barely exists, and three-quarters of what does exist in this resource comes
-from drug-target pairs, which follow therapeutic attention rather than allelic
+truth barely exists, and three-quarters of what exists here comes from
+drug-target pairs, which follow therapeutic attention rather than allelic
 architecture.
 
 This is the co-regulation problem of Tambets et al. [42] observed at the top of
@@ -638,7 +652,7 @@ candidate under a ranking criterion that was never fixed in advance, and the
 first four designations were overturned. That is this project's own history and
 not an estimate of how often the framework fails, and the itemised record — every
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
-twelve pre-registrations and the technical account of two processing errors of
+fourteen pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
 
 Eight checks follow directly, each cheap and each capable of changing what a study
@@ -754,9 +768,19 @@ estimated: they were chosen for the contrasts they provide, not at random. The
 power-recovery curves rest on reference lists of four and six genes and compare
 against a full-power list that is itself unstable, so they measure agreement
 between two imperfect lists rather than recovery of truth, and are not
-extrapolated above observed power. Both exposure resources are European-ancestry,
-and the second is whole blood, so a positive result there cannot be read back as
-CD4-specific. The patient analyses rest on three small cohorts and the strongest
+extrapolated above observed power. The two exposure resources that carry the
+attribution finding are both European-ancestry, and the second is whole blood, so
+a positive result there cannot be read back as CD4-specific; the three additional
+resources we tried, which include Peruvian and African-ancestry donors, were
+underpowered or failed their control, so they neither extend the finding nor
+broaden its ancestry. That limit is structural rather than incidental. Across the
+whole eQTL Catalogue, stimulation resources profiling several conditions at
+adequate donor numbers exist only for myeloid cells — one macrophage resource
+covers 24 conditions at n = 199 — while for CD4⁺ T cells the only multi-condition
+stimulation resource is the one used here, and every other stimulated CD4⁺
+dataset carries a single condition. **The dynamic axis of the framework this
+paper audits is currently supported by one resource**, which bounds how far any
+audit of it, including ours, can go. The patient analyses rest on three small cohorts and the strongest
 of them is the discovery cohort. The genotype × pseudotime test covers lead
 variants under linear and quadratic models, so a non-monotonic effect at a
 non-lead variant is not excluded. Two questions this design cannot settle need new
@@ -1105,7 +1129,7 @@ the installed scipy.
 ### Data and code availability
 
 All datasets are public and identified by accession above. Analysis code,
-intermediate result tables and the twelve pre-registration documents will be
+intermediate result tables and the fourteen pre-registration documents will be
 deposited at ⟨repository DOI⟩, comprising every numbered analysis and figure
 script together with the tables needed to reproduce each figure and every number
 reported in the text. CQTNA, a runnable implementation of the diagnostics in the
@@ -1113,7 +1137,7 @@ Discussion, is included in the deposit.
 
 ## Supplementary information
 
-S9–S33, including the twelve pre-registration documents with their reading tables
+S9–S35, including the fourteen pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the
