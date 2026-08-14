@@ -1,0 +1,2436 @@
+chr	pos	cls	trait_reported	trait_std	confidence
+16	81230992	expert curated	Carotenoid and tocopherol levels (beta-carotene)	B-Carotene	High
+2	233763993	expert curated	Bilirubin levels	Bilirubin	High
+X	154326058	expert curated	Bilirubin levels	Bilirubin	High
+14	63768838	expert curated	Sphingolipid levels (SM 14:0Mol%)	sphingomyelin 14∶0 molar percentage	High
+2	168906638	expert curated	Fasting glucose-related traits (FPG)	D-Glucose	High
+4	71742666	expert curated	Vitamin D insufficiency	25-Hydroxyvitamin D2	High
+11	14893332	expert curated	Vitamin D insufficiency	25-Hydroxyvitamin D2	High
+11	71456403	expert curated	Vitamin D insufficiency	25-Hydroxyvitamin D2	High
+1	21496799	expert curated	Phosphorus levels	Phosphorus	High
+12	4497002	expert curated	Phosphorus levels	Phosphorus	High
+1	155192276	expert curated	Magnesium levels	Magneseium	High
+9	74884880	expert curated	Magnesium levels	Magnesium	High
+14	65291924	expert curated	N-glycan levels (DG1)	N-glycan measurement	High
+1	94587797	expert curated	D-dimer levels	D dimer measurement	High
+1	169508336	expert curated	D-dimer levels	D dimer measurement	High
+19	15879621	expert curated	Vitamin E levels	Alpha-Tocopherol	High
+6	10982740	expert curated	Phospholipid levels (plasma) (DPA)	Docosapentaenoic acid	High
+10	93588425	expert curated	Retinol levels	Vitamin A	High
+18	31607316	expert curated	Retinol levels	Vitamin A	High
+7	17269655	expert curated|expert curated	Metabolic traits (caffeine/quinate + 3 other traits)	Caffeine / Quinic acid	High
+6	85407411	expert curated	Metabolic traits (inosine + 1 other trait)	Inosine	High
+17	7618597	expert curated	Testosterone levels (Testosterone)	Testosterone	High
+2	64993776	expert curated	Metabolite levels (Ala, Val)	L-Alanine / L-Valine	High
+16	71600908	expert curated	Metabolite levels (Phe, Tyr)	L-Phenylalanine / L-Tyrosine	High
+11	68794860	expert curated	Lipid metabolism phenotypes (LA/PUFA)	Linoleic acid	High
+6	32168770	expert curated	Phospholipid levels (plasma) (proportions (PC 32∶0/PC 34∶1))	similar to Phosphatidylcholine(18:0/14:0)|Phosphatidylcholine(16:1/18:0)	High
+4	47549846	expert curated	Sphingolipid levels (levels)	sphingolipid measurement	High
+10	102863821	expert curated	Arsenic metabolism  (DMA%)	Dimethylarsinate	High
+11	64696613	expert curated|expert curated	Renal function-related traits (urea)	Urea	High
+18	45607165	expert curated	Renal function-related traits (BUN)	Urea	High
+3	170995501	expert curated	MAGIC Fasting Glucose GWAS/Metabochip 2012	D-Glucose	High
+3	185795604	expert curated	MAGIC Fasting Glucose GWAS/Metabochip 2012	D-Glucose	High
+5	96203744	expert curated	MAGIC Fasting Glucose GWAS/Metabochip 2012	D-Glucose	High
+7	44192287	expert curated	MAGIC Fasting Glucose GWAS/Metabochip 2012	D-Glucose	High
+11	92975544	expert curated	MAGIC Fasting Glucose GWAS/Metabochip 2012	D-Glucose	High
+13	27913462	expert curated|expert curated	MAGIC Fasting Glucose GWAS/Metabochip 2012	D-Glucose	High
+1	145711327	expert curated	Urate levels	Uric acid	High
+4	9942428	expert curated	Urate levels	Uric acid	High
+4	88131171	expert curated	Urate levels	Uric acid	High
+1	211744902	expert curated	Stearic acid (18:0) plasma levels	Stearic acid	High
+1	53909897	expert curated	Thyroid hormone levels (FT4: free thyroxine)	Thyroxine	High
+9	97829181	expert curated	Thyroid hormone levels (FT4: free thyroxine)	Thyroxine	High
+9	136197833	expert curated	Thyroid hormone levels (FT4: free thyroxine)	Thyroxine	High
+8	97269961	expert curated	Estradiol plasma levels (breast cancer)	Estradiol	High
+1	151372265	expert curated	Blood trace element (Cu levels)	Copper	High
+7	80711306	expert curated	HDL cholesterol (AA)	high density lipoprotein cholesterol measurement	High
+5	79034404	expert curated	Dimethlyglycine	Dimethlyglycine	High
+4	177439897	expert curated	Asparagine	L-Asparagine	High
+3	124732217	expert curated	Orotic acid	Orotic acid	High
+X	106032618	expert curated	Thyroxine	Thyroxine	High
+1	11796321	expert curated	Homocysteine levels	Homocysteine	High
+1	45513003	expert curated	Homocysteine levels	Homocysteine	High
+1	236885376	expert curated	Homocysteine levels	Homocysteine	High
+6	49414480	expert curated	Homocysteine levels	Homocysteine	High
+11	89415204	expert curated	Homocysteine levels	Homocysteine	High
+16	89641688	expert curated	Homocysteine levels	Homocysteine	High
+15	45360505	expert curated	Homoarginine levels	Homo-L-arginine	High
+15	51232095	expert curated	Hormone measurements (Oestradiol)	Estradiol	High
+2	233356202	expert curated	Calcium levels	Calcium	High
+3	122284910	expert curated	Calcium levels	Calcium	High
+7	65806210	expert curated	Calcium levels	Calcium	High
+20	54157888	expert curated	Calcium levels	Calcium	High
+1	234717659	expert curated	Total Cholesterol	Cholesterol	High
+2	168973645	expert curated	Cholesterol, total	Cholesterol	High
+3	12226148	expert curated	Total Cholesterol	Cholesterol	High
+6	160589086	expert curated	Total Cholesterol	Cholesterol	High
+8	58480714	expert curated|expert curated	Total Cholesterol	Cholesterol	High
+9	2640759	expert curated	Total Cholesterol	Cholesterol	High
+22	46231706	expert curated	Total Cholesterol	Cholesterol	High
+1	156730859	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+1	230159944	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+8	143221248	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+9	104902020	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+11	47312134	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+11	75743976	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+12	109512339	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+12	124775342	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+14	104810872	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+15	58391167	expert curated	HDL cholesterol	high density lipoprotein cholesterol measurement	High
+16	56955678	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+16	67894139	expert curated	HDL cholesterol	high density lipoprotein cholesterol measurement	High
+17	39665182	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+18	49640844	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+20	44413724	expert curated	HDL Cholesterol	high density lipoprotein cholesterol measurement	High
+1	25442446	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+1	55039974	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+1	109275908	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+2	21041028	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+2	118078265	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+5	75360714	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+6	16127176	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+7	44542732	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+16	72074194	expert curated	LDL cholesterol	low density lipoprotein cholesterol measurement	High
+17	66214462	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+19	11091630	expert curated	LDL Cholesterol	low density lipoprotein cholesterol measurement	High
+1	62668259	expert curated	Triglycerides	triglyceride measurement	High
+4	3471412	expert curated	Triglycerides	triglyceride measurement	High
+7	116717990	expert curated	Triglycerides	triglyceride measurement	High
+8	19986711	expert curated	Triglycerides	triglyceride measurement	High
+8	125470379	expert curated	Triglycerides	triglyceride measurement	High
+1	85331427	expert curated	Serum dimethylarginine levels (asymmetric)	Asymmetric dimethylarginine	High
+19	8364439	expert curated	Triglycerides	triglyceride measurement	High
+10	94922089	expert curated	Response to serotonin reuptake inhibitors in major depressive disorder (plasma drug and metabolite levels) (S-DCT/S-CT ratio)	Desmethylcitalopram / Citalopram	High
+22	42130692	expert curated	Response to serotonin reuptake inhibitors in major depressive disorder (plasma drug and metabolite levels) (S-DDCT concentration)	Didemethylcitalopram	High
+19	48725015	expert curated	Urinary metabolites (H-NMR features) (5.2125, Fucose)	L-Fucose	High
+19	32873722	expert curated	Urinary metabolites (H-NMR features) (1.7325, Lysine)	L-Lysine	High
+11	67653870	expert curated	Serum metabolite levels (N-acetylphenylalanine)	N-Acetyl-L-phenylalanine	High
+11	118678873	expert curated	Serum metabolite levels (Trehalose)	Trehalose	High
+3	126187336	expert curated	Plasma homocysteine levels (post-methionine load test)	Homocysteine	High
+6	42958065	expert curated	Plasma homocysteine levels (post-methionine load test)	Homocysteine	High
+21	43067923	expert curated	Plasma homocysteine levels (post-methionine load test)	Homocysteine	High
+8	66448490	expert curated	Blood metabolite levels (X-04499--3,4-dihydroxybutyrate)	(S)-3,4-Dihydroxybutyric acid	High
+5	177415473	expert curated	Blood metabolite ratios (X-12038/bradykinin, des-arg(9))	/ Bradykinin	High
+8	18414928	expert curated	Blood metabolite levels (1-methylxanthine)	1-methylxanthine	High
+17	7012082	expert curated|expert curated	Blood metabolite levels (X-12441--12-hydroxyeicosatetraenoate (12-HETE))	12-HETE	High
+17	17519454	expert curated	1-arachidonoylglycerophosphocholine - M33228	2-Arachidonoylglycerophosphocholine	High
+1	119410153	expert curated	alpha-hydroxyisovalerate - M33937	2-Hydroxy-3-methylbutyric acid	High
+11	18303599	expert curated	Blood metabolite levels (alpha-hydroxyisovalerate)	2-Hydroxy-3-methylbutyric acid	High
+8	39965626	expert curated	Blood metabolite levels (X-12100--hydroxytryptophan)	5-Hydroxy-L-tryptophan	High
+5	35967898	expert curated	Blood metabolite levels (X-11445--5-alpha-pregnan-3beta,20alpha-disulfate)	5alpha-pregnan-3beta,20alpha-diol disulfate	High
+6	4145964	expert curated	Blood metabolite levels (X-13435, a 10:1 acylcarnitine)	9-Decenoylcarnitine	High
+3	30712081	expert curated	Blood metabolite levels (X-12244--N-acetylcarnosine)	Acetylcarnosine	High
+10	5214309	expert curated	Blood metabolite ratios (androsterone sulfate/epiandrosterone sulfate)	Androsterone sulfate / Epiandrosterone Sulfate	High
+11	61803876	expert curated	Blood metabolite ratios (arachidonate (20:4n6)/dihomo-linolenate (20:3n3 or n6))	Arachidonate / 8,11,14-Eicosatrienoic acid	High
+19	54172738	expert curated	Blood metabolite ratios (arachidonate (20:4n6)/1-arachidonoylglycerophosphoinositol)	Arachidonate|1-Arachidonoylglycerophosphoinositol	High
+17	63488670	expert curated	Blood metabolite ratios (aspartylphenylalanine/X-14450--phenylalanylleucine)	Aspartylphenylalanine / 	High
+5	79050946	expert curated|expert curated	Blood metabolite levels (betaine)	Betaine	High
+12	211754	expert curated	Blood metabolite levels (betaine)	Betaine	High
+3	186736391	expert curated	Blood metabolite levels (bradykinin, des-arg(9))	Bradykinin	High
+4	186253529	expert curated	Blood metabolite levels (bradykinin, des-arg(9))	Bradykinin	High
+12	120722812	expert curated	Blood metabolite levels (butyrylcarnitine)	Butyrylcarnitine	High
+1	196713216	expert curated	HWESASXX - M32836	C3f, complement C3 derived peptide	High
+15	89802104	expert curated|expert curated	HWESASXX - M32836	C3f, complement C3 derived peptide	High
+10	95636205	expert curated	Blood metabolite levels (citrulline)	Citrulline	High
+2	31585905	expert curated	Blood metabolite ratios (X-11444/X-12844) (X-11444 is tentatively identified by Metabolon as urocortisol glucuronide or cortolone glucuronide and X-12844 is tentatively identified as tetrahydrocortisone glucuronide)	cortolone glucuronide	High
+22	24606114	expert curated	Blood metabolite levels (cysteine-glutathione disulfide)	Cysteineglutathione disulfide	High
+4	158709665	expert curated	decanoylcarnitine - M33941	Decanoylcarnitine	High
+1	46525009	expert curated	Blood metabolite levels (erythritol)	erythritol	High
+15	50184941	expert curated	Blood metabolite ratios (10-undecenoate (11:1n1)/X-11438)	Ethyl 10-undecenoate / 	High
+9	133278860	expert curated	Blood metabolite ratios (ADSGEGDFXAEGGGVR/ADpSGEGDFXAEGGGVR)	Fibrinopeptide A	High
+1	53230210	expert curated	Blood metabolite levels (glutaroyl carnitine)	Glutarylcarnitine	High
+19	12899706	expert curated	Blood metabolite levels (glutaroyl carnitine)	Glutarylcarnitine	High
+3	183037421	expert curated	Blood metabolite levels (hydroxyisovaleroyl carnitine)	hydroxyisovaleroyl carnitine	High
+6	16287961	expert curated	Blood metabolite levels (hypoxanthine)	Hypoxanthine	High
+7	50542681	expert curated	indoleacetate - M27513	Indoleacetic acid	High
+9	128809748	expert curated	Blood metabolite levels (indolelactate)	Indolelactic acid	High
+6	160143444	expert curated	isobutyrylcarnitine - M33441	isobutyrylcarnitine	High
+15	76738451	expert curated	isobutyrylcarnitine - M33441	isobutyrylcarnitine	High
+13	47885766	expert curated	4-methyl-2-oxopentanoate - M22116	Ketoleucine	High
+1	75696204	expert curated	Blood metabolite ratios (acetylcarnitine/hexanoylcarnitine)	L-Acetylcarnitine|Hexanoylcarnitine	High
+11	62409471	expert curated	asparagine - M34283	L-Asparagine	High
+14	104141731	expert curated	asparagine - M34283	L-Asparagine	High
+16	87845216	expert curated	Blood metabolite levels (kynurenine)	L-Kynurenine	High
+1	119667132	expert curated	Blood metabolite levels (serine)	L-Serine	High
+4	155887136	expert curated	Blood metabolite levels (tryptophan)	L-Tryptophan	High
+5	132329685	expert curated	Blood metabolite ratios (valine/isovalerylcarnitine)	L-Valine / Isovalerylcarnitine	High
+1	151958169	expert curated	Blood metabolite ratios (linoleate (18:2n6)/X-12442--5,8-tetradecadienoate)	Linoleic acid / 5,8-Tetradecadienoic acid	High
+1	171111474	expert curated	Blood metabolite levels (X-11786--methylcysteine)	Methylcysteine	High
+19	18508057	expert curated	Blood metabolite levels (myo-inositol)	myo-Inositol	High
+10	100315722	expert curated	Blood metabolite ratios (myristate (14:0)/myristoleate (14:1n5))	Myristic acid / Myristoleic acid	High
+7	150846633	expert curated	Blood metabolite levels (X-03056--N-[3-(2-Oxopyrrolidin-1-yl)propyl]acetamide)	N-(3-acetamidopropyl)pyrrolidin-2-one	High
+10	133383832	expert curated|expert curated	Blood metabolite levels (X-03056--N-[3-(2-Oxopyrrolidin-1-yl)propyl]acetamide)	N-(3-acetamidopropyl)pyrrolidin-2-one	High
+2	73641201	expert curated	Blood metabolite ratios (N-acetylornithine/myo-inositol)	N-Acetylornithine / myo-Inositol	High
+2	134873830	expert curated|expert curated	Blood metabolite levels (X-12095--N1-methyl-3-pyridone-4-carboxamide)	N1-Methyl-4-pyridone-3-carboxamide	High
+2	210009522	expert curated	Blood metabolite levels (X-13431--nonanoylcarnitine)	Nonanoylcarnitine	High
+22	19963748	expert curated	Blood metabolite levels (X-11593--O-methylascorbate)	O-methylascorbate	High
+22	50625049	expert curated	Blood metabolite levels (X-11423--O-sulfo-L-tyrosine)	O-Sulfotyrosine	High
+2	27201768	expert curated	Blood metabolite levels (pantothenate)	Pantothenic acid	High
+16	58795886	expert curated	Blood metabolite ratios (phenyllactate (PLA)/phenylalanine)	Phenyllactic acid / L-Phenylalanine	High
+3	53248172	expert curated	Blood metabolite ratios (phosphate/erythronate)	Phosphate / Erythronic acid	High
+15	40411012	expert curated	Blood metabolite ratios (propionylcarnitine/isovalerylcarnitine)	Propionylcarnitine / Isovalerylcarnitine	High
+8	144100505	expert curated	Blood metabolite levels (5-oxoproline)	Pyroglutamic acid	High
+19	47881800	expert curated	Blood metabolite ratios (X-11440/4-androsten-3beta,17beta-diol disulfate 2)	similar to 5-Androstenediol	High
+3	67365898	expert curated	Blood metabolite levels (succinylcarnitine)	Succinylcarnitine	High
+1	46866294	expert curated	Blood metabolite ratios (10-undecenoate (11:1n1)/X-11438)	Undecylenic acid / 11-Hydroxy-9-tridecenoic acid	High
+1	20588679	expert curated	uridine - M00606	Uridine	High
+7	48063314	expert curated	uridine - M00606	Uridine	High
+22	50533323	expert curated	Blood metabolite levels (uridine)	Uridine	High
+10	17114152	expert curated	Vitamin B levels in ischemic stroke (Vitamin B12)	Cobalamin	High
+20	22600630	expert curated	Fasting plasma glucose (East Asian)	D-Glucose	High
+6	131603549	expert curated	L-arginine levels	L-Arginine	High
+4	68807835	expert curated	Cotinine glucuronidation	Cotinine glucuronide	High
+3	133758857	expert curated	Iron|serum	Iron	High
+6	26092913	expert curated	Iron|serum	Iron	High
+7	100638347	expert curated	Iron status biomarkers (iron levels)	Iron	High
+22	37066896	expert curated	Iron status biomarkers (iron levels)	Iron	High
+19	8216751	expert curated	FA 20:0|plasma	Arachidic acid	High
+12	6966719	expert curated	Red blood cell fatty acid levels (OA)	Oleic Acid	High
+9	113388911	expert curated	Lead levels in blood	Lead	High
+1	219906686	expert curated	Manganese|plasma	Manganese	High
+20	12978750	expert curated	Sphingolipid levels (Hydroxysphingomyeline C24:1)	Hydroxysphingomyeline C24:1	High
+10	59709780	expert curated	C0	L-Carnitine	High
+22	18972171	expert curated	Blood metabolite levels (proline)	L-Proline	High
+7	56011401	expert curated	Ser	L-Serine	High
+1	39937698	expert curated	lysoPC a C16:0	LysoPC(16:0)	High
+2	177505903	expert curated	PC ae C44:5	PC(o-22:2(13Z,16Z)/22:3(10Z,13Z,16Z))	High
+4	184852657	expert curated	PC ae C44:5	PC(o-22:2(13Z,16Z)/22:3(10Z,13Z,16Z))	High
+18	21683167	expert curated	PC aa C32:2	Phosphatidyl choline PC(14:0/18:2(9Z,12Z)) is a specific example  	High
+5	35037010	expert curated|expert curated	3-aminoisobutyrate|urine	3-Aminoisobutanoic acid	High
+2	240898035	expert curated	alpha-ketoisovalerate|urine	alpha-Ketoisovaleric acid	High
+3	45772602	expert curated	N,N-dimethylglycine/alanine|urine	Dimethylglycine / L-Alanine	High
+4	108784811	expert curated	ethanolamine|urine	Ethanolamine	High
+5	151319245	expert curated	glycine/citrate|urine	Glycine / Citric acid	High
+3	38354071	expert curated	glycolate|urine	Glycolic acid	High
+5	1183445	expert curated|expert curated	tyrosine|urine	L-Tyrosine	High
+16	24991279	expert curated	myo-inositol|urine	myo-Inositol	High
+20	46632402	expert curated	sucinate/citrate|urine	Succinic acid / Citric acid	High
+6	110438805	expert curated	total acylcarnitine	acylcarnitine measurement	High
+8	144476070	expert curated	metabolite ratio (Ala/Asp)	L-Alanine / L-Asparagine	High
+9	129102748	expert curated	Methylmalonylcarnitine	Methylmalonylcarnitine	High
+21	36964534	expert curated	2-Hydroxyisovalerylcarnitine	Similar to 3-Hydroxyisovalerylcarnitine	High
+19	40847202	expert curated	Nicotine Metabolite Ratio	ratio of Hydroxycotinine to Cotinine	High
+17	6692079	expert curated	Citrate	Citric acid	High
+22	19174422	expert curated	Citrate	Citric acid	High
+2	210675783	expert curated	Glycine	Glycine	High
+9	5877295	expert curated	Glycine	Glycine	High
+16	81031677	expert curated	Glycine	Glycine	High
+1	161220460	expert curated	XL.HDL.PL	high density lipoprotein cholesterol measurement	High
+20	45923216	expert curated	S.HDL.P	high density lipoprotein cholesterol measurement	High
+12	46808031	expert curated|expert curated	Alanine	L-Alanine	High
+12	56471554	expert curated	Glutamine	L-Glutamine	High
+12	95921017	expert curated	Metabolite levels (small molecules and protein measures) (Histidine)	L-Histidine	High
+12	102848618	expert curated	Phenylalanine	L-Phenylalanine	High
+6	111222741	expert curated	Tyrosine	L-Tyrosine	High
+4	88285078	expert curated	Valine	L-Valine	High
+16	69945368	expert curated	Pyruvate	Pyruvic acid	High
+7	73448919	expert curated	Triglycerides	triglyceride measurement	High
+1	9296617	drug	Asthma	asthma	Low
+1	9348900	drug	Response to tocilizumab in rheumatoid arthritis [CSJC , EA, RF-]	rheumatoid arthritis	Low
+1	26811902	drug	Alanine aminotransferase (ALT) levels after remission induction therapy in actute lymphoblastic leukemia (ALL) [AA]	acute lymphoblastic leukemia	Low
+1	43572014	drug	Schizophrenia	schizophrenia	Low
+1	43631859	drug	Schizophrenia	schizophrenia	Low
+1	43631859	drug	Schizophrenia [EA]	schizophrenia	Low
+1	43631859	drug	Schizophrenia	schizophrenia	Low
+1	43631859	drug	Schizophrenia	schizophrenia	Low
+1	43634413	drug	Schizophrenia	schizophrenia	Low
+1	43634413	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Low
+1	46135245	drug	Breast cancer	breast carcinoma	Low
+1	55021673	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	High
+1	55021673	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	Medium
+1	55021673	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	Low
+1	55023869	drug	Hypercholesterolemia	Hypercholesterolemia	High
+1	55023869	drug	Disorders of lipoid metabolism	Disorder of lipid metabolism	High
+1	55023869	drug	Hypercholesterolemia	Hypercholesterolemia	Low
+1	55023869	drug	Disorders of lipoid metabolism	Disorder of lipid metabolism	Medium
+1	55023869	drug	Hyperlipidemia	hyperlipidemia	Medium
+1	55023869	drug	Hypercholesterolemia	Hypercholesterolemia	Medium
+1	55030366	drug	Coronary artery disease	coronary artery disease	High
+1	55039974	drug	Hyperlipidemia	hyperlipidemia	Medium
+1	55039974	drug	Hypercholesterolemia	Hypercholesterolemia	Medium
+1	55039974	drug	Coronary artery disease	coronary artery disease	High
+1	55039974	drug	Ischemic heart disease	coronary artery disease	High
+1	55039974	drug	Hypercholesterolemia	Hypercholesterolemia	High
+1	55039974	drug	Hypercholesterolemia	Hypercholesterolemia	Low
+1	55039974	drug	Cardiovascular disease	cardiovascular system disease	High
+1	55039974	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	Medium
+1	55039974	drug	Coronary artery disease (myocardial infarction, percutaneous transluminal coronary angioplasty, coronary artery bypass grafting, angina or chromic ischemic heart disease)	coronary artery disease	High
+1	55039974	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	Low
+1	55039974	drug	Coronary artery disease	coronary artery disease	High
+1	55039974	drug	Coronary artery disease	coronary artery disease	High
+1	55039974	drug	Disorders of lipoid metabolism	Disorder of lipid metabolism	High
+1	55039974	drug	Disorders of lipoid metabolism	Disorder of lipid metabolism	Medium
+1	55039974	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	High
+1	55039974	drug	Cardiovascular disease	cardiovascular system disease	Medium
+1	55055640	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	High
+1	55055640	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	Low
+1	55055640	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	Medium
+1	62582606	drug	Hypercholesterolemia	Hypercholesterolemia	Low
+1	62655430	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	Low
+1	65513597	drug	Obesity (early onset extreme)	obesity	Medium
+1	100941963	drug	Multiple sclerosis	multiple sclerosis	Low
+1	100941963	drug	Multiple sclerosis	multiple sclerosis	Low
+1	116744732	drug	Psoriasis	psoriasis	Low
+1	116744732	drug	Psoriasis	psoriasis	High
+1	150059494	drug	Schizophrenia	schizophrenia	Medium
+1	150059494	drug	Schizophrenia	schizophrenia	Medium
+1	150059494	drug	Schizophrenia	schizophrenia	Medium
+1	150143798	drug	Broad depression or schizophrenia	schizophrenia	Medium
+1	150143798	drug	Broad depression or schizophrenia	unipolar depression	Medium
+1	150685811	drug	Prostate cancer	prostate carcinoma	Medium
+1	150685811	drug	Prostate cancer [EA]	prostate carcinoma	Medium
+1	150685811	drug	Prostate cancer	prostate carcinoma	Medium
+1	153689947	drug	Cardiovascular disease	cardiovascular system disease	High
+1	153689947	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+1	154453788	drug	Ankylosing spondylitis [EA]	ankylosing spondylitis	Medium
+1	154453788	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ankylosing spondylitis	Medium
+1	154453788	drug	Ankylosing spondylitis	ankylosing spondylitis	Low
+1	154453788	drug	Ankylosing spondylitis [EA]	ankylosing spondylitis	Low
+1	154453788	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ankylosing spondylitis	Low
+1	154453788	drug	Ankylosing spondylitis	ankylosing spondylitis	Medium
+1	154454494	drug	Rheumatoid arthritis	rheumatoid arthritis	High
+1	154454494	drug	Rheumatoid arthritis	rheumatoid arthritis	High
+1	154454494	drug	Rheumatoid arthritis	rheumatoid arthritis	High
+1	154861707	drug	Prostate cancer	prostate carcinoma	Low
+1	154861707	drug	Prostate cancer	prostate carcinoma	Low
+1	155157915	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ankylosing spondylitis	Medium
+1	155176305	drug	Breast cancer	breast carcinoma	Medium
+1	155176305	drug	Breast cancer	breast carcinoma	Medium
+1	155176305	drug	Breast cancer	breast carcinoma	Low
+1	169498416	drug	Blood clot in the lung | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	pulmonary embolism	Low
+1	169498416	drug	Pulmonary embolism +/- dvt | non-cancer illness code, self-reported	pulmonary embolism	Low
+1	169549811	drug	Thrombosis	pulmonary embolism	Low
+1	172731728	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+1	173162354	drug	Asthma	asthma	Low
+1	173182897	drug	Asthma	asthma	Low
+1	173201479	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+1	173201479	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+1	174223264	drug	Osteoarthritis	osteoarthritis	Low
+1	186906327	drug	Crohn's disease [EA]	Crohn's disease	Medium
+1	203057086	drug	Atrial fibrillation	atrial fibrillation	Low
+1	203057086	drug	Atrial fibrillation	atrial fibrillation	Low
+1	203057463	drug	Atrial fibrillation	atrial fibrillation	Low
+1	203059583	drug	Atrial fibrillation and flutter	atrial fibrillation	Low
+1	203059583	drug	Atrial fibrillation [EA]	atrial fibrillation	Low
+1	203065778	drug	Early onset atrial fibrillation	atrial fibrillation	Low
+1	203122146	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+1	203124073	drug	Asthma	asthma	Low
+1	203131376	drug	Asthma	asthma	Low
+1	203134077	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+1	215131342	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+1	217047232	drug	Breast cancer	breast carcinoma	Low
+1	239737706	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	High
+1	239737706	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+10	5742188	drug	Nevus count or cutaneous melanoma	skin melanoma	Low
+10	6039267	drug	Crohn's disease [EA]	Crohn's disease	Low
+10	6050383	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6051176	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+10	6051176	drug	Asthma	asthma	Low
+10	6051176	drug	Asthma	asthma	Low
+10	6051176	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+10	6052734	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Low
+10	6052734	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+10	6052734	drug	Crohn's disease	Crohn's disease	Low
+10	6052734	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	Low
+10	6052734	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	6052734	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	6052734	drug	Allergic disease (asthma, hay fever or eczema)	asthma	Low
+10	6052734	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+10	6052734	drug	Crohn's disease [EA]	Crohn's disease	Low
+10	6052734	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+10	6055320	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	6055320	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+10	6056986	drug	Pediatric autoimmune diseases	Crohn's disease	Low
+10	6056986	drug	Pediatric autoimmune diseases	insulin-dependent diabetes mellitus	Low
+10	6056986	drug	Pediatric autoimmune diseases	insulin-dependent diabetes mellitus	Medium
+10	6056986	drug	Pediatric autoimmune diseases	systemic lupus erythematosus	Low
+10	6056986	drug	Pediatric autoimmune diseases	ulcerative colitis	Low
+10	6057082	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6059750	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6060049	drug	Crohn's disease	Crohn's disease	Low
+10	6060049	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6060049	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6064589	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+10	6064589	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	6079323	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6080706	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6081532	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+10	6081532	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	6082294	drug	Multiple sclerosis	multiple sclerosis	Medium
+10	6087680	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	6087680	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+10	6134203	drug	Ulcerative colitis [EA]	ulcerative colitis	Low
+10	6348488	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	6348488	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+10	48766611	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	48817351	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	48817351	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	48817351	drug	Systemic lupus erythematosus [EA]	systemic lupus erythematosus	Low
+10	48817351	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	48817351	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	48834906	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	48893932	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	48911009	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+10	92672243	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+10	102654464	drug	Prostate cancer	prostate carcinoma	Medium
+10	102654464	drug	Prostate cancer	prostate carcinoma	Medium
+10	102654464	drug	Prostate cancer	prostate carcinoma	Medium
+10	102654464	drug	Prostate cancer	prostate carcinoma	Medium
+10	113963919	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+10	113982069	drug	Hypertension [East Asian]	hypertension	High
+10	114032303	drug	Systolic blood pressure x alcohol consumption interaction (2df test) [EA]	alcohol drinking	Low
+10	114033028	drug	Mean arterial pressure x alcohol consumption interaction (2df test) [EA]	alcohol drinking	Low
+10	114033028	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+10	114033028	drug	Diastolic blood pressure x alcohol consumption interaction (2df test) [EA]	alcohol drinking	Low
+10	114045297	drug	Essential hypertension	hypertension	High
+10	114045297	drug	Hypertension	hypertension	High
+10	114045297	drug	Cardiovascular disease	cardiovascular system disease	High
+10	121334387	drug	Breast cancer	breast carcinoma	Low
+10	121334387	drug	Breast cancer	breast carcinoma	Low
+10	121334477	drug	Breast cancer	breast carcinoma	Low
+10	121571953	drug	Breast cancer	breast carcinoma	Low
+10	121572176	drug	Breast cancer	breast carcinoma	Low
+10	121575416	drug	Cancer (pleiotropy) [subset analysis]	breast carcinoma	Low
+10	121575416	drug	Cancer (pleiotropy) [subset analysis]	colorectal cancer	Low
+10	121575416	drug	Cancer (pleiotropy) [subset analysis]	ovarian carcinoma	Low
+10	121577821	drug	Breast cancer	breast carcinoma	Low
+10	121577821	drug	Breast cancer	breast carcinoma	Low
+10	121577821	drug	Breast cancer	breast carcinoma	Low
+10	121577821	drug	Breast cancer	breast carcinoma	Low
+10	121577821	drug	Breast cancer	breast carcinoma	Low
+10	121579461	drug	Breast cancer | illnesses of mother	breast carcinoma	Low
+10	121580797	drug	Breast cancer	breast carcinoma	Low
+10	121580797	drug	Breast cancer	breast carcinoma	Low
+10	121580917	drug	Breast cancer	breast carcinoma	Low
+10	121584395	drug	Breast cancer | illnesses of siblings	breast carcinoma	Low
+10	121586602	drug	Breast cancer in BRCA2 mutation carriers	breast carcinoma	Low
+10	121586602	drug	Breast cancer	breast carcinoma	Low
+10	121586676	drug	Breast cancer	breast carcinoma	Low
+10	121586676	drug	Breast cancer	breast carcinoma	Low
+10	121586676	drug	Breast cancer	breast carcinoma	Low
+10	121586676	drug	Breast cancer	breast carcinoma	Low
+10	121589148	drug	Breast cancer (early onset)	breast carcinoma	Low
+10	121589810	drug	Breast cancer	breast carcinoma	Low
+10	121590702	drug	Cancer diagnosed by doctor	cancer	Low
+10	121591810	drug	Breast cancer in BRCA2 mutation carriers	breast carcinoma	Low
+10	121592706	drug	Estrogen receptor status in HER2 negative breast cancer	breast carcinoma	Low
+10	121592803	drug	Breast cancer	breast carcinoma	Low
+10	121592803	drug	Breast cancer	breast carcinoma	Low
+10	121594355	drug	Estrogen receptor status in breast cancer	breast carcinoma	Low
+10	121598047	drug	Breast cancer	breast carcinoma	Low
+11	1852002	drug	Essential hypertension	hypertension	Low
+11	1852002	drug	Hypertension	hypertension	Low
+11	1855715	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+11	1865838	drug	Hypertension [Japanese]	hypertension	Low
+11	1867384	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+11	1867384	drug	Essential hypertension	hypertension	Low
+11	1867384	drug	Hypertension	hypertension	Low
+11	1877434	drug	Hypertension [East Asian]	hypertension	Low
+11	1877434	drug	Breast cancer	breast carcinoma	Low
+11	1880867	drug	Breast cancer	breast carcinoma	Low
+11	1887776	drug	Breast cancer	breast carcinoma	Low
+11	1887776	drug	Breast cancer	breast carcinoma	Low
+11	1887776	drug	Breast cancer	breast carcinoma	Low
+11	17386857	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes [EA]	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17387083	drug	Type 2 diabetes [DGI+FUSION+WTCCC]	type II diabetes mellitus	Low
+11	17388025	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Low
+11	17388025	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17388025	drug	Type 2 diabetes [non-obese]	type II diabetes mellitus	Low
+11	17388025	drug	Type 2 diabetes [DGI+FUSION+WTCCC]	type II diabetes mellitus	Low
+11	17388025	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	17390274	drug	Type 2 diabetes	type II diabetes mellitus	Low
+11	46684189	drug	Pulmonary embolism +/- dvt | non-cancer illness code, self-reported	pulmonary embolism	High
+11	46739206	drug	Venous thromboembolism [Conditioned on rs1799963]	venous thromboembolism	Medium
+11	46739206	drug	Venous thromboembolism [Conditioned on rs1799963]	venous thromboembolism	High
+11	46739505	drug	Circulatory disease nec	cardiovascular system disease	High
+11	46739505	drug	Thrombosis	cerebrovascular accident	High
+11	46739505	drug	Venous thromboembolism	venous thromboembolism	High
+11	46739505	drug	Other disorders of circulatory system	cardiovascular system disease	High
+11	46739505	drug	Other disorders of circulatory system	cardiovascular system disease	Medium
+11	46739505	drug	Thrombosis	Ischemic stroke	Medium
+11	46739505	drug	Blood clot in the leg (dvt) | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	deep vein thrombosis	High
+11	46739505	drug	Venous thromboembolism	venous thromboembolism	High
+11	46739505	drug	Thrombosis	venous thromboembolism	High
+11	46739505	drug	Venous thromboembolism	venous thromboembolism	Medium
+11	46739505	drug	Thrombosis	deep vein thrombosis	High
+11	46739505	drug	Circulatory disease nec	cardiovascular system disease	Medium
+11	46739505	drug	Venous thromboembolism	venous thromboembolism	Medium
+11	46739505	drug	Thrombosis	pulmonary embolism	High
+11	46739505	drug	Deep venous thrombosis (dvt) | non-cancer illness code, self-reported	deep vein thrombosis	High
+11	46739505	drug	Blood clot in the lung | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	pulmonary embolism	High
+11	46739505	drug	Thrombosis	venous thromboembolism	Medium
+11	61026176	drug	Hayfever, allergic rhinitis or eczema | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	seasonal allergic rhinitis	Medium
+11	61026176	drug	Hayfever, allergic rhinitis or eczema | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	seasonal allergic rhinitis	Low
+11	62419070	drug	Chronic obstructive pulmonary disease-related biomarkers [CC16]	chronic obstructive pulmonary disease	Low
+11	62419070	drug	Chronic obstructive pulmonary disease-related biomarkers [CC16]	chronic obstructive pulmonary disease	Low
+11	62429955	drug	Chronic obstructive pulmonary disease-related biomarkers [CC16]	chronic obstructive pulmonary disease	Low
+11	62429955	drug	Chronic obstructive pulmonary disease-related biomarkers [CC16]	chronic obstructive pulmonary disease	Low
+11	62432345	drug	Chronic obstructive pulmonary disease-related biomarkers [CC16]	chronic obstructive pulmonary disease	Low
+11	62432345	drug	Chronic obstructive pulmonary disease-related biomarkers [CC16]	chronic obstructive pulmonary disease	Low
+11	64566642	drug	Gout	gout	Low
+11	64566642	drug	Gout	gout	High
+11	64566642	drug	Gout	gout	High
+11	64582330	drug	Gout | non-cancer illness code, self-reported	gout	High
+11	64582330	drug	Gout | non-cancer illness code, self-reported	gout	Low
+11	64582330	drug	Gout | non-cancer illness code, self-reported	gout	High
+11	64584591	drug	Gout | non-cancer illness code, self-reported	gout	High
+11	64584591	drug	Gout | non-cancer illness code, self-reported	gout	Low
+11	64584591	drug	Gout | non-cancer illness code, self-reported	gout	High
+11	64668434	drug	Gout [Japanese]	gout	High
+11	64668434	drug	Renal underexcretion gout	gout	Low
+11	64668434	drug	Renal underexcretion gout	gout	High
+11	64668434	drug	Gout [Japanese]	gout	Low
+11	64668434	drug	Renal underexcretion gout	gout	High
+11	64668434	drug	Gout [Japanese]	gout	High
+11	88962678	drug	Depression	unipolar depression	Low
+11	89011257	drug	Depression	unipolar depression	Low
+11	89014994	drug	Depression (broad)	unipolar depression	Low
+11	100711497	drug	Hypertension [East Asian]	hypertension	Low
+11	100722807	drug	Hypertension [Japanese]	hypertension	Low
+11	100722807	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	chronic obstructive pulmonary disease	Low
+11	100722807	drug	Hypertension	hypertension	Low
+11	100722807	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	hypertension	Low
+11	100722807	drug	Ischemic heart disease	coronary artery disease	Low
+11	100739815	drug	Cardiovascular disease	cardiovascular system disease	Low
+11	100739815	drug	Coronary artery disease	coronary artery disease	Low
+11	100739815	drug	Essential hypertension	hypertension	Low
+11	100739815	drug	Hypertension	hypertension	Low
+11	100739815	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+11	100753868	drug	Coronary artery disease	coronary artery disease	Low
+11	100761177	drug	Coronary artery disease	coronary artery disease	Low
+11	102846249	drug	Cerebrospinal fluid levels of Alzheimer's disease-related proteins [Matrix metalloproteinase-3]	Alzheimer's disease	Medium
+11	102846249	drug	Cerebrospinal fluid levels of Alzheimer's disease-related proteins [Matrix metalloproteinase-3]	Alzheimer's disease	Medium
+11	102846249	drug	Cerebrospinal fluid levels of Alzheimer's disease-related proteins [Matrix metalloproteinase-3]	Alzheimer's disease	Medium
+11	102846249	drug	Cerebrospinal fluid levels of Alzheimer's disease-related proteins [Matrix metalloproteinase-3]	Alzheimer's disease	Low
+11	102850214	drug	Chronic obstructive pulmonary disease (severe)	chronic obstructive pulmonary disease	Low
+11	102850214	drug	Chronic obstructive pulmonary disease (severe)	chronic obstructive pulmonary disease	High
+11	102850214	drug	Chronic obstructive pulmonary disease (severe)	chronic obstructive pulmonary disease	High
+11	102850214	drug	Chronic obstructive pulmonary disease (severe)	chronic obstructive pulmonary disease	Medium
+11	103082247	drug	Cardiovascular disease	cardiovascular system disease	Low
+11	103082247	drug	Cardiovascular disease	cardiovascular system disease	Low
+11	103082247	drug	Cardiovascular disease	cardiovascular system disease	Medium
+11	112956992	drug	Worry	anxiety	Low
+11	112956992	drug	Worry	anxiety	Low
+11	112978997	drug	Depressed affect	unipolar depression	Low
+11	112978997	drug	Depressed affect	unipolar depression	Low
+11	112978997	drug	Depressed affect	mood disorder	Low
+11	112978997	drug	Depressed affect	mood disorder	Low
+11	113345201	drug	Schizophrenia	schizophrenia	Low
+11	113345201	drug	Schizophrenia	schizophrenia	High
+11	113345201	drug	Schizophrenia	schizophrenia	Medium
+11	113493925	drug	Worry	anxiety	High
+11	113493925	drug	Worry	anxiety	Medium
+11	113500036	drug	Depression	unipolar depression	Low
+11	113500036	drug	Depression	unipolar depression	High
+11	113500036	drug	Depression	unipolar depression	Medium
+11	113515625	drug	Depressed affect	unipolar depression	Low
+11	113515625	drug	Depressed affect	mood disorder	Medium
+11	113515625	drug	Depressed affect	unipolar depression	Medium
+11	113515625	drug	Depressed affect	mood disorder	High
+11	113515625	drug	Depressed affect	unipolar depression	High
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Medium
+11	113522272	drug	Schizophrenia	schizophrenia	Medium
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia [EA]	schizophrenia	Low
+11	113522272	drug	Schizophrenia [EA]	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Medium
+11	113522272	drug	Schizophrenia	schizophrenia	High
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Medium
+11	113522272	drug	Schizophrenia [EA]	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Medium
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia [EA]	schizophrenia	High
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	High
+11	113522272	drug	Schizophrenia	schizophrenia	High
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	High
+11	113522272	drug	Schizophrenia [EA]	schizophrenia	Medium
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113522272	drug	Schizophrenia	schizophrenia	High
+11	113522272	drug	Schizophrenia	schizophrenia	Low
+11	113541721	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Low
+11	113541721	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Low
+11	113541721	drug	Autism spectrum disorder or schizophrenia	autism spectrum disorder	High
+11	113541721	drug	Autism spectrum disorder or schizophrenia	schizophrenia	High
+11	113541721	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Medium
+11	113541721	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Low
+11	113936459	drug	Prostate cancer [EA]	prostate carcinoma	Low
+11	113936459	drug	Prostate cancer	prostate carcinoma	Low
+11	113936459	drug	Prostate cancer	prostate carcinoma	Low
+11	113936459	drug	Prostate cancer [EA]	prostate carcinoma	High
+11	113936459	drug	Prostate cancer	prostate carcinoma	High
+11	113936459	drug	Prostate cancer	prostate carcinoma	High
+11	114160077	drug	Non-glioblastoma glioma	central nervous system cancer	Low
+11	114160077	drug	Non-glioblastoma glioma	central nervous system cancer	Low
+11	118606652	drug	Glioma	central nervous system cancer	Low
+11	118606652	drug	Glioma	central nervous system cancer	Low
+11	118609400	drug	Non-glioblastoma glioma	central nervous system cancer	Low
+11	118609400	drug	Non-glioblastoma glioma	central nervous system cancer	Low
+11	118609400	drug	Glioma	central nervous system cancer	Low
+11	118609400	drug	Glioma	central nervous system cancer	Low
+11	118741072	drug	Celiac disease or Rheumatoid arthritis	immune system disease	Low
+12	20008234	drug	Cardiovascular disease	cardiovascular system disease	Low
+12	20067099	drug	Coronary artery disease	coronary artery disease	Low
+12	20067099	drug	Coronary artery disease	coronary artery disease	Low
+12	20067099	drug	Coronary artery disease	coronary artery disease	Low
+12	20207394	drug	Cardiovascular disease	cardiovascular system disease	Medium
+12	20424659	drug	Ischemic stroke	Ischemic stroke	High
+12	20424659	drug	Ischemic stroke	Ischemic stroke	High
+12	21170677	drug	Ischemic stroke (large artery atherosclerosis) [EA]	Ischemic stroke	Low
+12	47792780	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+12	47792780	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+12	47802090	drug	Allergic disease (asthma, hay fever or eczema)	allergy	Low
+12	47810716	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	hypertension	High
+12	47810716	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	chronic obstructive pulmonary disease	High
+12	47810716	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	hypertension	Low
+12	47814585	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Medium
+12	47814585	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+12	47814585	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Medium
+12	47814585	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	High
+12	47814585	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	High
+12	47860570	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+12	47860570	drug	Cardiovascular disease	cardiovascular system disease	Medium
+12	47860570	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+12	48021974	drug	Rheumatoid arthritis	rheumatoid arthritis	High
+12	48025835	drug	Prostate cancer	prostate carcinoma	Medium
+12	48025835	drug	Prostate cancer	prostate carcinoma	Medium
+12	48025835	drug	Prostate cancer	prostate carcinoma	Low
+12	48025835	drug	Prostate cancer [EA]	prostate carcinoma	Low
+12	48025835	drug	Prostate cancer	prostate carcinoma	Low
+12	48025835	drug	Prostate cancer [EA]	prostate carcinoma	Medium
+12	48203270	drug	Cardiovascular disease	cardiovascular system disease	Low
+12	48221500	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+12	48221500	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+12	56001170	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+12	56001170	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+12	56001170	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+12	56002984	drug	Pediatric autoimmune diseases	Crohn's disease	Low
+12	56002984	drug	Pediatric autoimmune diseases	ulcerative colitis	Low
+12	56002984	drug	Pediatric autoimmune diseases	psoriasis	Low
+12	56002984	drug	Pediatric autoimmune diseases	psoriasis	Low
+12	56002984	drug	Pediatric autoimmune diseases	Crohn's disease	Low
+12	56344189	drug	Psoriasis	psoriasis	High
+12	56344189	drug	Psoriasis	psoriasis	Medium
+12	56344189	drug	Psoriasis	psoriasis	High
+12	56344189	drug	Psoriasis	psoriasis	Medium
+12	56346898	drug	Psoriasis	psoriasis	Medium
+12	56346898	drug	Psoriasis [EA]	psoriasis	High
+12	56346898	drug	Psoriasis	psoriasis	High
+12	56346898	drug	Psoriasis [EA]	psoriasis	Medium
+12	56347444	drug	Psoriasis	psoriasis	High
+12	56347444	drug	Psoriasis	psoriasis	Medium
+12	56350492	drug	Inflammatory skin disease [Psoriasis]	psoriasis	High
+12	56350492	drug	Inflammatory skin disease [Psoriasis]	psoriasis	Medium
+12	56356420	drug	Psoriasis vulgaris	psoriasis vulgaris	High
+12	111395984	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+12	111803962	drug	Alcohol dependence	alcohol dependence	High
+13	27902841	drug	Pancreatic cancer	pancreatic carcinoma	Medium
+13	27902841	drug	Pancreatic cancer	pancreatic carcinoma	Low
+13	27919860	drug	Pancreatic cancer	pancreatic carcinoma	Medium
+13	27919860	drug	Pancreatic cancer	pancreatic carcinoma	Low
+13	27919860	drug	Pancreatic cancer	pancreatic carcinoma	Medium
+13	27919860	drug	Pancreatic cancer	pancreatic carcinoma	Low
+13	31671676	drug	Cardiovascular disease	cardiovascular system disease	High
+13	42378009	drug	Osteoporosis | non-cancer illness code, self-reported	osteoporosis	Medium
+13	112977466	drug	Coronary artery disease	coronary artery disease	Medium
+13	112977466	drug	Coronary artery disease	coronary artery disease	Medium
+13	112977466	drug	Coronary artery disease	coronary artery disease	Medium
+13	112977466	drug	Coronary artery disease	coronary artery disease	Medium
+13	113040195	drug	Osteoarthritis	osteoarthritis	High
+13	113218398	drug	Atrial fibrillation	atrial fibrillation	Low
+13	113218398	drug	Atrial fibrillation	atrial fibrillation	High
+13	113218398	drug	Atrial fibrillation	atrial fibrillation	Medium
+14	22836440	drug	Prostate cancer	prostate carcinoma	Low
+14	22836440	drug	Prostate cancer	prostate carcinoma	Low
+14	22836440	drug	Prostate cancer	prostate carcinoma	Low
+14	23116124	drug	Acute lymphoblastic leukemia (childhood)	acute lymphoblastic leukemia	Medium
+14	23119848	drug	Acute lymphoblastic leukemia (childhood)	acute lymphoblastic leukemia	Medium
+14	23119848	drug	Acute lymphoblastic leukemia (childhood) [ETV6-RUNX1 positive]	acute lymphoblastic leukemia	Medium
+14	23119848	drug	Acute lymphoblastic leukemia (B-cell precursor)	B-cell acute lymphoblastic leukemia	Low
+14	23119848	drug	Acute lymphoblastic leukemia (childhood)	acute lymphoblastic leukemia	Medium
+14	23119848	drug	Acute lymphoblastic leukemia in childhood (B cell precursor)	B-cell acute lymphoblastic leukemia	Low
+14	64219489	drug	Depression	unipolar depression	High
+14	64227194	drug	Prostate cancer	prostate carcinoma	Medium
+14	64230319	drug	Depression	unipolar depression	High
+15	27985172	drug	Cataract	cataract	Low
+15	51245609	drug	Endometrial cancer	endometrial carcinoma	Medium
+15	51261712	drug	Endometrial cancer	endometrial carcinoma	Medium
+15	51261712	drug	Endometrial cancer (endometrioid histology)	endometrial carcinoma	Medium
+15	63445726	drug	Heart failure [EA]	heart failure	High
+15	63696566	drug	Chronic obstructive pulmonary disease or resting heart rate (pleiotropy)	chronic obstructive pulmonary disease	Low
+15	73359833	drug	Atrial fibrillation	atrial fibrillation	High
+15	73359833	drug	Atrial fibrillation	atrial fibrillation	Medium
+15	73374914	drug	Atrial fibrillation	atrial fibrillation	Medium
+15	73374914	drug	Atrial fibrillation	atrial fibrillation	High
+15	73374914	drug	Atrial fibrillation [EA]	atrial fibrillation	Medium
+15	73374914	drug	Atrial fibrillation [EA]	atrial fibrillation	High
+15	73375705	drug	Atrial fibrillation and flutter	atrial fibrillation	Medium
+15	73375705	drug	Atrial fibrillation and flutter	atrial fibrillation	High
+15	73376665	drug	Atrial fibrillation	atrial fibrillation	Medium
+15	73376665	drug	Atrial fibrillation	atrial fibrillation	High
+15	73384923	drug	Atrial fibrillation	atrial fibrillation	Medium
+15	73384923	drug	Atrial fibrillation	atrial fibrillation	High
+16	9806200	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Low
+16	9806200	drug	Autism spectrum disorder or schizophrenia	autism spectrum disorder	Low
+16	9806200	drug	Schizophrenia	schizophrenia	Low
+16	9852462	drug	Schizophrenia	schizophrenia	Low
+16	9852462	drug	Schizophrenia	schizophrenia	Low
+16	9852462	drug	Schizophrenia [EA]	schizophrenia	Low
+16	9852462	drug	Schizophrenia	schizophrenia	Low
+16	9852462	drug	Schizophrenia	schizophrenia	Low
+16	27337847	drug	Asthma onset (childhood vs adult)	asthma	Medium
+16	27337847	drug	Asthma | non-cancer illness code, self-reported	asthma	Medium
+16	27337847	drug	Respiratory diseases	respiratory system disease	Low
+16	27337847	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Medium
+16	27338117	drug	Asthma	asthma	Medium
+16	27344528	drug	Asthma	asthma	Medium
+16	27358181	drug	Asthma	asthma	Medium
+16	27360103	drug	Asthma | non-cancer illness code, self-reported	asthma	Medium
+16	27360103	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Medium
+16	27360218	drug	Eczema	Eczema	High
+16	30159694	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+16	30631546	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+16	30792936	drug	Psoriasis	psoriasis	Low
+16	30931304	drug	Psoriasis	psoriasis	Low
+16	30959620	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+16	30989488	drug	Psoriasis	psoriasis	Low
+16	31009757	drug	Psoriasis	psoriasis	Low
+16	31137821	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+16	31137821	drug	Cardiovascular disease	cardiovascular system disease	Low
+16	56954132	drug	Metabolic syndrome	metabolic syndrome	High
+16	56954132	drug	Metabolic syndrome (bivariate traits) [HDLC-WC]	metabolic syndrome	High
+16	56956804	drug	Age-related diseases, mortality and associated endophenotypes	coronary heart disease	Medium
+16	56956804	drug	Age-related diseases, mortality and associated endophenotypes	diabetes mellitus	High
+16	56956804	drug	Age-related diseases, mortality and associated endophenotypes	heart failure	High
+16	56956804	drug	Metabolic syndrome [HDL]	metabolic syndrome	High
+16	56959412	drug	Metabolic syndrome (bivariate traits) [BP-HDLC]	metabolic syndrome	High
+16	56959412	drug	Metabolic syndrome [HDL]	metabolic syndrome	High
+16	56968820	drug	Metabolic syndrome (bivariate traits) [HDLC-GLUC]	metabolic syndrome	High
+16	71657426	drug	Prostate cancer	prostate carcinoma	Low
+16	89637957	drug	Osteoarthritis	osteoarthritis	Low
+16	89669749	drug	Malignant melanoma | cancer code, self-reported	melanoma	Low
+16	89669749	drug	Squamous cell carcinoma [adjusted for rs4268748]	squamous cell carcinoma	Low
+16	89669749	drug	Malignant melanoma | cancer code, self-reported	melanoma	Low
+16	89669749	drug	Squamous cell carcinoma [adjusted for rs4268748]	squamous cell carcinoma	Low
+16	89689495	drug	Melanoma	melanoma	Medium
+16	89689495	drug	Melanoma	melanoma	Medium
+16	89689495	drug	Melanoma	melanoma	Low
+16	89689495	drug	Melanoma	melanoma	Low
+16	89689495	drug	Melanoma	melanoma	Medium
+16	89689495	drug	Melanoma	melanoma	Low
+16	89689495	drug	Melanoma	melanoma	Low
+16	89689495	drug	Melanoma	melanoma	Medium
+16	89780269	drug	Reported occurrences of cancer	cancer	Medium
+16	89780269	drug	Nevus count or cutaneous melanoma	skin melanoma	Low
+16	89780269	drug	Reported occurrences of cancer	cancer	Low
+16	89780269	drug	Nevus count or cutaneous melanoma	skin melanoma	Medium
+16	89780269	drug	Reported occurrences of cancer	cancer	Medium
+16	89885119	drug	Malignant melanoma | cancer code, self-reported	melanoma	Medium
+16	89885119	drug	Malignant melanoma | cancer code, self-reported	melanoma	Low
+16	89919709	drug	Actinic keratosis	actinic keratosis	Low
+16	89919709	drug	Melanomas of skin	skin melanoma	Low
+16	89919709	drug	Melanoma	melanoma	Medium
+16	89919709	drug	Melanoma	melanoma	Low
+16	89919709	drug	Cutaneous squamous cell carcinoma	cutaneous squamous cell carcinoma	Low
+16	89919709	drug	Melanomas of skin	skin melanoma	Medium
+16	89919709	drug	Melanomas of skin, dx or hx	skin melanoma	Medium
+16	89919709	drug	Melanomas of skin, dx or hx	skin melanoma	Low
+16	89924435	drug	Melanomas of skin	skin melanoma	Medium
+16	89924435	drug	Melanomas of skin	skin melanoma	Low
+16	89924435	drug	Melanomas of skin, dx or hx	skin melanoma	Low
+16	89924435	drug	Melanomas of skin, dx or hx	skin melanoma	Medium
+16	89957798	drug	Cancer diagnosed by doctor	cancer	Medium
+16	89957798	drug	Cancer diagnosed by doctor	cancer	Low
+16	89957798	drug	Cancer diagnosed by doctor	cancer	High
+16	89960104	drug	Squamous cell carcinoma	squamous cell carcinoma	Medium
+16	89960104	drug	Squamous cell carcinoma	squamous cell carcinoma	High
+16	89961218	drug	Squamous cell carcinoma	squamous cell carcinoma	High
+16	89961218	drug	Squamous cell carcinoma	squamous cell carcinoma	Medium
+16	90000528	drug	Melanoma	melanoma	Medium
+16	90000528	drug	Melanoma	melanoma	Medium
+16	90000528	drug	Melanoma	melanoma	Low
+16	90000528	drug	Melanoma	melanoma	Low
+17	4044350	drug	Type 2 diabetes	type II diabetes mellitus	Low
+17	4044350	drug	Type 2 diabetes	type II diabetes mellitus	Low
+17	4049808	drug	Type 2 diabetes	type II diabetes mellitus	Low
+17	4049808	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Low
+17	4049808	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Low
+17	4049808	drug	Type 2 diabetes	type II diabetes mellitus	Low
+17	4077199	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+17	4082570	drug	Type 2 diabetes	type II diabetes mellitus	Low
+17	4082570	drug	Type 2 diabetes	type II diabetes mellitus	Low
+17	7559652	drug	IgA nephropathy	IGA glomerulonephritis	Low
+17	7587859	drug	IgA nephropathy	IGA glomerulonephritis	Low
+17	34243528	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Low
+17	39895095	drug	Cervical cancer [Matched]	cervical carcinoma	Low
+17	39895095	drug	Cervical cancer [Matched]	cervical carcinoma	Low
+17	39909987	drug	Acute lymphoblastic leukemia (childhood)	acute lymphoblastic leukemia	Low
+17	39909987	drug	Acute lymphoblastic leukemia (childhood)	acute lymphoblastic leukemia	Low
+17	43715814	drug	Fractured/broken bones in last 5 years	bone fracture	Low
+17	43721487	drug	Fractures	bone fracture	Low
+17	43749471	drug	Fractures	bone fracture	Low
+17	45486856	drug	Remission after SSRI treatment in MDD or neuroticism	unipolar depression	Low
+17	45779273	drug	Depressed affect	unipolar depression	Low
+17	59739396	drug	Multiple sclerosis	multiple sclerosis	Low
+17	63471557	drug	Cardiovascular disease	cardiovascular system disease	High
+17	63471557	drug	Cardiovascular disease	cardiovascular system disease	Low
+17	63471587	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+17	63471587	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Medium
+17	63471587	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+17	63478937	drug	Hypertension	hypertension	High
+17	63478937	drug	Hypertension	hypertension	Medium
+17	63478937	drug	Hypertension	hypertension	Low
+17	63478937	drug	Essential hypertension	hypertension	Medium
+17	63478937	drug	Essential hypertension	hypertension	High
+17	63478937	drug	Essential hypertension	hypertension	Low
+17	63610240	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+17	63610240	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+17	63610240	drug	Type 2 diabetes	type II diabetes mellitus	Low
+17	64309731	drug	Coronary artery disease	coronary artery disease	Low
+17	64324605	drug	Coronary artery disease	coronary artery disease	Low
+17	70341044	drug	Atrial fibrillation	atrial fibrillation	Medium
+17	70351197	drug	Atrial fibrillation [EA]	atrial fibrillation	Medium
+17	70351197	drug	Atrial fibrillation [EA]	atrial fibrillation	Medium
+18	12797695	drug	Rheumatoid arthritis (ACPA-positive)	rheumatoid arthritis	Low
+18	12797695	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+18	12821594	drug	Esophageal cancer (squamous cell)	squamous cell carcinoma	Low
+18	12821594	drug	Esophageal cancer (squamous cell)	squamous cell carcinoma	Low
+18	12821594	drug	Esophageal cancer (squamous cell)	esophageal carcinoma	Low
+18	60144750	drug	Obesity (early onset extreme)	obesity	Medium
+18	60183189	drug	Obesity [Obesity class I]	obesity	Medium
+18	60183864	drug	Obesity [children]	obesity	Medium
+18	60183864	drug	Obesity	obesity	Medium
+18	60183864	drug	Obesity [adults]	obesity	Medium
+18	60184530	drug	Obesity [Overweight]	obesity	Medium
+18	60185354	drug	Obesity	obesity	Medium
+18	60185354	drug	Obesity (early onset extreme)	obesity	Medium
+18	60185354	drug	Overweight, obesity and other hyperalimentation	obesity	Medium
+18	60185715	drug	Obesity [Obesity class II]	obesity	Medium
+18	63115978	drug	Follicular lymphoma	neoplasm of mature B-cells	Low
+18	63121512	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Low
+18	63121512	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	High
+18	63126261	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Low
+18	63126261	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	High
+18	63126316	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Low
+18	63126316	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	High
+18	63126688	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Low
+18	63126688	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	High
+18	63293960	drug	Prostate cancer	prostate carcinoma	Low
+18	63293960	drug	Prostate cancer	prostate carcinoma	Low
+19	1031439	drug	Advanced age-related macular degeneration [EA]	age-related macular degeneration	Medium
+19	4069121	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Low
+19	7634461	drug	Neuropathic pain in head and neck cancer	head and neck malignant neoplasia	Low
+19	10317045	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Medium
+19	10352442	drug	Psoriasis	psoriasis	Medium
+19	10352442	drug	Psoriasis | non-cancer illness code, self-reported	psoriasis	Medium
+19	10352442	drug	Psoriasis	psoriasis	Medium
+19	10359299	drug	Psoriasis	psoriasis	Medium
+19	10362257	drug	Psoriasis	psoriasis	Medium
+19	10467167	drug	Inflammatory skin disease [Psoriasis]	psoriasis	Medium
+19	10631494	drug	Multiple sclerosis	multiple sclerosis	Medium
+19	10631494	drug	Multiple sclerosis	multiple sclerosis	Medium
+19	10707416	drug	Psoriasis	psoriasis	Medium
+19	10775530	drug	Psoriasis	psoriasis	Low
+19	11052925	drug	Myocardial infarction (early onset)	myocardial infarction	Low
+19	11052925	drug	Coronary artery disease or ischemic stroke	cerebrovascular accident	Low
+19	11052925	drug	Myocardial infarction (early onset)	myocardial infarction	Low
+19	11064259	drug	Stroke	cerebrovascular accident	Low
+19	11077477	drug	Myocardial infarction	myocardial infarction	Low
+19	11077477	drug	Myocardial infarction	myocardial infarction	Low
+19	11077488	drug	Myocardial infarction	myocardial infarction	Low
+19	11077488	drug	Myocardial infarction	myocardial infarction	Low
+19	11077571	drug	Coronary artery disease	coronary artery disease	Low
+19	11077571	drug	Ischemic heart disease	coronary artery disease	Low
+19	11077571	drug	Coronary artery disease	coronary artery disease	Low
+19	11091630	drug	Coronary artery disease	coronary artery disease	Low
+19	11091630	drug	Coronary artery disease (myocardial infarction, percutaneous transluminal coronary angioplasty, coronary artery bypass grafting, angina or chromic ischemic heart disease)	coronary artery disease	Low
+19	11091630	drug	Coronary artery disease	coronary artery disease	Low
+19	11113589	drug	Coronary artery disease	coronary artery disease	Low
+19	11192878	drug	Coronary artery disease	coronary artery disease	Low
+19	11313027	drug	Breast cancer	breast carcinoma	Medium
+19	11386305	drug	Coronary artery disease	coronary artery disease	Low
+19	40847202	drug	Lung adenocarcinoma	lung adenocarcinoma	Low
+19	42196795	drug	Prostate cancer	prostate carcinoma	Low
+2	9977740	drug	Prostate cancer	prostate carcinoma	Low
+2	10570604	drug	Prostate cancer [EA]	prostate carcinoma	Low
+2	10570604	drug	Prostate cancer	prostate carcinoma	Low
+2	10570604	drug	Prostate cancer	prostate carcinoma	Low
+2	25390277	drug	Multiple myeloma	multiple myeloma	Low
+2	25406569	drug	B-cell malignancies (chronic lymphocytic leukemia, Hodgkin lymphoma or multiple myeloma) (pleiotropy)	multiple myeloma	Low
+2	25406569	drug	B-cell malignancies (chronic lymphocytic leukemia, Hodgkin lymphoma or multiple myeloma) (pleiotropy)	chronic lymphocytic leukemia	Low
+2	26691496	drug	Essential hypertension	hypertension	High
+2	26691496	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+2	26697157	drug	Hypertension [Japanese]	hypertension	High
+2	26700700	drug	Hypertension	hypertension	High
+2	26707543	drug	Hypertension [East Asian]	hypertension	High
+2	31580756	drug	Male-pattern baldness	androgenetic alopecia	High
+2	31956355	drug	Male-pattern baldness	androgenetic alopecia	Low
+2	48751020	drug	Polycystic ovary syndrome	polycystic ovary syndrome	Low
+2	48751020	drug	Polycystic ovary syndrome	polycystic ovary syndrome	High
+2	48751020	drug	Polycystic ovary syndrome	polycystic ovary syndrome	Medium
+2	48751020	drug	Polycystic ovary syndrome	polycystic ovary syndrome	High
+2	48751020	drug	Polycystic ovary syndrome	polycystic ovary syndrome	Low
+2	48751020	drug	Polycystic ovary syndrome	polycystic ovary syndrome	Medium
+2	48974473	drug	Polycystic ovary syndrome	polycystic ovary syndrome	Medium
+2	48974473	drug	Polycystic ovary syndrome	polycystic ovary syndrome	Low
+2	48974473	drug	Polycystic ovary syndrome	polycystic ovary syndrome	High
+2	112851991	drug	Pericarditis	pericarditis	Medium
+2	156156523	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+2	156254801	drug	Depression	unipolar depression	Medium
+2	156254801	drug	Depression	unipolar depression	Medium
+2	156300636	drug	Depressed affect	unipolar depression	Medium
+2	161624943	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+2	161726994	drug	Hypertension	hypertension	Low
+2	161726994	drug	Essential hypertension	hypertension	Low
+2	161989345	drug	Schizophrenia	schizophrenia	High
+2	162254026	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+2	162254026	drug	Inflammatory skin disease [Psoriasis]	psoriasis	Low
+2	162254026	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162254026	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162267541	drug	Psoriasis	psoriasis	Low
+2	162267541	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162267541	drug	Psoriasis	psoriasis	Low
+2	162267541	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162267541	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162267541	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162267541	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162267541	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+2	162272314	drug	Psoriasis [EA, conditional on rs1990760]	psoriasis	Low
+2	162272314	drug	Psoriasis [conditional on rs1990760]	psoriasis	Low
+2	162311236	drug	Psoriasis	psoriasis	Low
+2	162404181	drug	Psoriasis	psoriasis	Low
+2	162404181	drug	Psoriasis	psoriasis	Low
+2	181443625	drug	Crohn's disease	Crohn's disease	High
+2	212432139	drug	Breast cancer	breast carcinoma	Low
+2	217802649	drug	Chronic obstructive pulmonary disease or resting heart rate (pleiotropy)	chronic obstructive pulmonary disease	Low
+2	217802649	drug	Chronic obstructive pulmonary disease or resting heart rate (pleiotropy)	chronic obstructive pulmonary disease	Low
+2	217818431	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+2	217818431	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+2	217858732	drug	Breast cancer	breast carcinoma	Low
+2	217858732	drug	Breast cancer	breast carcinoma	Low
+2	218145423	drug	Ulcerative colitis [EA]	ulcerative colitis	Low
+2	218145423	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Low
+2	218145423	drug	Ulcerative colitis	ulcerative colitis	Low
+2	218145423	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+2	218145423	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+2	241355498	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Low
+2	241443449	drug	Prostate cancer	prostate carcinoma	Low
+2	241443449	drug	Prostate cancer	prostate carcinoma	Low
+20	1629905	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+20	1629905	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+20	1635560	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+20	1635560	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Medium
+20	1701391	drug	Crohn's disease [EA]	Crohn's disease	Low
+20	1701391	drug	Ulcerative colitis [EA]	ulcerative colitis	Low
+20	1701391	drug	Crohn's disease [EA]	Crohn's disease	Low
+20	45600808	drug	Breast cancer	breast carcinoma	Low
+20	46006273	drug	Crohn's disease	Crohn's disease	Low
+20	46065258	drug	Breast cancer	breast carcinoma	Medium
+20	46105671	drug	Rheumatoid arthritis (ACPA-positive)	rheumatoid arthritis	Low
+20	46111557	drug	Crohn's disease [EA]	Crohn's disease	Low
+20	46118343	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Low
+20	46118343	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	Low
+20	46118343	drug	Rheumatoid arthritis (ACPA-positive)	rheumatoid arthritis	Low
+20	46119308	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+20	46119308	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+20	46119308	drug	Rheumatoid arthritis (ACPA-positive)	rheumatoid arthritis	Low
+20	46120612	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+20	46120612	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+20	46120612	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+20	46120612	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+20	46246518	drug	Breast cancer	breast carcinoma	Medium
+20	46407574	drug	Breast cancer	breast carcinoma	Low
+20	58792844	drug	Breast cancer	breast carcinoma	Medium
+20	58792844	drug	Breast cancer	breast carcinoma	Low
+20	58900136	drug	Colorectal cancer	colorectal cancer	Low
+20	59084069	drug	Breast cancer	breast carcinoma	Low
+20	59084069	drug	Breast cancer	breast carcinoma	High
+20	59138970	drug	Coronary artery disease	coronary artery disease	Medium
+20	59249254	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+20	59396049	drug	Breast cancer	breast carcinoma	Low
+20	59396049	drug	Breast cancer	breast carcinoma	Low
+20	63731211	drug	Prostate cancer	prostate carcinoma	Low
+20	63731211	drug	Prostate cancer	prostate carcinoma	Low
+21	33391982	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+22	24262890	drug	Coronary artery disease (myocardial infarction, percutaneous transluminal coronary angioplasty, coronary artery bypass grafting, angina or chromic ischemic heart disease)	coronary artery disease	Medium
+22	24262890	drug	Coronary artery disease [additive model]	coronary artery disease	Medium
+22	24266203	drug	Coronary artery disease	coronary artery disease	Medium
+22	24276750	drug	Coronary artery disease	coronary artery disease	Medium
+22	36862461	drug	Crohn's disease	Crohn's disease	Low
+22	37191071	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+22	37195278	drug	Type 1 diabetes	insulin-dependent diabetes mellitus	Low
+3	2943458	drug	Body mass index (change over time) in chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Medium
+3	11467491	drug	Cardiovascular disease	cardiovascular system disease	Medium
+3	11549277	drug	Depression	unipolar depression	Low
+3	11549277	drug	Depression	unipolar depression	Low
+3	11549277	drug	Depression	unipolar depression	Low
+3	12288284	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	12288284	drug	Diabetes diagnosed by doctor	diabetes mellitus	High
+3	12288284	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12288284	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12288284	drug	Diabetes diagnosed by doctor	diabetes mellitus	Medium
+3	12350773	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12350773	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	12350773	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12351626	drug	Type 2 diabetes [EA]	type II diabetes mellitus	High
+3	12351626	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Low
+3	12351626	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Medium
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	drug	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+3	12351626	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Medium
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12351626	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Low
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	12351626	drug	Type 2 diabetes [EA]	type II diabetes mellitus	Low
+3	12351626	drug	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+3	12351626	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12353341	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	12353341	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12353341	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12355414	drug	Type 2 diabetes	type II diabetes mellitus	Low
+3	12355414	drug	Type 2 diabetes	type II diabetes mellitus	High
+3	12355414	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+3	38592651	drug	Atrial fibrillation [EA]	atrial fibrillation	Medium
+3	38592651	drug	Atrial fibrillation [EA]	atrial fibrillation	Low
+3	38592651	drug	Atrial fibrillation [EA]	atrial fibrillation	High
+3	38668824	drug	Atrial fibrillation	atrial fibrillation	High
+3	38668824	drug	Atrial fibrillation	atrial fibrillation	Medium
+3	38668824	drug	Atrial fibrillation [EA]	atrial fibrillation	Low
+3	38668824	drug	Atrial fibrillation [EA]	atrial fibrillation	High
+3	38668824	drug	Atrial fibrillation [EA]	atrial fibrillation	Medium
+3	38668824	drug	Atrial fibrillation	atrial fibrillation	Low
+3	38725184	drug	Atrial fibrillation and flutter	atrial fibrillation	Medium
+3	38725184	drug	Atrial fibrillation and flutter	atrial fibrillation	High
+3	38725184	drug	Atrial fibrillation and flutter	atrial fibrillation	Low
+3	38730434	drug	Atrial fibrillation	atrial fibrillation	Medium
+3	38730434	drug	Atrial fibrillation [EA]	atrial fibrillation	Medium
+3	38730434	drug	Atrial fibrillation	atrial fibrillation	Low
+3	38730434	drug	Atrial fibrillation	atrial fibrillation	Medium
+3	38730434	drug	Atrial fibrillation [EA]	atrial fibrillation	Low
+3	38730434	drug	Atrial fibrillation	atrial fibrillation	Low
+3	38730434	drug	Atrial fibrillation [EA]	atrial fibrillation	High
+3	38730434	drug	Atrial fibrillation	atrial fibrillation	High
+3	38730434	drug	Atrial fibrillation	atrial fibrillation	High
+3	46150778	drug	Malabsorption/coeliac disease | non-cancer illness code, self-reported	celiac disease	Low
+3	46164194	drug	Celiac disease [conditioned on rs2097282]	celiac disease	Low
+3	46193709	drug	Celiac disease	celiac disease	Low
+3	46240253	drug	Celiac disease	celiac disease	Low
+3	46336534	drug	Celiac disease	celiac disease	Low
+3	46387167	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	sclerosing cholangitis	Low
+3	46387167	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	sclerosing cholangitis	Low
+3	46387167	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	Low
+3	46387167	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Low
+3	46410189	drug	Setpoint viral load in HIV-1 infection	HIV-1 infection	Low
+3	46410189	drug	Setpoint viral load in HIV-1 infection	HIV-1 infection	Low
+3	46410189	drug	Setpoint viral load in HIV-1 infection	HIV-1 infection	High
+3	52234850	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Medium
+3	52253452	drug	Schizophrenia	schizophrenia	Medium
+3	52422957	drug	Osteoarthritis; localized	osteoarthritis	Medium
+3	52594040	drug	Schizophrenia	schizophrenia	Medium
+3	52594040	drug	Schizophrenia	schizophrenia	Medium
+3	52687289	drug	Osteoarthritis	osteoarthritis	Low
+3	52694788	drug	Osteoarthritis of the hip or knee	osteoarthritis, knee	Low
+3	52781889	drug	Schizophrenia, schizoaffective disorder or bipolar disorder	schizophrenia	Low
+3	52799203	drug	Autism spectrum disorder, attention deficit-hyperactivity disorder, bipolar disorder, major depressive disorder, and schizophrenia (combined)	schizophrenia	Low
+3	52799203	drug	Broad depression or schizophrenia	schizophrenia	Low
+3	52799789	drug	Schizophrenia	schizophrenia	Low
+3	52799789	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Low
+3	52799789	drug	Schizophrenia [EA]	schizophrenia	Low
+3	52804386	drug	Schizophrenia	schizophrenia	Low
+3	52811089	drug	Schizophrenia	schizophrenia	Low
+3	52811089	drug	Schizophrenia	schizophrenia	Low
+3	119431242	drug	Primary biliary cholangitis	primary biliary cirrhosis	High
+3	119455536	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+3	119501087	drug	Primary biliary cholangitis	primary biliary cirrhosis	High
+3	119501087	drug	Multiple sclerosis	multiple sclerosis	Low
+3	119501087	drug	Primary biliary cirrhosis	primary biliary cirrhosis	High
+3	119501087	drug	Primary biliary cholangitis	primary biliary cirrhosis	High
+3	119503609	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+3	119525746	drug	Multiple sclerosis	multiple sclerosis	Low
+3	119542097	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+3	119553544	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+3	121824730	drug	Multiple sclerosis	multiple sclerosis	Low
+3	121941817	drug	Multiple sclerosis and HDL levels (pleiotropy)	multiple sclerosis	Low
+3	121997324	drug	Asthma	asthma	Low
+3	122050675	drug	Multiple sclerosis	multiple sclerosis	Low
+3	122051692	drug	Epstein Barr virus nuclear antigen 1 IgG levels or multiple sclerosis	multiple sclerosis	Low
+3	122051692	drug	Multiple sclerosis	multiple sclerosis	Low
+3	122077921	drug	Multiple sclerosis	multiple sclerosis	Low
+4	1732512	drug	Urinary bladder cancer	bladder carcinoma	Low
+4	1732512	drug	Bladder cancer	bladder carcinoma	Low
+4	1732512	drug	Bladder cancer	bladder carcinoma	Low
+4	1767709	drug	Bladder cancer | cancer code, self-reported	bladder carcinoma	Low
+4	45545051	drug	Risky sexual behaviors in alcohol dependence [AA]	alcohol dependence	Low
+4	45545051	drug	Risky sexual behaviors in alcohol dependence [AA]	alcohol dependence	Low
+4	45545051	drug	Risky sexual behaviors in alcohol dependence [AA]	alcohol dependence	Low
+4	46412095	drug	Alzheimer disease and age of onset [between families]	Alzheimer's disease	Low
+4	46412095	drug	Alzheimer disease and age of onset [between families]	Alzheimer's disease	Low
+4	46541289	drug	Ulcerative colitis	ulcerative colitis	High
+4	46541289	drug	Ulcerative colitis	ulcerative colitis	Low
+4	46689227	drug	Alzheimer disease and age of onset [between families]	Alzheimer's disease	Low
+4	87037243	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+4	89698581	drug	Parkinsons disease | non-cancer illness code, self-reported	Parkinson's disease	Low
+4	89704960	drug	Parkinson's disease	Parkinson's disease	Low
+4	89704960	drug	Parkinson's disease	Parkinson's disease	Low
+4	89704960	drug	Parkinson's disease	Parkinson's disease	Low
+4	89716450	drug	Parkinson's disease [EA]	Parkinson's disease	Low
+4	89716450	drug	Parkinson's disease	Parkinson's disease	Low
+4	89718364	drug	Parkinson's disease	Parkinson's disease	Low
+4	89720189	drug	Parkinson's disease	Parkinson's disease	Low
+4	89720189	drug	Parkinson's disease [Sporadic]	Parkinson's disease	Low
+4	89720189	drug	Parkinson's disease	Parkinson's disease	Low
+4	89720189	drug	Parkinson's disease	Parkinson's disease	Low
+4	89720189	drug	Parkinson's disease	Parkinson's disease	Low
+4	89720189	drug	Parkinson's disease	Parkinson's disease	Low
+4	89720189	drug	Parkinson's disease	Parkinson's disease	Low
+4	89723303	drug	Parkinson's disease	Parkinson's disease	Low
+4	89744890	drug	Parkinson's disease (age of onset)	Parkinson's disease	Low
+4	89757390	drug	Parkinson's disease	Parkinson's disease	Low
+4	89859751	drug	Parkinson's disease [Asian]	Parkinson's disease	Low
+4	99318162	drug	Cardiovascular disease	cardiovascular system disease	Medium
+4	147479667	drug	Peripheral artery disease	peripheral arterial disease	Low
+4	148016386	drug	Atrial fibrillation	atrial fibrillation	High
+4	148016386	drug	Atrial fibrillation	atrial fibrillation	High
+4	148016386	drug	Atrial fibrillation	atrial fibrillation	Low
+4	148016386	drug	Atrial fibrillation	atrial fibrillation	Low
+4	148025539	drug	Atrial fibrillation [EA]	atrial fibrillation	High
+4	148025539	drug	Atrial fibrillation [EA]	atrial fibrillation	Low
+4	155499453	drug	Cardiovascular disease	cardiovascular system disease	Low
+4	155512156	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+4	155512156	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Medium
+4	155515355	drug	Coronary artery disease	coronary artery disease	Low
+4	155515355	drug	Coronary artery disease	coronary artery disease	Medium
+4	155515355	drug	Coronary artery disease	coronary artery disease	Medium
+4	155515365	drug	Coronary artery disease	coronary artery disease	Medium
+4	155515365	drug	Coronary artery disease	coronary artery disease	Low
+4	155515365	drug	Coronary artery disease	coronary artery disease	Medium
+4	155693032	drug	Coronary artery disease	coronary artery disease	Low
+4	155693032	drug	Coronary artery disease	coronary artery disease	High
+4	155693032	drug	Coronary artery disease	coronary artery disease	Medium
+4	155714157	drug	Coronary artery disease	coronary artery disease	Low
+4	155714157	drug	Coronary artery disease	coronary artery disease	Low
+4	155714157	drug	Coronary artery disease	coronary artery disease	Medium
+4	155714157	drug	Coronary artery disease	coronary artery disease	High
+4	155714157	drug	Coronary artery disease	coronary artery disease	Medium
+4	155714157	drug	Coronary artery disease	coronary artery disease	High
+4	155717421	drug	Coronary artery disease (myocardial infarction, percutaneous transluminal coronary angioplasty, coronary artery bypass grafting, angina or chromic ischemic heart disease)	coronary artery disease	Low
+4	155717421	drug	Coronary artery disease (myocardial infarction, percutaneous transluminal coronary angioplasty, coronary artery bypass grafting, angina or chromic ischemic heart disease)	coronary artery disease	High
+4	155717421	drug	Coronary artery disease (myocardial infarction, percutaneous transluminal coronary angioplasty, coronary artery bypass grafting, angina or chromic ischemic heart disease)	coronary artery disease	Medium
+4	155718736	drug	Coronary artery disease	coronary artery disease	Medium
+4	155718736	drug	Coronary artery disease	coronary artery disease	High
+4	155718736	drug	Coronary artery disease	coronary artery disease	Low
+4	155718736	drug	Myocardial infarction	myocardial infarction	High
+4	155721732	drug	Hypertension	hypertension	High
+4	155721732	drug	Essential hypertension	hypertension	High
+4	155721732	drug	Hypertension	hypertension	Low
+4	155721732	drug	Essential hypertension	hypertension	Low
+4	155724361	drug	Ischemic heart disease	coronary artery disease	High
+4	155724361	drug	Ischemic heart disease	coronary artery disease	Medium
+4	155724361	drug	Ischemic heart disease	coronary artery disease	Low
+4	155725188	drug	Cardiovascular disease	cardiovascular system disease	High
+4	155725188	drug	Hypertension | non-cancer illness code, self-reported	hypertension	High
+4	155725188	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Low
+4	155745839	drug	Hypertension [East Asian]	hypertension	Low
+4	155745839	drug	Hypertension [East Asian]	hypertension	High
+5	1279675	drug	Glioma	central nervous system cancer	Medium
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Glioblastoma	central nervous system cancer	Medium
+5	1279675	drug	Glioblastoma	central nervous system cancer	Low
+5	1279675	drug	Non-glioblastoma glioma	central nervous system cancer	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	Low
+5	1279675	drug	Non-glioblastoma glioma	central nervous system cancer	Medium
+5	1279675	drug	Glioma	central nervous system cancer	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Glioma	central nervous system cancer	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Invasive epithelial ovarian cancer	ovarian carcinoma	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	Low
+5	1279675	drug	Glioma	central nervous system cancer	Medium
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279675	drug	Breast cancer	breast carcinoma	Low
+5	1279913	drug	Prostate cancer	prostate carcinoma	Low
+5	1279913	drug	Breast cancer	breast carcinoma	Low
+5	1279913	drug	Breast cancer	breast carcinoma	Low
+5	1279913	drug	Prostate cancer	prostate carcinoma	Low
+5	1280715	drug	Cancer of brain and nervous system	central nervous system cancer	Low
+5	1280715	drug	Cancer of brain and nervous system	central nervous system cancer	Medium
+5	1282204	drug	Breast cancer	breast carcinoma	Low
+5	1282204	drug	Breast cancer	breast carcinoma	Low
+5	1282299	drug	Cancer (pleiotropy) [subset analysis]	ovarian carcinoma	Low
+5	1282299	drug	Cancer (pleiotropy) [subset analysis]	prostate carcinoma	Low
+5	1282299	drug	Cancer (pleiotropy) [subset analysis]	breast carcinoma	Low
+5	1282299	drug	Cancer (pleiotropy) [subset analysis]	lung carcinoma	Medium
+5	1282299	drug	Cancer (pleiotropy) [subset analysis]	breast carcinoma	Low
+5	1282299	drug	Prostate cancer	prostate carcinoma	Low
+5	1284538	drug	Melanoma	melanoma	Low
+5	1285859	drug	Invasive epithelial ovarian cancer	ovarian carcinoma	Low
+5	1285859	drug	Polycythaemia vera | non-cancer illness code, self-reported	polycythemia vera	Low
+5	1286401	drug	Lung cancer	lung carcinoma	Medium
+5	1286401	drug	Glioma	central nervous system cancer	Medium
+5	1286401	drug	Glioma	central nervous system cancer	Low
+5	1286401	drug	Glioma (high-grade)	central nervous system cancer	Low
+5	1286401	drug	Glioma	central nervous system cancer	Medium
+5	1286401	drug	Lung cancer	lung carcinoma	Medium
+5	1286401	drug	Glioma	central nervous system cancer	Low
+5	1286401	drug	Glioma	central nervous system cancer	Low
+5	1286401	drug	Glioma (high-grade)	central nervous system cancer	Medium
+5	1286401	drug	Glioma	central nervous system cancer	Low
+5	1286401	drug	Glioma	central nervous system cancer	Medium
+5	1286401	drug	Glioma	central nervous system cancer	Medium
+5	1287079	drug	Lung cancer	lung carcinoma	Medium
+5	1288432	drug	Glioma	central nervous system cancer	Medium
+5	1288432	drug	Glioma	central nervous system cancer	Low
+5	1295234	drug	Breast cancer	breast carcinoma	Low
+5	1295234	drug	Breast cancer	breast carcinoma	Low
+5	1297373	drug	Breast cancer	breast carcinoma	Low
+5	1297373	drug	Breast cancer	breast carcinoma	Low
+5	1297373	drug	Breast cancer	breast carcinoma	Low
+5	1297373	drug	Breast cancer	breast carcinoma	Low
+5	1315545	drug	Lung cancer	lung carcinoma	Medium
+5	1320021	drug	Lung cancer in ever smokers	lung carcinoma	Medium
+5	1320132	drug	Lung cancer	lung carcinoma	Medium
+5	1321972	drug	Melanoma	melanoma	Low
+5	1321972	drug	Lung cancer	lung carcinoma	Medium
+5	1339775	drug	Lung cancer | illnesses of father	lung carcinoma	Medium
+5	1442864	drug	Sleeplessness / insomnia	insomnia	High
+5	1442864	drug	Sleeplessness / insomnia	insomnia	Low
+5	1895715	drug	Prostate cancer	prostate carcinoma	Low
+5	1895715	drug	Prostate cancer	prostate carcinoma	Low
+5	40347367	drug	Ulcerative colitis	ulcerative colitis	Low
+5	40414784	drug	Ulcerative colitis [EA]	ulcerative colitis	Low
+5	40414887	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Low
+5	40487168	drug	Pediatric autoimmune diseases	ulcerative colitis	Low
+5	43054645	drug	Attention deficit hyperactivity disorder or cannabis use	attention deficit hyperactivity disorder	Low
+5	64440647	drug	Cardiovascular disease	cardiovascular system disease	Low
+5	75309395	drug	Hyperlipidemia	hyperlipidemia	High
+5	75309395	drug	Hypercholesterolemia	Hypercholesterolemia	High
+5	75309395	drug	Disorders of lipoid metabolism	Disorder of lipid metabolism	High
+5	75309395	drug	Disorders of lipoid metabolism	Disorder of lipid metabolism	Medium
+5	75329662	drug	Age-related diseases, mortality and associated endophenotypes	atrial fibrillation	Low
+5	75329662	drug	Age-related diseases, mortality and associated endophenotypes	cerebrovascular accident	High
+5	75329662	drug	Age-related diseases, mortality and associated endophenotypes	atrial fibrillation	High
+5	75329662	drug	Age-related diseases, mortality and associated endophenotypes	cancer	Low
+5	75329662	drug	Age-related diseases, mortality and associated endophenotypes	heart failure	High
+5	75329662	drug	Age-related diseases, mortality and associated endophenotypes	diabetes mellitus	High
+5	75329662	drug	Age-related diseases, mortality and associated endophenotypes	coronary heart disease	High
+5	75360714	drug	Cardiovascular disease	cardiovascular system disease	High
+5	75360714	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	High
+5	75463358	drug	Age-related diseases, mortality and associated endophenotypes	atrial fibrillation	Low
+5	75463358	drug	Age-related diseases, mortality and associated endophenotypes	coronary heart disease	Medium
+5	75463358	drug	Age-related diseases, mortality and associated endophenotypes	atrial fibrillation	Medium
+5	75463358	drug	Age-related diseases, mortality and associated endophenotypes	diabetes mellitus	Medium
+5	75463358	drug	Age-related diseases, mortality and associated endophenotypes	cerebrovascular accident	Medium
+5	75463358	drug	Age-related diseases, mortality and associated endophenotypes	heart failure	Medium
+5	75463358	drug	Age-related diseases, mortality and associated endophenotypes	cancer	Low
+5	75584065	drug	Age-related diseases, mortality and associated endophenotypes	coronary heart disease	Medium
+5	75584065	drug	Age-related diseases, mortality and associated endophenotypes	atrial fibrillation	Medium
+5	75584065	drug	Age-related diseases, mortality and associated endophenotypes	cerebrovascular accident	Medium
+5	75584065	drug	Age-related diseases, mortality and associated endophenotypes	atrial fibrillation	Low
+5	75584065	drug	Age-related diseases, mortality and associated endophenotypes	heart failure	Medium
+5	75584065	drug	Age-related diseases, mortality and associated endophenotypes	cancer	Low
+5	75584065	drug	Age-related diseases, mortality and associated endophenotypes	diabetes mellitus	Medium
+5	75707853	drug	Type 2 diabetes	type II diabetes mellitus	Low
+5	75707853	drug	Type 2 diabetes	type II diabetes mellitus	Low
+5	75707853	drug	Type 2 diabetes	type II diabetes mellitus	Low
+5	75707853	drug	Obesity [Obesity class I]	obesity	Low
+5	75719417	drug	Obesity [Obesity class II]	obesity	Low
+5	75719417	drug	Obesity [Overweight]	obesity	Low
+5	110807116	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+5	110807116	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+5	110807116	drug	Allergic disease (asthma, hay fever or eczema)	asthma	Low
+5	110807116	drug	Allergic disease (asthma, hay fever or eczema)	asthma	Low
+5	110823145	drug	Asthma	asthma	Medium
+5	110823145	drug	Asthma	asthma	Low
+5	110825774	drug	Doctor diagnosed asthma	asthma	Low
+5	110825774	drug	Doctor diagnosed asthma	asthma	Medium
+5	110825774	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+5	110825774	drug	Asthma | non-cancer illness code, self-reported	asthma	Medium
+5	110825774	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+5	110825774	drug	Age hay fever, rhinitis or eczema diagnosed	atopic eczema	Low
+5	110825774	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Medium
+5	110862415	drug	Asthma	asthma	Medium
+5	110862415	drug	Asthma	asthma	Low
+5	111066174	drug	Age asthma diagnosed	asthma	Low
+5	111066174	drug	Asthma	asthma	Medium
+5	111066174	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Medium
+5	111066174	drug	Asthma	asthma	Medium
+5	111066174	drug	Asthma	asthma	Medium
+5	111066174	drug	Age asthma diagnosed	asthma	Medium
+5	111066174	drug	Asthma	asthma	Low
+5	111066174	drug	Asthma	asthma	Low
+5	111066174	drug	Asthma	asthma	Low
+5	111066174	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+5	111066174	drug	Asthma	asthma	Medium
+5	111066174	drug	Doctor diagnosed asthma	asthma	Medium
+5	111066174	drug	Asthma or allergic disease (pleiotropy)	asthma	Medium
+5	111066174	drug	Asthma	asthma	Medium
+5	111066174	drug	Asthma	asthma	Low
+5	111066174	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+5	111066174	drug	Asthma	asthma	Medium
+5	111066174	drug	Asthma and hay fever	asthma	Medium
+5	111066174	drug	Asthma | non-cancer illness code, self-reported	asthma	Medium
+5	111066174	drug	Asthma	asthma	Low
+5	111066174	drug	Asthma (moderate or severe)	asthma	Medium
+5	111066174	drug	Asthma and hay fever	asthma	Low
+5	111066174	drug	Asthma	asthma	Low
+5	111066174	drug	Asthma onset (childhood vs adult)	asthma	Low
+5	111066174	drug	Asthma	asthma	Medium
+5	111066174	drug	Asthma	asthma	Low
+5	111066174	drug	Asthma (moderate or severe)	asthma	Low
+5	111066174	drug	Doctor diagnosed asthma	asthma	Low
+5	111066174	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+5	111066174	drug	Asthma onset (childhood vs adult)	asthma	Medium
+5	111069301	drug	Asthma	asthma	Low
+5	111069301	drug	Asthma	asthma	Medium
+5	111069301	drug	Asthma	asthma	Low
+5	111069301	drug	Asthma	asthma	Medium
+5	111071044	drug	Asthma | non-cancer illness code, self-reported	asthma	Medium
+5	111071044	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+5	111071044	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+5	111071044	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Medium
+5	111131801	drug	Asthma and hay fever	asthma	Medium
+5	111131801	drug	Asthma (moderate or severe)	asthma	Low
+5	111131801	drug	Asthma (moderate or severe)	asthma	Medium
+5	111131801	drug	Allergic disease (asthma, hay fever or eczema)	asthma	Low
+5	111131801	drug	Allergic disease (asthma, hay fever or eczema)	asthma	Medium
+5	111131801	drug	Asthma and hay fever	asthma	Low
+5	111134439	drug	Asthma	asthma	Low
+5	111134439	drug	Asthma	asthma	Medium
+5	111135520	drug	Age hay fever, rhinitis or eczema diagnosed	atopic eczema	Low
+5	132094425	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+5	132333468	drug	Ulcerative colitis [EA]	ulcerative colitis	Low
+5	132333468	drug	Crohn's disease [EA]	Crohn's disease	Low
+5	132340627	drug	Nasal polyps	Nasal Cavity Polyp	Low
+5	132374707	drug	Nasal polyps	Nasal Cavity Polyp	Low
+5	132396764	drug	Crohn's disease [EA]	Crohn's disease	Low
+5	132435113	drug	Crohn's disease	Crohn's disease	Low
+5	132435113	drug	Crohn's disease	Crohn's disease	Low
+5	132442760	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Low
+5	132442760	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	Low
+5	132442760	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ankylosing spondylitis	Low
+5	132442760	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+5	132448701	drug	Crohn's disease	Crohn's disease	Low
+5	132448701	drug	Crohn's disease	Crohn's disease	Low
+5	132461230	drug	Ulcerative colitis [EA]	ulcerative colitis	Low
+5	132461855	drug	Asthma	asthma	High
+5	132461855	drug	Asthma	asthma	Low
+5	132461855	drug	Asthma	asthma	Medium
+5	132461855	drug	Asthma	asthma	Low
+5	132463681	drug	Psoriasis	psoriasis	Low
+5	132463934	drug	Asthma (moderate or severe)	asthma	Low
+5	132463934	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Medium
+5	132463934	drug	Asthma	asthma	Low
+5	132463934	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+5	132463934	drug	Asthma (moderate or severe)	asthma	Low
+5	132463934	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+5	132463934	drug	Asthma (moderate or severe)	asthma	Medium
+5	132463934	drug	Asthma	asthma	Medium
+5	132463934	drug	Asthma	asthma	High
+5	132463934	drug	Asthma | non-cancer illness code, self-reported	asthma	High
+5	132463934	drug	Asthma | non-cancer illness code, self-reported	asthma	Medium
+5	132463934	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+5	132463934	drug	Asthma (moderate or severe)	asthma	High
+5	132463934	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+5	132463934	drug	Asthma	asthma	Low
+5	132463934	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	High
+5	132472976	drug	Asthma or allergic disease (pleiotropy)	asthma	High
+5	132472976	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+5	132472976	drug	Asthma or allergic disease (pleiotropy)	asthma	Medium
+5	132472976	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+5	132475490	drug	Pediatric autoimmune diseases	Crohn's disease	Low
+5	132475490	drug	Pediatric autoimmune diseases	ulcerative colitis	Low
+5	132475490	drug	Pediatric autoimmune diseases	ankylosing spondylitis	Low
+5	132475490	drug	Pediatric autoimmune diseases	psoriasis	Low
+5	132490630	drug	Doctor diagnosed asthma	asthma	High
+5	132490630	drug	Doctor diagnosed asthma	asthma	Medium
+5	132490630	drug	Doctor diagnosed asthma	asthma	Low
+5	132490630	drug	Doctor diagnosed asthma	asthma	Low
+5	132552294	drug	Asthma (moderate or severe)	asthma	Medium
+5	132552294	drug	Asthma (moderate or severe)	asthma	Low
+5	132552294	drug	Asthma (moderate or severe)	asthma	High
+5	132552294	drug	Asthma (moderate or severe)	asthma	Low
+5	132565533	drug	Asthma	asthma	Medium
+5	132565533	drug	Asthma	asthma	High
+5	132565533	drug	Asthma	asthma	Low
+5	132565533	drug	Asthma	asthma	Low
+5	132581248	drug	Asthma	asthma	Medium
+5	132581248	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+5	132581248	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	High
+5	132581248	drug	Asthma	asthma	Low
+5	132581248	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+5	132581248	drug	Asthma	asthma	High
+5	132581248	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+5	132581248	drug	Asthma onset (childhood vs adult)	asthma	Low
+5	132581248	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Medium
+5	132581248	drug	Asthma | non-cancer illness code, self-reported	asthma	High
+5	132581248	drug	Asthma onset (childhood vs adult)	asthma	Medium
+5	132581248	drug	Asthma onset (childhood vs adult)	asthma	Low
+5	132581248	drug	Asthma onset (childhood vs adult)	asthma	High
+5	132581248	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+5	132581248	drug	Asthma | non-cancer illness code, self-reported	asthma	Medium
+5	132581248	drug	Asthma	asthma	Low
+5	132589495	drug	Asthma	asthma	Low
+5	132589495	drug	Asthma	asthma	Low
+5	132589495	drug	Asthma	asthma	High
+5	132589495	drug	Asthma	asthma	Medium
+5	132616530	drug	Inflammatory skin disease [Opposed]	atopic eczema	Medium
+5	132616530	drug	Inflammatory skin disease [Opposed]	atopic eczema	Low
+5	132619885	drug	Allergic rhinitis	allergic rhinitis	Low
+5	132619885	drug	Allergic rhinitis	allergic rhinitis	Low
+5	132619885	drug	Allergic rhinitis	allergic rhinitis	Low
+5	132619885	drug	Allergic rhinitis	allergic rhinitis	Low
+5	132619885	drug	Allergic rhinitis	allergic rhinitis	Low
+5	132655393	drug	Atopic dermatitis [EA, fixed effects]	atopic eczema	Medium
+5	132655393	drug	Atopic dermatitis [EA, fixed effects]	atopic eczema	Low
+5	132656189	drug	Asthma	asthma	Low
+5	132656189	drug	Asthma	asthma	High
+5	132656189	drug	Asthma	asthma	Medium
+5	132656189	drug	Asthma	asthma	Low
+5	132660151	drug	Atopic dermatitis	atopic eczema	Medium
+5	132660151	drug	Atopic dermatitis	atopic eczema	Medium
+5	132660151	drug	Atopic dermatitis	atopic eczema	Low
+5	132660151	drug	Atopic dermatitis	atopic eczema	Low
+5	132660272	drug	Asthma	asthma	Low
+5	132660272	drug	Asthma	asthma	Medium
+5	132660272	drug	Asthma	asthma	Medium
+5	132660272	drug	Asthma	asthma	Low
+5	132660272	drug	Asthma	asthma	Medium
+5	132660272	drug	Asthma	asthma	Low
+5	132660272	drug	Asthma	asthma	Low
+5	132660272	drug	Asthma	asthma	Medium
+5	132660808	drug	Alopecia areata	alopecia areata	Low
+5	132693166	drug	Atopic dermatitis [conditional on rs6419573]	atopic eczema	Low
+5	132693166	drug	Atopic dermatitis [conditional on rs6419573]	atopic eczema	Medium
+5	132694975	drug	Atopic march	atopic eczema	Low
+5	132694975	drug	Atopic march	atopic eczema	Medium
+5	132713335	drug	Atopic dermatitis [EA, fixed effects]	atopic eczema	Medium
+5	132713335	drug	Atopic dermatitis	atopic eczema	Medium
+5	132713335	drug	Atopic dermatitis [EA, fixed effects]	atopic eczema	Low
+5	132713335	drug	Atopic dermatitis	atopic eczema	Low
+5	132721182	drug	Age asthma diagnosed	asthma	Medium
+5	132721182	drug	Age asthma diagnosed	asthma	Low
+5	132721182	drug	Age asthma diagnosed	asthma	Low
+5	132721182	drug	Age asthma diagnosed	asthma	Medium
+5	132724891	drug	Asthma or allergic disease (pleiotropy)	asthma	Medium
+5	132724891	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+5	132724891	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+5	132724891	drug	Asthma or allergic disease (pleiotropy)	asthma	Medium
+5	133103318	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	133103318	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	143270839	drug	Atrial fibrillation [EA]	atrial fibrillation	Low
+5	143270839	drug	Atrial fibrillation	atrial fibrillation	Low
+5	143270839	drug	Atrial fibrillation	atrial fibrillation	High
+5	143270839	drug	Atrial fibrillation [EA]	atrial fibrillation	High
+5	143500967	drug	Atrial fibrillation	atrial fibrillation	High
+5	143500967	drug	Atrial fibrillation	atrial fibrillation	Low
+5	148475407	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	148475407	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	148475407	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	148476770	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	chronic obstructive pulmonary disease	Low
+5	148476770	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	chronic obstructive pulmonary disease	Low
+5	148476770	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	chronic obstructive pulmonary disease	Low
+5	148476770	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	148476770	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	148476770	drug	Chronic obstructive pulmonary disease or high blood pressure (pleiotropy)	hypertension	Low
+5	148476770	drug	Chronic obstructive pulmonary disease	chronic obstructive pulmonary disease	Low
+5	148967980	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Medium
+5	149816671	drug	Nevus count or cutaneous melanoma	skin melanoma	Low
+5	149816671	drug	Nevus count or cutaneous melanoma	skin melanoma	Low
+5	149816671	drug	Nevus count or cutaneous melanoma	skin melanoma	Low
+5	159242905	drug	Psoriasis	psoriasis	Medium
+5	159242905	drug	Psoriasis	psoriasis	High
+5	159290781	drug	Psoriasis	psoriasis	High
+5	159290781	drug	Cutaneous psoriasis	psoriasis	Medium
+5	159290781	drug	Psoriasis	psoriasis	Medium
+5	159290781	drug	Cutaneous psoriasis	psoriasis	High
+5	159322080	drug	Psoriasis [conditional on rs7709212, rs4921493]	psoriasis	High
+5	159322080	drug	Psoriasis [conditional on rs7709212, rs4921493]	psoriasis	Medium
+5	159322080	drug	Psoriasis [EA, conditional on rs7709212, rs4921493]	psoriasis	High
+5	159322080	drug	Psoriasis [EA, conditional on rs7709212, rs4921493]	psoriasis	Medium
+5	159323761	drug	Psoriasis	psoriasis	High
+5	159323761	drug	Psoriasis	psoriasis	High
+5	159323761	drug	Psoriasis	psoriasis	Medium
+5	159323761	drug	Psoriasis	psoriasis	Medium
+5	159328837	drug	Psoriatic arthropathy	psoriatic arthritis	High
+5	159332892	drug	Inflammatory skin disease [Psoriasis]	psoriasis	High
+5	159332892	drug	Psoriasis	psoriasis	High
+5	159332892	drug	Psoriasis	psoriasis	Medium
+5	159332892	drug	Inflammatory skin disease [Psoriasis]	psoriasis	Medium
+5	159337169	drug	Psoriasis [EA]	psoriasis	Medium
+5	159337169	drug	Psoriasis [Chinese]	psoriasis	High
+5	159337169	drug	Psoriasis [Chinese, conditional on rs1990760]	psoriasis	High
+5	159337169	drug	Psoriasis [Chinese]	psoriasis	Medium
+5	159337169	drug	Psoriasis [EA]	psoriasis	High
+5	159337169	drug	Psoriasis	psoriasis	High
+5	159337169	drug	Psoriasis [Chinese, conditional on rs1990760]	psoriasis	Medium
+5	159337169	drug	Psoriasis	psoriasis	Medium
+5	159337470	drug	Psoriatic arthritis	psoriatic arthritis	High
+5	159339014	drug	Psoriasis | non-cancer illness code, self-reported	psoriasis	High
+5	159339014	drug	Psoriasis | non-cancer illness code, self-reported	psoriasis	Medium
+5	159341357	drug	Psoriatic arthritis	psoriatic arthritis	High
+5	159344329	drug	Crohn's disease [EA]	Crohn's disease	Medium
+5	159344329	drug	Crohn's disease [EA]	Crohn's disease	Low
+5	159347957	drug	Ulcerative colitis [EA]	ulcerative colitis	Medium
+5	159347957	drug	Ulcerative colitis	ulcerative colitis	Medium
+5	159360377	drug	Crohn's disease	Crohn's disease	Low
+5	159360377	drug	Crohn's disease	Crohn's disease	Medium
+5	159371067	drug	Crohn's disease	Crohn's disease	Medium
+5	159371067	drug	Crohn's disease	Crohn's disease	Low
+5	159383785	drug	Psoriasis | non-cancer illness code, self-reported	psoriasis	Medium
+5	159383785	drug	Psoriasis | non-cancer illness code, self-reported	psoriasis	High
+5	159387525	drug	Crohn's disease	Crohn's disease	Low
+5	159387525	drug	Crohn's disease	Crohn's disease	Medium
+5	159391737	drug	Ankylosing spondylitis	ankylosing spondylitis	Medium
+5	159393053	drug	Psoriasis	psoriasis	Medium
+5	159393053	drug	Psoriasis	psoriasis	High
+5	159394909	drug	Psoriasis	psoriasis	High
+5	159394909	drug	Psoriasis	psoriasis	Medium
+5	159399302	drug	Psoriasis and related disorders	psoriasis	High
+5	159399302	drug	Psoriasis and related disorders	psoriasis	Medium
+5	159399784	drug	Ankylosing spondylitis	ankylosing spondylitis	Medium
+5	159399784	drug	Ulcerative colitis	ulcerative colitis	Medium
+5	159399784	drug	Ulcerative colitis	ulcerative colitis	Medium
+5	159400761	drug	Ulcerative colitis [EA]	ulcerative colitis	Medium
+5	159400761	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	Medium
+5	159400761	drug	Crohn's disease [EA]	Crohn's disease	Medium
+5	159400761	drug	Crohn's disease [EA]	Crohn's disease	Low
+5	159400761	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	High
+5	159400761	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	Medium
+5	159400761	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ankylosing spondylitis	Medium
+5	159400761	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	Low
+5	159400761	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Medium
+5	159402281	drug	Psoriasis	psoriasis	High
+5	159402281	drug	Psoriasis	psoriasis	Medium
+5	159402286	drug	Pediatric autoimmune diseases	ulcerative colitis	Medium
+5	159402286	drug	Pediatric autoimmune diseases	Crohn's disease	Low
+5	159402286	drug	Pediatric autoimmune diseases	Crohn's disease	Medium
+5	159402286	drug	Pediatric autoimmune diseases	ankylosing spondylitis	Medium
+5	159402286	drug	Pediatric autoimmune diseases	psoriasis	High
+5	159402286	drug	Pediatric autoimmune diseases	psoriasis	Medium
+5	159402286	drug	Crohn's disease	Crohn's disease	Low
+5	159402286	drug	Pediatric autoimmune diseases	insulin-dependent diabetes mellitus	Low
+5	159402286	drug	Pediatric autoimmune diseases	systemic lupus erythematosus	Medium
+5	159402286	drug	Crohn's disease	Crohn's disease	Medium
+5	159402519	drug	Psoriasis | non-cancer illness code, self-reported	psoriasis	Medium
+5	159402519	drug	Psoriatic arthritis	psoriatic arthritis	High
+5	159402519	drug	Psoriasis | non-cancer illness code, self-reported	psoriasis	High
+5	159402519	drug	Psoriasis	psoriasis	High
+5	159402519	drug	Psoriasis	psoriasis	Medium
+5	159402519	drug	Psoriasis	psoriasis	High
+5	159402519	drug	Psoriatic arthropathy | non-cancer illness code, self-reported	psoriatic arthritis	High
+5	159402519	drug	Psoriasis	psoriasis	Medium
+5	159402519	drug	Psoriatic arthropathy	psoriatic arthritis	High
+5	159405269	drug	Sarcoidosis [EA]	Sarcoidosis	Low
+5	159409099	drug	Psoriasis [conditional on rs7709212]	psoriasis	High
+5	159409099	drug	Psoriasis [EA, conditional on rs7709212]	psoriasis	High
+5	159409099	drug	Psoriasis [conditional on rs7709212]	psoriasis	Medium
+5	159409099	drug	Psoriasis [EA, conditional on rs7709212]	psoriasis	Medium
+5	161984283	drug	Worrier / anxious feelings	anxiety	Low
+5	161984283	drug	Worrier / anxious feelings	anxiety	High
+5	161984283	drug	Worrier / anxious feelings	anxiety	Low
+5	161984283	drug	Worrier / anxious feelings	anxiety	Medium
+5	161984283	drug	Worrier / anxious feelings	anxiety	Medium
+5	161984283	drug	Worrier / anxious feelings	anxiety	High
+5	161984283	drug	Worrier / anxious feelings	anxiety	Low
+6	2969044	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Low
+6	2969044	drug	Chronic lymphocytic leukemia	chronic lymphocytic leukemia	Medium
+6	3580855	drug	Epithelial ovarian cancer [serous]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [serous]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [serous]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [serous]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [HGSOC]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [HGSOC]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [serous]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [serous]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [HGSOC]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [HGSOC]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [HGSOC]	ovarian carcinoma	Low
+6	3580855	drug	Epithelial ovarian cancer [HGSOC]	ovarian carcinoma	Low
+6	30374976	drug	Lung cancer in ever smokers	lung carcinoma	Low
+6	30374976	drug	Lung cancer in ever smokers	lung carcinoma	Low
+6	30383571	drug	Squamous cell lung carcinoma	squamous cell lung carcinoma	Low
+6	30383571	drug	Squamous cell lung carcinoma	squamous cell lung carcinoma	Low
+6	30389517	drug	Lung cancer	lung carcinoma	Low
+6	30389517	drug	Lung cancer	lung carcinoma	Low
+6	30633455	drug	Prostate cancer	prostate carcinoma	Medium
+6	30633455	drug	Prostate cancer	prostate carcinoma	High
+6	30633455	drug	Prostate cancer	prostate carcinoma	Low
+6	30896502	drug	Lung cancer	lung carcinoma	Medium
+6	30896502	drug	Lung cancer	lung carcinoma	Low
+6	30914638	drug	Squamous cell lung carcinoma	squamous cell lung carcinoma	Medium
+6	30914638	drug	Squamous cell lung carcinoma	squamous cell lung carcinoma	Medium
+6	30948482	drug	Psoriasis	psoriasis	Low
+6	31042408	drug	Colorectal cancer or advanced adenoma	colorectal cancer	Low
+6	31057031	drug	HIV-1 control [AA]	HIV-1 infection	Low
+6	31090401	drug	Behcet's disease	Behcet's syndrome	Low
+6	31090401	drug	Behcet's disease	Behcet's syndrome	Low
+6	31106253	drug	Follicular lymphoma	neoplasm of mature B-cells	Low
+6	31112239	drug	Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	Sarcoidosis	Low
+6	31112239	drug	Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	Sarcoidosis	Low
+6	31113428	drug	Lung cancer in ever smokers	lung carcinoma	Low
+6	31113428	drug	Lung cancer in ever smokers	lung carcinoma	Low
+6	31120368	drug	Adult asthma	asthma	Low
+6	31121931	drug	Takayasu arteritis [Turkish]	Takayasu arteritis	Low
+6	31131800	drug	Behcet's disease	Behcet's syndrome	Low
+6	31131800	drug	Behcet's disease	Behcet's syndrome	Low
+6	31135187	drug	Schizophrenia	schizophrenia	Low
+6	31137636	drug	Broad depression or schizophrenia	unipolar depression	Low
+6	31137636	drug	Broad depression or schizophrenia	schizophrenia	Low
+6	31139481	drug	Multiple myeloma	multiple myeloma	Low
+6	31139481	drug	Multiple myeloma	multiple myeloma	Low
+6	31143579	drug	Ulcerative colitis	ulcerative colitis	Low
+6	31143579	drug	Ulcerative colitis	ulcerative colitis	Low
+6	31148749	drug	Multiple myeloma	multiple myeloma	Low
+6	31148749	drug	Multiple myeloma	multiple myeloma	Low
+6	31150734	drug	Prostate cancer	prostate carcinoma	Low
+6	31150734	drug	Prostate cancer	prostate carcinoma	Low
+6	31150734	drug	Prostate cancer	prostate carcinoma	Low
+6	31168676	drug	Drug-induced Stevens-Johnson syndrome or toxic epidermal necrolysis (SJS/TEN)	toxic epidermal necrolysis	Low
+6	31168676	drug	Drug-induced Stevens-Johnson syndrome or toxic epidermal necrolysis (SJS/TEN)	Stevens-Johnson syndrome	Low
+6	31174468	drug	Drug-induced Stevens-Johnson syndrome or toxic epidermal necrolysis (SJS/TEN)	Stevens-Johnson syndrome	Low
+6	31174468	drug	Drug-induced Stevens-Johnson syndrome or toxic epidermal necrolysis (SJS/TEN)	toxic epidermal necrolysis	Low
+6	31175805	drug	HIV-1 control [EA]	HIV-1 infection	Low
+6	31188008	drug	Psoriasis	psoriasis	Low
+6	31188008	drug	Psoriasis	psoriasis	Low
+6	31188008	drug	Psoriasis	psoriasis	Low
+6	31272654	drug	Chronic obstructive pulmonary disease-related biomarkers [SP-D]	chronic obstructive pulmonary disease	Low
+6	31272654	drug	Chronic obstructive pulmonary disease-related biomarkers [SP-D]	chronic obstructive pulmonary disease	Low
+6	31273332	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31273332	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31274414	drug	Takayasu arteritis [EA]	Takayasu arteritis	Low
+6	31285148	drug	Psoriasis	psoriasis	Low
+6	31285148	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31285148	drug	Psoriasis	psoriasis	Low
+6	31285148	drug	Psoriasis	psoriasis	Low
+6	31285148	drug	Psoriasis	psoriasis	Low
+6	31285148	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31291060	drug	Vitiligo	Vitiligo	Low
+6	31297975	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31297975	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31298313	drug	Psoriasis vulgaris	psoriasis vulgaris	Low
+6	31301916	drug	Crohn's disease	Crohn's disease	Low
+6	31306778	drug	Psoriasis	psoriasis	Low
+6	31306778	drug	Psoriasis	psoriasis	Low
+6	31306778	drug	Cutaneous psoriasis	psoriasis	Low
+6	31306778	drug	Psoriasis	psoriasis	Low
+6	31306778	drug	Psoriasis	psoriasis	Low
+6	31306778	drug	Cutaneous psoriasis	psoriasis	Low
+6	31312441	drug	Takayasu arteritis	Takayasu arteritis	Low
+6	31344549	drug	Psoriasis	psoriasis	Medium
+6	31344549	drug	Psoriasis	psoriasis	Medium
+6	31353490	drug	Schizophrenia	schizophrenia	Medium
+6	31354352	drug	Ankylosing spondylitis [Turkish]	ankylosing spondylitis	Medium
+6	31354420	drug	Asthma	asthma	Low
+6	31354420	drug	Asthma	asthma	Low
+6	31358156	drug	Ankylosing spondylitis [Iranian]	ankylosing spondylitis	Medium
+6	31359924	drug	Bipolar disorder [addtive]	bipolar disorder	Low
+6	31368323	drug	Ankylosing spondylitis	ankylosing spondylitis	Medium
+6	31368641	drug	Behcet's disease	Behcet's syndrome	Medium
+6	31377139	drug	Ankylosing spondylitis [EA]	ankylosing spondylitis	Medium
+6	31380742	drug	Chronic obstructive pulmonary disease [conditional on rs2284174]	chronic obstructive pulmonary disease	Low
+6	31380742	drug	Chronic obstructive pulmonary disease [conditional on rs2284174]	chronic obstructive pulmonary disease	Medium
+6	31383435	drug	Takayasu arteritis [Turkish]	Takayasu arteritis	Low
+6	31385552	drug	Rheumatoid arthritis (ACPA-negative)	rheumatoid arthritis	Low
+6	31385552	drug	Rheumatoid arthritis (ACPA-negative)	rheumatoid arthritis	Low
+6	31385552	drug	Rheumatoid arthritis (ACPA-negative)	rheumatoid arthritis	Medium
+6	31386461	drug	Takayasu arteritis	Takayasu arteritis	Low
+6	31386461	drug	Takayasu arteritis [EA]	Takayasu arteritis	Low
+6	31392512	drug	Acute anterior uveitis in ankylosing spondylitis	ankylosing spondylitis	Medium
+6	31396930	drug	Type 1 diabetes and autoimmune thyroid diseases	insulin-dependent diabetes mellitus	Medium
+6	31396930	drug	Type 1 diabetes and autoimmune thyroid diseases	insulin-dependent diabetes mellitus	Low
+6	31398010	drug	Ankylosing spondylitis [less than]	ankylosing spondylitis	Medium
+6	31440051	drug	Drug-induced Stevens-Johnson syndrome or toxic epidermal necrolysis (SJS/TEN)	toxic epidermal necrolysis	Low
+6	31440051	drug	Drug-induced Stevens-Johnson syndrome or toxic epidermal necrolysis (SJS/TEN)	Stevens-Johnson syndrome	Medium
+6	31464003	drug	Psoriasis	psoriasis	Medium
+6	31464003	drug	Psoriasis	psoriasis	Medium
+6	31466554	drug	Myositis	myositis	Low
+6	31466589	drug	Polymyositis	polymyositis	Low
+6	31466589	drug	Myositis	myositis	Low
+6	31466844	drug	Myositis	myositis	Low
+6	31475005	drug	Myositis	myositis	Low
+6	31481085	drug	Ulcerative colitis	ulcerative colitis	High
+6	31481085	drug	Ulcerative colitis	ulcerative colitis	Low
+6	31481199	drug	Myositis	myositis	Low
+6	31481199	drug	Metabolic syndrome [HDL]	metabolic syndrome	Low
+6	31484059	drug	Myositis	myositis	Low
+6	31504943	drug	Asthma	asthma	Low
+6	31508681	drug	Myositis	myositis	Low
+6	31537703	drug	Stevens-Johnson syndrome and toxic epidermal necrolysis (SJS-TEN)	Stevens-Johnson syndrome	Medium
+6	31537703	drug	Myositis	myositis	Low
+6	31537703	drug	Stevens-Johnson syndrome and toxic epidermal necrolysis (SJS-TEN)	toxic epidermal necrolysis	Low
+6	31546470	drug	Myositis	myositis	Low
+6	31574531	drug	Crohn's disease	Crohn's disease	High
+6	31600692	drug	Type 1 diabetes and autoimmune thyroid diseases	insulin-dependent diabetes mellitus	Low
+6	31600692	drug	Type 1 diabetes and autoimmune thyroid diseases	insulin-dependent diabetes mellitus	Medium
+6	31602893	drug	Takayasu arteritis [Turkish]	Takayasu arteritis	Low
+6	31648589	drug	Hypertension	hypertension	High
+6	31654829	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+6	31654829	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+6	31654829	drug	Rheumatoid arthritis	rheumatoid arthritis	High
+6	31753256	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+6	31766173	drug	Poor prognosis in Crohn's disease	Crohn's disease	Medium
+6	31781365	drug	Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	Sarcoidosis	Low
+6	31781365	drug	Sarcoidosis (Lofgren's syndrome vs non-Lofgren's syndrome)	Sarcoidosis	Medium
+6	31819390	drug	Schizophrenia [EA]	schizophrenia	Medium
+6	31858928	drug	Schizophrenia	schizophrenia	Low
+6	31869289	drug	Vitiligo	Vitiligo	Low
+6	31902549	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+6	31913532	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Low
+6	31916180	drug	Endometriosis	endometriosis	Low
+6	31949763	drug	Ulcerative colitis	ulcerative colitis	Low
+6	31949763	drug	Ulcerative colitis	ulcerative colitis	Low
+6	31951083	drug	Type 1 diabetes and autoimmune thyroid diseases	insulin-dependent diabetes mellitus	Low
+6	31951083	drug	Type 1 diabetes and autoimmune thyroid diseases	insulin-dependent diabetes mellitus	Low
+6	31968280	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31968280	drug	Psoriatic arthritis	psoriatic arthritis	Low
+6	31979683	drug	Broad depression or schizophrenia	schizophrenia	Low
+6	31979683	drug	Broad depression or schizophrenia	unipolar depression	Low
+6	32061428	drug	Systemic lupus erythematosus [EA]	systemic lupus erythematosus	Low
+6	32070773	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Low
+6	32077074	drug	Hypertension	hypertension	Low
+6	36387877	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+6	36387877	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+6	39071364	drug	Type 2 diabetes	type II diabetes mellitus	High
+6	39071364	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+6	39071364	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+6	39071364	drug	Type 2 diabetes	type II diabetes mellitus	High
+6	39071364	drug	Type 2 diabetes	type II diabetes mellitus	High
+6	39071364	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+6	39156672	drug	Myocardial infarction	myocardial infarction	High
+6	39166323	drug	Coronary artery disease	coronary artery disease	Medium
+6	39207146	drug	Coronary artery disease	coronary artery disease	Medium
+6	39207146	drug	Coronary artery disease	coronary artery disease	Medium
+6	39314595	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+6	39314595	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+6	39316274	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+6	39316274	drug	Type 2 diabetes	type II diabetes mellitus	Medium
+6	43726861	drug	Prostate cancer	prostate carcinoma	Low
+6	43791136	drug	Coronary artery disease	coronary artery disease	Low
+6	43791136	drug	Coronary artery disease	coronary artery disease	Low
+6	43791136	drug	Coronary artery disease	coronary artery disease	Low
+6	43858890	drug	Advanced age-related macular degeneration [EA]	age-related macular degeneration	Medium
+6	43858890	drug	Age-related macular degeneration	age-related macular degeneration	Medium
+6	43858890	drug	Advanced age-related macular degeneration [EA]	wet macular degeneration	Medium
+6	43858890	drug	Advanced age-related macular degeneration [EA]	wet macular degeneration	High
+6	43858890	drug	Advanced age-related macular degeneration [EA]	age-related macular degeneration	High
+6	43858890	drug	Age-related macular degeneration	age-related macular degeneration	High
+6	43860845	drug	Age-related macular degeneration	age-related macular degeneration	Medium
+6	43860845	drug	Age-related macular degeneration	age-related macular degeneration	High
+6	44003090	drug	Exudative age-related macular degeneration	wet macular degeneration	Medium
+6	44003090	drug	Exudative age-related macular degeneration	wet macular degeneration	Medium
+6	44265183	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+6	44265183	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+6	44266184	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+6	44266184	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+6	44266184	drug	Rheumatoid arthritis	rheumatoid arthritis	Low
+6	44266184	drug	Rheumatoid arthritis [East Asian]	rheumatoid arthritis	Low
+6	44266184	drug	Rheumatoid arthritis [EA]	rheumatoid arthritis	Low
+6	44266184	drug	Rheumatoid arthritis [East Asian]	rheumatoid arthritis	Low
+6	44626422	drug	Stroke (ischemic) [LAA]	cerebrovascular accident	Low
+6	46709361	drug	Lipoprotein phospholipase A2 activity in cardiovascular disease	acute coronary syndrome	Medium
+6	46709361	drug	Lipoprotein-associated phospholipase A2 activity change in response to darapladib treatment in cardiovascular disease	acute coronary syndrome	Medium
+6	52427338	drug	Atopic march	atopic eczema	Low
+6	151494876	drug	Endometriosis	endometriosis	Medium
+6	151494876	drug	Endometriosis	endometriosis	Medium
+6	151589269	drug	Hypertension | non-cancer illness code, self-reported	hypertension	Medium
+6	151592978	drug	Breast cancer	breast carcinoma	Low
+6	151592978	drug	Breast cancer	breast carcinoma	Medium
+6	151592978	drug	Breast cancer	breast carcinoma	High
+6	151597721	drug	Breast cancer	breast carcinoma	Low
+6	151597721	drug	Breast cancer	breast carcinoma	High
+6	151597721	drug	Breast cancer	breast carcinoma	Low
+6	151597721	drug	Breast cancer	breast carcinoma	Medium
+6	151597721	drug	Breast cancer	breast carcinoma	High
+6	151597721	drug	Breast cancer	breast carcinoma	Medium
+6	151604372	drug	Depression	unipolar depression	Low
+6	151604372	drug	Depression	unipolar depression	High
+6	151621059	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	Low
+6	151621059	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	Medium
+6	151621059	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	High
+6	151625017	drug	Breast cancer	breast carcinoma	High
+6	151625017	drug	Breast cancer	breast carcinoma	Medium
+6	151625017	drug	Breast cancer	breast carcinoma	Low
+6	151627231	drug	Breast cancer	breast carcinoma	Low
+6	151627231	drug	Breast cancer	breast carcinoma	High
+6	151627231	drug	Breast cancer	breast carcinoma	Medium
+6	151627231	drug	Breast cancer	breast carcinoma	Low
+6	151627231	drug	Breast cancer	breast carcinoma	High
+6	151627231	drug	Breast cancer	breast carcinoma	Medium
+6	151627231	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	High
+6	151627231	drug	Breast cancer	breast carcinoma	Medium
+6	151627231	drug	Breast cancer	breast carcinoma	Low
+6	151627231	drug	Breast cancer	breast carcinoma	High
+6	151627231	drug	Breast cancer	breast carcinoma	High
+6	151627231	drug	Breast cancer	breast carcinoma	Medium
+6	151627231	drug	Breast cancer	breast carcinoma	Low
+6	151627231	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	Medium
+6	151627231	drug	Breast Cancer in BRCA1 mutation carriers	breast carcinoma	Low
+6	151628671	drug	Breast cancer	breast carcinoma	High
+6	151628671	drug	Breast cancer	breast carcinoma	Medium
+6	151628671	drug	Breast cancer	breast carcinoma	Low
+6	151631197	drug	Breast cancer | illnesses of mother	breast carcinoma	High
+6	151631197	drug	Breast cancer | illnesses of mother	breast carcinoma	Low
+6	151631197	drug	Breast cancer | illnesses of mother	breast carcinoma	Medium
+6	151631510	drug	Breast cancer	breast carcinoma	Low
+6	151631510	drug	Breast cancer	breast carcinoma	Medium
+6	151631510	drug	Breast cancer	breast carcinoma	High
+6	151633699	drug	Breast cancer	breast carcinoma	Medium
+6	151633699	drug	Breast cancer	breast carcinoma	High
+6	151633699	drug	Breast cancer	breast carcinoma	Low
+6	151634779	drug	Breast cancer	breast carcinoma	Low
+6	151634779	drug	Breast cancer	breast carcinoma	Medium
+6	151634779	drug	Breast cancer	breast carcinoma	High
+6	151666222	drug	Breast cancer	breast carcinoma	Low
+6	151666222	drug	Breast cancer	breast carcinoma	High
+6	151666222	drug	Breast cancer	breast carcinoma	Medium
+6	151699255	drug	Breast cancer	breast carcinoma	High
+6	151699255	drug	Breast cancer	breast carcinoma	Low
+6	151699255	drug	Breast cancer	breast carcinoma	Medium
+6	151713685	drug	Breast cancer	breast carcinoma	Medium
+6	151713685	drug	Breast cancer	breast carcinoma	High
+6	151713685	drug	Breast cancer	breast carcinoma	Low
+6	152111767	drug	Breast cancer	breast carcinoma	Medium
+6	152111767	drug	Breast cancer	breast carcinoma	High
+6	152111767	drug	Breast cancer	breast carcinoma	Low
+6	152115881	drug	Breast cancer	breast carcinoma	High
+6	152115881	drug	Breast cancer	breast carcinoma	Low
+6	152115881	drug	Breast cancer	breast carcinoma	Medium
+6	152232879	drug	Endometriosis	endometriosis	Medium
+6	152232879	drug	Endometriosis	endometriosis	Medium
+6	152232879	drug	Endometriosis [EA]	endometriosis	Medium
+6	152232879	drug	Endometriosis [EA]	endometriosis	Medium
+6	152241136	drug	Uterine fibroids	uterine fibroid	Medium
+6	152393471	drug	Bipolar disorder	bipolar disorder	Low
+6	152469438	drug	Autism spectrum disorder, attention deficit-hyperactivity disorder, bipolar disorder, major depressive disorder, and schizophrenia (combined) [Modelling analysis]	schizophrenia	Low
+6	152469438	drug	Autism spectrum disorder, attention deficit-hyperactivity disorder, bipolar disorder, major depressive disorder, and schizophrenia (combined) [Modelling analysis]	bipolar disorder	Low
+6	152469438	drug	Autism spectrum disorder, attention deficit-hyperactivity disorder, bipolar disorder, major depressive disorder, and schizophrenia (combined) [Modelling analysis]	unipolar depression	Low
+6	152469438	drug	Autism spectrum disorder, attention deficit-hyperactivity disorder, bipolar disorder, major depressive disorder, and schizophrenia (combined) [Modelling analysis]	unipolar depression	Low
+6	153704004	drug	Methadone dose in opioid dependence [AA]	opioid dependence	Low
+6	153704004	drug	Methadone dose in opioid dependence [AA]	opioid dependence	Low
+6	153704004	drug	Methadone dose in opioid dependence [AA]	opioid dependence	Low
+6	160330499	drug	Coronary artery disease	coronary artery disease	Low
+6	160490564	drug	Coronary artery disease	coronary artery disease	Medium
+6	160490564	drug	Ischemic heart disease	coronary artery disease	Medium
+6	160490564	drug	Myocardial infarction	myocardial infarction	Medium
+6	160490564	drug	Myocardial infarction	myocardial infarction	Medium
+6	160490564	drug	Coronary artery disease	coronary artery disease	Medium
+6	160490564	drug	Coronary artery disease	coronary artery disease	Medium
+6	160576086	drug	Coronary artery disease in diabetes	coronary artery disease	Medium
+6	160584578	drug	Heart attack/myocardial infarction | non-cancer illness code, self-reported	myocardial infarction	Medium
+6	160584578	drug	Coronary artery disease	coronary artery disease	Medium
+6	160584578	drug	Ischemic heart disease	coronary artery disease	Medium
+6	160584578	drug	Heart attack/myocardial infarction | non-cancer illness code, self-reported	myocardial infarction	Medium
+6	160584578	drug	Myocardial infarction	myocardial infarction	Medium
+6	160584578	drug	Coronary artery disease	coronary artery disease	Medium
+6	160584578	drug	Myocardial infarction	myocardial infarction	Medium
+6	160584578	drug	Coronary artery disease	coronary artery disease	Medium
+6	160584578	drug	Coronary artery disease	coronary artery disease	Medium
+6	160585045	drug	Coronary artery disease	coronary artery disease	Medium
+6	160585045	drug	Coronary artery disease	coronary artery disease	Medium
+6	160589086	drug	Myocardial infarction	myocardial infarction	Medium
+6	160589086	drug	Myocardial infarction	myocardial infarction	Medium
+6	160589086	drug	Coronary artery disease (myocardial infarction, percutaneous transluminal coronary angioplasty, coronary artery bypass grafting, angina or chromic ischemic heart disease)	coronary artery disease	Medium
+6	160589086	drug	Coronary artery disease or ischemic stroke	cerebrovascular accident	Medium
+6	160589086	drug	Heart attack | vascular/heart problems diagnosed by doctor	myocardial infarction	Medium
+6	160589086	drug	Heart attack | vascular/heart problems diagnosed by doctor	myocardial infarction	Medium
+6	160589086	drug	Coronary artery disease or ischemic stroke	cerebrovascular accident	Low
+6	160589086	drug	Coronary artery disease or ischemic stroke	cerebrovascular accident	Medium
+6	160591981	drug	Coronary artery disease	coronary artery disease	Medium
+6	160591981	drug	Myocardial infarction	myocardial infarction	Medium
+6	160591981	drug	Heart attack/myocardial infarction | non-cancer illness code, self-reported	myocardial infarction	Medium
+6	160591981	drug	Heart attack/myocardial infarction | non-cancer illness code, self-reported	myocardial infarction	Medium
+6	160591981	drug	Ischemic heart disease	coronary artery disease	Medium
+6	160591981	drug	Myocardial infarction	myocardial infarction	Medium
+6	160596331	drug	Coronary artery disease	coronary artery disease	Medium
+6	160666831	drug	Coronary artery disease	coronary artery disease	High
+6	160687112	drug	Myocardial infarction	myocardial infarction	High
+6	160687112	drug	Myocardial infarction	myocardial infarction	Medium
+6	160690668	drug	Heart attack | vascular/heart problems diagnosed by doctor	myocardial infarction	High
+6	160690668	drug	Heart attack | vascular/heart problems diagnosed by doctor	myocardial infarction	Medium
+6	160690668	drug	Coronary artery disease	coronary artery disease	High
+6	160690668	drug	Coronary artery disease	coronary artery disease	High
+6	160702419	drug	Coronary artery disease	coronary artery disease	High
+7	22743871	drug	Asthma | non-cancer illness code, self-reported	asthma	Low
+7	22743871	drug	Asthma | blood clot, dvt, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor	asthma	Low
+7	44135258	drug	Type 2 diabetes	type II diabetes mellitus	Low
+7	44176538	drug	Coronary artery disease and triglyceride levels (multivariate analysis)	coronary artery disease	Low
+7	44189469	drug	Glycemic traits [2-hPG]	type II diabetes mellitus	Low
+7	44189469	drug	Glycemic traits [FPG]	type II diabetes mellitus	Low
+7	44189469	drug	Glycemic traits [1-hPG]	type II diabetes mellitus	Low
+7	44191617	drug	Metabolic syndrome [GLU]	metabolic syndrome	Low
+7	44209229	drug	Type 2 diabetes	type II diabetes mellitus	Low
+7	44220272	drug	Metabolic syndrome [GLU]	metabolic syndrome	Low
+7	44220272	drug	Metabolic syndrome [GLU]	metabolic syndrome	Low
+7	44542387	drug	Cardiovascular disease	cardiovascular system disease	High
+7	44542387	drug	Cardiovascular disease	cardiovascular system disease	Low
+7	44544952	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	High
+7	44572630	drug	Ulcerative colitis	ulcerative colitis	Medium
+7	45038379	drug	Coronary artery disease	coronary artery disease	Low
+7	54848587	drug	Glioblastoma (age-stratified) [Below median age-at-diagnosis]	glioblastoma multiforme	Low
+7	54848587	drug	Glioblastoma (age-stratified) [Above median age-at-diagnosis]	glioblastoma multiforme	Low
+7	54848587	drug	Glioblastoma	glioblastoma multiforme	Medium
+7	54848587	drug	Glioblastoma (age-stratified) [Below median age-at-diagnosis]	glioblastoma multiforme	Medium
+7	54848587	drug	Glioblastoma	glioblastoma multiforme	Low
+7	54848587	drug	Glioblastoma	glioblastoma multiforme	Low
+7	54848587	drug	Glioblastoma (age-stratified) [Median age-at-diagnosis]	glioblastoma multiforme	Medium
+7	54848587	drug	Glioblastoma	central nervous system cancer	Low
+7	54848587	drug	Non-glioblastoma glioma	central nervous system cancer	Low
+7	54848587	drug	Glioblastoma (age-stratified) [Above median age-at-diagnosis]	glioblastoma multiforme	Medium
+7	54848587	drug	Glioblastoma (age-stratified) [Median age-at-diagnosis]	glioblastoma multiforme	Low
+7	54848587	drug	Glioma	central nervous system cancer	Low
+7	54848587	drug	Glioma	central nervous system cancer	Low
+7	54848587	drug	Glioblastoma	glioblastoma multiforme	Medium
+7	55067179	drug	Glioblastoma (age-stratified) [Median age-at-diagnosis]	glioblastoma multiforme	Low
+7	55067179	drug	Glioblastoma	glioblastoma multiforme	Low
+7	55067179	drug	Glioblastoma	glioblastoma multiforme	Medium
+7	55067179	drug	Glioblastoma (age-stratified) [Above median age-at-diagnosis]	glioblastoma multiforme	Medium
+7	55067179	drug	Glioblastoma (age-stratified) [Above median age-at-diagnosis]	glioblastoma multiforme	Low
+7	55067179	drug	Glioblastoma	central nervous system cancer	Low
+7	55067179	drug	Glioblastoma (age-stratified) [Median age-at-diagnosis]	glioblastoma multiforme	Medium
+7	55091656	drug	Glioblastoma (age-stratified) [Above median age-at-diagnosis]	glioblastoma multiforme	Low
+7	55091656	drug	Glioblastoma (age-stratified) [Above median age-at-diagnosis]	glioblastoma multiforme	Medium
+7	82825088	drug	Depression	unipolar depression	Low
+7	82839058	drug	Major depressive disorder	unipolar depression	Low
+7	82839058	drug	Major depressive disorder	unipolar depression	Low
+7	86798310	drug	Schizophrenia	schizophrenia	Medium
+7	86798310	drug	Schizophrenia	schizophrenia	Medium
+7	86798310	drug	Schizophrenia [EA]	schizophrenia	Medium
+7	86798310	drug	Schizophrenia	schizophrenia	Medium
+7	86798310	drug	Schizophrenia	schizophrenia	Medium
+7	86798310	drug	Autism spectrum disorder or schizophrenia	schizophrenia	Medium
+7	86798310	drug	Schizophrenia	schizophrenia	Medium
+7	87170125	drug	Schizophrenia	schizophrenia	Low
+7	100689872	drug	Pursuit maintenance gain in psychotic disorders [African]	schizophrenia	Medium
+7	100689872	drug	Pursuit maintenance gain in psychotic disorders [African]	schizoaffective disorder	Low
+7	100689872	drug	Pursuit maintenance gain in psychotic disorders [African]	bipolar disorder	Medium
+7	100689872	drug	Pursuit maintenance gain in psychotic disorders [African]	schizoaffective disorder	Medium
+7	100701361	drug	Pursuit maintenance gain in psychotic disorders [African]	schizoaffective disorder	Low
+7	100701361	drug	Pursuit maintenance gain in psychotic disorders [African]	schizophrenia	Medium
+7	100701361	drug	Pursuit maintenance gain in psychotic disorders [African]	bipolar disorder	Medium
+7	100701361	drug	Pursuit maintenance gain in psychotic disorders [African]	schizoaffective disorder	Medium
+7	140242504	drug	Breast cancer	breast carcinoma	Low
+7	150964321	drug	Atrial fibrillation	atrial fibrillation	High
+7	150964321	drug	Atrial fibrillation [EA]	atrial fibrillation	Low
+7	150964321	drug	Atrial fibrillation	atrial fibrillation	High
+7	150964321	drug	Atrial fibrillation	atrial fibrillation	Low
+7	150964321	drug	Atrial fibrillation	atrial fibrillation	Low
+7	150964321	drug	Atrial fibrillation [EA]	atrial fibrillation	High
+7	150993088	drug	Cardiovascular disease	cardiovascular system disease	High
+7	151253854	drug	Multiple myeloma	multiple myeloma	Low
+9	4971927	drug	Psoriasis	psoriasis	Low
+9	4981602	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	psoriasis	Low
+9	4984530	drug	Systemic lupus erythematosus	systemic lupus erythematosus	Medium
+9	4984530	drug	Systemic lupus erythematosus [Chinese]	systemic lupus erythematosus	Medium
+9	5049092	drug	Polycythemia vera	polycythemia vera	High
+9	5049092	drug	Polycythemia vera	polycythemia vera	Low
+9	5049092	drug	Polycythaemia vera | non-cancer illness code, self-reported	polycythemia vera	High
+9	5049092	drug	Polycythaemia vera | non-cancer illness code, self-reported	polycythemia vera	Low
+9	5063296	drug	Myeloproliferative neoplasms	myeloproliferative disorder	Low
+9	5063296	drug	Myeloproliferative neoplasms	myeloproliferative disorder	Medium
+9	5070831	drug	Myeloproliferative neoplasms	myeloproliferative disorder	Medium
+9	5070831	drug	Myeloproliferative neoplasms	myeloproliferative disorder	Low
+9	34710263	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	ulcerative colitis	High
+9	34710263	drug	Chronic inflammatory diseases (ankylosing spondylitis, Crohn's disease, psoriasis, primary sclerosing cholangitis, ulcerative colitis) (pleiotropy) [subset analysis]	Crohn's disease	High
+9	34889447	drug	Asthma or allergic disease (pleiotropy)	asthma	Low
+9	104902020	drug	High cholesterol | non-cancer illness code, self-reported	Hypercholesterolemia	High
+9	104903697	drug	Hyperlipidemia	hyperlipidemia	High
+9	120878222	drug	Celiac disease or Rheumatoid arthritis	immune system disease	High
+9	130475741	drug	Lung cancer | illnesses of father	lung carcinoma	Low
+X	67291142	drug	Male-pattern baldness	androgenetic alopecia	Low
+X	67343176	drug	Male-pattern baldness	androgenetic alopecia	Low
+X	67343176	drug	Male-pattern baldness	androgenetic alopecia	Low
+X	67801708	drug	Prostate cancer	prostate carcinoma	Medium
+X	67801708	drug	Prostate cancer	prostate carcinoma	High
+X	67801708	drug	Prostate cancer	prostate carcinoma	Low
+X	67801708	drug	Prostate cancer	prostate carcinoma	High
+X	67801708	drug	Prostate cancer	prostate carcinoma	Low
+X	67801708	drug	Prostate cancer	prostate carcinoma	Medium
+X	68143959	drug	Male-pattern baldness	androgenetic alopecia	Low
+X	136583619	drug	Pediatric autoimmune diseases	systemic lupus erythematosus	Low
+X	155050522	drug	Thrombosis	pulmonary embolism	Low
+X	155050522	drug	Thrombosis	venous thromboembolism	Low
+10	12208621	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12260608	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12265895	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+10	12272998	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	12286011	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	69513601	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+10	69572545	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+10	69706172	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+10	69709758	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+10	79182874	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+10	79182874	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	79182874	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	79182874	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	79184084	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	Medium
+10	79193069	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	79195028	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	79205218	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112978018	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112978018	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112994312	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112994312	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112994312	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	Medium
+10	112994329	functional observational	Type 2 diabetes [DGI+FUSION+WTCCC]	type II diabetes mellitus	Medium
+10	112994329	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112995025	functional observational	Type 2 diabetes | non-cancer illness code, self-reported	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [obese]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [Lean]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [South Asian, East Asian, Europeans]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [South Asians]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [Indo-European South Asians]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [All Punjabi]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [Obese]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [AA]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [non-obese]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [Punjabi Sikhs]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [South Asians, East Asians]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [South Asian]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes [additive model]	type II diabetes mellitus	Medium
+10	112998590	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	113039134	functional observational	Type 2 diabetes with ophthalmic manifestations	type II diabetes mellitus	Medium
+10	113120583	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+10	113120583	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	2140300	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	2157440	functional observational	Type 2 diabetes [AA]	type II diabetes mellitus	High
+11	2175882	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	2176056	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	2191936	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	2193859	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	2193859	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	High
+11	2269820	functional observational	Type 2 diabetes [Conditioned]	type II diabetes mellitus	High
+11	17386857	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17387083	functional observational	Type 2 diabetes [DGI+FUSION+WTCCC]	type II diabetes mellitus	High
+11	17388025	functional observational	Type 2 diabetes [DGI+FUSION+WTCCC]	type II diabetes mellitus	High
+11	17388025	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17388025	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	17388025	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+11	17388025	functional observational	Type 2 diabetes [non-obese]	type II diabetes mellitus	High
+11	17390274	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	72697010	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Medium
+11	72697010	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	72697010	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Medium
+11	72717127	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	72722053	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	72722053	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	72722053	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	72722053	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+11	72749717	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	72749717	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+11	92935809	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	92940662	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	92975544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	92975544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	92975544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	92975544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+11	92975544	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+12	4219355	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	4265207	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	4265207	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+12	4275530	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	4275678	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	4275678	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	4275678	functional observational	Type 2 diabetes | non-cancer illness code, self-reported	type II diabetes mellitus	Medium
+12	4297115	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	27714794	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Medium
+12	27714794	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	27714794	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	Medium
+12	27714794	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	27810574	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	27812217	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	27812217	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	27812217	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+12	108219374	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	108224853	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	120890006	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	120965129	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	120978847	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	120978847	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+12	120991391	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	121018813	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	121022883	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+12	121022883	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	121022883	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+12	123007025	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+12	123156306	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+15	62090956	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+15	62102065	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+15	62104190	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+15	62104190	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+15	62116871	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	Medium
+16	54456899	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+16	75209874	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+16	75212039	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+16	75212137	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+16	75213347	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+17	7037074	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+17	7041768	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+17	7042164	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	High
+17	7044134	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+18	60171168	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+18	60217517	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+18	60217517	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+18	60217517	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+18	60217517	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	19268740	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	19268740	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+19	19268740	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	19268740	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+19	19296909	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	44888997	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	45644269	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	45646924	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	45655255	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	45663346	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	45669020	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+19	45678134	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+19	45678134	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+2	27508073	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+2	27508073	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+2	27508073	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+2	27508073	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+2	27508073	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+2	27512105	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+2	27518370	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+2	27518370	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+2	27519736	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44318326	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44335874	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44360627	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44360627	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44360627	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44361137	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44373081	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44413724	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44413724	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+20	44413724	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+22	43928847	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+22	43928847	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+22	43928847	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+22	43981562	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12288284	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12350773	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+3	12351626	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+3	12351626	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+3	12351626	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12351626	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12353341	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	12355414	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+3	171048829	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+4	6268329	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+4	6268329	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6268329	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6288259	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6298187	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6300792	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+4	6300792	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+4	6300792	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6300792	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6300792	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6301295	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6301295	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6302228	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+4	6331942	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	14751196	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	14751196	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	14767983	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	14847222	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	75707853	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	75707853	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	75707853	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	102764872	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	102912212	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	102995761	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	103003035	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	103003035	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	103003107	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+5	103003107	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+5	103003107	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	103003107	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+5	103087264	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7226726	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7231610	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7231610	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+6	7231610	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+6	7231610	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7231610	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7231610	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7258384	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7281421	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7290204	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+6	7290204	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+7	14858657	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	Medium
+7	14858657	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	14858657	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	14858657	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	15013964	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	15024301	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	15024301	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	15024630	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	15024684	functional observational	Type 2 diabetes	type II diabetes mellitus	Medium
+7	44135258	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+7	44209229	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+7	127524904	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+7	127597258	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	High
+7	127606849	functional observational	Type 2 diabetes [East Asian]	type II diabetes mellitus	High
+7	127613496	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+7	127613496	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+7	127613496	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+7	157191153	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	19962213	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	19994799	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117012076	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes [EA]	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes (adjusted for BMI)	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes [DGI+FUSION+WTCCC]	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes [DGI+FUSION+WTCCC]	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172544	functional observational	Type 2 diabetes [Japanese]	type II diabetes mellitus	High
+8	117172786	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172786	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172786	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117172786	functional observational	Type 2 diabetes [Lean]	type II diabetes mellitus	High
+8	117172786	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+8	117208031	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+9	4287466	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+9	4287466	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+9	4289050	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+9	4290085	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+9	4291928	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+9	4291928	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+9	4293150	functional observational	Type 2 diabetes	type II diabetes mellitus	High
+1	109275684	functional observational|functional experimental	Myocardial infarction	myocardial infarction	High
+8	127310936	functional observational	Prostate carcinoma	prostate carcinoma	Medium
+8	127310936	functional observational	Prostate carcinoma	prostate carcinoma	High
+11	69516874	functional observational|functional experimental	Breast carcinoma	breast carcinoma	High
+11	69516650	functional observational|functional experimental	Breast carcinoma	breast carcinoma	High
+11	69564393	functional observational|functional experimental	Breast carcinoma	breast carcinoma	High
+2	60493111	functional observational|functional experimental	Fetal hemoglobin levels	fetal hemoglobin measurement	High
+16	53767042	functional observational|functional experimental	Obesity/T2D	obesity	High
+2	217056046	functional observational|functional experimental	Breast carcinoma	breast carcinoma	High
+16	53767042	functional observational|functional experimental	Obesity	obesity	High
+16	53767042	functional observational|functional experimental	Obesity	obesity	High
+4	89716450	functional observational	Parkinson's disease	Parkinson's disease	High
+8	127091692	functional observational|functional experimental	Prostate carcinoma	prostate carcinoma	High
+19	17283116	functional observational|functional experimental	Breast Cancer 	breast carcinoma	High
+19	17283116	functional observational|functional experimental	Breast Cancer 	breast carcinoma	High
+19	17279482	functional observational|functional experimental	Ovarian cancer	breast carcinoma	High
+19	17279482	functional observational|functional experimental	Ovarian cancer	breast carcinoma	High
+5	44706396	functional observational|functional experimental	Breast carcinoma	breast carcinoma	High
+5	44706396	functional observational|functional experimental	Breast carcinoma	breast carcinoma	High
+20	35564866	functional observational|functional experimental	Blood lipid (HDL, LDL, TG, PP, …)	lipid measurement	High
+1	62679768	functional observational|functional experimental	Blood lipid (HDL, LDL, TG, PP, …)	lipid measurement	High
+1	62679768	functional observational|functional experimental	Blood lipid (HDL, LDL, TG, PP, …)	lipid measurement	High
+6	116016340	functional observational|functional experimental	Blood lipid (HDL, LDL, TG, PP, …)	lipid measurement	High
+2	32264782	functional observational	Interleukin-18 levels	interleukin 18 measurement	High
+2	28896719	functional observational	Breast carcinoma	breast carcinoma	High
+12	14260997	functional observational	Breast carcinoma	breast carcinoma	High
+11	108474788	functional observational	Breast carcinoma	breast carcinoma	High
+13	32398489	functional observational	Breast carcinoma	breast carcinoma	High
+2	201258707	functional observational	Breast carcinoma	breast carcinoma	High
+11	69516650	functional observational	Breast carcinoma	breast carcinoma	High
+19	29786822	functional observational	Breast carcinoma	breast carcinoma	High
+22	28876649	functional observational	Breast carcinoma	breast carcinoma	High
+16	4056787	functional observational	Breast carcinoma	breast carcinoma	High
+7	101909160	functional observational	Breast carcinoma	breast carcinoma	High
+2	24906604	functional observational	Breast carcinoma	breast carcinoma	High
+6	151634779	functional observational	Breast carcinoma	breast carcinoma	High
+10	121580917	functional observational	Breast carcinoma	breast carcinoma	High
+10	9046150	functional observational	Breast carcinoma	breast carcinoma	High
+13	73383544	functional observational	Breast carcinoma	breast carcinoma	High
+5	56731413	functional observational	Breast carcinoma	breast carcinoma	High
+8	127359926	functional observational	Breast carcinoma	breast carcinoma	High
+17	30853978	functional observational	Breast carcinoma	breast carcinoma	High
+18	44831838	functional observational	Breast carcinoma	breast carcinoma	High
+12	114668883	functional observational	Breast carcinoma	breast carcinoma	High
+4	105152352	functional observational	Breast carcinoma	breast carcinoma	High
+3	30643415	functional observational	Breast carcinoma	breast carcinoma	High
+14	68513118	functional observational	Breast carcinoma	breast carcinoma	High
+8	36992428	functional observational	Breast carcinoma	breast carcinoma	High
+1	11796321	expert curated	metabolite: folate	folic acid measurement	High
+1	21577881	expert curated	calculus of kidney and ureter	nephrolithiasis	High
+1	55039974	expert curated	treatment: statin use	low density lipoprotein cholesterol measurement	High
+1	65644601	expert curated	wrist fracture	wrist fracture	High
+1	103107371	expert curated	arthrosis of hip	osteoarthritis, hip	High
+1	113834946	expert curated	rheumatoid arthritis	rheumatoid arthritis	High
+1	119711883	expert curated	metabolite: glycine	glycine measurement	High
+1	158626648	expert curated	reticulocyte volume		High
+1	159709026	expert curated	CRP levels	C-reactive protein measurement	High
+1	169549811	expert curated	Blood clot in the leg, DVT	deep vein thrombosis	High
+1	183937111	expert curated	arthrosis of hip	osteoarthritis, hip	High
+11	1119225	expert curated	bring up phlegm/sputum/mucus on most days	bringing up phlegm, sputum or mucus on most days, self-reported	High
+11	46739505	expert curated	Blood clot in the leg, DVT	deep vein thrombosis	High
+11	59855905	expert curated	pernicious anemia	pernicious anemia	High
+11	88999788	expert curated	worry too long	worry measurement	High
+11	89284793	expert curated	malignant neoplasms of skin	skin pigmentation	High
+11	89284793	expert curated	skin color	skin pigmentation	High
+11	92874700	expert curated	retinal detachment	retinal detachment	High
+11	113522272	expert curated	schizophrenia	schizophrenia	High
+12	27862037	expert curated	arthrosis of hip	osteoarthritis, hip	High
+13	42127603	expert curated	urolithiasis	bladder calculus	High
+14	21569994	expert curated	dried fruit intake	diet measurement	High
+14	94770878	expert curated	male balding pattern	balding measurement	High
+15	27985101	expert curated	malignant neoplasms of skin	skin carcinoma	High
+15	28289631	expert curated	skin color	skin pigmentation	High
+15	49414220	expert curated	non-toxic goitre	multinodular goiter	High
+15	66742474	expert curated	nerve, nerve root and plexus disorders	peripheral nervous system disease	High
+15	74735539	expert curated	coffee intake	coffee consumption	High
+15	74735539	expert curated	coffee intake	coffee consumption	High
+15	74735539	expert curated	coffee intake	coffee consumption	High
+15	100152748	expert curated	Nerve, nerve root and plexus disorders	peripheral nervous system disease	High
+16	7409346	expert curated	6 mm strong meridian angle	Myopia	High
+16	20355185	expert curated	calculus of kidney and ureter	nephrolithiasis	High
+16	81077298	expert curated	metabolite: glycine	glycine measurement	High
+16	88493291	expert curated	platelet crit	plateletcrit	High
+16	89919510	expert curated	red hair	hair color	High
+16	89920138	expert curated	Skin changes due to chronic exposure to nonionizing radiation		High
+16	89920138	expert curated	skin color		High
+17	2055242	expert curated	platelet crit	plateletcrit	High
+17	7668434	expert curated	malignant neoplasms of skin	skin carcinoma	High
+17	43721487	expert curated	wrist fracture	bone fracture	High
+17	60946637	expert curated	arthrosis of hip	heel bone mineral density	High
+18	13719511	expert curated	wrist fracture	heel bone mineral density	High
+18	60183694	expert curated	arm fat mass (right)	lean body mass	High
+18	62387624	expert curated	treatment with alendronate	heel bone mineral density	High
+19	8605262	expert curated	Nerve, nerve root and plexus disorders	peripheral nervous system disease	High
+19	11076648	expert curated	treatment: statin use	low density lipoprotein cholesterol measurement	High
+19	44908684	expert curated	margarine intake	diet measurement	High
+19	44909976	expert curated	treatment: statin use	simvastatin	High
+19	48703160	expert curated	bring up phlegm/sputum/mucus on most days	bringing up phlegm, sputum or mucus on most days, self-reported	High
+19	48756272	expert curated	sodium in urine	Abnormal urine sodium concentration	High
+19	48756272	expert curated	processed meat intake	diet measurement	High
+2	55782247	expert curated	Nerve, nerve root and plexus disorders	peripheral nervous system disease	High
+2	135950412	expert curated	milk intake	diet measurement	High
+2	210678331	expert curated	metabolite: glycine	glycine measurement	High
+2	233762816	expert curated	total bilirubin	bilirubin measurement	High
+20	6729191	expert curated	leg predicted mass (right)	lean body mass	High
+20	22644809	expert curated	non-toxic goitre	multinodular goiter	High
+20	34077942	expert curated	Skin changes due to chronic exposure to nonionizing radiation	suntan	High
+20	34077942	expert curated	skin color	suntan	High
+20	35136754	expert curated	Blood clot in the leg, DVT	deep vein thrombosis	High
+20	35437976	expert curated	leg predicted mass (right)	lean body mass	High
+20	59022916	expert curated	platelet crit	plateletcrit	High
+21	35021450	expert curated	platelet crit	plateletcrit	High
+21	36446573	expert curated	calculus of kidney and ureter	nephrolithiasis	High
+22	19963748	expert curated	metabolite: methylascorbic acid	blood metabolite measurement	High
+22	24375987	expert curated	coffee intake	coffee consumption	High
+22	43928850	expert curated	disease of liver	liver disease	High
+22	50625049	expert curated	metabolite: O-sulfo-tyrosine	blood metabolite measurement	High
+3	126191538	expert curated	metabolite: glycine	glycine measurement	High
+3	128483046	expert curated	platelet crit	plateletcrit	High
+3	184372454	expert curated	platelet crit	plateletcrit	High
+4	71748550	expert curated	metabolite: vitamin D	vitamin D measurement	High
+4	99318162	expert curated	average weekly red wine intake	alcohol consumption measurement	High
+4	99318162	expert curated	alcohol consumption	alcohol consumption measurement	High
+4	186266940	expert curated	Blood clot in the leg, DVT	deep vein thrombosis	High
+5	33951588	expert curated	skin color	skin pigmentation	High
+5	75360714	expert curated	treatment: statin use	total cholesterol measurement	High
+5	153229059	expert curated	schizophrenia	schizophrenia	High
+5	158916961	expert curated	hair.balding pattern 4	balding measurement	High
+5	159337470	expert curated	psoriatic arthropathy	psoriatic arthritis	High
+5	177372991	expert curated	calculus of kidney and ureter	nephrolithiasis	High
+6	396321	expert curated	melanocytic naevi	suntan	High
+6	7705771	expert curated	leg predicted mass (right)	lean body mass	High
+6	26092913	expert curated	hemochromatosis	iron biomarker measurement	High
+6	55772142	expert curated	arthrosis of hip	osteoarthritis, hip	High
+6	111608659	expert curated	psoriatic arthropathy	psoriasis	High
+6	127147129	expert curated	wrist fracture	bone fracture	High
+7	17244953	expert curated	coffee intake	coffee consumption	High
+7	17244953	expert curated	coffee intake	coffee consumption	High
+7	19009765	expert curated	stroke	Ischemic stroke	High
+7	56011401	expert curated	metabolite: glycine	glycine measurement	High
+7	103421378	expert curated	hearing loss	hearing loss	High
+7	121322110	expert curated	wrist fracture	heel bone mineral density	High
+7	121322110	expert curated	heel bone mineral density	heel bone mineral density	High
+7	121322110	expert curated	Fracture of ankle	heel bone mineral density	High
+7	126738788	expert curated	worry too long	worry measurement	High
+7	141973545	expert curated	average weekly red wine intake	alcohol consumption measurement	High
+7	144026044	expert curated	fresh fruit intake	diet measurement	High
+8	105569300	expert curated	platelet crit	plateletcrit	High
+9	6550024	expert curated	metabolite: glycine	glycine measurement	High
+9	16885019	expert curated	melanocytic naevi	skin pigmentation	High
+9	22098575	expert curated	treatment with nicorandil	coronary artery disease	High
+9	22098575	expert curated	treatment with nicorandil	coronary artery disease	High
+9	97776188	expert curated	non-toxic goitre	multinodular goiter	High
+9	126624581	expert curated	arthrosis of hip	osteoarthritis, hip	High
+9	133267960	expert curated	Blood clot in the leg, DVT	deep vein thrombosis	High
+X	67450724	expert curated	hair.balding pattern 4	balding measurement	High

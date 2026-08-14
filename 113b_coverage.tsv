@@ -1,0 +1,17 @@
+locus	chr	n_sentinels	n_genes_named	known
+11_0	11	1	1	True
+11_7	11	22	1	False
+15_2	15	3	2	True
+15_6	15	1	1	False
+16_15	16	48	16	True
+17_0	17	6	1	True
+17_5	17	1	1	False
+19_2	19	5	1	False
+1_20	1	1	1	False
+1_23	1	10	7	True
+1_24	1	16	1	True
+20_12	20	2	1	True
+20_8	20	5	7	True
+22_1	22	4	4	True
+6_0	6	1	1	True
+6_6	6	26	2	True

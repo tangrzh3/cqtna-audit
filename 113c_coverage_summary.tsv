@@ -1,0 +1,4 @@
+version	n_sentinels	n_loci
+trait-matched (melanoma-like)	40	2
+cross-trait (all qualifying)	2110	16
+cross-trait, no class filter	2435	18

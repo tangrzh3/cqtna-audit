@@ -1,6 +1,6 @@
 <!-- GENERATED FILE - do not edit by hand.
      Sources: MANUSCRIPT_v2_dual_thread.md + METHODS_draft.md
-     Regenerate with: python assemble.py   (last built 2026-08-14) -->
+     Regenerate with: python assemble.py   (last built 2026-08-15) -->
 
 # When a pathway can be interrogated genetically, and which gene gets named: an audit of dynamic-eQTL target nomination in melanoma
 

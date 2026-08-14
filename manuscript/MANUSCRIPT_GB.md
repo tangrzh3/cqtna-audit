@@ -397,8 +397,24 @@ pre-registered** — and ten loci is a small denominator, so **six of ten is an
 illustration and not an error rate**. What the check does establish is
 directional and does not need precision: a framework that misassigns the gene at
 the best-characterised locus in its own disease should not be read as assigning
-genes at uncharacterised ones. An independent, blinded, pre-defined benchmark
-would be needed to turn this into a rate.
+genes at uncharacterised ones.
+
+Turning it into a rate would need an external, pre-defined benchmark, and we
+pre-registered the attempt before running it (Supplementary S34), including the
+floor of 30 evaluable loci below which we would not report a rate at all. It
+could not be met. Scoring our 30 significant loci against the largest such
+resource — 2,435 curated GWAS locus-to-gene assignments, restricted in advance to
+the evidence classes that do not themselves rest on molecular-QTL colocalisation
+— leaves **16 evaluable loci, and only 2 when the benchmark is restricted to
+melanoma and its related traits**, against the 40 melanoma-relevant sentinels the
+resource contains in total. The binding constraint is coverage rather than
+circularity: excluding the colocalisation-based evidence class costs only two
+loci. So the rate is not reported, the ten-locus illustration stands as it is,
+and the reason is worth stating plainly — for a disease whose common-variant
+architecture is dominated by pigmentation and naevus loci, curated locus-to-gene
+truth barely exists, and three-quarters of what does exist in this resource comes
+from drug-target pairs, which follow therapeutic attention rather than allelic
+architecture.
 
 This is the co-regulation problem of Tambets et al. [42] observed at the top of
 the effect-size distribution, and it is why we report compartment attribution

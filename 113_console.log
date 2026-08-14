@@ -1,0 +1,37 @@
+==============================================================================
+Step 113 -- can the external benchmark run? (gene names NOT read)
+==============================================================================
+downloaded gold standards: 2435 rows, 31 columns
+dropped gold_standard_info.gene_id; remaining columns carry no gene identity
+usable GRCh38 sentinels: 2435
+
+evidence classes present (an entry may list several, '|'-joined):
+  drug                          1755
+  expert curated                 347
+  functional observational       345  <- EXCLUDED
+  functional experimental         20
+
+entries with at least one qualifying class: 2110 of 2435
+entries resting ONLY on functional observational: 325
+
+pipeline significant loci (melanoma x eQTLGen): 30
+  of which known-locus: 20
+
+==============================================================================
+coverage
+==============================================================================
+  trait-matched (melanoma-like)    sentinels=   40   evaluable loci=  2
+  cross-trait (all qualifying)     sentinels= 2110   evaluable loci= 16
+  cross-trait, no class filter     sentinels= 2435   evaluable loci= 18
+
+==============================================================================
+registered decision (S34 §3.3 and §9.1a amendment 3)
+==============================================================================
+  trait-matched evaluable loci: 2  (floor is 30)
+  -> both below floor: S34 §5 branch E. The check is NOT run,
+     and the ten self-assembled loci keep their existing caveat.
+     Report the intersection counts and the reason, nothing else.
+==============================================================================
+
+No gene name has been read. Scoring is step 114 and only proceeds if
+the branch above allows it.
