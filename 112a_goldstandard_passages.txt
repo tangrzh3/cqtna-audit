@@ -1,0 +1,22 @@
+
+
+==============================================================================
+### cS2G  pmid:35668300 doi:10.1038/s41588-022-01087-y
+==============================================================================
+SNPs linked to all genes, as compared to the (gold-standard) Exon S2G strategy;
+
+SNPs linked to all genes, as compared to the (gold-standard) Exon S2G strategy.
+
+GWAS catalog https://www.ebi.ac.uk/gwas/api/search/downloads/full Open Targets SNP-gene pairs https://raw.githubusercontent.com/opentargets/genetics-gold-standards/master/gold_standards/processed/gwas_gold_standards.191108.tsv SNP-gene pairs from ref.
+
+
+
+==============================================================================
+### FLAMES  pmid:39930082 doi:10.1038/s41588-025-02084-7
+==============================================================================
+Since ground-truth effector genes are generally unavailable, we used the closest gene to the lead SNP as a proxy ground truth for evaluation.
+
+Treating the closest gene as the proxy ground truth, we defined a “correct prediction” for a locus if K-PoPS score nominated the closest gene.
+
+Unlike supervised learning settings where ground truth labels are available, we generally don’t have well-defined metrics and ground truth for XAI tasks 39 .
+

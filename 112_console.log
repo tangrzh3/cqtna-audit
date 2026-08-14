@@ -1,0 +1,36 @@
+==============================================================================
+Step 112 -- how was each candidate gold standard built?
+==============================================================================
+S34 §3.1 criterion 6: the assignment must not rest on eQTL evidence.
+
+==============================================================================
+cS2G   pmid 35668300   doi 10.1038/s41588-022-01087-y
+==============================================================================
+  PMC id: 9894581
+  full text: 91,917 chars
+  passages mentioning a gold/benchmark set: 3
+  of which ALSO mention eQTL/S2G/coloc/TWAS: 2
+
+  --- first passages describing the set ---
+    * SNPs linked to all genes, as compared to the (gold-standard) Exon S2G strategy; [eQTL-linked]
+    * SNPs linked to all genes, as compared to the (gold-standard) Exon S2G strategy. [eQTL-linked]
+    * GWAS catalog https://www.ebi.ac.uk/gwas/api/search/downloads/full Open Targets SNP-gene pairs https://raw.githubusercontent.com/opentargets/genetics-gold-standards/master/gold_standards/processed/gwas_gold_standards.191108.tsv SNP-gene pairs from ref.
+
+==============================================================================
+FLAMES   pmid 39930082   doi 10.1038/s41588-025-02084-7
+==============================================================================
+  PMC id: 13370342
+  full text: 50,260 chars
+  passages mentioning a gold/benchmark set: 3
+  of which ALSO mention eQTL/S2G/coloc/TWAS: 0
+
+  --- first passages describing the set ---
+    * Since ground-truth effector genes are generally unavailable, we used the closest gene to the lead SNP as a proxy ground truth for evaluation.
+    * Treating the closest gene as the proxy ground truth, we defined a “correct prediction” for a locus if K-PoPS score nominated the closest gene.
+    * Unlike supervised learning settings where ground truth labels are available, we generally don’t have well-defined metrics and ground truth for XAI tasks 39 .
+
+==============================================================================
+wrote 112a_goldstandard_passages.txt
+Judgement against criterion 6 is recorded by hand in S34 §9.1.
+No locus-to-gene table has been downloaded.
+==============================================================================

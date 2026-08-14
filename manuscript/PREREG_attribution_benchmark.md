@@ -217,24 +217,70 @@ eQTL Catalogue API 全端点返回 HTTP 500），因此**无法核实任何候�
 | cS2G（Gazal 等，*Nat Genet* 2022，doi:10.1038/s41588-022-01087-y）| ❌ 组合多种 S2G 策略（含 eQTL），按遗传度优化 | **不合格**：同上；其 5,095 个三元组是预测输出 |
 | PEGASUS（2026 bioRxiv，doi:10.64898/2026.06.16.731894）| ❌ 汇总各 GWAS 报告的 **predicted** effector genes | **不合格**：汇总的是预测；且为预印本，§3.1 第 2 条先在性亦存疑 |
 
-#### 乙类：可能合格的 gold-standard 集（**待取**）
+#### 乙类：gold-standard 集（`step112`，2026-08-14）
 
-| 候选 | 1 外部 | 2 先在 | 3 粒度 | 4 覆盖 | 5 可引用 | 6 判据独立 | 结论 |
-|---|---|---|---|---|---|---|---|
-| FLAMES 论文所用的 benchmark 集 | ✓ | ✓ | ? | ? | ? | **?** | **待取**：须读全文确认其 gold standard 的来源与判定依据 |
-| cS2G 论文所用的 gold-standard 集 | ✓ | ✓ | ? | ? | ? | **?** | **待取**：同上 |
-| Open Targets Genetics L2G gold standards | ✓ | ✓ | ? | ? | ? | ? | **待查**：本轮 PubMed 未命中，须另找 |
+**FLAMES 的"真值"不是真值。** 全文原话：
+*"Since ground-truth effector genes are generally unavailable, we used the
+closest gene to the lead SNP as a proxy ground truth for evaluation."*
+→ 用**最近基因**当代理。**不合格**（§3.1 第 3 条粒度虽满足，但这不是"公认指派"，
+而是一个朴素基线；拿它当真值等于检验本流程是否等同于"选最近的基因"）。
+⚠ 但这句话本身值得引用：**该领域的顶刊方法论文自陈 effector gene 的真值"一般不可得"。**
 
-**下一步（跑前不得跳过）**：取上列乙类三项的全文/附表**说明部分**，
-确认各自 gold standard 的**判定依据**是否独立于 eQTL（§3.1 第 6 条），
-以及是否覆盖 melanoma / HCC / RA 或有足够跨性状位点（第 4 条）。
-**确认之前不得下载任何位点—基因对。**
+**cS2G 指向了一个真实资源。** 其数据可用性列出：
+`opentargets/genetics-gold-standards`，文件 `gwas_gold_standards.191108.tsv`。
 
-⚠ 现在写下：若三项乙类候选**全部**因第 6 条不合格
-（即该领域的"真值"普遍也建立在 eQTL 之上），
-则按 §5 表落 **F 格**——本检验不做，
-且**这一发现本身要写进正文**：审计一个 eQTL 归属流程所需的独立真值，
-在当前文献中可能并不存在。这是一个结论，不是一次失败。
+#### ★ 选定：Open Targets Genetics gold standards
+
+来源：**Mountjoy E, Schmidt EM, Carmona M, et al. An open approach to
+systematically prioritize causal variants and genes at all published human GWAS
+trait-associated loci. *Nat Genet* 2021;53:1527–1533.
+doi:10.1038/s41588-021-00945-5**（19 位作者，卷 53，页 1527–1533；著录取自 CrossRef 返回）
+仓库：`github.com/opentargets/genetics-gold-standards`，
+版本化文件名 `…191108.tsv`（2019-11-08）。
+
+| 判据 | 结果 | 依据 |
+|---|---|---|
+| 1 外部 | ✓ | Open Targets 建立，本项目无参与 |
+| 2 先在 | ✓ | 版本 2019-11-08，远早于本文任何 MR 计算 |
+| 3 粒度 | ✓ | schema 为 `sentinel_variant` → `gold_standard_info.gene_id`（Ensembl），正是位点→基因 |
+| 4 覆盖 | **待测** | README 称 >400 个已发表 GWAS 位点，跨性状。交集数须按 §3.3 实测 |
+| 5 可引用 | ✓ | 有 DOI、有仓库、文件名自带版本日期 |
+| 6 判据独立 | **⚠ 部分** | **见下** |
+
+**第 6 条的关键发现**：该集是**混合**的。schema v1.4 的 `evidence.class` 是四值枚举：
+
+    ['expert curated', 'functional observational', 'functional experimental', 'drug']
+
+README 明确 `functional observational` 一类是
+*"loci inferred from observational functional data (e.g. **colocalisation with
+molecular QTLs** and epigenetics marks)"* ——**这一类直接违反第 6 条**，
+其余三类（专家判读、功能实验如报告基因/CRISPR、药物靶点）不违反。
+
+### 9.1a 据此登记两条修订（**均在看到任何位点—基因对之前**）
+
+**修订一：按证据类别限制真值集。**
+只保留 `expert curated`、`functional experimental`、`drug` 三类；
+**排除 `functional observational`**。
+理由：后者以分子 QTL 共定位为据，正是本文要审计的证据类型，
+纳入即构成循环。此限制**可机器执行**（读 `evidence.class` 字段），
+不涉及对具体基因的取舍。
+⚠ 同时报告**不做此限制**的版本作为敏感性（§4.3 增列第 4 项），
+因为限制会缩小分母，可能把 §3.3 的 30 位点下限打穿。
+
+**修订二：澄清判据 4 的判定时点。**
+原 §3.1 第 4 条要求"交集 ≥30"，但这只能通过与本文位点求交才能知道，
+而 §3.2 又要求"打开内容前完成打分"，二者字面冲突。
+现明确执行顺序为：
+1. 用**文档**判定第 1、2、3、5、6 条（已完成，见上表）；
+2. 只读真值集的**坐标与证据类别**，计算交集位点数与类别分布，**不读基因名**；
+3. 交集 ≥30 才进入计分；<30 则落 §5 表 E 格。
+⚠ 第 2 步只取坐标与类别，不取基因身份，故仍不构成"看过结果"。
+
+**⚠ F 格不再是默认预期**，但仍保留：若按修订一过滤后交集 <30，
+则落 E 格；正文须写明**是"独立于 eQTL 的那部分真值太少"导致检验做不成**，
+这与"真值不存在"是不同的陈述，不得混为一谈。
+
+**下一步**：`step113`，执行修订二的第 2 步（坐标与类别，不读基因名）。
 
 ### 9.2 交集与分母
 
@@ -255,3 +301,5 @@ eQTL Catalogue API 全端点返回 HTTP 500），因此**无法核实任何候�
 | 日期 | 改动 | 是否已看过结果 | 理由 |
 |---|---|---|---|
 | 2026-08-14 | 定稿 | **否**（未查看任何外部真值集内容）| — |
+| 2026-08-14 | §9.1a 修订一：真值集按 `evidence.class` 限制为三类，排除 `functional observational` | **否**（只读了 README 与 JSON schema，未读任何位点—基因对）| 该类以分子 QTL 共定位为据，纳入即循环。判据 6 在定稿时已写死，本条是它的执行细则，不是放宽 |
+| 2026-08-14 | §9.1a 修订二：澄清判据 4 的判定时点，拆为"文档判定"与"只读坐标与类别"两步 | **否** | 原 §3.1 第 4 条与 §3.2 的顺序要求字面冲突（覆盖率非求交不可知）。修订只定顺序，不改 30 这个下限 |
