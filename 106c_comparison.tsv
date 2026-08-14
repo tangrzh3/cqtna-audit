@@ -1,0 +1,7 @@
+gene	rank	of	percentile	mean_lfc	n_sets_positive	consistent
+TPI1	19	7653	0.25	0.6389	4	True
+PGAM1	8	7653	0.1	1.2451	4	True
+GAPDH	12	7653	0.16	0.9686	4	True
+ENO1	14	7653	0.18	0.7778	4	True
+PKM	13	7653	0.17	0.9119	4	True
+LDHA	10	7653	0.13	1.0478	4	True

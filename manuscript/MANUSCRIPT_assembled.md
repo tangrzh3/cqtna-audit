@@ -965,6 +965,24 @@ ribosomal proteins (12.0% of the top 300, 10.3-fold) and OXPHOS at one end and
 T cell identity and quiescence factors (TOX, IKZF2, MYB, TXK, CAMK4, SESN3) at the
 other: an anabolic-growth versus T-cell-identity axis.
 
+**As first built this analysis was circular with respect to TPI1, and we rebuilt
+it so that TPI1 is tested against the axis rather than assumed into it.** The
+residual glycolysis score defining the axis was computed from a 16-gene set
+containing TPI1, and TPI1 was one of the 15 genes generating the glycolysis
+enrichment — so saying afterwards that TPI1 marks the state was partly
+self-fulfilling. Removing it from both the score and the gene set, with every
+other step held fixed, leaves the enrichment essentially unmoved (**21.0-fold on
+14 genes, against 21.3-fold on 15**) and converts TPI1 into a held-out test: on
+an axis derived without it, **TPI1 ranks 19th of 7,653 detected genes — the top
+0.25% — and is positive in all four sets**. Membership of this state is a
+property of the gene rather than of how the axis was constructed.
+
+That same ranking restates finding ⑥ from the other direction. **PGAM1 ranks 8th,
+above TPI1**, with LDHA 10th, GAPDH 12th, PKM 13th and ENO1 14th: the glycolytic
+enzymes MR cannot instrument sit at least as high on the axis as the one it can.
+The gene the framework named is a genuine member of this programme and is not its
+leading member.
+
 At the chromatin level the axis shares 42% of its variance with activation
 (r = 0.647), so the programme is **partially, not fully, distinct** from
 activation and we describe it that way. Restricting to activation-invariant peaks
@@ -1657,6 +1675,16 @@ independent discovery, and state this limitation in the text.
 
 Multiple testing was controlled by Benjamini–Hochberg FDR within each analysis
 family, with the family defined before the analysis was run.
+
+**Leave-one-out construction of the metabolic axis.** The residualised axis was
+originally defined by a glycolysis score computed from a 16-gene set that
+included the nominated gene, and the gene was also a member of the family used to
+measure the axis's glycolysis enrichment, so its subsequent placement on the axis
+was partly circular. The axis was therefore rebuilt with that gene removed from
+both the defining score and the enrichment set, with the detection filter,
+activation and depth matching, four-set direction rule and family definitions
+otherwise unchanged, leaving its rank on the resulting axis as a held-out
+quantity.
 
 **Provenance of the HCC known-locus reference.** Seventy-three loci were
 assembled from a GWAS Catalog query and from the higher-powered outcome
@@ -2412,6 +2440,7 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, the PRISMA-style flow from 469 screened records, and the **validation of the automated coder against manual adjudication of a fixed-seed random 30% subsample** — per-paper codes, the passages each was judged on, measured precision and recall, and the precision-corrected field-level estimates that supersede both the generous and the strict counts | `SUPP_literature_audit.md`; `91a`–`91e`, `104a`–`104c` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S31 | **Leave-one-out reconstruction of the metabolic axis**: the axis rebuilt with the nominated gene removed from both the defining score and the enrichment family, its rank on the resulting axis as a held-out test, and the ranks of the glycolytic enzymes that carry no instrument | `106a`–`106c` |
 | S30 | **Pre-registration document** (density-matched permutation), registered before the test was run, with both failure modes fixed in advance — under-matching leaves the artefact, over-matching removes signal that gene-dense regions genuinely carry — and the result: the enrichment survives density matching at 3.44-fold (P = 0.041) with the attenuation from 4.09-fold reported as part of the finding | `PREREG_density_matched.md`; `103a` |
 | S29 | **Pre-registration document** (HCC known-locus de-circularisation), with the per-variant GWAS Catalog provenance of all ten outcome-sourced loci, the three references scored, and two items its section 0.3 fixed in advance: that the test could not have changed the result because the circular loci lie far from any significant one, and that over-correction raises the enrichment and must not be cited as a stricter standard | `PREREG_hcc_decircularisation.md`; `102a` |
 | S28 | **Pre-registration document** (effect-size matching), registered before any matched analysis was run, including the finding — stated in its section 0 — that the down-sampling model contains no class label and the differential can therefore only follow from the |z| distributions; the pre-committed replacement wording; and two items logged against ourselves: a process control that failed on first run through a random-number-ordering bug, and a design flaw in the pre-registration itself, which permitted the matched comparison to collapse onto a single known anchor | `PREREG_effect_size_matching.md`; `101a`–`101c` |

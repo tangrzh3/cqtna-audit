@@ -1,0 +1,7 @@
+family	n_in_top	pct_in_top	pct_background	enrichment
+ribosomal_protein	28	9.33	1.163	8.03
+mito_encoded	0	0.0	0.209	0.0
+OXPHOS_nuclear	9	3.0	1.32	2.27
+glycolysis_noTPI1	14	4.67	0.222	21.01
+histone	1	0.33	0.091	3.64
+HLA	0	0.0	0.065	0.0

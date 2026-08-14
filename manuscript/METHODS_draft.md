@@ -95,6 +95,16 @@ independent discovery, and state this limitation in the text.
 Multiple testing was controlled by Benjamini–Hochberg FDR within each analysis
 family, with the family defined before the analysis was run.
 
+**Leave-one-out construction of the metabolic axis.** The residualised axis was
+originally defined by a glycolysis score computed from a 16-gene set that
+included the nominated gene, and the gene was also a member of the family used to
+measure the axis's glycolysis enrichment, so its subsequent placement on the axis
+was partly circular. The axis was therefore rebuilt with that gene removed from
+both the defining score and the enrichment set, with the detection filter,
+activation and depth matching, four-set direction rule and family definitions
+otherwise unchanged, leaving its rank on the resulting axis as a held-out
+quantity.
+
 **Provenance of the HCC known-locus reference.** Seventy-three loci were
 assembled from a GWAS Catalog query and from the higher-powered outcome
 publication's own table, ten from the latter. Because that outcome supplies the

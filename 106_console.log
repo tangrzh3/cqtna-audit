@@ -1,0 +1,31 @@
+glycolysis score genes: 15 (TPI1 removed from 16)
+  set_1: 10,153 nuclei, matched 4,020/4,020, 77s
+  set_2: 9,731 nuclei, matched 3,662/3,662, 45s
+  set_3: 9,774 nuclei, matched 3,888/3,888, 54s
+  set_4: 11,911 nuclei, matched 4,622/4,622, 51s
+
+genes passing detection filter in all sets: 7,653
+
+family composition of the top 300 (axis defined without TPI1)
+           family  n_in_top  pct_in_top  pct_background  enrichment
+ribosomal_protein        28        9.33           1.163        8.03
+     mito_encoded         0        0.00           0.209        0.00
+   OXPHOS_nuclear         9        3.00           1.320        2.27
+glycolysis_noTPI1        14        4.67           0.222       21.01
+          histone         1        0.33           0.091        3.64
+              HLA         0        0.00           0.065        0.00
+
+HELD-OUT TEST: TPI1 ranks 19 of 7,653 (top 0.25%) on an axis built without it; mean lfc +0.6389, positive in 4/4 sets
+
+ranks of the glycolytic enzymes on the TPI1-free axis
+ gene  rank   of  percentile  mean_lfc  n_sets_positive  consistent
+ TPI1    19 7653        0.25    0.6389                4        True
+PGAM1     8 7653        0.10    1.2451                4        True
+GAPDH    12 7653        0.16    0.9686                4        True
+ ENO1    14 7653        0.18    0.7778                4        True
+  PKM    13 7653        0.17    0.9119                4        True
+ LDHA    10 7653        0.13    1.0478                4        True
+
+glycolysis enrichment: published 21.3-fold (15 genes, TPI1 included in both score and set) -> 21.0-fold (14 genes, TPI1 in neither)
+
+wrote 106a / 106b / 106c

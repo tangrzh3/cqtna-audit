@@ -414,6 +414,18 @@ ribosomal proteins, while **none of the eleven biological modules tested exceeds
 a composition-matched null**, so the axis is a definable anabolic state rather
 than a restatement of activation strength; its chromatin signature is concordant,
 with AP-1 motif enrichment that persists in activation-invariant peaks (Fig. 7).
+
+As first built, that analysis was circular with respect to TPI1: the residual
+score defining the axis contained TPI1, and TPI1 was one of the genes generating
+the enrichment. Rebuilding it with TPI1 removed from both, everything else held
+fixed, leaves the enrichment essentially unmoved (**21.0-fold on 14 genes against
+21.3 on 15**) and makes TPI1 a held-out test — on an axis derived without it,
+**TPI1 ranks 19th of 7,653 detected genes, top 0.25%, positive in all four
+sets**. Membership is a property of the gene, not of the construction. The same
+ranking restates the instrument-visibility point from the other side: **PGAM1
+ranks 8th, above TPI1**, with LDHA, GAPDH, PKM and ENO1 also at or above it — the
+enzymes MR cannot instrument sit as high on the axis as the one it can.
+
 This characterises what the nominated gene co-varies with and not that its
 variant causes the state — a separate test of that, whether the instrument
 disrupts an AP-1 motif, returned an empirical P = 1.0.
@@ -608,7 +620,7 @@ model proves only partly transportable [38]:
 | Causal target for melanoma | **Not supported** — FDR = 0.119, prior-dependent colocalisation, region not fine-mappable |
 | Dynamic *genetic* effect across activation | **Not supported** — no genotype × pseudotime interaction at any of three lead variants |
 | Dynamic *expression* across activation | **Supported** — Moran's I = 0.664 |
-| Membership of a definable CD4⁺ metabolic state | **Supported** — axis enrichment 21.3-fold, chromatin concordant |
+| Membership of a definable CD4⁺ metabolic state | **Supported** — ranks 19th of 7,653 on an axis built without it, positive in 4/4 sets; axis enrichment 21.0-fold, chromatin concordant |
 | Predicts checkpoint-blockade response | **Unstable** — significant on discovery, no arm confirmed twice |
 | Functional consequence isolable by perturbation | **No** — a hit in 628 of 1,471 human CRISPR screens (42.7%), a core-essential profile that cannot isolate a CD4-specific role |
 | Recognised as a target for this disease elsewhere | **No** — in Open Targets, TPI1's strongest disease associations are triosephosphate isomerase deficiency and neurodegenerative disease; melanoma is not among its leading associations |
@@ -623,7 +635,7 @@ biological importance are separable — the strongest enzyme in the functional d
 carries no instrument, and the gene that does carry one is principally expressed
 by tumour. The complete record of which claims about it were raised, tested and
 withdrawn, together with the selection denominators at gene, pathway and mechanism
-level and the ten pre-registration documents, is Supplementary S12 and S18–S30.
+level and the ten pre-registration documents, is Supplementary S12 and S18–S31.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -691,7 +703,7 @@ Full Methods accompany this manuscript.
 
 ## Supplementary information
 
-S9–S30, including the ten pre-registration documents with their reading tables
+S9–S31, including the ten pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the

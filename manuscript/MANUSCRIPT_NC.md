@@ -346,7 +346,9 @@ replaced.
 The worked example is best read as a ladder rather than a verdict: as a causal
 target for melanoma, not supported; as a dynamic *genetic* effect, not supported;
 as dynamic *expression*, supported; as a member of a definable CD4⁺ metabolic
-state, supported; as a predictor of checkpoint-blockade response, unstable.
+state, supported — it ranks 19th of 7,653 genes on an axis rebuilt without it,
+where the enzymes MR cannot instrument rank higher still; as a predictor of
+checkpoint-blockade response, unstable.
 Stated flatly, TPI1 is a nominal, prior-sensitive candidate selected by a
 multi-layer conjunction: MR P = 1.4×10⁻³
 but FDR = 0.119, PP.H4 = 0.51 passing in 8 of 16 window-and-prior combinations, in
