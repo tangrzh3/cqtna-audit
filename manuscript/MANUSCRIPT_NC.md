@@ -280,15 +280,22 @@ perturbation could add here, not evidence for the nomination. PGAM1, the
 strongest enzyme in the functional data and the one MR cannot see, has the same
 profile, so the property belongs to the pathway rather than to the named gene.
 
-### The checks are rare in practice
+### The checks are rarely reported
 
-In a search-defined sample of 152 eQTL-instrumented MR target-nomination papers
-whose full text we could obtain, **at most 12 (7.9%) compare their significant
-signal against previously reported loci for their own outcome, and 1 (0.7%)
-reports how the candidate list depends on the outcome GWAS used**. About 59%
-performed colocalisation. This counts phrases in text rather than quality of
-practice, and not performing a check is not evidence that a study's conclusions
-are wrong.
+From 469 screened records, 209 were eligible and 152 of the 154 with open-access
+full text were scorable. In that sample, **an estimated 1.6% [0.3–4.9] compare
+their significant signal against previously reported loci for their own outcome,
+and 4.7% [1.3–13.5] report how the candidate list depends on the outcome GWAS
+used**; about 59% performed colocalisation.
+
+These are corrected figures: automated matching returned 7.9% and 35.5%, and
+manual adjudication of a random 30% subsample put its precision at 0.20 and 0.13,
+most hits being reference-list titles containing "novel loci" or generic
+statements about statistical power. **The correction runs both ways** — our
+earlier 7.9% was too generous and our earlier 0.7% too strict. No κ is reported,
+which would require two independent coders; and a full-text audit measures
+reporting rather than practice, so not performing a check is not evidence that a
+study's conclusions are wrong.
 
 ---
 

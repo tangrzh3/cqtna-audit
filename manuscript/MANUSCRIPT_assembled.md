@@ -1444,13 +1444,35 @@ independent loci rather than gene records.** Here that is 10 of 10 records in th
 first round, 3 of 7 loci under the meta outcome (4.1-fold, P = 0.028), no
 novel-locus gene at five nested power levels, and the same pattern in a second
 disease. In a search-defined sample of 152 eQTL-instrumented MR
-target-nomination papers whose full text we could obtain, **at most 12 (7.9%)
-compare their significant signal against previously reported loci for their own
-outcome trait, and 1 (0.7%) reports how the candidate list depends on the outcome
-GWAS used** (Supplementary S23; three of those studies are also compared item by
-item in Supplementary S16). We are explicit that this counts phrases in text, not quality of
-practice, and that not performing a check is not evidence that a study's
-conclusions are wrong.
+target-nomination papers whose full text we could obtain — 469 records screened,
+209 eligible, 154 with an open-access full text (Supplementary S23) — **an
+estimated 1.6% [0.3–4.9] compare their significant signal against previously
+reported loci for their own outcome trait, and 4.7% [1.3–13.5] report how the
+candidate list depends on the outcome GWAS used.**
+
+Those figures are corrected ones, and the correction is the point. Automated
+full-text matching returned 7.9% and 35.5%. Manual adjudication of a **random 30%
+subsample (46 papers), coded against the extracted passages**, put the precision
+of that matching at **0.20 and 0.13**: most hits were spurious, three of five on
+the first criterion falling inside reference lists, where a cited GWAS title
+containing "novel loci" matches, and thirteen of fifteen on the second being
+generic statements about statistical power rather than about dependence on the
+outcome GWAS. Applying the measured precision to the full corpus gives the
+figures above. **The correction runs in both directions**: our earlier 7.9% for
+the first criterion was too generous, but our earlier 0.7% for the second — taken
+from the strict pattern set — falls *below* the corrected interval and understated
+how often that check is reported. Reporting the generous count for one criterion
+and the strict count for the other, as we previously did, was not defensible.
+
+Three limits stay attached. Recall was estimated by probing the negatives for
+near-miss wording rather than by reading all 152 papers in full, so it bounds the
+matcher's sensitivity from above. **No inter-rater statistic is reported**: Cohen's
+κ requires two independent coders and this project has one, and computing it from
+one person coding twice, or by treating the regex as a coder, would misrepresent
+what was done. Most fundamentally, a full-text audit measures **reporting**, and
+whether a check was performed but not written up cannot be recovered from text —
+so the claim is about what is reported, and not performing a check is not evidence
+that a study's conclusions are wrong.
 
 **② Require colocalisation — preferably with explicit multiple-signal modelling
 and an LD reference matched to the outcome cohort — rather than treating
@@ -2374,7 +2396,7 @@ correctly identified as declaring the gap rather than closing it.
 | S20 | **Pre-registration document** (second-tumour generalisation to HCC), with its five-cell reading table, results register and two logged deviations; accompanying tables: known-locus reference list, per-outcome MR results, significant-locus attribution, matched-power simulation, and the matched-background version of the enrichment test | `PREREG_hcc_generalisation.md`; `84a`, `84b`, `85a`–`85e` |
 | S22 | **Pre-registration document** (exposure-resource generalisation), with its reading table and results register; accompanying tables: eQTLGen instruments, MR records against the fixed melanoma outcome, locus attribution, and the matched-background version | `PREREG_exposure_resource.md`; `92a`–`92e` |
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
-| S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, and a manual false-negative spot-check | `SUPP_literature_audit.md`; `91a`–`91e` |
+| S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, the PRISMA-style flow from 469 screened records, and the **validation of the automated coder against manual adjudication of a fixed-seed random 30% subsample** — per-paper codes, the passages each was judged on, measured precision and recall, and the precision-corrected field-level estimates that supersede both the generous and the strict counts | `SUPP_literature_audit.md`; `91a`–`91e`, `104a`–`104c` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
 | S29 | **Pre-registration document** (HCC known-locus de-circularisation), with the per-variant GWAS Catalog provenance of all ten outcome-sourced loci, the three references scored, and two items its section 0.3 fixed in advance: that the test could not have changed the result because the circular loci lie far from any significant one, and that over-correction raises the enrichment and must not be cited as a stricter standard | `PREREG_hcc_decircularisation.md`; `102a` |
 | S28 | **Pre-registration document** (effect-size matching), registered before any matched analysis was run, including the finding — stated in its section 0 — that the down-sampling model contains no class label and the differential can therefore only follow from the |z| distributions; the pre-committed replacement wording; and two items logged against ourselves: a process control that failed on first run through a random-number-ordering bug, and a design flaw in the pre-registration itself, which permitted the matched comparison to collapse onto a single known anchor | `PREREG_effect_size_matching.md`; `101a`–`101c` |

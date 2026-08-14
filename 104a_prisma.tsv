@@ -1,0 +1,10 @@
+stage	n
+records returned by the four PubMed queries	469
+  excluded: not eQTL-instrumented MR target nomination	260
+eligible on title/abstract screen	209
+  excluded: no open-access full text (no PMC identifier)	55
+eligible with a PMC identifier	154
+  excluded: PMC retrieval failed or returned no body text	0
+full text retrieved	154
+  excluded: retrieved but not scorable	2
+full text scored (the denominator reported)	152
