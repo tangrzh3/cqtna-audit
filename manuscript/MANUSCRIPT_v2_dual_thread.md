@@ -1489,32 +1489,43 @@ first round, 3 of 7 loci under the meta outcome (4.1-fold, P = 0.028), no
 novel-locus gene at five nested power levels, and the same pattern in a second
 disease. In a search-defined sample of 152 eQTL-instrumented MR
 target-nomination papers whose full text we could obtain — 469 records screened,
-209 eligible, 154 with an open-access full text (Supplementary S23) — **an
-estimated 1.6% [0.3–4.9] compare their significant signal against previously
-reported loci for their own outcome trait, and 4.7% [1.3–13.5] report how the
-candidate list depends on the outcome GWAS used.**
+209 eligible, 154 with an open-access full text (Supplementary S23) — **not one
+paper in a random 30% subsample compared its significant signal against
+previously reported loci for its own outcome trait (0% [0–3.4]), and an estimated
+7.1% [2.5–16.1] report how the candidate list depends on the outcome GWAS used.**
 
 Those figures are corrected ones, and the correction is the point. Automated
-full-text matching returned 7.9% and 35.5%. Manual adjudication of a **random 30%
-subsample (46 papers), coded against the extracted passages**, put the precision
-of that matching at **0.20 and 0.13**: most hits were spurious, three of five on
-the first criterion falling inside reference lists, where a cited GWAS title
-containing "novel loci" matches, and thirteen of fifteen on the second being
-generic statements about statistical power rather than about dependence on the
-outcome GWAS. Applying the measured precision to the full corpus gives the
-figures above. **The correction runs in both directions**: our earlier 7.9% for
-the first criterion was too generous, but our earlier 0.7% for the second — taken
-from the strict pattern set — falls *below* the corrected interval and understated
-how often that check is reported. Reporting the generous count for one criterion
-and the strict count for the other, as we previously did, was not defensible.
+full-text matching returned 7.9% and 35.5%. **Two coders independently scored a
+random 30% subsample (46 papers, 92 judgements) against the extracted passages,
+blind to each other and to the automated score**, and the precision of the
+matching proved to be **0.00 and 0.20**. Most hits were spurious: on the first
+criterion three of five lay inside reference lists, where a cited GWAS title
+containing "novel loci" matches, and one matched "annotated to known cell types";
+on the second, twelve of fifteen were generic statements about statistical power
+rather than about dependence on the outcome GWAS. Applying the measured precision
+to the corpus gives the figures above.
 
-Three limits stay attached. Recall was estimated by probing the negatives for
+**The correction runs in both directions, and neither of our published numbers
+survived it.** The 7.9% we reported for locus attribution was too generous —
+after adjudication no paper in the subsample performed that check at all. The
+0.7% we reported for list stability was too strict, and falls well below the
+corrected interval. The cause was a choice we had not noticed making: we reported
+the permissive pattern count for one criterion and the strict count for the
+other, which is the permissive framing where permissiveness looks rigorous and
+the strict framing where strictness looks striking.
+
+Agreement between the two coders was **97.8% on each criterion**, with one
+disagreement each. Cohen's κ was **0.79** for list stability and **0.00** for
+locus attribution — the second is the prevalence artefact rather than a failure
+of agreement: with only one positive judgement in 46, expected agreement equals
+observed and κ is undefined in practice. We report the raw agreement alongside it
+for that reason. Both disagreements were adjudicated jointly and both resolved
+against the first coder; κ above is computed before that reconciliation.
+
+Two limits stay attached. Recall was estimated by probing the negatives for
 near-miss wording rather than by reading all 152 papers in full, so it bounds the
-matcher's sensitivity from above. **No inter-rater statistic is reported**: Cohen's
-κ requires two independent coders and this project has one, and computing it from
-one person coding twice, or by treating the regex as a coder, would misrepresent
-what was done. Most fundamentally, a full-text audit measures **reporting**, and
-whether a check was performed but not written up cannot be recovered from text —
+matcher's sensitivity from above. And a full-text audit measures **reporting**:
+whether a check was performed but not written up cannot be recovered from text,
 so the claim is about what is reported, and not performing a check is not evidence
 that a study's conclusions are wrong.
 

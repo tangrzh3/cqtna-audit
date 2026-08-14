@@ -75,7 +75,16 @@ def main():
         print("\nFill the coder2 column, then re-run this script.")
         return
 
-    b = pd.read_csv(BLIND, sep="\t", dtype={"pmid": str})
+    # the second coder may return the file under a different name; prefer a
+    # *_coded.tsv sibling if it carries codes and the original does not
+    src = BLIND
+    coded = BLIND.replace(".tsv", "_coded.tsv")
+    if os.path.exists(coded):
+        c = pd.read_csv(coded, sep="\t", dtype={"pmid": str})
+        if c.coder2.astype(str).str.strip().isin(["0", "1"]).any():
+            src = coded
+    print(f"reading second-coder file: {os.path.basename(src)}")
+    b = pd.read_csv(src, sep="\t", dtype={"pmid": str})
     b = b[b.coder2.astype(str).str.strip().isin(["0", "1"])]
     if len(b) == 0:
         print(f"{os.path.basename(BLIND)} exists but coder2 is empty; nothing to score.")
@@ -100,6 +109,44 @@ def main():
             if int(r.manual) != int(r.coder2):
                 print(f"     disagree pmid {r.pmid}: coder1={int(r.manual)} "
                       f"coder2={int(r.coder2)}")
+    # ---- joint adjudication of the disagreements -------------------------
+    # Recorded here so the reconciliation is auditable. Kappa above is computed
+    # BEFORE this; these codes feed the corrected prevalence estimates only.
+    ADJUDICATED = {
+        ("40653482", "C1_known_locus"): (
+            0, "resolved to coder2. The paper names one GWAS locus for one "
+               "candidate; it does not compare its own significant signal "
+               "against a prior known-locus list, which is what C1 requires. "
+               "Coder1 conceded."),
+        ("39933264", "C3_power_stability"): (
+            1, "resolved to coder2. The paper states that fewer causal genes "
+               "were identifiable in the lower-powered COVID-19 outcome "
+               "datasets than in the others, which is dependence of the list on "
+               "the outcome GWAS. Coder1 conceded."),
+    }
+    adj = m.copy()
+    adj["final"] = adj.manual.astype(int)
+    changed = 0
+    for (pm, cr), (val, why) in ADJUDICATED.items():
+        sel = (adj.pmid.astype(str) == pm) & (adj.criterion == cr)
+        if sel.any():
+            adj.loc[sel, "final"] = val
+            changed += int(sel.sum())
+    print(f"\n  joint adjudication applied to {changed} disagreement(s); "
+          f"both resolved to coder2")
+    adj[["pmid", "criterion", "automated", "manual", "coder2", "final"]].to_csv(
+        f"{MR}/105c_adjudicated.tsv", sep="\t", index=False)
+    for crit, g in adj.groupby("criterion"):
+        a_ = g.automated.astype(int).values
+        f_ = g.final.astype(int).values
+        tp = int(((a_ == 1) & (f_ == 1)).sum())
+        fp = int(((a_ == 1) & (f_ == 0)).sum())
+        fn = int(((a_ == 0) & (f_ == 1)).sum())
+        prec = tp / (tp + fp) if tp + fp else float("nan")
+        rec = tp / (tp + fn) if tp + fn else float("nan")
+        print(f"    {crit} after adjudication: TP{tp} FP{fp} FN{fn}  "
+              f"precision {prec:.3f}  recall {rec:.3f}")
+
     k_all, po_all, pe_all = kappa(m.manual.astype(int), m.coder2.astype(int))
     rows.append(dict(criterion="ALL", n=len(m), agreement=round(po_all, 3),
                      expected=round(pe_all, 3), kappa=round(k_all, 3),

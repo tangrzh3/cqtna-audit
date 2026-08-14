@@ -38,8 +38,9 @@ and hence by locus class: at half power known-locus genes recover 85.8% against
 22.8%, of which 68–80% is reproduced using full-power |z| alone. Of 28 glycolytic
 genes, 3 are instrumentable, 2 analysable against this outcome and 1 yields a
 nominal association; that gene is 6.7-fold higher in malignant cells than in CD4⁺
-T cells, so bulk tissue cannot validate a CD4-specific mechanism. An estimated 1.6% of
-152 comparable studies report the locus-attribution check.
+T cells, so bulk tissue cannot validate a CD4-specific mechanism. In a random
+30% subsample of 152 comparable studies, no paper reported the locus-attribution
+check.
 
 **Conclusions.** In this analysis, and within the power range we could observe,
 the reproducible part of a candidate list produced by this framework was the part
@@ -543,28 +544,32 @@ S19 and S21.
 ### These checks are rarely reported
 
 From 469 screened records, 209 were eligible and 154 had an open-access full
-text, of which 152 were scorable. In that sample, **an estimated 1.6% [0.3–4.9]
-compare their significant signal against previously reported loci for their own
-outcome trait, and 4.7% [1.3–13.5] report how the candidate list depends on the
-outcome GWAS used**. About 59% performed colocalisation and 47% used SMR or HEIDI.
+text, of which 152 were scorable. In that sample, **not one paper in a random 30%
+subsample compared its significant signal against previously reported loci for
+its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
+the candidate list depends on the outcome GWAS used**. About 59% performed
+colocalisation and 47% used SMR or HEIDI.
 
-Those are corrected figures. Automated full-text matching returned 7.9% and
-35.5%; manual adjudication of a random 30% subsample (46 papers) against the
-extracted passages put its precision at 0.20 and 0.13. Most hits were spurious —
-three of five on the first criterion lay inside reference lists, where a cited
-GWAS title containing "novel loci" matches, and thirteen of fifteen on the second
-were generic statements about statistical power. **The correction runs both
-ways**: our earlier 7.9% was too generous, while our earlier 0.7% for the second
-criterion, taken from the strict pattern set, falls below the corrected interval
-and understated it. Reporting the generous count for one criterion and the strict
-count for the other was not defensible.
+Those are corrected figures. Automated matching returned 7.9% and 35.5%; **two
+coders independently scored a random 30% subsample (46 papers, 92 judgements),
+blind to each other and to the automated score**, and its precision proved to be
+0.00 and 0.20. Most hits were spurious — three of five on the first criterion lay
+inside reference lists, where a cited GWAS title containing "novel loci" matches,
+and twelve of fifteen on the second were generic statements about statistical
+power. **Neither of our published numbers survived**: 7.9% was too generous, and
+after adjudication no paper in the subsample performed that check at all, while
+0.7% for the second criterion was too strict and falls below the corrected
+interval. We had reported the permissive count for one criterion and the strict
+count for the other.
 
-Recall was estimated by probing the negatives for near-miss wording rather than
-by reading all 152 in full, so it bounds sensitivity from above; **no κ is
-reported, since that needs two independent coders and this project has one**; and
-a full-text audit measures reporting, not practice — whether a check was done but
-not written up cannot be recovered from text, and not performing a check is not
-evidence that a study's conclusions are wrong.
+Agreement was 97.8% on each criterion with one disagreement each; Cohen's κ was
+0.79 for list stability and **0.00 for locus attribution — a prevalence artefact,
+since with one positive in 46 the expected agreement equals the observed**, which
+is why the raw agreement is given beside it. Both disagreements were adjudicated
+jointly and both resolved against the first coder; κ is computed before that.
+Recall was estimated by probing negatives for near-miss wording rather than by
+reading all 152 in full, so it bounds sensitivity from above; and a full-text
+audit measures reporting, not practice.
 
 ---
 
@@ -595,7 +600,7 @@ of this kind reports.
 
 **(i) Annotate the signal against the outcome's own known loci, counting
 independent loci rather than gene records.** Every result in this paper's first
-half rests on that distinction, and an estimated 1.6% of comparable studies report it.
+half rests on that distinction, and no paper in a two-coder subsample reported it.
 
 **(ii) Require colocalisation, preferably with explicit multiple-signal modelling
 and an LD reference matched to the outcome cohort, rather than treating SMR/HEIDI

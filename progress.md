@@ -36,4 +36,10 @@
 - 2026-08-14: Retrieved and locally indexed 45/46 official PMC full texts; generated criterion-specific candidate passages for manual adjudication.
 - 2026-08-14: Logged PMC13448146 as the only BioC Open Access gap and started fallback retrieval.
 - 2026-08-14: Confirmed canonical PMC13448146 HTML is available and selected it as the fallback full-text source after search indexing/BioC gaps.
-- 2026-08-14: Screened all 30 nonempty evidence rows against the strict definitions; identified two clear C3 positives and no clear C1 positive, pending paper-level context checks.
+- 2026-08-14: Screened all 30 nonempty evidence rows against the strict definitions; identified three clear C3 positives and no clear C1 positive.
+- 2026-08-14: Completed 46/46 full-text retrieval, including canonical HTML fallback for PMC13448146.
+- 2026-08-14: Resolved key boundary cases by full-text context while preserving the evidence-only coding rule.
+- 2026-08-14: Final adjudication set contains 89 zeros, 3 ones, and 0 blanks; positive rows are 3, 18, and 47.
+- 2026-08-14: Authored `105a_blind_coding_coded.tsv` through the required spreadsheet runtime and exported a verification XLSX/preview.
+- 2026-08-14: Visual QA found fixed-row-height clipping in the support XLSX; changed only row sizing to automatic and rerendered successfully.
+- 2026-08-14: Fresh final verification passed (`VERIFICATION_OK`): 92 rows, 0 source-field mismatches, 89 zeros, 3 ones, 0 blanks, 0 blank notes; positive rows 3/18/47.

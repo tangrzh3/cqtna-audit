@@ -286,19 +286,19 @@ profile, so the property belongs to the pathway rather than to the named gene.
 ### The checks are rarely reported
 
 From 469 screened records, 209 were eligible and 152 of the 154 with open-access
-full text were scorable. In that sample, **an estimated 1.6% [0.3–4.9] compare
-their significant signal against previously reported loci for their own outcome,
-and 4.7% [1.3–13.5] report how the candidate list depends on the outcome GWAS
-used**; about 59% performed colocalisation.
+full text were scorable. In that sample, **no paper in a random 30% subsample
+compared its significant signal against previously reported loci for its own
+outcome (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how the candidate
+list depends on the outcome GWAS used**; about 59% performed colocalisation.
 
-These are corrected figures: automated matching returned 7.9% and 35.5%, and
-manual adjudication of a random 30% subsample put its precision at 0.20 and 0.13,
+These are corrected figures: automated matching returned 7.9% and 35.5%, and two
+blinded coders scoring a random 30% subsample put its precision at 0.00 and 0.20,
 most hits being reference-list titles containing "novel loci" or generic
-statements about statistical power. **The correction runs both ways** — our
-earlier 7.9% was too generous and our earlier 0.7% too strict. No κ is reported,
-which would require two independent coders; and a full-text audit measures
-reporting rather than practice, so not performing a check is not evidence that a
-study's conclusions are wrong.
+statements about statistical power. **Neither published number survived** — 7.9%
+was too generous and 0.7% too strict. Agreement was 97.8% per criterion (κ 0.79
+for list stability; κ 0.00 for locus attribution is a prevalence artefact, one
+positive in 46). A full-text audit measures reporting rather than practice, so
+not performing a check is not evidence that a study's conclusions are wrong.
 
 ---
 

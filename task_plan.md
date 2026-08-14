@@ -29,10 +29,10 @@ Research the full text of every paper represented in `105a_blind_coding.tsv`, ap
 
 ## Phases
 - [completed] 1. Load required literature/spreadsheet instructions and inventory the 46-paper, 92-row dataset.
-- [in_progress] 2. Retrieve authoritative PubMed Central/full-text sources and build a paper-level evidence cache.
-- [pending] 3. Adjudicate C1_known_locus and C3_power_stability independently for all papers.
-- [pending] 4. Write only coder2/coder2_note to the TSV through the required spreadsheet tooling.
-- [pending] 5. Verify row preservation, value domain, coverage, and representative evidence against full text.
+- [completed] 2. Retrieve authoritative PubMed Central/full-text sources and build a paper-level evidence cache.
+- [completed] 3. Adjudicate C1_known_locus and C3_power_stability independently for all papers.
+- [completed] 4. Write only coder2/coder2_note to a preserved-copy TSV through the required spreadsheet tooling.
+- [completed] 5. Verify row preservation, value domain, coverage, and representative evidence against full text.
 
 ## Boundaries
 - The coding rules control; article wording, abstracts, reference titles, and generic power statements do not broaden them.

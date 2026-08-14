@@ -91878,5 +91878,20 @@
         }
       }
     ]
+  },
+  "PMC13448146": {
+    "pmc": "PMC13448146",
+    "title": "Checking your browser before accessing pmc.ncbi.nlm.nih.gov ...",
+    "doi": "",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13448146/",
+    "source": "canonical_html_fallback",
+    "passages": [
+      {
+        "section": "FULLTEXT_HTML",
+        "title": "",
+        "text": "Checking your browser - reCAPTCHA\n\n\n\n\n\n\n\n\n\n\n\n\n\nChecking your browser before accessing pmc.ncbi.nlm.nih.gov ...\n\nClick here if you are not automatically redirected after 5 seconds.",
+        "infons": {}
+      }
+    ]
   }
 }

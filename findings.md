@@ -96,9 +96,18 @@ Key manuscript observations and verified comparator findings will be recorded he
 - Consequently, `(none found)` rows remain 0 unless the evidence itself is genuinely undecidable; a full-text passage discovered outside the evidence field cannot convert them to 1.
 
 ## Preliminary evidence-only adjudication
-- Clear C3 positives: row 3 (more gene-cancer pairs attributed to greater outcome-GWAS power) and row 18 (analysis repeated with another outcome GWAS and candidate/protein results compared).
+- Clear C3 positives: row 3 (more gene-cancer pairs attributed to greater outcome-GWAS power), row 18 (analysis repeated with another outcome GWAS and candidate/protein results compared), and row 47 (smaller-case outcome GWAS groups explicitly yielded limited ability to identify causal genes versus other COVID-19 outcomes).
 - Other nonempty C3 snippets are generic power, exposure-QTL power, instrument strength, non-GWAS validation, or power-enhancing meta-analysis without reporting candidate-list dependence; they do not satisfy C3.
 - The nonempty C1 snippets are reference titles, dataset/method descriptions, candidate associations without a prior-locus comparison, cell-type annotation, or comparisons to prior biology/MR studies. No clear C1 positive has yet been identified.
+
+## Boundary-case checks
+- PMC12697907 directly states that more gene-cancer pairs were observed for breast/prostate cancer because the outcome GWAS had greater power; this meets the explicit C3 positive example.
+- PMC11443760 repeats the protein/gene analysis in another AVB outcome GWAS and reports which results remain meaningful/significant; this meets C3.
+- PMC12257706's displayed evidence names PABPC1 and rs1693551 from the AD GWAS used in the analysis. It does not say this own signal overlaps a prior known-locus list, so the displayed passage is C1=0. The full paper has other literature-comparison text, but the rules prohibit importing it into the evidence-only code.
+- PMC12885728 validates miRNA findings with a second exposure miRNA-eQTL cohort while reusing breast-cancer outcomes; the displayed limitation sentence does not establish candidate-list dependence on an outcome GWAS, so C3=0.
+- PMC13147455 uses multiple COPD GWAS cohorts/meta-analyses, but the displayed snippets discuss power construction and cross-cohort exposure-protein coverage rather than reporting how a candidate list changes with the outcome GWAS; C3=0.
+- PMC12626534 and PMC13166711 discuss proteomic/RNA-seq validation power, not outcome-GWAS-dependent candidate lists; C3=0.
+- PMC11867302 explicitly ties the smaller case counts of two COVID-19 outcome datasets to reduced ability to identify causal genes compared with other COVID-19 outcomes; this is C3=1 under the rule's higher-powered-outcome example.
 
 ## Source strategy
 - NCBI exposes PMC Open Access full text through the official BioC REST API; it accepts batches of PMCIDs and returns structured JSON/XML.

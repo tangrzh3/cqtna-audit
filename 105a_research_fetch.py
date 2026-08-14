@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import csv
+import html
 import json
 import re
 import sys
 import time
 import urllib.error
 import urllib.request
+from html.parser import HTMLParser
 from pathlib import Path
 
 
@@ -57,6 +59,41 @@ def fetch_batch(pmcids: list[str], attempts: int = 3):
             if attempt < attempts:
                 time.sleep(attempt * 2)
     raise RuntimeError(f"BioC retrieval failed for {pmcids}: {last_error}")
+
+
+class PlainTextParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.parts: list[str] = []
+        self.skip_depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in {"script", "style", "svg", "noscript"}:
+            self.skip_depth += 1
+        elif tag in {"p", "div", "section", "article", "h1", "h2", "h3", "li", "tr"}:
+            self.parts.append("\n")
+
+    def handle_endtag(self, tag):
+        if tag in {"script", "style", "svg", "noscript"} and self.skip_depth:
+            self.skip_depth -= 1
+        elif tag in {"p", "div", "section", "article", "h1", "h2", "h3", "li", "tr"}:
+            self.parts.append("\n")
+
+    def handle_data(self, data):
+        if not self.skip_depth:
+            self.parts.append(data)
+
+    def text(self):
+        return re.sub(r"[ \t]+", " ", "".join(self.parts)).strip()
+
+
+def fetch_canonical_html(pmcid: str) -> str:
+    url = f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/"
+    request = urllib.request.Request(url, headers={"User-Agent": "Codex blind-coding audit/1.0"})
+    with urllib.request.urlopen(request, timeout=120) as response:
+        parser = PlainTextParser()
+        parser.feed(response.read().decode("utf-8", errors="replace"))
+        return html.unescape(parser.text())
 
 
 def as_collections(payload):
@@ -137,6 +174,23 @@ def main() -> int:
             "url": f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/",
             "passages": passages,
         }
+
+    fallback_pmcs = sorted(set(pmcids) - set(articles))
+    for pmcid in fallback_pmcs:
+        try:
+            fallback_text = fetch_canonical_html(pmcid)
+            if fallback_text:
+                title_match = re.search(r"\n([^\n]{20,300})\n", fallback_text)
+                articles[pmcid] = {
+                    "pmc": pmcid,
+                    "title": title_match.group(1).strip() if title_match else "",
+                    "doi": "",
+                    "url": f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/",
+                    "source": "canonical_html_fallback",
+                    "passages": [{"section": "FULLTEXT_HTML", "title": "", "text": fallback_text, "infons": {}}],
+                }
+        except (urllib.error.URLError, TimeoutError) as exc:
+            errors.append(f"Canonical HTML retrieval failed for {pmcid}: {exc}")
 
     with (output_dir / "fulltexts.json").open("w", encoding="utf-8") as handle:
         json.dump(articles, handle, ensure_ascii=False, indent=2)

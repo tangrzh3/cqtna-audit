@@ -18,10 +18,11 @@ This does three things and refuses to do a fourth.
   3. Precision and recall of the automated coder against that adjudication, once
      the adjudication file is filled in.
 
-  4. NOT Cohen's kappa. Kappa measures agreement between two independent coders
-     and this project has one. Reporting a kappa computed by having the same
-     person code twice, or by treating the regex as a "coder", would misrepresent
-     what was done. The limitation is reported instead.
+  4. Kappa is NOT computed here. It needs a second independent coder, and when
+     one is available the blind file, the agreement statistics and the joint
+     adjudication live in step105; this script then reads the adjudicated codes
+     rather than one person's. Computing a kappa by having the same person code
+     twice, or by treating the regex as a "coder", would misrepresent the design.
 
 Focus is C1 and C3, the two criteria the paper's own claims rest on (7.9% and
 0.7%); C2/C4/C5 are contextual and are left as reported counts.
@@ -147,7 +148,20 @@ def main():
           f"({int(adj.automated.sum())} scored positive by the regex)")
 
     # ------------------------------------------- 3. validation, if filled in
-    filled = adj[adj.manual.astype(str).str.strip().isin(["0", "1"])]
+    # Once a second coder has run and the disagreements have been adjudicated
+    # jointly (step105), the adjudicated codes supersede coder 1's. Precision is
+    # then a two-coder quantity rather than one person's judgement.
+    adj_path = f"{MR}/105c_adjudicated.tsv"
+    label = "coder 1 only"
+    if os.path.exists(adj_path):
+        a2 = pd.read_csv(adj_path, sep="\t", dtype={"pmid": str})
+        adj = adj.drop(columns=["manual"]).merge(
+            a2[["pmid", "criterion", "final"]].rename(columns={"final": "manual"}),
+            on=["pmid", "criterion"], how="left")
+        label = "two coders, disagreements adjudicated"
+    print(f"\nvalidation basis: {label}")
+    filled = adj[adj.manual.astype(str).str.strip().isin(["0", "1", "0.0", "1.0"])]
+    filled = filled.assign(manual=filled.manual.astype(float).astype(int))
     if len(filled) == 0:
         print("\n104b is not yet adjudicated; precision/recall will be computed "
               "on the next run once the manual column is filled.")
@@ -202,8 +216,9 @@ def main():
     print("\nwrote 104c")
     print("  NOTE: recall is estimated from a near-miss probe over the negatives, "
           "not from\n  exhaustive reading, so it is an upper bound on the "
-          "automated coder's sensitivity.\n  No Cohen's kappa is reported: that "
-          "needs two independent coders and there is one.")
+          "automated coder's sensitivity.\n  Cohen's kappa for the two coders is "
+          "in step105 and is reported BEFORE the adjudication\n  whose codes are "
+          "used here.")
 
 
 if __name__ == "__main__":

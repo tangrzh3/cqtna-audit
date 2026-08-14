@@ -1,0 +1,4 @@
+criterion	n	agreement	expected	kappa	n_disagreements
+C1_known_locus	46	0.978	0.978	0.0	1
+C3_power_stability	46	0.978	0.897	0.789	1
+ALL	92	0.978	0.937	0.655	2

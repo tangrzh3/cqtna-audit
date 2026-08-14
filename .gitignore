@@ -51,6 +51,12 @@ tmp/
 *.h5ad
 *.h5
 
+# --- node / editor / scratch working trees (never versioned) ---
+node_modules/
+105a_artifact_work/
+.idea/
+outputs/
+
 # --- R / Python working state ---
 .RData
 .Rhistory
