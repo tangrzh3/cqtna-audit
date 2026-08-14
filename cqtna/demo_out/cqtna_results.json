@@ -1,0 +1,109 @@
+{
+ "A": {
+  "reference": "known-locus list",
+  "background_known": 58,
+  "background_loci": 554,
+  "background_pct": 10.47,
+  "significant_loci": 7,
+  "significant_known": 3,
+  "pct_known": 42.9,
+  "fold": 4.09,
+  "fisher_p_one_sided": 0.028123181205575935,
+  "known_genes": [
+   "CDK10",
+   "CHMP1A",
+   "MDM4",
+   "PARP1",
+   "SPATA33",
+   "VPS9D1-AS1"
+  ],
+  "novel_genes": [
+   "KANSL1",
+   "KIAA0040",
+   "SMC2",
+   "ZFYVE19"
+  ]
+ },
+ "A_nc": {
+  "reference": "mismatched (negative control)",
+  "background_known": 32,
+  "background_loci": 554,
+  "background_pct": 5.78,
+  "significant_loci": 7,
+  "significant_known": 0,
+  "pct_known": 0.0,
+  "fold": 0.0,
+  "fisher_p_one_sided": 0.999999999999656,
+  "known_genes": [],
+  "novel_genes": [
+   "CDK10",
+   "CHMP1A",
+   "KANSL1",
+   "KIAA0040",
+   "MDM4",
+   "PARP1",
+   "SMC2",
+   "SPATA33",
+   "VPS9D1-AS1",
+   "ZFYVE19"
+  ]
+ },
+ "B": [
+  {
+   "unit": "record",
+   "n_tests": 3556,
+   "n_significant": 21,
+   "n_genes": 10,
+   "n_loci": 7
+  },
+  {
+   "unit": "variant",
+   "n_tests": 2126,
+   "n_significant": 15,
+   "n_genes": 11,
+   "n_loci": 7
+  },
+  {
+   "unit": "gene",
+   "n_tests": 1255,
+   "n_significant": 13,
+   "n_genes": 13,
+   "n_loci": 9
+  },
+  {
+   "unit": "locus",
+   "n_tests": 554,
+   "n_significant": 8,
+   "n_genes": 28,
+   "n_loci": 8
+  }
+ ],
+ "C": {
+  "genes_outcome1": 10,
+  "genes_outcome2": 6,
+  "genes_shared": 5,
+  "jaccard_gene": 0.455,
+  "loci_outcome1": 7,
+  "loci_outcome2": 2,
+  "jaccard_locus": 0.286,
+  "lost": [
+   "KANSL1",
+   "KIAA0040",
+   "MDM4",
+   "SMC2",
+   "ZFYVE19"
+  ],
+  "gained": [
+   "CTU2"
+  ]
+ },
+ "D": {
+  "pathway_genes": 28,
+  "instrumentable": 3,
+  "analysable": 2,
+  "associated": 1,
+  "note": "report all three; collapsing them attributes an outcome-side limit to the biology"
+ },
+ "E": [],
+ "F": null
+}

@@ -1,0 +1,5 @@
+gene	cell_type	mean_expression
+TPI1	CD4_T	1.0
+TPI1	Malignant	6.7
+TPI1	CD8_T	1.15
+TPI1	Macrophage	2.1

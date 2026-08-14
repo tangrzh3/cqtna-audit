@@ -1,0 +1,12 @@
+{
+ "mr_results": "mr_meta.tsv",
+ "mr_results_alt": "mr_finngen.tsv",
+ "known_loci": "known_melanoma.tsv",
+ "known_loci_mismatched": "known_hcc_mismatched.tsv",
+ "instrument_table": "instruments.tsv",
+ "expression_table": "expression.tsv",
+ "target_cell_type": "CD4_T",
+ "fdr_threshold": 0.05,
+ "locus_window_kb": 1000,
+ "known_window_kb": 1000
+}

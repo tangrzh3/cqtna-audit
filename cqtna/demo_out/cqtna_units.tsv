@@ -1,0 +1,5 @@
+unit	n_tests	n_significant	n_genes	n_loci
+record	3556	21	10	7
+variant	2126	15	11	7
+gene	1255	13	13	9
+locus	554	8	28	8
