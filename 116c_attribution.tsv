@@ -1,0 +1,4 @@
+resource	role	n_records	bg_loci	bg_known	sig_loci	sig_known	fold	fisher_p	gate_records	gate_sig_loci	verdict
+Randolph_2021	stimulated	327	247	26	2	0			True	False	UNDERPOWERED -- direction only, not in omnibus
+Schmiedel_2018	stimulated	860	474	47	6	2	3.361702127659574	0.11155162274329213	True	True	in omnibus
+Nathan_2022	contrast_unstimulated	112	102	6	0	0			False	False	UNDERPOWERED -- direction only, not in omnibus

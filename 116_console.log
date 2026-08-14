@@ -1,0 +1,48 @@
+==============================================================================
+Step 116 -- S35 multi-resource locus attribution
+==============================================================================
+Randolph_2021    genes tested  18878   instruments at P<5e-8   518   min F 29.8   [stimulated]
+Schmiedel_2018   genes tested  15305   instruments at P<5e-8  1286   min F 29.7   [stimulated]
+Nathan_2022      genes tested  10696   instruments at P<5e-8   204   min F 29.9   [contrast_unstimulated]
+
+unique instrument positions to look up: 1,948
+  outcome rows 0, matched 0  outcome rows 5,000,000, matched 321  outcome rows 10,000,000, matched 634  outcome rows 15,000,000, matched 985  outcome rows 20,000,000, matched 1,435
+outcome positions matched: 1,502 of 1,948
+known melanoma loci: 157
+
+==============================================================================
+Randolph_2021  [stimulated]
+==============================================================================
+  harmonised records: 327   dropped nomatch=130 allele=11 palindromic=50
+  background loci 247 (26 known, 10.5%)
+  significant records 2   significant loci 2 (0 known)
+  gate records >= 200: True    gate significant loci >= 5: False
+  -> UNDERPOWERED -- direction only, not in omnibus
+
+==============================================================================
+Schmiedel_2018  [stimulated]
+==============================================================================
+  harmonised records: 860   dropped nomatch=257 allele=40 palindromic=129
+  background loci 474 (47 known, 9.9%)
+  significant records 10   significant loci 6 (2 known)
+  gate records >= 200: True    gate significant loci >= 5: True
+  known share 33.3% vs background 9.9%  -> fold 3.36   one-sided Fisher P 0.1116
+
+==============================================================================
+Nathan_2022  [contrast_unstimulated]
+==============================================================================
+  harmonised records: 112   dropped nomatch=70 allele=3 palindromic=19
+  background loci 102 (6 known, 5.9%)
+  significant records 0   significant loci 0 (0 known)
+  gate records >= 200: False    gate significant loci >= 5: False
+  -> UNDERPOWERED -- direction only, not in omnibus
+
+==============================================================================
+      resource                  role  n_records  bg_loci  bg_known  sig_loci  sig_known     fold  fisher_p  gate_records  gate_sig_loci                                        verdict
+ Randolph_2021            stimulated        327      247        26         2          0      NaN       NaN          True          False UNDERPOWERED -- direction only, not in omnibus
+Schmiedel_2018            stimulated        860      474        47         6          2 3.361702  0.111552          True           True                                     in omnibus
+   Nathan_2022 contrast_unstimulated        112      102         6         0          0      NaN       NaN         False          False UNDERPOWERED -- direction only, not in omnibus
+==============================================================================
+
+wrote 116a/116b/116c. Omnibus (CMH) is step 117 and runs only over the
+cells that cleared both gates.
