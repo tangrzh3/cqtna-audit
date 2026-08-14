@@ -1,0 +1,49 @@
+==============================================================================
+Step 111 -- rebuilding 96a from 92c under the recovered rule
+==============================================================================
+significant loci (FDR < 0.05): 30
+  of which known-locus:        20   <- the denominator of this check
+
+==============================================================================
+verification against the stored 96a
+==============================================================================
+locus sets identical: True
+n_named agrees: 20/20
+gene lists agree on the 17 untruncated loci: 17/17
+
+the 3 loci stored truncated are now complete:
+  16_15    stored AC137932.6;AC137934.1;ACSF3;AFG3L1P;C16orf55;CDK10..
+           full   AC137932.6;AC137934.1;ACSF3;AFG3L1P;C16orf55;CDK10;CENPBD1;DEF8;FANCA;RP11-104N10.1;RP11-356C4.5;RP11-368I7.4;SPG7;TCF25;ZNF276;ZNF778
+  1_23     stored C1orf138;CERS2;GOLPH3L;HORMAD1;MCL1;Metazoa_SRP...
+           full   C1orf138;CERS2;GOLPH3L;HORMAD1;MCL1;Metazoa_SRP;SETDB1
+  20_8     stored CHMP4B;EIF2S2;ITCH;MAP1LC3A;RP1-64K7.4;RP5-1125A11.1
+           full   CHMP4B;EIF2S2;ITCH;MAP1LC3A;RP1-64K7.4;RP5-1125A11.1;TP53INP2
+
+==============================================================================
+the ten self-assembled loci, both definitions, from complete gene lists
+==============================================================================
+evaluable loci: 10
+  lenient (accepted gene among those named): 6/10
+  strict  (named alone and correctly):       2/10
+
+published 'hit' column: 6/10
+lenient rebuilt:        6/10  -> CONFIRMED
+
+per-locus:
+  locus   accepted        n  len   str   named
+  10_23   OBFC1;STN1      2  True  False OBFC1;RP11-541N10.3
+  11_0    TYR             1  False False ODF3
+  15_2    HERC2;OCA2      2  False False HERC2P9;WHAMMP2
+  16_15   MC1R           16  False False AC137932.6;AC137934.1;ACSF3;AFG3L1P;C16orf55;C
+  1_23    SETDB1          7  True  False C1orf138;CERS2;GOLPH3L;HORMAD1;MCL1;Metazoa_SR
+  21_6    MX2             1  True  True  MX2
+  22_1    PLA2G6          3  True  False PLA2G6;RP1-5O6.6;TMEM184B
+  2_41    CASP8           4  True  False ALS2CR12;CASP10;CASP8;CFLAR
+  6_0     IRF4            1  True  True  IRF4
+  9_0     MTAP;CDKN2A     1  False False C9orf66
+
+wrote 111a_selfcheck_rebuilt.tsv
+
+Note: `accepted` is carried over from the stored table, not regenerated.
+The hand-assembled ten-locus list has no machine-readable provenance and
+that remains true after this rebuild -- which is exactly why S34 exists.

@@ -978,11 +978,16 @@ sequence rather than by loosening the tolerance.
 
 ### Self-administered attribution check
 
-Melanoma loci at which a causal gene is generally accepted were listed, and the
-pipeline's own FDR-significant nomination at each was compared against it. The
-list was assembled by us and fixed before the comparison was run, but was **not**
-pre-registered, and ten loci is a small denominator; the resulting ratio is
-reported as an illustration and not as an error rate.
+Of the 30 loci reaching FDR < 0.05 under the whole-blood exposure, 20 are known
+loci, and those 20 are the domain of this check. A locus's nomination is the set
+of FDR-significant genes there whose own instrument lies within 1 Mb of a known
+lead. Melanoma loci at which a causal gene is generally accepted were listed, and
+the nomination at each was compared against that gene under two rules fixed
+before the comparison: *lenient*, the accepted gene appears anywhere in the
+nomination, and *strict*, the nomination is that gene alone. Ten of the 20 had an
+accepted gene. The list was assembled by us and fixed before the comparison was
+run, but was **not** pre-registered, and ten loci is a small denominator; the
+resulting ratios are reported as an illustration and not as an error rate.
 
 ### Single-cell, spatial and chromatin analyses
 
