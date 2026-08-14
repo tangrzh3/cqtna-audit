@@ -1,0 +1,108 @@
+==============================================================================
+Step 114 -- C1 resource survey, refreshed from the static metadata table
+==============================================================================
+dataset_metadata_r8.tsv: 1205 rows, 11 columns
+columns: ['study_id', 'dataset_id', 'study_label', 'sample_group', 'tissue_id', 'tissue_label', 'condition_label', 'sample_size', 'quant_method', 'pmid', 'study_type']
+
+gene-expression datasets: 466
+
+==============================================================================
+pass 1 -- stimulated / activated T-cell datasets: 64
+==============================================================================
+  Schmiedel_2018        QTD000484   CD4_T-cell_anti-CD3-CD28            anti-CD3-CD28_4h        n=89
+  Schmiedel_2018        QTD000494   CD8_T-cell_anti-CD3-CD28            anti-CD3-CD28_4h        n=88
+  Nathan_2022           QTD000666   CD4+_activated                      naive                   n=147
+  Nathan_2022           QTD000684   CD8+_activated                      naive                   n=42
+  Cytoimmgen            QTD000690   combined_CD4_Naive_STIM_40H         anti-CD3-CD28_40h       n=94
+  Cytoimmgen            QTD000691   combined_CD4_Memory_STIM_40H        anti-CD3-CD28_40h       n=93
+  Cytoimmgen            QTD000692   combined_CD4_Memory_STIM_5D         anti-CD3-CD28_5D        n=93
+  Cytoimmgen            QTD000693   combined_CD4_Naive_STIM_16H         anti-CD3-CD28_16h       n=99
+  Cytoimmgen            QTD000695   combined_CD4_Memory_STIM_16H        anti-CD3-CD28_16h       n=95
+  Cytoimmgen            QTD000696   combined_CD4_Naive_STIM_5D          anti-CD3-CD28_5D        n=88
+  Cytoimmgen            QTD000698   TEM_STIM_16H                        anti-CD3-CD28_16h       n=89
+  Cytoimmgen            QTD000701   TEM_STIM_5D                         anti-CD3-CD28_5D        n=92
+  Cytoimmgen            QTD000702   TN2_Lowly_Active_STIM_16H           anti-CD3-CD28_16h       n=66
+  Cytoimmgen            QTD000703   nTreg_STIM_40H                      anti-CD3-CD28_40h       n=90
+  Cytoimmgen            QTD000704   TEM_STIM_40H                        anti-CD3-CD28_40h       n=90
+  Cytoimmgen            QTD000706   TN_STIM_5D                          anti-CD3-CD28_5D        n=92
+  Cytoimmgen            QTD000708   TCM_STIM_40H                        anti-CD3-CD28_40h       n=91
+  Cytoimmgen            QTD000709   TEM_HLA+_STIM_40H                   anti-CD3-CD28_40h       n=72
+  Cytoimmgen            QTD000711   TN_HSP_STIM_5D                      anti-CD3-CD28_5D        n=80
+  Cytoimmgen            QTD000712   TN_A_STIM_16H                       anti-CD3-CD28_16h       n=99
+  Cytoimmgen            QTD000713   T_NFKB_STIM_16H                     anti-CD3-CD28_16h       n=96
+  Cytoimmgen            QTD000715   TCM1_Lowly_Active_STIM_16H          anti-CD3-CD28_16h       n=71
+  Cytoimmgen            QTD000716   TCM_STIM_5D                         anti-CD3-CD28_5D        n=94
+  Cytoimmgen            QTD000717   TN_NFKB_STIM_5D                     anti-CD3-CD28_5D        n=93
+  Cytoimmgen            QTD000718   TN_B_STIM_16H                       anti-CD3-CD28_16h       n=97
+  Cytoimmgen            QTD000721   nTreg_STIM_16H                      anti-CD3-CD28_16h       n=80
+  Cytoimmgen            QTD000723   TN2_STIM_16H                        anti-CD3-CD28_16h       n=97
+  Cytoimmgen            QTD000724   TEM_Lowly_Active_STIM_40H           anti-CD3-CD28_40h       n=57
+  Cytoimmgen            QTD000726   TCM_STIM_16H                        anti-CD3-CD28_16h       n=99
+  Cytoimmgen            QTD000727   TN_cycling_STIM_5D                  anti-CD3-CD28_5D        n=93
+  Cytoimmgen            QTD000728   TN_IFN_STIM_5D                      anti-CD3-CD28_5D        n=90
+  Cytoimmgen            QTD000729   TM_cycling_STIM_5D                  anti-CD3-CD28_5D        n=70
+  Cytoimmgen            QTD000730   TEM_HLA+_STIM_5D                    anti-CD3-CD28_5D        n=79
+  Cytoimmgen            QTD000732   TM_ER-stress_STIM_40H               anti-CD3-CD28_40h       n=61
+  Cytoimmgen            QTD000733   TN1_STIM_40H                        anti-CD3-CD28_40h       n=95
+  Cytoimmgen            QTD000735   TN2_STIM_40H                        anti-CD3-CD28_40h       n=93
+  Cytoimmgen            QTD000737   TN_IFN_STIM_40H                     anti-CD3-CD28_40h       n=93
+  Cytoimmgen            QTD000738   TN_cycling_STIM_40H                 anti-CD3-CD28_40h       n=86
+  Cytoimmgen            QTD000741   TN_C_STIM_16H                       anti-CD3-CD28_16h       n=99
+  Cytoimmgen            QTD000742   TEM_Lowly_Active_STIM_16H           anti-CD3-CD28_16h       n=83
+  Cytoimmgen            QTD000743   T_ER-stress_STIM_5D                 anti-CD3-CD28_5D        n=93
+  Cytoimmgen            QTD000744   TCM2_Lowly_Active_STIM_40H          anti-CD3-CD28_40h       n=62
+  Cytoimmgen            QTD000749   TN-TCM_CXCR4+_STIM_40H              anti-CD3-CD28_40h       n=64
+  Cytoimmgen            QTD000751   TN1_Lowly_Active_STIM_16H           anti-CD3-CD28_16h       n=84
+  IBDverse              QTD000769   CD4+_CRM_Naive                      naive                   n=230
+  IBDverse              QTD000770   CD4+_CRM                            naive                   n=133
+  IBDverse              QTD000771   CD8+_EM_THEMIS+                     naive                   n=86
+  IBDverse              QTD000772   CD8+_EM_TIGIT+                      naive                   n=79
+  IBDverse              QTD000780   CD4+_Treg                           naive                   n=149
+  IBDverse              QTD000781   CD4+_memory                         naive                   n=318
+  IBDverse              QTD000783   CD8+_Naive                          naive                   n=144
+  IBDverse              QTD000823   CD4+_PASK                           naive                   n=286
+  IBDverse              QTD000824   Tissue_CD4+_Treg                    naive                   n=173
+  IBDverse              QTD000825   CD4+_memory_CXCR6+                  naive                   n=295
+  IBDverse              QTD000826   CD8+_TRM_TGCR2+                     naive                   n=339
+  Cytoimmgen_reannotat  QTD000902   Cycling_T_cells_STIM_40H            anti-CD3-CD28_40H       n=94
+  Cytoimmgen_reannotat  QTD000903   Cycling_T_cells_STIM_5D             anti-CD3-CD28_5D        n=91
+  Cytoimmgen_reannotat  QTD000904   Regulatory_T_cells_STIM_16H         anti-CD3-CD28_16H       n=97
+  Cytoimmgen_reannotat  QTD000905   Regulatory_T_cells_STIM_40H         anti-CD3-CD28_40H       n=95
+  Cytoimmgen_reannotat  QTD000906   Regulatory_T_cells_STIM_5D          anti-CD3-CD28_5D        n=94
+  Cytoimmgen_reannotat  QTD000911   Tcm_Naive_helper_T_cells_STIM_16H   anti-CD3-CD28_16H       n=99
+  Cytoimmgen_reannotat  QTD000912   Tcm_Naive_helper_T_cells_STIM_40H   anti-CD3-CD28_40H       n=84
+  Cytoimmgen_reannotat  QTD000913   Tcm_Naive_helper_T_cells_STIM_5D    anti-CD3-CD28_5D        n=84
+  Cytoimmgen_reannotat  QTD000915   Tem_Effector_helper_T_cells_STIM_1  anti-CD3-CD28_16H       n=59
+
+==============================================================================
+pass 2 -- other T-cell datasets, condition not simply naive: 11
+==============================================================================
+  Randolph_2021         QTD000588   CD4_T_flu                           Influenza_6h            n=89
+  Randolph_2021         QTD000590   CD8_T_flu                           Influenza_6h            n=88
+  Randolph_2021_reanno  QTD000852   Regulatory_T_cells_flu              Influenza_6h            n=79
+  Randolph_2021_reanno  QTD000854   Tcm_Naive_cytotoxic_T_cells_flu     Influenza_6h            n=72
+  Randolph_2021_reanno  QTD000856   Tcm_Naive_helper_T_cells_flu        Influenza_6h            n=89
+  Randolph_2021_reanno  QTD000858   Tem_Effector_helper_T_cells_flu     Influenza_6h            n=89
+  Randolph_2021_reanno  QTD000860   Tem_Temra_cytotoxic_T_cells_flu     Influenza_6h            n=59
+  Randolph_2021_reanno  QTD000862   Tem_Trm_cytotoxic_T_cells_flu       Influenza_6h            n=75
+  Cytoimmgen_reannotat  QTD000907   Regulatory_T_cells_UNS_16H          naive_16H               n=96
+  Cytoimmgen_reannotat  QTD000914   Tcm_Naive_helper_T_cells_UNS_16H    naive_16H               n=106
+  Cytoimmgen_reannotat  QTD000916   Tem_Effector_helper_T_cells_UNS_16  naive_16H               n=93
+
+==============================================================================
+circularity test (Step 39b rule): does the design match our exposure?
+==============================================================================
+  Cytoimmgen                n=[57, 61, 62, 64, 66, 70, 71, 72, 79, 80, 83, 84, 86, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 99]  matches Soskic [89, 90, 95, 99]  <-- CIRCULAR RISK
+  Cytoimmgen_reannotated    n=[59, 84, 91, 93, 94, 95, 96, 97, 99, 106]  matches Soskic [95, 99]
+  IBDverse                  n=[79, 86, 133, 144, 149, 173, 230, 286, 295, 318, 339]  matches Soskic []
+  Nathan_2022               n=[42, 147]  matches Soskic []
+  Randolph_2021             n=[88, 89]  matches Soskic [89]
+  Randolph_2021_reannotate  n=[59, 72, 75, 79, 89]  matches Soskic [89]
+  Schmiedel_2018            n=[88, 89]  matches Soskic [89]
+
+Soskic per-timepoint sizes for reference: [85, 89, 90, 95, 99, 100]
+
+wrote 114a_stim_datasets.tsv, 114b_circularity.tsv
+
+A flag is a prompt to check the study by hand, not a verdict; two or
+more coinciding sample sizes on CD4 arms is suggestive, not proof.

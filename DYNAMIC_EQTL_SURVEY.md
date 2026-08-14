@@ -1,77 +1,96 @@
 # C1 侦察：有没有第二个真正的 dynamic / context-specific eQTL 资源
 
-**写于 2026-08-14。**
-**状态**：⚠ **基于 2026-08-10 的本地普查结果，本次未能刷新。**
-本会话中 eQTL Catalogue API（`https://www.ebi.ac.uk/eqtl/api/v2/*`）
-**全端点返回 HTTP 500**（能连上服务器，非沙箱阻断），
-WebSearch/WebFetch 亦因模型配置错误不可用。
-**因此下表须在动工前重跑 `step39_find_stim_datasets.py` 复核。**
+**首版 2026-08-14（基于 Step 39，2026-08-10 的 API 读数）**
+**本版 2026-08-14 修订（`step114`）：改用静态元数据表重跑，结论有实质变化。**
 
-来源：`39b_stim_dataset_coverage.tsv`（Step 39），
-循环性判定来源：`step39b_circularity_check.py`（Step 39b）。
+## 数据来源的变更（重要）
+
+eQTL Catalogue 的 **API 全端点持续返回 HTTP 500**（`/api/v2/*` 与不带版本的
+`/api/*` 皆然；api-docs 页与 FTP 树可达，故是 API 后端故障，不是整站）。
+
+改用**静态元数据表**，即 API `datasets` 端点背后的同一份清单：
+
+    github.com/eQTL-Catalogue/eQTL-Catalogue-resources/data_tables/dataset_metadata_r8.tsv
+
+**1,205 条记录，466 个基因表达（`ge`）数据集。** 此路可用，C1 不再被 API 阻塞。
 
 ---
 
-## 一、eQTL Catalogue 里的"刺激态 T 细胞"数据集（8 个）
+## ⚠ 一处与旧记录的冲突，未能判定
 
-| 研究 | 数据集 | 细胞 / 条件 | n | 能否用作第二个 dynamic 暴露资源 |
+| 数据集 | Step 39（API，2026-08-10）| `dataset_metadata_r7` | `dataset_metadata_r8` |
+|---|---|---|---|
+| Nathan_2022 CD4+_activated (QTD000666) | **248** | **147** | **147** |
+| Nathan_2022 CD8+_activated (QTD000684) | **232** | **42** | **42** |
+
+r7 与 r8 互相一致，与 API 旧读数不一致。**无法向 API 复核（其仍 500）。**
+按两份独立静态表一致，**暂以 147 为准**，但此冲突须记录而非抹去。
+
+→ **本文件首版所写"n = 248，是本文暴露的 2.5 倍以上"是错的，据此更正为 n = 147，约 1.5 倍。**
+Nathan 仍是最强候选，但优势没有原先记录的那么大。
+
+---
+
+## 一、刺激态 / 非静息 T 细胞数据集（本次 64 + 11 条）
+
+### ★ 合格候选
+
+| 研究 | 数据集 | 细胞 / 条件 | n | 判断 |
 |---|---|---|---|---|
-| **Nathan_2022** | QTD000666 | CD4⁺ activated | **248** | ★ **最佳候选** |
-| Nathan_2022 | QTD000684 | CD8⁺ activated | 232 | 非 CD4，可作跨细胞类型对照 |
-| **Schmiedel_2018 (DICE)** | QTD000484 | CD4 T anti-CD3/CD28 **4h** | 89 | ○ 可用但只有单一时点 |
-| Schmiedel_2018 (DICE) | QTD000494 | CD8 T anti-CD3/CD28 4h | 88 | 非 CD4 |
-| Cytoimmgen | QTD000693 | CD4 Naive STIM **16h** | 99 | ❌ **循环** |
-| Cytoimmgen | QTD000690 | CD4 Naive STIM 40h | 94 | ❌ **循环** |
-| Cytoimmgen | QTD000691 | CD4 Memory STIM 40h | 94 | ❌ **循环** |
-| Cytoimmgen | QTD000692 | CD4 Memory STIM 5D | 93 | ❌ **循环** |
+| **Nathan_2022** | QTD000666 | CD4⁺ activated | **147** | ★ 最强候选；独立研究、单细胞、以细胞状态定义 context |
+| **Randolph_2021** | QTD000588 | CD4 T，**流感感染 6 h** | **89** | ★ **本次新发现**，首版遗漏。真实刺激语境，独立研究 |
+| Randolph_2021 | QTD000590 | CD8 T，流感 6 h | 88 | 非 CD4，可作跨细胞类型对照 |
+| Randolph_2021_reannotated | QTD000852–862 | 六个 T 亚群，流感 6 h | 59–89 | 同一实验的再注释，**不得与上条并列计数** |
+| Schmiedel_2018 (DICE) | QTD000484 | CD4 T anti-CD3/CD28 **4 h** | 89 | ○ 单一时点，只撑 "context-specific"，撑不起 "dynamic" |
 
-### Cytoimmgen 为什么判为循环
+⚠ **Randolph_2021 是首版遗漏的**。它落在 pass 2 而非 pass 1，因为其
+`condition_label` 是 `Influenza_6h`，不含 "stim"/"activ" 等关键词。
+**教训：刺激语境的命名不一定含刺激类词汇，关键词表须包含具体刺激物名称。**
 
-设计与每时点样本量与本文暴露（Soskic）几乎逐格吻合：
-Soskic 为 Naive 0h/16h/40h/5d = 99/99/89/85，Memory = 100/95/89/90；
-Cytoimmgen 的 16h 为 99（Naive）与 95（Memory），40h 为 94/94，5d 为 93。
-→ 高度疑为**同一实验的标准化再处理**。
-**不得**用它做"独立复制"，此判定 Step 39b 已登记，Methods §17 已写入。
+### ❌ 排除：Cytoimmgen（循环）
 
----
+**本次从 4 个数据集扩到约 50 个**，覆盖 TEM / TCM / TN1 / TN2 / nTreg /
+TN_IFN / TM_cycling / T_NFKB / ER-stress 等多个亚群，时点 16H / 40H / 5D。
 
-## 二、判断
+循环性判定（Step 39b 规则）**依然成立**：其 CD4 臂的样本量与本文暴露（Soskic）
+逐格吻合——匹配到 89、90、95、99 四个值，且 naive/memory × 16h/40h/5d 的设计一致。
+**判为同一实验的标准化再处理，不得用作独立复制。**
+⚠ `Cytoimmgen_reannotated`（UNS_16H 等）同源，**一并排除**。
 
-**Nathan_2022（QTD000666，CD4⁺ activated，n = 248）是唯一真正合格的候选。**
+### △ 语境特异但非动态：IBDverse
 
-有利：
-- **n = 248**，是本文暴露（85–100/时点）的 2.5 倍以上；
-- **独立研究、独立平台**（单细胞、以细胞状态而非固定时点定义 context）；
-- 已在 eQTL Catalogue 标准化处理，全 summary stats 可经 API 取得；
-- 本文**已经引用它**（参考文献 [8]），且**已经用过它**——
-  genotype × pseudotime 交互检验就来自这份数据。
+11 个数据集，`condition_label` 全为 `naive`（未刺激），按**细胞亚群**分层，
+n 达 79–339（CD8⁺ TRM 339、CD4⁺ memory 318、CD4⁺ PASK 286）。
 
-⚠ 三条必须事先写下的问题：
-1. **它已被用于 TPI1 的交互检验。** 再拿它做暴露资源不构成循环
-   （交互检验用的是 TPI1 单基因的动态遗传效应，归属检验用的是全基因组提名落点），
-   但**两次使用必须在正文中分别说明**，否则读者会以为是同一次分析。
-2. **"activated" 的 condition_label 在表中显示为 `naive`**，字段语义需核实——
-   这正是 §一 表格必须重跑复核的原因之一。
-3. **TPI1 在其中未被量化**（与 DICE、Cytoimmgen 相同）。
-   对**归属基准**无影响（不依赖 TPI1），但**对 TPI1 那条线索无帮助**。
-
-**DICE（Schmiedel_2018）是次优候选**：n=89 与本文相当，但只有 4h 单一时点，
-无法支撑"dynamic"这一层，只能支撑"context-specific"。
-可作为**多资源简化归属基准**的第三格。
+→ **不是 dynamic 资源**，但样本量远大于本文暴露，
+适合作"跨资源简化归属基准"（C1 的第二个变体）里的一格，
+用以区分"细胞亚群特异"与"刺激动态"两种 context。
 
 ---
 
-## 三、建议的做法
+## 二、修订后的判断
 
-审稿意见的 C1 有两个变体，本地证据支持**后者**更划算：
+C1 的两个变体，本次证据更偏向**后者**：
 
 | 变体 | 可行性 | 判断 |
 |---|---|---|
-| 单独把 Nathan_2022 当第二个 dynamic 暴露资源，重跑全套归属 | 可行 | 一格，n 更大，但仍只是"第二个资源" |
-| **跨多个细胞特异 eQTL 资源做简化版 known-locus attribution benchmark** | 可行 | ★ 用 Nathan + DICE + eQTLGen（+ 本文暴露）四格，直接回答"这是不是该框架的一般性质"，而不是"再加一个数据点" |
+| 单独把 Nathan_2022 当第二个 dynamic 暴露资源 | 可行 | n=147 而非 248，优势缩水；仍是一格 |
+| **跨资源简化 known-locus attribution benchmark** | 可行且更强 | ★ 现在有 **Nathan（活化态）+ Randolph（流感 6 h）+ DICE（anti-CD3/CD28 4 h）+ IBDverse（亚群，大 n）+ eQTLGen（全血）+ 本文暴露** 六格，能同时区分"动态刺激"与"细胞亚群"两类 context |
 
-⚠ 无论选哪个，**动工前须**：
-1. 重跑 Step 39 复核上表（API 恢复后）；
-2. 对每个新资源重跑 Step 39b 式的循环性检查
-   （比对设计、每时点 n、以及是否与 Soskic 或 eQTLGen 同源）；
-3. 写第十四份预注册——**本文件不是预注册**，只是侦察记录。
+**推荐后者。** 它直接回答"位点归属是不是该框架的一般性质"，
+而不是再添一个数据点；且不依赖任何单一资源的样本量。
+
+---
+
+## 三、动工前仍须做的
+
+1. **Randolph_2021 与 Nathan_2022 的循环性逐一手查**——
+   `step114` 的旗标只是提示（两个以上样本量巧合），不是判定。
+   两者与 Soskic 的匹配分别为 [89] 与 []，均未触发旗标，但仍须核对研究设计。
+2. **确认各资源的 TPI1 量化状况**（首版已知 TPI1 在 DICE / Cytoimmgen / Nathan 中均未量化）。
+   ⚠ 对**归属基准无影响**（不依赖 TPI1），仅影响 TPI1 那条线索。
+3. **Nathan 的双重使用须在正文分别交代**：
+   它已被用于 TPI1 的 genotype × pseudotime 检验（参考文献 [8]）。
+   再作暴露资源不构成循环（一个是单基因动态遗传效应，一个是全基因组提名落点），
+   但**两次使用必须分别说明**。
+4. **写第十四份预注册**——本文件不是预注册，只是侦察记录。

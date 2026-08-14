@@ -1,0 +1,8 @@
+study	n_datasets	sizes	matching_soskic_sizes	circular_flag
+Cytoimmgen	40	[57, 61, 62, 64, 66, 70, 71, 72, 79, 80, 83, 84, 86, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 99]	[89, 90, 95, 99]	True
+Cytoimmgen_reannotated	12	[59, 84, 91, 93, 94, 95, 96, 97, 99, 106]	[95, 99]	False
+IBDverse	11	[79, 86, 133, 144, 149, 173, 230, 286, 295, 318, 339]	[]	False
+Nathan_2022	2	[42, 147]	[]	False
+Randolph_2021	2	[88, 89]	[89]	False
+Randolph_2021_reannotated	6	[59, 72, 75, 79, 89]	[89]	False
+Schmiedel_2018	2	[88, 89]	[89]	False
