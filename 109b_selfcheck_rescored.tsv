@@ -1,0 +1,11 @@
+locus	accepted	n_named	named	named_truncated	lenient_hit	strict_hit	published_hit
+10_23	OBFC1;STN1	2	OBFC1;RP11-541N10.3	False	True	False	True
+11_0	TYR	1	ODF3	False	False	False	False
+15_2	HERC2;OCA2	2	HERC2P9;WHAMMP2	False	False	False	False
+16_15	MC1R	16	AC137932.6;AC137934.1;ACSF3;AFG3L1P;C16orf55;CDK10...	True	False	False	False
+1_23	SETDB1	7	C1orf138;CERS2;GOLPH3L;HORMAD1;MCL1;Metazoa_SRP...	True	False	False	True
+21_6	MX2	1	MX2	False	True	True	True
+22_1	PLA2G6	3	PLA2G6;RP1-5O6.6;TMEM184B	False	True	False	True
+2_41	CASP8	4	ALS2CR12;CASP10;CASP8;CFLAR	False	True	False	True
+6_0	IRF4	1	IRF4	False	True	True	True
+9_0	MTAP;CDKN2A	1	C9orf66	False	False	False	False

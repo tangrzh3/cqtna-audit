@@ -265,8 +265,9 @@ spurious.
 The criticism this paper makes of nomination applies to this paper, and can be
 administered to it. At melanoma loci where a causal gene is generally accepted, we
 asked whether the pipeline's own significant nomination names that gene. Of ten
-such loci reached under the larger exposure resource, **six name the accepted gene
-and four do not**, and the failures are the informative ones. At the MC1R region —
+such loci reached under the larger exposure resource, **the accepted gene is
+among those named at six and absent at four — and is named alone at only two**,
+and the failures are the informative ones. At the MC1R region —
 the strongest melanoma locus in the genome — the nomination spans **sixteen genes
 and MC1R is not among them**. At the OCA2/HERC2 locus it names the pseudogene
 HERC2P9 rather than HERC2. At *TYR* it names ODF3, and at the CDKN2A/MTAP locus

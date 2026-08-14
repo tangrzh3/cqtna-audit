@@ -594,8 +594,11 @@ where the answer is known?** The objection this paper raises against nomination
 can be tested on the pipeline that raises it. We took melanoma loci at which a
 causal gene is generally accepted and asked whether our own FDR-significant
 nomination names it. Of ten such loci reached under the larger exposure resource,
-**six name the accepted gene and four do not**, and the four failures are the
-informative half. At the MC1R region — the strongest melanoma locus in the genome
+**the accepted gene is among those named at six and absent at four, and is named
+alone at only two**, and the four failures are the informative half. Two hit
+definitions are therefore in play and we report both: *lenient*, the accepted
+gene appears somewhere in the locus's nomination, and *strict*, the nomination is
+that gene by itself. Six is the lenient count; two is the strict one. At the MC1R region — the strongest melanoma locus in the genome
 — the nomination spans **sixteen genes and MC1R is not among them**. At OCA2/HERC2
 it names the pseudogene HERC2P9 rather than HERC2; at *TYR* it names ODF3; at
 CDKN2A/MTAP, C9orf66. Where it succeeds it often succeeds cleanly, IRF4 and MX2

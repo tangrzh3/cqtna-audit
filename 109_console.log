@@ -1,0 +1,49 @@
+==============================================================================
+Step 109 -- S34 file A, written before any truth set is opened
+==============================================================================
+source: 96a_attribution_selfcheck.tsv  sha256 2765481f49247932...
+loci with a significant nomination under the eQTLGen exposure: 20
+
+file A written: D:/R_ex/MR/109a_fileA_nominations.tsv
+  loci: 20   sha256: 7a48420844a6eb01...
+  columns: ['locus', 'n_named', 'named', 'named_truncated']  <- contains no accepted-gene information
+  !! 3 loci have a TRUNCATED gene list in the source table
+     (cell ends in '...'), so file A cannot be scored strictly for
+     them until the full nomination is regenerated. Affected loci:
+       16_15
+       1_23
+       20_8
+
+nomination set size distribution (all loci):
+  median 1.0   IQR 1.0-2.2   max 16
+  single-gene nominations: 11 of 20
+
+==============================================================================
+existing self-assembled ten loci, rescored under S34 §4 definitions
+==============================================================================
+evaluable loci: 10
+  lenient (accepted gene is among the named): 5/10
+  strict  (nomination is exactly that gene):  2/10
+
+reproduces the published 'hit' column under the LENIENT rule: 9/10
+-> the published 6/10 is the lenient rate; S34 fixes strict as primary,
+   so the two checks must be reported under the same definition.
+
+per-locus:
+  locus   accepted          n  lenient strict named
+  10_23   OBFC1;STN1        2  True    False  OBFC1;RP11-541N10.3
+  11_0    TYR               1  False   False  ODF3
+  15_2    HERC2;OCA2        2  False   False  HERC2P9;WHAMMP2
+  16_15   MC1R             16  False   False  AC137932.6;AC137934.1;ACSF3;AFG3L1P;C16orf55
+  1_23    SETDB1            7  False   False  C1orf138;CERS2;GOLPH3L;HORMAD1;MCL1;Metazoa_
+  21_6    MX2               1  True    True   MX2
+  22_1    PLA2G6            3  True    False  PLA2G6;RP1-5O6.6;TMEM184B
+  2_41    CASP8             4  True    False  ALS2CR12;CASP10;CASP8;CFLAR
+  6_0     IRF4              1  True    True   IRF4
+  9_0     MTAP;CDKN2A       1  False   False  C9orf66
+
+wrote D:/R_ex/MR/109b_selfcheck_rescored.tsv
+
+NOT done here, and deliberately: no external truth set has been opened,
+scored against S34 §3.1, or joined to file A. That is step 110, and it
+requires the §9.1 admissibility table to be filled in first.
