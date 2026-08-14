@@ -1,0 +1,107 @@
+==============================================================================
+Step 110b -- broader candidate search (METADATA + ABSTRACTS ONLY)
+==============================================================================
+
+--- Prioritizing effector genes trait-associated loci multimodal
+    2025  Nature genetics               Prioritizing effector genes at trait-associated loci using multimo
+    2025  Nature genetics               Author Correction: Prioritizing effector genes at trait-associated
+
+--- open targets genetics locus2gene machine learning gold standard
+    (no results)
+
+--- combined SNP-to-gene strategy cS2G
+    2022  Nature genetics               Combining SNP-to-gene linking strategies to identify disease genes
+    2025  Briefings in bioinformatics   Integrative genetic analysis reveals new relationships between int
+
+--- effector gene GWAS locus benchmark evaluation
+
+--- gold standard GWAS loci known causal genes curated list
+    (no results)
+
+--- predicted effector gene aggregation standards unified schema
+    2026  bioRxiv : the preprint serve  Predicted Effector Gene Aggregation, Standards and Unified Schema 
+
+wrote 110c_candidates_round2.tsv  (5 unique)
+
+==============================================================================
+abstracts for 3 candidate records
+==============================================================================
+
+### 2025 Nature genetics
+### Prioritizing effector genes at trait-associated loci using multimodal evidence.
+### doi:10.1038/s41588-025-02084-7  pmid:39930082
+Prioritizing effector genes at trait-associated loci using multimodal evidence.
+
+Schipper M(1), de Leeuw CA(2), Maciel BAPC(2), Wightman DP(2), Hubers 
+N(2)(3)(4), Boomsma DI(2)(4), O'Donovan MC(5), Posthuma D(2)(6).
+
+Author information:
+(1)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands. m.j.schipper@vu.nl.
+(2)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands.
+(3)Netherlands Twin Register, Department of Biological Psychology, Vrije 
+Universiteit Amsterdam, Amsterdam, The Netherlands.
+(4)Amsterdam Reproduction & Development (AR&D) research institute, Amsterdam, 
+The Netherlands.
+(5)Centre for Neuropsychiatric Genetics and Genomics, Division of Psychological 
+Medicine & Clinical Neurosciences, Cardiff University, Cardiff, UK.
+(6)Department of Child and Adolescent Psychiatry and Pediatric Psychology, 
+Section Complex Trait Genetics, Amsterdam Neuro
+
+### 2025 Nature genetics
+### Author Correction: Prioritizing effector genes at trait-associated loci using multimodal evidence.
+### doi:10.1038/s41588-025-02416-7  pmid:41145872
+multimodal evidence.
+
+Schipper M(1), de Leeuw CA(2), Maciel BAPC(2), Wightman DP(2), Hubers 
+N(2)(3)(4), Boomsma DI(2)(4), O'Donovan MC(5), Posthuma D(2)(6).
+
+Author information:
+(1)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands. m.j.schipper@vu.nl.
+(2)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands.
+(3)Netherlands Twin Register, Department of Biological Psychology, Vrije 
+Universiteit Amsterdam, Amsterdam, The Netherlands.
+(4)Amsterdam Reproduction & Development (AR&D) research institute, Amsterdam, 
+The Netherlands.
+(5)Centre for Neuropsychiatric Genetics and Genomics, Division of Psychological 
+Medicine & Clinical Neurosciences, Cardiff University, Cardiff, UK.
+(6)Department of Child and Adolescent Psychiatry and Pediatric Psychology, 
+Section Complex Trait Genetics, Amsterdam Neuroscience, Vrije Universiteit 
+Medical Center, Amsterdam, The
+
+### 2026 bioRxiv : the preprint server for biology
+### Predicted Effector Gene Aggregation, Standards and Unified Schema (PEGASUS): A Community Framework for Effector Gene Reporting.
+### doi:10.64898/2026.06.16.731894  pmid:42367912
+Predicted Effector Gene Aggregation, Standards and Unified Schema (PEGASUS): A 
+Community Framework for Effector Gene Reporting.
+
+McMahon A(1), Ji Y(1), Jurgens JA(2), Costanzo MC(2), Butterworth 
+AS(3)(4)(5)(6)(7), Pahl M(8)(9), Szyszkowski S(10)(11), Heilbron 
+K(12)(13)(14)(15), Shiyanbola A(16), Tsepilov Y(10)(11), Spracklen CN(17), Hite 
+D(2), Shilin A(2); PEG Working Group; Parkinson H(1), Burtt N(2), Harris LW(1).
+
+Author information:
+(1)European Bioinformatics Institute, European Molecular Biology Laboratory, 
+Hinxton, UK.
+(2)Programs in Metabolism and Medical & Population Genetics, Broad Institute of 
+MIT and Harvard, Cambridge, MA USA.
+(3)British Heart Foundation Centre of Research Excellence, School of Clinical 
+Medicine, Addenbrooke's Hospital, University of Cambridge, Cambridge CB2 0BB, 
+UK.
+(4)Department of Public Health and Primary Care, British Heart Foundation 
+Cardiovascular Epidemiology Unit, University of Cambridge, Cambridge CB2 0BB, 
+UK.
+(5)NIHR Blood and Transplant Research Unit in Donor Health and Behaviour, 
+University of Cambridge, Cambridge CB2 0BB, UK.
+(6)V
+
+wrote 110d_abstracts.txt
+
+Still NOT done: no candidate scored into S34 §9.1, no locus-gene content opened.

@@ -279,7 +279,7 @@ comparison, but **not pre-registered** — and ten loci is a small denominator, 
 **six of ten is an illustration and not an error rate**. What it establishes is
 directional: a framework that misassigns the gene at the best-characterised locus
 in its own disease should not be read as assigning genes at uncharacterised ones.
-This is the co-regulation problem of Tambets et al. [41] observed at the top of
+This is the co-regulation problem of Tambets et al. [42] observed at the top of
 the effect-size distribution, and it is why we report compartment attribution
 separately from gene attribution — the two fail independently.
 
@@ -296,7 +296,7 @@ post-treatment reverses in the same-disease cohort and reproduces at full
 magnitude in the cross-disease one (Δ = +0.874, P = 0.043) (Fig. 7).
 
 Perturbation would not settle it either. TPI1 is a hit in **628 of the 1,471
-human CRISPR screens** in BioGRID ORCS that measured it (**42.7%**), a
+human CRISPR screens** in BioGRID ORCS [40] that measured it (**42.7%**), a
 core-essential profile alongside GAPDH (46.6%) and PGAM1 (47.2%) and an order of
 magnitude above lineage-defining genes in the same screens (IRF4 3.9%, FOXP3
 1.5%, MC1R 1.1%). Because the knockout is lethal in almost any cell type,
@@ -460,10 +460,11 @@ full-length version.
 37. Goldman MJ, Craft B, Hastie M, et al. Visualizing and interpreting cancer genomics data via the Xena platform. *Nat Biotechnol* 2020;38:675–678. doi:10.1038/s41587-020-0546-8
 38. Liu J, Lichtenberg T, Hoadley KA, et al. An integrated TCGA pan-cancer clinical data resource to drive high-quality survival outcome analytics. *Cell* 2018;173:400–416.e11. doi:10.1016/j.cell.2018.02.052
 39. Tsherniak A, Vazquez F, Montgomery PG, et al. Defining a cancer dependency map. *Cell* 2017;170:564–576.e16. doi:10.1016/j.cell.2017.06.010 (DepMap, Broad Institute)
-40. Reales G, et al. Design and interpretation of eQTL–GWAS colocalisation studies: lessons from a large-scale evaluation. *PLoS Genet* 2026. doi:10.1371/journal.pgen.1012141
-41. Tambets R, et al. Extensive co-regulation of neighboring genes complicates the use of eQTLs in target gene prioritization. *Hum Genet Genomics Adv* 2024;5:100348. doi:10.1016/j.xhgg.2024.100348
-42. Rosen JD, et al. Higher eQTL power reveals signals that boost GWAS colocalization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.02.009
-43. Howe LJ, et al. Evaluating transportability of in vitro cellular models to in vivo human phenotypes using gene perturbation data. *Nat Commun* 2025. doi:10.1038/s41467-025-67199-1
-44. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to drug target discovery. *Nat Commun* 2024. doi:10.1038/s41467-024-50385-y
-45. Karhunen V, et al. Integrating genetic data with biological insight: a practical guide to cis-Mendelian randomization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.03.011
+40. Oughtred R, Rust J, Chang C, et al. The BioGRID database: a comprehensive biomedical resource of curated protein, genetic, and chemical interactions. *Protein Sci* 2021;30:187–200. doi:10.1002/pro.3978 (BioGRID ORCS)
+41. Reales G, et al. Design and interpretation of eQTL–GWAS colocalisation studies: lessons from a large-scale evaluation. *PLoS Genet* 2026. doi:10.1371/journal.pgen.1012141
+42. Tambets R, et al. Extensive co-regulation of neighboring genes complicates the use of eQTLs in target gene prioritization. *Hum Genet Genomics Adv* 2024;5:100348. doi:10.1016/j.xhgg.2024.100348
+43. Rosen JD, et al. Higher eQTL power reveals signals that boost GWAS colocalization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.02.009
+44. Howe LJ, et al. Evaluating transportability of in vitro cellular models to in vivo human phenotypes using gene perturbation data. *Nat Commun* 2025. doi:10.1038/s41467-025-67199-1
+45. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to drug target discovery. *Nat Commun* 2024. doi:10.1038/s41467-024-50385-y
+46. Karhunen V, et al. Integrating genetic data with biological insight: a practical guide to cis-Mendelian randomization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.03.011
 

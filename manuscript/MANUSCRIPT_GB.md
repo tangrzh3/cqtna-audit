@@ -277,7 +277,7 @@ hardly at all, and the outcome is the only thing differing between those arms �
 so the outcome-side half of that statement is supported while the exposure-side
 half names a resource rather than a sample size. Rosen et al. have shown that raising *eQTL* sample
 size uncovers additional independent regulatory signals and closes part of the
-gap between eQTL and GWAS colocalisation [42]. Our design asks the mirror
+gap between eQTL and GWAS colocalisation [43]. Our design asks the mirror
 question — with the exposure held fixed, does a *higher-powered outcome* make
 target nomination more reliable? — and the answer here is that it does not: the
 meta-analysis produced more MR discoveries, lower colocalisation support, and a
@@ -400,7 +400,7 @@ the best-characterised locus in its own disease should not be read as assigning
 genes at uncharacterised ones. An independent, blinded, pre-defined benchmark
 would be needed to turn this into a rate.
 
-This is the co-regulation problem of Tambets et al. [41] observed at the top of
+This is the co-regulation problem of Tambets et al. [42] observed at the top of
 the effect-size distribution, and it is why we report compartment attribution
 separately from gene attribution — the two fail independently.
 
@@ -544,7 +544,7 @@ our own, detected by these controls, are described in Supplementary S12; they ar
 instances of the same failure mode.
 
 The perturbation layer is bounded in the same way. TPI1 is a hit in 628 of the
-**1,471 human CRISPR screens** in BioGRID ORCS that measured it (**42.7%**), a
+**1,471 human CRISPR screens** in BioGRID ORCS [40] that measured it (**42.7%**), a
 core-essential profile alongside GAPDH and PGAM1 (46.6% and 47.2%) and an order
 of magnitude above lineage-defining genes in the same screens (IRF4 3.9%, FOXP3
 1.5%, MC1R 1.1%). Since the knockout is lethal in almost any cell type, **a
@@ -684,7 +684,7 @@ should be recorded before the result is seen.
 
 The worked example should be read in that light, and is best stated as a ladder
 rather than a verdict — the same layered reporting Howe et al. use when a cellular
-model proves only partly transportable [43]:
+model proves only partly transportable [44]:
 
 | Claim about TPI1 | Status here |
 |---|---|
@@ -714,15 +714,15 @@ pre-registration documents, is Supplementary S12 and S18–S33.
 replacement for, current cis-MR practice. Existing guidance already stresses that
 cis analyses must be tailored to local biology, that an expression biomarker is
 not an intervention, that co-regulation of neighbouring genes can act as
-horizontal pleiotropy, and that MR is one strand of triangulation [44,45]. Tambets
+horizontal pleiotropy, and that MR is one strand of triangulation [45,46]. Tambets
 et al. showed with approximate ground truth that neighbouring-gene co-regulation
 routinely produces colocalisation evidence for several genes at once, so eQTL
 data suit candidate *generation* and evidence *composition* better than gene
-*attribution* [41]; our MC1R region is the same phenomenon at higher effect size,
+*attribution* [42]; our MC1R region is the same phenomenon at higher effect size,
 and TPI1 at chr12p13 is the same problem unresolved. Reales et al., auditing over
 a million colocalisation tests across immune diseases and cell types, likewise
 found that gene assignment shifts with platform coverage, cell context and
-resource size [40]. What we add is specific to the nomination step and to the
+resource size [41]. What we add is specific to the nomination step and to the
 outcome side: locus attribution against the outcome's own known loci, sensitivity
 to the outcome release, candidate-list stability, layered instrument visibility,
 and cell-compartment attribution.
@@ -1141,9 +1141,10 @@ audit.
 37. Goldman MJ, Craft B, Hastie M, et al. Visualizing and interpreting cancer genomics data via the Xena platform. *Nat Biotechnol* 2020;38:675–678. doi:10.1038/s41587-020-0546-8
 38. Liu J, Lichtenberg T, Hoadley KA, et al. An integrated TCGA pan-cancer clinical data resource to drive high-quality survival outcome analytics. *Cell* 2018;173:400–416.e11. doi:10.1016/j.cell.2018.02.052
 39. Tsherniak A, Vazquez F, Montgomery PG, et al. Defining a cancer dependency map. *Cell* 2017;170:564–576.e16. doi:10.1016/j.cell.2017.06.010 (DepMap, Broad Institute)
-40. Reales G, et al. Design and interpretation of eQTL–GWAS colocalisation studies: lessons from a large-scale evaluation. *PLoS Genet* 2026. doi:10.1371/journal.pgen.1012141
-41. Tambets R, et al. Extensive co-regulation of neighboring genes complicates the use of eQTLs in target gene prioritization. *Hum Genet Genomics Adv* 2024;5:100348. doi:10.1016/j.xhgg.2024.100348
-42. Rosen JD, et al. Higher eQTL power reveals signals that boost GWAS colocalization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.02.009
-43. Howe LJ, et al. Evaluating transportability of in vitro cellular models to in vivo human phenotypes using gene perturbation data. *Nat Commun* 2025. doi:10.1038/s41467-025-67199-1
-44. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to drug target discovery. *Nat Commun* 2024. doi:10.1038/s41467-024-50385-y
-45. Karhunen V, et al. Integrating genetic data with biological insight: a practical guide to cis-Mendelian randomization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.03.011
+40. Oughtred R, Rust J, Chang C, et al. The BioGRID database: a comprehensive biomedical resource of curated protein, genetic, and chemical interactions. *Protein Sci* 2021;30:187–200. doi:10.1002/pro.3978 (BioGRID ORCS)
+41. Reales G, et al. Design and interpretation of eQTL–GWAS colocalisation studies: lessons from a large-scale evaluation. *PLoS Genet* 2026. doi:10.1371/journal.pgen.1012141
+42. Tambets R, et al. Extensive co-regulation of neighboring genes complicates the use of eQTLs in target gene prioritization. *Hum Genet Genomics Adv* 2024;5:100348. doi:10.1016/j.xhgg.2024.100348
+43. Rosen JD, et al. Higher eQTL power reveals signals that boost GWAS colocalization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.02.009
+44. Howe LJ, et al. Evaluating transportability of in vitro cellular models to in vivo human phenotypes using gene perturbation data. *Nat Commun* 2025. doi:10.1038/s41467-025-67199-1
+45. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to drug target discovery. *Nat Commun* 2024. doi:10.1038/s41467-024-50385-y
+46. Karhunen V, et al. Integrating genetic data with biological insight: a practical guide to cis-Mendelian randomization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.03.011

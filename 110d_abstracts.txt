@@ -1,0 +1,176 @@
+
+==============================================================================
+Prioritizing effector genes at trait-associated loci using multimodal evidence.
+doi:10.1038/s41588-025-02084-7 pmid:39930082
+==============================================================================
+1. Nat Genet. 2025 Feb;57(2):323-333. doi: 10.1038/s41588-025-02084-7. Epub 2025 
+Feb 10.
+
+Prioritizing effector genes at trait-associated loci using multimodal evidence.
+
+Schipper M(1), de Leeuw CA(2), Maciel BAPC(2), Wightman DP(2), Hubers 
+N(2)(3)(4), Boomsma DI(2)(4), O'Donovan MC(5), Posthuma D(2)(6).
+
+Author information:
+(1)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands. m.j.schipper@vu.nl.
+(2)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands.
+(3)Netherlands Twin Register, Department of Biological Psychology, Vrije 
+Universiteit Amsterdam, Amsterdam, The Netherlands.
+(4)Amsterdam Reproduction & Development (AR&D) research institute, Amsterdam, 
+The Netherlands.
+(5)Centre for Neuropsychiatric Genetics and Genomics, Division of Psychological 
+Medicine & Clinical Neurosciences, Cardiff University, Cardiff, UK.
+(6)Department of Child and Adolescent Psychiatry and Pediatric Psychology, 
+Section Complex Trait Genetics, Amsterdam Neuroscience, Vrije Universiteit 
+Medical Center, Amsterdam, The Netherlands.
+
+Erratum in
+    Nat Genet. 2025 Nov;57(11):2930. doi: 10.1038/s41588-025-02416-7.
+
+Genome-wide association studies (GWAS) yield large numbers of genetic loci 
+associated with traits and diseases. Predicting the effector genes that mediate 
+these locus-trait associations remains challenging. Here we present the FLAMES 
+(fine-mapped locus assessment model of effector genes) framework, which predicts 
+the most likely effector gene in a locus. FLAMES creates machine learning 
+predictions from biological data linking single-nucleotide polymorphisms to 
+genes, and then evaluates these scores together with gene-centric evidence of 
+convergence of the GWAS signal in functional networks. We benchmark FLAMES on 
+gene-locus pairs derived by expert curation, rare variant implication and domain 
+knowledge of molecular traits. We demonstrate that combining 
+single-nucleotide-polymorphism-based and convergence-based modalities 
+outperforms prioritization strategies using a single line of evidence. Applying 
+FLAMES, we resolve the FSHB locus in the GWAS for dizygotic twinning and further 
+leverage this framework to find schizophrenia risk genes that converge with rare 
+coding evidence and are relevant in different stages of life.
+
+© 2025. The Author(s), under exclusive licence to Springer Nature America, Inc.
+
+DOI: 10.1038/s41588-025-02084-7
+PMID: 39930082 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: The authors declare no 
+competing interests.
+
+==============================================================================
+Author Correction: Prioritizing effector genes at trait-associated loci using multimodal evidence.
+doi:10.1038/s41588-025-02416-7 pmid:41145872
+==============================================================================
+1. Nat Genet. 2025 Nov;57(11):2930. doi: 10.1038/s41588-025-02416-7.
+
+Author Correction: Prioritizing effector genes at trait-associated loci using 
+multimodal evidence.
+
+Schipper M(1), de Leeuw CA(2), Maciel BAPC(2), Wightman DP(2), Hubers 
+N(2)(3)(4), Boomsma DI(2)(4), O'Donovan MC(5), Posthuma D(2)(6).
+
+Author information:
+(1)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands. m.j.schipper@vu.nl.
+(2)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Amsterdam Neuroscience, Vrije Universiteit Amsterdam, Amsterdam, The 
+Netherlands.
+(3)Netherlands Twin Register, Department of Biological Psychology, Vrije 
+Universiteit Amsterdam, Amsterdam, The Netherlands.
+(4)Amsterdam Reproduction & Development (AR&D) research institute, Amsterdam, 
+The Netherlands.
+(5)Centre for Neuropsychiatric Genetics and Genomics, Division of Psychological 
+Medicine & Clinical Neurosciences, Cardiff University, Cardiff, UK.
+(6)Department of Child and Adolescent Psychiatry and Pediatric Psychology, 
+Section Complex Trait Genetics, Amsterdam Neuroscience, Vrije Universiteit 
+Medical Center, Amsterdam, The Netherlands.
+
+Erratum for
+    Nat Genet. 2025 Feb;57(2):323-333. doi: 10.1038/s41588-025-02084-7.
+
+DOI: 10.1038/s41588-025-02416-7
+PMID: 41145872
+
+==============================================================================
+Predicted Effector Gene Aggregation, Standards and Unified Schema (PEGASUS): A Community Framework for Effector Gene Reporting.
+doi:10.64898/2026.06.16.731894 pmid:42367912
+==============================================================================
+1. bioRxiv [Preprint]. 2026 Jun 17:2026.06.16.731894. doi: 
+10.64898/2026.06.16.731894.
+
+Predicted Effector Gene Aggregation, Standards and Unified Schema (PEGASUS): A 
+Community Framework for Effector Gene Reporting.
+
+McMahon A(1), Ji Y(1), Jurgens JA(2), Costanzo MC(2), Butterworth 
+AS(3)(4)(5)(6)(7), Pahl M(8)(9), Szyszkowski S(10)(11), Heilbron 
+K(12)(13)(14)(15), Shiyanbola A(16), Tsepilov Y(10)(11), Spracklen CN(17), Hite 
+D(2), Shilin A(2); PEG Working Group; Parkinson H(1), Burtt N(2), Harris LW(1).
+
+Author information:
+(1)European Bioinformatics Institute, European Molecular Biology Laboratory, 
+Hinxton, UK.
+(2)Programs in Metabolism and Medical & Population Genetics, Broad Institute of 
+MIT and Harvard, Cambridge, MA USA.
+(3)British Heart Foundation Centre of Research Excellence, School of Clinical 
+Medicine, Addenbrooke's Hospital, University of Cambridge, Cambridge CB2 0BB, 
+UK.
+(4)Department of Public Health and Primary Care, British Heart Foundation 
+Cardiovascular Epidemiology Unit, University of Cambridge, Cambridge CB2 0BB, 
+UK.
+(5)NIHR Blood and Transplant Research Unit in Donor Health and Behaviour, 
+University of Cambridge, Cambridge CB2 0BB, UK.
+(6)Victor Phillip Dahdaleh Heart and Lung Research Institute, University of 
+Cambridge, Cambridge CB2 0BB, UK.
+(7)Health Data Research UK, Wellcome Genome Campus, University of Cambridge, 
+Hinxton CB10 1RQ, UK.
+(8)Center for Spatial and Functional Genomics, The Children's Hospital of 
+Philadelphia, Philadelphia, PA 19104, USA.
+(9)Division of Human Genetics, The Children's Hospital of Philadelphia, 
+Philadelphia, PA 19104, USA.
+(10)Open Targets, Wellcome Genome Campus, Hinxton, UK.
+(11)Wellcome Sanger Institute, Wellcome Genome Campus, Hinxton, Cambridgeshire 
+CB10 1SA, UK.
+(12)Department of Psychiatry and Psychotherapy, Charité - Universitätsmedizin 
+Berlin, Berlin, Germany.
+(13)Stanley Center for Psychiatric Research, Broad Institute of MIT and Harvard, 
+Cambridge, MA, USA.
+(14)German Center for Mental Health (DZPG), partner site Berlin/Potsdam, Berlin, 
+Germany.
+(15)Bayer AG, Research & Development, Pharmaceuticals, Berlin, Germany.
+(16)Section of Statistical Multi-omics, Department of Clinical and Experimental 
+Medicine, University of Surrey, UK.
+(17)Department of Biostatistics and Epidemiology, University of Massachusetts 
+Amherst, Amherst, MA USA.
+
+Genome-wide association studies (GWAS) increasingly report predicted effector 
+genes (PEGs) - genes hypothesised to mediate the biological effects of 
+associated variants. These function as key outputs for advancing 
+variant-to-function research, mechanistic understanding, and therapeutic 
+discovery. However, the rapid growth of PEG lists has not been matched by 
+standards for organising, annotating, and reporting these predictions. As shown 
+by recent landscape analyses, PEG lists vary widely in methodology, evidence 
+definition, nomenclature, provenance tracking, and data structure, limiting 
+interoperability, benchmarking, reuse, and adherence to FAIR principles. To 
+address this gap, we convened an international multi-stakeholder community 
+comprising method developers, data generators, resource maintainers, curators, 
+funders, journal editors, and downstream users. Through a 2024 workshop and a 
+2025 working group series, we developed the Predicted Effector Gene Aggregation, 
+Standards and Unified Schema (PEGASUS) framework. PEGASUS specifies (i) a 
+metadata standard to capture provenance, trait and GWAS descriptors, evidence 
+sources, and integration methods; (ii) a structured evidence matrix reporting 
+all genes and all evidence underpinning prioritisation at each locus; and (iii) 
+a concise PEG list that summarises author-prioritised genes linked transparently 
+to underlying evidence. The framework balances transparency, machine 
+readability, burden on submitters, and alignment with existing community 
+standards. PEGASUS provides the first community-developed schema for reporting 
+predicted effector genes and their supporting evidence. Adoption of this 
+framework by authors will improve the comparability, reproducibility, and 
+reusability of PEG outputs across studies, facilitating more robust biological 
+inference, enabling cross-resource comparison of gene-prioritisation methods to 
+support community benchmarking, and integration into downstream resources and 
+analytical pipelines. PEGASUS-compliant data can be shared via the PEG Data 
+Registry platform (https://kpndataregistry.org/peg), promoting re-use and 
+establishing the basis for future integration with publicly shared GWAS data.
+
+DOI: 10.64898/2026.06.16.731894
+PMCID: PMC13307929
+PMID: 42367912

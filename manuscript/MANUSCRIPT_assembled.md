@@ -2793,7 +2793,23 @@ GB 正文的六处旧引用已同步改为 40–45。**NC 尚未加参考文献�
 两个 endpoint（`C3_MELANOMA_SKIN_WIDE`、`M13_RHEUMA`）并入同一条，若期刊要求按 release
 分列须拆开。
 
-### ⚠ 缺一条：BioGRID ORCS
+### ✅ 2026-08-14 已补：BioGRID ORCS（投稿版编号 **40**）
+
+**Oughtred R, Rust J, Chang C, et al. The BioGRID database: a comprehensive
+biomedical resource of curated protein, genetic, and chemical interactions.
+*Protein Sci* 2021;30:187–200. doi:10.1002/pro.3978**
+
+核实方式：PubMed 全库检索 `"BioGRID ORCS"` **只返回这一条**（PMID 33070389）；
+著录字段（15 位作者、卷 30、期 1、页 187–200、2021）取自 **CrossRef API 返回**，
+非从记忆填写。**未找到 ORCS 的独立专文**，故引这篇 BioGRID 主文。
+⚠ 仍须核对正文所用的 **ORCS release 号**与 1,471 这个分母是否对应。
+
+**编号后果**：新条目插为 40，原 40–45（Reales…Karhunen）顺延为 **41–46**，
+GB 与 NC 的正文引用已同步。下表的"投稿版"映射相应更新：18–40 → **+6**。
+
+---
+
+### ~~⚠ 缺一条：BioGRID ORCS~~（已解决，保留原文备查）
 
 正文（GB 与全文源）报"TPI1 在 BioGRID ORCS 的 1,471 项人类 CRISPR 筛选中命中 628 项
 （42.7%）"，**但本文件没有 BioGRID ORCS 的著录条目**，GB 该处因此无引用。
