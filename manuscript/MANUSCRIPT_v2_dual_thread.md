@@ -391,11 +391,19 @@ strong; across exposure resources, one of them did.**
 that the whole-blood result is peculiar to melanoma, or that the HCC result is
 weak because the CD4 exposure is small. We therefore filled the grid, scoring
 every cell against **its own disease's** known-locus list, again pre-registered
-(Supplementary S24). All six cells enrich: melanoma 4.09-fold (CD4) and 4.44-fold
-(blood); HCC-high 8.85-fold and 5.11-fold; HCC-low 17.6-fold and 8.67-fold. Three
-of the six reach P < 0.05 and three do not (P = 0.052–0.110) on numerators as
-small as one of two loci, so this is a statement about **direction being
-consistent in every cell**, not six independent significant tests. The
+(Supplementary S24). The main grid is the three diseases at their higher-powered
+outcome crossed with the two exposure resources — six cells. The lower-powered HCC
+outcome is held back as a power sensitivity rather than counted as two further
+cells, because the two HCC levels are drawn from one resource and are not
+independent (S20 §9); counting them would inflate the grid to eight cells across
+what is still three diseases. All six cells enrich: melanoma 4.09-fold (CD4) and
+4.44-fold (blood); HCC-high 8.85-fold and 5.11-fold; RA 3.46-fold and 3.57-fold
+(the RA cells are set out in full below). **Four of the six reach P < 0.05**; the
+two that do not are the same cell, HCC at its higher power (P = 0.110 and
+P = 0.051), on numerators as small as one of two loci, so this is a statement
+about **direction being consistent in every cell**, not six independent
+significant tests. The held-back sensitivity enriches on both resources as well
+(HCC-low 17.6-fold, P = 0.0031, and 8.67-fold, P = 0.017). The
 pre-registered negative control is what makes it interpretable: scoring the same
 cells against the *wrong* disease's list collapses the enrichment (HCC's list on
 melanoma, 1.30-fold, P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so
@@ -504,9 +512,11 @@ including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081) (Fig 2). Only
 colocalisation are therefore unsafe here: they would have reported MC1R LD
 spillover as CD4-mediated immune targets.
 
-## 2.4 Findings ③ and ④: power moves the two methods in opposite directions, and the list turns over
+## 2.4 Findings ③ and ④: the two methods moved in opposite directions when the outcome was replaced, and the list turned over
 
-Meta-analysis raised MR discoveries from 10 to 21 records while *lowering*
+The replacement changed outcome power and study composition together, so
+everything in this section is an observation about that swap and not a
+measurement of power. Meta-analysis raised MR discoveries from 10 to 21 records while *lowering*
 colocalisation support: across the 127 exposures run in both rounds, median
 PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 44.1% improving. Three explanations were tested and rejected: uneven meta
@@ -1273,7 +1283,9 @@ cross-disease cohort, and no single arm was confirmed in both.
 > consistent, primary test not significant); the patient stratification in that
 > second tumour (primary test passed); the exposure-resource generalisation
 > (primary test passed, P = 3.7×10⁻¹¹); the disease × resource grid (all six
-> cells concordant in direction, negative control clean); and the transfer test to
+> cells as registered concordant in direction, negative control clean — the six
+> reported in §2.2 are a later reframing that swaps the HCC-low pair for the RA
+> pair); and the transfer test to
 > the current release of the outcome resource (all six point predictions inside
 > their registered intervals, though the point value of the first was not
 > attained). An eighth — extending compartment attribution to a second tumour —
@@ -1583,9 +1595,13 @@ records that colocalisation assigned to distinct causal variants, on 8–20 vari
 per test, in a region that in-sample fine-mapping shows carries ≥3 independent
 signals.
 
-**③ Do not expect power to resolve the disagreement.** It moves MR and
-colocalisation in opposite directions, because one depends on a single variant's z
-and the other on the shape of the regional signal.
+**③ Do not assume that more outcome power will resolve the disagreement.** In the
+one comparison available here the two moved in opposite directions, but that
+outcome differed from its predecessor in study composition as well as power, so
+the divergence is not attributable to power alone. The two quantities are
+sensitive to different things by construction — one to a single variant's z, the
+other to the shape of the regional signal — which is reason enough not to treat a
+larger outcome GWAS as the remedy for their disagreement.
 
 **④ Report the physical distance between GWAS and eQTL peaks alongside
 posteriors, and test whether posterior movement survives explicit modelling of
@@ -1597,8 +1613,10 @@ exists at either power, so those regions cannot adjudicate it.
 before citing tissue-level data as validation.** This costs minutes. Ours is
 6.7-fold higher in malignant cells than in CD4⁺ T cells in the first cohort
 (16 of 16 patients), 2.4-fold in the second (11 of 11), concordant in direction in
-a third, and the difference survives cell-level depth matching — so tissue-level
-measurements of it are measurements of tumour.
+a third, and the difference survives cell-level depth matching — so a
+tissue-level measurement of it is dominated by the malignant compartment and
+cannot be attributed to CD4⁺ T cells. That bounds what such a measurement can
+establish; it does not make the association spurious, as §2.7 sets out.
 
 **⑥ Report instrument availability at each of the three levels it passes through,
 and do not compress them.** Of 28 glycolytic genes, **3 carry a genome-wide

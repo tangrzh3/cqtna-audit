@@ -1,56 +1,43 @@
 # Outcome GWAS architecture shapes target nomination from context-specific eQTLs: an audit across three diseases and two exposure resources
 
-<!-- Genome Biology format: structured abstract (~350 w); main text 6,000-8,000.
-     The failure history and revision record, every stopping-rule instance, the
-     technical account of our own processing errors, the candidate-selection
-     timeline and repeated claim boundaries are in Supplementary, not here. The
-     eight diagnostics are the backbone. Every number is identical to
-     MANUSCRIPT_v2_dual_thread.md, the single reference document; this version is
-     a pure derivative with nothing of its own. -->
-
 ## Abstract
 
-**Background.** Context-specific expression quantitative trait loci (eQTLs)
-combined with Mendelian randomization (MR) are widely used to nominate immune
-targets in cancer. An instrument selected in one cell state at one timepoint is
-usually a single variant, so in the single-instrument first-order Wald
-implementation this framework uses, z = β_out/se_out and the outcome GWAS
-supplies the significance claim. We audited what that implies, using CD4⁺ T cell
-cis-eQTLs from eight activation profiles against a 12,530-case melanoma
-meta-analysis, then varied outcome and exposure resource independently.
+**Background.** Context-specific expression quantitative trait loci (eQTLs) with
+Mendelian randomization (MR) are widely used to nominate immune targets in
+cancer. The instrument is usually a single variant, so the Wald statistic reduces
+to z = β_out/se_out and the outcome GWAS supplies the significance claim. We audited
+this, instrumenting CD4⁺ T cell cis-eQTLs from eight activation profiles against
+a 12,530-case melanoma meta-analysis, then varying outcome and exposure resource
+independently.
 
 **Results.** Significant signal concentrates on loci already known for the
-outcome: 4.09-fold by independent locus. The pattern recurs across five nested
-power levels of one GWAS resource, where no novel-locus gene reaches significance
-at any case number between 2,705 and 5,753, and it transfers unchanged to that
-resource's current release, whose statistics correlate with the previous ones at
-0.94 with standard errors 3.85% smaller; in
-a second disease, where three of four significant loci are known hepatocellular
-carcinoma loci including *PNPLA3*; outside cancer in rheumatoid arthritis, where
-CD4⁺ T cells are a well-established pathogenic immune compartment (3.46-fold,
-P = 1.7×10⁻⁵; 3.03-fold excluding the MHC); and when the exposure resource is
-replaced by a whole-blood eQTL dataset 300-fold larger, which raises significant
-loci from 7 to 30 and leaves enrichment at 4.44-fold (P = 3.7×10⁻¹¹). All six
-disease-by-resource combinations enrich, against a mismatched-locus control that
-does not. Swapping in a higher-powered meta-analysis — which changes study
-composition as well as power — increased MR discoveries, lowered colocalisation
-support and replaced the candidate list entirely, two lists from identical
-exposure data sharing no genes. Down-sampling shows the loss falls by effect size
-and hence by locus class: at half power known-locus genes recover 85.8% against
-22.8%, of which 68–80% is reproduced using full-power |z| alone. Of 28 glycolytic
-genes, 3 are instrumentable, 2 analysable against this outcome and 1 yields a
-nominal association; that gene is 6.7-fold higher in malignant cells than in CD4⁺
-T cells, so bulk tissue cannot validate a CD4-specific mechanism. In a random
-30% subsample of 152 comparable studies, no paper reported the locus-attribution
-check.
+outcome: 4.09-fold by independent locus. It recurs across five nested power levels, where no
+novel-locus gene reaches significance at any case number; in a second disease;
+outside cancer in rheumatoid arthritis (3.46-fold, P = 1.7×10⁻⁵); and when the
+exposure is replaced by a whole-blood eQTL dataset 300-fold larger (4.44-fold,
+P = 3.7×10⁻¹¹). All six cells of three diseases by two resources enrich,
+four significantly, against a mismatched-locus control that does not. Naming the
+gene at a significant locus then fails separately. Of 291 records that colocalisation assigned to distinct causal variants, SMR/HEIDI
+failed to reject homogeneity for 253, so tiers accepting MR plus SMR alone would
+have reported MC1R linkage spillover as CD4-mediated targets. At ten melanoma loci
+with a generally accepted causal gene, our pipeline names it at six and fails at
+four; at MC1R it spans sixteen genes without naming MC1R. Replacing the
+outcome with a higher-powered, compositionally different meta-analysis increased
+MR discoveries, lowered colocalisation support and replaced the candidate list
+entirely: two lists from identical exposure data share no genes. Recovery under
+down-sampling falls by effect size and hence by locus class — at half power
+known-locus genes recover 85.8% against 22.8%, 68–80% of that gap following from
+|z| alone. Of 28 glycolytic genes, 3 are instrumentable, 2 analysable and 1
+nominally associated. In a two-coder subsample of 152 comparable studies, no
+paper reported the locus-attribution check.
 
-**Conclusions.** In this analysis, and within the power range we could observe,
-the reproducible part of a candidate list produced by this framework was the part
-that did not constitute a discovery. **Which loci a nomination lands on is set by
-the outcome GWAS; how many instruments exist to be tested is set by the exposure
-resource.** What survives both is a statement about the state in which a pathway's
-regulation can be measured precisely enough to yield an instrument at all, and
-eight inexpensive checks follow directly.
+**Conclusions.** Within the power range we could observe, the reproducible part
+of a candidate list produced by this framework was the part that did not
+constitute a discovery. **Which loci a nomination lands on tracks the outcome
+GWAS; how many instruments exist tracks the exposure resource** — the second
+naming a resource, not a sample size. What survives is a statement about the
+state in which a pathway's regulation can be measured precisely enough to
+instrument at all. Eight inexpensive checks follow.
 
 **Keywords** Mendelian randomization · context-specific eQTL · target nomination ·
 colocalisation · statistical power · reproducibility · compartment attribution ·
@@ -68,7 +55,7 @@ attractive route to target nomination: genotype is fixed before disease, cis-eQT
 effects carry a directional prior, and the exposure is measured in the cell type
 through which the effect is proposed to act. Several recent studies apply exactly
 this design — activation-time-course CD4⁺ T cell eQTLs as instruments, cancer
-GWAS as outcomes — and report novel immune targets on that basis.
+GWAS as outcomes — and report novel immune targets on that basis [1–3].
 
 The inference passes through more joints than its summary statistics reveal.
 Because the instrument is usually a single variant, the P value is supplied
@@ -218,30 +205,6 @@ matched-background version agrees (4.14–4.48-fold, empirical P = 10⁻⁴). Th
 resources' novel nominations intersect in exactly one gene, ZFYVE19, so the
 stronger claim that novel nominations never reproduce is not supported.
 
-**Both axes crossed.** Scoring every disease-by-resource combination against its
-own disease's known loci, all six enrich: 4.09 and 4.44 for melanoma, 8.85 and
-5.11 for HCC-high, 17.6 and 8.67 for HCC-low. Three of six reach P < 0.05, on
-numerators as small as one of two loci, so this is consistency of direction rather
-than six independent significant tests. A pre-registered mismatched-locus control
-makes it interpretable: scoring the same combinations against the wrong disease's
-list collapses the enrichment — HCC's list on melanoma gives 1.30-fold (P = 0.41),
-melanoma's list on HCC gives 0.00-fold (P = 1.0) — so the effect is specific to
-each outcome's own genetics. A mismatched list is a narrower control than it
-looks — it rules out enrichment on loci indiscriminately dense across diseases,
-not a density that is itself disease-specific — so two permutations close the gap
-from different sides. Matching on eQTL-p decile and allele-frequency quintile
-controls instrument strength and frequency (4.36-fold, empirical P = 0.023).
-Matching on **density**, pre-registered before it was run (Supplementary S30),
-gives **3.44-fold (P = 0.041)** for melanoma, 11.98-fold (P = 0.005) for HCC-low
-and 4.13-fold (P = 0.23) for HCC-high, with a second density proxy returning
-3.50-fold. The attenuation is part of the result: density matching drops melanoma
-from 4.09- to 3.44-fold, because the significant loci genuinely are denser — three
-of seven carry six to eight genes against a background median of one. Density
-explains part of the enrichment and not all of it, and 3.44 is the conservative
-figure, not to be read back up. HCC-high's shortfall here is the same power limit
-that left it at P = 0.110 before density was controlled.
-
-One observation from the grid places this work against the complementary
 **Outside cancer, where the exposure cell type is part of the causal
 compartment.** In neither melanoma nor HCC is the CD4⁺ T cell an accepted causal
 cell type, so the attribution finding could be what happens when the exposure
@@ -269,7 +232,41 @@ supported statement is narrow: enrichment on known outcome loci is neither
 confined to cancer nor dependent on an exposure cell type unrelated to the
 disease, but one autoimmune outcome does not establish generality across diseases.
 
-Swapping in the eQTLGen resource multiplied significant loci in
+**Both axes crossed.** The main grid is the three diseases at their higher-powered
+outcome crossed with the two exposure resources — six cells — with the
+lower-powered HCC outcome held back as a power sensitivity, since the two HCC
+levels are drawn from one resource and are not independent (Supplementary S20 §9).
+Scoring every cell against its own disease's known loci, all six enrich: 4.09 and
+4.44 for melanoma, 8.85 and 5.11 for HCC-high, 3.46 and 3.57 for RA. **Four of the
+six reach P < 0.05**, and the two that do not are the same cell — HCC at its
+higher power, P = 0.110 and P = 0.051 — on numerators as small as one of two loci,
+so this is consistency of direction rather than six independent significant tests.
+The lower-powered HCC outcome enriches on both resources as well (17.6-fold,
+P = 0.0031, and 8.67-fold, P = 0.017), which is the sensitivity and not a seventh
+and eighth independent cell. A pre-registered mismatched-locus control
+makes it interpretable: scoring the same combinations against the wrong disease's
+list collapses the enrichment — HCC's list on melanoma gives 1.30-fold (P = 0.41),
+melanoma's list on HCC gives 0.00-fold (P = 1.0) — so the effect is specific to
+each outcome's own genetics. A mismatched list is a narrower control than it
+looks — it rules out enrichment on loci indiscriminately dense across diseases,
+not a density that is itself disease-specific — so two permutations close the gap
+from different sides. Matching on eQTL-p decile and allele-frequency quintile
+controls instrument strength and frequency (4.36-fold, empirical P = 0.023).
+Matching on **density**, pre-registered before it was run (Supplementary S30),
+gives **3.44-fold (P = 0.041)** for melanoma, 11.98-fold (P = 0.005) for HCC-low
+and 4.13-fold (P = 0.23) for HCC-high, with a second density proxy returning
+3.50-fold. The attenuation is part of the result: density matching drops melanoma
+from 4.09- to 3.44-fold, because the significant loci genuinely are denser — three
+of seven carry six to eight genes against a background median of one. Density
+accounts for part of the enrichment and not all of it, and 3.44 is the
+conservative figure, not to be read back up. HCC-high's shortfall here is the
+same power limit that left it at P = 0.110 before density was controlled. Both
+permutation controls were run on the melanoma and HCC cells only, before RA was
+added: the two RA cells rest on the mismatched-list control alone, which is the
+weaker of the two and, in RA, the less clean one.
+
+One observation from the grid places this work against the complementary
+literature. Swapping in the eQTLGen resource multiplied significant loci in
 melanoma (7 → 30) but not in HCC (2 → 5 and 2 → 3), suggesting that **the exposure
 resource sets how many instruments exist while outcome power sets how many of
 them can reach significance.** The swap is not a clean manipulation of exposure
@@ -280,7 +277,7 @@ hardly at all, and the outcome is the only thing differing between those arms �
 so the outcome-side half of that statement is supported while the exposure-side
 half names a resource rather than a sample size. Rosen et al. have shown that raising *eQTL* sample
 size uncovers additional independent regulatory signals and closes part of the
-gap between eQTL and GWAS colocalisation [37]. Our design asks the mirror
+gap between eQTL and GWAS colocalisation [42]. Our design asks the mirror
 question — with the exposure held fixed, does a *higher-powered outcome* make
 target nomination more reliable? — and the answer here is that it does not: the
 meta-analysis produced more MR discoveries, lower colocalisation support, and a
@@ -291,10 +288,12 @@ there the significant list is stable rather than replaced. The two axes are not
 interchangeable, and a study underpowered on one cannot be rescued by the other.
 Reporting which axis a claim rests on should be routine.
 
-### More outcome power moves the two methods in opposite directions
+### MR and colocalisation moved in opposite directions when the outcome was replaced
 
-Meta-analysis raised MR discoveries from 10 to 21 records while *lowering*
-colocalisation support: across the 127 exposures run in both rounds, median
+Replacing the FinnGen outcome with the meta-analysis changed outcome power and
+study composition together, so what follows is an observation about that
+replacement and not a measurement of power. Meta-analysis raised MR discoveries
+from 10 to 21 records while *lowering* colocalisation support: across the 127 exposures run in both rounds, median
 PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 44.1% improving. Three explanations were tested and rejected, including
 winner's-curse selection, for which newly entering candidates had *lower*
@@ -391,12 +390,18 @@ HERC2P9 rather than HERC2. At *TYR* it names ODF3, and at the CDKN2A/MTAP locus
 C9orf66. Where it succeeds it often does so cleanly: IRF4 and MX2 are each named
 alone and correctly.
 
-This is the co-regulation problem of Tambets et al. [36] observed at the top of
-the effect-size distribution, and it bounds the whole design: a framework that
-misassigns the gene at the best-characterised locus in its own disease should not
-be read as assigning genes at uncharacterised ones. It is also why we report
-compartment attribution separately from gene attribution — the two fail
-independently.
+Two limits bound how far this can be pushed. The accepted-gene list is one we
+assembled ourselves — fixed before the comparison was run, but **not
+pre-registered** — and ten loci is a small denominator, so **six of ten is an
+illustration and not an error rate**. What the check does establish is
+directional and does not need precision: a framework that misassigns the gene at
+the best-characterised locus in its own disease should not be read as assigning
+genes at uncharacterised ones. An independent, blinded, pre-defined benchmark
+would be needed to turn this into a rate.
+
+This is the co-regulation problem of Tambets et al. [41] observed at the top of
+the effect-size distribution, and it is why we report compartment attribution
+separately from gene attribution — the two fail independently.
 
 ### Which unit the significance belongs to
 
@@ -460,78 +465,71 @@ baseline enzyme, PGAM1, is among the 25 that carry no instrument at all.
 
 For the one instrumented gene, TPI1, a usable instrument exists at 16 h and at no
 other timepoint. The effect estimate is largest at rest and simply far noisier
-there, so the window is a statement about precision rather than amplitude
-(Fig. 6a,b). The published genotype × pseudotime interaction test settles the
-question directly: **none of the three TPI1 lead variants shows an interaction** —
-in memory cells, linear P = 0.974 and quadratic P = 0.992; in naive cells, 0.707
-and 0.891 for the variant 1,063 bp from our instrument, and 0.378 and 0.605 for
-the other — while the gene's *expression* is among the most strongly
-pseudotime-dependent in the dataset (Moran's I = 0.664).
+there, so the window is a statement about precision, not about amplitude
+(Fig. 6a,b). The published genotype × pseudotime interaction test [8] settles what
+that window is not: **none of the three TPI1 lead variants shows an
+interaction** — memory cells, linear P = 0.974 and quadratic P = 0.992; naive
+cells, 0.707 and 0.891 for the variant 1,063 bp from our instrument, 0.378 and
+0.605 for the other — while the gene's *expression* is among the most strongly
+pseudotime-dependent in the dataset (Moran's I = 0.664). Three things are
+separable, and the interaction test tells them apart: dynamic expression (yes,
+strongly), time-specific eQTL significance (yes, at 16 h only) and dynamic
+genetic effect (no evidence, in any of three tests). The design consequence holds
+regardless: a study using a resting-state resource would find nothing here and
+could not distinguish that from a true null.
 
-Three things are separable here, and the interaction test tells them apart:
-dynamic expression (yes, strongly), time-specific eQTL significance (yes,
-genome-wide significant at 16 h only), and dynamic genetic effect (no evidence, in
-any of three tests). The design consequence holds regardless: a study using a
-resting-state resource would find nothing here and could not distinguish that
-from a true null.
-
-### The programme the instrumented gene belongs to is a definable cell state
+### What the instrumented gene marks
 
 Because MR names one gene of a pathway, we asked what that gene marks. In
 purified CD4⁺ T cell multiome data, residualising expression on activation
 intensity leaves an axis enriched 21.3-fold for glycolysis and 10.3-fold for
 ribosomal proteins, while **none of the eleven biological modules tested exceeds
-a composition-matched null**, so the axis is a definable anabolic state rather
-than a restatement of activation strength; its chromatin signature is concordant,
-with AP-1 motif enrichment that persists in activation-invariant peaks (Fig. 7).
+a composition-matched null** — a definable anabolic state rather than a
+restatement of activation strength, with a concordant chromatin signature whose
+AP-1 motif enrichment persists in activation-invariant peaks (Fig. 7).
 
-As first built, that analysis was circular with respect to TPI1: the residual
-score defining the axis contained TPI1, and TPI1 was one of the genes generating
-the enrichment. Rebuilding it with TPI1 removed from both, everything else held
-fixed, leaves the enrichment essentially unmoved (**21.0-fold on 14 genes against
-21.3 on 15**) and makes TPI1 a held-out test — on an axis derived without it,
-**TPI1 ranks 19th of 7,653 detected genes, top 0.25%, positive in all four
-sets**. Membership is a property of the gene, not of the construction. The same
-ranking restates the instrument-visibility point from the other side: **PGAM1
-ranks 8th, above TPI1**, with LDHA, GAPDH, PKM and ENO1 also at or above it — the
-enzymes MR cannot instrument sit as high on the axis as the one it can.
+As first built the analysis was circular with respect to TPI1, which entered both
+the defining score and the enrichment family. Rebuilt without it, everything else
+held fixed, the enrichment is essentially unmoved (**21.0-fold on 14 genes
+against 21.3 on 15**) and TPI1 becomes a held-out test: on an axis derived
+without it, **TPI1 ranks 19th of 7,653 detected genes**, positive in all four
+sets. Pre-registered replication in a second dataset (Supplementary S32) —
+DOGMA-seq from a different study and platform, where CD4 is called by surface
+antibody rather than by transcript, the calling that finding ⑦ shows to be
+unreliable — places it **18th of 8,224 and 28th of 7,165** in two arms, with
+glycolysis enriched 27.4- and 23.9-fold. Those two arms are two lysis buffers on
+one batch of material, so this replicates across study, platform and lineage
+calling and **not across donors**.
 
-Both repeat in a second dataset, pre-registered before the run (Supplementary
-S32). GSE166188 is DOGMA-seq from a different study, where CD4 is called by
-surface antibody rather than by transcript — the calling that finding ⑦ shows to
-be unreliable. The same TPI1-free construction places **TPI1 at rank 18 of 8,224
-and 28 of 7,165 in its two arms, top 0.22% and 0.39%** against 0.25% in
-discovery, with glycolysis enriched 27.4- and 23.9-fold, and **PGAM1 3rd in both
-arms**, again above TPI1. ⚠ The two arms are two lysis buffers on the same
-material — technical replicates, not two donors — so this replicates across
-study, platform and lineage calling and **not across donors**.
-
-This characterises what the nominated gene co-varies with and not that its
-variant causes the state — a separate test of that, whether the instrument
-disrupts an AP-1 motif, returned an empirical P = 1.0.
+The same ranking restates the instrument-visibility point from the other side:
+**PGAM1 ranks 8th, above TPI1**, and 3rd in both replication arms, with LDHA,
+GAPDH, PKM and ENO1 at or above it — the enzymes MR cannot instrument sit as high
+on the axis as the one it can. All of this characterises what the nominated gene
+co-varies with, not that its variant causes the state; a direct test of the
+latter, whether the instrument disrupts an AP-1 motif, returned an empirical
+P = 1.0.
 
 ### Where the effect is, when MR cannot say
 
 In melanoma single-cell data with all cell types annotated, TPI1 is far higher in
 malignant cells than in CD4⁺ T cells: +2.75 log₂ units (≈6.7-fold) in 16 of 16
-patients (P = 3×10⁻⁵), detected in 95.3% of malignant cells versus 60.6% of CD4⁺
+patients (P = 3×10⁻⁵), detected in 95.3% of malignant cells against 60.6% of CD4⁺
 T cells. The difference survives cell-level matching on sequencing depth (+2.03,
-10 of 11 patients) and replicates in an independent cohort (+1.28, 11 of 11,
-P = 1×10⁻³), with pre-specified positive controls passing in both, and is
-concordant in direction in a third cohort. The same holds for the locked
-glycolytic signature with and without TPI1 (Fig. 8).
+10 of 11 patients), replicates in an independent cohort (+1.28, 11 of 11,
+P = 1×10⁻³) with pre-specified positive controls passing in both, and is
+concordant in direction in a third. The same holds for the locked glycolytic
+signature with and without TPI1 (Fig. 8).
 
 The arithmetic consequence is what matters. With those ratios and the cell-type
 proportions typical of melanoma tissue, CD4⁺ T cells contribute on the order of
-one to two per cent of the tissue-level TPI1 signal. **Bulk-tissue TPI1 abundance
-is dominated by the malignant compartment and therefore cannot validate a
-CD4-specific mechanism**, whatever its P value. The looser claim — that a
-tissue-level measurement simply is a measurement of tumour glycolysis — would
-overstate it: bulk TPI1 can still covary with outcome through immune
-infiltration, tumour purity or a metabolic state shared across compartments. What
-the ratio establishes is that such an association cannot be *attributed* to CD4⁺
-T cells, not that it is spurious. That bounds what bulk validation of such a
-nomination can establish, and the check costs minutes.
+one to two per cent of the tissue-level TPI1 signal, so **bulk-tissue TPI1
+abundance is dominated by the malignant compartment and cannot validate a
+CD4-specific mechanism**, whatever its P value. The looser claim — that such a
+measurement simply *is* a measurement of tumour glycolysis — would overstate it:
+bulk TPI1 can still covary with outcome through immune infiltration, tumour
+purity or a metabolic state shared across compartments. What the ratio
+establishes is that such an association cannot be *attributed* to CD4⁺ T cells,
+not that it is spurious — and the check costs minutes.
 
 ### The functional layer has its own failure modes
 
@@ -539,8 +537,8 @@ Splitting cells by a score also splits them by lineage purity. When cells were
 divided by glycolytic score, apparent differences in helper and regulatory
 phenotype collapsed after matching on lineage composition at the cell level, and
 14 of 28 module comparisons were concordant — exactly chance. A cluster-level
-control passed while the cell-level control failed, so the level at which a
-purity control is applied determines whether it works. Two processing errors of
+control passed while the cell-level control failed, so whether a purity control
+works can depend on the level at which it is applied. Two processing errors of
 our own, detected by these controls, are described in Supplementary S12; they are
 instances of the same failure mode.
 
@@ -607,10 +605,12 @@ audit measures reporting, not practice.
 Everything in this framework that depends on the outcome GWAS proved unstable, and
 the instability has a specific shape: signal lands on loci the outcome already
 knows about, the novel part of the list turns over completely between outcomes,
-and more power moves MR and colocalisation in opposite directions. The pattern
+and replacing the outcome with a larger and compositionally different
+meta-analysis moved MR and colocalisation in opposite directions. The pattern
 held when we changed the disease, when we changed the exposure resource by two
-orders of magnitude, and across all six combinations of the two — against a
-mismatched-locus control that showed nothing. What did not depend on the outcome
+orders of magnitude, and in all six cells of the two crossed — three diseases by
+two resources, four of them individually significant — against a mismatched-locus
+control that showed nothing. What did not depend on the outcome
 was a smaller and more durable statement: in which cell state a pathway's
 regulation can be measured precisely enough to yield an instrument at all.
 
@@ -640,9 +640,13 @@ colocalisation method the final arbiter: ours permits at most one causal variant
 per region, and our attempt to go beyond that assumption over-split MC1R relative
 to in-sample fine-mapping, so it could constrain one locus in one direction only.
 
-**(iii) Do not expect more outcome power to resolve the disagreement.** It moves
-MR and colocalisation in opposite directions, because one depends on a single
-variant's z and the other on the shape of the regional signal.
+**(iii) Do not assume that more outcome power will resolve the disagreement.** In
+the one comparison available here the two moved in opposite directions, but that
+outcome differed from its predecessor in study composition as well as power, so
+the divergence is not attributable to power alone. The two quantities are
+sensitive to different things by construction — one to a single variant's z, the
+other to the shape of the regional signal — which is reason enough not to treat a
+larger outcome GWAS as the remedy for their disagreement.
 
 **(iv) Report the physical distance between GWAS and eQTL peaks alongside
 posteriors, and test whether posterior movement survives explicit modelling of
@@ -652,8 +656,10 @@ exists at either power, so those regions cannot adjudicate it.
 
 **(v) Compute the nominated gene's cell-type expression ratio in an annotated
 atlas before citing tissue-level data as validation.** This costs minutes, and
-here it shows that tissue-level measurements of the nominated gene are
-measurements of tumour.
+here it shows that a tissue-level measurement of the nominated gene is dominated
+by the malignant compartment and therefore cannot be attributed to CD4⁺ T cells —
+which is a bound on what such a measurement can establish, not a claim that the
+association is spurious.
 
 **(vi) Report instrument availability at each of the three levels it passes
 through — instrumentable in the exposure resource, analysable against this
@@ -677,7 +683,7 @@ should be recorded before the result is seen.
 
 The worked example should be read in that light, and is best stated as a ladder
 rather than a verdict — the same layered reporting Howe et al. use when a cellular
-model proves only partly transportable [38]:
+model proves only partly transportable [43]:
 
 | Claim about TPI1 | Status here |
 |---|---|
@@ -687,41 +693,47 @@ model proves only partly transportable [38]:
 | Membership of a definable CD4⁺ metabolic state | **Supported** — ranks 19th of 7,653 on an axis built without it, and 18th and 28th in a second dataset with protein-based lineage calling; axis enrichment 21.0–27.4-fold |
 | Predicts checkpoint-blockade response | **Unstable** — significant on discovery, no arm confirmed twice |
 | Functional consequence isolable by perturbation | **No** — a hit in 628 of 1,471 human CRISPR screens (42.7%), a core-essential profile that cannot isolate a CD4-specific role |
-| Recognised as a target for this disease elsewhere | **No** — in Open Targets, TPI1's strongest disease associations are triosephosphate isomerase deficiency and neurodegenerative disease; melanoma is not among its leading associations |
+| Recognised as a target for this disease elsewhere | **No** — in Open Targets [35], TPI1's strongest disease associations are triosephosphate isomerase deficiency and neurodegenerative disease; melanoma is not among its leading associations |
 
 Stated flatly: TPI1 is a nominal, prior-sensitive candidate selected by a
-multi-layer conjunction: MR P = 1.4×10⁻³
-but FDR = 0.119, PP.H4 = 0.51 passing in 8 of 16 window-and-prior combinations, in
-a region the outcome GWAS cannot fine-map, with gene attribution at chr12p13
-unresolved by genetics. Calling it the gene MR named is accurate; calling it a
-discovery is not. Its value is as a demonstration that instrument availability and
-biological importance are separable — the strongest enzyme in the functional data
-carries no instrument, and the gene that does carry one is principally expressed
-by tumour. The complete record of which claims about it were raised, tested and
-withdrawn, together with the selection denominators at gene, pathway and mechanism
-level and the twelve pre-registration documents, is Supplementary S12 and S18–S33.
+multi-layer conjunction — MR P = 1.4×10⁻³ but FDR = 0.119, PP.H4 = 0.51 passing
+in 8 of 16 window-and-prior combinations, in a region the outcome GWAS cannot
+fine-map, with gene attribution at chr12p13 unresolved by genetics. **What MR
+supplies here is a genetically tractable entry point into a pathway, and the
+audit establishes that the gene marks an expression state — not that the state is
+genetically driven, and not that the gene is a target.** Its value is as a
+demonstration that instrument availability and biological importance are
+separable: the strongest enzyme in the functional data carries no instrument, and
+the gene that does carry one is principally expressed by tumour. The complete
+record of which claims about it were raised, tested and withdrawn, together with
+the selection denominators at gene, pathway and mechanism level and the twelve
+pre-registration documents, is Supplementary S12 and S18–S33.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
 cis analyses must be tailored to local biology, that an expression biomarker is
 not an intervention, that co-regulation of neighbouring genes can act as
-horizontal pleiotropy, and that MR is one strand of triangulation [39,40]. Tambets
+horizontal pleiotropy, and that MR is one strand of triangulation [44,45]. Tambets
 et al. showed with approximate ground truth that neighbouring-gene co-regulation
 routinely produces colocalisation evidence for several genes at once, so eQTL
 data suit candidate *generation* and evidence *composition* better than gene
-*attribution* [36]; our MC1R region is the same phenomenon at higher effect size,
+*attribution* [41]; our MC1R region is the same phenomenon at higher effect size,
 and TPI1 at chr12p13 is the same problem unresolved. Reales et al., auditing over
 a million colocalisation tests across immune diseases and cell types, likewise
 found that gene assignment shifts with platform coverage, cell context and
-resource size [35]. What we add is specific to the nomination step and to the
+resource size [40]. What we add is specific to the nomination step and to the
 outcome side: locus attribution against the outcome's own known loci, sensitivity
 to the outcome release, candidate-list stability, layered instrument visibility,
 and cell-compartment attribution.
 
-**Limitations.** The grid covers three diseases and two exposure resources, and the
-two HCC power levels are drawn from one resource, so it shows the pattern is not
-peculiar to melanoma or to one small eQTL dataset — not that it holds for any
-disease or any resource; three of its six cells do not reach P < 0.05. The
+**Limitations.** The grid covers three diseases and two exposure resources, and
+the second HCC power level is drawn from the same resource as the first, so it
+shows the pattern is not peculiar to melanoma or to one small eQTL dataset — not
+that it holds for any disease or any resource; two of its six cells do not reach
+P < 0.05, both of them HCC at its higher power, and the two RA cells were added
+after the permutation controls were run and so carry only the mismatched-list
+control. Three diseases is also not a sample from which generality can be
+estimated: they were chosen for the contrasts they provide, not at random. The
 power-recovery curves rest on reference lists of four and six genes and compare
 against a full-power list that is itself unstable, so they measure agreement
 between two imperfect lists rather than recovery of truth, and are not
@@ -749,21 +761,333 @@ changed what this analysis reported at nearly every stage.
 
 Fig. 1 Locus attribution under both outcomes, by independent locus ·
 Fig. 2 Generality: five nested releases, the transfer test, the second disease,
-the second exposure resource, and the crossed grid with its mismatched-locus
-control · Fig. 3 Power and list stability by locus class, and the same stratification
-against full-power |z| · Fig. 4 Colocalisation versus SMR/HEIDI, with in-sample
-fine-mapping · Fig. 5 Instrument availability across the pathway at
-three levels · Fig. 6 Self-administered attribution check at loci with an
-accepted causal gene · Fig. 7 The CD4⁺ metabolic axis and its chromatin
-signature · Fig. 8 Compartment attribution · Fig. 9 Patients across three
-cohorts.
+the non-cancer outcome, the second exposure resource, and the crossed grid with
+its mismatched-locus control · Fig. 3 Power and list stability by locus class, and
+the same stratification against full-power |z| · Fig. 4 Colocalisation versus
+SMR/HEIDI, with in-sample fine-mapping · Fig. 5 Instrument availability across the
+pathway at three levels · Fig. 6 The activation window in which TPI1 is
+instrumentable: effect size against precision across the eight profiles ·
+Fig. 7 The CD4⁺ metabolic axis and its chromatin signature ·
+Fig. 8 Compartment attribution · Fig. 9 Patients across three cohorts.
 
-⚠ Figure numbering here is this version's own and follows its reading order; it
-does not match the numbering in the full reference document.
+Figure numbering follows this version's reading order and is independent of the
+numbering used in the full reference document. The self-administered attribution
+check is reported in the text and tabulated in Supplementary S27; it carries no
+main figure.
 
 ## Methods
 
-Full Methods accompany this manuscript.
+### Exposure data
+
+Cis-eQTL summary statistics came from a published activation time-course of
+primary human CD4⁺ T cells [4], comprising eight profiles — naive and memory
+cells at 0 h, 16 h, 40 h and 5 d — from 85–100 donors each (naive 99/99/89/85;
+memory 100/95/89/90). Per-profile sample sizes were recovered from
+`ma_count/(2·MAF)` and were internally consistent for 100% of variants in all
+eight profiles. Expression had been inverse-normal transformed, so exposure units
+are standard deviations. Coordinates are GRCh38 and were used as distributed; no
+liftover was performed. The second exposure resource was the eQTLGen Consortium
+whole-blood cis-eQTL release (n = 31,684) [21].
+
+### Outcome GWAS
+
+The primary outcome was a fixed-effect inverse-variance meta-analysis of FinnGen
+R12 `C3_MELANOMA_SKIN_EXALLC` (5,753 cases / 378,749 controls; the OpenGWAS
+`finn-b-` snapshot was not used, being an R5 extract with 98 cases) and Rashkin
+et al. (GCST90011809, 6,777 cases) [5,6], totalling 12,530 cases and 789,099
+controls (N = 801,629, case fraction 0.015631). Rashkin reports odds ratios and P
+values without standard errors, so standard errors were reconstructed as
+se = |log OR|/|Φ⁻¹(P/2)|. For a two-study meta-analysis Cochran's Q has one
+degree of freedom, so the upper tail is erfc(√(Q/2)); the exp(−Q/2) form used
+initially gave a significant-Q rate of 1.59% against 5.33% for the correct form.
+1,740 variants underflowed to P = 0, for which log-space `mlogp` was computed and
+P floored at 10⁻³⁰⁰. Landi et al. (GCST010304) supplied only 76 loci and was used
+solely as the known-locus reference [7]. Further outcomes were FinnGen R12 lung,
+colorectal, pancreatic, breast and prostate cancer; FinnGen R12
+`C3_HEPATOCELLU_CARC_EXALLC` (947 cases) [22] and GCST90809296, the European arm of an
+eleven-cohort hepatocellular meta-analysis (3,748 cases / 1,861,536 controls)
+[20]; and FinnGen R13 `M13_RHEUMA` (16,775 cases / 308,847 controls). Effective
+sample sizes, 4/(1/N_case + 1/N_control), are 49,337 for the melanoma meta,
+14,962 and 3,779 for the two hepatocellular levels, and 63,643 for rheumatoid
+arthritis.
+
+### Instrument selection, harmonisation and MR
+
+Instruments were the top cis-eQTL per gene × profile at P < 5×10⁻⁸, matched to
+the outcome by chr:pos with allele consistency; 26 variants were discarded for
+ambiguous indel representation. The strict set is 3,556 records over 2,141 unique
+variants for the meta round. The minimum F statistic was 22.2, so the F > 10
+filter was never binding. Each exposure carries one instrument, so the primary
+estimator is the Wald ratio with first-order delta-method standard errors. The
+analytic consequence is stated because it constrains interpretation: with
+b = β_out/β_exp and SE = se_out/|β_exp|, the statistic z = β_out/se_out does not
+involve the exposure, so a variant returns the same P value in every profile in
+which it is the lead eQTL. Profile specificity is therefore reported as the
+profile containing the instrument, never as a difference in P value.
+
+A relaxed set (F ≥ 5, P < 0.05, LD-clumped with PLINK 2 at
+`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
+samples [23,28]) supported IVW, multiplicative-random-effects IVW and weighted
+median sensitivity analyses [27]. Weighted mode was evaluated and excluded: at a
+median of four instruments per exposure it returned 1 significant result of 226
+testable exposures. Because clumping at r² < 0.1 retains correlation while IVW
+assumes independence, IVW significance is inflated (157 exposures at FDR < 0.05
+against 21 in the strict set), so sensitivity results are reported as concordance
+between IVW and weighted median rather than as independent discovery. Multiple
+testing used Benjamini–Hochberg FDR within each analysis family, the family fixed
+before the analysis ran. Steiger filtering used the recovered per-profile sample
+sizes, SD exposure units, log-odds outcome units and outcome prevalence 0.014962;
+all records had the correct direction. TwoSampleMR's R² formula for SD units is
+unbounded and produced values above 1 (maximum 1.027), so the bounded form
+R² = F/(F + N − 2) (range 0.185–0.933) is additionally reported.
+
+**Unit of inference.** The testing family is gene × profile records, and the
+record level is primary throughout, because it reproduces the pipeline under
+audit: the registered down-sampling predictions, the release trajectory, both
+generalisations and the grid were computed on it. Records are not independent —
+3,556 carry 2,126 unique variants and 1,195 unique genes — so the list was
+recomputed under seven alternatives as a sensitivity analysis: variant, gene and
+independent locus (1 Mb single-linkage), each collapsed by minimum-p and by Simes
+combination, plus a two-stage hierarchical procedure selecting genes by Simes and
+then records within selected genes. All seven return a superset of the
+record-level gene list. The audit's own conclusions are stated in independent
+loci.
+
+### Colocalisation, SMR and HEIDI
+
+Colocalisation used `coloc.abf` with default priors over the full cis window
+[24], the eQTL as a quantitative trait and the disease as case-control, matching
+on a chr:pos:alleles key. The published criterion PP.H4/(PP.H3+PP.H4) > 0.7 is
+too permissive here, since the ratio can rest on two vanishingly small
+posteriors, so PP.H3+PP.H4 > 0.5 was additionally required. Every result carries
+two diagnostics: the number of variants in the region, and the physical distance
+between the GWAS and eQTL peaks. Sensitivity across four windows (±100 kb to the
+full cis region) and four values of the shared-causal-variant prior (p₁₂ from
+10⁻⁶ to 5×10⁻⁵) is reported for every locus. Because `coloc.abf` permits at most
+one causal variant per trait per region, the assumption was tested on the outcome
+side using FinnGen's published in-sample SuSiE fine-mapping and `susie_rss` run
+on 1 Mb windows with a proxy LD matrix from the same 525-sample panel [23,25], with
+`estimate_s_rss` as a mismatch diagnostic. The eQTL side was not fine-mapped: at
+85–100 donors without in-sample LD, SuSiE is not reliable there, and this is a
+stated boundary. Our proxy-LD procedure recovers 19 credible sets at MC1R against
+3 from in-sample fine-mapping, so its counts are read in one direction only —
+exactly one credible set is conservative evidence of a single signal, several is
+not evidence of multiple signals.
+
+SMR v1.3.1 [26] was run against the same reference panel (94,979 within-cis
+variants) with GWAS statistics trimmed to cis windows and de-duplicated for
+multi-allelic sites. The `--diff-freq` QC removed 0.45% of variants at the
+default threshold, which was not relaxed. The number of variants entering each
+HEIDI test is reported with the result, as HEIDI's power depends on it (range
+8–20 here).
+
+### Locus annotation and enrichment
+
+The melanoma reference set was the union of lead variants from the three Landi
+et al. 2020 GWAS [7] retrieved from the GWAS Catalog REST API [34] and mapped to
+GRCh38: 157 loci. Hepatocellular loci were lead variants for EFO_0000182 and
+liver cancer at P < 5×10⁻⁸ together with those tabulated in the outcome
+publication — 83 rsIDs, 73 placeable on GRCh38. The rheumatoid arthritis
+reference was the 87 lead rsIDs of Okada et al. 2014 (GCST002318), published
+before FinnGen existed and from cohorts that exclude it; 83 were placeable.
+Independent loci are 1 Mb single-linkage clusters of instrument positions within
+a chromosome, and a locus counts as known if any of its instruments lies within
+1 Mb of a reference lead. Enrichment among FDR-significant loci was tested
+one-sided by Fisher's exact test against the background proportion over all
+instrument loci. Every reference list was built and written to disk before the
+MR step it scores was run.
+
+Three controls bound this test. A **mismatched-list** control scores each
+disease's significant loci against another disease's reference. A **strength-and-
+frequency** permutation matches significant to background loci on eQTL-p decile
+crossed with outcome allele-frequency quintile, with 10,000 stratified resamples
+and a one-sided empirical P. A **density** permutation, pre-registered with its
+reading table before it was run (Supplementary S30), stratifies on within-locus
+MR-record quintile crossed with unique-gene tertile, drawing without replacement
+from the same stratum over 10,000 replicates; a second version substitutes
+physical span crossed with gene count. Stratum-relaxation events are counted and
+reported. Both permutations were run on the melanoma and hepatocellular cells
+before the rheumatoid arthritis cells existed, which therefore carry the
+mismatched-list control only.
+
+**Circularity of the hepatocellular reference.** Ten of its 73 loci came from the
+higher-powered outcome publication's own table. Provenance was resolved through
+the Catalog REST API by retrieving that study's reported associations and
+querying each locus for the number of other studies reporting it: seven have
+substantial independent support and three rest on that publication alone.
+Attribution was recomputed against the published list, the list without those
+three (primary), and the list without all ten as an over-corrected bound. Note
+that removing known loci shrinks the background and can only raise the
+enrichment, so the over-corrected version is not a stricter test.
+
+### Power trajectory, transfer test and down-sampling
+
+Five FinnGen releases carrying an identical melanoma endpoint (R8–R12) were
+analysed with exposure data, instrument set, allele orientation, harmonisation,
+estimator, testing family and locus-merging rule held fixed, so the systematic
+difference between runs is case number. The primary analysis was restricted to
+variants present in every release. Predictions were generated by down-sampling
+R12 over 2,000 replicates and registered before any earlier release was examined.
+Because releases are nested, agreement between them exceeds that expected between
+independent studies of equal size, so the design is conservative with respect to
+instability.
+
+R13 replaced `C3_MELANOMA_SKIN_EXALLC` with `C3_MELANOMA_SKIN_WIDE` (6,226
+cases). Endpoint definitions were compared code by code in Risteys rather than
+read from the release manifest, whose one-line description ("including Hilmo")
+had led us to the wrong conclusion at first: the two endpoints select cases with
+the same codes and differ in the rule excluding cancers from the controls. R13
+was therefore excluded from the trajectory, whose comparability gate requires
+verbatim-identical endpoints, and analysed as a transfer test with everything but
+the outcome file held fixed. Three process controls were required before any R13
+number was interpreted: exact reproduction of the R12 candidate list through the
+new code path, presence of the large-effect MC1R-region genes, and instrument
+coverage of at least 95% of the R12 set.
+
+Power was reduced in summary space, individual-level data being unavailable: for
+a target effective size, se_sim = se_obs·√(N_obs/N_sim) and
+beta_sim = beta_obs + ε with ε ~ N(0, se_sim² − se_obs²). Wald ratios and BH-FDR
+were recomputed over 200 replicates per grid point and the FDR < 0.05 list
+compared with the full-power list by Jaccard index, sensitivity and precision.
+Calibration was pre-specified as the condition for reporting any curve: reducing
+the meta outcome to FinnGen's effective size reproduces the independently
+observed FinnGen round (10.2 simulated against 10 observed discoveries; simulated
+Jaccard 0.52 [0.36, 0.73] containing the observed 0.455). We call this empirical
+rather than external calibration, because FinnGen contributes to the outcome
+being down-sampled. Two attempts to extrapolate above observed power were
+abandoned — a flat prior overpredicted discoveries at observed power 25-fold and
+global empirical-Bayes shrinkage underpredicted them 100-fold — both caught by
+the pre-specified requirement that any prior reproduce the observed discovery
+count. **All curves are reported only up to observed power and must not be
+extrapolated.**
+
+**Effect-size matching.** The down-sampling model takes no class label as input,
+so the known-versus-novel differential can only follow from the two classes' |z|
+distributions. Each unit's recovery frequency at half power was regressed on
+log|z| with and without the class label, and novel units were matched to known
+units within a pre-registered caliper of 0.20 on log|z|, with replacement,
+nearest first, the residual bootstrapped over matched pairs. Common support was
+recorded, since the matched comparison is interpretable only where the |z|
+distributions overlap. The locus level was pre-specified as primary. A process
+control required the reimplementation to reproduce the published recovery curve
+bitwise before any matched result was read; this failed on first run because the
+published script draws from one generator consumed across all power points while
+the reimplementation re-seeded per point, and was resolved by matching the draw
+sequence rather than by loosening the tolerance.
+
+### Self-administered attribution check
+
+Melanoma loci at which a causal gene is generally accepted were listed, and the
+pipeline's own FDR-significant nomination at each was compared against it. The
+list was assembled by us and fixed before the comparison was run, but was **not**
+pre-registered, and ten loci is a small denominator; the resulting ratio is
+reported as an illustration and not as an error rate.
+
+### Single-cell, spatial and chromatin analyses
+
+Full processing details for the ICB cohorts (GSE120575, GSE115978, GSE72056,
+GSE78220, GSE91061, GSE235863) [9–13,19], the spatial dataset [14], the purified
+CD4⁺ multiome (GSE282266) [15] and the peripheral-blood variance decomposition
+(GSE199994) [16] are given in Supplementary S12; the points that changed a result
+are summarised here. Donors or samples, never cells, are the statistical unit for
+inference. Module scores used Seurat `AddModuleScore` [29] with expression-binned
+control genes, and every module used as evidence independent of the nominated
+gene was recomputed with that gene removed. Because splitting cells by a score
+also splits them by lineage purity, every within-population split was controlled
+at the **cell** level — lineage-marker-free module versions, residualisation on a
+CD8ness score, and matching of high- and low-score cells on CD8ness and
+sequencing depth, with residual standardised mean differences reported for both.
+
+The metabolic axis was defined by residualising a 16-gene glycolysis module on an
+eleven-gene activation module and on sequencing depth, with a pre-specified kill
+criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
+separable from activation and the analysis stops. Observed R² = 0.024. Cells were
+matched on activation decile × depth quintile before splitting on the residual,
+and only genes concordant in direction across all four sets were carried forward.
+A nuclear-retention index (MALAT1 + NEAT1 fraction) carried its own kill
+criterion, and module detection rates were checked before any module-level null
+was interpreted; three pre-specified immune modules were withdrawn on that basis
+as unmeasurable rather than negative. The axis was originally circular with
+respect to the nominated gene, which entered both the defining score and the
+enrichment family, and was rebuilt with that gene removed from both, everything
+else held fixed, leaving its rank a held-out quantity.
+
+**Replication of the axis.** GSE166188 (DOGMA-seq, STIM arm, 16 h) was analysed
+with the construction held bitwise identical to the discovery run and only the
+dataset changed, pre-registered before it was run (Supplementary S32). CD4 cells
+were gated on CLR-normalised surface protein (CD4 above median, CD8 at or below),
+not on transcript. Its two arms are two lysis buffers on one batch of material —
+technical replicates, not two donors — so this replicates across study, platform
+and lineage calling and not across donors. Two dimension conventions differ
+between the protein and RNA matrices in this resource, and dimension assertions
+were added after an earlier script indexed the protein matrix by the RNA
+convention; the protein file also retains unfiltered empty droplets, so gating
+requires intersecting with the RNA barcodes first.
+
+Chromatin peaks differ between samples, so cross-sample comparison was performed
+on merged genomic intervals (199,740 consensus intervals) with the global index
+preserved. Motif enrichment used JASPAR2020 CORE with `motifmatchr` against
+hg38 [30,31], comparing foreground with background peaks matched on GC content
+and log accessibility. Because axis and activation log₂ fold-changes correlate at
+r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
+analysis was repeated restricted to activation-invariant peaks; both versions are
+reported, at motif-family rather than individual-factor level.
+
+### Literature audit
+
+Four PubMed queries returned 469 records, of which 209 were eligible and 154 had
+an open-access full text, 152 of them scorable (Supplementary S23). Five scoring
+criteria were fixed before scoring. Because automated matching is imprecise on
+this task, a fixed-seed random 30% subsample (46 papers, 92 judgements) was
+scored by **two coders independently, each blind to the other and to the
+automated score**: the handover file carried neither the first coder's decisions
+nor the automated label, and rows were shuffled under a fixed seed so that
+automated positives were not clustered. Measured precision was 0.00 and 0.20 on
+the two criteria, and the field-level estimates reported in the text are
+precision-corrected and supersede both the generous and the strict automated
+counts. Cohen's κ is reported beside the raw agreement, because at one positive
+in 46 the expected agreement equals the observed and κ collapses to 0 while
+agreement is 97.8%. Disagreements were adjudicated jointly, never by the first
+coder alone, and κ is computed before adjudication. Recall was estimated by
+probing negatives for near-miss wording rather than by reading all 152 in full,
+so it bounds sensitivity from above; and a full-text audit measures reporting,
+not practice.
+
+### Pre-specification and stopping rules
+
+The following were fixed before the analyses they govern and are reported because
+they determined which results are presented. Every test carries a positive
+control, and a test whose positive control fails is discarded rather than
+interpreted — the within-lymphoid-subset spatial test (HLA-C P = 0.23) and the
+pre-specified immune-module analysis were discarded under this rule. Kill
+criteria, test direction and window sizes were written into each script before it
+ran. A negative result was not followed by a search for a positive one in the
+same data. Simulations require calibration against a quantity not used to build
+them. Twelve pre-registration documents (Supplementary S9, S18, S20, S21, S22,
+S24, S25, S28, S29, S30, S32, S33) each carry a reading table written before the
+run, and only their results register was completed afterwards; deviations are
+logged in the document they belong to.
+
+### Software
+
+R 4.4.1 with Seurat 5.5.1, Matrix 1.7.0, data.table 1.16.0, coloc 5.2.3,
+TwoSampleMR 0.7.5, susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
+JASPAR2020 0.99.10, motifmatchr 1.26.0, chromVAR 1.26.0,
+BSgenome.Hsapiens.UCSC.hg38 1.4.5, survival 3.8.9 and org.Hs.eg.db 3.19.1.
+Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
+matplotlib 3.11.1. External binaries: SMR v1.3.1 and PLINK v2.0.0-a.7.2. Ordinary
+least squares and Benjamini–Hochberg FDR were implemented directly in numpy
+rather than through `statsmodels`, whose installed version is incompatible with
+the installed scipy.
+
+### Data and code availability
+
+All datasets are public and identified by accession above. Analysis code,
+intermediate result tables and the twelve pre-registration documents will be
+deposited at ⟨repository DOI⟩, comprising every numbered analysis and figure
+script together with the tables needed to reproduce each figure and every number
+reported in the text. CQTNA, a runnable implementation of the diagnostics in the
+Discussion, is included in the deposit.
 
 ## Supplementary information
 
@@ -774,3 +1098,51 @@ attempts with the selection denominators and every stopping-rule instance; the
 technical account of the two processing errors; the replication-cohort search;
 the colocalisation window-and-prior sensitivity analysis; and the literature
 audit.
+
+## References
+
+1. Zheng J, Yang Q, Liu H, et al. Integrating single-cell transcriptome-wide Mendelian randomization and differentially expressed gene analyses to prioritize dynamic immune-related drug targets for cancers. *Adv Sci* 2025;12:e07451. doi:10.1002/advs.202507451
+2. Wu X, Ying H, Yang Q, et al. Transcriptome-wide Mendelian randomization during CD4⁺ T cell activation reveals immune-related drug targets for cardiometabolic diseases. *Nat Commun* 2024;15:9302. doi:10.1038/s41467-024-53621-7
+3. Cui K, Zou Q, Qu X, et al. Transcriptome-wide Mendelian randomization and single-cell analysis during CD4⁺ T cell activation deciphers immunotherapeutic targets for colorectal cancer. *npj Precis Oncol* 2025;10:32. doi:10.1038/s41698-025-01236-6
+4. Soskic B, Cano-Gamez K, Smyth DJ, et al. Immune disease risk variants regulate gene expression dynamics during CD4⁺ T cell activation. *Nat Genet* 2022;54:817–826. doi:10.1038/s41588-022-01066-3
+5. Kurki MI, Karjalainen J, Palta P, et al. FinnGen provides genetic insights from a well-phenotyped isolated population. *Nature* 2023;613:508–518. doi:10.1038/s41586-022-05473-8 (Author Correction: *Nature* 2023;615:E19. doi:10.1038/s41586-023-05837-8)
+6. Rashkin SR, Graff RE, Kachuri L, et al. Pan-cancer study detects genetic risk variants and shared genetic basis in two large cohorts. *Nat Commun* 2020;11:4423. doi:10.1038/s41467-020-18246-6 (GCST90011809)
+7. Landi MT, Bishop DT, MacGregor S, et al. Genome-wide association meta-analyses combining multiple risk phenotypes provide insights into the genetic architecture of cutaneous melanoma susceptibility. *Nat Genet* 2020;52:494–504. doi:10.1038/s41588-020-0611-8 (GCST010302–GCST010304)
+8. Nathan A, Asgari S, Ishigaki K, et al. Single-cell eQTL models reveal dynamic T cell state dependence of disease loci. *Nature* 2022;606:120–128. doi:10.1038/s41586-022-04713-1
+9. Sade-Feldman M, Yizhak K, Bjorgaard SL, et al. Defining T cell states associated with response to checkpoint immunotherapy in melanoma. *Cell* 2018;175:998–1013.e20. doi:10.1016/j.cell.2018.10.038 (GSE120575)
+10. Jerby-Arnon L, Shah P, Cuoco MS, et al. A cancer cell program promotes T cell exclusion and resistance to checkpoint blockade. *Cell* 2018;175:984–997.e24. doi:10.1016/j.cell.2018.09.006 (GSE115978)
+11. Tirosh I, Izar B, Prakadan SM, et al. Dissecting the multicellular ecosystem of metastatic melanoma by single-cell RNA-seq. *Science* 2016;352:189–196. doi:10.1126/science.aad0501 (GSE72056)
+12. Hugo W, Zaretsky JM, Sun L, et al. Genomic and transcriptomic features of response to anti-PD-1 therapy in metastatic melanoma. *Cell* 2016;165:35–44. doi:10.1016/j.cell.2016.02.065 (GSE78220)
+13. Riaz N, Havel JJ, Makarov V, et al. Tumor and microenvironment evolution during immunotherapy with nivolumab. *Cell* 2017;171:934–949.e16. doi:10.1016/j.cell.2017.09.028 (GSE91061)
+14. Thrane K, Eriksson H, Maaskola J, et al. Spatially resolved transcriptomics enables dissection of genetic heterogeneity in stage III cutaneous malignant melanoma. *Cancer Res* 2018;78:5970–5979. doi:10.1158/0008-5472.CAN-18-0747
+15. Katko A, Potter SJ, et al. Gene regulatory network determinants of rapid recall in human memory CD4⁺ T cells. *Cell Rep* 2026;45:117103. doi:10.1016/j.celrep.2026.117103 (GSE282266)
+16. Boukhaled GM, Gadalla R, et al. Pre-encoded responsiveness to type I interferon in the peripheral immune system defines outcome of PD1 blockade therapy. *Nat Immunol* 2022;23:1273–1283. doi:10.1038/s41590-022-01262-7 (GSE199994)
+17. Virós A, et al. Spatial transcriptomics of primary cutaneous melanoma. NCBI GEO GSE316760 (submitted 2026-01-16); no associated publication indexed at the time of writing.
+18. Pham F, Dufeu M, Benboubker V, et al. Spatial tumour-immune ecosystems shape the efficacy of anti-PD1 immunotherapy in primary cutaneous melanoma. NCBI GEO GSE300445 (submitted 2025-06-23); no associated publication indexed at the time of writing.
+19. Guo X, et al. Contrasting cytotoxic and regulatory T cell responses underlying distinct clinical outcomes to anti-PD-1 plus lenvatinib therapy in hepatocellular carcinoma. *Cancer Cell* 2025;43:248–268.e9. doi:10.1016/j.ccell.2025.01.001 (GSE235863)
+20. Ghouse J, Gellert-Kristensen H, O'Rourke CJ, et al. Genome-wide meta-analysis identifies nine loci associated with higher risk of hepatocellular carcinoma. *JHEP Rep* 2025;7:101485. doi:10.1016/j.jhepr.2025.101485 (GCST90809296)
+21. Võsa U, Claringbould A, Westra H-J, et al. Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression. *Nat Genet* 2021;53:1300–1310. doi:10.1038/s41588-021-00913-z (eQTLGen, 2019-12-11 cis-eQTL release, n = 31,684)
+22. FinnGen. Release R12 (2024), endpoints `C3_MELANOMA_SKIN_EXALLC` and `C3_HEPATOCELLU_CARC_EXALLC`; Release R13, endpoints `C3_MELANOMA_SKIN_WIDE` and `M13_RHEUMA`. https://www.finngen.fi/en/access_results
+23. Byrska-Bishop M, Evani US, Zhao X, et al. High-coverage whole-genome sequencing of the expanded 1000 Genomes Project cohort including 602 trios. *Cell* 2022;185:3426–3440.e19. doi:10.1016/j.cell.2022.08.004
+24. Giambartolomei C, Vukcevic D, Schadt EE, et al. Bayesian test for colocalisation between pairs of genetic association studies using summary statistics. *PLoS Genet* 2014;10:e1004383. doi:10.1371/journal.pgen.1004383
+25. Wang G, Sarkar A, Carbonetto P, Stephens M. A simple new approach to variable selection in regression, with application to genetic fine mapping. *J R Stat Soc Series B* 2020;82:1273–1300. doi:10.1111/rssb.12388
+26. Zhu Z, Zhang F, Hu H, et al. Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets. *Nat Genet* 2016;48:481–487. doi:10.1038/ng.3538
+27. Hemani G, Zheng J, Elsworth B, et al. The MR-Base platform supports systematic causal inference across the human phenome. *eLife* 2018;7:e34408. doi:10.7554/eLife.34408
+28. Chang CC, Chow CC, Tellier LC, et al. Second-generation PLINK: rising to the challenge of larger and richer datasets. *GigaScience* 2015;4:s13742-015-0047-8. doi:10.1186/s13742-015-0047-8
+29. Hao Y, Stuart T, Kowalski MH, et al. Dictionary learning for integrative, multimodal and scalable single-cell analysis. *Nat Biotechnol* 2024;42:293–304. doi:10.1038/s41587-023-01767-y
+30. Fornes O, Castro-Mondragon JA, Khan A, et al. JASPAR 2020: update of the open-access database of transcription factor binding profiles. *Nucleic Acids Res* 2020;48:D87–D92. doi:10.1093/nar/gkz1001
+31. Schep AN, Wu B, Buenrostro JD, Greenleaf WJ. chromVAR: inferring transcription-factor-associated accessibility from single-cell epigenomic data. *Nat Methods* 2017;14:975–978. doi:10.1038/nmeth.4401
+32. Schmiedel BJ, Singh D, Madrigal A, et al. Impact of genetic polymorphisms on human immune cell gene expression. *Cell* 2018;175:1701–1715.e16. doi:10.1016/j.cell.2018.10.022 (DICE)
+33. Kerimov N, Hayhurst JD, Peikova K, et al. A compendium of uniformly processed human gene expression and splicing quantitative trait loci. *Nat Genet* 2021;53:1290–1299. doi:10.1038/s41588-021-00924-w (eQTL Catalogue)
+34. Sollis E, Mosaku A, Abid A, et al. The NHGRI-EBI GWAS Catalog: knowledgebase and deposition resource. *Nucleic Acids Res* 2023;51:D977–D985. doi:10.1093/nar/gkac1010
+35. Ochoa D, Hercules A, Carmona M, et al. The next-generation Open Targets Platform: reimagined, redesigned, rebuilt. *Nucleic Acids Res* 2023;51:D1353–D1359. doi:10.1093/nar/gkac1046
+36. Sun D, Wang J, Han Y, et al. TISCH: a comprehensive web resource enabling interactive single-cell transcriptome visualization of tumor microenvironment. *Nucleic Acids Res* 2021;49:D1420–D1430. doi:10.1093/nar/gkaa1020
+37. Goldman MJ, Craft B, Hastie M, et al. Visualizing and interpreting cancer genomics data via the Xena platform. *Nat Biotechnol* 2020;38:675–678. doi:10.1038/s41587-020-0546-8
+38. Liu J, Lichtenberg T, Hoadley KA, et al. An integrated TCGA pan-cancer clinical data resource to drive high-quality survival outcome analytics. *Cell* 2018;173:400–416.e11. doi:10.1016/j.cell.2018.02.052
+39. Tsherniak A, Vazquez F, Montgomery PG, et al. Defining a cancer dependency map. *Cell* 2017;170:564–576.e16. doi:10.1016/j.cell.2017.06.010 (DepMap, Broad Institute)
+40. Reales G, et al. Design and interpretation of eQTL–GWAS colocalisation studies: lessons from a large-scale evaluation. *PLoS Genet* 2026. doi:10.1371/journal.pgen.1012141
+41. Tambets R, et al. Extensive co-regulation of neighboring genes complicates the use of eQTLs in target gene prioritization. *Hum Genet Genomics Adv* 2024;5:100348. doi:10.1016/j.xhgg.2024.100348
+42. Rosen JD, et al. Higher eQTL power reveals signals that boost GWAS colocalization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.02.009
+43. Howe LJ, et al. Evaluating transportability of in vitro cellular models to in vivo human phenotypes using gene perturbation data. *Nat Commun* 2025. doi:10.1038/s41467-025-67199-1
+44. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to drug target discovery. *Nat Commun* 2024. doi:10.1038/s41467-024-50385-y
+45. Karhunen V, et al. Integrating genetic data with biological insight: a practical guide to cis-Mendelian randomization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.03.011

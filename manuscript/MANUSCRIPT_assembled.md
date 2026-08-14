@@ -395,11 +395,19 @@ strong; across exposure resources, one of them did.**
 that the whole-blood result is peculiar to melanoma, or that the HCC result is
 weak because the CD4 exposure is small. We therefore filled the grid, scoring
 every cell against **its own disease's** known-locus list, again pre-registered
-(Supplementary S24). All six cells enrich: melanoma 4.09-fold (CD4) and 4.44-fold
-(blood); HCC-high 8.85-fold and 5.11-fold; HCC-low 17.6-fold and 8.67-fold. Three
-of the six reach P < 0.05 and three do not (P = 0.052–0.110) on numerators as
-small as one of two loci, so this is a statement about **direction being
-consistent in every cell**, not six independent significant tests. The
+(Supplementary S24). The main grid is the three diseases at their higher-powered
+outcome crossed with the two exposure resources — six cells. The lower-powered HCC
+outcome is held back as a power sensitivity rather than counted as two further
+cells, because the two HCC levels are drawn from one resource and are not
+independent (S20 §9); counting them would inflate the grid to eight cells across
+what is still three diseases. All six cells enrich: melanoma 4.09-fold (CD4) and
+4.44-fold (blood); HCC-high 8.85-fold and 5.11-fold; RA 3.46-fold and 3.57-fold
+(the RA cells are set out in full below). **Four of the six reach P < 0.05**; the
+two that do not are the same cell, HCC at its higher power (P = 0.110 and
+P = 0.051), on numerators as small as one of two loci, so this is a statement
+about **direction being consistent in every cell**, not six independent
+significant tests. The held-back sensitivity enriches on both resources as well
+(HCC-low 17.6-fold, P = 0.0031, and 8.67-fold, P = 0.017). The
 pre-registered negative control is what makes it interpretable: scoring the same
 cells against the *wrong* disease's list collapses the enrichment (HCC's list on
 melanoma, 1.30-fold, P = 0.41; melanoma's list on HCC, 0.00-fold, P = 1.0), so
@@ -508,9 +516,11 @@ including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081) (Fig 2). Only
 colocalisation are therefore unsafe here: they would have reported MC1R LD
 spillover as CD4-mediated immune targets.
 
-## 2.4 Findings ③ and ④: power moves the two methods in opposite directions, and the list turns over
+## 2.4 Findings ③ and ④: the two methods moved in opposite directions when the outcome was replaced, and the list turned over
 
-Meta-analysis raised MR discoveries from 10 to 21 records while *lowering*
+The replacement changed outcome power and study composition together, so
+everything in this section is an observation about that swap and not a
+measurement of power. Meta-analysis raised MR discoveries from 10 to 21 records while *lowering*
 colocalisation support: across the 127 exposures run in both rounds, median
 PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 44.1% improving. Three explanations were tested and rejected: uneven meta
@@ -1277,7 +1287,9 @@ cross-disease cohort, and no single arm was confirmed in both.
 > consistent, primary test not significant); the patient stratification in that
 > second tumour (primary test passed); the exposure-resource generalisation
 > (primary test passed, P = 3.7×10⁻¹¹); the disease × resource grid (all six
-> cells concordant in direction, negative control clean); and the transfer test to
+> cells as registered concordant in direction, negative control clean — the six
+> reported in §2.2 are a later reframing that swaps the HCC-low pair for the RA
+> pair); and the transfer test to
 > the current release of the outcome resource (all six point predictions inside
 > their registered intervals, though the point value of the first was not
 > attained). An eighth — extending compartment attribution to a second tumour —
@@ -1587,9 +1599,13 @@ records that colocalisation assigned to distinct causal variants, on 8–20 vari
 per test, in a region that in-sample fine-mapping shows carries ≥3 independent
 signals.
 
-**③ Do not expect power to resolve the disagreement.** It moves MR and
-colocalisation in opposite directions, because one depends on a single variant's z
-and the other on the shape of the regional signal.
+**③ Do not assume that more outcome power will resolve the disagreement.** In the
+one comparison available here the two moved in opposite directions, but that
+outcome differed from its predecessor in study composition as well as power, so
+the divergence is not attributable to power alone. The two quantities are
+sensitive to different things by construction — one to a single variant's z, the
+other to the shape of the regional signal — which is reason enough not to treat a
+larger outcome GWAS as the remedy for their disagreement.
 
 **④ Report the physical distance between GWAS and eQTL peaks alongside
 posteriors, and test whether posterior movement survives explicit modelling of
@@ -1601,8 +1617,10 @@ exists at either power, so those regions cannot adjudicate it.
 before citing tissue-level data as validation.** This costs minutes. Ours is
 6.7-fold higher in malignant cells than in CD4⁺ T cells in the first cohort
 (16 of 16 patients), 2.4-fold in the second (11 of 11), concordant in direction in
-a third, and the difference survives cell-level depth matching — so tissue-level
-measurements of it are measurements of tumour.
+a third, and the difference survives cell-level depth matching — so a
+tissue-level measurement of it is dominated by the malignant compartment and
+cannot be attributed to CD4⁺ T cells. That bounds what such a measurement can
+establish; it does not make the association spurious, as §2.7 sets out.
 
 **⑥ Report instrument availability at each of the three levels it passes through,
 and do not compress them.** Of 28 glycolytic genes, **3 carry a genome-wide
@@ -2753,3 +2771,38 @@ correctly identified as declaring the gap rather than closing it.
     Genetics* 2026. doi:10.1016/j.ajhg.2026.03.011 [已核实]
 
 ⚠ 正文中标 `[ref]` 的六处引用点对应 35–40，装配前须替换为期刊要求的编号格式。
+
+---
+
+## ⚠ 2026-08-14：投稿版重新编号（GB 已采用）
+
+本文件的 17b–17f 是字母编号，投稿稿不能用。**GB 的 References 节已改为连续 1–45**，
+映射如下（本文件保持原编号不动，作为溯源记录）：
+
+| 本文件 | 投稿版 |
+|---|---|
+| 1–17 | 1–17（不变）|
+| 17b, 17c, 17d, 17e, 17f | 18, 19, 20, 21, 22 |
+| 18–40 | **+5**（如 19 coloc → 24；21 SMR → 26；35–40 → 40–45）|
+
+GB 正文的六处旧引用已同步改为 40–45。**NC 尚未加参考文献列表**，加时须用同一套 1–45 编号。
+⚠ 仍未解决：条目 39（DepMap）的 release 号须与脚本核对；条目 22 已把 FinnGen R13 的
+两个 endpoint（`C3_MELANOMA_SKIN_WIDE`、`M13_RHEUMA`）并入同一条，若期刊要求按 release
+分列须拆开。
+
+### ⚠ 缺一条：BioGRID ORCS
+
+正文（GB 与全文源）报"TPI1 在 BioGRID ORCS 的 1,471 项人类 CRISPR 筛选中命中 628 项
+（42.7%）"，**但本文件没有 BioGRID ORCS 的著录条目**，GB 该处因此无引用。
+候选原文为 Oughtred R 等的 BioGRID 论文（*Protein Sci* 2021）或 ORCS 专文
+（*Nucleic Acids Res* 2019/2021），**但尚未经 CrossRef 核实，故不写入编号列表**——
+本项目的纪律是不从记忆填著录。**投稿前必须核实并插入**；插入位置建议为 39 之后
+（新 40），其后 40–45 顺延为 41–46，GB 与 NC 的六处引用须同步。
+⚠ 同时须核实所用的 ORCS release 号，与 1,471 这个分母对应。
+
+### 未被 GB 正文引用的条目（不是错，但投稿前须确认合理）
+
+17、18（GSE316760 / GSE300445，仅补充材料用）· 32、33（DICE、eQTL Catalogue，
+GB 压缩版方法学未含"公开 eQTL 资源普查"一节）· 36、37、38（TISCH、Xena、TCGA-CDR，
+对应分析未进 GB）。**若期刊不允许列出未引用文献，须从 GB 的 References 中删去，
+或在方法学中补回相应句子。**
