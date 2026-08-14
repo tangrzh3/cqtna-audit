@@ -1,0 +1,453 @@
+[0001] [TITLE] Identifying therapeutic target genes for stroke through systematic druggable Mendelian randomization analysis
+
+[0002] [ABSTRACT] Stroke remains a major cause of mortality and disability, highlighting the need for new therapeutic targets. This study aimed to systematically identify druggable genes causally associated with stroke risk using genetic and transcriptomic data. A total of 5883 druggable genes were compiled from the Drug–Gene Interaction Database and previous reviews. We integrated data from a large-scale stroke GWAS with blood and brain expression quantitative trait loci (eQTLs) for druggable genes and performed a two-sample Mendelian randomization analysis using eQTLs as genetic instruments for gene expression. Significant findings were validated using colocalization analysis. Expression of prioritized genes was further examined in external bulk (GSE140275) and single-cell (GSE174574) RNA-seq datasets. Finally, protein–protein interaction networks and the Drug Signature Database were employed for downstream functional and therapeutic prediction. The intersection of eQTL data identified 3453 genes in blood and 3150 genes in brain tissues. Mendelian randomization analysis identified ten gene-stroke associations (3 in blood, 7 in brain). Colocalization analysis supported a shared causal variant for 5 of these genes, indicated by high posterior probability of hypothesis 4 values, suggesting potential pathogenic roles. The protein–protein interaction network highlighted 5 core druggable genes (protein tyrosine kinase 2, cyclin-dependent kinase 6, ring finger protein 43, papilin proteoglycan-like sulfated glycoprotein, and coagulation factor II) interacting with 20 predicted genes. Myosin light chain kinase inhibitor 7 and staurosporine were the 2 most significant compounds interacting with these genes, followed by simvastatin and cortisol succinate. This study uncovered potential stroke mechanisms and therapeutic targets using integrated multi-omics data, providing a foundation for future clinical applications and drug development strategies. Five druggable genes were identified in stroke (protein tyrosine kinase 2, cyclin-dependent kinase 6, ring finger protein 43, papilin proteoglycan-like sulfated glycoprotein, and coagulation factor II). Myosin light chain kinase inhibitor 7, staurosporine, simvastatin, and cortisol succinate were identified as potential drug candidates for stroke. These results could add additional tools to manage stroke.
+
+[0003] [INTRO] 1. Introduction
+
+[0004] [INTRO] Stroke is a significant global health concern, being one of the leading causes of death and long-term disability worldwide. According to the World Health Organization, approximately 5.5 million deaths occur annually due to stroke, with millions more affected by chronic disabilities. Stroke represents a substantial public health burden and poses significant global economic challenges for healthcare systems. The current therapeutic strategies for stroke primarily include acute treatments such as thrombolysis and subsequent rehabilitation, but these approaches are limited by time constraints and variable efficacy, especially when considering that 30% of patients have residual neurological deficits. In addition, thrombolysis manages the occlusion cause of stroke, while rehabilitation relies on brain plasticity to restore motor functions, but there is a lack of molecular targeted therapy that could help manage stroke to decrease stroke morbidity and mortality. Therefore, there is a need for deeper investigations into the underlying molecular mechanisms of stroke and potential therapeutic targets to improve patient outcomes after stroke.
+
+[0005] [INTRO] Current pharmacological management of stroke primarily relies on several key drug classes: thrombolytics, antiplatelet agents, and anticoagulants. Thrombolytic therapy, most notably with recombinant tissue plasminogen activator (alteplase), remains the mainstay of acute ischemic stroke treatment, offering meaningful improvements in functional recovery when administered within a narrow therapeutic window – typically up to 4.5 hours from symptom onset. However, its use is limited by strict eligibility criteria, a substantial risk of symptomatic intracranial hemorrhage, and the fact that only a minority of patients reach treatment within the recommended time frame. Antiplatelet agents, such as aspirin and clopidogrel, are widely employed for secondary prevention, reducing the risk of recurrent stroke and major vascular events, but their absolute efficacy remains modest, and they increase the risk of bleeding complications. Anticoagulants, including traditional agents (warfarin) and direct oral anticoagulants, are crucial for stroke prevention, yet they also carry a risk of major bleeding and require careful patient selection, especially among elderly or frail individuals. Neuroprotective agents have been extensively investigated; although some agents have shown promise in preclinical or early-phase trials, consistent clinical benefit has not been demonstrated in large, definitive studies, leaving an important unmet need for acute stroke neuroprotection. In summary, existing therapies are constrained by narrow therapeutic time windows, significant adverse effects, and only partial efficacy across diverse patient populations, underscoring the urgent need for novel therapeutic targets. Mendelian randomization (MR) provides a powerful and increasingly utilized approach to identify such targets by assessing causal relationships between genetically predicted modifiable exposures and stroke outcomes, thereby facilitating the discovery and prioritization of more effective and safer interventions.
+
+[0006] [INTRO] A first step would be to identify genes involved in the molecular mechanisms of stroke, which could then allow the identification of strategies or drugs affecting those genes or related pathways. Research into the genetic factors contributing to stroke has gained momentum, particularly the identification of druggable genes associated with the disease. Several genes may play crucial roles in the pathophysiology of stroke and may correlate with patient prognosis. By elucidating the functions of potentially druggable genes and their relationships with stroke, opportunities for novel therapeutic interventions could be explored. Understanding the genetic landscape of stroke can enhance the development of personalized medicine approaches aimed at mitigating the impacts of this condition.
+
+[0007] [INTRO] The present study employed a multifaceted bioinformatics approach to investigate the relationship between druggable genes and stroke, including the identification of druggable genes, expression quantitative trait locus (eQTL) analysis, MR analysis, protein–protein interaction (PPI) network construction, and small-molecule drug prediction, to comprehensively investigate stroke and its management. Bioinformatics can provide hypothesis-generating data for subsequent studies and clinical trials. By integrating diverse datasets, the comprehensive approach could systematically identify potential pathogenic genes and therapeutic targets relevant to stroke. The ultimate aim was to provide new insights into stroke’s pathological mechanisms and facilitate the identification of promising drug candidates for further clinical exploration. The methodology is characterized by its integrative nature, combining genetic, transcriptional, and interaction data to construct a holistic view of the genetic underpinnings of stroke. By leveraging eQTL data, the research aims to elucidate gene expression variations in different tissues, specifically blood and brain, which are critical to understanding stroke pathophysiology. Furthermore, applying MR analysis allows for evaluating causal relationships between gene expression and stroke, thereby enhancing the validity of potential therapeutic targets identified through this research.
+
+[0008] [INTRO] Therefore, this study sought to bridge the gap between genetic research and clinical application in stroke management by identifying and characterizing druggable genes. The findings are expected to pave the way for innovative therapeutic strategies to improve stroke prevention and treatment outcomes. Using the multi-omics approach, this study was expected to fill a gap in the knowledge of druggable genes in stroke and possible treatments.
+
+[0009] [METHODS] 2. Methods
+
+[0010] [METHODS] We did not use artificial intelligence tools for the production of images or graphical elements of the paper or in the collection and analysis of data. This article is an MR study. The data for this study were obtained from publicly available databases and published literature data, and do not require ethical approval and written informed consent.
+
+[0011] [METHODS] 2.1. Study design
+
+[0012] [METHODS] The overview of this study is presented in Figure 1. Possible druggable genes were first identified, followed by the identification of candidate druggable genes, colocalization analysis, and the identification of druggable genes. Finally, small-molecule drugs targeting the druggable genes were identified.
+
+[0013] [FIG] Overview of the study design. DGIdb = Drug–Gene Interaction Database, DSigDB = Drug Signatures Database, eQTLs = expression quantitative trait loci, GWAS = genome-wide association studies, MR = Mendelian randomization, PheWAS = phenome-wide association study, PPI = protein–protein interaction.
+
+[0014] [METHODS] 2.2. Druggable genes
+
+[0015] [METHODS] A comprehensive dataset of druggable genes was collected. Initially, 3953 druggable genes were retrieved from the Drug–Gene Interaction Database (Table S1, Supplemental Digital Content). An additional 4479 druggable genes were sourced from previous reviews (Table S2, Supplemental Digital Content). A final list of 5883 unique druggable genes was established upon integrating these 2 datasets and eliminating duplicates. These genes, officially named by the Human Genome Organization Gene Nomenclature Committee, were subsequently used for analysis (the complete list is provided in Table S3, Supplemental Digital Content).
+
+[0016] [METHODS] 2.3. eQTL datasets
+
+[0017] [METHODS] The blood eQTL dataset was obtained from eQTLGen (https://eqtlgen.org/). This dataset provided cis-eQTLs for 16,987 genes derived from 31,684 blood samples collected from healthy individuals of European ancestry (Table S4, Supplemental Digital Content). The cis-eQTLs with a false discovery rate (FDR) <0.05 were selected, along with the information on allele frequencies. The brain eQTL data were sourced from Qi et al. The data encompassed 2865 brain cortex samples from 2443 unrelated individuals of European ancestry with genome-wide single-nucleotide polymorphism (SNP) data (Table S4, Supplemental Digital Content). All significant eQTLs (FDR < 0.05) were downloaded for genes whose expression level was >0.1 fragments per kilobase per million mapped fragments in at least 10 samples, together with the complete SNP information. Intersection analysis revealed that 3453 of the druggable genes had eQTLs in the blood dataset, and 3150 had eQTLs in the brain tissue dataset.
+
+[0018] [METHODS] 2.4. Data source of stroke
+
+[0019] [METHODS] The summary statistics data for stroke were obtained from the GWAS dataset GCST90104539. The dataset included 73,652 stroke cases and 1,234,808 controls, all of European ancestry. This dataset was selected because it is the largest publicly available GWAS dataset on stroke. The inclusion criterion for the cases was a diagnosis of stroke.
+
+[0020] [METHODS] 2.5. MR analysis
+
+[0021] [METHODS] The MR analyses were conducted in R using the “TwoSampleMR” package (version 0.6.5; R Foundation for Statistical Computing, Vienna, Austria). The TwoSampleMR package was selected for its robustness in performing MR analysis on summary data. The eQTLs of the drug genome were chosen as exposure data. For instrumental variable (IV) construction, SNPs with FDR < 0.05 and located within ± 100 kb of each gene’s transcriptional start site were selected and subsequently clumped at r2 < 0.001 using European samples from the 1000 Genomes Project. The R package “phenoscanner” (version 1.0; University of Queensland, Brisbane, Queensland, Australia) was used to identify IV-related phenotypes. SNPs directly associated with stroke and directly linked traits were excluded. MR analyses were harmonized and conducted on the filtered SNPs. F-values were calculated to detect weak instrument bias. F-values > 10 were considered indicative of strong IVs. All F-values were >10 (Tables S5 and S6, Supplemental Digital Content).
+
+[0022] [METHODS] The two-sample MR analysis was performed using the inverse-variance weighted method or the Wald ratio method when only 1 SNP was available as an IV, which was chosen as the primary approach to assess the causality between exposure and outcome. Cochran Q and I2 statistics were used to evaluate and quantify the extent of heterogeneity among the selected SNPs. A Cochran Q test, P < .05, and I2 > 50% were considered with substantial heterogeneity. MR-Egger intercept was used to evaluate SNP pleiotropy. P-values were adjusted using the Benjamini–Hochberg method, with .05 as the significance threshold.
+
+[0023] [METHODS] 2.6. Colocalization analysis
+
+[0024] [METHODS] To determine whether the observed associations between eQTL and stroke risk at a given locus are driven by a shared causal variant or by distinct variants in linkage disequilibrium, colocalization analysis was performed. SNPs located within ±1 Mb from each stroke risk gene’s transcriptional start site were separately filtered from stroke GWAS data, blood eQTL data, and brain eQTL data. The probabilities of a given SNP being associated with stroke, being a significant eQTL, and being both associated with stroke and an eQTL result were denoted as P1, P2, and P12, respectively, with all probabilities set to default values (P1 = 1 × 10−4, P2 = 1 × 10−4, and P12 = 1 × 10−5) as commonly used in the coloc package representing standard prior beliefs about the density of causal variants. Posterior probabilities were utilized to quantify the support for all hypotheses, namely PPH0 through posterior probability of hypothesis 4 (PPH4), where PPH0 represents no association with any trait, PPH1 indicates a relation to gene expression but not stroke risk, PPH2 denotes an association with stroke risk but not gene expression, PPH3 implies an association with both stroke risk and gene expression along with clear causal variation, and PPH4 signifies an association with both stroke risk and gene expression with a common causal variant. Given the restricted capacity of colocalization analysis and the need for strong evidence of a shared causal signal, subsequent analyses were confined to genes where PPH4 was ≥0.75. The colocalization analysis was carried out using the R package “coloc” (version 5.2.3; MRC Integrative Epidemiology Unit (IEU), University of Bristol, Bristol, UK).
+
+[0025] [METHODS] 2.7. Phenome-wide association analysis
+
+[0026] [METHODS] GWASATLAS (https://atlas.ctglab.nl/PheWAS) was used to obtain the phenome-wide association study (PheWAS) data of SNPs corresponding to ring finger protein 43 (RNF43), which was identified through colocalization analysis in blood tissue.
+
+[0027] [METHODS] 2.8. Enrichment analysis
+
+[0028] [METHODS] The R package “clusterProfiler” (version 4.14.3) was employed for Gene Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) enrichment analyses to explore the functional characteristics and biological relevance of predetermined prospective druggable genes. GO encompasses 3 aspects: biological process, molecular function, and cellular component. KEGG pathways can offer information regarding metabolic pathways.
+
+[0029] [METHODS] 2.9. Construction and visualization of the PPI network
+
+[0030] [METHODS] PPI networks can visually present the relationships among protein interactions of significant druggable genes. The GeneMANIA platform (University of Toronto, Donnelly Centre for Cellular and Biomolecular Research, Toronto, Ontario, Canada; http://genemania.org/) was used to construct and visualize a PPI network encompassing predicted interactions, physical interactions, colocalization, co-expression, pathway associations, shared protein domains, and genetic interactions.
+
+[0031] [METHODS] 2.10. Prediction of small-molecule drugs
+
+[0032] [METHODS] Using the Drug Signature Database, small-molecule drugs were predicted for the candidate drug target genes. The top 10 potential compounds most closely related to these genes were extracted and analyzed for their potential associations with stroke, providing important clues for subsequent drug development and guiding our research direction in stroke treatment.
+
+[0033] [METHODS] 2.11. External validation
+
+[0034] [METHODS] Candidate genes were validated and annotated using bulk transcriptome (GSE140275) and single-cell RNA sequencing (GSE174574) datasets. The GSE140275 dataset comprises blood samples from 3 acute ischemic stroke patients and 3 healthy controls. We utilized this processed mRNA data, where differential expression was determined using the DESeq R package (DESeq2; standard modern implementation, Boston), with statistical significance defined as an adjusted P-value < .05. The GSE174574 dataset comprised brain samples from 3 middle cerebral artery occlusion-induced ischemic stroke mice and 3 sham controls. The single-cell RNA sequencing data were analyzed using Seurat (v4.3.0; Satija Lab, New York Genome Center (NYGC), New York University) in R. Cells were filtered to exclude those with fewer than 200 genes, detected in fewer than 3 cells, more than 2500 genes, or mitochondrial content above 10%. Following principal component analysis for dimensionality reduction, clustering was performed using FindClusters (Satija Lab, New York Genome Center (NYGC), New York University) (resolution = 0.20), with uniform manifold approximation and projection applied for visualization. Marker genes were identified using FindAllMarkers (Satija Lab, New York Genome Center (NYGC), New York University), and cell subtypes were annotated using SingleR (v2.0.0; The Walter and Eliza Hall Institute of Medical Research (WEHI), Parkville, Victoria, Australia).
+
+[0035] [RESULTS] 3. Results
+
+[0036] [RESULTS] 3.1. Candidate druggable genes were identified for stroke
+
+[0037] [RESULTS] The eQTLs were intersected with the druggable genes to determine the candidates for stroke management. After intersecting eQTLs from blood and brain tissue with druggable genes, the blood eQTLs contained 3453 genes, while the brain eQTLs included 3150 genes. We performed MR analysis and identified 3 significant genes associated with stroke from blood (serine threonine nuclear protein 1, RNF43, and acetyl-CoA synthetase 2 [ACSS2]) and 7 from brain tissue (cyclin-dependent kinase 6 [CDK6], aldehyde dehydrogenase 2 (ALDH2), protein tyrosine kinase 2 [PTK2], coagulation factor II [F2], cyclin-dependent kinase inhibitor 2B (CDKN2B), papilin proteoglycan-like sulfated glycoprotein [PAPLN], and testis expressed 14; Fig. 2, Tables S7 and S8, Supplemental Digital Content). Among them, ACSS2 showed the strongest association among blood eQTLs (odds ratio [OR] = 0.602, P = 1.85e−07), while CDK6 and ALDH2 were the most significant among brain eQTLs (CDK6: OR = 1.142, P = 4.63e−7; ALDH2: OR = 0.947, P < 2.00e−6).
+
+[0038] [FIG] Mendelian randomization results showing the associations between genetically predicted plasma and brain protein levels and the risk of stroke. (A) Volcano plot showing the MR results of blood-derived proteins associated with stroke risk. Each dot represents 1 protein. Proteins with Benjamini–Hochberg (BH)-adjusted P < .05 are shown in red, nominally significant proteins (P < .05) in blue, and nonsignificant proteins in gray. The significant proteins identified were STN1, RNF43, and ACSS2. (B) Volcano plot of brain-derived protein MR associations with stroke risk, with similar color coding and significance thresholds. Notable significant proteins include CDK6, PTK2, F2, PAPLN, ALDH2, CDKN2B, and TEX14. (C) Forest plot showing effect sizes (log odds ratios) and 95% confidence intervals for significant plasma proteins (STN1, RNF43, and ACSS2) in the GCST90104539 stroke dataset. (D) Forest plot for significant brain proteins in the same stroke dataset, including CDK6, PTK2, F2, PAPLN, ALDH2, CDKN2B, and TEX14. Triangles indicate proteins that failed the sensitivity test (MR-Egger or heterogeneity), while circles indicate those that passed. ACSS2 = acetyl-CoA synthetase 2, ALDH2 = aldehyde dehydrogenase 2, BH = Benjamini–Hochberg FDR correction, CDK6 = cyclin-dependent kinase 6, CDKN2B = cyclin-dependent kinase inhibitor 2B, F2 = coagulation factor II, FDR = false discovery rate, MR = Mendelian randomization, OR = odds ratio, PAPLN = papilin proteoglycan-like sulfated glycoprotein, PTK2 = protein tyrosine kinase 2, RNF43 = ring finger protein 43, STN1 = serine threonine nuclear protein 1, TEX14 = testis expressed 14.
+
+[0039] [RESULTS] 3.2. Colocalization analysis refined the list of druggable genes for stroke
+
+[0040] [RESULTS] The colocalization analysis was performed to refine the list of druggable targets by assessing shared causal variants. Among the 10 genes identified by MR in relation to stroke (Fig. 3A), 5 proteins exhibited PPH4 ≥ 0.75 (Fig. 3B and Table S9, Supplemental Digital Content): F2 (PPH4 = 0.928), PAPLN (PPH4 = 0.938), PTK2 (PPH4 = 0.842), RNF43 (PPH4 = 0.961), and CDK6 (PPH4 = 0.760; Fig. 3B). Notably, RNF43 was identified based on blood eQTLs, while the other 4 genes with colocalization support (F2, PAPLN, PTK2, CDK6) were identified from brain tissue eQTLs, highlighting potential tissue-specific mechanisms.
+
+[0041] [FIG] Colocalization analysis results for MR-prioritized genes and stroke. (A) Manhattan-like plot showing the genomic positions of the MR-identified genes on human chromosomes. (B) Summary of colocalization results. Posterior probability of hypothesis 4 (PPH4), indicating a shared causal variant between gene expression (eQTL) and stroke risk, is shown for each gene. Genes with PPH4 ≥ 0.75 were considered to have strong evidence for colocalization. eQTL = expression quantitative trait locus, F2 = coagulation factor II, MR = Mendelian randomization, PAPLN = papilin proteoglycan-like sulfated glycoprotein, PTK2 = protein tyrosine kinase 2, RNF43 = ring finger protein 43.
+
+[0042] [RESULTS] 3.3. Phenome-wide association analysis reveals potential links for RNF43
+
+[0043] [RESULTS] Due to the presence of the blood-brain barrier, compared with various components in the blood and other organs, brain tissue is more difficult to be affected by the action of drugs. Given its identification through blood eQTLs and potential for peripheral therapeutic targeting, PheWAS was conducted for RNF43 to explore its broader phenotypic landscape. The GWASATLAS PheWAS results showed that RNF43 was highly associated with traits related to high blood pressure (P < .001) and immunological function (P < .001). The complete results are available in Table S10, Supplemental Digital Content. While high blood pressure is a known stroke risk factor, the association with immunological function suggests RNF43 may contribute to stroke through immune-related mechanisms, which warrants further investigation.
+
+[0044] [RESULTS] 3.4. RNF43, PTK2, PAPLN, F2, and CDK6 are involved in pathways relevant to stroke
+
+[0045] [RESULTS] Enrichment analyses were performed for RNF43, PTK2, PAPLN, F2, and CDK6. GO analysis of positive genes showed involvement with phosphatidylinositol 3-kinase/protein kinase, cell-matrix, cell-substrate osteoblast adhesion, and astrocyte glial dedifferentiation development (Fig. 4A). KEGG results further highlighted significant enrichment in pathways like the phosphatidylinositol 3-kinase/protein kinase B (PI3K-Akt) signaling pathway, p53 signaling pathway, and vascular endothelial growth factor (VEGF) signaling pathway (Fig. 4B).
+
+[0046] [FIG] Functional enrichment analysis of the 5 prioritized druggable genes (PTK2, CDK6, RNF43, PAPLN, and F2). (A) Gene Ontology (GO) enrichment analysis results, showing significantly enriched biological process (BP), molecular function (MF), and cellular component (CC) terms. (B) Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway enrichment analysis results, highlighting significantly enriched pathways. CDK6 = cyclin-dependent kinase 6, F2 = coagulation factor II, PAPLN = papilin proteoglycan-like sulfated glycoprotein, PTK2 = protein tyrosine kinase 2, RNF43 = ring finger protein 43.
+
+[0047] [RESULTS] 3.5. ML-7, staurosporine, simvastatin, and cortisol succinate were identified as potential stroke treatments
+
+[0048] [RESULTS] A PPI network was constructed using GeneMANIA for the 5 core druggable genes. As illustrated in Figure 5, the network included the 5 input genes and an additional 20 predicted interacting genes. Physical interactions accounted for a significant proportion (77.64%), suggesting direct molecular relationships among these proteins.
+
+[0049] [FIG] Protein–protein interaction (PPI) network of the 5 prioritized druggable genes and their predicted interacting partners. The network was constructed using GeneMANIA. Nodes represent genes/proteins, and edges represent different types of interactions (e.g., physical interactions, co-expression, genetic interactions). The 5 input druggable genes (PTK2, CDK6, RNF43, PAPLN, and F2) are highlighted. CDK6 = cyclin-dependent kinase 6, F2 = coagulation factor II, PAPLN = papilin proteoglycan-like sulfated glycoprotein, PTK2 = protein tyrosine kinase 2, RNF43 = ring finger protein 43.
+
+[0050] [RESULTS] The Drug Signature Database was then used to predict small-molecule drugs associated with RNF43, PTK2, PAPLN, F2, and CDK6. The analysis identified compounds with significant enrichment scores, suggesting a potential for modulating the expression or activity of these genes or related pathways. The top potential compounds were extracted (Fig. 6 and Table S11, Supplemental Digital Content). The results indicated that myosin light chain kinase inhibitor 7 (ML-7) (ML-7 comparative toxicogenomics database [CTD] 00002750; OR = 415.90, P < .001) and staurosporine (staurosporine, Streptomyces sp. RBC; OR = 67.69, P < .001) showed the strongest associations based on drug signature similarity. Additionally, simvastatin (simvastatin CTD 00007319; OR = 43.47, P = .002) and cortisol succinate (cortisol succinate CTD 00003336; OR = 499.63, P = .003) were also identified as potential candidates.
+
+[0051] [FIG] Top candidate small-molecule drugs predicted to target the 5 prioritized druggable genes using the DSigDB database. The plot displays the top 10 predicted compounds. DsigDB = Drug Signatures Database.
+
+[0052] [RESULTS] 3.6. The identified druggable genes were externally validated
+
+[0053] [RESULTS] The GSE140275 bulk RNA-seq dataset (n = 3 healthy controls, n = 3 stroke patients) was analyzed to validate the expression trends of the prioritized genes. The expression of RNF43, PTK2, PAPLN, and CDK6 was significantly decreased in stroke patients compared with healthy controls (all P < .05; Fig. 7A–D). F2 also exhibited a trend of decreased expression in this dataset, though it did not achieve statistical significance (Fig. 7E).
+
+[0054] [FIG] External validation of the 5 prioritized druggable genes in the GSE140275 bulk RNA-seq dataset. Box plots showing the normalized expression levels of (A) PTK2, (B) CDK6, (C) RNF43, (D) PAPLN, and © F2 in patients with stroke (n = 3) versus healthy controls (n = 3). *P < .05, **P < .01, ***P < .001,****P < .0001; ns, not significant. CDK6 = cyclin-dependent kinase 6, F2 = coagulation factor II, PAPLN = papilin proteoglycan-like sulfated glycoprotein, PTK2 = protein tyrosine kinase 2, RNF43 = ring finger protein 43.
+
+[0055] [RESULTS] In addition, the expression profiles of Cdk6, Ptk2, F2, Papln, and Rnf43 were examined using single-cell RNA sequencing (GSE174574) across 18 distinct cell clusters from a mouse middle cerebral artery occlusion model (Fig. 8A and B). Cdk6 was predominantly expressed in T cells, macrophages, cardiomyocytes, and microglia, key players in immune and inflammatory responses. Ptk2 showed elevated expression in adipocytes, cardiomyocytes, and fibroblasts, cell types involved in vascular integrity and tissue remodeling. Rnf43 was primarily detected in NK cells and oligodendrocytes, suggesting roles in neuroinflammation and myelination. F2 expression was mainly observed in B cells. In contrast, Papln exhibited no detectable expression in any of the cell clusters analyzed in this specific mouse blood dataset (Fig. 8C).
+
+[0056] [FIG] Single-cell RNA sequencing (scRNA-seq) analysis of Cdk6, Ptk2, F2, Papln, and Rnf43 expression in mouse brain tissue from the GSE174574 dataset. (A) Uniform manifold approximation and projection (UMAP) plot visualizing cell distribution, colored by experimental group (MCAO-induced ischemic stroke model mice vs Sham controls). (B) UMAP plot showing cell clustering, with 18 distinct cell types identified and annotated. (C) Dot plot illustrating the expression patterns of Cdk6, F2, Rnf43, Ptk2, and Papln across the 18 identified cell types. The size of each dot represents the percentage of cells expressing the gene within that cell type, and the color intensity corresponds to the average scaled expression level of the gene in expressing cells. Cdk6 = cyclin-dependent kinase 6, F2 = coagulation factor II, MCAO = middle cerebral artery occlusion, Papln = papilin proteoglycan-like sulfated glycoprotein, Ptk2 = protein tyrosine kinase 2, Rnf43 = ring finger protein 43.
+
+[0057] [DISCUSS] 4. Discussion
+
+[0058] [DISCUSS] This study identified 5 key druggable genes (CDK6, PTK2, F2, RNF43, and PAPLN) significantly associated with stroke pathophysiology. These results were externally validated using the GSE140275 and GSE174574 datasets and were supported by functional enrichment analyses and externally examined using independent bulk and single-cell RNA-seq datasets, highlighting their potential relevance to stroke pathophysiology and therapeutic development.
+
+[0059] [DISCUSS] CDK6 plays a role in cell cycle regulation and angiogenesis, aiding in tissue repair through the PI3K-Akt pathway. CDK6 plays a role in stroke by influencing cell cycle progression and potentially contributing to neuronal death or injury. It is involved in regulating cell proliferation and the transition from G1 to S phase, and its activity can be altered in stroke, suggesting it might be a therapeutic target. CDK6, along with other cyclin-dependent kinases (CDKs) like CDK4, forms complexes with cyclins (like cyclin D1) to regulate cell cycle progression, particularly the G1 to S phase transition. These complexes phosphorylate the retinoblastoma protein, a key player in cell cycle regulation, and can lead to the activation of E2F transcription factors, which are important for cell cycle progression. In stroke, CDK6 activity may be dysregulated, leading to altered cell cycle dynamics and potentially impacting neuronal survival. CDK4/6 inhibitors are already available for cancer treatment.
+
+[0060] [DISCUSS] PTK2 plays a role in stroke, particularly in the context of ischemic stroke and its consequences. PTK2 is involved in cell adhesion, migration, and signaling pathways related to tissue damage and recovery after stroke. PTK2 helps stabilize the blood-brain barrier and offers neuroprotection by managing cytoskeletal organization and cell adhesion. PTK2 inhibitors are also available.
+
+[0061] [DISCUSS] The F2 gene, which encodes prothrombin (also known as coagulation factor II), plays a crucial role in blood clotting and can influence stroke risk. A specific variant, G20210A, in the F2 gene is associated with an increased risk of thromboembolism, including stroke. This variant leads to higher prothrombin levels and an increased tendency to form blood clots. F2 is related to coagulation and vascular repair, involving the VEGF pathway to maintain blood flow and prevent ischemic damage. Our MR and colocalization analyses strongly implicated F2 in stroke. While external validation in the GSE140275 bulk RNA-seq dataset showed only a nonsignificant trend toward decreased F2 expression in stroke patients, this could be attributed to factors such as the limited sample size, tissue heterogeneity, or the specific timing of sample collection poststroke. The detection of F2 expression predominantly in B cells in the single-cell dataset (GSE174574) provides further context for its potential role, although the functional implications of decreased F2 expression in stroke warrant more in-depth investigation beyond its classical coagulation functions, perhaps in immune modulation or vascular repair processes mediated by B cells.
+
+[0062] [DISCUSS] RNF43 plays a crucial role in regulating oligodendrocyte precursor cell maturation and remyelination after central nervous system injury, particularly in the context of stroke. It acts as an essential injury-specific regulator, influencing the differentiation and maturation of oligodendrocyte precursor cells, which are necessary for repairing damaged myelin sheaths. RNF43 achieves this by modulating Wnt signaling, a pathway involved in cell growth, differentiation, and development. Of note, RNF43 inhibitors are already available. Furthermore, it is worth noting that RNF43 was identified in the blood, while the other genes were mainly identified in brain tissue, since blood-based targets are potentially more amenable to drug interventions, as they are easier to measure.
+
+[0063] [DISCUSS] The PAPLN complex is involved in the fibrinolytic system. This complex is associated with elevated stroke risk, particularly in individuals with atrial fibrillation. Specifically, higher levels of PAPLN are linked to an increased risk of thromboembolism, the leading cause of stroke. PAPLN is crucial for extracellular matrix remodeling and cell adhesion, supporting tissue repair and functional recovery. Our finding of no detectable PAPLN expression in the mouse blood single-cell dataset could reflect species differences, tissue specificity (mouse brain vs human blood/brain), or very low expression in these specific peripheral blood cell types compared with its potential expression in vascular or brain structural cells. This discrepancy highlights the challenges in cross-species validation and the need for targeted experiments.
+
+[0064] [DISCUSS] The study also suggests that ACSS2, ALDH2, and CDKN2B may play significant roles in the immune response and inflammation related to stroke, warranting further investigation. Although these 3 genes did not pass the colocalization criterion, they were significant in the MR analysis and may be involved in relevant pathways related to stroke. Indeed, the ACSS2 gene, which encodes acetyl-CoA synthetase 2, plays a role in brain injury, particularly following cardiac arrest and resuscitation (CPR). ACSS2 can alleviate neurological dysfunction after CPR by modulating endothelial cell migration, tubule formation, and blood flow recovery. ACSS2 also activates the transcription factor EB signaling pathway and upregulates autophagy, which is crucial for repairing damage and promoting cell survival in the brain. In addition, ACSS2 regulates histone acetylation, a process linked to gene expression, and can be involved in memory formation. The ALDH2 gene and its variants have been linked to an increased risk of ischemic stroke. Specifically, the ALDH2*2/*2 genotype, a common variant in East Asian populations, has been identified as an independent risk factor, particularly in men. The CDKN2B gene is a tumor suppressor gene that plays a role in cell cycle regulation and is also linked to an increased risk of ischemic stroke and myocardial infarction. Variants in the CDKN2B gene, particularly those near CDKN2A, have been associated with increased stroke risk, especially in individuals with hypertension.
+
+[0065] [DISCUSS] The enrichment analyses underscored the involvement of the identified genes in key signaling pathways relevant to stroke, including the p53, PI3K-Akt, and VEGF pathways. The p53 pathway mediates cell death and survival decisions post-ischemia. These pathways are central to cell proliferation, apoptosis, angiogenesis, inflammation, and tissue repair, reflecting the complex mechanisms potentially mediated by these genes in the context of stroke. The PI3K-Akt pathway is crucial for cell survival, growth, and metabolism, often acting neuroprotectively by suppressing apoptosis and promoting cell survival signals. The VEGF pathway is vital for angiogenesis and vascular repair after stroke, although dysregulation can also contribute to inflammation. The identified genes are known to interact with or modulate these pathways, providing a biological basis for their causal link to stroke. For instance, CDK6 is linked to PI3K-Akt signaling, PTK2 is involved in pathways affecting angiogenesis and cell survival, and F2 can influence VEGF signaling.
+
+[0066] [DISCUSS] The small-molecule drug prediction analysis identified several potential candidates. ML-7 and staurosporine, both kinase inhibitors, were strongly associated with the target gene signatures. ML-7 inhibits MLCK, an enzyme involved in vascular endothelial permeability, and has shown promise in attenuating blood-brain barrier breakdown and cerebral edema after injury, potentially linking to PTK2, which also affects cell adhesion/barrier function. Staurosporine is a broad-spectrum kinase inhibitor affecting various signaling pathways, including protein kinase C/protein kinase A, which regulate cellular responses relevant to neuroprotection and vascular repair – potentially linking to the roles of CDK6 and PTK2 as kinases. Simvastatin, a widely used statin, is known for its cholesterol-lowering effects and pleiotropic neuroprotective and anti-inflammatory properties that reduce stroke risk and improve outcomes. While its direct interaction with our identified genes (PTK2, CDK6, RNF43, PAPLN, F2) requires further study, its known effects on endothelial function and inflammation align with pathways implicated by these genes (e.g., VEGF, PI3K-Akt). Similarly, cortisol succinate, a glucocorticoid, has potential anti-inflammatory effects relevant to acute stroke management, although its specific interactions with the identified genes warrant investigation. These drug predictions, while computational, provide testable hypotheses for drug repurposing or development targeting these specific genes or their associated pathways.
+
+[0067] [DISCUSS] As for the clinical translation of our findings, several promising directions can be explored. Genetic screening of these identified genes could potentially aid in identifying high-risk individuals for targeted preventive strategies. The identified genes and their associated pathways present potential targets for novel therapeutic interventions. The predicted drugs, including repurposing of existing medications like simvastatin, or further investigation into kinase inhibitors like ML-7 and staurosporine, could be explored in preclinical models and eventually clinical trials for stroke prevention or treatment, particularly in the context of enhancing recovery or mitigating long-term disability.
+
+[0068] [DISCUSS] Despite its strengths in using a systematic multi-omics approach for causal inference, this study has several limitations. The reliance on summary-level genetic data and eQTLs from specific tissues limits the resolution and might miss relevant genes in other cell types or contexts. The GWAS datasets were primarily based on European populations, limiting generalizability across diverse ethnic groups; expanding to multiethnic cohorts is necessary. Combining data from multiple sources could introduce batch effects, although harmonization steps were performed. Crucially, the study’s findings are primarily computational predictions and lack experimental functional validation of the identified genes and predicted drug targets. Future research must address this limitation through experimental studies using gene knockdown/overexpression in stroke models. The external validation datasets, particularly the bulk RNA-seq with a very small sample size (n = 3 vs 3), may lack sufficient statistical power to conclusively validate differential expression for all genes, especially for genes with subtle changes or cell-type-specific roles. The mouse single-cell data provide valuable cell-type resolution but require careful interpretation due to species differences. Therefore, while the genetic evidence from MR and colocalization is strong, these findings represent hypotheses that require rigorous experimental follow-up to confirm their biological significance and therapeutic potential.
+
+[0069] [DISCUSS] This study utilized a systematic multi-omics approach, integrating large-scale genetic and transcriptomic data, to identify 5 potential druggable genes (RNF43, PTK2, PAPLN, F2, and CDK6) with strong evidence for causal association with stroke risk. Functional enrichment and cell-type-specific expression analysis provided insights into their potential mechanisms, including roles in vascular function, immunity, tissue repair, and key signaling pathways. Furthermore, the study identified potential small-molecule drugs (ML-7, staurosporine, simvastatin, and cortisol succinate) predicted to interact with these target genes or pathways. These findings offer valuable novel insights into stroke pathophysiology and provide a foundation for future experimental validation and targeted drug development strategies. While promising, the computational predictions require rigorous experimental confirmation to translate these findings into clinical applications for stroke prevention and treatment.
+
+[0070] [ACK_FUND] Acknowledgments
+
+[0071] [ACK_FUND] We would like to thank all the colleges that offered help.
+
+[0072] [AUTH_CONT] Author contributions
+
+[0073] [AUTH_CONT] Conceptualization: Jiangliu Xia.
+
+[0074] [AUTH_CONT] Data curation: Jiangliu Xia, Jia Zheng.
+
+[0075] [AUTH_CONT] Formal analysis: Jia Zheng.
+
+[0076] [AUTH_CONT] Investigation: Shengmei Zou.
+
+[0077] [AUTH_CONT] Methodology: Hua Zhao.
+
+[0078] [AUTH_CONT] Project administration: Qiang Liu.
+
+[0079] [AUTH_CONT] Resources: Qiang Liu, Ruoyu Zhang.
+
+[0080] [AUTH_CONT] Software: Ruoyu Zhang.
+
+[0081] [AUTH_CONT] Writing – original draft: Jiangliu Xia, Lei Xu.
+
+[0082] [AUTH_CONT] Writing – review & editing: Lei Xu.
+
+[0083] [AUTH_CONT] Abbreviations:
+
+[0084] [AUTH_CONT] ACSS2
+
+[0085] [AUTH_CONT] acetyl-CoA synthetase 2
+
+[0086] [AUTH_CONT] ALDH2
+
+[0087] [AUTH_CONT] aldehyde dehydrogenase 2
+
+[0088] [AUTH_CONT] CDK6
+
+[0089] [AUTH_CONT] cyclin-dependent kinase 6
+
+[0090] [AUTH_CONT] CDKN2B
+
+[0091] [AUTH_CONT] cyclin-dependent kinase inhibitor 2B
+
+[0092] [AUTH_CONT] CTD
+
+[0093] [AUTH_CONT] comparative toxicogenomics database
+
+[0094] [AUTH_CONT] eQTL
+
+[0095] [AUTH_CONT] expression quantitative trait locus
+
+[0096] [AUTH_CONT] F2
+
+[0097] [AUTH_CONT] coagulation factor II
+
+[0098] [AUTH_CONT] FDR
+
+[0099] [AUTH_CONT] false discovery rate
+
+[0100] [AUTH_CONT] GO
+
+[0101] [AUTH_CONT] Gene Ontology
+
+[0102] [AUTH_CONT] KEGG
+
+[0103] [AUTH_CONT] Kyoto Encyclopedia of Genes and Genomes
+
+[0104] [AUTH_CONT] ML-7
+
+[0105] [AUTH_CONT] myosin light chain kinase inhibitor 7
+
+[0106] [AUTH_CONT] MR
+
+[0107] [AUTH_CONT] Mendelian randomization
+
+[0108] [AUTH_CONT] PAPLN
+
+[0109] [AUTH_CONT] papilin proteoglycan-like sulfated glycoprotein
+
+[0110] [AUTH_CONT] PheWAS
+
+[0111] [AUTH_CONT] phenome-wide association study
+
+[0112] [AUTH_CONT] PI3K-Akt
+
+[0113] [AUTH_CONT] phosphatidylinositol 3-kinase/protein kinase B
+
+[0114] [AUTH_CONT] PPH4
+
+[0115] [AUTH_CONT] posterior probability of hypothesis 4
+
+[0116] [AUTH_CONT] PPI
+
+[0117] [AUTH_CONT] protein–protein interaction
+
+[0118] [AUTH_CONT] PTK2
+
+[0119] [AUTH_CONT] protein tyrosine kinase 2
+
+[0120] [AUTH_CONT] RNF43
+
+[0121] [AUTH_CONT] ring finger protein 43
+
+[0122] [AUTH_CONT] SNP
+
+[0123] [AUTH_CONT] single-nucleotide polymorphism
+
+[0124] [AUTH_CONT] STN1
+
+[0125] [AUTH_CONT] serine threonine nuclear protein 1
+
+[0126] [AUTH_CONT] VEGF
+
+[0127] [AUTH_CONT] vascular endothelial growth factor.
+
+[0128] [AUTH_CONT] The authors confirm that the manuscript is original, has not been published previously, and is not currently under consideration for publication elsewhere. All authors have read and approved the final manuscript and agree to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved. The content of this article is solely the responsibility of the authors and does not necessarily represent the official views of any affiliated institutions. Any use of trade names or commercial products does not constitute endorsement by the authors or their affiliated institutions.
+
+[0129] [AUTH_CONT] The study was supported by the Science and Technology Plan Project of Zhejiang Provincial Health Department (Project Number: 2025KY874) to Jiangliu Xia.
+
+[0130] [AUTH_CONT] This article is a Mendelian randomization study. The data for this study were obtained from publicly available databases and published literature data, and do not require ethical approval and written informed consent.
+
+[0131] [AUTH_CONT] The authors have no conflicts of interest to disclose.
+
+[0132] [AUTH_CONT] All data generated or analyzed during this study are included in this published article (and its supplementary information files).
+
+[0133] [AUTH_CONT] Supplemental Digital Content is available in the online version of this article (http://dx.doi.org/10.1097/MD.0000000000048634).
+
+[0134] [AUTH_CONT] How to cite this article: Xia J, Zheng J, Zou S, Zhao H, Liu Q, Zhang R, Xu L. Identifying therapeutic target genes for stroke through systematic druggable Mendelian randomization analysis. Medicine 2026;105:19(e48634).
+
+[0135] [REF] References
+
+[0136] [REF] Global, regional, and national burden of stroke and its risk factors, 1990-2021: a systematic analysis for the Global Burden of Disease Study 2021.
+
+[0137] [REF] Stroke in the 21(st) century: a snapshot of the burden, epidemiology, and quality of life.
+
+[0138] [REF] Epidemiological trends and age-period-cohort effects on ischemic stroke burden across the BRICS-plus from 1992 to 2021.
+
+[0139] [REF] World Stroke Organization: global stroke fact sheet 2025.
+
+[0140] [REF] Management of acute ischemic stroke in the emergency department: optimizing the brain.
+
+[0141] [REF] Contemporary management of acute ischemic stroke.
+
+[0142] [REF] Addressing the unmet need in the treatment of poststroke anxiety, depression, and apathy: a systematic review of potential therapeutic options.
+
+[0143] [REF] Thrombolytic therapy for patients with acute ischemic stroke: systematic review and network meta-analysis of randomized trials.
+
+[0144] [REF] Intravenous thrombolysis for acute ischemic stroke.
+
+[0145] [REF] Golden hour intravenous thrombolysis for acute ischemic stroke: a systematic review and meta-analysis.
+
+[0146] [REF] Navigating antiplatelet treatment options for stroke: evidence-based and pragmatic strategies.
+
+[0147] [REF] Novel anticoagulants for stroke prevention in atrial fibrillation: a comprehensive review.
+
+[0148] [REF] Effectiveness of anticoagulants in reducing stroke risk among patients with atrial fibrillation.
+
+[0149] [REF] Neuroprotective strategies in acute ischemic stroke: a narrative review of recent advances and clinical outcomes.
+
+[0150] [REF] Safety and efficacy of neuroprotective agents as adjunctive therapies for reperfusion in the treatment of acute ischemic stroke: a systematic review and meta-analysis of randomized controlled trials.
+
+[0151] [REF] Mendelian randomization in pharmacogenomics: the unforeseen potentials.
+
+[0152] [REF] Mendelian randomization versus path models: making causal inferences in genetic epidemiology.
+
+[0153] [REF] Pathophysiology and treatment of stroke: present status and future perspectives.
+
+[0154] [REF] Genetics in ischemic stroke: current perspectives and future directions.
+
+[0155] [REF] From multi-omics data to the cancer druggable gene discovery: a novel machine learning-based approach.
+
+[0156] [REF] Bioinformatics identification of ferroptosis-related biomarkers and therapeutic compounds in ischemic stroke.
+
+[0157] [REF] Bioinformatics identification of potential biomarkers and therapeutic targets for ischemic stroke and vascular dementia.
+
+[0158] [REF] Identifying and validating new drug targets for stroke and beyond.
+
+[0159] [REF] Novel drug targets for ischemic stroke identified through Mendelian randomization analysis of the blood proteome.
+
+[0160] [REF] Genetic control of RNA splicing and its distinct role in complex trait variation.
+
+[0161] [REF] Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets.
+
+[0162] [REF] Stroke genetics informs drug discovery and risk prediction across ancestries.
+
+[0163] [REF] The MR-Base platform supports systematic causal inference across the human phenome.
+
+[0164] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression.
+
+[0165] [REF] A global reference for human genetic variation.
+
+[0166] [REF] PhenoScanner: a database of human genotype-phenotype associations.
+
+[0167] [REF] Association between circulating unsaturated fatty acid and preeclampsia: a two-sample Mendelian randomization study.
+
+[0168] [REF] Mendelian randomization analysis with multiple genetic variants using summarized data.
+
+[0169] [REF] Guidelines for performing Mendelian randomization investigations: update for summer 2023.
+
+[0170] [REF] Detecting pleiotropy in Mendelian randomisation studies with summary data and a continuous outcome.
+
+[0171] [REF] Mendelian randomization with invalid instruments: effect estimation and bias detection through Egger regression.
+
+[0172] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics.
+
+[0173] [REF] Revealing brain cell-stratified causality through dissecting causal variants according to their cell-type-specific effects on gene expression.
+
+[0174] [REF] Bayesian genetic colocalization test of two traits using coloc.
+
+[0175] [REF] clusterProfiler: an R package for comparing biological themes among gene clusters.
+
+[0176] [REF] GeneMANIA: a real-time multiple association network integration algorithm for predicting gene function.
+
+[0177] [REF] DSigDB: drug signatures database for gene set analysis.
+
+[0178] [REF] Integrative single-cell analysis.
+
+[0179] [REF] Uniform manifold approximation and projection.
+
+[0180] [REF] The blood-brain barrier and methamphetamine: open sesame?
+
+[0181] [REF] Cyclin-dependent kinases as a therapeutic target for stroke.
+
+[0182] [REF] MiRNA-494-3p regulates bupivacaine-induced neurotoxicity by the CDK6-PI3K/AKT signaling.
+
+[0183] [REF] Cell cycle machinery and stroke.
+
+[0184] [REF] Cyclin-dependent kinases and stroke.
+
+[0185] [REF] MSCs‑derived exosomes attenuate ischemia-reperfusion brain injury and inhibit microglia apoptosis might via exosomal miR-26a-5p mediated suppression of CDK6.
+
+[0186] [REF] The kinase-independent, second life of CDK6 in transcription.
+
+[0187] [REF] Targeting CDK6 in cancer: state of the art and new insights.
+
+[0188] [REF] The non-receptor tyrosine kinase Pyk2 in brain function and neurological and psychiatric diseases.
+
+[0189] [REF] The role of ferroptosis and its mechanism in ischemic stroke.
+
+[0190] [REF] Cell adhesion: integrating cytoskeletal dynamics and cellular tension.
+
+[0191] [REF] Protein tyrosine kinase 2: a novel therapeutic target to overcome acquired EGFR-TKI resistance in non-small cell lung cancer.
+
+[0192] [REF] Analysis of variations in the F5, F2 and ACE genes among Latvian patients with ischemic stroke: PS079.
+
+[0193] [REF] Homozygous carriers of F2 c.20210G>A variant: a report of two cases and literature review.
+
+[0194] [REF] Transcriptional regulation of thrombin-induced endothelial VEGF induction and proangiogenic response.
+
+[0195] [REF] Therapeutic avenues to modulate B-cell function in patients with cardiovascular disease.
+
+[0196] [REF] The role of regulatory B cells in health and diseases: a systemic review.
+
+[0197] [REF] Oligodendroglial ring finger protein Rnf43 is an essential injury-specific regulator of oligodendrocyte maturation.
+
+[0198] [REF] Rnf43 is “lord of the ring” finger proteins in remyelination.
+
+[0199] [REF] Tumour suppressor RNF43 is a stem-cell E3 ligase that induces endocytosis of Wnt receptors.
+
+[0200] [REF] New target(s) for RNF43 regulation: implications for therapeutic strategies.
+
+[0201] [REF] Emerging roles for the ADAMTS-like family of matricellular proteins in cardiovascular disease through regulation of the extracellular microenvironment.
+
+[0202] [REF] Basement membranes: cell scaffoldings and signaling platforms.
+
+[0203] [REF] Acetyl-CoA synthetase 2 alleviates brain injury following cardiac arrest by promoting autophagy in brain microvascular endothelial cells.
+
+[0204] [REF] Acss2 deletion reveals functional versatility via tissue-specific roles in transcriptional regulation.
+
+[0205] [REF] Nucleus-translocated ACSS2 promotes gene transcription for lysosomal biogenesis and autophagy.
+
+[0206] [REF] ALDH2 and stroke: a systematic review of the evidence.
+
+[0207] [REF] The myocardial infarction associated CDKN2A/CDKN2B locus on chromosome 9p21 is associated with stroke independently of coronary events in patients with hypertension.
+
+[0208] [REF] Association of CDKN2B-AS1 rs1333049 with brain diseases: a case-control study and a meta-analysis.
+
+[0209] [REF] Targeting p53 for neuroinflammation: new therapeutic strategies in ischemic stroke.
+
+[0210] [REF] Ribosomal protein S27-like, a p53-inducible modulator of cell fate in response to genotoxic stress.
+
+[0211] [REF] Role for Kruppel-like factor 4 in determining the outcome of p53 response to DNA damage.
+
+[0212] [REF] PI3K/AKT signaling and neuroprotection in ischemic stroke: molecular mechanisms and therapeutic perspectives.
+
+[0213] [REF] Metabolic pathways promoting cancer cell survival and growth.
+
+[0214] [REF] The PI3K-AKT network at the interface of oncogenic signalling and cancer metabolism.
+
+[0215] [REF] Neuroprotective effects of omentin-1 against cerebral hypoxia/reoxygenation injury via activating GAS6/Axl signaling pathway in neuroblastoma cells.
+
+[0216] [REF] Vascular Sema3E-Plexin-D1 signaling reactivation promotes post-stroke recovery through VEGF downregulation in mice.
+
+[0217] [REF] Advances in the pharmacological intervention of endothelial progenitor cells in the treatment of ischemic stroke.
+
+[0218] [REF] Changes and roles of IL-17A, VEGF-A and TNF-α in patients with cerebral infarction during the acute phase and early stage of recovery.
+
+[0219] [REF] Inflammatory cytokines and stroke and its subtypes: a genetic correlation and two-sample Mendelian randomization study.
+
+[0220] [REF] Myosin light chain kinase inhibitor ML7 improves vascular endothelial dysfunction and permeability via the mitogen-activated protein kinase pathway in a rabbit model of atherosclerosis.
+
+[0221] [REF] Nrf2 as a potential mediator of cardiovascular risk in metabolic diseases.
+
+[0222] [REF] Inhibition of myosin light-chain kinase attenuates cerebral edema after traumatic brain injury in postnatal mice.
+
+[0223] [REF] Myosin light chain kinase: a potential target for treatment of inflammatory diseases.
+
+[0224] [REF] Staurosporine analogues - pharmacological toys or useful antitumour agents?
+
+[0225] [REF] Compounds from natural sources as protein kinase inhibitors.
+
+[0226] [REF] New insight on the possible role of statins in Vascular Parkinsonism: a need for presumptive therapy.
+
+[0227] [REF] Statin therapy for preventing recurrent stroke in patients with ischemic stroke: a systematic review and meta-analysis of randomized controlled trials and observational cohort studies.

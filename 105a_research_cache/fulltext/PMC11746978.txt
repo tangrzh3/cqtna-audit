@@ -1,0 +1,269 @@
+[0001] [TITLE] Brain gliomas new transcriptomic discoveries from differentially expressed genes to therapeutic targets
+
+[0002] [ABSTRACT] Gliomas are a prevalent form of primary malignant brain tumor, yet the intricate molecular mechanisms underlying its pathogenesis remain unclear. This study aimed to identify new genetic targets linked to glioma by analyzing microarray datasets to uncover genetic factors involved in its onset and progression. We obtained two independent glioma datasets from the Gene Expression Omnibus database, processed and normalized them using R software, and evaluated the relationship between differentially expressed genes and glioma by differential expression, expression quantitative trait loci, and Mendelian randomization (MR) analyses. Gene set enrichment analysis and immunocytometric analysis further explored the biological functions and pathways of identified genes, which were validated using The Cancer Genome Atlas and Genotype-Tissue Expression datasets. We identified eight co-expressed genes—C1QB, GPX3, LRRC8B, TRIOBP, SNAPC5, SPI1, TSPYL5, and FBXL16—that are crucial in various biological processes. CIBERSORT analysis revealed significant immune cell-type distributions within gliomas, underscoring the significance of immune cell infiltration. Validation in additional datasets confirmed the MR analysis results and upstream regulatory factors were identified using NetworkAnalyst. Our findings offer fresh perspectives on the molecular underpinnings of glioma and highlight potential targets for therapeutic interventions.
+
+[0003] [ABSTRACT] Supplementary Information
+
+[0004] [ABSTRACT] The online version contains supplementary material available at 10.1038/s41598-025-86316-0.
+
+[0005] [INTRO] Introduction
+
+[0006] [INTRO] Gliomas represent a form of brain tumor characterized by significant invasive properties. They are classified based on histological characteristics and molecular phenotype into low-grade (grades 1 and 2) and high-grade (grades 3 and 4) gliomas. The median survival duration for individuals diagnosed with low-grade glioma is approximately 11.6 years, while those with high-grade gliomas have median survival times of 3 years and 15 months, respectively. Due to their high invasiveness and malignancy, gliomas are the most challenging central nervous system tumors, leading to poor prognosis, short survival, and substantial treatment costs. Current treatments for glioma encompass surgery, radiation therapy, and chemotherapy. However, these methods often fail to cure the disease completely and can have significant side effects. Consequently, there is a pressing necessity for the development of novel pharmaceuticals and therapeutic approaches. Recent investigations have indicated that the inflammatory cells, cytokines, genetic susceptibility, and related biological pathways significantly contribute to the pathogenesis of gliomas. These factors are intricately linked to the pathophysiological mechanisms underlying gliomas and may influence the tumor microenvironment and the prognosis for patients. Notably, immune cell infiltration is crucial within the glioma microenvironment, as it impacts tumor growth and progression, making immunotherapy a promising treatment for gliomas. Additionally, the differential expression of specific genes is also closely related to glioma development and these genes may become potential therapeutic targets.
+
+[0007] [INTRO] This study investigated the intricate mechanisms underlying glioma, focusing on immune infiltration, molecular interactions, and the tumor microenvironment. By systematically revealing the molecular basis and pathological characteristics of gliomas, we aimed to provide a preliminary research basis for new treatments or drugs. Mendelian randomization is rarely affected by confounding factors, and the study of the causal relationship between blood proteins and glioma etiology-associated proteins through Mendelian randomization analysis of eQTL data and glioma etiology-associated protein data can provide a more precise response to the genetic differences of gliomas in terms of blood proteins, especially immune-associated proteins. Using bioinformatic methods, we performed differential gene analysis using two glioma datasets in the Gene Expression Omnibus (GEO) database and used expression quantitative trait loci (eQTL) and Mendelian randomization (MR) analysis to identify a group of differentially expressed genes (DEGs) related to glioma genetics. These genes are crucial in mediating immune infiltration, regulating inflammatory responses, and influencing tumor signaling pathways. Through gene set enrichment analysis (GSEA) and immune infiltration analysis, we further explored the specific functions and mechanisms of these genes in glioma development. This study revealed important molecular mechanisms and pathological characteristics of gliomas, providing a solid foundation for future treatment strategies.
+
+[0008] [METHODS] Methods
+
+[0009] [METHODS] Data collection
+
+[0010] [METHODS] Gene expression datasets related to gliomas, along with corresponding clinical phenotype data, were sourced by conducting a search using the terms “glioma,” “gene expression,” and “human” within the GEO database (https://www.ncbi.nlm.nih.gov/geo/). The selection procedure entailed the implementation of defined criteria, which required a minimum of 40 samples, including no fewer than 20 glioma cases alongside 20 normal control samples. Included datasets were limited to human glioma tissues and normal brain tissues samples. Datasets for in vitro or in vivo experiments, other tumors in combination with other datasets, datasets related to gene methylation studies, and datasets with samples with unknown histopathological diagnosis or incomplete clinical information were excluded. All included datasets were chemically untreated and genetically unaltered, with original data available within the database.
+
+[0011] [METHODS] Screening of DEGs
+
+[0012] [METHODS] We imported and preprocessed the GSE4290 and GSE68848 datasets using R software (version 4.4.1). Two datasets were standardized using “limma” package (version 3.60.6) and batch corrected using the “sva” package (version 3.52.0). Following this, a comprehensive analysis was performed to identify differences between the two datasets, utilizing the “limma” package. The criteria for identifying DEGs included p<0.05 and logFoldChange > 1. To create a visual representation of the data, the “pheatmap” package was utilized to produce a volcano plot.
+
+[0013] [METHODS] eQTL analysis of exposure data
+
+[0014] [METHODS] We collected and consolidated eQTL data sourced from a genome-wide association study (GWAS) database (https://gwas.mrcieu.ac.uk/) to identify genetic variations associated with gene expression. We utilized the R package “TwoSampleMR” to identify single nucleotide polymorphisms (SNPs) with significant associations (p < 5e-08) and utilized them as instrumental variables. The parameters for linkage disequilibrium were established with an r2 threshold of < 0.001 and a cluster distance of 10,000 kb. Additionally, we implemented a filter requiring an “F test value >10” to eliminate SNPs characterized by weak associations or inadequate explanatory power regarding phenotypic variation.
+
+[0015] [METHODS] Sources and assessment of outcome data
+
+[0016] [METHODS] GWAS ID prot-a-1217 as outcome data comes from the GWAS database, corresponding to proteins related to the pathogenesis of glioma. The dataset contains a total of 3,301 samples from European individuals and 10,534,735 SNPs.
+
+[0017] [METHODS] MR analysis
+
+[0018] [METHODS] The “TwoSampleMR” R package (version 0.6.4) was used for data preprocessing and MR analysis, with IVW analysis to elucidate genetic associations between target genes and gliomas. Data with missing values are deleted. Complementary sensitivity analysis was performed using MR-Egger, simple model, weighted median, and weighted model techniques. Genes exhibiting P-values < 0.05 in IVW analysis were selected, while those demonstrating horizontal pleiotropy were excluded from consideration. Genes were subsequently categorized into two groups based on OR: OR > 1 and OR < 1.
+
+[0019] [METHODS] Determination of intersection genes
+
+[0020] [METHODS] Genes with high and low expression levels within the GSE4290 and GSE68848 datasets were cross-referenced with OR > 1 and < 1 derived from the MR analysis. Upregulated and downregulated intersectional genes were visualized by Venn diagrams. A comprehensive MR analysis was conducted on the identified intersection genes, encompassing heterogeneity testing, pleiotropy assessment, and leave-one-out sensitivity analysis. The genetic causal relationship between intersectional genes and glioma was investigated, and the strength and reliability of the results were evaluated. Scatter plots, forest plots, and funnel plots were used to visualize the results.
+
+[0021] [METHODS] Immune cell analysis
+
+[0022] [METHODS] The surrogate variable analysis and “limma” packages were used to correct batch effects and merge the standardized GSE4290 and GSE68848 datasets to obtain the glioma data collection. The infiltration levels of 22 distinct immune cell types within glioma datasets were assessed using CIBERSORT. This analysis aimed to investigate the relationship between co-expressed genes in glioma and immune cell populations, and explore potential regulatory mechanisms involved.
+
+[0023] [METHODS] GSEA
+
+[0024] [METHODS] GSEA was utilized to demonstrate the enrichment of biological functions and pathways associated with identification of genes. Enrichment observed at the upper end of the distribution indicated upregulation, whereas enrichment at the lower end indicated downregulation. P< 0.05 was used to assess the statistical significance of the associated functions or pathways.
+
+[0025] [METHODS] Differential analysis of the validation group
+
+[0026] [METHODS] Validation data were derived from TCGA and GTEx databases, respectively, and were downloaded for free on the UCSC Xena platform (https://xenabrowser.net/datapages/) in TPM format processed with the Toil pipeline. The assessment was performed utilizing R software (version 4.4.1) to identify discrepancies in co-expressed genes between normal and tumor groups. The findings from this analysis were compared with the results from the MR analysis.
+
+[0027] [METHODS] Prediction of co-expressed gene–TF–miRNA network
+
+[0028] [METHODS] To explore the regulatory factors upstream of co-expressed genes, transcription factors (TFs) and miRNAs were analyzed using NetworkAnalyst (https://www.networkanalyst.ca). Finally, Cytoscape (version 3.10.0) was used to visualize and generate a network diagram.
+
+[0029] [RESULTS] Results
+
+[0030] [RESULTS] Differential analysis of two GEO datasets
+
+[0031] [RESULTS] In this research, two datasets from the GEO database were acquired, excluding samples without detailed clinical information. The GSE4290 dataset contains 157 glioma samples and 23 normal samples, while the GSE68848 dataset contains 454 glioma samples and 28 normal samples. Table 1 shows the detailed information of the two datasets. We used R (version 4.4.1) to perform standardization and differential analysis for the two GEO datasets, as displayed in Fig. 1.
+
+[0032] [TABLE] Information about two GEO datasets.
+
+[0033] [TABLE] GSE ID Sample Tissue Platform Experiment type GSE4290 157 glioma samples and 23 normal samples. Brain GPL570 Array GSE68848 454 glioma samples and 28 normal samples. Brain GPL570 Array
+
+[0034] [FIG] (a) The normalized histogram of the GSE4290 dataset. (b) Volcano map of the GSE4290 dataset. (c) The normalized histogram of the GSE68848 dataset. (d) Volcano map of the GSE68848 dataset. To make the figures clearer, (a) and (c) only show the first 100 samples of the two datasets.
+
+[0035] [RESULTS] MR analysis
+
+[0036] [RESULTS] After screening, a total of 26,152 SNPs met the three hypotheses of MR, with an F statistic > 10. This analysis identified 227 glioma-related genes meeting the screening criteria, including 129 genes with MR_ odds ratio (OR) > 1 and 98 genes with MR_OR < 1. Further cross-analysis with DEGs revealed eight glioma-related co-expressed genes, including six upregulated genes––C1QB (complement C1q chain B), GPX3 (glutathione peroxidase 3), LRRC8B (leucine rich repeat containing 8 VRAC subunit B), TRIOBP (TRIO and F-actin binding protein), SNAPC5 (small nuclear RNA activating complex polypeptide 5), and SPI1 (Spi-1 proto-oncogene)––and two downregulated genes––TSPYL5 (TSPY like 5) and FBXL16 (F-box and leucine-rich repeat protein 16) (Fig. 2a and b). Comprehensive information is available in Supplementary Table S1 and S2. To establish the causal association between each co-expressed gene and glioma pathology, we conducted a MR analysis involving the eight identified genes. In the inverse-variance weighted (IVW) analysis, six upregulated genes exhibited significant positive correlations with glioma: C1QB (OR = 1.137; 95% confidence interval (CI): [1.018–1.269]; P = 0.023), GPX3 (OR = 1.110; 95% CI: [1.000–1.230]; P = 0.048), LRRC8B (OR = 1.117; 95% CI: [1.018–1.225]; P = 0.020), TRIOBP (OR = 1.095; 95% CI: [1.001–1.198]; P = 0.048), SNAPC5 (OR = 1.257; 95% CI: [1.005–1.572]; P = 0.045), and SPI1 (OR = 1.173; 95% CI: [1.044–1.318]; P = 0.007). Conversely, the two downregulated genes, TSPYL5 (OR = 0.866; 95% CI: [0.757–0.990]; P = 0.035) and FBXL16 (OR = 0.699; 95% CI: [0.54 –0.897]; P = 0.005), exhibited a notable negative correlation with glioma. By MR Egger and inverse variance weighted analyses, P-values were >0.05 for all genes and their MR Egger intercepts were approximated to be 0, indicating that the assessment of heterogeneity and pleiotropy of the eight co-expressed genes did not yield statistically significant results, and thus their effects were excluded (Supplementary Table S3, S4; Figure S1). The leave-one-out sensitivity analysis provided additional support for the robustness of the findings, as the results remained consistent after sequentially removing instrumental variables (Supplementary Figure S1). Further verification using the weighted median method indicated that, except for GPX3, TRIOBP, and TSPYL5, the remaining genes had P-values <0.05, demonstrating statistical significance (Fig. 2c). Chromosomal localization of the eight genes is shown in Fig. 2d.
+
+[0037] [FIG] (a) Six co-expressed genes exhibiting upregulation. (b) Two co-expressed genes exhibiting downregulation. (c) Forest plot illustrating the co-expression of genes. (d) Circos plot shows the chromosomal position relationship of co-expressed genes. DEG, differentially expressed gene; CI, confidence interval; OR, odds ratio.
+
+[0038] [RESULTS] Merging of two datasets
+
+[0039] [RESULTS] To conduct further immune infiltration analysis and GSEA of co-expressed genes, we used R (version 4.4.1) to eliminate batch effects through principal component analysis and merged gene expression values ​​from the two datasets. Results after batch effect correction are shown in Fig. 3a. Figure 3b illustrates the 50 most significantly upregulated and 50 most prominently downregulated DEGs within the consolidated dataset.
+
+[0040] [FIG] (a) Results after batch correction. (b) Differential gene expression heatmap. PC, principal component.
+
+[0041] [RESULTS] Analysis of immune cell infiltration in glioma tissue
+
+[0042] [RESULTS] CIBERSORT was employed to analyze the composition of immune cells within glioma tissues and to evaluate the association between co-expressed genes and the infiltration of immune cells. Given the extensive number of samples within the consolidated dataset, we presented only a subset for the clarity of the figure. Figure 4a shows the different distribution of 22 immune cell types in 20 control samples and 80 glioma samples randomly selected using R (version 4.4.1). Our analysis revealed notable disparities in the populations of plasma cells, activated natural killer (NK) cells, and monocytes when comparing glioma samples to normal tissue samples. Specifically, we noted an elevation in the percentage of plasma cells within glioma specimens, alongside a reduction in the counts of activated NK cells and monocytes (Fig. 4b).
+
+[0043] [FIG] (a) Stacked histogram illustrating the comparative distribution of different immune cell types across the glioma cohort in relation to the normal cohort. (b) Box plot illustrating the comparative distribution of 22 immune cell types between the glioma cohort and the control cohort. * P < 0.05. NK, natural killer.
+
+[0044] [RESULTS] In our subsequent analysis, we examined the association between 22 distinct immune cell types and their co-expressed genes. Our findings indicated that the activation of NK cells was negatively correlated with C1QB and SPI1 while demonstrating a positive correlation with TSPYL5 and FBXL16. Additionally, monocytes were negatively correlated with C1QB and positively correlated with TRIOBP (Fig. 5).
+
+[0045] [FIG] Heatmap illustrating the relationship between co-expressed genes and 22 immune cell types. NK, natural killer.
+
+[0046] [RESULTS] GSEA
+
+[0047] [RESULTS] Among the co-expressed genes, five were significantly correlated with NK cell activation and monocytes. In the glioma tissues, C1QB, SPI1, and TRIOBP showed notably increased expression, whereas TSPYL5 and FBXL16 showed reduced expression. GSEA revealed distinct biological functions associated with these genes. The five most prominent biological functions observed in the group with elevated C1QB expression included cellular responses to biotic stimuli, humoral immune responses, positive regulation of defense responses, positive regulation of inflammatory responses, and responses to bacterial molecules (Fig. 6a). The five most active pathways in the upregulated C1QB group were cytokine receptor interaction, neutrophil degranulation, signaling by interleukins, extracellular matrix organization, and the network map of the SARS-Cov-2 signaling pathway (Fig. 6c). The five predominant biological functions observed with high SPI1 expression were related to cellular responses to biotic stimuli, defense response to bacteria, myeloid cell activation in immune response, positive regulation of defense responses, and response to bacterial molecules (Fig. 6b). Five key pathways in this group included extracellular matrix organization, cytokine receptor interaction, neutrophil degranulation, network map of the SARS-Cov-2 signaling pathway, and signaling by interleukins (Fig. 6d). The five predominant biological functions observed with high TRIOBP expression included regulation of postsynaptic membrane potential, glutamatergic synapses, postsynaptic membrane, postsynaptic specialization, and synaptic membrane (Fig. 6e). The most active pathways in this group were the neuron system, neurotransmitter receptors, postsynaptic signal transmission, protein-protein interactions at synapses, transmission across chemical synapses, and GABA receptor signaling (Fig. 6f). The five predominant biological functions observed with low TSPYL5 expression were mitotic nuclear division, mitotic sister chromatid segregation, mitotic sister chromatid separation, negative regulation of chromosome segregation, and sister chromatid segregation (Fig. 6g). The five most prominent pathways identified with low TSPYL5 expression included the PLK1 pathway, cell cycle checkpoints, mitotic prometaphase, mitotic spindle checkpoint, and resolution of sister chromatid cohesion (Fig. 6i). The five predominant biological functions observed with low FBXL16 expression were chromosome segregation, mitotic sister chromatid segregation, mitotic nuclear division, nuclear chromosome segregation, and sister chromatid segregation (Fig. 6h). The five pathways exhibiting the highest levels of activity with low FBXL16 expression included the integrin-1 pathway, PLK1 pathway, network map of the SARS-Cov-2 signaling pathway, cell cycle checkpoints, and cell cycle mitosis (Fig. 6j). Comprehensive information is provided in Supplementary Table S5.
+
+[0048] [FIG] High expression of C1QB, SPI1, and TRIOBP and low expression of TSPYL5 and FBXL16 have different effects on the biological effects and signaling mechanisms of glioma. (a) The five most significant biological functions associated with high C1QB expression. (b) The five most significant biological functions associated with high SPI1 expression. (c) The five most significant biological pathways associated with high C1QB expression. (d) The five most significant pathways associated with high SPI1 expression. (e) The five most significant biological functions associated with high TRIOBP expression. (f) The five most significant pathways associated with high TRIOBP expression. (g) The five most significant biological functions associated with low TSPYL5 expression. (h) The five most significant biological functions associated with low FBXL16 expression. (i) The five most significant pathways associated with low TSPYL5 expression. (j) The five most significant pathways associated with low FBXL16 expression.
+
+[0049] [RESULTS] Differential analysis of co-expressed genes in the validation group
+
+[0050] [RESULTS] The TCGA + GTEx dataset used in this study, encompassing 1,152 normal samples, and 698 cases of glioma including 532 cases of low-grade glioma (LGG) and 166 cases of glioblastoma (GBM) and was used to validate co-expressed gene expression. The results showed that C1QB, GPX3, LRRC8B, TYROBP, SNAPC5, and SPI1 were upregulated in glioma tissues, while TSPYL5 and FBXL16 were downregulated, (all P < 0.001, Fig. 7a). These findings aligned with the MR analysis results, reinforcing their accuracy. We also further analyzed the differential expression of 8 expressed genes in LGG and GBM and found that only the expression of LRRC8B in GBM was not different from that in normal tissues (Fig. 7c), while the rest were significantly different (Fig. 7b).
+
+[0051] [FIG] Differential analyses of co-expressed genes in validation groups. ***P < 0.001.
+
+[0052] [RESULTS] Co-expressed gene-TF-miRNA regulatory network
+
+[0053] [RESULTS] The minimum co-expressed gene–TF–miRNA network was predicted using NetworkAnalyst (Fig. 8). Nineteen nodes and 25 edges were obtained, including five miRNAs (hsa-miR-330-5p, hsa-miR-15a, hsa-miR-122, hsa-miR-24, hsa-let-7a) and six TFs (USF1, ZEB1, CTCF, E2F1, REST, and EGR1).
+
+[0054] [FIG] Co-expressed gene–TF–miRNA regulatory network. Purple nodes represent co-expressed genes, green nodes represent TFs, and yellow nodes represent miRNAs. TF, transcription factor.
+
+[0055] [DISCUSS] Discussion
+
+[0056] [DISCUSS] Gliomas are highly aggressive neoplasms characterized by a poor prognosis and limited effective treatment options, imposing a significant burden on patients and society. The tumor microenvironment, comprising tumor stem cells and various other molecular components, is instrumental in the processes of tumor development and progression. Therefore, understanding and targeting the components of the tumor microenvironment is essential for developing effective cancer therapies. This study systematically revealed the molecular mechanisms underlying gliomas by integrating multiple bioinformatic methods. We identified genes exhibiting differential expression associated with glioma, focusing on their roles in immune infiltration, inflammatory responses, and tumor-associated signaling pathways. By performing differential gene analysis on two glioma datasets in the GEO database, we found a group of genes with significant differential expression and obtained genes associated with glioma through MR analysis. We identified eight co-expressed genes, including six upregulated (C1QB, GPX3, LRRC8B, TRIOBP, SNAPC5, and SPI1) and two downregulated genes (TSPYL5 and FBXL16). Further MR analysis found that high expression of C1QB, GPX3, LRRC8B, TRIOBP, SNAPC5, and SPI1 increased the risk of glioma. Reduced expression of TSPYL5 and FBXL16 also increased the risk of glioma. The genes exhibiting differential expression may be crucial in the advancement and evolution of glioma, representing promising novel targets for therapeutic intervention.
+
+[0057] [DISCUSS] C1QB is situated on chromosome 1 and encodes the polypeptide chain B of the complement component C1q. C1q is an important component of the extracellular matrix and can be synthesized in the tumor microenvironment, facilitating tumor proliferation and the spread of cancer cells. The varied expression levels of the C1q chains, specifically C1qB, exhibited a correlation with the quantities of CD8+ T-cells, polarized M1 macrophages, and polarized M2 macrophages present within the tumor microenvironment. M1 and M2 macrophages have been identified across various types of tumors, exhibiting distinct characteristics. M2 macrophages have the capacity to enhance the proliferation of tumor cells and facilitate immune evasion through the disruption of various critical signaling pathways within these tumor cells. Recent studies have shown that M2 macrophages in the tumor microenvironment are characterized by high C1QB expression and high inflammatory response scores, indicating that the infiltration of M2 macrophages in the tumor microenvironment may promote inflammatory responses and tumor growth. Wong et al. found that in cribriform prostate cancer, an increase in M2 macrophages expressing high levels of C1QB was associated with a decrease in T cells and aggravated T cell dysfunction. C1QB-overexpressing macrophages may directly interact with CD8+ -T cells through cell surface molecules, affecting T cell signaling and function and causing T cell exhaustion. This is consistent with the findings of Ling et al. who indicated that C1QB was markedly overexpressed in glioma tissues and associated with a variety of immune cells. Specifically, a negative correlation was observed between the presence of activated NK cells and monocytes, both of which exhibited a significant reduction within glioma tissues. We found that C1QB was significantly elevated in gliomas, and this difference remained statistically significant in the low-grade glioma and GBM subgroups compared to normal samples. Elevated levels of C1QB may play a role in diminishing the abundance of these immune cell types in the glioma growth microenvironment, consequently facilitating tumor progression. GSEA indicated elevated C1QB expression was correlated with various immune functions, notably the enhancement of humoral immune responses and inflammatory processes. The pathways exhibiting the highest activity in the high C1QB expression group include those associated with cytokine receptor interaction, extracellular matrix organization, neutrophil degranulation, interleukin signaling. The primary structural constituents of the tumor microenvironment are immune cells and stromal cells. Therefore, C1QB is significantly involved in the glioma microenvironment and may represent a novel target for immunotherapeutic approaches.
+
+[0058] [DISCUSS] GPX3 is situated on chromosome 5 and encodes glutathione peroxidase 3, which is the only oxidoreductase that exists outside the cell and protects the integrity of the cell genome by neutralizing reactive oxygen species (ROS). Low expression of GPX3 has been linked to antioxidant system defects and various human malignancies, as well as chemotherapy response. However, GPX3 exhibits dual roles in different tumors and is found to be upregulated in epithelial and clear cell ovarian cancer. GPX3 mitigates ROS within the tumor microenvironment and helps eliminate soluble lipid hydroperoxides present in the extracellular environment of tumor cells. This mechanism could be crucial in the growth of ovarian cancer cells and promote tumor recurrence and the development of chemotherapy resistance. Ren et al. found that GPX3 expression levels were upregulated in glioma patients (all P<0.001) and were significantly higher in the GBM group than in the LGG group. A recent pan-cancer study by Wang et al. found a strong association between GPX3 and prognosis in low-grade gliomas. The results of this study show that GPX3 is significantly overexpressed in glioma. As the only extracellular antioxidant isomer containing selenocysteine, the specific mechanism of action of GPX3 in glioma has not yet been determined, and its specific role needs to be further explored.
+
+[0059] [DISCUSS] LRRC8B is located on chromosome 1 and is highly expressed in glioma tissues. Research has demonstrated that the LRRC8B protein is integral to the cellular calcium signaling network, and cells that overexpress LRRC8B demonstrate elevated levels of regulated calcium influx. Calcium serves as a widespread second messenger essential for numerous cellular functions, including gene transcription, metabolic pathways, cellular proliferation, and apoptosis, characteristics often seen in cancer progression. LRRC8B plays a crucial role in maintaining intracellular calcium equilibrium by functioning as an ion channel within the endoplasmic reticulum. Kubota et al. suggested that LRRC8B is associated with lymphocyte and monocyte activation. In the present study, LRRC8B was significantly highly expressed in gliomas, especially low-grade gliomas, and it is reasonable to speculate that this gene may affect signal transduction in immune cells and tumor cells by acting on calcium channels, leading to glioma growth or programmed cell death. LRRC8B is a likely potential target for newly therapeutic strategies for gliomas.
+
+[0060] [DISCUSS] TRIOBP, situated on chromosome 22, is responsible for encoding several proteins that collectively contribute significantly to the modulation of actin cytoskeleton formation. Among the various isoforms of TRIOBP, the two most extensively researched are TRIOBP-1 and TRIOBP-4. TRIOBP-1 and NDEL1 can form a complex, which is essential for regulating cell movement. High expression of TRIOBP-1 can increase the cell migration rate of neuroblastoma. Further studies have found that knocking down TRIOBP-1 can reduce the cell proliferation and migration of GBM. Research indicates that TRIOBP-4 exhibits increased expression in human pancreatic cancer tissues. Its primary role appears to be the promotion of pancreatic cancer cell motility by influencing the reorganization of the actin cytoskeleton within the filopodia of these cells. Studies have shown that silencing TRIOBP-4 can lead to reduced proliferation of pancreatic cancer cells. TRIOBP has been found to be significantly highly expressed in gliomas and is more abundant in GBM tissues than in peritumoral tissues. We performed GSEA and found that the five most prominent biological functions and pathways within the TRIOBP high-expression cohort were mainly concentrated in synaptic regulation and signal transduction. TRIOBP encodes multiple protein subtypes and has a wide range of biological effects in human cells. It not only participates in the basic cellular processes but is also intricately associated with the initiation and advancement of various diseases, including gliomas. This suggests that it is a significant focus for the advancement of pharmaceuticals and the investigation of biomarkers.
+
+[0061] [DISCUSS] SNAPC5 is situated on chromosome 15 and is responsible for encoding a component of the small nuclear RNA activating protein complex (SNAPc), essential for the transcription of small nuclear RNA (snRNA) genes in eukaryotes. The SNAPc complex exhibits a specific affinity for the proximal base sequence located within the snRNA promoter, facilitating the recruitment of RNA polymerase II or III to commence the transcription of snRNA. SNAPC5 is expressed across diverse cell types and biological processes, including immune cells, neurons, and endothelial cells, and exhibits elevated expression levels in numerous cancer types. Zhang et al. reported that SNAPC5 is highly expressed in colon cancer. Our study findings indicate that SNAPC5 is markedly elevated in gliomas. SNAPC5 may not be directly involved in DNA binding during transcription, but its presence is essential for the structural integrity and function of the entire SNAPC complex. SNAPC is a key factor in snRNA gene transcription. The dysregulation of snRNA gene transcription can lead to neurological diseases or tumors. Therefore, SNAPC5 is essential for numerous cellular functions, including gene translation, RNA processing, and transcriptional regulation. SNAPC5 may affect the occurrence and development of glioma by affecting the transcription of snRNA genes. Nevertheless, its exact mechanism remains to be further studied and verified.
+
+[0062] [DISCUSS] SPI1 is located on chromosome 11 and encodes a TF associated with immune responses and oncogenic factors. Recent investigations have identified SPI1 as a TF that facilitates the advancement of GBM. Knocking down SPI1 significantly upregulates the expression of the obesity-related protein FTO and inhibits malignant progression of GBM cells. SPI1 transcriptionally upregulates FKBP12, VSIG4, and other related genes, thereby facilitating the mesenchymal characteristics of glioma stem cells by activating the PI3K/AKT signaling pathway and contributing to the advancement of malignancy in glioma cells. SPI1 also mediates the transcription of MIR222HG to promote the transformation of glioma stem cells from the proneural subtype to the mesenchymal subtype and enhances the radioresistance of glioma stem cells The co-transcription of miR221 and miR222 exerts an influence on macrophages via exosomal transfer, which facilitates the downregulation of SOCS3. This process activates the STAT3 signaling pathway while concurrently inhibiting the NF-κB pathway, ultimately leading to the immunosuppressive polarization of macrophages. The results of this study suggest that SPI1 is significantly overexpressed in gliomas and demonstrates a correlation with various immune cell types present within glioma tissues. GSEA provided additional confirmation that elevated SPI1 expression is associated with various biological functions, including immune response. Furthermore, the pathways enriched by SPI1 significantly contribute to the development of the tumor microenvironment. Consequently, SPI1 shows potential as an innovative prognostic biomarker and a promising therapeutic target for gliomas.
+
+[0063] [DISCUSS] TSPYL5, located on chromosome 8, functions as an important gene that inhibits tumor formation and exhibits extensive methylation in nearly all cases of glioma. Re-expression of TSPYL5 inhibits the growth of glioma cell lines. Significant hypermethylation of TSPYL5 was also found in non-cirrhotic hepatocellular carcinoma. Studies have confirmed that this gene is involved in cell proliferation and radiation resistance. Huang et al. demonstrated that TSPYL5 can inhibit the proliferation, migration, and invasion of colorectal cancer cells by inducing endoplasmic reticulum stress. Our findings indicate that TSPYL5 exhibits significantly reduced expression levels in glioma tissues. Additionally, immune cell correlation analysis illustrated that the diminished expression of TSPYL5 exhibited a positive correlation with a lower presence of activated NK cells within tumor tissues. The potential connection mechanism between the two is still unclear, but it does not rule out that downregulation influences the emergence and progression of glioma by reducing activated NK cells, providing indirect information for exploring the possible function of TSPYL5 within the tumor microenvironment. GSEA also showed that the top five biological functions of TSPYL5 were all related to mitosis and chromosome segregation, and the most active pathway was also related to mitosis and the PLK1 pathway. TSPYL5 is very likely to hold significant importance in the management of glioma and deserves further study.
+
+[0064] [DISCUSS] FBXL16 is located on chromosome 16 and encodes an E3 ubiquitin ligase. FBXL16 has been shown to enhance the stability of insulin receptor substrate 1 protein and induce upregulation of IGF1/AKT signaling pathway, thereby promoting cell growth and migration. FBXL16 can also regulate the relationship between cellular proliferation and autophagy in breast cancer cells through the stimulation of the SRC-3-AKT signaling cascade. There are also reports that FBXL16 has an anti-cancer effect, as it has been found that FBXL16 can directly interact with HIF1α, leading to its ubiquitination and subsequent degradation, which can effectively inhibit epithelial-mesenchymal transition and tumor-related angiogenesis. Our study showed that FBXL16 exhibited a marked under-expression in gliomas, which was positively associated with a reduced presence of activated NK cells within tumor tissues. Further GSEA also found that the biological functions and pathways exhibiting the highest activity within the FBXL16 low expression cohort were related to mitosis, chromosome separation, the PIK1 pathway, and SARS-Cov-2 signaling. FBXL16 obviously exhibits an anti-cancer effect in gliomas; however, its pathways are diverse, and its specific mechanism has not yet been clearly determined. Its immune mechanism may be associated with a reduction in FBXL16 expression, which affects activated NK cells in glioma tissues, leading to immune imbalance in the tumor microenvironment. Its specific mechanism deserves further study.
+
+[0065] [DISCUSS] The verification results of the eight co-expressed genes in TCGA + GTEx demonstrated a strong alignment with the outcomes of the MR analysis, thereby providing additional evidence for the genetic association between co-expressed genes and glioma. High expression of C1QB has the potential to facilitate the initiation and advancement of tumors by affecting macrophages and activated NK cells in the glioma microenvironment. Elevated levels of GPX3 expression can remove harmful ROS in the tumor microenvironment and provide a suitable environment for tumor growth. After upregulation, LRRC8B regulates the calcium homeostasis of cells, affects the transduction of biological signals, promotes tumor proliferation, and reduces apoptosis. The upregulation of TRIOBP has the capacity to modulate the formation of the actin cytoskeleton, thereby facilitating the growth and migration of glioma cells. SNAPC5 upregulation can affect tumor gene translation and transcription. As an immune-related oncogenic factor, SPI1 can promote the malignant progression of glioma cells through multiple pathways after high expression and lead to macrophage immunosuppression. TSPYL5 is a highly effective gene that inhibits tumor formation, and its high methylation status has been confirmed in diverse types of neoplastic cells. The specific role of low expression of FBXL16 in glioma is not yet fully understood, and it may be related to affecting cell mitosis and immune cell dynamics within the tumor microenvironment.
+
+[0066] [DISCUSS] The eight co-expressed genes found in this study are all coding genes. A comprehensive examination of the interplay among genetic genes, immune infiltration, and glioma has been conducted at the level of coding genes. Nonetheless, additional investigations are required to elucidate the precise mechanisms involved through which these co-expressed genes influence the development of glioma.
+
+[0067] [DISCUSS] We realize that this study may have some limitations, including possible selection or analysis bias in the dataset and lack of relevant validation via in vitro and in vivo experiments. We also recognize that the genetic factors of glioma occurrence and development include not only coding genes, but also non-coding genes, as well as many other factors. Extensive follow-up studies are still needed to fully understand the pathogenesis of gliomas.
+
+[0068] [CONCL] Conclusion
+
+[0069] [CONCL] This study comprehensively investigated gliomas and used advanced analytical methods to elucidate the roles of immune infiltration and genetic factors in the emergence and progression of gliomas. We focused on eight genes, C1QB, GPX3, LRRC8B, TRIOBP, SNAPC5, SPI1, TSPYL5, and FBXL16, which provide new directions for the prompt identification and management of gliomas. Genetic factors and immune microenvironment play an important role in the occurrence and development of gliomas. The co-expressed genes and the correlation with immune cells identified in this study provide new avenues for future glioma-related in vitro and in vivo experiments, and new ideas for the selection of relevant therapeutic targets for gliomas, which have certain clinical significance.
+
+[0070] [SUPPL] Electronic supplementary material
+
+[0071] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0072] [SUPPL] Publisher’s note
+
+[0073] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0074] [AUTH_CONT] Author contributions
+
+[0075] [AUTH_CONT] S.-w. P.drafted the manuscript. Z.-q. J. and H.-w. C. revised the paper. All authors read and approved the final manuscript.
+
+[0076] [SUPPL] Data availability
+
+[0077] [SUPPL] Transcriptome datasets, along with the corresponding clinical information, can be downloaded from GEO (https://www.ncbi.nlm.nih.gov/geo/) and UCSC XENA (https://xenabrowser.net/datapages/).Additionally, expression quantitative trait loci (eQTL) and outcome data, identified as prot-a-1217, can be retrieved from the GWAS (https://gwas. mrcieu.ac.uk).NetworkAnalyst (https://www.networkanalyst.ca) serves as a web-based analytical platform dedicated to the interpretation of gene and protein lists within the framework of network analysis.
+
+[0078] [SUPPL] Declarations
+
+[0079] [COMP_INT] Competing interests
+
+[0080] [COMP_INT] The authors declare no competing interests.
+
+[0081] [COMP_INT] Ethical statement
+
+[0082] [COMP_INT] All analyses of raw data in this study have received ethical approval from the respective institutional review boards.
+
+[0083] [REF] References
+
+[0084] [REF] The 2016 World Health Organization Classification of Tumors of the Central Nervous System: a summary
+
+[0085] [REF] Population-based studies on incidence, survival rates, and genetic alterations in astrocytic and oligodendroglial gliomas
+
+[0086] [REF] Recent advances in the molecular understanding of glioblastoma
+
+[0087] [REF] Expression of overall survival-EMT-immune cell infiltration genes predict the prognosis of glioma
+
+[0088] [REF] Comprehensive analysis of sterol O-acyltransferase 1 as a prognostic biomarker and its association with immune infiltration in glioma
+
+[0089] [REF] CENPN acts as a novel biomarker that correlates with the malignant phenotypes of glioma cells
+
+[0090] [REF] Hepcidin is upregulated and is a potential therapeutic target associated with immunity in glioma
+
+[0091] [REF] Immunotherapy: a promising approach for glioma treatment
+
+[0092] [REF] Expression and prognostic value of ARID5A and its correlation with tumor-infiltrating immune cells in glioma
+
+[0093] [REF] Profiling tumor infiltrating immune cells with CIBERSORT
+
+[0094] [REF] Toil enables reproducible, open source, big biomedical data analyses
+
+[0095] [REF] Arneth, B. Tumor microenvironment. Medicina (Kaunas). 56, (2019).
+
+[0096] [REF] C1q acts in the tumour microenvironment as a cancer-promoting factor independently of complement activation
+
+[0097] [REF] Understanding local macrophage phenotypes in disease: modulating macrophage function to treat cancer
+
+[0098] [REF] Molecular mechanisms that influence the macrophage m1-m2 polarization balance
+
+[0099] [REF] Molecular subgroups of intrahepatic cholangiocarcinoma discovered by single-cell RNA sequencing-assisted multiomics analysis
+
+[0100] [REF] Single cell analysis of cribriform prostate cancer reveals cell intrinsic and tumor microenvironmental pathways of aggressive disease
+
+[0101] [REF] Cholesterol efflux from C1QB-expressing macrophages is associated with resistance to chimeric antigen receptor T cell therapy in primary refractory diffuse large B cell lymphoma
+
+[0102] [REF] C1q restrains autoimmunity and viral infection by regulating CD8(+) T cell metabolism
+
+[0103] [REF] Tumor cells hijack macrophage-produced complement C1q to promote tumor growth
+
+[0104] [REF] Insights into the role of GPX3, a highly efficient plasma antioxidant, in cancer
+
+[0105] [REF] GPx3 promoter hypermethylation is a frequent event in human cancer and is associated with tumorigenesis and chemotherapy response
+
+[0106] [REF] Immunohistochemical evidence for the over-expression of glutathione peroxidase 3 in clear cell type ovarian adenocarcinoma
+
+[0107] [REF] GPx3 supports ovarian cancer progression by manipulating the extracellular redox environment
+
+[0108] [REF] Expression of glutathione peroxidases and its effect on clinical prognosis in glioma patients
+
+[0109] [REF] Wang, Y. et al. Selenoprotein GPX3 is a novel prognostic indicator for stomach adenocarcinoma and brain low-grade gliomas: evidence from an integrative pan-cancer analysis. Heliyon10, (2024).
+
+[0110] [REF] Leucine-rich repeat-containing 8B protein is associated with the endoplasmic reticulum ca(2+) leak in HEK293 cells
+
+[0111] [REF] Regulation of the endoplasmic reticulum ca(2+)-store in cancer
+
+[0112] [REF] LRRC8 involved in B cell development belongs to a novel family of leucine-rich repeat proteins
+
+[0113] [REF] Regulation of the actin cytoskeleton by the Ndel1-Tara complex is critical for cell migration
+
+[0114] [REF] The roles of TRIO and F-actin-binding protein in glioblastoma cells
+
+[0115] [REF] The actin-bundling protein TRIOBP-4 and – 5 promotes the motility of pancreatic cancer cells
+
+[0116] [REF] Structural basis of human SNAPc recognizing proximal sequence element of snRNA promoter
+
+[0117] [REF] Structural basis of SNAPc-dependent snRNA transcription initiation by RNA polymerase II
+
+[0118] [REF] Exploring Cancer Dependency Map genes and immune subtypes in colon cancer, in which TIGD1 contributes to colon cancer progression
+
+[0119] [REF] Variant U1 snRNAs are implicated in human pluripotent stem cell maintenance and neuromuscular disease
+
+[0120] [REF] K. RNA components of the spliceosome regulate tissue- and cancer-specific alternative splicing
+
+[0121] [REF] Structure of the SNAPc-bound RNA polymerase III preinitiation complex
+
+[0122] [REF] Oncogenic cooperation between TCF7-SPI1 and NRAS(G12D) requires beta-catenin activity to drive T-cell acute lymphoblastic leukemia
+
+[0123] [REF] Du, B., Gao, W., Qin, Y., Zhong, J. & Zhang, Z. Study on the role of transcription factor SPI1 in the development of glioma. Chin. Neurosurg. J.8, 7, (2022).
+
+[0124] [REF] SPI1-induced downregulation of FTO promotes GBM progression by regulating pri-miR-10a processing in an m6A-dependent manner
+
+[0125] [REF] SPI1 activates TGF-beta1/PI3K/Akt signaling through transcriptional upregulation of FKBP12 to support the mesenchymal phenotype of glioma stem cells
+
+[0126] [REF] Shen, J. et al. The role of SPI1/VSIG4/THBS1 on glioblastoma progression through modulation of the PI3K/AKT pathway. J. Adv. Res. (2024).
+
+[0127] [REF] SPI1-mediated MIR222HG transcription promotes proneural-to-mesenchymal transition of glioma stem cells and immunosuppressive polarization of macrophages
+
+[0128] [REF] DNA methylation in glioblastoma: impact on gene expression and clinical outcome
+
+[0129] [REF] D. Epigenomic profiling reveals novel and frequent targets of aberrant DNA methylation-mediated silencing in malignant glioma
+
+[0130] [REF] Hypermethylation of DNA methylation markers in non-cirrhotic hepatocellular carcinoma
+
+[0131] [REF] TSPYL5 is involved in cell growth and the resistance to radiation in A549 cells via the regulation of p21(WAF1/Cip1) and PTEN/AKT pathway
+
+[0132] [REF] TSPYL5 activates endoplasmic reticulum stress to inhibit cell proliferation, migration and invasion in colorectal cancer
+
+[0133] [REF] FBXL16 promotes cell growth and drug resistance in lung adenocarcinomas with KRAS mutation by stabilizing IRS1 and upregulating IRS1/AKT signaling
+
+[0134] [REF] FBXL16 modulates the proliferation and autophagy in breast cancer cells via activating SRC-3-AKT signaling pathway
+
+[0135] [REF] Suppression of breast cancer progression by FBXL16 via oxygen-independent regulation of HIF1alpha stability

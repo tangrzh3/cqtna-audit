@@ -1,0 +1,349 @@
+[0001] [TITLE] Single‐Cell Sequencing and Mendelian Randomization Reveal T Cell Nuclear Factor Genes in Hepatocellular Carcinoma Progression
+
+[0002] [ABSTRACT] This study integrates single‐cell RNA sequencing with Mendelian randomization to elucidate the role of nuclear factor of activated T cells (NFAT)‐related genes in the progression of hepatocellular carcinoma (HCC). The GSE162616 dataset was analyzed to identify differentially expressed cells and NFAT‐related genes through quality control, clustering, and z‐score algorithms. Mendelian randomization analysis of expression quantitative trait loci (eQTL) data was performed to identify hub genes causally linked to HCC. Validation in The Cancer Genome Atlas‐Liver Hepatocellular Carcinoma cohort included survival analysis, clinical correlation, and nomogram construction. Sixteen cell clusters were resolved and annotated into five types: natural killer (NK) cells, T cells, B cells, hepatocytes, and monocytes. Differentially expressed NFAT‐related genes were predominantly enriched in immune and cytokine pathways. Three genes—CACYBP, CTLA4, and RGCC—were identified as causally associated with HCC and designated as hub genes. T cells and NK cells emerged as key cellular populations, and pseudotime analysis delineated T cell differentiation trajectories. Cell–cell communication analysis revealed robust interactions between NK and B cells and between NK and T cells, primarily via the MIF–(CD74+CXCR4) axis. All three hub genes were upregulated in HCC tissues. A nomogram integrating these genes exhibited excellent diagnostic performance (AUC = 0.9). These results establish CACYBP and RGCC as risk factors and CTLA4 as a protective factor for HCC. The nomogram offers a potential tool for early diagnosis and immunotherapy guidance. Our findings highlight the value of integrating single‐cell transcriptomics with Mendelian randomization for prioritizing causal genes and provide novel insights into NFAT‐mediated immune regulation in HCC.
+
+[0003] [INTRO] 1. Introduction
+
+[0004] [INTRO] Hepatocellular carcinoma (HCC) is the most common form of primary liver cancer and is associated with a high mortality rate. Its etiology is multifactorial, involving viral hepatitis infections (hepatitis B and C viruses), alcoholic and nonalcoholic fatty liver disease (NAFLD), as well as genetic and environmental factors. Hepatectomy and liver transplantation remain the mainstay treatments for achieving long‐term survival. In recent years, the combination of targeted therapy and immunotherapy has led to sustained improvements in the objective response rate (ORR) and a significant extension of overall survival (OS) in patients with HCC. Notably, some patients with initially unresectable tumors have become eligible for curative surgery following successful conversion therapy. Despite these advances, the risk of recurrence remains high, with rates reaching up to 70% within 5 years after surgery. Tumor recurrence and metastasis have thus emerged as key determinants of long‐term patient outcomes. Consequently, continued and comprehensive investigation into the molecular mechanisms underlying HCC initiation and progression remains a critical research priority.
+
+[0005] [INTRO] The nuclear factor of activated T cells (NFAT) comprises a family of Ca2+/calmodulin‐dependent, phosphatase‐responsive transcription factors, classically recognized for their central roles in T lymphocyte activation and cardiac valve development. Accumulating evidence suggests that the NFAT family also contributes to the pathogenesis of various tumor types; however, its involvement in liver cancer remains poorly understood. A recent study reported that increased expression of NFATc4 in hepatocytes mediates NAFLD by negatively regulating PPARα and osteopontin, thereby promoting steatosis, hepatic inflammation, and fibrosis. Conversely, Wang et al. demonstrated that the calcineurin/NFATc1 pathway may drive HCC cell proliferation through transcriptional activation of oncogenes such as c‐myc and COX‐2. In 2019, Iyer et al. found that high‐dose sorafenib activates NFAT1, which in turn suppresses T cell proliferation and upregulates PD‐1 expression, suggesting a tumor‐promoting role for NFAT1 in HCC. However, these findings appear to conflict with those of Xu et al., who proposed that NFAT inhibits tumor progression by enhancing expression of the FasL apoptotic pathway. Thus, the precise role of NFAT in HCC remains controversial, and the downstream pathways involved are not yet fully elucidated.
+
+[0006] [INTRO] Mendelian randomization (MR) is a methodological approach widely used to infer causal relationships between exposures and outcomes. It typically employs genetic variants—most commonly single nucleotide polymorphisms (SNPs)—that are robustly associated with the exposure of interest as instrumental variables. Because genetic variants are randomly assorted at conception and inherited independently, they are generally less susceptible to confounding and reverse causation than traditional observational factors. MR thereby offers a valuable framework for estimating causal effects, often providing more reliable inferences than those derived from conventional observational studies.
+
+[0007] [INTRO] In this context, we aim to identify key downstream genes associated with NFAT signaling by integrating genetic scores for NFAT, focusing on natural killer (NK) cells and T cells as the primary cell types of interest, and applying MR approaches. Our objective is to provide novel insights that may inform the diagnosis, management, and therapeutic targeting of HCC.
+
+[0008] [RESULTS] 2. Results
+
+[0009] [RESULTS] 2.1. Single‐Cell Transcriptome Reveals Five Major Cell Types and Identifies NK/T Cells as NFAT‐Active Populations
+
+[0010] [RESULTS] Following quality control, 80,673 cells and 21,584 genes from the GSE162616 dataset were retained for analysis (Figure S1). The Top 2000 highly variable genes were selected for downstream processing (Figure S2). Principal component analysis (PCA) was conducted, and the first 20 principal components were used for subsequent clustering (Figure S3). Uniform Manifold Approximation and Projection (UMAP) resolved the cells into 16 distinct clusters (Figure 1a, b), which were annotated as five cell types: T cells, B cells, hepatocytes, monocytes, and NK cells. NK cells constituted the most abundant population across all samples (Figures 1c, 1d, and 1e). High specificity of canonical marker genes supported the reliability of this annotation (Figure 1f). Gene set variation analysis (GSVA) revealed significant differences in metabolic pathways—such as aminoacyl‐tRNA biosynthesis, alanine/aspartate/glutamate metabolism, and ascorbate/aldarate metabolism—across the identified clusters (Figure 2a).
+
+[0011] [RESULTS] Identification of differential cells. (a) UMAP clustering of all cells. (b) UMAP clustering stratified by HCC and normal groups. (c) Annotated cell types in all samples. (d) Annotated cell types in HCC and normal groups. (e) Proportions of cell types across samples. (f) Bubble heatmap of Top10 marker genes per cell type. UMAP, uniform manifold approximation and projection; HCC, hepatocellular carcinoma.
+
+[0012] [FIG] (a)
+
+[0013] [FIG] (b)
+
+[0014] [FIG] (c)
+
+[0015] [FIG] (d)
+
+[0016] [FIG] (e)
+
+[0017] [FIG] (f)
+
+[0018] [RESULTS] GSVA‐based pathway activity and NFAT gene scores. (a) KEGG pathway enrichment across cell types. (b) NFAT activity scores in NK and T cells. KEGG, Kyoto Encyclopedia of Genes and Genomes.
+
+[0019] [FIG] (a)
+
+[0020] [FIG] (b)
+
+[0021] [RESULTS] To investigate NFAT activity, we employed a z‐score algorithm to calculate pathway activity scores for each cell type. Notably, NK cells and T cells from HCC samples exhibited significantly higher NFAT activity scores compared with their counterparts in normal samples; these were therefore designated as “differential cells” for subsequent focused analysis (Figure 2b).
+
+[0022] [RESULTS] 2.2. Differentially Expressed Nuclear Factor of Activated T Cells‐Related Genes (DE‐NFAT‐RGs) Are Predominantly Associated With Immune and Cytokine Functions
+
+[0023] [RESULTS] Differential expression analysis between HCC and normal samples identified 13 differentially expressed genes (DEGs) in NK cells and 40 in T cells. Combined, these constituted 46 unique DE‐NFAT‐RGs, including DUSP4, CTLA4, IGHG3, and IGKC (Figure 3a, b). Gene Ontology (GO) enrichment analysis revealed that these DE‐NFAT‐RGs were significantly enriched in immune‐related biological processes, such as regulation of T cell activation, lymphocyte‐mediated immunity, and positive regulation of leukocyte activation. Complementing this, Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway analysis showed significant associations with cytokine–cytokine receptor interaction, autoimmune thyroid disease, and other immune‐related pathways (Figure 3c, d).
+
+[0024] [RESULTS] DE‐NFAT‐RGs are enriched in immune and cytokine functions. (a) Differentially expressed genes in NK cells. (b) Differentially expressed genes in T cells. (c) GO enrichment of DE‐NFAT‐RGs. (d) KEGG enrichment of DE‐NFAT‐RGs. DE‐NFAT‐RGs, differentially expressed NFAT‐related genes; NK, natural killer; GO, gene ontology; NFAT‐RGs, nuclear factor of activated T‐cells related genes; KEGG, Kyoto Encyclopedia of Genes and Genomes.
+
+[0025] [FIG] (a)
+
+[0026] [FIG] (b)
+
+[0027] [FIG] (c)
+
+[0028] [FIG] (d)
+
+[0029] [RESULTS] 2.3. MR Identifies Calcyclin‐Binding Protein (CACYBP), CTLA4, and RGCC as Causal Hub Genes for HCC
+
+[0030] [RESULTS] We performed two‐sample MR on 29 DE‐NFAT‐RGs for which suitable expression quantitative trait loci (eQTL) instruments were available. This analysis identified three genes with significant causal associations with HCC. CTLA4 was associated with a decreased risk of HCC (odds ratio [OR] = 0.99967, 95% confidence interval [CI]: 0.99936–0.99998, p = 0.0363). Conversely, CACYBP (OR = 1.001, 95% CI: 1.0005–1.0013, p = 2.21e − 05) and RGCC (OR = 1.0003, 95% CI: 1.00008–1.00053, p = 0.0086) were associated with an increased risk (Figure 4a). Scatter, forest, and funnel plots confirmed the robustness of the MR estimates (Figures S4, S5, and S6). Sensitivity analyses revealed no significant heterogeneity (Cochran′s Q p > 0.05, Table 1) nor horizontal pleiotropy (MR‐Egger intercept p > 0.05, Table 2). Leave‐one‐out analysis confirmed that no SNP was driving the observed associations (Figure 4b). The Steiger directionality test further validated that the causal direction was from gene expression to HCC (correct_causal_direction = 1, steiger_test_adj < 0.05; Table S1). Based on these results, CACYBP, CTLA4, and RGCC were designated as hub genes for all subsequent analyses.
+
+[0031] [RESULTS] Mendelian randomization identifies causal hub genes. (a) Forest plot of MR estimates for 29 DE‐NFAT‐RGs; CACYBP, CTLA4, and RGCC show significant causal associations with HCC. (b) Leave‐one‐out sensitivity analysis for the three hub genes. MR, Mendelian randomization; NFAT‐RGs, nuclear factor of activated T‐cells related genes.
+
+[0032] [FIG] (a)
+
+[0033] [FIG] (b)
+
+[0034] [TABLE] Heterogeneity test for MR analysis of hub genes.
+
+[0035] [TABLE] Gene Method Q Q_df Q_pval RGCC MR Egger 6.9184 6 0.328 Inverse variance weighted 6.9870 7 0.430 CACYBP MR Egger 0.0630 6 1.000 Inverse variance weighted 0.1841 7 1.000 CTLA4 MR Egger 13.2618 10 0.209 Inverse variance weighted 13.4935 11 0.262
+
+[0036] [TABLE] Horizontal pleiotropy test.
+
+[0037] [TABLE] Gene Egger_intercept se pval CACYBP 0.00012 0.00035 0.7398 CTLA4 −0.00002 0.00005 0.6848 RGCC −0.00001 0.00004 0.8155
+
+[0038] [RESULTS] 2.4. T Cells and NK Cells Are the Key Cellular Compartments for Hub Gene Action
+
+[0039] [RESULTS] The expression distributions of the three hub genes were visualized within the differential cell populations (Figure 5a, b). Cell types in which all three hub genes were significantly differentially expressed between HCC and normal samples were defined as “key cells.” Both T cells and NK cells met this criterion. To further characterize these key populations, metabolic pathway activity scores were calculated using the AUCell algorithm. This analysis revealed that glycolysis/gluconeogenesis and oxidative phosphorylation were among the top five differentially activated pathways in both T cells and NK cells when comparing HCC with normal samples (Figure 5c, d).
+
+[0040] [RESULTS] Identification of key cells. (a, b) Expression distribution of hub genes in NK cells (a) and T cells (b). (c, d) Top 5 differential metabolic pathways in NK cells (c) and T cells (d) between HCC and normal samples.
+
+[0041] [FIG] (a)
+
+[0042] [FIG] (b)
+
+[0043] [FIG] (c)
+
+[0044] [FIG] (d)
+
+[0045] [RESULTS] 2.5. Pseudotime Trajectory Inference Reveals Dynamic Expression of Hub Genes During T Cell Differentiation
+
+[0046] [RESULTS] Pseudotime analysis of T cells was performed using Monocle3 to reconstruct their developmental trajectory. Cells were ordered along a continuum, starting from an early progenitor‐like state and progressing in maturity as pseudotime increased (Figures 6a, 6b, and 6c). The expression levels of CACYBP and CTLA4 changed significantly during differentiation, exhibiting an initial decrease followed by an increase. In contrast, RGCC expression remained stable initially before slowly declining (Figure 6d). This dynamic pattern suggests that CACYBP and CTLA4 may exert stage‐specific regulatory functions during T cell development, whereas RGCC may play a more constitutive role.
+
+[0047] [RESULTS] Pseudotime trajectory of T cells. (a) Cells ordered along pseudotime (dark blue: early; light blue: late). (b) Nine differentiation states. (c) Distribution of T‐cell subclusters across pseudotime. (d) Dynamic expression of hub genes along pseudotime. CACYBP and CTLA4 initially decrease then increase; RGCC remains stable then slowly declines.
+
+[0048] [FIG] (a)
+
+[0049] [FIG] (b)
+
+[0050] [FIG] (c)
+
+[0051] [FIG] (d)
+
+[0052] [RESULTS] 2.6. Cell–Cell Communication Analysis Highlights the MIF–(CD74 + CXCR4) Axis in HCC
+
+[0053] [RESULTS] Intercellular communication networks were reconstructed using CellChat. In HCC samples, frequent interactions were observed among T cells, between T cells and NK cells, between T cells and B cells, among NK cells, between NK cells and B cells, and between NK cells and monocytes. Notably, T–T and NK–B interactions were particularly intense (Figure 7a). In normal samples, NK–NK, NK–B, NK–T, and NK–monocyte interactions were predominant, with NK–NK and NK–B interactions showing the highest intensity (Figure 7b). The dominant outgoing signal from both T cells and NK cells to B cells in both conditions was mediated by the MIF ligand‐receptor pair (CD74 + CXCR4) (Figure 7c, d). These findings suggest that targeting T cells, NK cells, or the MIF signaling pathway may offer immunotherapeutic benefits in HCC.
+
+[0054] [RESULTS] Cell–cell communication networks. (a, b) Circle plots showing intercellular interaction strength in HCC (a) and normal (b) samples. (c, d) Bubble plots of ligand–receptor pairs in HCC (c) and normal (d). The MIF‐(CD74+CXCR4) axis is the predominant signal from T cells/NK cells to B cells in both conditions.
+
+[0055] [FIG] (a)
+
+[0056] [FIG] (b)
+
+[0057] [FIG] (c)
+
+[0058] [FIG] (d)
+
+[0059] [RESULTS] 2.7. Elevated Expression of CACYBP, CTLA4, and RGCC in HCC and Their Clinical Relevance
+
+[0060] [RESULTS] Validation in The Cancer Genome Atlas Liver Hepatocellular Carcinoma (TCGA‐LIHC) cohort confirmed that CACYBP, CTLA4, and RGCC mRNA levels were significantly upregulated in HCC tissues compared with adjacent normal tissues (Figure 8a). Kaplan–Meier survival analysis revealed that high expression of CACYBP and RGCC was significantly associated with poorer OS, whereas CTLA4 expression did not show a significant prognostic effect (Figure 8b). Furthermore, CACYBP expression decreased with increasing patient age (Figure 8c). A nomogram integrating the three hub genes was constructed to predict patient outcomes (Figure 9a). The model′s performance was robust, with a calibration curve demonstrating strong agreement (mean absolute error < 0.1), a decision curve analysis (DCA) confirming clinical utility, and a receiver operating characteristic (ROC) curve yielding an area under the curve (AUC) of 0.9 (Figures 9b, 9c, and 9d).
+
+[0061] [RESULTS] Validation of hub genes in TCGA‐LIHC. (a) Expression levels of CACYBP, CTLA4, and RGCC in HCC versus normal tissues. (b) Kaplan–Meier survival curves for high versus low expression of each hub gene. (c) Associations of hub gene expression with clinical parameters (age, grade, and stage).
+
+[0062] [FIG] (a)
+
+[0063] [FIG] (b)
+
+[0064] [FIG] (c)
+
+[0065] [RESULTS] Nomogram construction and evaluation. (a) Nomogram integrating the three hub genes. (b) Calibration curve. (c) Decision curve analysis. (d) ROC curve (AUC = 0.9).
+
+[0066] [FIG] (a)
+
+[0067] [FIG] (b)
+
+[0068] [FIG] (c)
+
+[0069] [FIG] (d)
+
+[0070] [METHODS] 3. Materials and Methods
+
+[0071] [METHODS] 3.1. Data Sources
+
+[0072] [METHODS] Gene expression matrices and corresponding clinical data for HCC were obtained from the University of California Santa Cruz (UCSC) Xena database (http://xena.ucsc.edu). Following log2 transformation, the dataset comprised 371 primary HCC tumor samples and 50 paired adjacent normal samples from TCGA‐LIHC cohort. A subset of 365 patients with complete survival information was extracted for subsequent survival analysis. The single‐cell RNA sequencing (scRNA‐seq) dataset GSE162616, consisting of four HCC and three normal samples, was downloaded from the Gene Expression Omnibus (GEO) (https://www.ncbi.nlm.nih.gov/gds). A core set of five canonical NFAT family genes—NFATc1 (NFAT2), NFATc2 (NFAT1), NFATc3 (NFAT4), NFATc4 (NFAT3), and NFAT5—was curated based on the existing literature.
+
+[0073] [METHODS] 3.2. scRNA‐Seq Analysis
+
+[0074] [METHODS] Single‐cell data were processed using the Seurat package (v4.1.0). Quality control procedures excluded cells meeting any of the following criteria: fewer than 300 or more than 2000 detected genes, fewer than 6000 unique molecular identifiers (UMIs), or a mitochondrial read percentage exceeding 10%. After filtering, 80,673 cells were retained for downstream analysis. Data normalization and the identification of the Top 2000 highly variable genes were performed using the NormalizeData and FindVariableFeatures functions, respectively. PCA was conducted on the scaled data, and the first 20 principal components were selected based on JackStraw analysis. Cell clustering was performed using the UMAP method with a resolution parameter of 0.3. This specific resolution was chosen after evaluating a range from 0.1 to 0.5, as 0.3 yielded well‐separated clusters characterized by distinct marker gene expression and biologically meaningful cell types, consistent with standard practices in single‐cell studies. Cell types were annotated using the HumanPrimaryCellAtlasData reference from the celldex package (v1.4.0). Marker genes for each cluster were identified using the FindAllMarkers function with parameters min.pct = 0.2 and only.pos = TRUE. GSVA was performed with the msigdbr package (v7.5.1) using the c2.kegg.symbols.gmt background gene set.
+
+[0075] [METHODS] 3.3. Identification of DE‐NFAT‐RGs
+
+[0076] [METHODS] Nuclear factor of activated T cells‐related gene (NFAT‐RG) activity scores were computed for each individual cell using the z‐score algorithm implemented in the GSVA package (v4.1.0). These scores were subsequently compared between HCC and normal samples within each cell type using the Wilcoxon test. Cell types exhibiting significantly different activity scores were designated as “differential cells.” DE‐NFAT‐RGs were identified using the FindMarkers function, applying thresholds of |log₂fold change (FC)| > 1, an adjusted p value < 0.05, and expression in at least 25% of cells within a given population. GO and KEGG enrichment analyses were carried out using the ClusterProfiler package (v4.2.2) with an adjusted p value < 0.05 considered statistically significant.
+
+[0077] [METHODS] 3.4. MR Analysis
+
+[0078] [METHODS] To identify DE‐NFAT‐RGs with a causal association with HCC, a two‐sample MR analysis was conducted. eQTL summary statistics for the DE‐NFAT‐RGs were obtained from the CAGE study, which includes 2765 individuals of European ancestry and uses peripheral blood samples. Genome‐wide association study (GWAS) summary data for HCC (ieu‐b‐4953) were retrieved from the IEU OpenGWAS database (https://gwas.mrcieu.ac.uk), comprising 168 HCC cases and 372,016 controls (total n = 372,184). SNPs significantly associated with the exposure (gene expression) at a genome‐wide significance threshold (p < 5 × 10−8) were selected as potential instrumental variables. Linkage disequilibrium (LD) clumping was performed (r 2 = 0.001, clumping window = 10,000 kb) to ensure the independence of selected SNPs. The F‐statistic was calculated for each SNP, and only those with an F‐statistic > 10 were retained to ensure instrument strength and minimize the risk of weak instrument bias. The inverse variance weighted (IVW) method was employed as the primary MR analysis due to its provision of the most precise causal estimate under the assumption of no horizontal pleiotropy. Several supplementary methods—MR‐Egger, weighted median, simple mode, and weighted mode —were conducted as sensitivity analyses to assess the robustness of the findings. Heterogeneity among SNP estimates was evaluated using Cochran′s Q test, and horizontal pleiotropy was assessed using the MR‐Egger intercept test. A leave‐one‐out analysis was performed to determine if any single SNP disproportionately influenced the causal estimate. Finally, the Steiger directionality test was applied to exclude the possibility of reverse causation. Genes that passed the Steiger test (p < 0.05) were subsequently designated as hub genes for further investigation.
+
+[0079] [METHODS] 3.5. Key Cell Analysis
+
+[0080] [METHODS] The expression patterns of the identified hub genes were visualized within the differential cell populations. Cells exhibiting significant differential expression of all three hub genes between HCC and normal samples were defined as “key cells.” To further characterize these populations, metabolic pathway activity in key cells was quantified using the AUCell method, as implemented in the scMetabolism package (v0.2.1), and pathway scores were subsequently compared between HCC and normal samples.
+
+[0081] [METHODS] 3.6. Pseudotime Analysis
+
+[0082] [METHODS] Pseudotime trajectories of T cells were reconstructed to model their developmental dynamics using the Monocle3 package (v2.22.0). Changes in gene expression as a function of pseudotime were visualized to explore differentiation‐related dynamics in the expression of the hub genes.
+
+[0083] [METHODS] 3.7. Cell–Cell Communication Analysis
+
+[0084] [METHODS] Intercellular communication networks were inferred using the CellChat package (v1.4.0). Ligand–receptor pairs expressed in both HCC and normal samples were identified, and communication probabilities were calculated to construct global interaction networks. The most significant signaling axes were highlighted in the corresponding figures and legends.
+
+[0085] [METHODS] 3.8. Hub Gene Validation and Nomogram Construction
+
+[0086] [METHODS] The expression levels of the hub genes were compared between HCC and normal tissues in the TCGA‐LIHC cohort using the Wilcoxon test. OS was analyzed using the Kaplan–Meier method with a log‐rank test, applying the optimal expression cutoff determined by the survminer package (v0.4.9). Associations between hub gene expression and clinical parameters, including age, pathologic T/N/M stage, and histologic grade, were also assessed. A nomogram integrating the three hub genes was constructed using the rms package (v6.5‐0) to provide a quantitative tool for predicting patient outcomes. The predictive performance of the nomogram was evaluated using calibration curves, DCA, and ROC curves.
+
+[0087] [METHODS] 3.9. Statistical Analysis
+
+[0088] [METHODS] All statistical analyses were performed using R software (v4.1.0). Group comparisons were conducted using the Wilcoxon test unless otherwise specified. A p value < 0.05 was considered statistically significant for all analyses.
+
+[0089] [DISCUSS] 4. Discussion
+
+[0090] [DISCUSS] HCC is a highly lethal primary liver malignancy and continues to rank among the most prevalent cancers worldwide. Although substantial efforts have been directed toward elucidating the molecular mechanisms underlying HCC initiation and progression, the precise role of NFAT transcription factors—critical regulators of proinflammatory cytokine expression during immune responses—remains incompletely characterized. The NFAT family comprises five members evolutionarily related to the REL‐NF‐κB transcription factor family: NFAT1 (NFATc2/NFATp), NFAT2 (NFATc1/NFATc), NFAT3 (NFATc4), NFAT4 (NFATc3/NFATx), and NFAT5 (TonEBP). In the present study, we integrated single‐cell transcriptomics with MR to systematically investigate NFAT‐related genes in HCC. By focusing on NK cells and T cells as key differential populations, we identified three hub genes—CACYBP, CTLA4, and RGCC—that are causally associated with HCC risk.
+
+[0091] [DISCUSS] T cell‐mediated immunity plays a pivotal role in suppressing HCC progression. However, interactions between immune checkpoint ligands on tumor cells and their cognate receptors on T cells can induce T cell exhaustion, leading to immune evasion and accelerated tumor growth. Immune checkpoint inhibitors that disrupt these interactions have become first‐line therapies for HCC. NK cells constitute 25%–50% of hepatic lymphocytes and serve as a primary defense against microbial infections and tumor invasion. The abundance of NK cells in peripheral blood or liver tissue has been positively correlated with survival outcomes in HCC patients. Disruption of the NK cell activating receptor/ligand axis is a key mechanism driving HCC development and progression. Strategies to enhance NK cell function—including adoptive cell transfer, cytokine activation (e.g., IL‐15), and antibodies that promote antibody‐dependent cellular cytotoxicity (ADCC)—are under active investigation to overcome tumor immune evasion and redirect NK cells toward tumors.
+
+[0092] [DISCUSS] CACYBP is a modular protein involved in diverse cellular processes. Although highly expressed in tumor cells and neurons, its expression in normal human tissues is restricted, with highest levels in brain and heart and lowest in stomach, liver, and spleen. In pancreatic cancer, CACYBP promotes tumor growth by downregulating P27 and Rb while upregulating CyclinE and CDK2. In colon cancer, gastrin stimulation induces CACYBP nuclear translocation, where it binds SKP1 and promotes P27 ubiquitination and degradation, thereby enhancing proliferation. In gliomas, CACYBP participates in Siah1‐mediated cytoplasmic P27 degradation, reducing tumor cell migration and invasion. In HCC, CACYBP is highly expressed and associated with poor prognosis. Both in vitro and in vivo studies have demonstrated that HCC cell growth requires CACYBP expression. Mechanistically, in the absence of RNF41‐mediated degradation, CACYBP enhances cytoplasmic retention of P27Kip1, thereby promoting HCC progression. Depletion of CACYBP disrupts tumor‐associated macrophage (TAM) infiltration and the immunosuppressive microenvironment, enhancing sensitivity to anti‐PD‐1 therapy. Consistent with these findings, multiple prognostic models have identified CACYBP as an independent risk factor for HCC. Our MR analysis similarly identified CACYBP as a risk gene for HCC, with increased expression and genetic variants contributing to HCC occurrence. Notably, CACYBP expression decreased with advancing patient age, and high expression correlated with poorer OS. In pathological grading, G3 tumors exhibited significantly higher CACYBP expression than G1 and G2 tumors, further supporting its role as a risk‐associated gene in HCC progression.
+
+[0093] [DISCUSS] CTLA‐4 (cytotoxic T‐lymphocyte‐associated protein 4) is a key negative regulator of immune responses, primarily expressed on activated T cells and regulatory T cells (Tregs), with low expression on naïve T cells. It suppresses antitumor immunity in solid tumors, including HCC, and numerous clinical trials targeting CTLA‐4 are ongoing. Our MR analysis identified CTLA4 as a protective factor for HCC (OR = 0.99967), suggesting that genetically determined higher CTLA4 expression may reduce HCC risk. This finding may initially appear counterintuitive given the established role of CTLA‐4 as an immune checkpoint and the therapeutic efficacy of CTLA‐4 blockade in cancer. However, several considerations may reconcile this apparent contradiction. First, MR estimates reflect the lifelong cumulative effect of genetically determined gene expression on disease risk, which may differ from the acute pharmacological effects of checkpoint inhibition in established tumors. Second, CTLA‐4 expression on Tregs is essential for maintaining immune homeostasis and preventing autoimmunity; thus, higher constitutive CTLA‐4 expression could theoretically reduce chronic inflammation—a known risk factor for HCC development. Third, the observed protective effect may reflect differences between expression levels and functional states, or context‐dependent roles of CTLA‐4 in early versus late stages of hepatocarcinogenesis. Notably, our clinical correlation analysis revealed that CTLA4 expression was significantly higher in G3 tumors compared with G1 tumors, suggesting that once HCC is established, CTLA‐4 may contribute to tumor progression by promoting immune evasion. These findings underscore the complexity of CTLA‐4 biology in HCC and highlight the importance of considering both genetic predisposition and tumor stage when evaluating immunotherapeutic strategies. Although survival analysis did not reveal a significant association between CTLA4 expression and HCC survival—possibly due to sample size limitations—our results provide genetic evidence supporting CTLA‐4 as a relevant target in HCC immunotherapy.
+
+[0094] [DISCUSS] RGCC (regulator of cell cycle, also known as RGC‐32) is a cell cycle regulatory factor widely expressed in multiple human organs. Its expression can be induced by complement, growth factors, cytokines, angiogenic factors, and hormones. RGCC plays primary roles in cell migration, differentiation, and fibrosis, and promotes aortic smooth muscle cell entry into S phase by directly binding to CDK1 and enhancing its kinase activity. RGCC exerts protective effects in pulmonary fibrosis, where reduced expression leads to collagen deposition. In triple‐negative breast cancer (TNBC), RGCC drives lung‐specific metastasis through the RGCC/PLK1/AMPKα2 axis, representing a potential therapeutic target. As a cell cycle regulator, RGCC has been implicated in the development and invasiveness of various tumors, including colon cancer, ovarian cancer, cutaneous T‐cell lymphoma, and Burkitt′s lymphoma. Recently, RGCC was included in a nine‐gene genomic‐clinicopathologic model for predicting mortality in HCC, suggesting its potential utility in personalized treatment. However, reports on the correlation between RGCC and HCC biology remain limited.
+
+[0095] [DISCUSS] Our study demonstrates that RGCC expression is significantly upregulated in HCC tissue compared with normal tissue, and high RGCC expression is associated with poorer OS. Furthermore, RGCC expression increased with advancing pathological grade, suggesting its involvement in HCC progression. Interestingly, MR analysis identified RGCC as a risk gene for HCC occurrence (OR = 1.0003), consistent with its protumorigenic role. However, the relationship between RGCC expression and survival may be more complex. Several factors could explain this complexity: (1) RGCC may exert dual mechanisms in tumors—although highly expressed, it might partially inhibit tumor growth or metastasis through context‐dependent effects on cell proliferation and apoptosis; (2) other genetic or molecular pathways, as well as treatment sensitivity, may counteract the negative impact of high RGCC expression; (3) as noted by Vlaicu et al., RGCC appears to play pleiotropic roles in different malignant contexts depending on cell line age, underlying ligands, and protein levels, determining whether cells accelerate proliferation or undergo mitotic arrest. Thus, although RGCC clearly influences HCC development, its precise mechanisms warrant further investigation.
+
+[0096] [DISCUSS] The tumor microenvironment (TME) comprises diverse cellular and acellular components that collectively drive tumor growth, invasion, metastasis, and therapeutic response. In HCC, the TME exerts immunosuppressive effects, inducing tolerance and promoting tumor proliferation, invasion, and metastasis. This tumor‐promoting response is mediated by environmental factors, oncogenic processes, and a network of immunosuppressive cell subsets, inflammatory molecules, and signaling pathways. Within this intricate signaling network, both the NK cells and T cells responsible for immune surveillance in early tumor development, and the Treg, CD8+, and CD4+ T cells that play critical roles during tumor progression, belong to the NK or T cell lineages. This underscores that NK cells, T cells, and their regulatory factors occupy central positions throughout HCC development. Accordingly, we focused on NK cells and T cells and their regulatory factors (NFAT), employing MR to mitigate confounding and more precisely identify immune‐related pathways influencing HCC pathogenesis. Our findings suggest that the identified hub genes may serve as key executors of immune regulation within the TME.
+
+[0097] [DISCUSS] Based on the three hub genes, we constructed a nomogram prediction model and scoring system with HCC occurrence as the outcome variable. Among these, CACYBP contributed the largest proportion to the predicted probability of HCC, indicating that its expression level plays a dominant role in this model, whereas RGCC and CTLA4 exhibited some variability. This model, utilizing only three gene expression values as independent variables, offers a relatively simple and cost‐effective approach compared with multigene panels and holds promise for clinical prediction of HCC risk and evaluation of treatment response. A schematic diagram summarizing the key findings and proposed mechanisms of this study is presented in Figure S7.
+
+[0098] [DISCUSS] 5. Limitations and Future Directions
+
+[0099] [DISCUSS] Several limitations of this study should be acknowledged. First, the MR analysis was based on eQTL data derived from peripheral blood of individuals of European ancestry, which may not fully capture tissue‐specific regulatory mechanisms or the genetic diversity of other populations. Second, the single‐cell dataset comprised a limited number of samples, and the findings require validation in larger, independent cohorts. Third, although we have established causal genetic links, the precise molecular mechanisms by which these hub genes influence T‐cell and NK‐cell functions within the HCC microenvironment remain to be experimentally validated. Future studies should employ in vitro coculture systems and in vivo HCC models to manipulate CACYBP, CTLA4, and RGCC expression in specific immune subsets and assess the consequent impact on tumor progression and immunotherapy response. Furthermore, prospective clinical studies are warranted to evaluate the predictive value of the derived nomogram in guiding early diagnosis and treatment decisions.
+
+[0100] [CONCL] 6. Conclusions
+
+[0101] [CONCL] Collectively, by integrating scRNA‐seq with MR, this study identifies CACYBP, CTLA4, and RGCC as hub genes with causal roles in HCC progression. Our findings highlight T cells and NK cells as the principal cellular compartments through which these genes may exert their effects. The resultant three–gene‐based nomogram exhibits robust diagnostic accuracy and represents a valuable tool with significant potential for clinical translation, particularly in guiding early detection and immunotherapy stratification. Further investigation is warranted to delineate the precise molecular mechanisms underlying these associations and to prospectively validate the nomogram′s performance in multicenter cohorts.
+
+[0102] [AUTH_CONT] Author Contributions
+
+[0103] [AUTH_CONT] Yunfei Chen, Xiting Yang, and Lintao Zhong have contributed to the work equally.
+
+[0104] [ACK_FUND] Funding
+
+[0105] [ACK_FUND] The study was supported by the Project of Science & Technology Department of Sichuan Province key R&D plan (Grant Number: 23ZDYF2443) and the Research Project Plan of Sichuan Medical Association (Grant Number: S210018).
+
+[0106] [COMP_INT] Disclosure
+
+[0107] [COMP_INT] All authors read and approved the final manuscript.
+
+[0108] [COMP_INT] Conflicts of Interest
+
+[0109] [COMP_INT] The authors declare no conflicts of interest.
+
+[0110] [COMP_INT] General Statement
+
+[0111] [COMP_INT] Experimental Model and Subject Details. This study is a computational analysis based on publicly available genomic and transcriptomic datasets. No cell lines, primary cells, or animal models were used in the experiments described herein. Therefore, requirements regarding cell line authentication, mycoplasma testing, and related descriptors are not applicable.
+
+[0112] [SUPPL] Supporting Information
+
+[0113] [SUPPL] Additional supporting information can be found online in the Supporting Information section.
+
+[0114] [SUPPL] Supporting information
+
+[0115] [SUPPL] Data Availability Statement
+
+[0116] [SUPPL] The data that support the findings of this study are openly available in (UCSC) at (http://xena.ucsc.edu/), (GEO) at (https://www.ncbi.nlm.nih.gov/gds) Reference Number (GSE162616) and (GWAS) at (https://gwas.mrcieu.ac.uk/) Reference Number (ieu‐b‐4953).
+
+[0117] [REF] Liver Cancer: Connections With Obesity, Fatty Liver, and Cirrhosis
+
+[0118] [REF] Epigenetics in Hepatocellular Carcinoma
+
+[0119] [REF] Hepatocellular Carcinoma
+
+[0120] [REF] Patient-Reported Outcomes With Atezolizumab Plus Bevacizumab Versus Sorafenib in Patients With Unresectable Hepatocellular Carcinoma (IMbrave150): An Open-Label, Randomised, Phase 3 Trial
+
+[0121] [REF] Hepatocellular Carcinoma
+
+[0122] [REF] Overexpression of c-myc in Pancreatic Cancer Caused by Ectopic Activation of NFATc1 and the Ca2+/Calcineurin Signaling Pathway
+
+[0123] [REF] Expression and Unique Functions of Four Nuclear Factor of Activated T Cells Isoforms in Non-Small Cell Lung Cancer
+
+[0124] [REF] NFAT Signalling is a Novel Target of Oncogenic BRAF in Metastatic Melanoma
+
+[0125] [REF] Recent Knowledge of NFATc4 in Oncogenesis and Cancer Prognosis
+
+[0126] [REF] Immunogenomic Identification for Predicting the Prognosis of Cervical Cancer Patients
+
+[0127] [REF] Calcineurin/NFATc1 Pathway Contributes to Cell Proliferation in Hepatocellular Carcinoma
+
+[0128] [REF] Dose-Dependent Sorafenib-Induced Immunosuppression Is Associated With Aberrant NFAT Activation and Expression of PD-1 in T Cells
+
+[0129] [REF] NFATc1 Is a Tumor Suppressor in Hepatocellular Carcinoma and Induces Tumor Cell Apoptosis by Activating the FasL-Mediated Extrinsic Signaling Pathway
+
+[0130] [REF] Review of Mendelian Randomization Studies on Ovarian Cancer
+
+[0131] [REF] Mendelian Randomization
+
+[0132] [REF] Spatial Reconstruction of Single-Cell Gene Expression Data
+
+[0133] [REF] Combination of Single-Cell and Bulk RNA Seq Reveals the Immune Infiltration Landscape and Targeted Therapeutic Drugs in Spinal Cord Injury
+
+[0134] [REF] Molecular Signatures Database (MSigDB) 3.0
+
+[0135] [REF] GSVA: Gene Set Variation Analysis for Microarray and RNA-Seq Data
+
+[0136] [REF] clusterProfiler: an R Package for Comparing Biological Themes Among Gene Clusters
+
+[0137] [REF] The Genetic Architecture of Gene Expression in Peripheral Blood
+
+[0138] [REF] The MR-Base Platform Supports Systematic Causal Inference Across the Human Phenome
+
+[0139] [REF] Using Published Data in Mendelian Randomization: A Blueprint for Efficient Identification of Causal Risk Factors
+
+[0140] [REF] Mendelian Randomization With Invalid Instruments: Effect Estimation and Bias Detection Through Egger Regression
+
+[0141] [REF] Consistent Estimation in Mendelian Randomization With Some Invalid Instruments Using a Weighted Median Estimator
+
+[0142] [REF] Robust Inference in Summary Data Mendelian Randomization via the Zero Modal Pleiotropy Assumption
+
+[0143] [REF] Systemic Lupus Erythematosus Is Causally Associated With Hypothyroidism, But Not Hyperthyroidism: A Mendelian Randomization Study
+
+[0144] [REF] Mendelian Randomization: Genetic Anchors for Causal Inference in Epidemiological Studies
+
+[0145] [REF] Causality of Genetically Determined Metabolites on Anxiety Disorders: a Two-Sample Mendelian Randomization Study
+
+[0146] [REF] Exercise Improves Choroid Plexus Epithelial Cells Metabolism to Prevent glial Cell-Associated Neurodegeneration
+
+[0147] [REF] The Dynamics and Regulators of Cell Fate Decisions Are Revealed by Pseudotemporal Ordering of Single Cells
+
+[0148] [REF] A Cuproptosis Activation Scoring Model Predicts Neoplasm-Immunity Interactions and Personalized Treatments in Glioma
+
+[0149] [REF] Identification of CDK2-Related Immune Forecast Model and ceRNA in Lung Adenocarcinoma, a Pan-Cancer Analysis
+
+[0150] [REF] Placenta Inflammation Is Closely Associated With Gestational Diabetes Mellitus
+
+[0151] [REF] Global Cancer Statistics 2020: GLOBOCAN Estimates of Incidence and Mortality Worldwide for 36 Cancers in 185 Countries
+
+[0152] [REF] NFAT, Immunity and Cancer: A Transcription Factor Comes of Age
+
+[0153] [REF] Natural Killer Cells and T Cells in Hepatocellular Carcinoma and Viral Hepatitis
+
+[0154] [REF] NK Cells and Cancer: You Can Teach Innate Cells New Tricks
+
+[0155] [REF] Natural Killer Cell Dysfunction in Hepatocellular Carcinoma and NK Cell-Based Immunotherapy
+
+[0156] [REF] Natural Killer Cell Responses in Hepatocellular Carcinoma: Implications for Novel Immunotherapeutic Approaches
+
+[0157] [REF] CacyBP/SIP--Structure and Variety of Functions
+
+[0158] [REF] Expression of Calcyclin-Binding Protein/Siah-1 Interacting Protein in Normal and Malignant Human Tissues: An Immunohistochemical Survey
+
+[0159] [REF] CacyBP/SIP Protein Promotes Proliferation and G1/S Transition of Human Pancreatic Cancer Cells
+
+[0160] [REF] CacyBP/SIP Promotes the Proliferation of Colon Cancer Cells
+
+[0161] [REF] CacyBP/SIP Inhibits the Migration and Invasion Behaviors of Glioblastoma Cells Through Activating Siah1 Mediated Ubiquitination and Degradation of Cytoplasmic p27
+
+[0162] [REF] CACYBP Enhances Cytoplasmic Retention of P27 (Kip1) to Promote Hepatocellular Carcinoma Progression in the Absence of RNF41 Mediated Degradation
+
+[0163] [REF] Blockage of CacyBP Inhibits Macrophage Recruitment and Improves Anti-PD-1 Therapy in Hepatocellular Carcinoma
+
+[0164] [REF] Identification of a Prognostic and Therapeutic Immune Signature Associated With Hepatocellular Carcinoma
+
+[0165] [REF] Establishment and Validation of Exhausted CD8+ T Cell Feature as a Prognostic Model of HCC
+
+[0166] [REF] Determining Breast Cancer Histological Grade From RNA-Sequencing Data
+
+[0167] [REF] Immune Checkpoint Therapy in Liver Cancer
+
+[0168] [REF] RGC-32 and Diseases: The First 20 Years
+
+[0169] [REF] Molecular Cloning and Characterization of RGC-32, a Novel Gene Induced by Complement Activation in Oligodendrocytes
+
+[0170] [REF] RGC-32 Increases p34CDC2 Kinase Activity and Entry of Aortic Smooth Muscle Cells Into S-phase
+
+[0171] [REF] Regulator of Cell Cycle Protein (RGCC/RGC-32) Protects Against Pulmonary Fibrosis
+
+[0172] [REF] RGCC-Mediated PLK1 Activity Drives Breast Cancer Lung Metastasis by Phosphorylating AMPKα2 to Activate Oxidative Phosphorylation and Fatty Acid Oxidation
+
+[0173] [REF] A Novel Genomic-Clinicopathologic Nomogram to Improve Prognosis Prediction of Hepatocellular Carcinoma
+
+[0174] [REF] Spatial Profiling Technologies Illuminate the Tumor Microenvironment
+
+[0175] [REF] Current Perspectives on the Tumor Microenvironment in Hepatocellular Carcinoma

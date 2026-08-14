@@ -466,6 +466,16 @@ ranking restates the instrument-visibility point from the other side: **PGAM1
 ranks 8th, above TPI1**, with LDHA, GAPDH, PKM and ENO1 also at or above it — the
 enzymes MR cannot instrument sit as high on the axis as the one it can.
 
+Both repeat in a second dataset, pre-registered before the run (Supplementary
+S32). GSE166188 is DOGMA-seq from a different study, where CD4 is called by
+surface antibody rather than by transcript — the calling that finding ⑦ shows to
+be unreliable. The same TPI1-free construction places **TPI1 at rank 18 of 8,224
+and 28 of 7,165 in its two arms, top 0.22% and 0.39%** against 0.25% in
+discovery, with glycolysis enriched 27.4- and 23.9-fold, and **PGAM1 3rd in both
+arms**, again above TPI1. ⚠ The two arms are two lysis buffers on the same
+material — technical replicates, not two donors — so this replicates across
+study, platform and lineage calling and **not across donors**.
+
 This characterises what the nominated gene co-varies with and not that its
 variant causes the state — a separate test of that, whether the instrument
 disrupts an AP-1 motif, returned an empirical P = 1.0.
@@ -577,7 +587,7 @@ candidate under a ranking criterion that was never fixed in advance, and the
 first four designations were overturned. That is this project's own history and
 not an estimate of how often the framework fails, and the itemised record — every
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
-ten pre-registrations and the technical account of two processing errors of
+eleven pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
 
 Eight checks follow directly, each cheap and each capable of changing what a study
@@ -640,7 +650,7 @@ model proves only partly transportable [38]:
 | Causal target for melanoma | **Not supported** — FDR = 0.119, prior-dependent colocalisation, region not fine-mappable |
 | Dynamic *genetic* effect across activation | **Not supported** — no genotype × pseudotime interaction at any of three lead variants |
 | Dynamic *expression* across activation | **Supported** — Moran's I = 0.664 |
-| Membership of a definable CD4⁺ metabolic state | **Supported** — ranks 19th of 7,653 on an axis built without it, positive in 4/4 sets; axis enrichment 21.0-fold, chromatin concordant |
+| Membership of a definable CD4⁺ metabolic state | **Supported** — ranks 19th of 7,653 on an axis built without it, and 18th and 28th in a second dataset with protein-based lineage calling; axis enrichment 21.0–27.4-fold |
 | Predicts checkpoint-blockade response | **Unstable** — significant on discovery, no arm confirmed twice |
 | Functional consequence isolable by perturbation | **No** — a hit in 628 of 1,471 human CRISPR screens (42.7%), a core-essential profile that cannot isolate a CD4-specific role |
 | Recognised as a target for this disease elsewhere | **No** — in Open Targets, TPI1's strongest disease associations are triosephosphate isomerase deficiency and neurodegenerative disease; melanoma is not among its leading associations |
@@ -655,7 +665,7 @@ biological importance are separable — the strongest enzyme in the functional d
 carries no instrument, and the gene that does carry one is principally expressed
 by tumour. The complete record of which claims about it were raised, tested and
 withdrawn, together with the selection denominators at gene, pathway and mechanism
-level and the ten pre-registration documents, is Supplementary S12 and S18–S31.
+level and the eleven pre-registration documents, is Supplementary S12 and S18–S32.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -723,7 +733,7 @@ Full Methods accompany this manuscript.
 
 ## Supplementary information
 
-S9–S31, including the ten pre-registration documents with their reading tables
+S9–S32, including the eleven pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the

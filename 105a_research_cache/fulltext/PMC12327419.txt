@@ -1,0 +1,291 @@
+[0001] [TITLE] VOPP1 as a Novel Susceptibility Gene in Rheumatoid Arthritis: Insights Into Its Mechanisms From Mendelian Randomization and Experimental Validation
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Genetic factors are key determinants of vulnerability to rheumatoid arthritis (RA), a systemic inflammatory disease that causes inflammation, pain, swelling, and destruction of the joints. Expression quantitative trait loci (eQTLs) have been shown to detect novel disease-risk loci in previous studies. In this paper, we identified new susceptibility genes in RA and investigated their underlying mechanisms using integrated Mendelian randomization (MR) analysis.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] Two-sample MR analyses were used to determine the causative links among eQTLs, metabolites, and RA risk. The study was conducted between January 2023 and June 2024. Synovial tissue samples were collected from patients undergoing joint surgery at the Affiliated Hospital of Nantong University. Functional validation of the candidate gene vesicular overexpressed in cancer pro-survival protein 1 (VOPP1) was performed in vitro using rheumatoid arthritis fibroblast-like synoviocytes (RA-FLSs), and in vivo in a collagen-induced arthritis (CIA) rat model. Expression levels of VOPP1 were evaluated by quantitative real-time PCR and Western blot. Additional assays assessed cell proliferation, inflammatory cytokine expression, and activation of the p38 mitogen-activated protein kinase (MAPK) signaling pathway.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] Our findings offer the first evidence that RA risk is increased by the VOPP1 eQTL. Furthermore, we discovered that the VOPP1 eQTL positively modulates the X−23,587 metabolite’s levels, and raising this metabolite may make RA risk worse. Moreover, we demonstrate that VOPP1 is highly expressed in RA synovial tissues and RA-FLSs. VOPP1 stimulates the proliferation of RA-FLSs and the inflammatory response through the p38 MAPK signaling pathway according to functional experiments. We showed that VOPP1 knockdown reduced articular damage and synovial inflammation in vivo using a CIA rat model.
+
+[0008] [ABSTRACT] Conclusion
+
+[0009] [ABSTRACT] This study identifies VOPP1 as a novel gene associated with rheumatoid arthritis susceptibility. VOPP1 may contribute to disease progression by elevating X−23,587 metabolite levels and activating the p38 MAPK signaling pathway.
+
+[0010] [INTRO] Introduction
+
+[0011] [INTRO] Rheumatoid arthritis (RA) is a chronic, systemic autoimmune disease that results in inflammation, pain, and long-term joint damage. In addition to severely impairing the standard of living for people who suffer from it, RA has a significant financial cost to both the affected person and society at large. Genetic predisposition, environmental factors, and unexpected circumstances all contribute to the onset of RA. Current management of RA involves a combination of pharmacological and non‑pharmacological strategies. First‑line therapy typically includes disease‑modifying antirheumatic drugs (DMARDs), such as conventional synthetic DMARDs (csDMARDs) like methotrexate, often in combination with biologic DMARDs (bDMARDs) (eg, TNF inhibitors such as adalimumab, IL‑6 receptor antagonists such as tocilizumab), or targeted synthetic DMARDs (tsDMARDs) (eg, JAK inhibitors such as tofacitinib). Patient education and lifestyle modification are also crucial, as they help patients better understand their disease, improve adherence to standardized treatment, and support effective self‑management. Despite these therapeutic options, many patients experience inadequate response or relapse, underscoring the need for improved understanding of RA pathogenesis and identification of novel treatment targets.
+
+[0012] [INTRO] The pathogenesis of RA involves a complex interplay of genetic susceptibility, environmental triggers, and immune dysregulation. Key players include T and B cells, macrophages, and fibroblast-like synoviocytes (FLSs), which contribute to synovial hyperplasia and joint destruction through the release of inflammatory cytokines such as TNF-α, IL-1β, and IL-6. Previous studies have revealed that hereditary factors account for around 50–65% of the chance of getting RA. Important insights into the pathophysiology of the disease can be gained by combining disease data with various genetic and biological databases.
+
+[0013] [INTRO] In the last 10 years, around 150 susceptibility loci linked to RA development have been identified by genome wide association studies (GWAS). The associations of the genetic variants with the expression of the genes can be explored to prioritize causal genes. They are of key importance for the field of RA research, as expression quantitative trait loci (eQTLs) link variants to changes in gene expression and gene expression to underlying biology providing susceptibility loci and insights into disease biology. Mendelian randomization (MR) is a robust epidemiological tool leveraging genetic variants as instrumental variables (IVs) in order to inferment from modifiable exposure to disease outcomes. Because MR assumes that genetic variations are randomly distributed during meiosis, it is, more often than not, immune to the kind of biases that plague observational research. Previous studies that used MR with eQTLs have been used on a wide range of tumor and non-tumor diseases. MR and colocalization analyses allowed Zhang et al to identify seven possible drug targets for RA, and ATP2A1 was found to be associated with several other traits in PheWAS. These genes offer prospective therapeutic targets for the development of RA drugs since they are closely associated with immune function. Using drug target MR and genetic colocalization analysis, Li et al analyzed the relationship between HMGCR inhibition and RA risk. In the second, they find that RA incidence and especially possible causality with LDL levels are closely related to HMGCR inhibition.
+
+[0014] [INTRO] These studies underscore the potential of MR and eQTL-based approaches, but also highlight remaining gaps—particularly the lack of mechanistic studies validating gene-metabolite links and their functional impact on RA-related cell types such as RA-FLSs. Furthermore, limited research has explored how these genes integrate with key inflammatory pathways to modulate RA pathogenesis. Addressing these knowledge gaps is essential for translating genomic data into clinically meaningful targets.
+
+[0015] [INTRO] Given the ongoing clinical challenges in RA, such as suboptimal treatment efficacy, therapeutic failure, and the lack of predictive biomarkers, there is an urgent need for deeper molecular insights and novel therapeutic strategies. VOPP1 (Vesicular Overexpressed in Cancer Prosurvival Protein 1) has recently been implicated in several cancers due to its role in promoting NF-κB signaling and cell survival. However, its role in RA pathogenesis is unknown. No prior study has systematically evaluated VOPP1 using integrated genetic, metabolomic, and functional analysis in RA. This study aims to explore the eQTL, metabolite associations, and involvement in key signaling pathways of VOPP1 to RA. Our method combines eQTL analysis, metabolite profiling, and functional tests in RA. Here we hypothesize that RA pathogenesis, at least in part, is mediated by VOPP1 as it may affect metabolite levels and the proliferation of RA-FLSs and their release of the inflammatory cytokines via the p38 MAPK pathway. This study aims to reveal novel mechanistic insights, identify actionable therapeutic targets, and support precision medicine efforts for early diagnosis and individualized treatment of RA.
+
+[0016] [METHODS] Materials and Methods
+
+[0017] [METHODS] Mendelian Randomization (MR) Study Design
+
+[0018] [FIG] The whole Mendelian randomization (MR) study design.
+
+[0019] [METHODS] This study adhered to the guidelines outlined in the Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) checklist and followed the three core assumptions of MR. The overall MR design is illustrated in Figure 1 and consists of three steps: Step 1 involved 19,942 gene eQTLs as exposures and RA as the outcome; Step 2 involved 1,400 metabolites as exposures and RA as the outcome; and Step 3 used VOPP1 eQTL as exposure and 74 metabolites as outcomes.
+
+[0020] [METHODS] Data Sources
+
+[0021] [METHODS] With the GWAS ID of eqtl-a-Ensembl IDs, genetic information for 19,942 gene eQTLs was obtained from the IEU OpenGWAS project website (https://gwas.mrcieu.ac.uk/). The VOPP1 gene’s eQTL ID is eqtl-a-ENSG00000154978. The GWAS Catalog (https://www.ebi.ac.uk/gwas/) provided information for 1,400 metabolites, with IDs ranging from GCST90199621 to GCST90201020, including the metabolite X-23,587, which has the ID GCST90200609. Genetic data of rheumatoid arthritis (RA) were acquired using the GWAS ID ebi-a-GCST90018910 from the IEU OpenGWAS project (https://gwas.mrcieu.ac.uk/).
+
+[0022] [METHODS] Selection of Instrumental Variables (IVs)
+
+[0023] [METHODS] A p-value criterion of 5e-8, a linkage disequilibrium (LD) threshold with a clumped kb of 10,000, and r2 = 0.001 were used to choose IVs for Step 1. The same LD threshold (clumped kb of 10,000 and r2 = 0.001), a p-value threshold of 1e-5, and an F-statistic threshold greater than 10 were used to select IVs in Step 2. The same LD threshold (clumped kb of 10,000 and r2 = 0.001), a p-value threshold of 5e-8, and an F-statistic threshold above 10 were used to choose IVs for Step 3.
+
+[0024] [METHODS] MR Analysis and Sensitivity Analyses
+
+[0025] [METHODS] To explore causal relationships between modifiable exposures and disease outcomes, this study used two-sample MR analyses with the “TwoSampleMR” R package. The principal analytical approach included the use of the inverse variance weighted (IVW) method together with other methods including MR Egger, weighted median, weighted mode, and simple mode. A p-value threshold of 0.05 confirmed statistical significance. In addition, the robustness of the results was assessed by running sensitivity analyses such as heterogeneity tests, pleiotropy assessment, and leave-one-out analysis. These sensitivity analyses also ensured adherence to the MR exclusivity assumption.
+
+[0026] [METHODS] GEO Database Analyses
+
+[0027] [METHODS] The GEO database (GSE55457 dataset) was used to examine the expression of VOPP1 in the synovial tissues of both RA patients and healthy individuals.
+
+[0028] [METHODS] Ethics Statement
+
+[0029] [METHODS] This study was conducted at the Affiliated Hospital of Nantong University from January 2023 and June 2024. The study was carried out in complete accordance with the Declaration of Helsinki and authorized by the Nantong University Affiliated Hospital’s Ethics Committee. Prior to the study, all participants signed the agreement. Furthermore, the animal tests were experiments by the Animal Ethics Committee of Nantong University and conducted in strict accordance with the animal care guidelines established by the United States National Institutes of Health.
+
+[0030] [METHODS] Human Synovial Tissue
+
+[0031] [METHODS] Normal synovial tissue samples (n=5) were taken from individuals undergoing meniscal knee arthroscopic surgery. RA synovial tissue samples (n=5) were taken from individuals with RA undergoing total knee arthroplasty at the Orthopedic Department of the Affiliated Hospital of Nantong University. The diagnosis of RA was confirmed based on the 2010 ACR/EULAR classification criteria and corresponded to ICD-10 codes M05.900. All RA patients included in the study had not been treated with DMARDs before surgery. Their symptoms were managed only with NSAIDs at the time of tissue collection.
+
+[0032] [METHODS] Cell Isolation and Culture
+
+[0033] [METHODS] As previously disclosed, RA fibroblast-like synoviocytes (RA-FLSs) were isolated and cultured. The tissue samples were then minced into very small pieces and digested with type II collagenase (1 mg/mL Sigma Aldrich, USA) in DMEM (Gibco, USA) for 3 hours at 37°C with a gentle shaking at 5% CO2 (Thermo, USA). Subsequently, the cells were digested, gathered by centrifugation and resuspended in DMEM containing 10% FBS, 100 U/mL penicillin, and 100 µg/mL streptomycin. The cells were then cultured in a 37°C, 5% CO2 incubator. For the tests that followed, RA-FLSs from passages three through six were utilized. The cells were stimulated with lipopolysaccharide (LPS, 1 µg/mL, Sigma-Aldrich, USA) to create an in vitro RA-FLSs model.
+
+[0034] [METHODS] Quantitative Real-Time PCR (q-PCR)
+
+[0035] [METHODS] T According to the protocol for RNA-Quick Kit (RN001, Yishan, China) total mRNA was extracted. We then reverse-transcribed the isolated mRNA cDNA using HiScript III RT SuperMix for qPCR (R323, Vazyme, China). Quantitative PCR (qPCR) was performed on a LightCycler96 system (Roche, Switzerland) using the 2× Universal Blue SYBR Green qPCR Master Mix (G3326-01, Servicebio, China). A two-step procedure was used to run the q-PCR program: 30 seconds at 95°C, followed by 40 cycles of 15 seconds at 95°C and 30 seconds at 60°C. GAPDH expression was then used for the normalization of RNA quantification via the use of 2^−ΔΔCT. RNA quantification was normalized to GAPDH expression using the 2^−ΔΔCT method. The primers used are as follows: VOPP1 (Forward: GAGCCAGCCTTCAATGTGTCCTAC; Reverse: GGTCCTCCTGGGTCGGTGTAATAG) and GAPDH (Forward: CAGGAGGCATTGCTGATGAT; Reverse: GAAGGCTGGGGCTCATTT).
+
+[0036] [METHODS] Western Blot Analysis
+
+[0037] [METHODS] Total protein from synovial tissues and RA-FLSs was isolated by lysing them in radioimmunoprecipitation assay (RIPA) buffer containing 1% protease and phosphatase inhibitor cocktail (NCM, China). After being separated on SDS-PAGE gels, the extracted proteins were moved onto a PVDF membrane. After blocking the membrane with 5% skim milk on a shaker for two hours at room temperature, followed by overnight incubation at 4°C with the following primary antibody: VOPP1 (12611-1-AP, Proteintech, China), β-actin (20536-1-AP, Proteintech, China), p38 (14064-1-AP, Proteintech, China) and p-p38 (28796-1-AP, Proteintech, China). After that the membrane was washed thrice with TBST and then incubated with secondary antibodies for one hour at room temperature. Following secondary antibody incubation, the membrane was washed three times with TBST and developed using enhanced chemiluminescent kit (NCM, China) on a Bio Rad imaging system. The target bands were further quantitatively analyzed by Image J density software.
+
+[0038] [METHODS] Cell Transfection
+
+[0039] [METHODS] Small interfering RNA (siRNA) targeting VOPP1 were purchased from GENE CREATE (Wuhan, China). The sequences are as follows: si-VOPP1#1 sense: 5′- CGAAGGACUCUAUCCAACCUATT-3′; antisense: 5′- UAGGUUGGAUAGAGUCCUUCGTT-3′; si-VOPP1#2 sense: 5′- CUGUGGUACUUCUGGUUCCUUTT-3′; antisense: 5′- AAGGAACCAGAAGUACCACAGTT-3′; si-VOPP1#3 sense: 5′- CCUUCAAUGUGUCCUACACCATT-3′; antisense: 5′- UGGUGUAGGACACAUUGAAGGTT-3′. Following the manufacturer’s instructions, the cells were transiently transfected using Lipofectamine 3000 (Invitrogen, USA) after being seeded onto a 6-well plate at 70% confluence. 48 hours after transfection, the cells were taken out for more research.
+
+[0040] [METHODS] Enzyme-Linked Immunosorbent Assay (ELISA)
+
+[0041] [METHODS] RA-FLSs supernatants and rat serum were gathered for ELISA examination. As directed by the manufacturer, ELISA kits were used to quantify the levels of TNF-α and IL-6 in humans or rats.
+
+[0042] [METHODS] Cell Cycle Analysis
+
+[0043] [METHODS] Cells were gathered and preserved for the night at 4°C in 70% cold ethanol. Fixed cells were rinsed with PBS and then incubated with the staining solution for half an hour, as directed by the directions on the cell cycle detection kit (Keygen, Nanjing, China). A flow cytometer (Beckman, USA) was used to measure the cell cycle.
+
+[0044] [METHODS] EdU Incorporation Assay
+
+[0045] [METHODS] In brief, RA-FLSs were incubated with 10 μM EdU in accordance with the directions provided by the BeyoClick EdU detection kit (Beyotime, Shanghai, China). An inverted fluorescence microscope was used to view them after they had been stained with Hoechst.
+
+[0046] [METHODS] Rat Collagen-Induced Arthritis (CIA) Model Establishment and Treatment
+
+[0047] [METHODS] Male Wistar rats received from the Experimental Animal Center of Nantong University were used for the study, the rats were 6 weeks of age. The in vivo siRNA targeting VOPP1 was synthesized by Riobio (Guangzhou, China). The rats were divided into three groups at random: normal group (Con, n=6), CIA + negative control group (CIA + siCtrl, n=6), and CIA + si-VOPP1 group (CIA + si-VOPP1, n=6). Incomplete Freund’s adjuvant (Cat# 7002, Chondrex, USA) and bovine type II collagen (Cat# 20022, Chondrex, USA) were mixed in a 1:1 ratio. In the CIA model 200 µL of this mixture was injected intradermally at the base of the rat’s tail. The homologous prime–boost vaccination was performed seven days later whereby a booster immunization of 100 µL of the same mixture was given similarly. In the CIA+si-VOPP1 group, rats were immunized with 5 nmol of si-VOPP1 (30 µL total volume) via intra-articular injection to the knee and ankle joint once a week for 3 weeks at 28 days after the primary immunization. Arthritis severity was further checked daily for 21 days following the first immunization by means of the arthritis index (AI). Score for each limb is up to 4 and the total score for each rat is 16 obtainable through the assessment carried out on limb swelling. Both paw thickness and AI were assessed daily for 7 days after the immunization and then every 7 days for 3 weeks. After the first immunization, all rats were sacrificed 7 weeks later.
+
+[0048] [METHODS] Pathological Staining
+
+[0049] [METHODS] The hind ankle joints were then immersion in 4% paraformaldehyde for a whole night and then decalcificated with Ethylene Diamine Tetraacetic Acid (EDTA) decalcification solution (G1105, Service, China). Synovitis and cartilage changes were assessed with H&E staining and Safranin O/Fast Green staining.
+
+[0050] [METHODS] Statistical Analysis
+
+[0051] [METHODS] This study assessed the causative links between modifiable exposures and disease outcomes using the “TwoSampleMR” R package and R version 4.2.1 software. For cell cycle analysis, NovoExpress software (Agilent, USA) was utilized. All statistical analyses were performed using GraphPad Prism 9.0. Data are presented as mean ± standard deviation (SD) from at least three independent experiments. Normality of the data was assessed using the Shapiro–Wilk test. For comparisons between two groups, Student’s t-test was applied to data with normal distribution and equal variance. For non-normally distributed data, the non-parametric Mann–Whitney U-test was used. A P value of less than 0.05 was considered statistically significant.
+
+[0052] [RESULTS] Results
+
+[0053] [RESULTS] VOPP1 Was Discovered to Be a Novel RA Susceptibility Gene by MR Analysis
+
+[0054] [FIG] VOPP1 was discovered to be a novel RA susceptibility gene by MR analysis.
+
+[0055] [RESULTS] We performed Mendelian randomization analysis using the experimental setup shown in Figure 1 to explore the relationships between VOPP1 and RA as well as metabolites. In general, there are three steps in the process: First (Step 1), a total of 19,942 gene eQTLs were included as exposures, and RA as an outcome; second (Step 2), a total of 1,400 metabolites were included as exposures and RA as the outcome; third (Step 3), VOPP1 eQTL was the exposure and 74 metabolites were the outcomes. Our investigations showed that individuals with genetic risks toward the VOPP1 eQTL had an increased chance to develop RA from the results obtained in Step 1 (IVW method; OR (odds ratio) =1.114; 95% CI (confidence interval)= 1.023–1.213; P=0.013; heterogeneity=0.3609; pleiotropy=0.5929; Figure 2). Our findings were sensitive to the data and we performed sensitivity analyses, such as tests for heterogeneity, pleiotropy, and leave-one-out analysis (Figure S1). The MR analysis found that VOPP1 was a novel RA susceptibility gene overall.
+
+[0056] [RESULTS] VOPP1 is Upregulated in RA Synovial Tissue and RA-FLSs
+
+[0057] [FIG] VOPP1 is upregulated in RA synovial tissue and RA-FLSs. (A) The GSE55457 database analyses validated the VOPP1 expressions in RA. (B) q-PCR was used to measure VOPP1 mRNA levels in synovial tissues from NC (n=5) and RA patients (n=5). (C) Western blot analysis was performed to measure VOPP1 protein levels in synovial tissues from NC and RA patients. (D) Western blot analysis was performed to detect VOPP1 protein levels in NC-FLSs and RA-FLSs. *** p < 0.001 compared with the NC group (A); *p < 0.05 compared with the NC group (B–D).
+
+[0058] [RESULTS] We further confirmed that VOPP1 is expressed in RA synovial tissue and RA-FLSs based on the findings of the MR study. We confirmed that there was higher VOPP1 expression in RA synovial tissues compared to normal synovial tissues in the GSE55457 dataset (Figure 3A). To corroborate the above, VOPP1 expression in RA and NC synovial tissues was measured by qPCR and Western blot. This was seen as significant upregulation of VOPP1 in RA synovial tissue compared to NC synovial tissue (Figure 3B and C). We then checked for VOPP1 expression in RA-FLSs and NC-FLSs and found that RA-FLSs had considerably more VOPP1 protein expression than NC-FLSs (Figure 3D).
+
+[0059] [RESULTS] MR Analysis Reveals a Putative VOPP1 Mechanism in RA
+
+[0060] [FIG] MR analysis demonstrated that genetic susceptibility to VOPP1 eQTL could increase the risk of elevated X-23,587 metabolite levels.
+
+[0061] [FIG] MR analysis revealed that genetic susceptibility to X-23,587 metabolite levels could increase the risk of RA.
+
+[0062] [RESULTS] In order to investigate the possible mechanism of VOPP1 in RA further, steps 2 and 3 were carried out. The results from steps 2 and 3 revealed elevated levels of the X−23,587 metabolite. We found that a higher probability of elevated X−23,587 metabolite levels was linked to genetic sensitivity to VOPP1 eQTLs (IVW method; OR = 1.115; 95% CI = 1.026–1.211; P = 0.010; heterogeneity = 0.5908; pleiotropy = 0.5563; Figure 4). Figure S2 displays the leave-one-out analysis, scatter plot, and detailed forest plot. Additionally, the data showed that the risk of RA is also increased by genetic vulnerability to X-23,587 metabolite levels (IVW method; OR = 1.099; 95% CI = 1.009–1.197; P = 0.030; heterogeneity = 0.7640; pleiotropy = 0.1802; Figure 5). Figure S3 displays the leave-one-out analysis, scatter plot, and detailed forest plot. All things considered, we deduce that VOPP1 eQTLs raise the risk of RA by controlling the X−23,587 metabolite levels.
+
+[0063] [RESULTS] VOPP1 Promotes RA-FLSs Cell Proliferation and Inflammatory Response Through Activation of the p38 MAPK Signaling Pathway
+
+[0064] [FIG] VOPP1 promotes cell proliferation and inflammatory response in RA-FLSs through activation of the p38 MAPK signaling pathway. (A) Western blot analysis was used to measure the efficiency of VOPP1 silencing in RA-FLSs. (B) The protein expression levels of VOPP1, p-p38, and p38 were assessed via Western blot after transfecting cells with VOPP1 siRNA or a negative control siRNA, followed by stimulation with LPS. (C) The protein expression levels of p-p38 and p38 were assessed via Western blot after transfecting cells with VOPP1 siRNA and/or then stimulated by anisomycin. (D) Cell cycles were analyzed by flow cytometry in RA-FLSs. (E) Cell proliferation of RA-FLSs was analyzed by EdU incorporation. (F) TNF-α and IL-6 levels in the supernatant of RA-FLSs were analyzed by ELISA. *, # p < 0.05 * compare with Con group (B) or NC group (C–F), # compare with LPS+NC group (B) or siRNA group (C–F).
+
+[0065] [RESULTS] Having established the link between VOPP1 eQTLs and elevated metabolite levels in RA, we next investigated how VOPP1 influences RA pathogenesis at the cellular level. Prior research has shown that VOPP1 is overexpressed in a number of malignancies, such as hepatocellular carcinoma and gastric cancer, where it promotes cell proliferation. At the same time, VOPP1 may be closely associated with the MAPK pathway. To further explore the regulatory mechanisms of VOPP1 in RA-FLSs, we used VOPP1 siRNA to knock down its expression. The silencing efficiency of VOPP1 was confirmed by Western blot (Figure 6A). Based on these results, we selected siRNA#1, which demonstrated the highest interference efficiency, for subsequent experiments. The si-VOPP1 group displayed lower p-p38 expression in comparison to the LPS treatment group (Figure 6B). Next, we used anisomycin (a p38 MAPK agonist) to further investigate whether VOPP1 affects the p38 MAPK signaling pathway’s activity. Reduced levels of p-p38 were observed following VOPP1 knockdown, and the levels were partially restored with anisomycin treatment (Figure 6C). To experimentally validate the functions of VOPP1, we investigated its effects on RA-FLSs proliferation. We find that VOPP1 knockdown suppressed the cells in S phase by flow cytometry, and anisomycin rescued this suppression via flow cytometry analysis (Figure 6D). The EdU assays also revealed similar results, showing that cell proliferation was inhibited following VOPP1 knockdown, while anisomycin partially reversed this inhibition (Figure 6E). In addition, we measured pro-inflammatory factors TNF-α and IL-6 expression by ELISA and found that si-VOPP1 markedly decreased TNF-α and IL-6 release in RA-FLSs, while activation of the p38 MAPK pathway attenuated this inhibitory effect (Figure 6F). All of the aforementioned data points to VOPP1’s positive function in proliferation and the inflammatory response, which is dependent on the p38 MAPK signaling pathway being activated.
+
+[0066] [RESULTS] Knockdown of VOPP1 Reduced Arthritis Severity in CIA Rats
+
+[0067] [FIG] Knowdown of VOPP1 reduced arthritis severity in CIA rats. (A) The arthritis index for different groups. (B) The paw thickness for different groups. (C) Representative images of H&E staining of ankle joint sections. Scale bar, 200 µM. (D) Representative images of Safranin O/Fast Green staining of ankle joint sections. Scale bar, 200 µM. (E) TNF-α and IL-6 levels in the serum of the different groups were analyzed by ELISA. *, # p < 0.05 * compare with Con group, # compare with CIA+siCtrl group.
+
+[0068] [FIG] Sketch map of the potential mechanism of VOPP1 in RA.
+
+[0069] [RESULTS] Next, we examined the impact of VOPP1 on the progression of RA using the CIA rat model. Treatment in vivo with VOPP1 siRNA significantly improved arthritis score and paw swelling (Figure 7A and B). The pathology analysis via H&E and Safranin O staining was performed at the same time on CIA rats treated with si-VOPP1, which showed less bone destruction, cartilage deterioration, and synovial hyperplasia (Figure 7C and D). Additionally, ELISA analysis further indicated that TNF-α and IL-6 expression levels were lower in CIA rats treated with si-VOPP1 than in siCtrl rats (Figure 7E). These results indicated that suppression of VOPP1 was effective in alleviating clinical symptoms of RA in CIA rats. In conclusion, we found that the VOPP1 eQTL increases the risk of developing RA by regulation of X-23,587 metabolism, and induction of the p38 MAPK signaling pathway. Figure 8 shows a schematic illustration of this process.
+
+[0070] [DISCUSS] Discussion
+
+[0071] [DISCUSS] Rheumatoid arthritis (RA) is a chronic autoimmune disease characterized by synovial inflammation, joint destruction, and systemic complications. Globally, over 10 million people suffer from RA, leading to cartilage degradation, pannus formation, and synovial hyperplasia. Beyond joint damage, RA patients face increased mortality risk due to comorbidities such as cardiovascular and pulmonary diseases, and the disease imposes a significant burden on quality of life.
+
+[0072] [DISCUSS] Despite advances, RA treatment remains challenging due to its complex and heterogeneous pathophysiology. Current therapies mainly alleviate symptoms and may cause adverse effects such as infection and financial burden. Genetic susceptibility, particularly involving HLA-DRB1 alleles, plays a critical role in early RA pathogenesis. Consequently, the identification of new molecular targets is essential. Several potential genes have emerged from eQTL and GWAS analyses, but functional validation in disease-relevant models remains limited.
+
+[0073] [DISCUSS] In this study, we aimed to identify novel susceptibility genes for RA using a combination of Mendelian randomization (MR) and expression quantitative trait loci (eQTL) analyses, followed by functional validation. Our study builds on these findings by integrating genetic data, metabolomic associations, and in vitro validation. Using Mendelian randomization (MR), we screened RA-associated eQTLs, identified relevant metabolites, and evaluated whether VOPP1 contributes to RA risk through metabolic mechanisms. We identified the metabolite X-23,587 as a possible mediator linking VOPP1 expression and RA risk. Furthermore, GSE55457 data supports the substantial upregulation of VOPP1 in RA synovial tissues, and we validated the elevated expression of VOPP1 in both RA synovial tissues and RA fibroblast-like synoviocytes (RA-FLSs).
+
+[0074] [DISCUSS] Previous studies have implicated VOPP1 in various cancers, including lung, liver, gastric, and breast cancers. VOPP1 is a pro-survival gene that promotes resistance to inflammatory reactions resulting in oxidative stress and reduces apoptotic cell death. Numerous investigations have demonstrated that VOPP1 suppresses apoptosis while regulating cell migration and proliferation. Furthermore, transcriptome analysis reveals the genes that interact between RA and periodontitis. Implies that VOPP1 might be significant and a possible RA biomarker. While these findings suggest VOPP1’s general role in cell proliferation and survival, our study is the first to implicate VOPP1 in RA pathogenesis, particularly in the context of synovial inflammation.
+
+[0075] [DISCUSS] FLSs play a pivotal role in RA by promoting synovial inflammation and joint damage. These cells exhibit abnormal growth characteristics, including excessive proliferation, migration, and invasion. The development of pannus and hypoxic microenvironment within the joints is caused by this aberrant behavior. The activation of FLSs is thought to be a major mechanism in the development of RA, and they also play a significant role in the production of various cytokines. Examining the pathophysiology of synovial tissue hyperplasia and cartilage destruction is essential because of the aberrant growth properties of synovial cells in joints affected by RA. However, VOPP1’s function in RA-FLSs is still unknown. Investigating the molecular and biological characteristics of VOPP1 in RA-FLSs could give important information on the etiology of RA and aid in halting its progression.
+
+[0076] [DISCUSS] VOPP1 appears to contribute to RA pathogenesis by activating the p38 MAPK signaling pathway, as demonstrated by our findings that VOPP1 knockdown in RA-FLSs reduced cell proliferation and pro-inflammatory cytokine release (TNF-α and IL-6), along with decreased p38 MAPK activation; notably, this inhibition was reversed by the p38 agonist anisomycin, supporting a mechanistic link between VOPP1 and p38 MAPK signaling. This is consistent with previous reports suggesting a potential association between VOPP1 and the p38 MAPK pathway, and aligns with accumulating evidence implicating p38 MAPK in RA-related processes such as synovial cell proliferation and inflammatory response.
+
+[0077] [DISCUSS] Strengths of our study include the integration of genetic and metabolomic data with functional validation in primary RA-FLSs and an animal model. However, our study has some limitations. First, the baseline characteristics of the case and control groups were not clearly defined, potentially introducing residual confounding and limiting further population stratification. Moreover, RA patients often present with metabolic comorbidities contributing to increased morbidity and mortality. Although several metabolite effector molecules have been implicated in RA pathogenesis, the roles of many remain unclear. We identified X-23,587 as a potential pathogenic metabolite in RA, suggesting it may serve as a therapeutic target. X-23,587 has also been associated with diseases such as postherpetic neuralgia and sepsis, and recent studies link its elevated levels to an increased RA risk. However, its biological properties and mechanisms of action warrant further investigation. Clinically, our findings highlight VOPP1 and X-23,587 as potential biomarkers or therapeutic targets in RA. Future research should explore the therapeutic potential of targeting the VOPP1–p38 MAPK axis and further elucidate the role of X-23,587 in RA pathophysiology.
+
+[0078] [CONCL] Conclusions
+
+[0079] [CONCL] In summary, our study provides evidence that the VOPP1 eQTL is associated with increased RA risk and may exert its effect through regulation of metabolite X-23,587. We confirmed VOPP1 overexpression in RA synovial tissues and demonstrated that its inhibition suppresses RA-FLSs proliferation and inflammatory cytokine production via the p38 MAPK signaling pathway. These findings highlight a potential pathogenic role of VOPP1 in RA and establish a link between genetic regulation, metabolic activity, and inflammatory signaling.
+
+[0080] [CONCL] Data Sharing Statement
+
+[0081] [CONCL] The datasets used and analysed during the current study are available from the corresponding author on reasonable request.
+
+[0082] [CONCL] Ethics Approval and Consent to Participate
+
+[0083] [CONCL] The study was carried out in complete accordance with the Declaration of Helsinki and authorized by the Nantong University Affiliated Hospital’s Ethics Committee (No. 2020-L136). Prior to the study, all participants signed the agreement. Furthermore, the animal tests were experiments by the Animal Ethics Committee of Nantong University and conducted in strict accordance with the animal care guidelines established by the United States National Institutes of Health.
+
+[0084] [AUTH_CONT] Author Contributions
+
+[0085] [AUTH_CONT] All authors made a significant contribution to the work reported, whether that is in the conception, study design, execution, acquisition of data, analysis and interpretation, or in all these areas; took part in drafting, revising or critically reviewing the article; gave final approval of the version to be published; have agreed on the journal to which the article has been submitted; and agree to be accountable for all aspects of the work.
+
+[0086] [COMP_INT] Disclosure
+
+[0087] [COMP_INT] The authors declare that they have no competing interests.
+
+[0088] [REF] References
+
+[0089] [REF] PPARG-mediated autophagy activation alleviates inflammation in rheumatoid arthritis
+
+[0090] [REF] Economic and humanistic burden of rheumatoid arthritis: results from the US National Survey Data 2018–2020
+
+[0091] [REF] Preclinical RA: how to halt its progression
+
+[0092] [REF] Where do we stand in the management of rheumatoid arthritis ahead of EULAR/ACR 2025?
+
+[0093] [REF] Angiogenesis in rheumatoid arthritis: pathological characterization, pathogenic mechanisms, and nano-targeted therapeutic strategies
+
+[0094] [REF] Characterizing the quantitative genetic contribution to rheumatoid arthritis using data from twins
+
+[0095] [REF] Genetics of rheumatoid arthritis
+
+[0096] [REF] Expression quantitative trait loci analysis in rheumatoid arthritis identifies tissue specific variants associated with severity and outcome
+
+[0097] [REF] Identification of new susceptibility loci associated with rheumatoid arthritis
+
+[0098] [REF] Investigating the metabolomic pathways in female reproductive endocrine disorders: a Mendelian randomization study
+
+[0099] [REF] Postlabeling methods for carcinogen-DNA adduct analysis
+
+[0100] [REF] Five genes identified as prognostic markers for colorectal cancer through the integration of genome-wide association study and expression quantitative trait loci data
+
+[0101] [REF] New insights on the therapeutic potential of runt-related transcription factor 2 for osteoarthritis: evidence from Mendelian randomization
+
+[0102] [REF] Identification of potential drug targets for rheumatoid arthritis from genetic insights: a Mendelian randomization study
+
+[0103] [REF] Association of HMGCR inhibition with rheumatoid arthritis: a Mendelian randomization and colocalization study
+
+[0104] [REF] Strengthening the reporting of observational studies in epidemiology using Mendelian randomisation (STROBE-MR): explanation and elaboration
+
+[0105] [REF] Mendelian randomization
+
+[0106] [REF] Genomic atlas of the plasma metabolome prioritizes metabolites implicated in human diseases
+
+[0107] [REF] Insights into modifiable risk factors of cholelithiasis: a Mendelian randomization study
+
+[0108] [REF] GDF15 activates AMPK and inhibits gluconeogenesis and fibrosis in the liver by attenuating the TGF-beta1/SMAD3 pathway
+
+[0109] [REF] A causal association between chemokines and the risk of lung cancer: a univariate and multivariate Mendelian randomization study
+
+[0110] [REF] Causal associations between liver traits and Colorectal cancer: a Mendelian randomization study
+
+[0111] [REF] Identification of rheumatoid arthritis and osteoarthritis patients by transcriptome-based rule set generation
+
+[0112] [REF] miR-573 is a negative regulator in the pathogenesis of rheumatoid arthritis
+
+[0113] [REF] Identification of a novel microRNA-141-3p/Forkhead box C1/beta-catenin axis associated with rheumatoid arthritis synovial fibroblast function in vivo and in vitro
+
+[0114] [REF] Epidermal growth factor receptor-coamplified and overexpressed protein (VOPP1) is a putative oncogene in gastric cancer
+
+[0115] [REF] The role of vesicular overexpressed in cancer pro-survival protein 1 in hepatocellular carcinoma proliferation
+
+[0116] [REF] Identification of key modules and hub genes involved in esophageal squamous cell carcinoma tumorigenesis using WCGNA
+
+[0117] [REF] Global, regional, and national burden of rheumatoid arthritis, 1990–2020, and projections to 2050: a systematic analysis of the Global Burden of Disease Study 2021
+
+[0118] [REF] Preparation of EGCG decorated, injectable extracellular vesicles for cartilage repair in rat arthritis
+
+[0119] [REF] Manifestations cardiovasculaires et pulmonaires de la polyarthrite rhumatoide. [Rheumatoid arthritis: cardiovascular and pulmonary manifestations]
+
+[0120] [REF] Trends and gender disparities in the incidence of rheumatic diseases: a regional study from 2018 to 2021
+
+[0121] [REF] The genetic pathogenesis, diagnosis and therapeutic insight of rheumatoid arthritis
+
+[0122] [REF] The role of biologics in rheumatoid arthritis: a narrative review
+
+[0123] [REF] Title current status of the search for biomarkers for optimal therapeutic drug selection for patients with rheumatoid arthritis
+
+[0124] [REF] Therapeutic potential and recent progression of BTK inhibitors against rheumatoid arthritis
+
+[0125] [REF] Genetics of rheumatoid arthritis contributes to biology and drug discovery
+
+[0126] [REF] Novel insight into the aetiology of rheumatoid arthritis gained by a cross-tissue transcriptome-wide association study
+
+[0127] [REF] Loss of VOPP1 contributes to BET inhibitor acquired resistance in non-small cell lung cancer cells
+
+[0128] [REF] VOPP1 promotes breast tumorigenesis by interacting with the tumor suppressor WWOX
+
+[0129] [REF] Loss of VOPP1 overexpression in squamous carcinoma cells induces apoptosis through oxidative cellular injury
+
+[0130] [REF] Combined genomic and gene expression microarray profiling identifies ECOP as an upregulated gene in squamous cell carcinomas independent of DNA amplification
+
+[0131] [REF] Identification of cross-talk and pyroptosis-related genes linking periodontitis and rheumatoid arthritis revealed by transcriptomic analysis
+
+[0132] [REF] Extracellular CIRP induces abnormal activation of fibroblast-like synoviocytes from patients with RA via the TLR4-mediated HDAC3 pathways
+
+[0133] [REF] PUMA gene delivery to synoviocytes reduces inflammation and degeneration of arthritic joints
+
+[0134] [REF] Mucin 1 aggravates synovitis and joint damage of rheumatoid arthritis by regulating inflammation and aggression of fibroblast-like synoviocytes
+
+[0135] [REF] Restoring synovial homeostasis in rheumatoid arthritis by targeting fibroblast-like synoviocytes
+
+[0136] [REF] Anti-rheumatoid arthritis effects of total saponins from Rhizoma Panacis Majoris on adjuvant-induced arthritis in rats and rheumatoid arthritis fibroblast-like synoviocytes
+
+[0137] [REF] Coptisine inhibits aggressive and proliferative actions of fibroblast like synoviocytes and exerts a therapeutic potential for rheumatoid arthritis
+
+[0138] [REF] Gross saponins of Tribulus terrestris attenuate rheumatoid arthritis by promoting apoptosis of fibroblast-like synoviocytes and reducing inflammation by inhibiting MAPK signalling pathway
+
+[0139] [REF] Causal role of immune cells in schizophrenia: Mendelian randomization (MR) study
+
+[0140] [REF] Integrated multi-omics revealed that dysregulated lipid metabolism played an important role in RA patients with metabolic diseases
+
+[0141] [REF] Canonical Wnt signaling promotes HSC glycolysis and liver fibrosis through an LDH-A/HIF-1alpha transcriptional complex
+
+[0142] [REF] Altered serum metabolome is associated with disease activity and immune responses in rheumatoid arthritis
+
+[0143] [REF] Intestinal butyrate-metabolizing species contribute to autoantibody production and bone erosion in rheumatoid arthritis
+
+[0144] [REF] Investigating the causal effect of various metabolites on postherpetic neuralgia: a Mendelian randomization study
+
+[0145] [REF] Plasma proteome, metabolome Mendelian randomization identifies sepsis therapeutic targets
+
+[0146] [REF] The causal relationship between genetically determined plasma metabolites and rheumatoid arthritis

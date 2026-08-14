@@ -1,0 +1,349 @@
+[0001] [TITLE] Exploration of protein and genetic targets causing atrioventricular block: mendelian-randomization analyses based on eQTL data and pQTL data
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Atrioventricular block (AVB) is a heterogeneous group of arrhythmias. AVB can lead to sudden arrest of the heart and subsequent syncope or sudden cardiac death. Few scholars have investigated the underlying molecular mechanisms of AVB. Finding molecular markers can facilitate understanding of AVB and exploration of therapeutic targets.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] Two-sample Mendelian randomization (MR) analysis was undertaken with inverse variance weighted (IVW) model and Wald ratio as the primary approach. Reverse MR analysis was undertaken to identify the associated protein targets and gene targets. Expression quantitative trait loci (eQTL) data from the eQTLGen database and protein quantitative trait loci (pQTL) data from three previous large-scale proteomic studies on plasma were retrieved as exposure data. Genome-wide association study (GWAS) summary data (586 cases and 379,215 controls) for AVB were retrieved from the UK Biobank database. Colocalization analyses were undertaken to identify the effect of filtered markers on outcome data. Databases (DrugBank, Therapeutic Target, PubChem) were used to identify drugs that interacted with targets.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] We discovered that 692 genes and 42 proteins showed a significant correlation with the AVB phenotype. Proteins (cadherin-5, sTie-1, Notch 1) and genes (DNAJC30, ABO) were putative molecules to AVB. Drug–interaction analyses revealed anticancer drugs such as tyrosine-kinase inhibitors and TIMD3 inhibitors could cause AVB. Other substances (e.g. toxins, neurological drugs) could also cause AVB.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] We identified the proteins (cadherin-5, sTie-1, Notch 1) and gene (DNAJC30, ABO) targets associated with AVB pathogenesis. Anticancer drugs (tyrosine-kinase inhibitors, TIMD3 inhibitors), toxins, or neurological drugs could also cause AVB.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1186/s12872-024-04209-y.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Atrioventricular block (AVB) is a clinical syndrome caused by a delay or termination of an electrical impulse in the cardiac conduction system. AVB manifests as a prolonged PR interval and dissociation between P waves and QRS waves upon electrocardiography. AVB can occur in different ages and secondary to heterogeneous etiologies. AVB can be secondary to acute myocardial infarction (AMI), autoimmune diseases, or occur as an adverse effect of taking a drug. However, the most prevalent etiology is ischemic heart disease. Besides, AVB has been shown to contribute to arrhythmic syncope in 51.3% of patients with AMI, and can cause significant morbidity and sudden cardiac death.
+
+[0014] [INTRO] With widespread utilization of thrombolytic methods and early percutaneous coronary intervention, the prevalence of AVB caused by AMI can be reduced. However, drug administration can increase the risk of developing AVB, such as second-generation antipsychotic agents (e.g., risperidone). The molecular mechanism of AVB is incompletely understood, so the drug targets causing the AVB have not been fully revealed. Hence, discovering the molecular targets related to AVB and, thus, identifying drugs/substances that may interact with those targets using drug-target datasets, are rational approaches. As is previously reported, MR analysis between filtered (removing linkage disequilibrium and retaining the SNPs that is significantly correlated with the exposure phenotype and meet the core assumption of MR analysis) pQTL/eQTL data and GWAS phenotype data combined with sensitivity analysis including bidirectional Mendelian randomization analysis and Steiger filtering was used to identify potential causal plasma proteins for diseases to find new therapeutic targets. Inspired by this idea, we decided to utilize data from genome-wide association studies (GWAS) from public databases, protein quantitative trait loci (pQTL), and expression quantitative trait loci (eQTL) can enable filtering of potential meaningful targets related to AVB pathogenesis at protein and genetic levels. Two sample MR was the major method adopted to identify the causal relation ship between the genetic/protein markers and AVB. Then, new drugs targets related to AVB onset can be discovered. This approach can benefit clinical work by discovering the new side-effects of drugs.
+
+[0015] [METHODS] Methods
+
+[0016] [METHODS] This study design is shown as Fig. 1. And only complete GWAS summary data from European ancestry was used.
+
+[0017] [FIG] Flowchart showing the study design
+
+[0018] [METHODS] Acquisition of eQTL data and pQTL data
+
+[0019] [METHODS] Original eQTL data were downloaded from the eQTLGen database based on the blood samples of 31,684 individuals from European ancestry (www.eqtlgen.org/cis-eqtls.html) and 16,989 cis-eQTL genes were involved. However, the original data provided only z-scores and p-values. Thus, according to the instructions given by the eQTLGen database, the beta value and standard error(se) were calculated using the following equations:
+
+[0020] [METHODS] where MAF is the minor allele frequency of the whole population involved in the eQTL analysis provided by eQTLgen database itself, N is the sample size in eQTL analysis, Z-score is the Z statistic provided in the original eQTL data.
+
+[0021] [METHODS] Then, to cater for the requirement of the hypothesis of Mendelian randomization (MR) and reduce the horizontal pleiotropy, we filtered the original data by p < 1 × 10− 5 and removed single-nucleotide polymorphism (SNPs) with linkage disequilibrium (LD). The threshold for LD was chosen as r2 < 0.001 and length of 10,000 kb.
+
+[0022] [METHODS] For pQTL data, we selected original data from three previous large-scale proteomics-analysis studies on plasma. The study from Yang et al. employed 529 blood samples, and 931 proteins were involved. The study from Sun and colleagues used 3301 blood samples, and 1,927 genetic associations with 1,478 proteins were documented. The study from Thareja and coworkers included data on people from Arab and European communities; we selected the KORA cohort from the European population to aid consistency with GWAS outcome data. That study involved 997 participants and 1124 protein traits. That study only gave the ID for the SomaScan® protocol, so we also retrieved the UniproID from the SomaLogic website (https://somalogic.com/). Then, we combined the data from these three studies. Duplicated protein–SNP interactions were removed, after which 10,220 unique pairs of protein–pQTL interactions were noted. According to the pQTL type, we filtered the cis-pQTLs with p < 0.05 and p < 0.05/1536 (because the number of unique proteins was 1536) for trans-pQTLs.
+
+[0023] [METHODS] With respect to GWAS data for the AVB outcome, we retrieved GWAS data from UkBiobank (https://pheweb.org/UKB-TOPMed/pheno/426.24/). That dataset includes 586 cases and 379,215 controls. Besides, the AVB GWAS data (GCST90043972) from GWAS catalogue website served as an external validation with 369 cases and 455,979 control samples.
+
+[0024] [METHODS] MR
+
+[0025] [METHODS] We used random-effects inverse variance weighting (IVW) as the major analytical method to evaluate causal relationships among pQTL loci, eQTL loci, and GWAS data. Different methods (MR-Egger, weighted median, simple mode, weighted mode) were used to confirm the association with p < 0.05 as a significant result. While for MR analysis without enough SNPs, we adopted the Wald ratio method to identify the casual relationship. Genetic variants used in MR analysis must cater for the following three core assumptions: (i) instrumental variables and exposure have a strong correlation; (ii) SNPs are not associated with any confounders of the exposure-outcome association; (iii) instrumental variables have no effect on outcome. As for the missing SNP in outcome GWAS dataset, the harmonization processes can automatically filter those SNPs. For sensitivity analyses, we undertook Steiger filtering and bidirectional MR to confirm the causal directions of the results. The directionality that exposed the causal effect was verified using the MR Steiger test with p < 0.05 being regarded as significant. Besides, reverse MR was done using UkBiobank AVB GWAS as the exposure data, and the protein QTL data from previous studies or gene QTL data from the eQTLgene database was used as the outcome. When p value of MR analysis by IVW/Wald ratio method is < 0.05 but > 0.05 in reverse MR analysis, the casual relationship between the protein/gene and the occurrence of AVB was established. And as for those markers with p value < 0.05, false discover rate FDR was calculated by “BH” method as multiple test. However, the adjusted p was not the standard to filter markers. To identify the horizontal pleiotropy, the “mr_pleiotropy_test” function in “TwosampleMR” package was used. For those exposures without enough SNPs to perform pleiotropy test we searched “LDlink” tool by NCBI (https://ldlink.nih.gov/?tab=home) to identify the association between outcome and instrumental variables. These methods were used to investigate causality, and were carried out using “TwosampleMR” in R (R Institute for Statistical Computing, Vienna, Austria).
+
+[0026] [METHODS] Colocalization analyses
+
+[0027] [METHODS] Colocalization is a method used to assess whether two traits share a causal variant in a region of a genome. This method begins with a series of assumptions for all variable levels and the relative support for each variable calculated from the GWAS effect estimate of the Bayesian factor for each SNP and its standard error. For H0, phenotype 1 (using pQTL as an example), GWAS and phenotype 2 are not significantly correlated with all SNP loci in a certain genomic region. For H1/H2, association with trait 1/2 only is correlated significantly with SNP loci in a certain genomic region. For H3, both traits are associated, but have various single causal variants. For H4, both traits are associated and share the same single causal variant. Then, the log-transformed Bayes factors for all corresponding variant-level hypotheses were summed to calculate the prior probabilities of each hypothesis.
+
+[0028] [METHODS] We carried out colocalization analyses using the “Coloc.abf()” function in the “Coloc” package within R. To identify the causal effect of proteins involved and the role of eQTL data-confirmed genes, we carried out colocalization analyses between pQTL data and GWAS data by selecting the chromosomes where the protein and eQTL genes were located, respectively. Colocalization requires the assignment of prior probabilities for a SNP being associated with each trait (p1 and p2) and for a SNP being associated with both traits (p12). We set these prior probabilities to p1 = 1 × 10− 4, p2 = 1 × 10− 4, and p12 = 1 × 10− 5. We carried out colocalization analyses as a hypothesis-generating approach, so all analyses with a colocalization posterior probability (PP) > 0.50 were seen as having nominal evidence of colocalization.
+
+[0029] [METHODS] Analyses of protein/gene–drug interactions
+
+[0030] [METHODS] We searched DrugBank (https://go.drugbank.com/), Therapeutic Target Database (https://db.idrblab.net/ttd/), and PubChem (https://pubchem.ncbi.nlm.nih.gov/) databases. Only confirmed protein/gene–drug interactions were analyzed further. Besides, chemical compounds that were not drugs were excluded because they are not encountered widely in clinical studies.
+
+[0031] [RESULTS] Results
+
+[0032] [RESULTS] MR: identifying the meaningful targets related to AVB pathogenesis
+
+[0033] [RESULTS] First, we undertook MR between eQTL data and GWAS data. The MR result showed 14,979 unique genes, and 692 genes showed a significant correlation with the AVB phenotype (p < 0.05 for the Wald ratio and IVW methods). Second, we carried out MR between pQTL data and GWAS data. The MR result contained 1,373 unique proteins, and 42 proteins showed a significant correlation with the AVB phenotype (p < 0.05 for the Wald ratio and IVW methods).
+
+[0034] [RESULTS] The original pQTL data provided the gene that was affected by pQTL loci, so we intersected the significant pQTL-affected genes and significant eQTL-affected genes. ABO blood group gene (ABO), Ribosomal Protein S15a (RPS15A), and DnaJ Heat Shock Protein Family Member C30 (DNAJC30) were present in both pQTL data and eqtl data. Then, we retrieved the proteins in pQTL data with the pQTL-affected genes stated above. Proteins like Tolloid-Like protein 1 (TLL1), Glucuronic Acid Epimerase (GLCE), CD36, cadherin-5, serum Tyrosine Kinase With Immunoglobulin And Epidermal Growth Factor Homology Domains 1 (sTie-1), Notch 1, Hepatitis A Virus Cellular Receptor 2 (TIMD3), DnaJ homolog subfamily C member 30 (DJC30), and Basal cell adhesion molecule (BCAM) proteins were found to be potential proteins for understanding the targets for drugs affecting AVB occurrence. Expression of TLL1, GLCE, BCAM, TIMD3, and DJC30 showed a negative correlation with AVB (Table 1). Expression of CD36, cadherin-5, sTie-1, and Notch 1 showed a positive correlation with AVB occurrence. Table 2 indicated that RPS15A and ABO were contributors to AVB, whereas DNAJC30 was negatively correlated with AVB risk.
+
+[0035] [TABLE] Summary for significant proteins derive from the MR analysis between pQTL data and AVB GWAS data
+
+[0036] [TABLE] UniPro ID exposure method nsnp b se pval p.adjust pQTL associated gene pqtl_type O43897 TLL1 Wald ratio 1 -0.50 0.23 0.030 0.058 ABO trans O94923 GLCE Inverse variance weighted 2 -0.18 0.078 0.013 0.066 ABO trans P16671 CD36 Wald ratio 1 0.45 0.21 0.030 0.054 ABO trans P33151 Cadherin-5 Wald ratio 1 0.22 0.10 0.030 0.048 ABO trans P35590 sTie-1 Inverse variance weighted 3 0.21 0.09 0.018 0.067 ABO trans P46531 Notch 1 Wald ratio 1 0.73 0.34 0.030 0.045 ABO trans P50895 BCAM Wald ratio 1 -0.77 0.36 0.030 0.043 ABO trans Q8TDQ0 TIMD3 Inverse variance weighted 4 -0.51 0.24 0.035 0.058 RPS15A trans Q96LL9 DJC30 Wald ratio 1 -0.54 0.21 0.0090 0.25 DNAJC30 cis
+
+[0037] [TABLE] (TLL1:Tolloid-Like protein 1; GLCE: Glucuronic Acid Epimerase; sTie-1:serum Tyrosine Kinase With Immunoglobulin And Epidermal Growth Factor Homology Domains 1; TIMD3:Hepatitis A Virus Cellular Receptor 2 ; DJC30:DnaJ homolog subfamily C member 30; BCAM: Basal cell adhesion molecule proteins)
+
+[0038] [TABLE] Summary for significant genes derive from the MR analysis between eQTL data and AVB GWAS data
+
+[0039] [TABLE] id.exposure exposure method nsnp b se pval P.adjust ENSG00000134419 RPS15A Inverse variance weighted 2 0.26 0.13 0.047 0.049 ENSG00000175164 ABO Inverse variance weighted 2 0.25 0.092 0.0062 0.046 ENSG00000176410 DNAJC30 Wald ratio 1 -0.79 0.30 0.0077 0.037
+
+[0040] [TABLE] (ABO: ABO blood group gene; RPS15A: ribosomal protein S15a; DNAJC30: DnaJ heat shock protein family Member C30)
+
+[0041] [RESULTS] Sensitivity analyses of MR
+
+[0042] [RESULTS] We wished to define the stability of MR results further. We undertook Steiger filtering to determine the direction of the results by identifying the causal direction of each SNP (Supplementary Table 1). Besides, in order to evaluate the horizontal pleiotropy, we utilize the tool in the “TwosampleMR” package. The result for MR analysis with > 2 SNPs is in Supplementary Table 2. As for those with only 1 SNP, we searched “LDlink” website to identify if the SNP can directly cause the outcome (Supplementary Table 3). MR analysis has the advantage of excluding the “inverse cause and effect” phenomenon. Bidirectional MR was adopted to identify if the exposure (protein targets) caused the outcome in a single-direction manner.
+
+[0043] [RESULTS] Forest plots (Fig. 2) indicated the results of proteins with more than one instrument variable (IV). The results for expression of cadherin-5, sTie-1, and Notch 1 did not show significance. That is, these proteins were not the cause or biomarkers of AVB. However, the results for expression of BCAM, TLL1, DJC30, and GLCE proteins showed significance. That is, these proteins were potential biomarkers for AVB, and alteration of their expression could lead to AVB. We also carried out reverse MR at the gene-expression level. We selected GWAS data for AVB as exposure data, and filtered the data using p < 0.05 and excluded SNPs with LD (r2 = 0.01, length = 100 kb). The result (Fig. 3) indicated that the odds ratio and 95% confidence interval (95%CI) of ABO intercepted with the zero-effect line according to the methods we employed (IVW, MR Egger, weighted median). The 95%CI of DNAJC30 intercepted with the zero-effect line by the MR-Egger method. The results stated above indicated the single-direction property of MR results for DNAJC30 and ABO. Moreover, to identify the performance of the results in other datasets the above results was repeated in another GWAS outcome dataset (shown in Table 3). The result indicated that the most of the proteins are still meaningful in new datasets except for “TIMD3”. While for genes, only DNAJC30 showed significance with outcome.
+
+[0044] [FIG] Forest plot for reverse MR analysis of proteins significantly correlated with AVB
+
+[0045] [FIG] Forest plot for reverse MR analysis of genes significantly correlated with AVB
+
+[0046] [TABLE] Results of external validation on identified meaningful markers using another AVB GWAS dataset
+
+[0047] [TABLE] exposure method nsnp b se pval Adjust.p Proteins TLL1 Wald ratio 1 -0.64 0.30 0.03 0.06 GLCE Inverse variance weighted 2 0.20 0.09 0.02 0.04 CD36 Wald ratio 1 -0.56 0.26 0.03 0.03 Cadherin-5 Wald ratio 1 -0.28 0.13 0.03 0.09 sTie-1 Inverse variance weighted 3 -0.29 0.11 0.01 0.03 Notch 1 Wald ratio 1 -0.93 0.43 0.03 0.03 BCAM Wald ratio 1 -0.99 0.46 0.03 0.04 TIMD3 Inverse variance weighted 4 0.06 0.12 0.62 0.62 DJC30 Wald ratio 1 0.58 0.26 0.03 0.15 Genes ABO Inverse variance weighted 3 -0.29 0.155 0.061 0.09 DNAJC30 Wald ratio 1 0.81 0.36 0.02 0.02 RPS15A Wald ratio 1 -0.11 0.17 0.51 1
+
+[0048] [TABLE] (TLL1:Tolloid-Like protein 1; GLCE: Glucuronic Acid Epimerase; sTie-1:serum Tyrosine Kinase With Immunoglobulin And Epidermal Growth Factor Homology Domains 1; TIMD3:Hepatitis A Virus Cellular Receptor 2 ; DJC30:DnaJ homolog subfamily C member 30; BCAM: Basal cell adhesion molecule proteins; ABO: ABO blood group gene; RPS15A: Ribosomal Protein S15a; DNAJC30: DnaJ Heat Shock Protein Family Member C30)
+
+[0049] [RESULTS] Colocalization analyses
+
+[0050] [RESULTS] We wished to assess the probability of the same variant being responsible for AVB risk and pQTL loci. We undertook colocalization analyses, which provided posterior probabilities of the causal variant sharing the same IVs with outcome. We retrieved the original pQTL data of cadherin-5, sTie-1, Notch 1, BCAM, CD36, TIMD3, TLL1, DJC30, and GLCE from the INTERVAL study. Then, we carried out the colocalization test in two ways. First, we explored the colocalization relationship on the genes where the proteins were located. Next, we carried out the colocalization test on the chromosome where the pQTL-affected genes were located. Colocalization analyses were based on the four assumptions (H0, H1/H2, H3, H4) stated in Sect. 2.3. Thus, PP.H4.abf represented the possibility that the phenotype was caused by the SNP variance related to proteins. DNAJC30 had the highest PP.H4, which meant that the DNAJC30 protein and its gene had the highest possibility to cause AVB (Table 4). Notch 1 and GLCE were ranked in second and third places, respectively, in terms of PP.H4. The remainder of the proteins had p < 0.5, thereby indicating a minor position in causing AVB. Then, we carried out the colocalization test on the chromosome where each protein-associated gene was located(Table 5). BCAM, cadherin-5, CD36, sTIE-1, and TLL1 showed a increased PPH4 (i.e., p > 0.5), indicating that ABO was involved in AVB pathogenesis. TIMD3 also showed an increased PPH4 but the improvement was limited, which indicated the minor role of RPS15A in AVB pathogenesis. GLCE showed a decreased PPH4, indicating that GLCE contributed to AVB.
+
+[0051] [TABLE] Result of Coloc-analysis in the chromosome where the coding gene of significantly correlated proteins are located via using pQTL data of phenotype proteins and GWAS data in order to reveal the effect of involved proteins on the AVB
+
+[0052] [TABLE] exposure Chr nsnps PP.H0.abf PP.H1.abf PP.H2.abf PP.H3.abf PP.H4.abf CD36 7 497,506 0.238559056 0.182882519 0.231062991 0.177 0.17 Cadherin-5 16 265,270 0.000308022 0.453026152 0.00027776 0.409 0.138 BCAM 19 187,501 0.003032317 0.245413276 0.006164202 0.499 0.247 DNAJC30 7 497,506 9.58*10^-22 0.135297614 9.28*10^-22 0.131 0.734 NOTCH1 9 367,641 1.72*10^-06 0.209012831 1.53*10^-06 0.186 0.605 TIMD3 5 556,506 1.25*10^-133 0.428621939 1.20*10^-133 0.409 0.162 sTIE-1 1 656,671 1.80*10^-16 0.378252596 1.62*10^-16 0.339 0.282 GLCE 15 241,498 2.64*10^-231 0.256673 2.47*10^-231 0.24 0.504 TLL1 4 622,069 0.261277603 0.184425867 0.224056052 0.158 0.172
+
+[0053] [TABLE] (TLL1:Tolloid-Like protein 1; GLCE: Glucuronic Acid Epimerase; sTie-1:serum tyrosine kinase with immunoglobulin and epidermal growth factor homology domains 1; TIMD3:Hepatitis A Virus Cellular receptor 2 ; DJC30:DnaJ homolog subfamily C member 30; BCAM: basal cell adhesion molecule proteins)
+
+[0054] [TABLE] Result of coloc-analysis in the chromosome where the pQTL loci associated genes of significantly correlated proteins are located via using pQTL data of phenotype proteins and GWAS data in order to reveal the effect of involved proteins on the AVB
+
+[0055] [TABLE] exposure pQTL associated gene nsnps PP.H0.abf PP.H1.abf PP.H2.abf PP.H3.abf PP.H4.abf CD36 ABO 367,641 5.041779e-24 0.2090148 4.488986e-24 0.186 0.605 Cadherin-5 ABO 367,641 6.326601e-135 0.2089176 5.632938e-135 0.186 0.605 BCAM ABO 367,641 2.274829e-05 0.2097425 2.025412e-05 0.187 0.603 NOTCH1 ABO 367,641 1.722323e-06 0.2090128 1.533484e-06 0.186 0.605 TIMD3 RPS15A 265,270 1.991018e-51 0.4345279 1.795409e-51 0.392 0.174 sTIE-1 ABO 367,641 4.048312e-115 0.2082254 3.604445e-115 0.185 0.606 GLCE ABO 367,641 1.856944e-68 0.3628740 1.653345e-68 0.323 0.314 TLL1 ABO 367,641 2.336887e-18 0.2079685 2.080666e-18 0.185 0.607 DNAJC30 DNAJC30 497,506 9.58*10^-22 0.13529761 9.28*10^-22 0.131 0.734
+
+[0056] [TABLE] (TLL1:Tolloid-Like protein 1; GLCE: Glucuronic Acid Epimerase; sTie-1:serum tyrosine kinase with immunoglobulin and epidermal growth factor homology domains 1; TIMD3:Hepatitis A Virus Cellular receptor 2 ; DJC30:DnaJ homolog subfamily C member 30; BCAM: basal cell adhesion molecule proteins; ABO: ABO blood group gene; RPS15A: ribosomal protein S15a; DNAJC30: DnaJ heat shock protein family Member C30)
+
+[0057] [RESULTS] Selection of drug targets based on MR results
+
+[0058] [RESULTS] We wished to discover the drugs that showed interactions with protein targets or gene targets leading to the occurrence of AVB. Hence, we searched PubChem, DrugBank, and Therapeutic Target databases. The interactions of common drugs and targets are shown in Table 4A and B. With regard to the anticancer drugs Sym023, LY3415244, INCAGN2390, and RO7121661, inhibitors of TIMD3 signaling showed a potential risk in causing AVB because TIMD3 had a negative correlation with AVB. The remainder of drugs shown in Table 6 could inhibit the proteins that showed a positive correlation with AVB. Thus, one could postulate that anticancer drugs such as LY3039478, CR-16, fostamatinib, merestinib, lenalidomide, and compound 6li (newly developed drug) were less likely to cause conduction disorders, and could become first-line drugs. We also investigated the substances that could affect expression of the genes mentioned above. Acetaminophen, (+)-JQ1 compound, and benzopyrene were less likely to cause AVB because ABO was a positive risk factor for AVB (Table 7). DNAJC30 was negatively correlated with AVB occurrence, and its inhibitors (e.g., aflatoxin B1, cyclosporin A) were likely to cause AVB. Aflatoxin B1 has been reported to cause the apoptosis of myocardial cells, but its effect on arrhythmia has rarely been reported. Thus, this result may help focus on another adverse effect of this toxin. Cyclosporin A is a commonly used immunosuppressant that can lead to pacing-threshold elevation, which is a risk factor for AVB.
+
+[0059] [TABLE] Interactions of common drugs or substances and explored protein targets from different databases
+
+[0060] [TABLE] drug/substance name id Target-name database action LY3039478 D08WOW NOTCH1 TTD inhibitor RO7121661 DQM48O TIMD3 TTD inhibitor INCAGN2390 DVA36E TIMD3 TTD inhibitor LY3415244 DC8HR6 TIMD3 TTD inhibitor GSK4069889 DZW53X TIMD3 TTD inhibitor CR-16 D00EMH sTie-1 TTD[PMID21967808] Inhibitor Fostamatinib DB12010 sTie-1 Drugbank Inhibitor Merestinib 9841 sTie-1 pubchem inhibitor BIIB091 11,791 sTie-1 pubchem inhibitor Compound 6li(new found drug) 12,249 sTie-1 pubchem inhibitor Lenalidomide DB00480 Cadherin-5 Drugbank Inhibitor
+
+[0061] [TABLE] Interactions of common drugs or substances and explored gene targets from different databases
+
+[0062] [TABLE] drug/substance name id Target-name database action Lactic Acid D019344 ABO pubchem inhibitor Acetaminophen D000082 ABO pubchem inhibitor (+)-JQ1 compound C561695 ABO pubchem inhibitor Valproic Acid D014635 DNAJC30 pubchem activator Aflatoxin B1 D016604 DNAJC30 pubchem inhibitor Cyclosporin A D016572 DNAJC30 pubchem inhibitor Valproic Acid D014635 RPS15A pubchem inhibitor Valproic Acid D014635 RPS15A pubchem activator Eentinostat C118739 RPS15A pubchem inhibitor Estradiol D004958 RPS15A pubchem inhibitor Sodium arsenite C017947 RPS15A pubchem inhibitor Trichostatin A C012589 RPS15A pubchem inhibitor Tretinoin D014212 RPS15A pubchem inhibitor Sunitinib D000077210 RPS15A pubchem activator Nabiximols C587251 RPS15A pubchem activator Benzo[a]pyrene D001564 ABO pubchem inhibitor
+
+[0063] [RESULTS] RPS15A expression showed a positive correlation with AVB, so its activators (e.g., valproic acid, sunitinib, nabiximols) could cause AVB. Studies have shown that sunitinib, as a major tyrosine-kinase inhibitor, affects the QT interval, but few studies have focused on its effects on conduction disorders. One study showed that valproic acid can help alleviate ventricular arrhythmias via its effects on K+-channel expression. However, our result indicated that valproic acid could exhibit different functions on arrhythmia via its varied interactions with RPS15A.
+
+[0064] [DISCUSS] Discussion
+
+[0065] [DISCUSS] AVB is a type of arrhythmia with different clinical manifestations according to the severity of conduction blockade and location of conduction disturbance. Degenerative and ischemic causes are seen most commonly in the clinic. However, the underlying molecular mechanisms of AVB have not been investigated.
+
+[0066] [DISCUSS] We revealed nine proteins and two genetic targets for AVB pathogenesis. Expression of TLL1, GLCE, BCAM, TIMD3, and DJC30 was related to a lower risk of AVB. Expression of CD36, cadherin-5, sTie-1, and Notch 1 was associated with an increased possibility of AVB occurrence. Sensitivity analyses indicated that expression of cadherin-5, sTie-1, and Notch 1 had a single directional correlation with AVB (i.e., they were causal factors, but not biomarkers, for AVB). To further confirm the role of proteins on AVB occurrence, we undertook colocalization analyses using external data from the INTERVAL cohort. Results indicated that DJC30 protein possessed the highest PPH4, which confirmed that DJC30 expression caused AVB. Subsequent analyses on gene targets indicated that expression of RPS15A and ABO contributed to AVB occurrence, but DNAJC30 expression was less likely to cause AVB occurrence. Subsequent bidirectional MR indicated that the result for RPS15A was not stable, suggesting that RPS15A might be a biomarker for AVB. Most of the investigated markers have not been reported to have a correlation with arrhythmia before. Only ABO has been reported previously to be correlated with arrhythmia. ABO expression has been linked to venous thromboembolism, prosthetic-valve thrombi, and a high degree of AVB. Research related to the relationship between ABO expression and AVB is rare, and we have provided new evidence of the cardiovascular risk of ABO. Besides, we utilized a colocalization method to explore the role of genetic targets in protein targets causing the AVB phenotype. After moving to the ABO locus, the PPH4 results for BCAM, cadherin-5, CD36, sTIE-1, and TLL1 were increased, suggesting that ABO was also related to the protein targets involved.
+
+[0067] [DISCUSS] However, the effect of drugs on AVB occurrence are seldom investigated and the overall incidence of drug-induced AVB is not known. We revealed that some anticancer drugs, such as tyrosine-kinase inhibitors (e.g., fostamatinib, merestinib, sunitinib) can cause AVB. Studies on the cardiotoxicity of sunitinib have focused mainly on prolonged QT intervals, but the risk of using fostamatinib, merestinib, and sunitinib leading to AVB has not been reported. As a new category of anticancer drugs, use of TIMD3 inhibitors showed an increased risk of AVB development according to our results. However, most investigations on the safety and adverse effects of anticancer drugs (e.g., NCT03489343, NCT03311412, NCT03652077) are in the recruitment period. Thus, the relationship between AVB and TIMD3 inhibitors needs further investigation, and the side-effect of causing AVB should be considered when administrating TIMD3 inhibitors.
+
+[0068] [DISCUSS] Aside from anticancer drugs, toxins encountered in daily life (aflatoxin B1) and immunosuppressors (cyclosporin A) were also related to AVB occurrence. Studies have shown cyclosporin A has a cardioprotective effect by reducing ischemia–reperfusion injury and lowering the risk of arrhythmia. However, its influence on atrioventricular conduction has not been investigated. Thus, we provided new targets of drug interactions and a new direction for exploring the cardiac side-effects of widely used drugs.
+
+[0069] [DISCUSS] The advantages of our study are based on MR utilization. MR can be used to prioritize candidate drug targets by predicting disease outcomes and adverse events that could result from the manipulation of a drug target. A commonly adopted protocol is two-sample MR (2SMR) with summary genome-wide association study (GWAS) described in this study. Application of MR in finding therapeutic targets has many successful examples. In the field of the investigation of coronary artery diseases(CAD), the inhibition of IL-6 signaling showed significance in preventing the occurrence of CAD, which was proven by MR analysis providing promise therapeutic targets for CAD. Also in predicting the drug side effects, MR analysis played a role. For example, the investigation of side effects of statin use the method of MR indicated the drug increase the risk of new-onset type 2 diabetes by inhibition of HMGCR. Advantages of MR are elimination of the residual effect from confounding variables and measurement error because the instrumental genetic variants are distributed randomly during meiosis and remain unaffected after birth. Besides, MR can be employed to eliminate the reverse causal outcome because reverse MR analyses could be used to confirm the stability of results. To find valuable targets of drug interaction, we adopted a method integrating the methods of eQTL and pQTL, which can be employed to find targets that are meaningful at genetic and protein levels.
+
+[0070] [DISCUSS] This method has rarely been utilized before, and provides a new approach for future studies. We also revealed the potential risk of causing AVB by currently used anticancer drugs and newly developed substances with anticancer activity. These data can aid future investigation on the side-effects of drugs such as TIMD3 inhibitors, and provide guidance on clinical application of anticancer drugs.
+
+[0071] [DISCUSS] Limitation
+
+[0072] [DISCUSS] Our study had two main shortcomings. First, the threshold of selection of LD was too low for pQTL data because a higher threshold would have led to a loss of targets involved, and subsequent MR analyses would not have been possible. Second, bidirectional MR indicated that expression of BCAM, DNAJC30, NOTCH1, TIMD3, sTIE-1, GLCE, or TLL1 was not the causal factor of AVB. One reason may be that there were too few IVs for further analyses. Additional colocalization analysis also indicated that AVB was less likely to be caused by TIMD3 expression. Hence, the results for TIMD3 were paradoxical, and the side-effect of causing AVBs by TIMD3 inhibitors merits additional clinical studies. And result for external validation and adjusted p value is not satisfactory in some situations. However, this is a exploratory study. Since the molecular mechanisms for the pathogenesis of AVB haven’t been clearly elucidated. We want to establish as many casual relationships as possible. And the Besides, the discussion on non-coding RNA is not sufficient. Non-coding RNAs carry out their function by interacting with coding genes or RNA-binding proteins. Hence, investigation into the function of non-coding RNAs in AVB pathogenesis may be indirect and overlap with coding genes. Coding proteins are the final factors performing the function, so coding proteins are more important than non-coding RNAs.
+
+[0073] [CONCL] Conclusions
+
+[0074] [CONCL] Via MR and integration of eQTL data and pQTL data, we found nine proteins to be potential targets of drug interaction causing AVB. Subsequent sensitivity analyses indicated that expression of cadherin-5, sTie-1, and Notch 1 could cause AVB. RPS15A and ABO were contributors to AVB, whereas DNAJC30 expression was negatively related to AVB risk. Bidirectional MR indicated that alterations to DNAJC30 and ABO were causal factors of AVB. Colocalization tests indicated that BCAM, cadherin-5, CD36, sTIE-1, and TLL1 could perform their functions via interaction with ABO. Analyses of drug–protein interactions and drug–gene interactions indicated that some anticancer drugs (tyrosine-kinase inhibitors, TIMD3 inhibitors), toxins, or neurological agents may cause AVB.
+
+[0075] [SUPPL] Electronic supplementary material
+
+[0076] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0077] [SUPPL] Publisher’s note
+
+[0078] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0079] [SUPPL] Tongyu Wang and Peipei Ma contributed equally to this work.
+
+[0080] [AUTH_CONT] Author contributions
+
+[0081] [AUTH_CONT] TY.W and PP.M wrote the main manuscript text and TY.W prepared Figs. 1, 2 and 3. YL.X made conceputation. All authors reviewed the manuscript. XF.W prepared tables and edited the content. TY.W and PP.M performed the data analysis.
+
+[0082] [ACK_FUND] Funding
+
+[0083] [ACK_FUND] No funding.
+
+[0084] [SUPPL] Data availability
+
+[0085] [SUPPL] pQTL data was from supplymentary materials from three previously published papers(DOI: 10.1038/s41593-021-00886-6)(DOI: 10.1038/s41586-018-0175-2)(DOI: 10.1093/hmg/ddac243).eQTL data was from www.eqtlgen.org/cis-eqtls.html.GWAS data for AVB was from https://pheweb.org/UKB-TOPMed/pheno/426.24 and GWAS catalogue website (https://www.ebi.ac.uk/gwas/studies/GCST90043972).
+
+[0086] [SUPPL] Declarations
+
+[0087] [SUPPL] Ethics approval and consent to participate
+
+[0088] [SUPPL] Not applicable.
+
+[0089] [SUPPL] Consent for publication
+
+[0090] [SUPPL] Not applicable.
+
+[0091] [COMP_INT] Competing interests
+
+[0092] [COMP_INT] The authors declare no competing interests.
+
+[0093] [ABBR] Abbreviations
+
+[0094] [ABBR] AVB
+
+[0095] [ABBR] Atrioventricular block
+
+[0096] [ABBR] MR
+
+[0097] [ABBR] Mendelian Randomization
+
+[0098] [ABBR] eQTL
+
+[0099] [ABBR] Expression quantitative trait loci
+
+[0100] [ABBR] AMI
+
+[0101] [ABBR] Acute myocardium infarction
+
+[0102] [ABBR] pQTL
+
+[0103] [ABBR] Protein quantitative trait loci
+
+[0104] [ABBR] GWAS
+
+[0105] [ABBR] Genome-wide association studies
+
+[0106] [ABBR] IVW
+
+[0107] [ABBR] Inverse variance weighted
+
+[0108] [ABBR] LD
+
+[0109] [ABBR] Linkage disequilibrium
+
+[0110] [ABBR] TLL1
+
+[0111] [ABBR] Tolloid-Like protein 1
+
+[0112] [ABBR] GLCE
+
+[0113] [ABBR] Glucuronic Acid Epimerase
+
+[0114] [ABBR] sTie-1
+
+[0115] [ABBR] Serum Tyrosine Kinase With Immunoglobulin And Epidermal Growth Factor Homology Domains 1
+
+[0116] [ABBR] TIMD3
+
+[0117] [ABBR] Hepatitis A Virus Cellular Receptor 2
+
+[0118] [ABBR] DJC30
+
+[0119] [ABBR] DnaJ homolog subfamily C member 30
+
+[0120] [ABBR] BCAM
+
+[0121] [ABBR] Basal cell adhesion molecule proteins
+
+[0122] [ABBR] ABO
+
+[0123] [ABBR] ABO blood group gene
+
+[0124] [ABBR] RPS15A
+
+[0125] [ABBR] Ribosomal Protein S15a
+
+[0126] [ABBR] DNAJC30
+
+[0127] [ABBR] DnaJ Heat Shock Protein Family Member C30
+
+[0128] [REF] References
+
+[0129] [REF] Non-O-blood types associated with higher risk of high-grade atrioventricular block
+
+[0130] [REF] A case of Bradycardia with Irregular Rhythm and varying QRS morphology
+
+[0131] [REF] Atrioventricular and intraventricular blocks in the setting of acute coronary syndromes: a narrative review
+
+[0132] [REF] Use of the electrocardiogram in acute myocardial infarction
+
+[0133] [REF] Autoimmune congenital heart block: a review of biomarkers and management of pregnancy
+
+[0134] [REF] Location of acute myocardial infarction and associated arrhythmias and outcome
+
+[0135] [REF] Arrhythmic syncope: from diagnosis to management
+
+[0136] [REF] Sanches B, Nunes P, Almeida H, Rebelo M. Atrioventricular block related to liposomal amphotericin B. BMJ case reports 2014, 2014.
+
+[0137] [REF] Thirty-year trends (1975–2005) in the magnitude and hospital death rates associated with complete heart block in patients with acute myocardial infarction: a population-based perspective
+
+[0138] [REF] High-degree atrioventricular block complicating ST-segment elevation myocardial infarction in the era of primary percutaneous coronary intervention
+
+[0139] [REF] Bedside Temporary Transvenous Pacemaker insertion in the Emergency Department: a single-center experience
+
+[0140] [REF] The impact of drug discontinuation in patients treated with temporary pacemaker due to atrioventricular block
+
+[0141] [REF] Teetering on the Edge: second-degree atrioventricular block following long-acting second-generation antipsychotic
+
+[0142] [REF] Jianfeng L, Jiawei Z, Yan X. Potential drug targets for multiple sclerosis identified through mendelian randomization analysis. Brain 2023, 146(8).
+
+[0143] [REF] Yu C, Ying Y, Qingfeng H, Guojun W. Identification of potential drug targets for rheumatoid arthritis from genetic insights: a mendelian randomization study. J Transl Med 2023, 21(1).
+
+[0144] [REF] Stephen B, Amy MM, Andrew JG, Eric AWS, Apostolos G, Verena Z, Ashish P, Haodong T, Cunhao L, William GH et al. Using genetic association data to guide drug discovery and development: review of methods and applications. Am J Hum Genet 2023, 110(2).
+
+[0145] [REF] Commentary: two-sample mendelian randomization: opportunities and challenges
+
+[0146] [REF] Genomic atlas of the proteome from brain, CSF and plasma prioritizes proteins implicated in neurological disorders
+
+[0147] [REF] Genomic atlas of the human plasma proteome
+
+[0148] [REF] Differences and commonalities in the genetic architecture of protein quantitative trait loci in European and arab populations
+
+[0149] [REF] Ziwei G, Hongbo D, Yi G, Qian J, Ruijia L, Zhangjun Y, Jiaxin Z, Xiaoke L. Yong’an Y: Association between leptin and NAFLD: a two-sample Mendelian randomization study. Eur J Med Res 2023, 28(1).
+
+[0150] [REF] Damian B, Christine BP, Piotr S, Emmanuel JC, Malgorzata B, Chiara S. Controlling the rate of GWAS false discoveries. Genetics 2016, 205(1).
+
+[0151] [REF] Rheumatoid arthritis increases the risk of heart failure-current evidence from genome-wide association studies
+
+[0152] [REF] A more accurate method for colocalisation analysis allowing for multiple causal variants
+
+[0153] [REF] Genetic and Epigenetic Fine Mapping of Complex Trait Associated Loci in the Human Liver
+
+[0154] [REF] Colocalization analysis of polycystic ovary syndrome to identify potential disease-mediating genes and proteins
+
+[0155] [REF] Therapeutic target database update 2022: facilitating drug discovery with enriched comparative data of targeted agents
+
+[0156] [REF] Assessment of aflatoxin B1 myocardial toxicity in rats: mitochondrial damage and cellular apoptosis in cardiomyocytes induced by aflatoxin B1
+
+[0157] [REF] Mitochondrial calcium uniporter complex activation protects against calcium alternans in atrial myocytes
+
+[0158] [REF] Electrocardiographic characterization of the QTc interval in patients with advanced solid tumors: pharmacokinetic- pharmacodynamic evaluation of sunitinib
+
+[0159] [REF] Risk of QTc prolongation among cancer patients treated with tyrosine kinase inhibitors
+
+[0160] [REF] Cardiac toxicity of sunitinib and sorafenib in patients with metastatic renal cell carcinoma
+
+[0161] [REF] Stress-activated kinase mitogen-activated kinase Kinase-7 governs epigenetics of Cardiac Repolarization for Arrhythmia Prevention
+
+[0162] [REF] 2018 ACC/AHA/HRS Guideline on the evaluation and management of patients with Bradycardia and Cardiac Conduction Delay: a report of the American College of Cardiology/American Heart Association Task Force on Clinical Practice guidelines and the Heart Rhythm Society
+
+[0163] [REF] Not haemostasis genetic polymorphisms significantly influence thrombotic risk: a study of 180 homozygotes for the factor V Leiden mutation
+
+[0164] [REF] AB0 blood types: impact on development of prosthetic mechanical valve thrombosis
+
+[0165] [REF] Drug-Induced Arrhythmias: A Scientific Statement from the American Heart Association
+
+[0166] [REF] Cardiovascular safety of tyrosine kinase inhibitors: with a special focus on cardiac repolarisation (QT interval)
+
+[0167] [REF] TIM3 comes of age as an inhibitory receptor
+
+[0168] [REF] The effect of prethrombolytic cyclosporine-A injection on clinical outcome of acute anterior ST-elevation myocardial infarction
+
+[0169] [REF] Daniel SE. Target Discovery for Drug Development using mendelian randomization. Methods Mol Biol 2022, 2547(0).
+
+[0170] [REF] Mickael R, Arnaud C, Zhonglin L, Marie-Chloé B, Benoit JA, Yohan B, Sébastien T, Patrick M. A mendelian randomization study of IL6 signaling in cardiovascular diseases, immune-related disorders and longevity. NPJ Genom Med 2019, 4(0).
+
+[0171] [REF] Marios KG, Rainer M, Xue L, Dipender G, Michael GL, Ha My TV, Renae J, Marylyn R, Shefali SV, Girish NN et al. Genetically downregulated Interleukin-6 signaling is Associated with a favorable Cardiometabolic Profile: a phenome-wide Association study. Circulation 2021, 143(11).
+
+[0172] [REF] Marios KG, Rainer M, Dipender G, Nora F, Cathie LMS, Martin D. Interleukin-6 Signaling effects on ischemic stroke and other Cardiovascular outcomes: a mendelian randomization study. Circ Genom Precis Med 2020, 13(3).
+
+[0173] [REF] Daniel IS, David P, Karoline BK, Michael VH, Jorgen ELE, Tina S, Reecha S, Stefan S, Paul CDJ, Robert AS et al. HMG-coenzyme A reductase inhibition, type 2 diabetes, and bodyweight: evidence from genetic analysis and randomised trials. Lancet 2014, 385(9965).
+
+[0174] [REF] Causal relationship between nonalcoholic fatty liver disease and different sleep traits: a bidirectional mendelian randomized study
+
+[0175] [REF] Sanderson E, Glymour M, Holmes M, Kang H, Morrison J, Munafò M, Palmer T, Schooling C, Wallace C, Zhao Q et al. Mendelian randomization. Nat Reviews Methods Primers 2022, 2.

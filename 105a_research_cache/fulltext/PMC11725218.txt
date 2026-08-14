@@ -1,0 +1,497 @@
+[0001] [TITLE] Possible linking and treatment between Parkinson’s disease and inflammatory bowel disease: a study of Mendelian randomization based on gut–brain axis
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Mounting evidence suggests that Parkinson’s disease (PD) and inflammatory bowel disease (IBD) are closely associated and becoming global health burdens. However, the causal relationships and common pathogeneses between them are uncertain. Furthermore, they are uncurable. Thus, we aimed to identify the causal relationships and novel therapeutic targets shared between them based on their common pathophysiological mechanisms in gut–brain-axis (GBA).
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] A meta-analysis on bidirectional Mendelian randomization (MR) utilizing various datasets was performed to estimate their causal relationship. Then, pleiotropic analysis under the composite null hypothesis (PLACO) with functional mapping combined with annotation of genetic associations (FUMA) analysis were conducted to identify pleiotropic genes. Next, blood, brain and intestine expression quantitative trait locus (eQTL) were taken to perform drug-target MR finding common causal genes in two diseases. Colocalization analysis ensured the eQTLs of corresponding gene colocalized with disease. Enrichment analysis and protein‒protein interaction (PPI) network were done to explore common pathogenesis pathways. Genes passed all analysis were regarded as drug targets.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] Our MR meta-analysis revealed the bidirectional causal relationship between diseases, with combined ORs for PD on IBD, CD, UC (1.050 [95% CI 1.014–1.086], 1.044 [95% CI 0.995–1.095], 1.063 [95% CI 1.016–1.120]); for IBD, CD, UC on PD (1.003 [95% CI 0.973–1.034], 1.035 [95% CI 1.004–1.067], 1.008 [95% CI 0.977–1.040]). Overall, 277, 216 and 201 genes were identified as pleiotropic genes between PD and IBD, CD, UC. Total of 733 genes were classified as tier 3 (found in only one tissue) druggable targets, 57 as tier 2 (found in two tissues, 51 protein-coding genes) and 9 as tier 3 (found in three tissues). Among 60 protein-coding druggable targets over tier 2, 18 overlapped with pleiotropic genes and enriched in mitochondria, antigen presentation, processing and immune cell regulation pathways. Three druggable genes (LRRK2, RAB29 and HLA-DQA2) passed colocalization analysis. LRRK2 and RAB29 were reported to be pleiotropic genes, and RAB29 and HLA-DQA2 were reported for the first time as potential drug targets.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] This study established a reliable causal relationship, possible shared drug targets and common pathogenesis pathways of two diseases, which had important implications for intervention and treatment of two diseases simultaneously.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1186/s12967-024-06045-2.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Parkinson’s disease (PD) is traditionally recognized as originating from the early prominent death of dopaminergic neurons in the substantia nigra pars compacta. This neurodegenerative disorder is characterized by symptoms such as tremor, bradykinesia, rigidity, impaired postural reflexes and balance, along with numerous other motor abnormalities. On the other hand, inflammatory bowel disease (IBD), which encompasses two subtypes, Crohn's disease (CD) and ulcerative colitis (UC), is a common and complex gastrointestinal condition marked by intermittent, chronic, or progressive intestinal inflammation. The pathogenesis of IBD is hypothesized to involve a broad range of processes that disrupt the balance between the intestinal mucosa, the immune system, and the microbiota. A notable similarity between PD and IBD is the lack of effective, specific treatments for either condition.
+
+[0014] [INTRO] As PD and IBD have the same prevalence of 0.3% in the general population, they contribute significantly to the global disease burden. Interestingly, an increasing number of studies have indicated a close association between these two diseases. From epidemiological perspective, several comprehensive meta-analyses have reported a significantly increased risk of PD incidence among IBD patients, with risk ratios (RRs) of 1.41, 1.24, and 1.17 and a hazard ratio (HR) of 1.39. Conversely, an increased incidence of IBD has also been reported among PD patients. But not all cohort studies supported with that and deeper studies about causal relationship and mechanistic studies are needed.
+
+[0015] [INTRO] From the perspective of pathogenesis, gut–brain axis (GBA) emerges as a more and more vital link between two diseases. It can be traced back to Braak's hypothesis that PD may originate in the gastrointestinal tract, and now the theory of GBA has been refined by a number of experiments. Recent research found that pathological α-synuclein—a hallmark of PD—can be found in the ventral midbrain tissue patients and rat model with IBD, strongly supported Braak's hypothesis. And the specific pathways of GBA linking brain and gut were focused on blood and vagus nerve. Numerous studies suggest that the blood–brain barrier (BBB) and intestinal epithelial barrier will undergo damage under inflammation state and cytokines and metabolites from intestine can transfer to brain. As for vagus nerve, recent evidence supporting it to be a pathway of α-synuclein. However, several studies suggest that this communication could be bidirectional instead of one way from gut to brain, indicating a complex interplay between the gut and brain in both diseases.
+
+[0016] [INTRO] And based on this theoretical basis, many studies tried to dig out the possible mechanisms and treatments between PD and IBD with various method. One research considered CXCR4 as possible druggable target with microarray data analysis and molecular docking and other one suggested BTK, NCF2, CRH, FCGR3A and SERPINA3 as the underlying molecular mechanisms with Weighted Gene Co-expression Network Analysis (WGCNA).
+
+[0017] [INTRO] In this study, we focused on the potential link between PD and IBD and conducted a meta-analysis based on bidirectional Mendelian randomization (MR) approach to establish a credible causal relationship between the two diseases, addressing the inconsistencies in previous findings. Determining this causality will help identify risk factors common to both conditions and could enable the prevention of one disease by targeting the pathways associated with these risk factors.
+
+[0018] [INTRO] Furthermore, given the current lack of effective treatments for both diseases and the GBA emerging as a possible link between PD and IBD, targeting common drug sites upon the GBA is a viable approach. Recent research has highlighted gene expression quantitative trait loci (eQTL) as crucial omics integration data, revealing genetic variants that explain variations in gene expression levels. These eQTLs serve as functional intermediates for investigating the underlying biological mechanisms of genetics in various diseases and developing potential drug targets.
+
+[0019] [INTRO] In this study, we used eQTLs from brain, blood, and intestinal tissues—including the small intestine, transverse colon, and sigmoid colon—to mimic the GBA and identify shared drug targets. These targets were then tested using colocalization methods and compared with the pleotropic genes obtained from the PLACO and FUMA analyses. Functional enrichment analysis was performed as the final step.
+
+[0020] [INTRO] As a result, our study not only confirmed previous findings but also revealed new genetically supported drug targets as pleiotropic genes between the two diseases, along with their possible underlying signaling pathways and functions through enrichment analysis. Our findings contribute to extending the potential treatment and mechanism understanding of both diseases.
+
+[0021] [METHODS] Methods
+
+[0022] [FIG] Overview of this study. First, bidirectional MR was performed between PD and IBD, CD, UC. Second, a meta-analysis was conducted to integrate the causal effects between PD and IBD, CD, UC. We then performed PLACO and FUMA analyses to identify pleiotropic genes related to diseases. Moreover, drug target MR was conducted to estimate the causal effects of blood, brain, and intestinal druggable eQTLs on both PD and IBD to identify shared drug targets. Colocalization analyses verified the association between genes and disease, and gene function analysis illustrated the role of possible drug targets in biological processes. In the final step, we overlapped the results from the drug-target MR and FUMA to generate credible shared drug targets. MR, Mendelian randomization; PD, Parkinson’s disease; IBD, inflammatory bowel disease; CD, Crohn’s disease; UC, ulcerative disease; PLACO, pleiotropic analysis under composite null hypothesis; FUMA, functional mapping combining annotation of genetic associations; eQTL, expression quantitative trait locus
+
+[0023] [METHODS] The overall study design is illustrated in Fig. 1. Further details of the methods and materials used are provided as follows.
+
+[0024] [METHODS] Bidirectional two-sample MR analysis
+
+[0025] [METHODS] In this study, a bidirectional two-sample MR approach was used to evaluate the possible causal relationship between PD and IBD, which means that two diseases take turn as exposure or outcome, as showed in Fig. 1. To obtain a plausible result from MR analysis, which aims to mimic randomized controlled trials (RCTs) in real life, three principal rules must be followed when selecting an eligible instrument variant (IV), which is the first and most important step to perform MR: (1) IV is robustly associated with the exposure; (2) no confounder is associated with IV and outcome; (3) IV is only associated with the outcome through the exposure . Therefore, first, to obtain IVs closely associated with exposure, we selected SNPs that reached genome-wide significance (p value < 5 × 10−8); then, the intercept of MR‒Egger was calculated as pleiotropy in the post-MR analysis; finally, any IV associated with phenotype related to outcome was removed through the FastTraitR method with a p value < 5 × 10−5. F-statistics were calculated with each SNP chosen from exposures as [beta/SE]2, which were computed to quantify the strength of instruments (over 10 was considered sufficient).
+
+[0026] [METHODS] After IVs were chosen, MR was performed between exposure and outcome. First, we harmonized the frequency of affected alleles according to exposure and outcome to ensure that they matched each other. Second, for the specific details of MR, we clumped SNPs based on linkage disequilibrium (LD, r2 = 0.0001) and genomic region (clump window 1,00,000 kilobases) to obtain more reliable results. Palindromic genetic variants were discarded, and proxies of missing genetic variants with an LD score > 0.8 were used in further MR analysis. The final results from the inverse-variance weighted (IVW) method were used as the main MR results because they integrate all the effects of IVs with the highest reliability.
+
+[0027] [METHODS] In sensitivity analyses, 4 other MR methods, including MR‒Egger, weighted median mode, simple mode and weighted mode, were also used to assist in IVW interpretation, and post-MR analysis, including heterogeneity tests (Cochrane’s Q value was calculated to evaluate the heterogeneity of IVs, and p < 0.05 was considered to indicate the presence of heterogeneity of IVs) and pleiotropy tests (MR‒Egger regression intercept tests with p < 0.05 were considered to indicate the presence of horizontal pleiotropy), were performed to determine whether heterogeneity and pleiotropy existed in the MR results. Due to heterogeneity, a multiplicative random effects IVW model was adopted, and if pleiotropy existed, the whole MR result was discarded. Moreover, Steiger filtering analysis was applied to ensure that the effect of direction was from exposure to outcome but not reverse. Finally, the MR Pleiotropy Residual Sum and Outlier (MR-PRESSO) method was used to detect outliers that differed from other IVs and calculate the corrected causal effect after removing the outliers. Meta-analysis was reperformed with corrected results to support and verify the final conclusion.
+
+[0028] [METHODS] Meta analysis and GWAS dataset selection
+
+[0029] [METHODS] To consolidate our conclusion of the causal relationship between PD and IBD, multiple GWAS datasets of PD and IBD were chosen to present the bidirectional two-sample MR analysis and their IVW results (p < 0.05) expressed as odds ratios (ORs) were used in the next step of the meta-analysis with corresponding 95% confidence intervals (CIs).
+
+[0030] [METHODS] To achieve this cross-data analysis, we selected GWAS datasets related to IBD and PD from mainly GWAS Catalog and IEU Open GWAS project database with several criteria: (1) GWAS data from the same race and with as low as possible population overlap between the data to decrease the bias of population; (2) as much as possible significant SNPs (at least enough to conduct IVW analysis) related to the phenotype should be included in the GWAS to make sure MR result reliable; (3) the case and control number of GWAS should better over 10,000 to ensure this GWAS can represent this population.
+
+[0031] [METHODS] All the statistically significant IVW results (p < 0.05) used in the next step of the meta-analysis are expressed as odds ratios (ORs) with corresponding 95% confidence intervals (CIs). For the meta-analysis, the OR values of the corresponding exposure-outcome groups were combined using a fixed-effect model with a heterogeneity score of I2 < 50%.
+
+[0032] [METHODS] GWAS dataset
+
+[0033] [METHODS] With three selection criteria, one PD GWAS dataset, four IBD GWAS datasets, three CD GWAS datasets, three UC GWAS datasets were chosen.
+
+[0034] [METHODS] PD GWAS dataset
+
+[0035] [METHODS] The GWAS summary data for PD were obtained from the International Parkinson’s Disease Genomics Consortium, which was recently the largest PD GWAS dataset. In total, 482,730 discovery samples and 991,367 replication samples composed of a European population were included in this GWAS [cases/controls (discovery + replication) for PD: 33,674 + 22,632/449,056 + 991367]. The GWAS summary data were obtained from the GWAS Catalog and IEU OpenGWAS project databases.
+
+[0036] [METHODS] IBD, CD, UC GWAS dataset
+
+[0037] [METHODS] Summary statistics for IBD, UC and CD were obtained from several GWAS datasets: (1) the latest largest meta-analysis GWAS of IBD, which contained a total sample size of 59,957 participants of predominantly European ancestry [cases/controls for IBD: 25,042/34915; UC: 12,366/33609; CD: 12,194/28072]; (2) another IBD GWAS of the European population, which contained a discovery sample size of 34,652 participants and a replication sample size of 51,998 [cases/controls (discovery + replication) for IBD: 12,882 + 25,273/21,770 + 26,715; UC: 6968 + 10,679/20464 + 26,715; CD: 5,956 + 14,594/14927 + 26715]; (3) the FinnGen 9th release of Finland IBD patients registered in the KELA [cases/controls for IBD: 7625/369652; UC: 5034/371530; CD: 1665/375445]; (4) the IBD GWAS dataset of the UK biobank, which contained only IBD GWAS summary data [cases/controls for IBD: 7045/449282]. The data were obtained from the GWAS Catalog and IEU Open GWAS project databases.
+
+[0038] [METHODS] PLACO and FUMA analysis
+
+[0039] [METHODS] PLACO was used to identify the potential pleiotropic SNPs between PD and IBD (including its subtypes). This method merged the two GWAS datasets of PD and IBD patients into one. Then, the generated GWAS data were subjected to FUMA analysis (https://fuma.ctglab.nl/snp2gene) to characterize potential pleiotropic genes between two diseases by setting PPLACO < 10E-6 in a ± 250 kb radius and with LD r2 > 0.2 into a single genetic locus.
+
+[0040] [METHODS] eQTL MR analysis
+
+[0041] [METHODS] The fundamentals of eQTL MR analysis are identical to those of two-sample MR analysis except that the eQTLs of each genome are selected as the exposure data. To obtain IVs that can represent the expression level of accordance genes, we selected SNPs with both a genome-wide significance threshold of p < 5E-08 and an FDR < 0.05 within ± 100 kb from each gene’s coding region (except for eQTLs from GTEX, for which we selected SNPs with a genome-wide significance threshold of p < 5E−06 to obtain more SNPs to avoid only one SNP remaining to perform MR). The IVs were then clumped at r2 < 0.3 within 1,00,000 kilobases. The rest of the analysis process was exactly the same as that used for the two-sample MR analysis mentioned above, and the results with an FDR < 0.05 were considered to indicate statistical significance. In this study, we applied drug-target MR analysis to explore the novel causal genes shared by both PD and IBD with eQTL datasets from the human brain, blood and intestine, which could further reveal the links between them.
+
+[0042] [METHODS] eQTL GWAS dataset
+
+[0043] [METHODS] To get appropriate eQTL GWAS datasets we browsed related articles and found total 5 eQTL datasets of 5 different tissues from 3 consortia.
+
+[0044] [METHODS] Blood eQTL dataset
+
+[0045] [METHODS] The blood eQTL dataset was obtained from eQTLGen, where the fully significant cis-eQTLs (false discovery rate (FDR) < 0.05) of 16,144 genes were obtained from 31,684 blood samples of healthy Europeans.
+
+[0046] [METHODS] Brain eQTL dataset
+
+[0047] [METHODS] The brain eQTL dataset was obtained from the PsychENCODE consortia, where the fully significant cis-eQTLs (FDR < 0.05 with expression of > 0.1 fragments per kilobase per million mapped fragments in at least 10 samples and all SNP (single nucleotide polymorphism) information) of 15,188 genes were obtained from 1387 brain samples of primarily European populations.
+
+[0048] [METHODS] Intestine eQTL dataset
+
+[0049] [METHODS] Finally, we obtained the cis-eQTLs of the intestine, including all three available parts (small intestine, transverse colon and sigmoid colon), from the Genotype-Tissue Expression project (GTEx) V.8, which includes 4445, 8266 and 7362 genes from 174, 368 and 318 accordant tissue samples of the European population, respectively.
+
+[0050] [METHODS] Colocalization analysis
+
+[0051] [METHODS] Subsequent colocalization analysis was performed for drug targets over tier 2, deciding whether the eQTL SNP we summarized truly represent the expression level of the gene we thought, and colocalized with the disease we studied. As a research mentioned that if a SNP was located in two or more gene regions, its effect on target disease would be mixed and colocalization analysis would help to make sure targeted gene and disease sharing causal genetic variants (Systematic druggable genome-wide Mendelian randomisation identifies therapeutic targets for Alzheimer’s disease). To achieve this, five hypotheses were come up: PPH0, no association with either trait; PPH1, association with the gene expression but not the disease; PPH2, association with the disease but not the gene expression; PPH3, association with the gene expression and disease, with distinct causal variants; and PPH4, association with the gene expression and disease, with a shared causal variant. A low PPH3 + PPH4 value cannot support the null hypothesis. We therefore restricted our analysis to genes with a PPH3 + PPH4 value ≥ 0.8.
+
+[0052] [METHODS] Pathway enrichment analysis and protein‒protein network
+
+[0053] [METHODS] To investigate the biological functions and signaling pathways of the genes identified via MR analysis, enrichment analysis was performed through Gene Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) methods.
+
+[0054] [METHODS] Furthermore, to explore the interactions between previously reported pleiotropic genes and genes identified in this study, a PPI network was constructed by using the Search Tool for the Retrieval of Interacting Genes (STRING) database version 12 (https://string-db.org/).
+
+[0055] [METHODS] R package
+
+[0056] [METHODS] All the statistical analyses were performed in R (version 4.3.0) with the following packages: “TwoSampleMR” (version 0.5.7), “FastTraitR” (version 1.0), “MRPRESSO” (version 1.0), “PLACO” (version 0.1.1), and “coloc” (version 5.2.3, default setting). Data visualization was conducted using R packages, including “forestploter” and “heatmap”.
+
+[0057] [RESULTS] Results
+
+[0058] [RESULTS] PD as exposure and IBD as outcome
+
+[0059] [FIG] Causal relationship between exposure IBD, CD, UC and outcome PD according to MR analyses. Estimated ORs that obtained from an inverse-variance weighted analysis were combined from the four outcome databases for IBD and three outcome databases for CD and UC using fixed-effect meta-analyses. PD, Parkinson’s disease; IBD, inflammatory bowel disease; CD, Crohn’s disease; UC, ulcerative colitis; OR, odds ratio; CI, confidence interval
+
+[0060] [RESULTS] A total of 19 SNPs associated with PD were identified as IVs, but after harmonization with IBD, CD and UC, only some of the IVs remained (Fig. 2), and all the F statistics were greater than 10 (ranging from 29.91 to 774.77) (Supplementary Table 1).
+
+[0061] [RESULTS] In the sensitivity analysis (Supplementary Table 2), no pleiotropic effect was detected by MR‒Egger intercept, and heterogeneity existed in each instrument estimation evaluated by Cochran’s Q test statistics, which was solved with a multiplicative random effects model. Potential outliers, which resulted in potential pleiotropy assessed by the global test, were identified by MR PRESSO for IBD, CD and UC outcomes, and the results remained similar after outlier correction (Fig. 2). Steiger filtering detected no ‘FALSE’ direction in significant results (Supplementary Table 2).
+
+[0062] [RESULTS] In the meta-analysis of estimates from IVW, the combined ORs for PD on IBD, CD, and UC were 1.050 [95% CI 1.014, 1.086], 1.044 [95% CI 0.995, 1.095] and 1.063 [95% CI 1.016, 1.12], respectively, and no heterogeneity > 50% was found. These results meant that PD patients were more likely to develop IBD, UC and possibly CD than health controllers. Also, results were robust to MR-PRESSO correction (IBD 1.038 [95% CI 1.007, 1.070], CD 1.044 [95% CI 0.995, 1.095], UC 1.046 [95% CI 1.005, 1.089]).
+
+[0063] [RESULTS] IBD as exposure and PD as outcome
+
+[0064] [FIG] Causal relationship between exposure IBD, CD, UC and outcome PD according to MR analyses. Estimated ORs that obtained from an inverse-variance weighted analysis were combined from the four exposure databases for IBD and three exposure databases for CD and UC using fixed-effect meta-analyses. PD, Parkinson’s disease; IBD, inflammatory bowel disease; CD, Crohn’s disease; UC, ulcerative colitis; OR, odds ratio; CI, confidence interval
+
+[0065] [RESULTS] When the direction of causal analysis was opposite, the number of SNPs representing IBD, CD and UC varied (Fig. 3), but all the F statistics were greater than 10, indicating sufficient strength (Supplementary Table 1) (ranging from 29.91 to 774.77).
+
+[0066] [RESULTS] In the sensitivity analysis, similar to the PD-to-IBD analysis, no pleiotropic effect was detected, heterogeneity was resolved with multiplicative random effects, and the results remained similar after MR-PRESSO outlier correction (Fig. 3). Steiger filtering detected no ‘FALSE’ direction between exposure and outcome (Supplementary Table 2).
+
+[0067] [RESULTS] In the meta-analysis of estimates from IVW, the combined ORs for IBD, CD and UC on PD were 1.003 [95% CI 0.973, 1.034], 1.035 [95% CI 1.004, 1.067] and 1.008 [95% CI 0.977, 1.040], respectively, and no heterogeneity > 50% was found. CD had a positive causal effect on PD but not IBD or UC on PD. These results meant that CD patients were more likely to develop PD instead of UC patients. Also, the results were robust after MR-PRESSO correction (IBD 0.990 [95% CI 0.964, 1.017], CD 1.029 [95% CI 1.001, 1.058], UC 1.012 [95% CI 0.982, 1.044]).
+
+[0068] [RESULTS] PLACO with FUMA identified pleiotropic genes
+
+[0069] [FIG] Overlapping relationship of the pleiotropic genes among PD, IBD, CD, UC. Of the pleiotropic genes gained from PLACO and FUMA analysis, 109 genes were shared among PD, IBD, CD and UC; 50 genes were shared among PD, IBD and UC; 64 genes were shared among PD, IBD and CD; 6 genes were shared among PD, CD and UC. PD, Parkinson’s disease; IBD, inflammatory bowel disease; CD, Crohn’s disease; UC, ulcerative colitis; OR, odds ratio; CI, confidence interval
+
+[0070] [RESULTS] To identify possible pleotropic genes between PD and IBD (including their subtypes), we selected the two GWAS datasets with the largest sample sizes and SNP numbers (Nalls MA and de Lang et al.). Then, the GWAS data were subjected to PLACO to obtain overlapping GWAS data. FUMA helped us to annotate our newly obtained GWAS data, and as a result, 277, 216 and 201 genes were identified as pleiotropic genes between PD and IBD, CD, UC, respectively, which provided us with a possible range of shared drug targets, and their overlapped relationship was shown in Fig. 4 [Supplementary Table 3].
+
+[0071] [RESULTS] Shared drug targets between PD and IBD
+
+[0072] [FIG] Heatmap of drug-target MR results. Heatmap showing the beta values of causal estimates of blood, brain, and intestine (small intestine, transverse colon, and sigmoid colon) eQTLs on PD, IBD, UC, and CD (only genes over tier 2 are shown). CD, Crohn’s disease; PD, Parkinson’s disease; IBD, inflammatory bowel disease; UC, ulcerative colitis
+
+[0073] [RESULTS] We used eQTL datasets from the brain, blood and intestine, including the small intestine, transverse colon and sigmoid colon, to extract eQTLs of the corresponding genes. A total of 15,188 genes were extracted from the brain eQTL dataset, and 7427 genes remained after clumping; 16,144 genes were extracted from the blood eQTL dataset, and 15,055 genes remained after clumping; 4445 genes were extracted from the small intestine eQTL dataset, and 4169 genes remained after clumping; 8266 genes were extracted from the transverse colon eQTL dataset, and 7809 genes remained after clumping; 7362 genes were extracted from the sigmoid colon eQTL dataset, and 6975 genes remained after clumping. After performing MR on both PD and IBD with these gene symbols, 733 genes were found to have a significant (FDR < 0.05) causal effect on both PD and IBD in only one type of tissue (defined as tier 3 drug target), 57 genes (51 protein coding genes) were found to have a significant (FDR < 0.05) causal effect in two types of tissues (defined as tier 2 drug target), and 9 genes were found to have a significant (FDR < 0.05) causal effect in all types of tissues, including blood, brain and intestine (defined as tier 1 drug target)[supplementary Table 3]. We believe that only genes in tier 2 have the potential to link PD and IBD through the GBA, so a total of 60 protein-coding genes over tier 2 were included in the next step of the analysis, and the beta values of their effects are presented in Fig. 5.
+
+[0074] [RESULTS] Next, we aimed to identify genes that had same direction of effects on PD and IBD in the same tissues. In summary, 10 genes had a positive effect on all types of tissues (GPR161, LRRK2, MAEL, MAPT, SLC41A3, RAB29, NMT1, ATP23, ZYG11B, and ERCC3); 12 genes had a negative effect on all types of tissues (CPEB1, CTSS, HORMAD1, MAN2B2, SRPK1, TBRG4, TXNDC16, ENTR1, ZNF641, DCAKD, HLA-DQA2, and HLA-DOB); and 2 genes (ASB1 and GALK2) were found to have a consistent effect on the same tissues, but an inverse effect between different tissues and the remaining genes with antagonistic effects can be seen as separate drug targets for PD and IBD (Fig. 5).
+
+[0075] [FIG] Overlapping relationship of the drug target with pleiotropic genes among PD, IBD, CD, UC. A 70 drug targets from drug target MR were pleiotropic genes among PD, IBD, CD, UC. B 18 drug targets beyond tier 2 were pleiotropic genes among PD, IBD, CD, UC. C Distribution of pleiotropy of drug target genes beyond tier 2 among PD-IBD, PD-CD, and PD-UC. CD, Crohn's disease; PD, Parkinson’s disease; IBD, inflammatory bowel disease; UC, ulcerative colitis
+
+[0076] [RESULTS] We then compared our results with the list of pleiotropic genes and found that 70 genes overlapped with the results from eQTL MR analysis, including 18 genes classified beyond tier 2, their distribution was shown in Fig. 6 (Supplementary Table 3).
+
+[0077] [RESULTS] We also summarized 44 pleiotropic genes reported between PD and IBD in previous studies including 10 genes overlapped with our drug targets beyond tier 2, and 17 genes overlapped with PLACO and FUMA-identified pleiotropic genes (Supplementary Table 3). Notably, XPO1, RAB29, KANSL1, PNKD, TMBIM1, MAPT, and LRRK2 were found in all three groups.
+
+[0078] [RESULTS] Results of colocalization analysis
+
+[0079] [FIG] Heatmap of the colocalization results. Heatmap showing the colocalization values of PPH3 + PPH4 for genes expressed in the blood, brain, and intestine (small intestine, transverse colon, and sigmoid colon) beyond tier 2 in PD, IBD, UC, and CD. CD, Crohn's disease; PD, Parkinson’s disease; IBD, inflammatory bowel disease; UC, ulcerative colitis
+
+[0080] [RESULTS] Colocalization analysis was subsequently performed to further determine whether the eQTLs of 60 genes shared causal genetic variants using the SNPs within ± 100 kb of the gene coding region (Fig. 7). The results suggested that most identified genes likely shared a causal variant with only one disease (PD or IBD). However, several genes (HLA-DQA2, LRRK2, RAB29, NRBP1, and PPM1G) produced significant results in both diseases, which means that they were shared at the same time. We then focused on HLA-DQA2, LRRK2, and RAB29 because they had concordant effects on the same tissues. LRRK2 shares causal variants in the blood, brain, transverse colon and sigmoid colon between the two diseases. RAB29 shares causal variants in the brain, small intestine, transverse colon and sigmoid colon between the two diseases. HLA-DQA2 shares causal variants in the blood, small intestine, transverse colon and sigmoid colon between the two diseases. Notably, LRRK2 and RAB29 were also found in our identified pleiotropic genes from PLACO and FUMA analysis to be shared among PD, IBD, CD and UC and both genes had positive effect on all three types of tissues, indicating that they may play important roles in PD and IBD.
+
+[0081] [RESULTS] Enrichment and PPI network analysis
+
+[0082] [RESULTS] We conducted enrichment analysis using GO and KEGG methods to explore the potential shared pathogenesis underlying PD and IBD. Interestingly, we found that all positive genes were enriched in pathways related to mitochondrial regulation, protein localization, and processing (Supplementary Fig. 1). Conversely, genes with protective effects were mainly enriched in antigen processing and presentation via major histocompatibility complex (MHC) class II proteins and the phagosome pathway according to both GO and KEGG analyses (Supplementary Fig. 1).
+
+[0083] [RESULTS] We then constructed separate PPI networks for positive genes and negative genes between the two diseases (Supplementary Fig. 2). LRRK2 was found to interact with MAPT and RAB29, while HLA-DQA2 closely interacted with CTSS and HLA-DOB (Supplementary Fig. 2), consistent with the enriched biological pathways.
+
+[0084] [FIG] The PPI network using drug-target MR-identified genes (over tier 2) with previously reported pleiotropic genes. The protein–protein interaction network using drug-target MR-identified genes (over tier 2) with previously reported pleiotropic genes. The red arrow indicates overlapping genes of our and previously reported pleiotropic genes. The yellow arrow indicates genes that we found but were not previously reported
+
+[0085] [RESULTS] Finally, we constructed a PPI network based on the combination of genes beyond tier 2 with previous identified pleiotropic genes, which were significantly connected and enriched (P = 1.05E−04) and converged on antigen processing, mitochondrial protein processing, and immune cell regulation, aligning with our enrichment analysis results and enhancing the credibility of our results (Fig. 8).
+
+[0086] [DISCUSS] Discussion
+
+[0087] [DISCUSS] There is now mounting evidence supporting the observational association and genetic correlation between PD and IBD. We evaluated their causality using a meta-analysis based on MR. Additionally, more than 200 genes were identified as pleiotropic genes, and a total of 799 genes were identified (733 tier 1 drug targets, 57 tier 2 drug targets, and 9 tier 3 drug targets) as potential drug targets. Among these, LRRK2, RAB29, and HLA-DQA2 have emerged as the most important drug targets due to their concordant effects and colocalization on both diseases. Notably, LRRK2 and RAB29 were also identified as pleiotropic genes in all four diseases (PD, IBD, CD, UC), strengthened their roles as shared drug targets, and RAB29 and HLA-DQA2 were first reported as drug targets for both diseases. All three genes highlight a new direction for drug development targeting these two diseases.
+
+[0088] [DISCUSS] Our meta-analysis revealed that PD may have a positive causal effect on IBD [OR: 1.038, 95% CI 1.007–1.070] and UC [OR: 1.046, 95% CI 1.005–1.089], while CD may have a positive causal effect on PD [OR: 1.029, 95% CI 1.001–1.058], which meant that PD patients were more likely to develop IBD (1.038 times higher) and UC (1.046 times higher) and CD patients were more likely to develop PD (1.029 times higher). We believe that previous studies did not reach the same conclusion because they relied on a single GWAS dataset. To address this issue, we conducted a meta-analysis using diverse European populations, including GWAS data from the UK Biobank, FinnGen, and other sources, to minimize potential bias. Our final results suggest a possible bidirectional association between PD and IBD.
+
+[0089] [DISCUSS] Decades ago, Braak et al. considered the role of the GI system in PD and were the first to hypothesize that PD originates in the gut based on the finding of accumulated α-synuclein (α-syn) in enteric nerves. Braak proposed that α-syn can be transported from the intestine to the brain via the vagus nerve. This is supported by evidence that α-syn spreads in a caudo-rostral direction to the brain in the early stages of PD and α-syn accumulated in ventral midbrain tissue in IBD patients and rat. This may explain why CD may have a causal effect on PD, as enteric α-syn expression is increased in CD patients but not in UC patients. However, the communication between the gut and brain is bidirectional, as supported by various pieces of evidence. One study from Sweden reported that the incidence of IBD significantly increased following PD diagnosis (adjusted RR = 1.40, 95% CI 1.20–1.80). Experimentally, one study revealed that damage to the nigrostriatal dopaminergic system in rats led to increased colonic levels of inflammatory and oxidative stress markers, along with activation of the proinflammatory arm of the local renin-angiotensin system. Other studies have suggested that α-syn might accumulate in the brain and be transported to enteric nerves via the vagus nerve or blood, causing intestinal inflammation.
+
+[0090] [DISCUSS] Although the link between PD and IBD is still debated, it is confidently assumed to be mediated through the GBA. In our study, we chose brain, blood and gastrointestinal tract to mimic GBA, as brain and gut play the role of ending or beginning point of GBA and blood supposed to be one of the pathways. This can be supported by the recent research that in PD and IBD patients the BBB and intestinal epithelial barrier integrity might be compromised allowing bidirectional communication of inflammation cytokines, immune cells or metabolites from gut microbiome. And blood itself containing majority of immune cells can be activated in IBD patients as proved in a study and causing neuroinflammation. Also, LRRK2 is highly expressed in peripheral blood mononuclear cells may take part in the inflammatory process, which consistent with our final findings.
+
+[0091] [DISCUSS] In our study LRRK2, RAB29, and HLA-DQA2 emerged as the three most important shared drug targets. Notably, this is the first time that RAB29 and HLA-DQA2 have been reported as druggable genes. This finding highlights new potential drug targets for both PD and IBD. The abnormal regulation of three gene-related pathways can be recognized as an indicator of disease development.
+
+[0092] [DISCUSS] LRRK2 (leucine rich repeat kinase 2) is a well-known gene and protein associated with both PD and IBD. It is a large protein (2527 amino acids, 286 kDa) with multiple domains that functions as a kinase, a GTPase, or a scaffold for protein interactions. The G2019S mutation in LRRK2 is the most common mutation associated with PD and may account for up to 1% of all PD cases. Increasing evidence suggests that LRRK2 plays a critical role in both PD and IBD. For example, the G2019S mutation, along with the N2018D and M2397T mutations in LRRK2, can increase the risk of both PD and CD, whereas N551K and R1398H are the common protective loci of PD and Crohn’s disease.
+
+[0093] [DISCUSS] RAB29 (Member RAS Oncogene Family), a member of RAB GTPase family, often reported to be closely associated with LRRK2, has not been previously linked to IBD pathogenesis. It is believed to act as a master regulator of LRRK2, controlling its activation, localization, and potentially biomarker phosphorylation, for RAB29 can recruit LRRK2 to membrane of trans-Golgi network and greatly stimulates its kinase activity. Also as a substrate of LRRK2, the GTP binding to the ROC domain of LRRK2 promotes RAB29‐mediated activation and the kinase activity of LRRK2. This finding suggested that the kinase activity of LRRK2 plays an important role in both diseases, with LRRK2 and RAB29 harmonically controlling it. Additionally, they regulate phagocytosis and lysosome-related organelle biogenesis, which is believed to include in pathogenesis of PD and IBD.
+
+[0094] [DISCUSS] HLA-DQA2 (major histocompatibility complex, class II, DQ alpha 2), on the other hand, belongs to the human leukocyte antigen (HLA class II) alpha chain family, was first time to found have association with PD. The protein it encodes is located in intracellular vesicles and plays a central role in the peptide loading of MHC class II molecules by helping release the CLIP molecule from the peptide binding site. Now limited researches of HLA-DQA2 found it associated with several immune diseases, including primary antiphospholipid syndrome, Crohn’s disease, systemic lupus erythematosus and rheumatoid arthritis. Also one study found HLA-DQA2 may be a protective factor of primary sclerosing cholangitis, indicating its complex role in immune regulation.
+
+[0095] [DISCUSS] We have summarized the pleiotropic genes between PD and IBD for comparison with our results which were from utilizing eQTLs from various GBA tissues to identify novel drug targets. It is rational to find an obvious overlap with 70 genes and 18 genes beyond tier 2. Pleiotropic genes were enriched in antigen processing, mitochondrial protein processing, and immune cell regulation. And newly discovered drug targets are also closely associated with pathways related to mitochondria and antigen presentation. In the subgroup of genes having positive effect on the development of PD and IBD were found to be enriched in pathways related to mitochondrial regulation, mitochondrial protein localization and processing. This finding was consistent with pathogenic mechanisms linking IBD to neurodegenerative diseases, including abnormal protein aggregation, mitochondrial dysfunction with impaired energy production and increased production of reactive oxygen species, abnormal autophagy. These pathways are recognized as central mechanisms in multiple neurodegenerative diseases and contribute to IBD inflammation. Antigen presentation and processing, which are related to protective genes, are essential for establishing immune tolerance and effective immune responses. Reduced antigen presentation can worsen immune conditions in both PD and IBD patients. Therefore, biological processes related to mitochondrial function and immune regulation may represent core pathogenic mechanisms shared between PD and IBD.
+
+[0096] [DISCUSS] As for the clinical application of our drug targets, at present, LRRK2-in-1 and other small molecule antagonist drugs targeting LRRK2-G2019S and inhibit LRRK2 kinase activity have been developed for PD patients and are in the clinical trial stage, but there is no evidence that they can be applied to CD patients. So, future application of LRRK2 inhibitor in IBD patients was a worthy consideration. Although there are still no drugs directly targeting RAB29 and HLA-DQA2, inhibiting their biological pathways is a worthy choice, for example, the inhibition of the combination between RAB29 and LRRK2 will decrease the kinase activity of LRRK2. Or core drug targets showing effects in more than one tissues including brain, blood and gut, which means a systemic therapeutic effect, but according to the GBA theory, there are more pathways of communication between the gut and the brain including neuronal, immune, endocrine, and metabolic methods of communication, it may be a direction to search the effect of our drug targets in other pathways.
+
+[0097] [DISCUSS] Limitations
+
+[0098] [DISCUSS] This study has several limitations. First, the study lacked protein quantitative trait locus (pQTL) datasets. Due to the small amount of pQTL data and poor overlap between the pQTL and eQTL datasets, we opted for eQTL datasets with a broader range of genes to identify more potential drug targets.
+
+[0099] [DISCUSS] Second, while PD originates in the basal ganglia, the eQTL data we used were from the human parietal lobes due to the limited availability of eQTL data from the basal ganglia.
+
+[0100] [DISCUSS] Third, the number of genes aggregated from different eQTL datasets varies, which could result in some MR results being missed due to gene misalignment. Additionally, the sample sizes of the GTEx eQTL datasets are relatively small; however, we utilized three different GTEx eQTL datasets to cross-validate our findings. However, data from other non-European populations are lacking.
+
+[0101] [DISCUSS] Finally, despite the lack of eQTL data sets from peripheral nerves, since the vagus nerve is considered to be a very likely pathway of association between PD and IBD, and metabolites from gut microbes are considered to be key mediators of GBA, it is recommended to combine eQTL data sets from peripheral nerves and gut microbes for future analysis.
+
+[0102] [CONCL] Conclusion
+
+[0103] [CONCL] This study not only established a reliable causal relationship and identified drug targets between PD and IBD but also provided a novel approach for studying the genetic correlation between these two diseases. The causal genes identified in multiple GBA tissues were enriched in pathways related to mitochondrial protein processing and localization, as well as antigen presentation and processing. These findings indicate possible common pathogenic pathways via the GBA. In this study, LRRK2, RAB29, and HLA-DQA2 are the three most compelling drug targets having positive or protective effect on PD and IBD in multiple tissues, and their roles in other GBA tissues are worth further exploration.
+
+[0104] [SUPPL] Supplementary Information
+
+[0105] [ABBR] Abbreviations
+
+[0106] [ABBR] PD
+
+[0107] [ABBR] Parkinson’s disease
+
+[0108] [ABBR] IBD
+
+[0109] [ABBR] Inflammatory bowel disease
+
+[0110] [ABBR] GBA
+
+[0111] [ABBR] Gut–brain-axis
+
+[0112] [ABBR] MR
+
+[0113] [ABBR] Mendelian randomization
+
+[0114] [ABBR] PLACO
+
+[0115] [ABBR] Pleiotropic analysis under the composite null hypothesis
+
+[0116] [ABBR] FUMA
+
+[0117] [ABBR] Functional mapping combined with annotation of genetic associations
+
+[0118] [ABBR] eQTL
+
+[0119] [ABBR] Expression quantitative trait locus
+
+[0120] [ABBR] PPI
+
+[0121] [ABBR] Protein‒protein interaction
+
+[0122] [ABBR] CD
+
+[0123] [ABBR] Crohn’s disease
+
+[0124] [ABBR] UC
+
+[0125] [ABBR] Ulcerative colitis
+
+[0126] [ABBR] HR
+
+[0127] [ABBR] Hazard ratio
+
+[0128] [ABBR] RRs
+
+[0129] [ABBR] Risk ratios
+
+[0130] [ABBR] MHC
+
+[0131] [ABBR] Major histocompatibility complex
+
+[0132] [ABBR] GTEx
+
+[0133] [ABBR] Genotype-Tissue Expression project
+
+[0134] [ABBR] RCTs
+
+[0135] [ABBR] Randomized controlled trials
+
+[0136] [ABBR] IV
+
+[0137] [ABBR] Instrument variant
+
+[0138] [ABBR] SNP
+
+[0139] [ABBR] Single nucleotide polymorphism
+
+[0140] [ABBR] LD
+
+[0141] [ABBR] Linkage disequilibrium
+
+[0142] [ABBR] IVW
+
+[0143] [ABBR] Inverse-variance weighted
+
+[0144] [ABBR] CIs
+
+[0145] [ABBR] Confidence intervals
+
+[0146] [ABBR] ORs
+
+[0147] [ABBR] Odds ratios
+
+[0148] [ABBR] MR-PRESSO
+
+[0149] [ABBR] MR Pleiotropy Residual Sum and Outlier
+
+[0150] [ABBR] GO
+
+[0151] [ABBR] Gene Ontology
+
+[0152] [ABBR] KEGG
+
+[0153] [ABBR] Kyoto Encyclopedia of Genes and Genomes
+
+[0154] [ABBR] STRING
+
+[0155] [ABBR] Search Tool for the Retrieval of Interacting Genes
+
+[0156] [ABBR] MHC
+
+[0157] [ABBR] Major histocompatibility complex
+
+[0158] [ABBR] FDR
+
+[0159] [ABBR] False discover rate
+
+[0160] [ABBR] BBB
+
+[0161] [ABBR] Blood–Brain Barrier
+
+[0162] [ABBR] WGCNA
+
+[0163] [ABBR] Weighted Gene Co-expression Network Analysis
+
+[0164] [ABBR] LRRK2
+
+[0165] [ABBR] Leucine rich repeat kinase 2
+
+[0166] [ABBR] HLA-DQA2
+
+[0167] [ABBR] Major histocompatibility complex, class II, DQ alpha 2
+
+[0168] [ABBR] RAB29
+
+[0169] [ABBR] Member RAS Oncogene Family
+
+[0170] [ABBR] Publisher's Note
+
+[0171] [ABBR] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0172] [AUTH_CONT] Author contributions
+
+[0173] [AUTH_CONT] Beiming Wang collected, processed the data and wrote the article. Xiaoyin Bai contributed to the literature research. Xiaoyin Bai, Yingmai Yang and Hong Yang contributed to manuscript modification.
+
+[0174] [ACK_FUND] Funding
+
+[0175] [ACK_FUND] This work was supported by the Capital Health Research and Development of Special Foundation (2022–2-4014), CAMS Innovation Fund for Medical Sciences (2022-I2M-C&T-B-011), National Natural Science Foundation of China (81970495), National High-Level Hospital Clinical Research Funding (2022-PUMCH-B-0222022-PUMCH-C-018, 2022-PUMCH-A-074), National Key Clinical Specialty Construction Project (ZK108000), Peking Union Medical College Teaching Reform in Undergraduate Education (2023zlgl008), State Key Laboratory Special Fund (2060204) and Beijing Science and Technology Innovation Foundation for University or College students (2024dcxm008).
+
+[0176] [SUPPL] Data availability
+
+[0177] [SUPPL] Most data generated or analysed during this study are included in this published article [and its supplementary information files]. The summary statistic data availability is described in supplementary Table 4. The rest data is available upon request from the corresponding author.
+
+[0178] [SUPPL] Code availability
+
+[0179] [SUPPL] The R code is available upon request from the corresponding author.
+
+[0180] [SUPPL] Declarations
+
+[0181] [SUPPL] Ethics approval and consent to participate
+
+[0182] [SUPPL] This study was based on previously collected and published data. In all original studies, ethical approval and consent to participate were obtained.
+
+[0183] [SUPPL] Consent for publication
+
+[0184] [SUPPL] Not applicable.
+
+[0185] [COMP_INT] Competing interests
+
+[0186] [COMP_INT] The authors declare that they have no competing interests.
+
+[0187] [REF] References
+
+[0188] [REF] Inflammatory bowel disease and Parkinson’s disease: common pathophysiological links
+
+[0189] [REF] Pulmonary-intestinal cross-talk in mucosal inflammatory disease
+
+[0190] [REF] The risk of Parkinson's disease in inflammatory bowel disease: a systematic review and meta-analysis
+
+[0191] [REF] Association between inflammatory bowel diseases and Parkinson’s disease: systematic review and meta-analysis
+
+[0192] [REF] Inflammatory bowel disease and risk of Parkinson's disease: evidence from a meta-analysis of 14 studies involving more than 13.4 million individuals
+
+[0193] [REF] Risk of common neurological disorders in adult patients with inflammatory bowel disease: a systematic review and meta-analysis
+
+[0194] [REF] Inflammatory bowel disease and Parkinson’s disease: a nationwide Swedish cohort study
+
+[0195] [REF] Association between inflammatory bowel disease and Parkinson’s disease: a prospective cohort study of 468,556 UK biobank participants
+
+[0196] [REF] Immunological features of LRRK2 function and its role in the gut–brain axis governing Parkinson’s disease
+
+[0197] [REF] Inflammatory bowel disease induces pathological alpha-synuclein aggregation in the human gut and brain
+
+[0198] [REF] Bidirectional communication of the gut–brain axis: new findings in Parkinson’s disease and inflammatory bowel disease
+
+[0199] [REF] From gut to brain: uncovering potential serum biomarkers connecting inflammatory bowel diseases to neurodegenerative diseases
+
+[0200] [REF] Initiation of Parkinson’s disease from gut to brain by delta-secretase
+
+[0201] [REF] Is LRRK2 the missing link between inflammatory bowel disease and Parkinson’s disease?
+
+[0202] [REF] Bidirectional gut-to-brain and brain-to-gut propagation of synucleinopathy in non-human primates
+
+[0203] [REF] CXCR4 as possible druggable target linking inflammatory bowel disease and Parkinson’s disease
+
+[0204] [REF] Investigating the molecular mechanisms underlying the co-occurrence of Parkinson’s disease and inflammatory bowel disease through the integration of multiple datasets
+
+[0205] [REF] Association between inflammatory bowel disease and Parkinson’s disease: a Mendelian randomization study
+
+[0206] [REF] Are neurodegenerative diseases associated with an increased risk of inflammatory bowel disease? A two-sample Mendelian randomization study
+
+[0207] [REF] Lack of causal associations of inflammatory bowel disease with Parkinson’s disease and other neurodegenerative disorders
+
+[0208] [REF] Systematic druggable genome-wide Mendelian randomisation identifies therapeutic targets for Alzheimer’s disease
+
+[0209] [REF] Correct illustration of assumptions in Mendelian randomization
+
+[0210] [REF] Detecting pleiotropy in Mendelian randomisation studies with summary data and a continuous outcome
+
+[0211] [REF] Mendelian randomization with invalid instruments: effect estimation and bias detection through Egger regression
+
+[0212] [REF] The MR-Base platform supports systematic causal inference across the human phenome
+
+[0213] [REF] Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases
+
+[0214] [REF] Identification of novel risk loci, causal insights, and heritable risk for Parkinson’s disease: a meta-analysis of genome-wide association studies
+
+[0215] [REF] Genome-wide association study implicates immune activation of multiple integrin genes in inflammatory bowel disease
+
+[0216] [REF] Association analyses identify 38 susceptibility loci for inflammatory bowel disease and highlight shared genetic risk across populations
+
+[0217] [REF] FinnGen provides genetic insights from a well-phenotyped isolated population
+
+[0218] [REF] GWAS of peptic ulcer disease implicates Helicobacter pylori infection, other gastrointestinal disorders and depression
+
+[0219] [REF] A powerful method for pleiotropic analysis under composite null hypothesis identifies novel shared loci between type 2 diabetes and prostate cancer
+
+[0220] [REF] Functional mapping and annotation of genetic associations with FUMA
+
+[0221] [REF] Causal relationship between PCSK9 inhibitor and autoimmune diseases: a drug target Mendelian randomization study
+
+[0222] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0223] [REF] Comprehensive functional genomic resource and integrative model for the human brain
+
+[0224] [REF] The genotype-tissue expression (GTEx) project
+
+[0225] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0226] [REF] Gene ontology and KEGG pathway enrichment analysis of a drug target-based classification system
+
+[0227] [REF] Genome-wide pleiotropy between Parkinson disease and autoimmune diseases
+
+[0228] [REF] Genetic overlap between Parkinson’s disease and inflammatory bowel disease
+
+[0229] [REF] Staging of brain pathology related to sporadic Parkinson’s disease
+
+[0230] [REF] Pathogenesis of Parkinson disease–the gut–brain axis and environmental factors
+
+[0231] [REF] Enteric alpha-synuclein expression is increased in Crohn’s disease
+
+[0232] [REF] Bidirectional neural interaction between central dopaminergic and gut lesions in Parkinson’s disease models
+
+[0233] [REF] Brain-to-stomach transfer of alpha-synuclein via vagal preganglionic projections
+
+[0234] [REF] Vagus nerve and stomach synucleinopathy in Parkinson’s disease, incidental lewy body disease, and normal elderly subjects: evidence against the “body-first” hypothesis
+
+[0235] [REF] Alpha-synuclein transgenic mice display age-related slowing of gastrointestinal motility associated with transgene expression in the vagal system
+
+[0236] [REF] Peripheral blood immune cells from individuals with Parkinson’s disease or inflammatory bowel disease share deficits in iron storage and transport that are modulated by non-steroidal anti-inflammatory drugs
+
+[0237] [REF] A homologue of the Parkinson’s disease-associated protein LRRK2 undergoes a monomer-dimer transition during GTP turnover
+
+[0238] [REF] Reduced LRRK2 in association with retromer dysfunction in post-mortem brain tissue from LRRK2 mutation carriers
+
+[0239] [REF] Rab29 activation of the Parkinson’s disease-associated LRRK2 kinase
+
+[0240] [REF] A role of Rab29 in the integrity of the trans-golgi network and retrograde trafficking of mannose-6-phosphate receptor
+
+[0241] [REF] A genome-wide association study suggests new susceptibility loci for primary antiphospholipid syndrome
+
+[0242] [REF] Deep resequencing of 131 Crohn’s disease associated genes in pooled DNA confirmed three reported variants and identified eight novel variants
+
+[0243] [REF] Genome-wide identification of RNA modification-related single nucleotide polymorphisms associated with rheumatoid arthritis
+
+[0244] [REF] Genome-wide association study in an Amerindian ancestry population reveals novel systemic lupus erythematosus risk loci and the role of European admixture
+
+[0245] [REF] Proteome-wide Mendelian randomization highlights AIF1 and HLA-DQA2 as targets for primary sclerosing cholangitis
+
+[0246] [REF] Mitochondrial abnormalities in Parkinson’s disease and Alzheimer’s disease: can mitochondria be targeted therapeutically?
+
+[0247] [REF] Mitochondria and inflammatory bowel diseases: toward a stratified therapeutic intervention
+
+[0248] [REF] Characterization of a selective inhibitor of the Parkinson’s disease kinase LRRK2
+
+[0249] [REF] The gut–brain axis in irritable bowel syndrome and inflammatory bowel disease

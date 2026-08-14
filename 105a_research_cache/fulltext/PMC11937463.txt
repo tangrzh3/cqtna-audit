@@ -1,0 +1,369 @@
+[0001] [TITLE] DNA methylation-regulated HLA-C expression modulates immune responses and metabolic alterations to influence prognosis in mesothelioma
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Malignant mesothelioma is a highly aggressive cancer with a poor prognosis and limited therapeutic options. The tumor microenvironment (TME) plays a pivotal role in driving tumor progression, with immune cells influencing disease outcomes. However, the molecular mechanisms underpinning mesothelioma’s progression remain insufficiently understood. HLA-C, a class I major histocompatibility complex (MHC) molecule, has been implicated in immune modulation and cancer progression, but its specific role in mesothelioma has yet to be thoroughly investigated.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] This study employed a comprehensive multi-omics approach, integrating single-cell RNA sequencing, expression quantitative trait loci (eQTL) analysis, and Mendelian randomization (MR), to elucidate the role of HLA-C in mesothelioma progression. We first analyzed HLA-C expression within the TME, with particular focus on immune cells, especially macrophages. Survival analysis was conducted using data from the TCGA mesothelioma cohort to assess the clinical relevance of HLA-C expression. We utilized mediated MR analysis to investigate the impact of DNA methylation on HLA-C expression, identifying key mediators such as inflammatory cytokines, immune cell populations, blood cell types, and metabolites that could potentially influence patient prognosis.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] HLA-C was predominantly expressed in macrophages, T cells, and NK cells within the TME, and higher expression levels were associated with improved patient survival. MR analysis revealed that DNA methylation regulates HLA-C expression, which in turn impacts mesothelioma outcomes. Mediated MR analysis, encompassing 91 inflammatory cytokines, 731 immune cell populations, 91 blood cell types, and 1400 metabolites, highlighted several critical mediators of HLA-C’s effect on prognosis, including IL-10, CD33 expression on CD33dim HLA DR- myeloid cells, the reticulocyte perturbation response, and the ADP-to-citrate ratio. Gene set enrichment analysis (GSEA) showed significant enrichment of immune-related and inflammatory pathways in patients with high HLA-C expression.
+
+[0008] [ABSTRACT] Conclusion
+
+[0009] [ABSTRACT] HLA-C, regulated by DNA methylation, plays a central role in mesothelioma prognosis by modulating immune responses, inflammatory cytokines, blood cell populations, and metabolic processes within the TME. Our findings suggest that HLA-C could serve as both a prognostic biomarker and a potential therapeutic target for mesothelioma, offering new insights into the molecular mechanisms driving this aggressive cancer.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1007/s00262-025-04012-4.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Mesothelioma is a highly aggressive malignancy primarily linked to asbestos exposure, representing a significant global health challenge, particularly in industrialized regions with high occupational asbestos use. This cancer primarily originates in serosal tissues, including the pleura, peritoneum, and pericardium, and exhibits considerable geographical variability in its incidence. Characterized by cellular atypia, infiltrative growth, and frequent metastasis, mesothelioma presents a poor prognosis due to its aggressive nature. Despite advancements in diagnostic techniques such as histopathological evaluation and immunohistochemistry (e.g., markers like Wilm's tumor 1 [WT1], mesothelin, and calretinin, the molecular mechanisms underlying mesothelioma progression remain incompletely understood.
+
+[0014] [INTRO] Emerging evidence suggests that mesothelioma progression is influenced by a complex interplay between genetic alterations, immune responses, inflammation, and metabolism. These factors collectively shape the tumor microenvironment (TME), which plays a critical role in disease progression and response to therapy. Among the key modulators of immune responses, HLA-C, a major component of the human leukocyte antigen (HLA) class I family, has drawn attention for its potential role in various cancers. Known for its interaction with natural killer (NK) cells and T cells, HLA-C is crucial in regulating immune surveillance. However, its exact role in mesothelioma progression and its impact on the broader immune and inflammatory landscape remain largely unexplored.
+
+[0015] [INTRO] This study aims to bridge this gap by providing a comprehensive analysis of HLA-C’s role in mesothelioma. Using a multi-omics approach, we investigated how HLA-C expression influences a wide array of tumor microenvironment (TME)-related factors, including immune cells, inflammatory cytokines, blood cell populations, and metabolites. By employing Mendelian randomization (MR) and mediation MR analysis, we explored how DNA methylation regulates HLA-C expression and its downstream effects on immune responses, inflammation, metabolism, and blood cells within the TME. These analyses offer a deep understanding of how HLA-C functions as a key modulator in mesothelioma progression.
+
+[0016] [INTRO] Our findings reveal that HLA-C expression is strongly associated with immune-related pathways, including cytokine signaling and antigen processing. Additionally, we identify DNA methylation as a crucial regulator of HLA-C expression, influencing mesothelioma prognosis. Notably, our analysis highlights key mediators of HLA-C’s prognostic effect, such as IL-10, CD33 on CD33dim HLA DR- myeloid cells, and metabolic factors like the ADP-to-citrate ratio, which modulate immune responses and inflammatory pathways within the TME. This suggests that HLA-C not only serves as a potential prognostic biomarker but also as a therapeutic target, with the identification of blood cell populations and metabolites offering new avenues for clinical intervention.
+
+[0017] [INTRO] By examining these multifaceted interactions, our study contributes new insights into mesothelioma biology and provides evidence that HLA-C is a pivotal player in the immune regulation and metabolic reprogramming of the TME. The findings suggest that targeting HLA-C, alongside its identified mediators, could provide novel strategies for therapeutic intervention in mesothelioma, especially in combination with immune modulation and metabolic reprogramming.
+
+[0018] [METHODS] Methods
+
+[0019] [METHODS] Source of druggable gene data
+
+[0020] [METHODS] The druggable genes analyzed in this study were primarily sourced from the comprehensive dataset compiled by Juan P. Casas et al., which identifies 4,479 druggable protein-coding genes. To integrate gene expression data with genetic variants, expression quantitative trait loci (eQTL) data for these genes were obtained from the eQTLGen Consortium (https://www.eqtlgen.org/).
+
+[0021] [METHODS] Mesothelioma outcome data
+
+[0022] [METHODS] Mesothelioma outcome data were derived from the Finnish R12 version of the mesothelioma dataset, which includes detailed clinical and genomic information for 442 mesothelioma patients and 378,749 control subjects of European ancestry. This dataset was used to explore the associations between genetic variations and mesothelioma prognosis. The inclusion of both patient and control cohorts provides a robust foundation for analyzing genetic factors that influence disease outcomes.
+
+[0023] [METHODS] single-cell RNA sequencing (scRNA-seq) analysis
+
+[0024] [METHODS] scRNA-seq data for mesothelioma were obtained from the GSE190597 dataset, which includes tumor tissue samples from mesothelioma patients. Data analysis was conducted using R (version 4.4) and the Seurat package for data preprocessing and visualization. Raw count matrices were processed with quality control measures to ensure data integrity, removing cells with fewer than 200 detected genes or those with mitochondrial gene content exceeding 5%. Additionally, genes expressed in fewer than three cells were excluded. Dimensionality reduction was performed using t-distributed Stochastic Neighbor Embedding (t-SNE) to visualize cellular heterogeneity and identify distinct cell clusters. Cell-type annotation was done using the Celldex package, which assigns cell identities based on gene expression profiles using pre-built reference datasets. Differential gene expression analysis was performed using Seurat’s FindMarkers function to compare gene expression profiles between identified cell clusters. A p value threshold of < 0.05 and a log2 fold change cutoff of > 0.5 or < -0.5 were used to identify significant differentially expressed genes associated with mesothelioma.
+
+[0025] [METHODS] Two-sample MR analysis
+
+[0026] [METHODS] Two-sample MR was utilized to investigate causal relationships between genetic variants and disease outcomes, using data from large-scale genome-wide association studies (GWAS). The Wald ratio method was employed for single nucleotide polymorphism (SNP) exposures, and the inverse variance weighted (IVW) method was applied for multiple SNPs, assuming no pleiotropy. Horizontal pleiotropy was assessed using MR-Egger regression, while heterogeneity was evaluated using Cochran’s Q statistic. The robustness of the results was tested with a leave-one-out analysis, and causal direction was assessed with the Steiger test. Sensitivity analyses were conducted using the weighted median method to address potential instrument validity issues. Statistical significance was defined as p < 0.05.
+
+[0027] [METHODS] Stratification of mesothelioma samples based on HLA-C expression
+
+[0028] [METHODS] In the mesothelioma cohort from The Cancer Genome Atlas (TCGA), samples were stratified according to HLA-C expression levels, as determined by data distribution. The top 25% of samples with the highest HLA-C expression were classified as the “high expression” group, while the remaining 75% were classified as the “low expression” group. This stratification was chosen to reflect a natural cutoff in HLA-C expression, ensuring meaningful comparisons.
+
+[0029] [METHODS] To extend this analysis, we also stratified mesothelioma datasets from the Gene Expression Omnibus (GEO), namely GSE112154 and GSE29354. For these two datasets, samples were equally divided into two groups based on HLA-C expression levels: the top 50% of samples with the highest HLA-C expression were classified as the “high expression” group, while the bottom 50% were classified as the “low expression” group. This 50% threshold was selected to create a balanced comparison between the high and low HLA-C expression groups within each dataset, allowing for consistent analysis across datasets and further validation of the findings observed in the TCGA cohort.
+
+[0030] [METHODS] Survival analysis
+
+[0031] [METHODS] Survival analysis was performed using the survival package in R. The proportional hazards assumption was tested, and Cox regression models were employed to assess the prognostic value of HLA-C expression. Survival curves were generated and visualized using the survminer and ggplot2 packages to evaluate the relationship between HLA-C expression and patient survival.
+
+[0032] [METHODS] Differential gene expression analysis
+
+[0033] [METHODS] Differential gene expression between high and low HLA-C expression groups was conducted using the DESeq2 and edgeR packages in R. Differentially expressed genes were identified based on an adjusted p-value (padj) < 0.05, controlling for false discovery rates and ensuring statistical rigor.
+
+[0034] [METHODS] GSEA
+
+[0035] [METHODS] GSEA was performed using the clusterProfiler package in R. Genes were ranked by their signal-to-noise ratio, and predefined gene sets were tested for enrichment. Gene sets containing 5–5,000 genes were considered, and statistical significance was defined by a p-value < 0.05 and a false discovery rate (FDR) < 0.1, highlighting biologically relevant pathways linked to HLA-C expression and mesothelioma prognosis.
+
+[0036] [METHODS] Analysis of DNA methylation quantitative trait loci (mQTL) and mediation MR
+
+[0037] [METHODS] MR using mQTL was employed to explore the causal relationships between DNA methylation and various phenotypes. mQTL data were sourced from GoDMC database. The mQTL data were curated to select SNPs consistently associated with DNA methylation changes at specific loci. A two-step mediation MR analysis was performed: in the first step, HLA-C methylation traits associated with mesothelioma were identified using two-sample MR, and total effect values (βall) were computed. In the second step, these methylation traits were used to assess their effects on HLA-C expression quantitative trait loci (eQTL) traits (β₁), followed by two-sample MR to evaluate the causal effect of HLA-C eQTL traits on mesothelioma (β₂). The mediation effect (β₁ × β₂) and its proportion in the causal pathway were calculated, with statistical significance defined as p < 0.05.
+
+[0038] [METHODS] Data sources for 91 circulating inflammatory cytokines, 731 immune Cells, 91 blood cells, and 1,400 plasma metabolites, and mediation MR analysis
+
+[0039] [METHODS] GWAS data for 91 circulating inflammatory cytokines were obtained from the European Bioinformatics Institute (EBI) GWAS Catalog. These data were derived from a study using Olink Target 96 Inflammation Panels to quantify 91 plasma proteins in 14,824 European participants across 11 cohorts. Data on 731 immune cell types were sourced from a study by Rahul C. Deo et al. which analyzed blood cell responses in a cohort of over 2,600 individuals. Additionally, data on 91 blood cell types were sourced from the same study. Plasma metabolite data, including 1,400 metabolites, were obtained from a landmark study published in Nature Genetics and included 1,091 metabolites and 309 metabolite ratios from 8,299 individuals in the CLSA cohort. Mediation MR analysis was performed to explore the effects of inflammatory markers, immune cell traits, blood cell characteristics, and plasma metabolites on the relationship between HLA-C eQTL traits and mesothelioma. The analysis followed the two-step procedure described above, with statistical significance set at p < 0.05.
+
+[0040] [METHODS] Immune infiltration analysis using the xCell algorithm
+
+[0041] [METHODS] Immune cell infiltration was assessed using the xCell algorithm, which utilizes predefined immune cell markers to estimate the relative abundance of various immune cell types within tissue samples. The xCell R package provides a comprehensive set of 64 immune cell markers, which were used to define gene sets for each immune cell type. For each sample, the algorithm calculates enrichment scores for these immune cell gene sets, inferring the immune cell composition based on gene expression data. This analysis provides quantitative insights into the immune microenvironment of each sample, allowing for the investigation of immune infiltration patterns across different conditions.
+
+[0042] [METHODS] Statistical analysis
+
+[0043] [METHODS] All statistical analyses were conducted using R version 4.4.
+
+[0044] [RESULTS] Results
+
+[0045] [RESULTS] Identification of HLA-C as a prognostic marker in mesothelioma
+
+[0046] [FIG] Identification of HLA-C as a prognostic marker in mesothelioma. (A) Venn diagram illustrating overlap between macrophage marker genes and genes associated with mesothelioma prognosis, derived from MR analysis of druggable genome eQTL data. (B) MR analysis exploring the relationship between HLA-C and mesothelioma prognosis. (C) Survival analysis of HLA-C expression in the TCGA mesothelioma cohort. (D) Expression of HLA-C across various immune cell types in mesothelioma
+
+[0047] [RESULTS] Considering the critical role of tumor-associated macrophages in modulating immune responses and tumor progression in mesothelioma, we focused on analyzing macrophage-associated genes identified in the GSE190597 scRNA-seq dataset. A total of 3,233 marker genes were linked to mesothelioma-associated macrophages. We then performed MR using eQTL data from over 4,700 druggable genes, identifying 267 genes significantly associated with prognosis. Of these, 67 genes overlapped with macrophage-associated markers and were selected for further analysis (Fig. 1A).
+
+[0048] [RESULTS] Survival analysis using the TCGA mesothelioma cohort revealed that seven genes—CYP27A1, NFKBIA, GNS, LGALS1, LIMK1, AKR1B1, and HLA-C—were consistent with MR findings (Suppl. Table 1). Due to the limited research on HLA-C in cancer prognosis, we examined its potential role in mesothelioma. MR analysis using the IVW method showed an odds ratio (OR) for HLA-C of less than 1, consistent with results from the weighted median and mode methods, confirming our findings (Fig. 1B).
+
+[0049] [RESULTS] In the TCGA mesothelioma cohort, high HLA-C expression was significantly associated with improved prognosis relative to low expression (Fig. 1C), indicating its potential as a favorable prognostic marker. Figure 1D illustrates that HLA-C is primarily expressed in mesothelioma-associated macrophages, with significant expression observed in T cells and NK cells. These findings provide insight into the mechanisms by which HLA-C may influence prognosis.
+
+[0050] [RESULTS] DNA methylation regulates HLA-C expression and influences mesothelioma prognosis
+
+[0051] [FIG] Methylation sites regulating HLA-C expression and their impact on mesothelioma prognosis. (A) Forest plot showing the causal relationship between methylation sites and mesothelioma risk. (B) Forest plot illustrating the causal relationship between methylation sites and HLA-C expression. (C– L) Mediation MR analysis depicting the influence of methylation sites on mesothelioma prognosis mediated through HLA-C expression
+
+[0052] [RESULTS] Through methylation data analysis, we identified 46 methylation sites linked to the HLA-C gene (Suppl. Table 2). To explore their potential causal relationship with mesothelioma prognosis, we performed MR analysis. This analysis identified 14 methylation sites significantly correlated with prognosis outcomes. Specifically, 12 sites (cg01006124, cg02827714, cg03216697, cg09970392, cg14931776, cg16097079, cg17096289, cg17974398, cg18020334, cg18747378, cg18785300, and cg24877963) exhibited OR greater than 1, suggesting that hypermethylation at these loci is associated with a worse prognosis. Conversely, cg05619024 and cg13872627 exhibited ORs less than 1, indicating that hypomethylation at these loci is linked to better outcomes (Fig. 2A).
+
+[0053] [RESULTS] To investigate the regulatory role of these methylation sites in HLA-C expression, we performed an MR analysis (Fig. 2B). The results demonstrated a significant association between hypermethylation at loci such as cg01006124, cg02827714, cg03216697, cg09970392, cg10409680, cg14931776, cg14972843, cg15634083, cg17096289, cg17974398, cg18020334, cg18747378, and cg18785300 and reduced HLA-C expression. These findings suggest that DNA methylation at these loci plays a crucial role in regulating HLA-C expression in mesothelioma.
+
+[0054] [RESULTS] Additionally, we conducted mediation MR analysis to assess how these methylation sites influence mesothelioma prognosis through HLA-C regulation. The results revealed that 10 methylation sites significantly mediated the effect of prognosis via HLA-C expression. Notably, cg01006124 accounted for 95.78% of the effect, followed by cg03216697 (94.99%), cg18747378 (87.77%), cg09970392 (87.15%), cg02827714 (84.31%), cg17974398 (64.74%), cg14931776 (57.04%), cg16097079 (50.64%), cg18785300 (47.03%), and cg17096289 (46.14%) (Fig. 2 C–L). These results provide evidence that DNA methylation-mediated regulation of HLA-C expression plays a significant role in mesothelioma prognosis, with specific methylation sites influencing patient outcomes.
+
+[0055] [RESULTS] HLA-C influences mesothelioma prognosis via IL-10
+
+[0056] [FIG] Association of HLA-C with inflammatory cytokines and mesothelioma prognosis. (A) Forest plot of the causal relationship between inflammatory factors and mesothelioma prognosis. (B) Forest plot showing the causal link between HLA-C expression and levels of CD6 and IL-10. Mediation MR analysis of the effect of HLA-C on mesothelioma prognosis mediated through IL-10 (C) and CD6 (D) levels
+
+[0057] [RESULTS] Considering the known relationship between HLA-C and the immune system, we examined whether HLA-C modulates mesothelioma progression through inflammatory factors. Initially, we evaluated the correlation between 91 inflammatory cytokines and mesothelioma prognosis. Among these markers, OR for Axin-1 and Interleukin-10 (IL-10) were less than 1, indicating that higher levels of these factors correlate with more favorable prognosis. Conversely, ORs for the CD6 isoform and Fibroblast growth factor 21 (FGF-21) were greater than 1, suggesting that elevated levels of these markers correlate with worse outcomes (Fig. 3A).
+
+[0058] [RESULTS] We then investigated the relationship between HLA-C and these inflammatory markers using MR analysis. Figure 3B demonstrates that HLA-C is correlated with increased CD6 expression (OR < 1) and decreased IL-10 levels (OR > 1). Further mediation MR analysis revealed that IL-10 mediates 23.56% of the effect of HLA-C on mesothelioma prognosis (Fig. 3C), whereas CD6 accounted for only 6.22% (Fig. 3D). These results indicate the significant role of IL-10 in mediating the effect of HLA-C on mesothelioma outcomes.
+
+[0059] [RESULTS] HLA-C modulates mesothelioma prognosis via myeloid cells (CD33 on CD33dim HLA DR-)
+
+[0060] [FIG] Immune cells mediating the effect of HLA-C on mesothelioma prognosis. (A) Forest plot of the causal relationship between immune cell types and mesothelioma prognosis. (B) Forest plot depicting the causal relationship between HLA-C and the abundance of specific immune cell types. (C–F) Mediation MR analysis identifying immune cell types that significantly mediate the effect of HLA-C on mesothelioma prognosis
+
+[0061] [RESULTS] To investigate the mediation of HLA-C's effect on mesothelioma by immune cells, we assessed 731 immune cell populations. First, we analyzed the impact of these immune cells on mesothelioma prognosis using MR analysis. The results revealed that B cells (including Memory B cells, IgD + CD24 + lymphocytes, IgD- CD38- activated B cells, CD19 on CD20- CD38- cells, and CD24 on IgD + CD38- cells), conventional dendritic cells (cDCs), regulatory T cells (Tregs), and T cell maturation stages (HVEM on TD CD4 +) exhibited ORs less than 1, correlating with a more favorable prognosis in mesothelioma (Fig. 4A).
+
+[0062] [RESULTS] In contrast, MR results for other immune cells, including B cells (such as IgD + CD38bright B cells, CD19 on CD20-, and CD24 on IgD- CD38dim cells), cDCs (like CD86 + plasmacytoid DCs and CD62L on C62L + myeloid DCs), Tregs (e.g., CD25hi T cells, CD45RA + CD28- CD8bright T cells, and CD39 + monocytes), T cell maturation stages (such as Naive CD4 + T cells and CD3 + Naive CD4 + T cells), myeloid cells (including Mo MDSCs, CD33 on CD33dim HLA DR- cells, Gr MDSCs, and CD33 + on basophils), and TBNK cells (e.g., CD4/CD8bright T cells and HLA DR + CD8bright T cells) showed ORs greater than 1, suggesting that these immune cells may act as risk factors in mesothelioma (Fig. 4A).
+
+[0063] [RESULTS] Among these immune populations, HLA-C was found to negatively regulate CD25hi T cells in the Treg panel but positively regulate CD62L- monocytes in the cDC panel, as well as CD33 on Mo MDSCs, CD33 on CD33dim HLA DR- cells, CD33 on basophils, and CD33 on immature MDSCs in the myeloid cell panel (Fig. 4B). To determine whether HLA-C mediates mesothelioma prognosis through these immune cells, we performed mediation MR. The results indicated that only CD33 on CD33dim HLA DR- cells exhibited a mediation proportion greater than 10% (Fig. 4C), whereas the mediation proportions of the other four immune cell populations were below 10% (Fig. 4D–F). These findings highlight the specific role of CD33 on CD33dim HLA DR- cells in mediating the influence of HLA-C on mesothelioma prognosis.
+
+[0064] [RESULTS] HLA-C modulates mesothelioma prognosis via reticulocyte perturbation response
+
+[0065] [FIG] Reticulocyte perturbation response mediating the effect of HLA-C on mesothelioma prognosis. (A) Forest plot showing the causal relationship between blood cell responses to perturbations and mesothelioma prognosis. (B) Forest plot illustrating the causal relationship between HLA-C expression and reticulocyte perturbation response. (C) Mediation MR analysis of the effect of reticulocyte perturbation response on mesothelioma outcomes mediated by HLA-C
+
+[0066] [RESULTS] To further explore the role of HLA-C in mesothelioma prognosis, we assessed the mediation effects of 91 blood cell types. The reticulocyte perturbation response, characterized by the side scatter median of reticulocyte 1 following ciprofloxacin perturbation, was associated with a protective effect (Fig. 5A). In contrast, red blood cell (RBC) responses, measured by the forward scatter standard deviation after KCl perturbation, and an unidentified cell population, determined by the side scatter coefficient of variation following TMAO perturbation, were correlated with higher mesothelioma risk (Fig. 5A). Among these cell types, HLA-C positively regulates the reticulocyte perturbation response (Fig. 5B). Mendelian MR analysis revealed a mediation proportion of 16.14% (Fig. 5C), indicating that HLA-C may influence mesothelioma prognosis via this perturbation response.
+
+[0067] [RESULTS] HLA-C modulates mesothelioma prognosis via ADP-to-citrate ratio
+
+[0068] [FIG] Metabolites mediating the effect of HLA-C on mesothelioma prognosis. (A) Forest plot showing the causal relationship between metabolites and mesothelioma prognosis. (B) Forest plot illustrating the causal relationship between HLA-C expression and metabolites. (C–G) Mediation MR analysis identifying metabolites that mediate the effect of HLA-C on mesothelioma prognosis
+
+[0069] [RESULTS] To examine the role of metabolic factors in HLA-C-mediated mesothelioma prognosis, we analyzed 1,400 metabolites from patient samples. Initial screening identified 55 metabolites significantly associated with prognosis (Suppl. Table 2), with 13 of these metabolites being regulated by HLA-C. Protective metabolites included 1-oleoyl-2-linoleoyl-GPE (18:1/18:2), 3-hydroxybutyroylglycine, and the ADP-to-citrate ratio, while metabolites like X-24456 (an unannotated plasma metabolite) and 1-(1-enyl-palmitoyl)-GPC (p-16:0) were linked to increased risk of poor outcomes (Fig. 6A). Notably, HLA-C was found to positively regulate sphingomyelins (e.g., d17:1/16:0, d18:1/15:0) and Oleoyl-linoleoyl-glycerol (18:1/18:2), but negatively regulate several other metabolites, including the ADP-to-citrate ratio (Fig. 6B).
+
+[0070] [RESULTS] Among the 13 metabolites, only the ADP-to-citrate ratio showed a significant mediation effect on mesothelioma prognosis, with a mediation proportion of 12.01% (Fig. 6C). Other metabolites exhibited lower mediation effects, such as the inosine to EDTA ratio at 9.64% (Fig. 6D–G). The ADP-to-citrate ratio serves as a key intermediary in the relationship between HLA-C and mesothelioma prognosis, reflecting its potential role in regulating metabolic reprogramming in tumor cells. These findings emphasize the importance of metabolic changes, specifically ADP-to-citrate ratio, in mesothelioma progression and suggest that HLA-C might regulate tumor metabolism to influence patient outcomes.
+
+[0071] [RESULTS] HLA-C potentially modulates mesothelioma outcomes via immune-related pathways
+
+[0072] [FIG] Pathway enrichment analysis of HLA-C in mesothelioma. Volcano plots and GSEA results of differentially expressed genes between high vs. low HLA-C expression groups in the TCGA (A, B), GSE112154 (E, F), and GSE29354 (I, J) mesothelioma cohorts. xCELL analysis showing immune cell type abundance and ImmuneScore in the high and low HLA-C expression groups in the TCGA (C, D), GSE112154 (G, H), and GSE29354 (K, L) mesothelioma cohorts
+
+[0073] [RESULTS] Our study suggests that HLA-C expression influences mesothelioma outcomes through immune-related pathways. To explore this, we first performed differential expression analysis using TCGA mesothelioma data, comparing high HLA-C expression with low expression groups with low expression groups. GSEA revealed significant enrichment in immune-related pathways, including interferon signaling, IL-12 signaling, antigen presentation, and cytokine signaling (Fig. 7A). These results suggest that elevated HLA-C expression enhances anti-tumor immunity through the interferon α/β pathway, promotes IL-12-induced immune activation, and improves antigen presentation, which may contribute to reduced immune escape and improved patient survival (Fig. 7B).
+
+[0074] [RESULTS] Further analysis using xCELL revealed that high HLA-C expression was associated with increased infiltration of immune cell types, including activated dendritic cells (aDCs), basophils, CD4 + effector memory T cells (Tem), CD8 + T cells, and Tγδ cells, when compared to low HLA-C expression (Fig. 7C). Additionally, the ImmuneScore was higher in the high HLA-C expression group (Fig. 7D), indicating HLA-C’s role in modulating the tumor immune microenvironment.
+
+[0075] [RESULTS] To validate these findings, we analyzed two independent mesothelioma cohorts: GSE112154 (Fig. 7E) and GSE29354 (Fig. 7I). In both datasets, high HLA-C expression was associated with the activation of key immune-related pathways. In GSE112154, significant enrichments included interferon signaling, cytokine signaling, the innate immune system, and viral infection pathways (Fig. 7F). In GSE29354, enriched pathways included interferon α/β signaling, natural killer cell-mediated cytotoxicity, and antigen processing (Fig. 7J).
+
+[0076] [RESULTS] xCELL immune infiltration analysis further confirmed that high HLA-C expression was linked to higher immune cell abundances in both cohorts. In GSE112154, this included increased numbers of aDCs, CD4 + memory T cells, CD8 + central memory T cells, and Th2 cells, along with a higher ImmuneScore (Fig. 7G and H). In GSE29354, elevated levels of aDCs, basophils, macrophages (both M1 and M2), and other immune cells were observed in the high HLA-C expression group, accompanied by a higher ImmuneScore (Fig. 7K and L).
+
+[0077] [RESULTS] These results from the TCGA, GSE112154, and GSE29354 datasets demonstrate that HLA-C significantly influences the immune landscape in mesothelioma. The enhanced immune activation associated with high HLA-C expression suggests its potential as a therapeutic target for immunotherapy, aimed at improving anti-tumor responses.
+
+[0078] [DISCUSS] Discussion
+
+[0079] [DISCUSS] This study investigates the role of HLA-C expression in mesothelioma, a malignancy characterized by poor prognosis and high resistance to therapy. Our findings provide new insights into the complex mechanisms regulating HLA-C expression and underscore its potential as both a prognostic marker and a therapeutic target in mesothelioma. By leveraging multiple omics approaches, we show that HLA-C expression is predominantly observed in mesothelioma-associated macrophages, T cells, and NK cells, with higher expression correlating with improved survival outcomes. These observations suggest that HLA-C plays a crucial role in modulating immune responses within the TME, enhancing tumor recognition and promoting anti-tumor immunity.
+
+[0080] [DISCUSS] A key contribution of this study is the identification of DNA methylation as a key regulator of HLA-C expression in mesothelioma. Our MR analysis highlights the involvement of epigenetic modifications in controlling HLA-C expression, linking DNA methylation to mesothelioma prognosis. These insights suggest that HLA-C expression, influenced by epigenetic factors, shapes the immune landscape of mesothelioma and potentially alters the immune system's ability to detect and eliminate tumor cells. This observation opens up exciting prospects for therapeutic strategies aimed at reversing epigenetic silencing and restoring HLA-C expression, thereby enhancing anti-tumor immunity.
+
+[0081] [DISCUSS] We also identified several novel mediators that contribute to the prognostic effect of HLA-C. Among these, IL-10, CD33 on CD33dim HLA DR- myeloid cells, reticulocyte perturbation response, and the ADP-to-citrate ratio stand out as potential therapeutic targets. IL-10, in particular, emerges as a key modulator of immune responses within the TME. Recent studies have demonstrated that IL-10 can activate tumor-resident CD8 + T cells, reversing T cell exhaustion and enhancing anti-tumor immunity. Targeting IL-10 in mesothelioma could optimize its immunomodulatory effects, especially in combination with immune checkpoint inhibitors or virotherapies, which may further strengthen the immune response against the tumor. A more mechanistic understanding of how HLA-C influences IL-10 signaling in the TME could provide insights into designing novel therapeutic strategies aimed at enhancing anti-tumor immunity.
+
+[0082] [DISCUSS] The term “reticulocyte perturbation response” refers to a disruption in erythropoiesis, particularly the maturation process of reticulocytes. This altered response may indicate metabolic or stress signaling changes within the TME, affecting immune cell recruitment and retention. Specifically, in mesothelioma, these perturbations could influence the production and function of immune cells, such as macrophages and myeloid cells, which play essential roles in anti-tumor immunity. Further research into the dynamics of reticulocyte maturation and its relationship with immune cell populations in mesothelioma is needed to understand its full impact on tumor progression.
+
+[0083] [DISCUSS] The ADP-to-citrate ratio, a metabolic indicator of cellular energy status, is another important mediator identified in our study. In mesothelioma, alterations in cellular respiration and the TCA cycle could significantly impact immune cell function. A high ADP-to-citrate ratio reflects increased metabolic activity within immune cells, facilitating a stronger immune response. Given that metabolic reprogramming is a hallmark of cancer, including mesothelioma, the ADP-to-citrate ratio could serve as a valuable biomarker for tumor progression and immune cell activation. The interaction between HLA-C expression and immune cell metabolism warrants further investigation to understand how metabolic alterations in the TME influence the overall immune response.
+
+[0084] [DISCUSS] Furthermore, our GSEA of differentially expressed genes from the TCGA, GSE112154, and GSE29354 mesothelioma cohort corroborates the role of HLA-C in regulating immune-related pathways, including interferon signaling, antigen processing, and cytokine signaling. These pathways are essential for orchestrating the immune system’s recognition and elimination of tumor cells. Additionally, our findings from xCELL immune analysis show that patients with low HLA-C expression have significantly fewer immune cell types in their TME as well as a markedly reduced ImmuneScore. These results highlight the pivotal role of HLA-C in shaping the immune cell landscape of mesothelioma, reinforcing its potential as a therapeutic target for modulating the TME and enhancing immune cell infiltration.
+
+[0085] [DISCUSS] While this study highlights the critical role of HLA-C in regulating immune responses, inflammatory cytokines, and metabolic pathways in mesothelioma, several key mechanisms remain to be explored. The potential link between HLA-C expression and immune cell metabolism, particularly its modulation of the ADP-to-citrate ratio, is an intriguing avenue for further investigation. Although we propose that HLA-C influences immune cell metabolism through cytokines like IL-10, direct evidence supporting this hypothesis is still lacking. Future studies should focus on dissecting the mechanisms by which HLA-C modulates immune cell activation and metabolic reprogramming within the TME.
+
+[0086] [DISCUSS] Although the involvement of HLA-C in cancer prognosis has been established in other cancers, such as colorectal and breast cancers, this study represents the first mechanistic investigation of HLA-C in mesothelioma. Our study emphasizes the importance of epigenetic regulation in controlling HLA-C expression and its downstream effects on immune modulation and tumor metabolism. However, functional validation of the key mediators identified, such as IL-10, CD33dim HLA DR- myeloid cells, and metabolic indicators like the ADP-to-citrate ratio, is required through in vitro and in vivo studies. Prospective clinical trials are needed to evaluate the potential clinical utility of HLA-C as a prognostic biomarker and therapeutic target for mesothelioma.
+
+[0087] [CONCL] Conclusion
+
+[0088] [CONCL] This study offers novel insights into the role of HLA-C expression in mesothelioma, an aggressive malignancy with limited therapeutic options. We demonstrate that HLA-C—regulated by DNA methylation—significantly influences immune responses, inflammatory pathways, and metabolic processes within the TME. Our findings suggest that HLA-C not only serves as a potential prognostic biomarker but also represents a promising therapeutic target, particularly through the modulation of immune-related pathways and epigenetic reprogramming.
+
+[0089] [CONCL] The identification of key mediators, such as IL-10, CD33 on CD33dim HLA DR- myeloid cells, reticulocyte perturbation response, and metabolic factors like the ADP-to-citrate ratio, introduces new avenues for therapeutic strategies. By targeting these factors, it may be possible to modulate the immune landscape of mesothelioma, enhance anti-tumor immunity, and improve patient outcomes. Further investigation into the functional roles of these mediators and the development of strategies to restore HLA-C expression holds promise for improving the prognosis and treatment of mesothelioma.
+
+[0090] [SUPPL] Supplementary Information
+
+[0091] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0092] [ABBR] Abbreviations
+
+[0093] [ABBR] eQTL
+
+[0094] [ABBR] Expression quantitative trait loci
+
+[0095] [ABBR] EBI
+
+[0096] [ABBR] European Bioinformatics Institute
+
+[0097] [ABBR] FDR
+
+[0098] [ABBR] False discovery rate
+
+[0099] [ABBR] FGF-21
+
+[0100] [ABBR] Fibroblast growth factor 21
+
+[0101] [ABBR] GSEA
+
+[0102] [ABBR] Gene set enrichment analysis
+
+[0103] [ABBR] GWAS
+
+[0104] [ABBR] Genome-wide association studies
+
+[0105] [ABBR] HLA
+
+[0106] [ABBR] Human leukocyte antigen
+
+[0107] [ABBR] IL-10
+
+[0108] [ABBR] Interleukin-10
+
+[0109] [ABBR] IVW
+
+[0110] [ABBR] Inverse variance weighted
+
+[0111] [ABBR] mQTL
+
+[0112] [ABBR] Methylation quantitative trait loci
+
+[0113] [ABBR] MR
+
+[0114] [ABBR] Mendelian randomization
+
+[0115] [ABBR] NK cells
+
+[0116] [ABBR] Natural killer cells
+
+[0117] [ABBR] OR
+
+[0118] [ABBR] Odds ratio
+
+[0119] [ABBR] padj
+
+[0120] [ABBR] Adjusted p-value
+
+[0121] [ABBR] RBCs
+
+[0122] [ABBR] Red blood cells
+
+[0123] [ABBR] scRNA-seq
+
+[0124] [ABBR] Single-cell RNA sequencing
+
+[0125] [ABBR] SNP
+
+[0126] [ABBR] Single nucleotide polymorphism
+
+[0127] [ABBR] TCGA
+
+[0128] [ABBR] The cancer genome atlas
+
+[0129] [ABBR] TME
+
+[0130] [ABBR] Tumor microenvironment
+
+[0131] [ABBR] t-SNE
+
+[0132] [ABBR] T-distributed stochastic neighbor embedding
+
+[0133] [ABBR] WT1
+
+[0134] [ABBR] Wilm’s tumor 1
+
+[0135] [ABBR] Publisher's Note
+
+[0136] [ABBR] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0137] [AUTH_CONT] Authors contributions
+
+[0138] [AUTH_CONT] The study was conceived by Zhenying Guo and Huilin Zhang. The analysis was carried out by Huilin Zhang, Luanxue Yu, Yunqing Guo, and Jiawei Ming. Huilin Zhang drafted the manuscript, with all authors contributing to its revisions, while Zhenying Guo provided the final revisions.
+
+[0139] [ACK_FUND] Funding
+
+[0140] [ACK_FUND] National Natural Science Foundation of China, 82072577.
+
+[0141] [SUPPL] Data availability
+
+[0142] [SUPPL] No datasets were generated or analyzed during the current study.
+
+[0143] [SUPPL] Declarations
+
+[0144] [COMP_INT] Competing interests
+
+[0145] [COMP_INT] The authors declare no competing interests.
+
+[0146] [COMP_INT] Ethics approval and consent to participate
+
+[0147] [COMP_INT] Not applicable.
+
+[0148] [COMP_INT] Consent for publication
+
+[0149] [COMP_INT] Not applicable.
+
+[0150] [REF] References
+
+[0151] [REF] Epidemiology of mesothelioma in the 21(st) century in Europe and the United States, 40 years after restricted/banned asbestos use
+
+[0152] [REF] Global magnitude and temporal trend of mesothelioma burden along with the contribution of occupational asbestos exposure in 204 countries and territories from 1990 to 2019: Results from the Global Burden of Disease Study 2019
+
+[0153] [REF] Integrated DNA methylation analysis of peripheral blood from asbestos exposed populations and patients with malignant mesothelioma reveals novel methylation driver genes of diagnostic and prognostic relevance
+
+[0154] [REF] Malignant pleural mesothelioma: a comprehensive review
+
+[0155] [REF] Imaging of malignant pleural, pericardial, and peritoneal mesothelioma
+
+[0156] [REF] Peritoneal mesothelioma
+
+[0157] [REF] Pleural mesothelioma classification update
+
+[0158] [REF] Malignant mesothelioma in situ: morphologic features and clinical outcome
+
+[0159] [REF] Update on biology and management of mesothelioma
+
+[0160] [REF] Application of immunohistochemistry in diagnosis and management of malignant mesothelioma
+
+[0161] [REF] Correlation of Histologic features with gene alterations in pleural mesothelioma
+
+[0162] [REF] Differential expression of DMD transcripts as a novel prognostic biomarker in histologically diverse mesotheliomas
+
+[0163] [REF] Dose-escalation, tolerability, and efficacy of intratumoral and subcutaneous injection of hemagglutinating virus of Japan envelope (HVJ-E) against chemotherapy-resistant malignant pleural mesothelioma: a clinical trial
+
+[0164] [REF] Potential treatment approaches for malignant peritoneal mesothelioma: in vivo and in vitro experimental study of natural killer cell immunotherapy
+
+[0165] [REF] High mobility group box 1 mediates inflammatory responses in malignant peritoneal mesothelioma
+
+[0166] [REF] Tumor-associated macrophage-derived inflammatory cytokine enhances malignant potential of malignant pleural mesothelioma
+
+[0167] [REF] Differential role of HLA-A and HLA-B, C expression levels as prognostic markers in colon and rectal cancer
+
+[0168] [REF] Helicobacter pylori enhances HLA-C expression in the human gastric adenocarcinoma cells AGS and can protect them from the cytotoxicity of natural killer cells
+
+[0169] [REF] Identification and functional validation of HLA-C as a potential gene involved in colorectal cancer in the Korean population
+
+[0170] [REF] Immune checkpoints HLA-E:CD94-NKG2A and HLA-C:KIR2DL1 complementarily shield circulating tumor cells from NK-mediated immune surveillance
+
+[0171] [REF] The new kid on the block: HLA-C, a key regulator of natural killer cells in viral immunity
+
+[0172] [REF] HLA-C as a mediator of natural killer and T-cell activation: spectator or key player?
+
+[0173] [REF] The druggable genome and support for target identification and validation in drug development
+
+[0174] [REF] Genetics of circulating inflammatory proteins identifies drivers of immune-mediated disease risk and therapeutic targets
+
+[0175] [REF] Complex genetic signatures in immune cells underlie autoimmunity and inform therapy
+
+[0176] [REF] Perturbational phenotyping of human blood cells reveals genetically determined latent traits associated with subsets of common diseases
+
+[0177] [REF] Genomic atlas of the plasma metabolome prioritizes metabolites implicated in human diseases
+
+[0178] [REF] Defining and targeting tumor-associated macrophages in malignant mesothelioma
+
+[0179] [REF] Interleukin-10 in cancer immunotherapy: from bench to bedside
+
+[0180] [REF] Tumor-induced erythroid precursor-differentiated myeloid cells mediate immunosuppression and curtail anti-PD-1/PD-L1 treatment efficacy
+
+[0181] [REF] Spatial and molecular profiling of the mononuclear phagocyte network in classic Hodgkin lymphoma
+
+[0182] [REF] Mapping the tumor stress network reveals dynamic shifts in the stromal oxidative stress response
+
+[0183] [REF] Metabolic competition in the tumor microenvironment is a driver of cancer progression
+
+[0184] [REF] Association of the genetic diversity of killer cell immunoglobulin-like receptor genes and HLA-C ligand in Saudi women with breast cancer
+
+[0185] [REF] Impact of HLA class I antigen, killer inhibitory receptor, and FCGR3A genotypes on breast cancer susceptibility and tumor stage

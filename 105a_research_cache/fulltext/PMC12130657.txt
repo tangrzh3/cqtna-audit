@@ -1,0 +1,197 @@
+[0001] [TITLE] Causal Association Between Lung Cancer and Rash: A Bidirectional Mendelian Randomization Study
+
+[0002] [ABSTRACT] Background:
+
+[0003] [ABSTRACT] Skin involvement is one of the many clinical manifestations of lung cancer patients. However, there are fewer in-depth studies exploring the causal relationship between skin rashes and lung cancer subtypes, and the causal relationship is unknown. This study aims to explore the potential causal relationship between rash development and lung cancer diagnosis.
+
+[0004] [ABSTRACT] Methods:
+
+[0005] [ABSTRACT] From the Genome-wide Association Studies (GWAS) database, we sourced comprehensive data on skin rash, lung cancer, and gene expression Quantitative Trait Loci (eQTL). Drawing from this, we conducted a comprehensive analysis that integrated Mendelian Randomization (MR), protein-protein network analysis, and enrichment analysis to explore the causal relationship and potential mechanisms between rash and lung cancer.
+
+[0006] [ABSTRACT] Results:
+
+[0007] [ABSTRACT] This study reveals an increased risk of rash in small and squamous cell lung cancer patients, with odds ratios of 1.08 and 1.26, respectively. However, no causal link between rash and lung cancer was found. Genetic analysis identified 3 genes positively associated with both conditions and 6 negatively associated, suggesting complex genetic interactions. Sensitivity analysis did not indicate heterogeneity or pleiotropy.
+
+[0008] [ABSTRACT] Conclusions:
+
+[0009] [ABSTRACT] Our study shows that squamous cell lung cancer patients are more likely to get skin rashes. But the rash is not directly linked to lung cancer. Future research should explore rashes as a therapeutic target and prognostic indicator.
+
+[0010] [INTRO] Introduction
+
+[0011] [INTRO] Skin involvement is a relatively rare occurrence, affecting approximately 1% of individuals diagnosed with lung cancer. This condition can manifest through various dermatological symptoms, such as rash, discoloration, or the development of nodules on the skin’s surface. While the rash is not a common symptom of squamous cell carcinoma of the lung, in some cases, it may be the only indication that the patient has a possibility of a cure. To date, the basic research has scarcely established a connection between paraneoplastic rashes and squamous cell lung cancer. However, case report studies have suggested a potential link between lung cancer and leukocyte-agglutinating vasculitis. Currently, the underlying mechanisms of paraneoplastic rashes associated with pulmonary malignancies are not well understood. It is important to consider that the observed correlation between lung cancer and the risk of developing rashes in observational studies may be influenced by potential confounding factors, such as treatment and medication, as well as the possibility of reverse causation. Consequently, such studies are unable to establish a causal relationship between lung cancer and the risk of developing rashes. Mendelian Randomization (MR) represents an innovative epidemiological approach that harnesses genetic variants (GVs) as instrumental variables (IVs) to elucidate the causal relationship between exposures and associated risk outcomes. On the formation of gametes, GVs inherited from the parental generation are randomly allocated to the offspring, which reduces the influence of potential environmental confounders and the risk of reverse causality bias on their association with the outcome. The MR thereby enjoys a unique benefit in offering a more trustworthy assessment of causal relationships, a feat that traditional observational studies are unable to achieve. To date, no studies have utilized MR to probe the causal relationship between rash and lung cancer risk. In our investigation, we explored this potential causal link by harnessing a comprehensive genome-wide association study (GWAS) database on rash and lung cancer, employing a bidirectional 2-sample MR analysis method.
+
+[0012] [METHODS] Materials and Methods
+
+[0013] [METHODS] Overview of the study design
+
+[0014] [METHODS] For the purpose of this MR analysis, we utilized GWAS data in the form of summary statistics extracted from previously published studies. We carefully selected single-nucleotide polymorphisms (SNPs) that demonstrated a strong association with the exposure in question to serve as IVs in order to investigate the causal relationship between the risk of lung cancer and the presence of rash. The expression quantitative trait loci (eQTL) data set, GWAS data of rash and lung cancer, and their subtypes were summarized, MR was performed to screen for relevant genes, and the genes related to rash and squamous lung cancer collated in the GeneCards database were subjected to Wien analysis, Protein-protein network, and enrichment analysis and other methods for the prediction of potential genes. These clinical studies were a reanalysis of previously collected and published data and therefore did not require further ethical approval.
+
+[0015] [METHODS] Instrumental variable selection
+
+[0016] [METHODS] Genetic variants associated with rash
+
+[0017] [METHODS] The genetic variation information expression of rash genes, 209 088 in all (rash GWAS ID:finn-b-R18_RASH_OTHER_NONSPECIFIC_SKIN_ERUPT) was downloaded from the GWAS database (https://gwas.mrcieu.ac.uk/) (Table 1).
+
+[0018] [TABLE] Detailed information for the data sources in the present study.
+
+[0019] [TABLE] Phenotypes GWAS ID Sample size SNPs Population Link Rash finn-b-R18_RASH_OTHER_NONSPECIFIC_SKIN_ERUPT 209088 16 380 436 European https://gwas.mrcieu.ac.uk/datasets/finn-b-R18_RASH_OTHER_NONSPECIFIC_SKIN_ERUPT/ Small-cell lung cancer finn-b-C3_SCLC 218792 16 380 466 European https://gwas.mrcieu.ac.uk/datasets/finn-b-C3_SCLC/ Lung adenocarcinoma ieu-a-965 18336 8 881 354 European https://gwas.mrcieu.ac.uk/datasets/ieu-a-965/ Squamous cell lung cancer ieu-a-989 62467 10 341 529 European https://gwas.mrcieu.ac.uk/datasets/ieu-a-989/
+
+[0020] [TABLE] Abbreviations: SNP, single-nucleotide polymorphism.
+
+[0021] [METHODS] According to the selection criteria with a significance threshold of P < 1 × 10−8, we identified 3 loci (rs62402795, rs117461464, and rs112237409), and none of the loci were excluded in the linkage disequilibrium (LD) analysis due to exceeding the specified threshold (r2 < 0.001). We used these 3 genetic variants to estimate the causal impact of rash on the risk of small-cell lung cancer and lung squamous cell carcinoma (Table 3). For the evaluation of the causal relationship between rash and lung adenocarcinoma, due to the limited number of SNPs meeting the genome-wide significance, we obtained a more lenient threshold of 18 SNPs (P < 5 × 10−6, while LD r2 < 0.001). The following SNPs (rs11244410, rs117461464, rs112237409, and rs150562837) were not found in the lung adenocarcinoma GWAS database and were therefore excluded. Finally, we used the remaining 14 genetic variants for MR analysis.
+
+[0022] [METHODS] Genome-wide Association Studies summary data on lung cancer
+
+[0023] [METHODS] Summary data for lung cancer were obtained from the publicly available GWAS data set, including 62 467 sample size of squamous cell lung cancer (data set ID: ieu-a-989), 218 792 sample size of small-cell lung cancer (data set ID: finn-b-C3_SCLC) and 18 336 sample size of lung adenocarcinoma (data set ID: ieu-a-965) to select strongly associated SNPs that could serve as IVs for lung cancer. In the study, the significance threshold for squamous cell lung cancer was set at P < 5 × 10−8. To ensure an adequate number of SNPs for MR analysis, the P-value cutoff was adjusted to 5 × 10−7 for lung adenocarcinoma, and to 5 × 10−6 for small-cell lung cancer (Table 1).
+
+[0024] [METHODS] Gene expression Quantitative Trait Loci data
+
+[0025] [METHODS] We downloaded gene eQTL IDs for MR analysis from GWAS, and performed quality control on the SNPs to obtain IVs to ensure the reliability and accuracy of the data analysis. We also used the “TwoSampleMR” R package to exclude SNPs with allele inconsistencies and palindromic sequences between the 2 samples. The F statistic was used to assess the strength of the SNPs and calculate the F statistic to exclude weak instruments with an F statistic less than 10.
+
+[0026] [METHODS] Mendelian randomization analyses
+
+[0027] [METHODS] To assess the causal relationship and explore specific associated genes between rash and lung cancer, this study employed 5 methods: inverse variance weighted (IVW), MR-Egger, weighted model (WM), simple mode, and weighted median (WME). The IVW estimation is the prevailing and fundamental approach in MR analysis, primarily used for estimating causal relationships. This method estimates the specific causal relationship of IV as a weighted linear regression slope between the exposure factor and the outcome, with the intercept assumed to be zero. When the selected SNPs are all valid instruments, IVW can provide accurate estimates. In addition, MR-Egger, simple mode, WM, and WME were used as supplementary methods, with P < 0.05 considered statistically significant. This study follows the relevant EquatorNet guidelines—STROBE-MR (Supplementary File 1).
+
+[0028] [METHODS] Sensitivity analyses
+
+[0029] [METHODS] To examine potential bias and the influence of IVs on the outcome variable, sensitivity analysis was used to be conducted. After the main MR analysis, we performed a series of sensitivity, heterogeneity, and pleiotropy assessments to ensure that potential biases due to heterogeneity and pleiotropy among individual SNPs did not affect our MR results. Specifically, we first used the MR-Egger method to determine the level of multinomiality in the effect sensitivity estimates. Subsequently, we quantified the level of heterogeneity of individual SNPs using MR-Egger and IVW methods with Cochran’s Q statistic. We then applied a “leave-one-out” approach to assess the causal genetic effects of outlier SNPs and to determine whether MR estimates were affected by the exclusion of these SNPs. Afterwards, we utilized the “mr_pleiotropy_test” function within the “TwoSampleMR” R package (which incorporates the MR-Egger intercept method) to assess horizontal pleiotropy in the effect estimates. In addition, we performed an MR Pleiotropy RESidual Sum and Outlier (MR-PRESSO) analysis by removing one or more fold-anomalous SNPs and then rerunning the MR analysis to provide adjusted estimates that take into account causal genetic associations of outliers.
+
+[0030] [METHODS] Protein-protein network and pathway enrichment analysis
+
+[0031] [METHODS] Venn analysis was performed using the online website (https://jvenn.toulouse.inra.fr/app/example.html) to identify intersecting genes between rash and lung squamous cell carcinoma. GeneCards database (http://www.genecards.org) was utilized to retrieve genes with rash (score > 6) and lung squamous cell carcinoma (score > 75). Then, the gene set was subjected to functional and pathway enrichment analyses using the Search Tool for the Retrieval of Interacting Genes (STRING) database (https://string-db.org/).
+
+[0032] [RESULTS] Results
+
+[0033] [RESULTS] Causal effect of lung cancer on rash
+
+[0034] [RESULTS] Using 9 squamous cell lung cancer-related SNPs (Table S1), we found statistically significant evidence of a potential causal impact of squamous cell lung cancer on the risk of rash (odds ratio [OR] = 1.26, 95% confidence interval [CI] = 1.07-1.47, P = .005). In addition, similar risk estimates were obtained using MR-Egger regression (OR = 1.85, 95% CI = 1.21-2.81, P = .02) and WME approaches (OR = 1.25, 95% CI = 1.01-1.54, P = .37) (Table 2 and Figure 1B). Sensitivity analysis was then conducted to assess for any violations of MR results. In the heterogeneity assessment, no heterogeneity was found among the SNPs using the IVW method (Cochran’s Q = 6.186, Q df = 8, P = .62). The MR-Egger intercept indicated no horizontal pleiotropy (Egger intercept = −0.0725, Egger SE = 0.037, P = .09), suggesting the aforementioned causal relationship is reliable. Subsequently, the MR-PRESSO method results similarly showed no horizontal pleiotropy in our MR analysis (P = .67), and no outlier SNPs were detected. Exclusion analysis revealed that the estimated effects were not dependent on specific SNPs (Figure 1D).
+
+[0035] [TABLE] Mendelian randomization estimates for the causal effect of lung cancer on rash risk.
+
+[0036] [TABLE] Abbreviations: CI, confidence interval; OR, odds ratio; SNP, single-nucleotide polymorphism.
+
+[0037] [FIG] Scatter plots and forest plot for causal effects of lung cancer on rash risk using 5 MR analysis methods. (A) Scatter plot for UVMR analysis of genetically causal relationship between small-cell lung cancer and rash. (B) Scatter plot for UVMR analysis of genetically causal relationship between squamous cell lung cancer and rash. (C and D) Plots for ’leave-one-out’ analysis of causal effect of genetically proxied small-cell lung cancer on rash risk (C) and squamous cell lung cancer on rash risk (D). The black points denote the causal effect estimates of lung cancer and rash after discarding a certain SNP, and the black lines signify the corresponding 95% CIs of estimates. The red points symbolize the overall causal effect estimate of the small-cell lung cancer on rash risk(C) and the overall causal effect estimate of the squamous cell lung cancer on rash risk(D) using a set of screened SNPs, and the red lines indicate the corresponding 95% CIs of the incorporated estimates. SNP, single-nucleotide polymorphism.
+
+[0038] [RESULTS] Weak evidence of a potential causal impact of small-cell lung cancer on rash risk (OR = 1.08, 95% CI = 1.02-1.14, P = .01) was found with MR analysis(Figures 1A and C) . However, the IVW analysis method did not provide evidence of a causal relationship between small-cell lung cancer and rash risk (OR = 1.05, 95% CI = 1.02-1.14, P = .09). Similarly, no causal relationship was found with other MR analysis methods. (Table 2 and Figure 1A). In the heterogeneity test, no heterogeneity was found among the SNPs (Table S2) using the IVW method (Cochran’s Q = 16.204, Q df = 8, P = .06) and MR-Egger method (Cochran’s Q = 14.979, Q df = 8, P = .06). The level of pleiotropy was not significant too (Egger intercept = −0.0465, Egger SE = 0.057, P = .44). Similarly, using the MR-PRESSO method for testing, the results indicated no horizontal pleiotropy (P = .08) and no outlier SNPs were identified. In addition, we used the “leave-one-out” method to test if any single SNP had a disproportionate influence on the results. However, the “leave-one-out” results have multiple SNPs that all span 0, suggesting that the causal link between small-cell lung cancer and rash may be driven by an influential SNPs. Therefore, the conclusion that small-cell lung cancer may increase the risk of rash needs to be further confirmed by larger sample sizes or more studies (Figure 1C).
+
+[0039] [RESULTS] In our 5 MR models, the estimates of the causal relationship between lung adenocarcinoma and rash were consistent. The IVW model with Cochran’s Q test did not find heterogeneity, and the MR-Egger intercept suggested no directional pleiotropy, indicating that the aforementioned causal relationship is reliable. We suggested that lung adenocarcinoma does not have a causal effect on the susceptibility to rash.
+
+[0040] [RESULTS] Causal effects of rash on lung cancer
+
+[0041] [RESULTS] The reverse MR analysis showed that no evidence of a causal association between rash and lung cancer was found using the IVW analysis method when rash was the exposure factor and lung cancer was the outcome (small-cell lung cancer: OR = 1.48, 95% CI = 0.80-2.73, P = .21; lung adenocarcinoma: OR = 0.96, 95% CI = 0.91-1.01, P = 0.12; Squamous cell lung cancer: OR = 1.10, 95% CI = 0.98-1.24, P = .11). Similarly, other MR analysis methods found no evidence of a causal association between rash and lung cancer risk (Table 3). To ensure the robustness of the reverse MR conclusions, we analyzed the SNPs associated with rash used in our reverse MR analysis with those associated with smoking and body mass index obtained through the literature and found that the SNPs used in our MR analysis were not associated with either smoking or body mass index. Similarly, the sensitivity analysis did not reveal heterogeneity and pleiotropy.
+
+[0042] [TABLE] Mendelian randomization estimates for the causal effect of rash on lung cancer risk.
+
+[0043] [TABLE] Exposure Outcome Method nSNP P OR (95% CI) Rash Small-cell lung cancer MR-Egger 3 .419936397 4.19 (0.47–37.03) Weighted median 3 .232419317 1.58 (0.74–3.67) Inverse variance weighted 3 .206946926 1.48 (0.80–2.73) Lung adenocarcinoma MR-Egger 14 .224613993 0.96 (0.89–1.02) Weighted median 14 .772483544 0.99 (0.92–1.06) Inverse variance weighted 14 .124152424 0.96 (0.91–1.01) Squamous cell lung cancer MR-Egger 3 .418420039 1.27 (0.89–1.82) Weighted median 3 .158235566 1.10 (0.96–1.26) Inverse variance weighted 3 .108405784 1.10 (0.98-1.24)
+
+[0044] [RESULTS] Genes causally associated with rash and squamous cell lung cancer
+
+[0045] [RESULTS] We obtained datasets for squamous cell lung cancer (GWAS ID: ieu-a-989) and rash (GWAS ID: finn-b-R18_RASH_OTHER_NONSPECIFIC_SKIN_ERUPT) from the GWAS database. We used eQTL data for 19 943 genes as the exposure data and conducted MR analysis. Meanwhile, we selected genes associated with squamous cell lung cancer (P < .05) and OR values across the 5 methods. We found 690 genes associated with squamous cell lung cancer and 192 genes associated with rash. There are 19 intersected genes shown in Figure 2A and Table 4. Among the 19 intersected genes, 3 genes (MTX1, THBS3, KIAA1191) were positively associated with squamous cell lung cancer and rash, while 6 genes (TTLL3, PMS2, NSUN2, IRS1, IER5, GBAP1) were negatively associated with them. The interactions of the above 19 intersection genes in terms of co-expression, text mining, and protein homology were determined by STRING analysis (Figure 2B), as well as their interactions with lung squamous cell carcinoma and rash-related genes screened from genecards (Figure 2C). In order to explore the biological functions and pathways of the genes screened in Figure 2C, Kyoto Encyclopedia of Genes and Genomes (KEGG) and Gene Ontology (GO) analyses were performed. The KEGG pathways containing overlapping genes were Complement and coagulation cascades, systemic lupus erythematosus, Prion disease, ertussis, and Amoebiasis (Figure 2D). The GO results were divided into 2 functional groups: biological process group (10 items) and cellular component group (3 items). In Figure 2E, 10 GO_BP items were screened from the results containing intersecting genes according to P-values. Complement activationclassical pathway, activation of immune response, humoral immune response, cytolysis, leukocyte-mediated immunity, positive regulation of immune response, immune effector process, alternative pathway, and regulation of immune system process. The groups of cells involved in these genes are divided into Membrane attack complex, plasma membrane protein complex, and blood microparticle (Figure 2E).
+
+[0046] [FIG] Genes related to rash and squamous cell lung cancer screened through MR analysis and GeneCards database. (A) Venn analysis was performed to identify intersecting genes between rash and lung squamous cell carcinoma. (B and C) Protein-protein network and pathway enrichment analysis. (D) KEGG enrichment scatter plot. The colors of dots represent the enrichment significance, and the dot sizes represent the gene counts. (E) Bar graph of GO enrichment pathways. BP: Biological Process; CC: Cellular Component.
+
+[0047] [TABLE] Intersecting genes of potentially relevant genes for lung squamous carcinoma and rash MR results of potentially relevant crossover genes for squamous lung cancer and rash.
+
+[0048] [TABLE] Rash Squamous cell lung cancer Gene Method nSNP P OR nSNP P OR ABHD4 Inverse variance weighted 3 .000585 1.878294 6 .002358 0.828065 C5 Inverse variance weighted 5 .023201 0.764829 11 .000241 1.112494 CASP3 Inverse variance weighted 3 .045136 1.206857 6 .001041 0.890515 GBAP1 Inverse variance weighted 5 .008784 0.796218 10 .000745 0.899397 HPCAL4 Inverse variance weighted 7 .027913 0.833934 13 .001907 1.082393 HSPA1 L Inverse variance weighted 3 .000656 0.419922 4 .006672 1.174811 IER5 Inverse variance weighted 4 .044624 0.841664 7 .033168 0.935331 IRS1 Inverse variance weighted 3 .015768 0.761719 6 .043745 0.926227 KIAA1191 Inverse variance weighted 3 .010921 1.322397 6 .001281 1.134601 LITAF Inverse variance weighted 4 .004781 1.500747 7 .023258 0.877125 MTX1 Inverse variance weighted 3 .00679 1.545732 5 .00026 1.297621 NSFL1C Inverse variance weighted 4 .049358 1.159453 7 .044503 0.951165 NSUN2 Inverse variance weighted 7 .003966 0.880118 13 .008403 0.946525 PIP4P2 Inverse variance weighted 3 .034045 0.650709 6 .045471 1.163382 PMS2 Inverse variance weighted 3 .023108 0.729185 6 .014462 0.876636 RNF182 Inverse variance weighted 9 .002464 1.156461 18 .020545 0.957 SERPING1 Inverse variance weighted 4 .020167 0.83802 6 1.94E-05 1.134843 THBS3 Inverse variance weighted 6 .016806 1.198035 12 .005306 1.075824 TTLL3 Inverse variance weighted 3 .021715 0.831584 6 .016719 0.926634
+
+[0049] [DISCUSS] Discussion
+
+[0050] [DISCUSS] A rash is a clinical manifestation that can be seen in a variety of conditions and manifests in a variety of forms. It can be a clinical symptom of a certain skin system disease, or it can be a manifestation of other system diseases. The causal association between rash and lung cancer is unclear. Employing a bidirectional 2-sample Mendelian Randomization study design, we posited that SNPs are linked to the outcome exclusively via the exposure pathway. In conclusion, our analysis revealed convincing associations confirming a significant causal relationship between squamous lung cancer and the risk of developing a rash. However, statistically significant differences were observed only in the WME in the analysis of the association between small-cell lung cancer and rash. It is worth noting that in performing the Mendelian randomization analysis of small-cell lung cancer and rash, our missing IVs exceeded 20%, and this missing proportion may lead to biased estimation of causal effects, thus limiting the generalizability of the findings and potentially weakening the robustness of the causal inference. In light of this, future studies may need to add more reliable IVs or explore different study designs to further enhance the evidence support for causality. Dermatoses associated with malignancy encompass a diverse array of conditions, characterized by hyperproliferation and inflammation, disorders arising from tumor-derived hormonal or metabolic factors, and autoimmune disorders affecting connective tissue, among other manifestations. Dermatomyositis exhibits a variety of cutaneous symptoms, yet it is particularly distinguished by a heliotrope rash and the presence of Gottron’s papules. Typically occurring on the eyelids, the heliotrope rash may sometimes be accompanied by swelling. Individuals with dermatomyositis, particularly those aged 60 and above, are considered to be at an increased risk of developing cancerous tumors. According to a population-based investigation, the risk of cancer in male dermatomyositis patients was 2.4 times greater than that in the general population (95% CI = 1.6-3.6), while for female patients, the risk was 3.4 times higher (95% CI = 2.4-4.7). Research has revealed the presence of a novel autoantibody that reacts with nuclear proteins of 155 and 140 kDa in patients with dermatomyositis, and this antibody has been linked to the development of malignancies. Furthermore, paraneoplastic syndromes associated with bronchial carcinoma encompass a range of manifestations, including endocrine and neurological disorders, as well as arthropathy, claudication, and dermatosis. Similar to the enigmatic nature of numerous cutaneous paraneoplastic phenomena, the precise pathophysiological underpinnings remain shrouded in mystery. Yet, a prevailing hypothesis suggests that tumors could instigate alterations within the surrounding extracellular matrix, which subsequently result in the induction of antigenicity within otherwise normal tissues.
+
+[0051] [DISCUSS] The intricacies of the skin changes induced by lung malignancies remain elusive, with research having not yet fully unraveled these mechanisms. In contrast to paraneoplastic neurological syndromes, which are characterized by immune-mediated damage that can result in neuronal death and irreversible functional impairment, a case has been documented where a lung cancer patient experienced a remarkable and sustained improvement in their skin symptoms following chemotherapy. This improvement was achieved despite the patient’s prior non-responsiveness to a range of optimal supportive measures, including corticosteroids and phototherapy.
+
+[0052] [DISCUSS] Cancer-related dermatoses are rare in lung cancer. Erythema gravidarum (EGR) is a rare and dramatic paraneoplastic disorder. The rash spreads rapidly, averaging about 1 cm per day, beginning on the trunk and then gradually spreading to the extremities. Pruritus is particularly prominent in EGR, and patients often have peripheral eosinophilia. According to a study, malignancy is present in about 70% of patients with EGR. Lung cancer is the most common associated malignancy, accounting for 43% of cases, followed by gastric, esophageal, and breast cancers. The exact pathogenesis of EGR has not been clarified, but studies have hypothesized that it may be related to the similarity of tumor-produced antigens to skin antigens, deposition of immune complexes in the skin, and tumor-induced alterations in skin antigenicity. Other associated diseases include tuberculosis, erythema filiformis, psoriasis, and connective tissue diseases. Fortunately, this usually resolves once the underlying malignancy is treated. Studies have shown that patients with a combination of other paraneoplastic syndromes, such as neurological symptoms caused by small-cell lung cancer, may have a more favorable prognosis. However, another case report mentioned that a patient with early-stage squamous cell lung cancer developed a pruritic rash 5 months after radiofrequency ablation therapy, and skin biopsy confirmed inflammatory changes. Despite dermatologic treatment, the rash did not resolve. Further examination revealed recurrence of lung cancer with lung metastasis. After antitumor therapy, the patient’s condition was controlled and the rash improved, a situation consistent with a previous case study report. In summary, although rash is relatively rare in squamous cell lung cancer, it may be the only warning sign of this potentially curable malignancy. When a squamous lung cancer patient develops a rash unrelated to the side effects of treatment, it may signal a worsening of the disease.
+
+[0053] [DISCUSS] One crucial benefit of Mendelian analysis over earlier observational studies that investigated the link between skin rashes and lung cancer is its capacity to eliminate the influence of conventional confounding factors, including treatments and medications. Consequently, our research successfully navigates around the inherent constraints of these observational approaches, firmly establishing squamous cell lung cancer as a risk factor for the development of rashes.
+
+[0054] [DISCUSS] For other types of lung cancer, such as small-cell lung cancer and lung adenocarcinoma, we did not find a significant correlation between them and the rash. In addition, we used the “stay one” approach and found the result that there were multiple SNPs that all spanned 0, suggesting that the causal relationship between small-cell lung cancer and rash could be driven by an influential SNPs. Although we found some cases of small-cell lung cancer-reported dermatomyositis was suspected to be a paraneoplastic syndrome associated with small-cell lung cancer. However, in our research, the IVW analysis method did not provide evidence of a causal relationship between small-cell lung cancer and rash risk. We suspected that small-cell lung cancer may increase the risk of rash needs to be further confirmed by larger sample sizes or more studies. Most of the paraneoplastic skin findings are the result of ectopic humoral syndromes, caused by hormone-secreting tumors. While some paraneoplastic disorders are inflammatory or proliferative skin conditions that can also occur in the absence of associated malignancy. We did not find a correlation between lung adenocarcinoma and the rash. We surmise the reasons for this result are because the lung adenocarcinoma has a low level of inflammation in the body and the proportion of hormone-secreting type in adenocarcinoma is relatively low.
+
+[0055] [DISCUSS] In our study, we found statistically significant evidence of a potential causal impact of squamous cell lung cancer on the risk of rash. Three genes (MTX1, THBS3, KIAA1191) were positively associated with squamous cell lung cancer and rash. It is assumed that the increased expression of these 3 genes at the cellular level in the body will increase the risk of lung squamous cell carcinoma and rash. Articles on expression data of the THBS3 gene in kidney cancer were mentioned, which may be related to tumor-associated skin manifestations, although it is not specific to skin rash. For the KIAA1191 gene, although an article was found on lung metastasis from breast cancer, it was not directly associated with skin rash. The KIAA1191 mRNA was present at increased quantities in lung metastatic tissues as compared with primary tumors of the breast. Modulation of KIAA1191 expression may be relevant to the biology by which tumor cells metastasize from the breast to the lung in humans with metastatic breast cancer. Six genes (TTLL3, PMS2, NSUN2, IRS1, IER5, GBAP1) were negatively associated with squamous cell lung cancer and rash. It may suggest that the increased expression of these 6 genes will reduce the risk of lung squamous cell carcinoma and rash.
+
+[0056] [DISCUSS] For clinicians, a rash is a presence of these types of paraneoplastic manifestations of squamous cell lung cancer, and it can elicit an important indication for the commencement of systemic anticancer therapy during palliative setting. Meanwhile, the consideration of rash caused by squamous cell lung cancer itself as an important signal for assessing the efficacy of lung cancer treatment and disease progression will also be an important direction for future research.
+
+[0057] [DISCUSS] However, there are some limitations. First, all of GWAS’s data comes from the European population. Whether the findings we describe are consistent in other populations remains to be investigated. Second, although the F statistics of genetic variation indicate that no weak tools were used, the statistical power of some outcomes is modest. This modest strength may be due to insufficient sample size or genetic variation, so “false negatives” cannot be completely ruled out. Therefore, it is expected that the researchers will have access to larger GWAS data to further validate these results.
+
+[0058] [CONCL] Conclusion
+
+[0059] [CONCL] Our study found that patients with squamous cell lung cancer have an increased risk of developing skin rashes. However, there was no direct link between rash and lung carcinogenesis. Future studies should consider the role of squamous cell lung cancer in the risk of rash and assess its value as a therapeutic target, as well as use lung cancer-induced rash as an indicator for assessing treatment efficacy and disease progression.
+
+[0060] [SUPPL] Supplemental Material
+
+[0061] [SUPPL] ORCID iD: Yang Xiao https://orcid.org/0009-0005-0622-1212
+
+[0062] [SUPPL] Ethical considerations: Not applicable.
+
+[0063] [SUPPL] Consent for publication: Not applicable.
+
+[0064] [SUPPL] Author contributions: Yang Xiao: Conceptualization, Writing – Original Draft; Writing – Review & Editing.
+
+[0065] [SUPPL] Tian-Tian Li: Methodology; Formal analysis; Writing – original draft.
+
+[0066] [SUPPL] Ming Li Yuan: Validation; Software.
+
+[0067] [SUPPL] Wen Yin: Validation; Software.
+
+[0068] [SUPPL] Jing Zhu: Conceptualization; Writing – Review & Editing.
+
+[0069] [SUPPL] Funding: The author(s) received no financial support for the research, authorship, and/or publication of this article.
+
+[0070] [SUPPL] The author(s) declared no potential conflicts of interest with respect to the research, authorship, and/or publication of this article.
+
+[0071] [SUPPL] Data availability statement: The data sets generated in the current study are available in the GWAS summary data (https://gwas.mrcieu.ac.uk/) and the GeneCards database (http://www.genecards.org).
+
+[0072] [SUPPL] Supplemental material: Supplemental material for this article is available online.
+
+[0073] [REF] References
+
+[0074] [REF] Paraneoplastic erythema annulare centrifugum eruption as a cutaneous marker of squamous cell carcinoma of the lung
+
+[0075] [REF] Paraneoplastic cutaneous leukocytoclastic vasculitis and iron deficiency anemia as the presenting features of squamous cell lung carcinoma
+
+[0076] [REF] Mendelian randomization
+
+[0077] [REF] Meta-analysis and Mendelian randomization: a review
+
+[0078] [REF] Mendelian randomization: genetic anchors for causalinference in epidemiological studies
+
+[0079] [REF] Mendelian randomization as an approach to assess causality using observational data
+
+[0080] [REF] Cannabis use and risk of schizophrenia: a Mendelian randomization study
+
+[0081] [REF] Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases
+
+[0082] [REF] STRING v11: protein-protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets
+
+[0083] [REF] Association studies of up to 1.2 million individuals yield new insights into the genetic etiology of tobacco and alcohol use
+
+[0084] [REF] Genetic studies of body mass index yield new insights for obesity biology
+
+[0085] [REF] Toward understanding the origin and evolution of cellular organisms
+
+[0086] [REF] KEGG for taxonomy-based analysis of pathways and genomes
+
+[0087] [REF] KEGG: kyoto encyclopedia of genes and genomes
+
+[0088] [REF] Risk of malignancy in dermatomyositis and polymyositis
+
+[0089] [REF] Myositis-specific autoantibodies and their association with malignancy in Italian patients with polymyositis and dermatomyositis
+
+[0090] [REF] Paraneoplastic syndromes in lung cancer and their management
+
+[0091] [REF] Paraneoplastic dermatomyositis associated with adenocarcinoma of the lung
+
+[0092] [REF] Pathogenesis, diagnosis and treatment of paraneoplastic neurologic syndromes
+
+[0093] [REF] Regression of para-neoplastic rash following lung cancer chemotherapy
+
+[0094] [REF] Cutaneous manifestations of lung cancer
+
+[0095] [REF] Erythema gyratum repens is not an obligate paraneoplastic disease: a systematic review of the literature and personal experience
+
+[0096] [REF] Regression of small-cell lung carcinoma in patients with paraneoplastic neuronal antibodies
+
+[0097] [REF] Small cell lung cancer with dermatomyositis: a case report
+
+[0098] [REF] Bioinformatics mining of THBS family gene expression data in renal carcinoma
+
+[0099] [REF] Genes that mediate breast cancer metastasis to lung

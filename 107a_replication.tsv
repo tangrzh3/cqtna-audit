@@ -1,0 +1,3 @@
+arm	n_cd4	n_hi	n_genes	TPI1_rank	TPI1_pct	TPI1_lfc	PGAM1_rank	PGAM1_pct	PGAM1_lfc	GAPDH_rank	GAPDH_pct	GAPDH_lfc	ENO1_rank	ENO1_pct	ENO1_lfc	PKM_rank	PKM_pct	PKM_lfc	LDHA_rank	LDHA_pct	LDHA_lfc	glyco_in_top	glyco_detected	glyco_enrichment
+LLL_stim	2757	1093	8224	18	0.219	1.5079	3	0.036	2.0146	6	0.073	1.8041	36	0.438	1.3549	21	0.255	1.4585	9	0.109	1.6542	12	12	27.41
+DIG_stim	4024	1593	7165	28	0.391	1.1444	3	0.042	2.443	8	0.112	1.5317	29	0.405	1.1427	7	0.098	1.5795	10	0.14	1.4934	12	12	23.88

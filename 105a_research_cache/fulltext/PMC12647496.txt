@@ -1,0 +1,207 @@
+[0001] [TITLE] Integration of Mendelian randomization and transcriptome wide association studies for causal gene identification in ovarian cancer genetic architecture
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Ovarian cancer remains one of the most lethal gynecological malignancies with limited understanding of its genetic architecture and causal mechanisms. While genome-wide association studies have identified numerous susceptibility loci, the causal relationships between gene expression and ovarian cancer risk remain poorly understood.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We conducted a comprehensive genetic analysis integrating two-sample Mendelian randomization (MR) and transcriptome-wide association studies (TWAS) using expression quantitative trait loci (eQTL) data from the GTEx project and ovarian cancer GWAS data from the Ovarian Cancer Association Consortium (OCAC). Summary-data-based Mendelian randomization (SMR) analysis was performed to assess causal relationships between gene expression and ovarian cancer risk. Additionally, we analyzed survival outcomes in 3595 ovarian cancer patients from the SEER database to examine the clinical implications of radiation timing and constructed a prognostic nomogram incorporating genetic and clinical factors.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] MR analysis identified three genes with significant causal associations with ovarian cancer risk. GSTZ1 variant rs11621440 demonstrated a protective effect (OR = 0.999, 95% CI 0.999–1.000, FDR = 0.001), while PNP variant rs8015430 (OR = 1.006, 95% CI 1.002–1.010, FDR = 0.002) and KIAA1715 variant rs864697 (OR = 0.999, 95% CI 0.999–1.000, FDR = 0.002) showed increased risk associations. TWAS analysis revealed multiple genes with transcriptome-wide significant associations, including SIGLEC family genes (SIGLEC14, SIGLEC12, SIGLEC5) associated with increased risk through decreased expression, and metabolic genes (OCTN2, MSR1) associated with risk through increased expression. Survival analysis demonstrated that radiation timing significantly impacts prognosis, with postoperative radiation showing superior outcomes compared to preoperative radiation (HR = 1.49, 95% CI 1.23–1.82, p = 5.8 × 10−5).
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] This study provides robust genetic evidence for causal relationships between specific gene expression patterns and ovarian cancer risk.
+
+[0010] [INTRO] Introduction
+
+[0011] [INTRO] Ovarian malignancy constitutes the fifth most significant contributor to cancer mortality among women globally, accounting for approximately 295,000 newly diagnosed cases and 185,000 fatalities each year. Notwithstanding progress in operative procedures and chemotherapy protocols, the aggregate 5-year survival percentage continues to be discouragingly poor at roughly 47%, predominantly due to delayed diagnostic detection and insufficient comprehension of the molecular processes that drive tumor formation and advancement.
+
+[0012] [INTRO] The genomic framework of ovarian cancer exhibits complexity and involves multiple factors, encompassing both inherited susceptibility and spontaneous mutations. Although high-penetrance genes including BRCA1 and BRCA2 contribute to roughly 10–15% of ovarian cancer instances, most cases develop from the combined impact of numerous low-penetrance genetic variations. Genome-wide association investigations (GWAS) have effectively discovered more than 40 susceptibility regions linked to ovarian cancer predisposition, however the biological implications of these variants and their targeted genes continue to be predominantly uncharacterized.
+
+[0013] [INTRO] Contemporary methodological developments in genetic epidemiology, especially Mendelian randomization (MR) and transcriptome-wide association investigations (TWAS), have transformed our capacity to determine causal connections between gene expression patterns and disease manifestations. MR employs genetic variants as instrumental variables to reduce confounding factors and reverse causation, delivering solid evidence for causal determination. TWAS combines GWAS summary data with gene expression prediction frameworks to recognize genes whose expression patterns correlate with disease susceptibility, providing understanding into the biological mechanisms underlying genetic correlations.
+
+[0014] [INTRO] The glutathione S-transferase zeta 1 (GSTZ1) gene, which codes for an essential enzyme in the tyrosine breakdown pathway and glutathione conjugation processes, has appeared as a potentially protective element in multiple cancers. GSTZ1 operates in cellular detoxification mechanisms and may affect cancer predisposition through its function in processing carcinogenic substances and preserving cellular redox balance. Nevertheless, its particular involvement in ovarian cancer development has not been extensively examined.
+
+[0015] [INTRO] Likewise, the sialic acid-binding immunoglobulin-like lectin (SIGLEC) gene group constitutes a collection of cell surface receptors mainly found on immune cells, particularly those from myeloid origins. These molecules serve essential functions in immune detection and control, potentially affecting tumor immune monitoring and evasion strategies. The relationship between SIGLEC gene expression and ovarian cancer susceptibility may offer understanding into the immunological components of ovarian cancer initiation and advancement.
+
+[0016] [INTRO] This investigation seeks to fill these knowledge voids by performing a thorough analysis that combines MR and TWAS methodologies to recognize causal genes linked with ovarian cancer susceptibility, evaluating the clinical consequences of treatment scheduling, and creating an integrated predictive model. More precisely, we aim to: (1) recognize genes with causal connections to ovarian cancer susceptibility using MR analysis; (2) perform genome-wide TWAS to discover additional susceptibility genes; (3) assess the influence of radiation scheduling on ovarian cancer survival results; and (4) create and validate a predictive nomogram that integrates genetic and clinical elements for individualized risk evaluation.
+
+[0017] [METHODS] Methods
+
+[0018] [METHODS] Mendelian randomization analysis methods
+
+[0019] [METHODS] This study employed a two-sample Mendelian randomization (MR) design, utilizing genetic variants as instrumental variables to infer causal relationships between gene expression and ovarian cancer risk. Exposure data were derived from expression quantitative trait loci (eQTL) data from large-scale genome-wide association studies (GWAS), while outcome data were obtained from ovarian cancer GWAS meta-analysis databases. The eQTL data primarily originated from the Genotype-Tissue Expression (GTEx) project and the Blood eQTL Browser, containing gene expression regulatory information across multiple tissue types. Ovarian cancer GWAS data were sourced from the Ovarian Cancer Association Consortium (OCAC), encompassing genetic variant information from over 25,000 ovarian cancer patients and 40,000 control individuals.
+
+[0020] [METHODS] Instrumental variable selection and quality control
+
+[0021] [METHODS] Instrumental variable selection adhered to the three core assumptions of Mendelian randomization: (1) Relevance assumption: genetic variants are strongly associated with gene expression; (2) Independence assumption: genetic variants are independent of confounding factors; (3) Exclusion restriction assumption: genetic variants affect ovarian cancer risk solely through gene expression. Specific selection criteria included: single nucleotide polymorphisms (SNPs) with gene expression association P-values < 5 × 10−8, linkage disequilibrium r² < 0.001, and minor allele frequency > 0.01. For each target gene, the cis-acting SNP most strongly associated with its expression level was selected as the instrumental variable. SNPs significantly associated with known confounding factors (such as body mass index, smoking, reproductive factors) were excluded through PhenoScanner database queries.
+
+[0022] [METHODS] Heterogeneity and Pleiotropy testing
+
+[0023] [METHODS] Cochran’s Q statistic was used to test heterogeneity among instrumental variables, with P < 0.05 indicating significant heterogeneity. Horizontal pleiotropy was assessed through the intercept term of MR-Egger regression, with significant deviation from zero indicating pleiotropy bias. The I² statistic was calculated to quantify the degree of heterogeneity, with I² > 50% indicating moderate to high heterogeneity. To further validate the directionality of causal relationships, reverse Mendelian randomization analysis was performed, using ovarian cancer risk as exposure and gene expression as outcome. The Steiger filtering method was employed to verify the correctness of causal direction.
+
+[0024] [METHODS] Transcriptome-wide association study analysis
+
+[0025] [METHODS] Transcriptome-wide association studies (TWAS) were conducted to identify genes associated with ovarian cancer at the transcriptomic level. TWAS integrated GWAS summary statistics with gene expression prediction models to assess associations between gene expression and ovarian cancer risk. FUSION software was used for TWAS analysis, employing tissue-specific gene expression prediction weights from the GTEx project. Analyses included ovarian tissue and other relevant tissue types (such as fallopian tubes, endometrium). Multiple comparison correction was performed using Bonferroni correction, with corrected P < 0.05 considered transcriptome-wide significant. Manhattan plots were generated to display genome-wide TWAS results, while volcano plots showed the relationship between gene effect sizes and statistical significance.
+
+[0026] [METHODS] Model validation and quality assessment
+
+[0027] [METHODS] Leave-one-out cross-validation was used to assess the robustness of Mendelian randomization analyses, sequentially removing each instrumental variable and re-performing the analysis. QQ plots were generated to evaluate whether P-value distributions conformed to expected theoretical distributions, validating the reliability of analytical results. False discovery rate (FDR) control methods were employed for multiple comparison correction, with FDR < 0.05 results considered statistically significant. Forest plots displayed the association strength and direction between genetic variants and ovarian cancer risk, including odds ratios (OR) with 95% confidence intervals. All analyses were conducted using R software, primarily utilizing specialized packages including TwoSampleMR, SMR, and FUSION.
+
+[0028] [METHODS] Statistical analysis methods
+
+[0029] [METHODS] Summary-data-based Mendelian randomization (SMR) methods were employed to assess causal relationships between gene expression and ovarian cancer risk. SMR analysis integrated eQTL and GWAS summary statistics, calculating causal effect estimates through the Wald ratio method. The primary analysis utilized the inverse variance weighted (IVW) method, which assumes all instrumental variables are valid. To assess result robustness, sensitivity analyses were further conducted using MR-Egger regression, weighted median method, and MR-PRESSO approaches. MR-Egger regression can detect and correct for horizontal pleiotropy bias, the weighted median method provides unbiased estimates when 50% of instrumental variables are valid, and MR-PRESSO can identify and remove outlying instrumental variables.
+
+[0030] [METHODS] SEER database analysis methods
+
+[0031] [METHODS] This study conducted a retrospective cohort analysis based on the Surveillance, Epidemiology, and End Results (SEER) database from the National Cancer Institute. The SEER database covers approximately 35% of the US population and provides high-quality data on cancer incidence, treatment patterns, and survival outcomes. The study included patients diagnosed with ovarian cancer from 1975 to the most recent data year, with case identification based on International Classification of Diseases, 10th Revision (ICD-10) codes. Inclusion criteria comprised: (1) histologically confirmed primary ovarian cancer; (2) female patients aged ≥ 18 years; (3) complete demographic, clinicopathological, and treatment information; (4) complete survival follow-up data. Exclusion criteria included: (1) non-epithelial ovarian tumors; (2) patients with multiple primary tumors; (3) cases with missing key variables.Based on multivariate Cox regression analysis results, a nomogram model was constructed to predict 12-month, 36-month, and 60-month survival probabilities for ovarian cancer patients. The nomogram integrated key prognostic variables including age, tumor stage, distant metastasis status, marital status, and radiation timing. Each predictor was assigned corresponding scores based on its regression coefficient in the Cox model, with total scores corresponding to predicted survival probabilities. Bootstrap resampling (1000 iterations) was employed for internal validation to assess model stability and predictive accuracy. Calibration plots evaluated the concordance between model-predicted probabilities and actual observed probabilities, while decision curve analysis (DCA) assessed the clinical utility of the model.
+
+[0032] [METHODS] Statistical considerations and ethical statement
+
+[0033] [METHODS] All statistical analyses employed two-sided tests, with P < 0.05 considered statistically significant. For multiple comparisons, Bonferroni correction or FDR control methods were applied. Missing data were handled using complete case analysis or multiple imputation methods, with specific strategies determined based on missing patterns and proportions. The SEER database and GWAS summary data used in this study are de-identified public data resources, requiring no institutional review board approval. All analyses adhered to the requirements of STROBE (Strengthening the Reporting of Observational Studies in Epidemiology) and STROBE-MR (Strengthening the Reporting of Mendelian Randomization studies) guidelines.
+
+[0034] [RESULTS] Results
+
+[0035] [RESULTS] Mendelian randomization analysis results for ovarian cancer-associated genes
+
+[0036] [RESULTS] This Mendelian randomization analysis demonstrates the associations between three genetic variants and ovarian cancer risk. The GSTZ1 gene variant rs11621440 shows a significant protective effect with an odds ratio (OR) of 0.999 (95% CI 0.999–1.000) and a false discovery rate (FDR) of 0.001, suggesting that this variant may reduce ovarian cancer risk. Conversely, the PNP gene variant rs8015430 exhibits an opposite effect with an OR of 1.006 (95% CI 1.002–1.010) and FDR of 0.002, indicating that this variant may increase ovarian cancer risk. The KIAA1715 gene variant rs864697 similarly shows a trend toward increased risk with an OR of 0.999 (95% CI 0.999–1.000) and FDR of 0.002. All three genetic variants have FDR values less than 0.05, indicating statistical significance of these associations. The forest plot visually presents the effect sizes and confidence intervals for each variant, providing important epidemiological evidence for genetic susceptibility research in ovarian cancer (Fig. 1).
+
+[0037] [FIG] Forest plot of Mendelian randomization analysis for ovarian cancer-associated genetic variants. The figure shows the odds ratios (OR) with 95% confidence intervals (CI) and false discovery rates (FDR) for specific SNP variants in three genes (GSTZ1, PNP, KIAA1715). The vertical dashed line represents the null effect line at OR = 1, square sizes reflect study precision, and horizontal lines indicate 95% confidence intervals
+
+[0038] [RESULTS] Volcano plot results of Mendelian randomization analysis for ovarian cancer
+
+[0039] [RESULTS] This volcano plot illustrates the relationship between effect sizes and statistical significance of genes in the Mendelian randomization analysis for ovarian cancer. The x-axis represents the beta coefficients from SMR (Summary-data-based Mendelian Randomization), reflecting the direction and magnitude of causal effects of gene expression on ovarian cancer risk. The y-axis shows − log10(P-value), with higher values indicating greater statistical significance. Circle sizes represent the magnitude of neglogP values, while the color gradient from blue to red reflects the degree of statistical significance. The results show that genes such as SIGLEC14, SIGLEC12, and SIGLEC5 are located in the upper left quadrant, indicating that decreased expression of these genes is significantly associated with increased ovarian cancer risk. GSTZ1 gene is positioned in the upper center, demonstrating strong statistical significance. Genes on the right side, such as OCTN2 and MSR1, suggest that increased gene expression may be associated with ovarian cancer risk. This analysis provides important genetic evidence for identifying potential causal genes and therapeutic targets for ovarian cancer (Fig. 2).
+
+[0040] [FIG] Volcano plot of SMR analysis for ovarian cancer. The x-axis shows SMR beta coefficients, and the y-axis represents − log10 (P-value). Circle sizes indicate neglogP values, and color gradients reflect statistical significance levels. Genes on the left are associated with increased ovarian cancer risk through decreased expression, while genes on the right are associated with risk through increased expression
+
+[0041] [RESULTS] Manhattan plot analysis results for ovarian cancer transcriptome-wide association study
+
+[0042] [RESULTS] This Manhattan plot displays the genome-wide analysis results from a transcriptome-wide association study (TWAS) for ovarian cancer. The x-axis arranges all genes by chromosomal position, while the y-axis represents the negative logarithm of statistical significance (− log10 P-value), with higher values indicating stronger associations between genes and ovarian cancer. Different colored dots represent genes on different chromosomes, forming the characteristic Manhattan skyline pattern. The results reveal multiple genes reaching significant statistical thresholds, with the most significant signal peaks exceeding a − log10 P-value of 50, indicating strong causal associations between these gene expression levels and ovarian cancer risk. Numerous moderate-strength association signals are distributed across the genome with − log10 P-values ranging from 10 to 40, suggesting that ovarian cancer is a complex disease involving multiple genes acting in concert. This TWAS analysis provides crucial transcriptomic evidence for identifying key regulatory genes and potential therapeutic targets for ovarian cancer, contributing to a deeper understanding of the molecular mechanisms underlying ovarian cancer pathogenesis (Fig. 3).
+
+[0043] [FIG] Manhattan plot for ovarian cancer transcriptome-wide association study (TWAS). The x-axis shows chromosomal positions of genes, and the y-axis represents statistical significance (− log10 P-value). Different colors represent different chromosomes, and the height of dots reflects the strength of association between gene expression and ovarian cancer
+
+[0044] [RESULTS] QQ plot analysis of model cross-validation P-values in Mendelian randomization
+
+[0045] [RESULTS] This quantile–quantile plot (QQ plot) evaluates the distribution characteristics of model cross-validation P-values in Mendelian randomization analysis. The x-axis represents theoretical quantiles, while the y-axis shows sample quantiles, with the red line indicating the expected theoretical distribution. The orange solid line displays the observed P-value distribution, and the orange dashed line represents the confidence interval. The results demonstrate that observed values closely align with theoretical expectations across most intervals, indicating good model calibration. However, there is slight deviation at the right end (high quantile region), where the orange line is slightly above the red theoretical line, potentially suggesting the presence of a few statistically significant signals or minor model bias. Overall, the QQ plot shows good model fit, with most P-values conforming to the expected uniform distribution, validating the reliability of the Mendelian randomization analysis results and the reasonableness of statistical assumptions. This provides important methodological quality assurance for subsequent causal inference (Fig. 4).
+
+[0046] [FIG] QQ plot of model cross-validation P-values in Mendelian randomization. The x-axis shows theoretical quantiles, and the y-axis represents sample quantiles. The red line indicates the theoretical expected distribution, the orange solid line shows the observed distribution, and the dashed line represents the confidence interval
+
+[0047] [RESULTS] Survival analysis of ovarian cancer based on radiation timing
+
+[0048] [RESULTS] Analysis of survival outcomes reveals marked disparities between ovarian cancer patients based on radiation therapy timing relative to surgical intervention. Throughout the 212-month observation period, patients undergoing postoperative radiation therapy (blue line) consistently exhibited superior survival probabilities when compared to their counterparts receiving preoperative radiation (brown line). Statistical analysis confirmed the significance of this difference (p = 5.8e−5), with preoperative radiation patients facing a 49% elevated mortality risk (HR = 1.49, 95% CI 1.23–1.82). Early divergence of the survival curves occurred within the initial follow-up phase, persisting throughout the study duration. While both treatment groups ultimately converged to approximately 30% survival probability at study conclusion, the postoperative radiation cohort maintained superior survival rates during the majority of the observation timeline. Patient distribution showed considerable imbalance, with 3453 individuals in the postoperative group versus 142 in the preoperative group, with progressive attrition due to mortality events and study censoring (Fig. 5).
+
+[0049] [FIG] Survival analysis of ovarian cancer based on radiation timing. Kaplan-Meier survival analysis demonstrates superior outcomes for ovarian cancer patients receiving radiation therapy following surgical intervention compared to preoperative radiation recipients (p = 5.8e−5). Preoperative radiation was associated with 49% increased mortality risk (HR = 1.49). Despite convergence to approximately 30% survival at follow-up completion, postoperative radiation recipients demonstrated sustained survival advantages throughout the observation period. These results corroborate multivariate Cox regression findings, emphasizing radiation timing as a pivotal therapeutic consideration
+
+[0050] [RESULTS] Nomogram for predicting survival in ovarian cancer patients based on clinical and treatment factors
+
+[0051] [RESULTS] Five key prognostic variables form the foundation of this predictive model: patient age, disease staging, metastatic status (M), marital circumstances, and radiation therapy timing relative to surgery. Point allocation for each variable correlates with prognostic severity, where elevated scores typically signify diminished survival prospects. Advanced age (≥ 65 years) generates higher point values compared to younger patients (< 65 years), demonstrating age-associated mortality risk escalation. Progressive disease stages accumulate increasing point values, with Stage IV disease commanding maximum point contribution. Distant metastatic disease (M1) substantially elevates point totals relative to M0 status. Marital status demonstrates protective associations, with married patients receiving reduced point allocations compared to divorced, separated, or widowed individuals, reinforcing marriage-related survival benefits identified in Cox regression modeling. Treatment sequencing significantly influences scoring, with preoperative radiation generating markedly higher point values than postoperative approaches. Clinical application involves identifying patient-specific characteristics across each variable, calculating cumulative point totals, and translating these scores into survival probability estimates at 12, 36, and 60-month intervals. Inverse relationships exist between total point accumulation and projected survival probabilities (Fig. 6).
+
+[0052] [FIG] Nomogram for predicting survival in ovarian cancer patients based on clinical and treatment factors. Comprehensive prognostic evaluation reveals survival outcomes determined through complex interplay among diverse clinical and biological parameters. Critical prognostic dimensions encompass patient age, tumor staging, molecular characterization, and therapeutic intervention strategies. Age-associated physiological deterioration demonstrates positive correlation with tumor grade progression, substantially influencing overall survival trajectories. Radiation and chemotherapy interventions, serving as primary therapeutic modalities, display considerable inter-patient response variability, reflecting tumor microenvironment heterogeneity and resistance mechanism diversity
+
+[0053] [DISCUSS] Discussion
+
+[0054] [DISCUSS] The extensive genetic investigation we conducted has uncovered meaningful discoveries regarding the causal connections between gene expression patterns and ovarian cancer susceptibility, delivering strong evidence for the participation of particular genetic networks in ovarian tumor development. The discovery of GSTZ1, PNP, and KIAA1715 as genes demonstrating causal relationships marks a notable progress in comprehending the molecular processes that drive ovarian cancer predisposition.
+
+[0055] [DISCUSS] The most striking result from our MR analysis involves the protective influence of the GSTZ1 variant rs11621440 against ovarian cancer susceptibility (OR = 0.999, FDR = 0.001). GSTZ1 codes for glutathione S-transferase zeta 1, an essential enzyme within phase II detoxification mechanisms that metabolizes diverse xenobiotics and internal compounds. This enzyme serves a bifunctional role in cellular processes, operating within both the tyrosine breakdown pathway and glutathione conjugation reactions that promote the clearance of potentially cancer-causing substances.
+
+[0056] [DISCUSS] The protective influence of GSTZ1 in ovarian malignancy corresponds with its recognized function in cellular detoxification and oxidative balance maintenance. Increased GSTZ1 expression or enzymatic activity may enhance cellular abilities to neutralize reactive oxygen species and process carcinogenic molecules, thus decreasing the probability of DNA damage and cancerous transformation. This discovery holds particular importance considering that ovarian cancer formation has been associated with oxidative stress and contact with environmental cancer-causing agents.
+
+[0057] [DISCUSS] Earlier research has shown that genetic variations in glutathione S-transferase genes can markedly affect cancer predisposition across different tumor categories. Our findings broaden this knowledge to ovarian cancer and indicate that GSTZ1 might function as a biomarker for risk classification and potentially as a treatment target. The recognition of GSTZ1 as a protective element creates new opportunities for cancer prevention approaches and emphasizes the significance of metabolic networks in ovarian cancer development.
+
+[0058] [DISCUSS] The recognition of purine nucleoside phosphorylase (PNP) and KIAA1715 as risk-linked genes offers further understanding into the metabolic foundations of ovarian cancer. PNP serves an essential function in purine processing, facilitating the phosphorolysis of nucleosides to produce ribose-1-phosphate and purine bases. Disruption of purine metabolism has been connected to multiple cancers, since modified nucleotide concentrations can influence DNA synthesis, repair processes, and cellular growth.
+
+[0059] [DISCUSS] The correlation between reduced SIGLEC expression and elevated ovarian cancer risk indicates a possible function for these molecules in tumor immune monitoring. SIGLEC proteins are mainly found on immune cells, especially macrophages, dendritic cells, and other myeloid cell types that form significant elements of the tumor environment. Diminished expression of these immune detection molecules may compromise immune cell capabilities to identify and destroy malignant cells, enabling tumor evasion and advancement.
+
+[0060] [DISCUSS] Our survival examination showing the improved outcomes linked with postoperative compared to preoperative radiation therapy (HR = 1.49, p = 5.8 × 10−5) offers valuable clinical direction for treatment sequencing. This result indicates that radiation therapy timing constitutes a crucial element that requires careful evaluation in treatment planning.
+
+[0061] [DISCUSS] The creation of our prognostic nomogram combining genetic and clinical elements represents progress toward personalized medicine in ovarian cancer management. Through incorporating genetic risk factors together with conventional clinical parameters such as age, stage, and treatment methodology, healthcare providers may offer more precise prognostic data and customize treatment approaches for individual patients.
+
+[0062] [DISCUSS] Limitations
+
+[0063] [DISCUSS] Although our investigation delivers solid genetic evidence for causal connections between gene expression and ovarian cancer risk, several constraints warrant recognition. Initially, the effect magnitudes noted for individual genetic variants are comparatively modest, indicating the polygenic characteristics of ovarian cancer susceptibility. Subsequent studies involving larger participant groups may be required to identify additional variants with smaller influences.
+
+[0064] [DISCUSS] Furthermore, our examination concentrated mainly on common genetic variants, and uncommon variants with greater effects may not have been sufficiently detected. Comprehensive genome or exome sequencing investigations may be necessary to thoroughly characterize the complete range of genetic variation that contributes to ovarian cancer risk.
+
+[0065] [CONCL] Conclusions
+
+[0066] [CONCL] This study represents one of the most comprehensive genetic analyses of ovarian cancer to date, integrating multiple analytical approaches to identify causal genes and develop clinically relevant prognostic models. The identification of GSTZ1 as a protective factor and the SIGLEC gene family as risk-associated through immune mechanisms provides new insights into ovarian cancer pathogenesis and potential therapeutic targets.
+
+[0067] [CONCL] Publisher’s note
+
+[0068] [CONCL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0069] [AUTH_CONT] Author contributions
+
+[0070] [AUTH_CONT] Qin Yang (First author) contributed to study design, clinical data interpretation, and manuscript preparation. Zurui Zeng assisted with data management and public health methodology aspects. Jie Wang conducted the statistical analyses including Mendelian randomization and TWAS analyses, and contributed to bioinformatics methodology. Xiangcai Wei (Corresponding author) supervised the overall study, provided clinical expertise in ovarian cancer, secured funding, and led manuscript writing and revision.
+
+[0071] [ACK_FUND] Funding
+
+[0072] [ACK_FUND] Not available.
+
+[0073] [SUPPL] Data availability
+
+[0074] [SUPPL] For further information, please contact the corresponding author. Mendelian randomization data derived from GWAS database UKB-b-18157.
+
+[0075] [SUPPL] Declarations
+
+[0076] [SUPPL] Ethics approval and consent to participate
+
+[0077] [SUPPL] Not available.
+
+[0078] [SUPPL] Consent for publication
+
+[0079] [SUPPL] All authors reviewed and approved the final manuscript.
+
+[0080] [COMP_INT] Competing interests
+
+[0081] [COMP_INT] The authors declare no competing interests.
+
+[0082] [REF] References
+
+[0083] [REF] Kolli SH, McGinty MT, Putelo AM, Hatzinger CN, Bajgai S, Poblete MK, Thompson B, Feng TY, Azar FN, Mirani A et al. Ovarian cancer drives TLR5-dependent expansion of myeloid progenitors through systemic dissemination of ligands. bioRxiv; 2025.
+
+[0084] [REF] Transcriptome analysis of matched cohorts of Long- and Short-term survivors in advanced High-Grade serous Tubo-ovarian cancer
+
+[0085] [REF] Knowledge graph and bibliometric analysis of inflammatory indicators in ovarian cancer
+
+[0086] [REF] Fine mapping of QTLs/QTNs and mining of genes associated with race 7 of the soybean cercospora Sojina by combining linkages and GWAS
+
+[0087] [REF] Bivariate GWAS performed on rabbits divergently selected for intramuscular fat content reveals pleiotropic genomic regions and genes related to meat and carcass quality traits
+
+[0088] [REF] Cross-population GWAS and proteomics improve risk prediction and reveal mechanisms in atrial fibrillation
+
+[0089] [REF] Mendelian randomization analysis of gut microbiota-immune cell interactions in malignant neoplasm of nasopharynx
+
+[0090] [REF] Gestational exposure to particulate matter and preeclampsia risk: evidence from a Meta-Analysis and Mendelian randomization study
+
+[0091] [REF] Gut Microbiota, disorders of Gut-Brain interaction and psychiatric disorders: a Mendelian randomization study
+
+[0092] [REF] Differential SOD2 and GSTZ1 profiles contribute to contrasting dental pulp stem cell susceptibilities to oxidative damage and premature senescence
+
+[0093] [REF] Identification of HGD and GSTZ1 as biomarkers involved metabolic reprogramming in kidney renal clear cell carcinoma
+
+[0094] [REF] GSTZ1 sensitizes hepatocellular carcinoma cells to sorafenib-induced ferroptosis via Inhibition of NRF2/GPX4 axis
+
+[0095] [REF] M2-Like macrophages exhibit Sialic Acid-Enhanced efferocytosis via the Siglec CD22
+
+[0096] [REF] GlycoRNA-L and glycoRNA-S mediate human monocyte adhesion via binding to Siglec-5
+
+[0097] [REF] Advanced imaging of relapse in giant cell arteritis: the role of vascular adhesion protein-1 and [(68)Ga]Ga-DOTA-Siglec-9 positron emission tomography-computed tomography
+
+[0098] [REF] Adipose-derived mesenchymal stem cell-derived extracellular vesicles carry microRNA-214-3p to target GSTZ1 to curb ferroptosis in lung epithelial cells during sepsis
+
+[0099] [REF] Mechanism of UHRF1 protein macromolecule regulating ferroptosis in liver cancer: Inhibition of GSTZ1 expression through DNA methylation
+
+[0100] [REF] Purine nucleoside phosphorylase deficiency: A case report of an extremely rare disorder
+
+[0101] [REF] The characterization of the purine nucleoside phosphorylase from agaricus bisporus and its potential application in reducing purine content in beer
+
+[0102] [REF] Purine nucleoside phosphorylase dominates influenza A virus replication and host hyperinflammation through purine salvage
+
+[0103] [REF] Signal transducer nanoparticles enable Siglec-10/G Blockade immunotherapy for breast cancer treatment
+
+[0104] [REF] CD16 and Siglec expression refine the phenotypic heterogeneity of steady-state myeloid-derived suppressor cells

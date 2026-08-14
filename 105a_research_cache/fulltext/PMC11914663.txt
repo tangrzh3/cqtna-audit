@@ -1,0 +1,371 @@
+[0001] [TITLE] Genetic association of lipids and lipid-lowering drug target genes with breast cancer
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Although several preclinical and epidemiological studies have shown that blood lipids and lipid-lowering drugs can reduce the risk of breast cancer, this finding remains controversial. This study aimed to explore the causal relationship between dyslipidemia,lipid-lowering drugs, and breast cancer. We also aimed to evaluate the potential impact of lipid-lowering drug targets on breast cancer.
+
+[0004] [ABSTRACT] Method
+
+[0005] [ABSTRACT] Data of 431 lipid- and lipid-related phenotypes were obtained from genome-wide association study (GWAS), and mendelian randomization (MR) analyses were performed using two independent breast cancer datasets as endpoints. Genetic variants associated with genes encoding lipid-lowering drug targets were extracted from the Global Lipid Genetics Consortium. Expression quantitative trait loci data in relevant tissues were used to further validate lipid-lowering drug targets that reached significance and combined with bioinformatics approaches for molecular expression and prognostic exploration. Further mediation analyses were performed to explore potential mediators.
+
+[0006] [ABSTRACT] Result
+
+[0007] [ABSTRACT] In two independent datasets, phosphatidylcholine (18:1_0:0 levels) was associated with breast cancer risk (discovery: odds ratio (OR) = 1.255 [95% confidence interval (CI) 1.120–1.406]; p = 8.936 × 10–5, replication: OR = 1.016 [95% CI, 1.003–1.030]; p = 0.017), HMG- CoA reductase (HMGCR) inhibition was genetically modeled and associated with a reduced risk of breast cancer (discovery: OR = 0.833 [95% CI 0.752–0.923], p = 5.12 × 10–4; replication: OR = 0.975 [95% CI 0.960–0.990], p = 1.65 × 10–3). There was a significant MR correlation between HMGCR expression in whole blood and breast cancer (OR = 1.11 [95% 1.01–1.22] p = 0.04). Bioinformatics analysis revealed that HMGCR expression higher in breast cancer tissues than in normal tissues, along with poor overall survival and relapse-free survival, and was associated with multiple immune cell infiltration. Finally, the mediation analysis showed that HMGCR inhibitors affected breast cancer through different immune cell phenotypes and C-reactive protein levels.
+
+[0008] [ABSTRACT] Conclusion
+
+[0009] [ABSTRACT] In this study, we found for the first time that phosphatidylcholine (18:1_0:0) levels are associated with breast cancer risk. We found that HMGCR inhibitors are associated with a reduced risk of breast cancer, and part of their action may be through pathways other than lipid-lowering, including modulation of immune function and reduction of inflammation represented by C-reactive protein levels.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1007/s12672-025-02041-0.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Breast cancer (BC) is one of the most common malignancies worldwide, and the most common malignancy in women. In 2020, over 2.3 million women were diagnosed with BC globally, with 685,000 deaths. Circulating lipids play an important role in endocrine tumors by enhancing cell proliferation and migration. However, owing to the influence of confounding factors in clinical studies, current evidence of the relationship between circulating lipids and BC risk is conflicting. Lipid-lowering drugs are commonly used to prevent cardiovascular diseases and may improve cardiovascular outcomes. Drug pleiotropy has led to the use of lipid-lowering drugs for a variety of diseases, and their relationship with oncological diseases has been extensively studied. Preclinical data have shown that lipid-lowering drugs attenuate the inflammatory response, inhibit the proliferation of cancer cells, and inhibit the progression and micrometastasis of BC. Lipid-lowering drugs also reduce BC recurrence and have a protective effect on prognosis. However, there is limited evidence from previous observational clinical studies showing that lipid-lowering drugs are associated with the risk of BC development.
+
+[0014] [INTRO] Lipid-lowering drugs are widely used to prevent hyperlipidemia, atherosclerosis, and cardiovascular diseases. During BC treatment, patients are prone to dyslipidemia, especially during endocrine therapy. For example, tamoxifen, letrozole, and other drugs may affect the blood lipid levels of patients with BC to varying degrees and increase the risk of cardiovascular diseases and metabolic syndrome. Therefore, the relationship between lipid-lowering drugs and BC needs to be clarified. Clarifying the relationship between lipid-lowering drugs and BC is not only of scientific research significance but also of practical significance for the prevention and prognosis of BC. In a multicenter cohort study involving 7528 white women in the United States, participants who used lipid-lowering drugs had a significantly lower risk of BC than those who did not.These findings reveal the potential application of lipid-lowering drugs in the prevention of BC. However, long-term use of lipid-lowering drugs was not associated with BC risk in an analysis of the Cancer Prevention Study II Nutrition Cohort based on a 10-year follow-up period. This inconsistency in the results of these studies may be because of the complex polygenic and multifactorial nature of BC, which cannot be completely overcome by observational and traditional analyses.
+
+[0015] [INTRO] There are limitations to clinical studies that lead to biased results, such as confounding factor interference and reverse causality interference, ethical issues in the design of experiments with limited observation times, and potential adverse effects that may result from prolonged administration of the drug to the subjects. Owing to the increasing popularity of genome-wide association studies (GWAS), mendelian randomization (MR), an epidemiological method that avoids confounding and reverse causation through the use of genetic variation in a population, may be an effective way to overcome the above problems.This is similar to a randomized controlled trial in which participants are randomly assigned to either the experimental or control group. Simultaneously, MR is not subject to reverse causation because the genetic variation remains constant throughout life. It can also predict drug effects based on mutations in risk factors or drug target genes as tools. This provides preliminary evidence of causality to inform subsequent intervention studies, drug monitoring, and public health approaches. MR studies have been widely used in rheumatic, neurological, and oncological diseases.
+
+[0016] [INTRO] The widespread use of lipid-lowering drugs in the treatment of cardiovascular diseases has raised concerns regarding their potential association with the risk of BC. The urgency and importance of studying the relationship between circulating lipids, lipid-lowering drugs, and BC risk are self-evident.In this study, health management for the patient, doctor decision-making, and public health policy are of great significance, and we analyzed the influence of the characteristics of BC and discussed the lipid-lowering drug targets for BC subtypes and their potential impact.
+
+[0017] [METHODS] Materials and methods
+
+[0018] [METHODS] Study design
+
+[0019] [METHODS] We first assessed the causal association of 431 lipid and lipid-related phenotypes with BC using two-sample MR analysis. We then performed MR analyses of 9 commonly used lipid-lowering drug targets with BC and summary-data-based Mendelian randomization (SMR) analyses of important lipid-lowering drug targets to validate the results, followed by the application of multiple bioinformatics methods to analyze lipid-lowering drug targets and mediation analyses to explore potential mediators.
+
+[0020] [FIG] Outline of the study design. LDL-C low-density lipoprotein cholesterol, TG triglyceride, HMGCR HMG-CoA reductase, NPC1L1 Niemann-Pick C1-like protein 1, PCSK9 proprotein convertase subtilisin/kexin type 9, ABCG5 ATP-Binding Cassette Subfamily G Member 5, ABCG8 ATP-Binding Cassette Subfamily G Member 8; APOB Apolipoprotein B-100, LDLR LDL Receptor, ANGPTL3 angiopoietin-like 3; APOC3 Apolipoprotein C-III, LPL lipoprotein lipase
+
+[0021] [METHODS] There are three basic assumptions behind the MR approach: (1) genetic variation and exposure are closely related ("correlation"); (2) genetic variation is independent of confounders affecting the relationship between exposure and outcome ("independence"); and (3) genetic variation only influences outcome through exposure of interest of exposure ("exclusion restriction") affecting outcome. This study followed the enhanced reporting of observational studies in the Mendelian epidemiology guidelines for randomized reporting (Table S1). Figure 1 presents an outline of the study flow. Data sources were based on publicly available summary-level data from the GWAS study and expression quantitative trait loci (eQTL) study, which were desensitized before uploading and did not involve personal privacy or identifiable information. This study did not involve confidential information and data and informed consent authorization of the institution; thus, no approval from the ethical review board was required. The details of these datasets are presented in Table S2.
+
+[0022] [METHODS] GWAS data sources of exposure
+
+[0023] [METHODS] A total of 431 lipid and lipid-related phenotypes were used as exposures (Table S3-S7), of which 179 lipids were obtained from a study published in 2023 that provided pooled GWAS data for each metabolite, with sample sizes ranging from 5172 to 7174. Furthermore, 249 lipids and lipid-related profiles were obtained from a study published in 2022. In this study, sample sizes ranged from 110,051 to 115,082 for the different metabolites. Finally, GWAS summary statistics for low-density lipoprotein cholesterol (LDL-C), total cholesterol (TC), and triglycerides (TG) were obtained from a GWAS meta-analysis conducted by the Global Lipids Genetics Consortium, a program with sample sizes ranging from 173,082 to 187,365.
+
+[0024] [METHODS] GWAS data sources for outcomes
+
+[0025] [METHODS] Summary statistics for outcomes were obtained from two separate GWAS datasets from the Breast Cancer Association Consortium (BCAC) and UK Biobank (UKB). The primary outcome was BC, and the secondary outcomes were the subtypes of BC, including (estrogen receptor (ER)-positive and ER-negative). The BCAC is an international collaborative project initiated in 2005 to study genetic susceptibility to BC and includes 122,977 female cases and 105,974 female controls of European origin. In the BCAC, BC cases were mainly from hospitals and cancer registries. To replicate the primary outcome analyses, we obtained another BC GWAS dataset from the UK Biobank, which included 13,879 cases and 198,523 controls, all of whom were of the European origin38. Previous studies have described the study designs, participants, and quality control (QC) methods in detail.
+
+[0026] [METHODS] Data filtration and genetic instrument selection
+
+[0027] [METHODS] In our analysis of lipids and BC risk, we set an inclusion threshold for single-nucleotide polymorphisms (SNPs) (p < 5 × 10–8), in addition to an r2 threshold of 0.001 to prevent linkage disequilibrium (LD) and a distance of 10,000 Kb for SNPs. The strength of each genetic variant was assessed using F-statistical analysis (calculated as F = β^2 / SE^2, where β is the allelic effect value and SE is the standard error) to test the hypothesis of correlation. Typically, an F-statistic > 10 indicates the absence of weak instrumental bias.
+
+[0028] [TABLE] Lipid-lowering drug classes, substances, and target genes
+
+[0029] [TABLE] Primary pharmacological action Drug class Substance Drug targets Target genes Gene region (GRCh37/hg19 by Ensembl) Genetic instruments Reduced LDL-C Key regulator LDL Receptor a LDLR Chr19: 11,200,139–11244496 14 SNPs HMG-CoA reductase inhibitors Pravastatin Simvastatin Lovastatin Fluvastatin Atorvastatin Rosuvastatin HMG-CoA reductase HMGCR Chr5: 74,632,993–74,657,941 7 SNPs Cholesterol absorption inhibitors Ezetimibe Niemann-Pick C1-like protein 1 NPC1L1 Chr7: 44,552,134–44,580,929 3 SNPs Proprotein convertase subtilisin/kexin type 9 inhibitors Alirocumab Evolocumab Proprotein convertase subtilisin/kexin type 9 PCSK9 Chr1: 55,505,221–55530525 12 SNPs Bile acid sequestrants Colesevelam Colestipol Cholestyramine ATP Binding Cassette Subfamily G Member 5/ATP Binding Cassette Subfamily G Member 8 ABCG5/ ABCG8b Chr22: 44,066,110–44110127 7 SNPs Antisense oligonucleotide targeting ApoB-100 mRNA Mipomersen Apolipoprotein B-100 APOB Chr2: 21,224,301–21266945 20 SNPs Reduced TG Key regulator Lipoprotein Lipasea a LPL Chr8: 19,796,764–19,824,770 24 SNPs Antisense oligonucleotide targeting ApoC-III mRNA Volanesorsen Apolipoprotein C-III APOC3 Chr11: 116,700,623–116703788 10 SNPs Angiopoietin-like 3 Inhibitor Evinacumab Angiopoietin-related protein 3 ANGPTL3 Chr1: 63,063,158–63071830 4 SNPs
+
+[0030] [METHODS] Common lipid-lowering drugs and novel therapies include statins, ezetimibe, PCSK9 inhibitors, bile acid sequestrants, mipomersen, fibrates, angiopoietin-like 3 (ANGPTL3) inhibitors, and antisense oligonucleotides targeting apolipoprotein C-III (APOC3) mRNA (Table 1). The DrugBank database (https://go.drugbank. com/) and related studies were used to identify the genes encoding the pharmacological targets of these drugs. Based on their primary pharmacological effects, these target genes were further categorized into low-density lipoprotein (LDL)-C lowering target genes (LDL receptor (LDLR), HMG-CoA reductase (HMGCR), Niemann-Pick C1-like protein 1 (NPC1L1), PCSK9, apolipoprotein B-100 (APOB), ATP-binding cassette (ABC) transporters G5 (ABCG5) and G8 (ABCG8)), and TG-lowering target genes (lipoprotein lipase (LPL), ANGPTL3, and APOC3) (Table 1).
+
+[0031] [METHODS] For the selection methodology of genetic variation tools, we referred to previous similar studies. In a GWAS meta-analysis by the Global Lipids Genetics Consortium, SNPs identified within the corresponding genes (± 100 kb of the gene location) and strongly associated with LDL-C or TG levels in a genome-wide sense (p < 5 × 10–8), clustered further to an LD threshold of r2 < 0.30 and a physical distance threshold of 100 kb, were selected as proxies for lipid-lowering drug targets. Owing to the proximity of the ABCG5 and ABCG8 genes (ABCG5: chr2:44,039,611-44,065,978 [ensembl]; ABCG8: chr2:44,066,110-44,105,605 [ensembl]), variants near these genes were combined in our analysis. Nine drug targets were identified: i.e. HMGCR, NPC1L1, PCSK9, APOB, ABCG5/ABCG8, LDLR, ANGPTL3, APOC3, and LPL (Table S8).
+
+[0032] [METHODS] For drug targets important for BC risk in the MR analysis, we used eQTLs available for drug target genes as proxies for exposure to each lipid-lowering drug target. eQTLs were obtained at the summary level from the eQTLGen consortium (https://www.eqtlgen.org/) or the GTEx consortium V8 (https://gtexportal.org/), the details of which are provided in Table S2. We identified common (minor allele frequency [MAF] < 1%) SNPs of eQTLs significantly associated with HMGCR expression in blood as well as NPC1L1 expression in adipose tissue (p < 5.0 × 10–8), and only cis-eQTLs were included in the present study to generate the genetic instrumentation, which were defined as encoding eQTL within 1 Mb on either side of the gene.
+
+[0033] [METHODS] Survival analysis
+
+[0034] [METHODS] The Kaplan–Meier plotter database (http://kmplot.com) is a survival analysis tool that integrates data from public databases, including GEO (Gene Expression Omnibus), EGA (European Genome-phenome Archive), TCGA (The Cancer Genome Atlas), and other public databases for breast cancer (BC) patients. This tool can be used to assess disease progression. The 'mRNA gene chip' module was employed to investigate the prognostic value of HMGCR in BC.
+
+[0035] [METHODS] TME and immune cell infiltration
+
+[0036] [METHODS] We calculated the tumor microenvironment (TME) scores for the BC samples using the ‘estimate’ package. We then compared these differences based on HMGCR expression levels. Using the single sample gene set enrichment analysis (ssGSEA) algorithm available in the R package—GSVA, we evaluated 24 immune cells in the BC tissue samples and assessed the correlation between HMGCR expression and them using the spearman analysis using the ‘ggplot2’ package. We used the ‘ggplot2’ and ‘pheatmap’ packages to visualize the correlations.
+
+[0037] [METHODS] Statistical analysis
+
+[0038] [METHODS] In analyses where only a single SNP was available for the construction of instrumental variables, the Wald ratio method was used to derive MR estimates. If multiple SNPs were available to construct instrumental variables, the inverse variance weighting (IVW) method was used as the primary analysis method, because it provided the most accurate and robust estimates.
+
+[0039] [METHODS] To validate the selection of genetic variants as drug targets, positive control analyses were performed using coronary artery disease (CAD) as the endpoint.
+
+[0040] [METHODS] We also performed a series of sensitivity analyses owing to their resilience to violations of certain assumptions underlying the MR study. Heterogeneity and multivalence among the SNPs were assessed using Cochran's Q test and the MR-Egger intercept test. For MR sensitivity analyses, multiple validity residuals and outliers (MR-PRESSO) were used to reduce the bias caused by correlation level pleiotropy. A significance level of p < 0.005 (0.05/9) using Bonferroni correction was used to adjust for multiple testing of the nine drug targets. For the other analyses, the observed 2-sided p < 0.05 was considered statistically significant. All statistical analyses described above were performed using 'TwoSampleMR, 'MRPRESSO' in R (version 4.3.0).
+
+[0041] [METHODS] As lipid-lowering drugs have anti-inflammatory and immunomodulatory properties, and these two properties are closely related to the development of BC, we used a "two-step MR" approach to conduct mediation analysis to explore whether there is a mediating effect (exposure-mediator-outcome pathway) between lipid-lowering drug targets and BC. We used the "coefficient product" method to evaluate the indirect effect of each potential mediator, the effect of lipid-lowering drug targets on BC risk, and the proportion of mediators.
+
+[0042] [RESULTS] Results
+
+[0043] [RESULTS] Lipid traits and BC risk
+
+[0044] [RESULTS] In the discovery dataset, we identified two lipid traits that were causally associated with BC (p < 1.31 × 10–4) and an increase in the level of the phosphatidylcholine (18:1_0:0) was associated with BC risk (odds ratio (OR) = 1.255 [95% confidence interval (CI) 1.120–1.406]; p = 8.936E−05), a finding that was similarly confirmed by the replication cohort (OR = 1.016 [95% CI, 1.003–1.030]; p = 0.017). An increase in associated HDL_C levels was associated with an elevated BC risk (OR = 1.170 [95% CI 1.082–1.264]; p = 7.877E−05). In the replication dataset, this finding was not significant (OR = 1.000 [95% CI, 0.991–1.008]; p = 0.949). The comprehensive MR analysis results for lipid traits are presented in the supplementary tables (S9-S10), while the results of the heterogeneity and pleiotropy tests are detailed in the supplementary tables (S11-S12).
+
+[0045] [RESULTS] Lipid-lowering drug targets and BC risk
+
+[0046] [FIG] Association between genetically proxied drug targets and the risk of breast cancer. Forest plot of the association between a 1-mmol/L (LDL-C, 38.7 mg/dL; TG, 88.9 mg/dL) change in the lipid levels of nine lipid-lowering drug targets with breast cancer risk in the discovery dataset (A), and breast cancer risk in the replication dataset (B). Data are represented as ORs with 95% confidence intervals (error bars). An OR of < 1.00 suggests a decreased risk of disease associated with lipid-lowering drug treatment. Associations are significant after correcting for multiple testing (9 genes, p < 0.05/9). LDL-C low-density lipoprotein cholesterol, TG triglycerides, OR odds ratio, HMGCR HMG-CoA reductase, NPC1L1 Niemann-Pick C1-like protein 1, PCSK9 proprotein convertase subtilisin/kexin type 9, APOB Apolipoprotein B-100, ABCG5 ATP-Binding Cassette Subfamily G Member 5, ABCG8 ATP Binding Cassette Subfamily G Member 8; LDLR LDL Receptor, ANGPTL3 angiopoietin-like 3, APOC3 Apolipoprotein C-III; LPL, lipoprotein lipase
+
+[0047] [RESULTS] In the discovery dataset, HMGCR target inhibition was significantly associated with a lower risk of BC (OR = 0.83 [95% CI 0.752–0.923], p = 5.12 × 10–4) (Fig. 2A). In the replication dataset, we validated this finding (OR = 0.97 [95% CI 0.960–0.990] p = 1.65 × 10–3) (Fig. 2B). In the discovery dataset, NPC1L1 target inhibition was significantly associated with a reduced risk of BC (OR = 0.72 [95% CI 0.575–0.903], p = 4.55 × 10–3), but analyses obtained from the dis replication dataset showed the opposite trend (OR = 1.05 [95% CI 1.024–1.078], p = 1.63 × 10–3) (Fig. 2A, B). PCSK9 target inhibition was significantly associated with a reduced risk of BC in the discovery dataset (OR = 0.90 [95% CI 0.842–0.969], p = 4.55 × 10–3), but this observation was not validated in the replication dataset (OR = 0.99 [95% CI 0.986–1.002], p = 0.20) (Fig. 2A, B). Results for the other five lipid-lowering drug targets (APOB, ABCG5/ABCG8, LPL, ANGPTL3, and APOC3) failed to be corrected by p-value (Fig. 2A, B). Cochran's Q test with the MR-Egger intercept test did not reveal evidence of heterogeneity or multiplicity, which strengthened the causal inference of exposure and outcomes (Tables S13 and S14). Further analyses showed that HMGCR target inhibition was primarily associated with a reduced risk of ER-positive BC (OR: 0.84 [95% CI 0.743–0.949], p = 0.005), and the results of the analyses in the ER-negative BC dataset were not significant (p = 0.07) (Table S15). The positive control studies have demonstrated a clear association between the exposure levels of each drug and coronary heart disease, further validating the effectiveness of the selected genetic instruments (Table S16).
+
+[0048] [RESULTS] Gene expression and BC risk
+
+[0049] [RESULTS] The results of the target analyses were validated using the SMR approach. Results revealed that a 1-SD increase in blood tissue HMGCR expression was associated with a higher risk of BC (OR = 1.11 [CI 95% 1.01–1.22] p = 0.04). Furthermore, given the inconsistent findings on the relationship between enhanced genetic variation in NPC1L1 and BC risk, we further explored this relationship using NPC1L1 expression in adipose tissue; however, the analysis was not significant (OR = 1.04 [CI 95% 1.00–1.08] p = 0.07) (Table S17). The analysis of PCSK9 in blood tissue and breast cancer did not yield statistically significant results (OR = 1.00 [CI 95% 0.93–1.08] p = 0.92).
+
+[0050] [RESULTS] HMGCR is elevated in BC tissues, indicating a poor prognosis
+
+[0051] [FIG] HMGCR expression levels and prognosis in tumors. A HMGCR expression in different cancers from TIMER2.0. B Immunohistochemistry of HMGCR in BC tissue from HPA platforms. C Demonstrates the Cox Proportional Hazards Regression Analysis of HMGCR Gene Expression versus Overall Survival (OS) in Breast Cancer Patients. Through the survival curve, Hazard Ratio (HR), and p-value, it reveals the potential association between HMGCR expression and OS. D Illustrates the Cox Proportional Hazards Regression Analysis of HMGCR Gene Expression versus Relapse-Free Survival (RFS) in Breast Cancer Patients. By integrating the survival curve, HR, and p-value, it analyzes the intrinsic link between HMGCR expression and RFS. E The relationships between HMGCR, immune score, stromal score, and ESTIMATE score. TCGA, The Cancer Genome Atlas; GTEx, Genotype Tissue Expression Project
+
+[0052] [RESULTS] First, we obtained the expression profiles of HMGCR in 33 human tumors from the TIMER2.0 database (http://timer.comp-genomics.org/timer/) and found that HMGCR was aberrantly expressed in many types of human tumors, including BC, indicating that HMGCR is a tumor-associated gene (Fig. 3A). We compared the expression profile of HMGCR in BC tissues with that in normal tissues and found that HMGCR expression was significantly increased in BC. The immunohistochemistry data presented in Fig. 3E are derived from the Human Protein Atlas (HPA). The results demonstrate an increase in HMGCR expression compared to the control group. However, as no statistical analyses were conducted, it was not possible to ascertain whether this increase reached a statistically significant level (Fig. 3B). We then performed survival analyses based on survival time and HMGCR expression profiles in the Kaplan–Meier Plotter database (http://kmplot.com/analysis/), which showed that a high HMGCR expression group was associated with a poorer prognosis for patients (Fig. 3C, D). Overall, HMGCR expression was elevated in BC tissues, indicating a poor prognosis.
+
+[0053] [RESULTS] Correlation of HMGCR expression with immune characteristics
+
+[0054] [FIG] Correlation between HMGCR expression and immune characteristics A, B Correlation between HMGCR expression and the relative abundance of 24 immune cells. Dot size corresponds to the absolute value of the Spearman correlation coefficient. C Correlation between relative enrichment scores of immune cells (including Tcm cells, Th2 cells, T helper cells, eosinophils, mast cells, pDC cytotoxic cells, B cells, CD8 T cells, DC, T cells, CD56dim cells, aDC, TReg, TFH) and HMGCR expression. Tcm T central memory, Th2 T helper 2, pDC pre-dendritic cells, DC dendritic cells, aDC activated DCs, TReg regulatory T cells, TFH T follicular helper
+
+[0055] [RESULTS] We investigated the correlation between HMGCR and immune profiles. Correlations between HMGCR and TME were determined using the Stroma Score (SS), Immunity Score (IS) and ESTIMATE scores. The results showed a negative correlation between HMGCR and immune status in the IS and ESTIMATE scores (Fig. 3E). subsequently We investigated the relationship between immune cell infiltration and HMGCR expression profiles and found that HMGCR expression was associated with various immune cell infiltrations (Fig. 4A, B). Next, we analyzed the correlation between these immune cells and HMGCR expression (Fig. 4C). Among them, T central memory(Tcm), T helper 2(Th2)cells, T helper cells, eosinophils, mast cells, Tgd were positively correlated with HMGCR, while pre-dendritic cells(pDC), cytotoxic cells, B cells, CD8T cells, dendritic cells(DC), T cells, NK CD56dim cells, activated DCs(aDC), regulatory T cells(Tregs), T follicular helper(TFH), T helper 1(Th1) cells, induced dendritic cells(iDC), NK CD56bright cells, effective Memory T Cell(Tem), NK cells, and neutrophils were negatively associated with their expression.
+
+[0056] [RESULTS] Mediation analysis
+
+[0057] [RESULTS] Considering that differential expression of HMGCR targets was significantly associated with multiple immune cell infiltrations, it is reasonable to speculate that inhibitors of HMGCR targets may lead to a reduced risk of BC by altering immune function. Further analyses were performed to explore potential mediators between inhibitors of HMGCR targets and BC causality. We performed mediation analyses of 731 immune cell phenotypes using GWAS data as mediators. The GWAS Catalog (GCST90001391–GCST90002121) summarizes the GWAS statistics for each immune characteristic. It contains comprehensive data collected from 3757 Europeans and consists of 731 immune phenotypes.
+
+[0058] [FIG] Circular heatmap of the effect of HMGCR inhibitors on immune cell and inflammatory factor phenotypes and the effect of immune cell and inflammatory factor phenotypes on breast cancer. A Effects of HMGCR inhibitors on immune cell phenotype. B Effects of immune cell phenotype on breast cancer. C Effects of HMGCR inhibitors on inflammatory factor phenotype. D Effects of inflammatory factor phenotype on breast cancer. The right-hand parameter represents the p-value for each of the five analyses, which serve to illustrate the degree of significance associated with each. IVW Inverse Variance Weighted, WM Weighted Median, WMODE Weighted mode, SM Simple mode
+
+[0059] [RESULTS] Our analysis showed that HMGCR-targeting inhibitors were positively associated with 61 immune cell phenotypes (OR > 1, p < 0.05) and the remaining significant 52 traits were negatively associated with HMGCR-targeting inhibitors (OR < 1, p < 0.05) (Table S18). Subsequently, in our MR analysis of immune cell phenotypes and BC, we found that 18 phenotypes were positively associated with the risk of BC (OR > 1, p < 0.05), and 22 immune cell phenotypes were associated with a reduced risk of BC (OR < 1, p < 0.05) (Fig. 5A, B) (Table S19). In subsequent calculations, the HMGCR target inhibitors were shown to be effective in modulating three immune cell phenotypes (including " IgD + CD38 + B cell Absolute Count " (mediation proportion: 7.72%), "Transitional B cell Absolute Count" (mediation proportion: 12.3%), "HLA DR on CD33- HLA DR + " (mediation proportion: 9.99%)) to reduce the risk of BC.
+
+[0060] [RESULTS] GWAS data for 91 circulating inflammatory proteins were summarized from a meta-analysis including 14,824 participants of the European descent from 11 independent cohorts (accession numbers GCST90274758 to GCST90274848). Furthermore, we added C-reactive protein (CRP), a commonly used inflammatory marker, as it was not included in this study. The results showed that HMGCR inhibitors had a positive causal relationship with eight inflammatory factors (OR > 1, p < 0.05) and a negative causal relationship with 12 inflammatory factor phenotypes (OR < 1, p < 0.05) (Table S20). Further analysis suggested that five inflammatory factor phenotypes were positively causally associated with BC and eight inflammatory factor phenotypes were negatively causally associated with BC (Fig. 5C, D) (Table S21). We found that only CRP level (mediation ratio: 7.42%) had a significant mediating effect.
+
+[0061] [DISCUSS] Discussion
+
+[0062] [DISCUSS] In this study, we first performed a MR analysis of 431 lipid and lipid-related phenotypes in relation to BC and found that phosphatidylcholine (18:1_0:0) levels were positively correlated with the risk of BC. Subsequently, In the drug-target analysis, HMGCR was identified as a drug target that significantly reduces the risk of BC. This finding was validated using different methods for constructing genetic instruments and two independent BC datasets. Our study provides strong evidence that HMGCR is a promising drug target for reducing the risk of BC, particularly ER-positive BC.
+
+[0063] [DISCUSS] By integrating multiple bioinformatics methods, we performed further exploratory analyses to identify the biological functions and potential regulatory mechanisms of HMGCR in BC.We found that the expression level of HMGCR was upregulated in BC, high expression of HMGCR was correlated with poorer overall survival(OS) and relapse-free survival(RFS) in BC, and the expression level of HMGCR was correlated with a variety of immune-infiltrating cells. Based on this finding, we conducted a mediation analysis and found that HMGCR inhibitors reduced the risk of BC by affecting a variety of immune cell phenotypes and regulating CRP levels.
+
+[0064] [DISCUSS] The effects of elevated LDL-C, TG, and TC levels on the risk of total and ER-positive BCs were markedly heterogeneous according to the study design, menopausal status, and subject body mass index. Regarding the inherent bias of residual confounding and reverse causation in observational studies, MR is an increasingly used methodology that uses genetic variants as instrumental variables to draw definitive conclusions regarding the causality of the association between exposure and disease. MR takes advantage of the random assignment of genetic alleles affecting exposure, which can avoid reverse causality bias and minimize confounding by other determinants in a manner similar to that of randomized controlled trials. In this study, we minimized the bias caused by observational study confounders. The results of previous MR studies have been controversial and we adopted a more rigorous analytical strategy using two independent GWAS datasets for validation. Based on the available evidence, we found that LDL-C, TG, and TC may not be considered causative risk factors for BC, implying that LDL-C, TG, and TC levels do not independently affect BC, which is consistent with the results of previous MR and observational studies. Meanwhile, we found for the first time that phosphatidylcholine (18:1_0:0) levels were associated with BC risk using GWAS data from 428 liposomes.
+
+[0065] [DISCUSS] Compared with a previous MR study reported by SUN, we used two independent sets of GWAS results data and further validated them using SMR analysis to extend the analysis to nine common lipid-lowering drug targets. The results of this study support the idea that HMGCR inhibitors can reduce the risk of BC, and HMGCR inhibitors may be recommended to reduce the incidence of BC, especially ER-positive BC, in women with hyperlipidemia. This is consistent with the results of a multicenter prospective cohort study and preclinical evidence that statins can reduce breast cancer cell growth and induce apoptosis in various experimental models. In addition, several epidemiological studies have confirmed the correlation between the use of statins and the reduction in the risk of disease recurrence after adjuvant therapy, and the use of cholesterol-lowering drugs at the same time of adjuvant endocrine therapy in patients with hormone receptor-positive early breast cancer may have a certain role in the prevention of breast cancer recurrence. In our study, lipid-lowering agents were associated with a reduced risk of BC in ER + , a finding that provides an initial qualification of the population for whom lipid-lowering agents would benefit. Consistent is previous studies reporting that statins may be particularly associated with ER + BC. Cholesterol is the building block of hormones (such as estrogen and progesterone) and the recently discovered selective endogenous estrogen receptor modulator (SERM), 27-hydroxycholesterol, which is associated with ER-dependent tumor proliferation and immune escape. Therefore, inhibition of cholesterol synthesis may lead to decreased cell proliferation in hormone receptor-positive breast tumors.
+
+[0066] [DISCUSS] Statins are HMGCR inhibitors, a class of drugs containing a naphthyl ring backbone structure that regulate plasma lipoprotein concentrations by inhibiting cholesterol synthesis. Because the hydrophilic moiety of statins resembles the HMG portion of the substrate, statins can be used as competitive inhibitors of HMG-CoA. Statins play a role in diseases such as diabetes mellitus, neurological disorders, and neoplasms. Such drugs have the potential to alter the patterns of cholesterol synthesis and isoprenylation by controlling the mevalonate pathway, thereby affecting the functions of proteins and oncoproteins that regulate proliferation, migration, invasion, cell cycle, cell fate, and apoptosis. Furthermore, HMGCR inhibitors have been demonstrated to possess notable anti-inflammatory and immunomodulatory properties, which ultimately result in anti-tumour effects. Specifically, such inhibitors are capable of engaging the immune system, restoring the capacity to monitor tumour cells and enhancing the immunogenicity of tumour cells, thereby enhancing the anti-tumour response of the immune system. Our preliminary studies indicate a potential correlation between HMGCR expression and the presence of immune cells in the breast cancer tumour microenvironment. This finding is of particular interest as the level of cholesterol synthesis and metabolism exerts a profound effect on the function of immune cells, including their ability to migrate to the tumour site, their recognition of cancer cells, and the signalling pathways within the immune cells. These changes may upset the balance between immunosuppression and anti-tumour immune responses, which in turn has important implications for breast cancer (BC) risk.
+
+[0067] [DISCUSS] Moreover, previous studies have identified the cholesterol metabolite 27-hydroxycholesterol (27HC) as a principal mediator of cholesterol's influence on the growth and progression of breast tumours. 27HC contributes to tumour progression by acting as a ligand for the liver X receptor in myeloid immune cells, thereby establishing an immunosuppressive programme and modifying the tumour microenvironment through exosome-dependent and non-exosome-independent mechanisms. Choe et al. demonstrated that atorvastatin, an HMGCR inhibitor, effectively enhanced the anti-tumour immune response and inhibited the immune escape of T cells by decreasing PD-L1 expression and reducing the secretion of extracellular vesicles (EVs). The mediator MR analysis in this study suggests that HMGCR inhibitors may reduce the incidence of BC by modulating three immune phenotypes: IgD + CD38 + B cell absolute count, transitional B cell absolute count, and HLA DR in CD33- HLA DR + myeloid cells. We did not identify their mechanism of action in BC; however, in some cases, they may play a role in immune function modulation.
+
+[0068] [DISCUSS] Chronic inflammation promotes cancer development. Mechanisms by which inflammation promotes tumorigenesis include the induction of growth factors that produce proliferation, pro-angiogenic growth factors, and the promotion of the epithelial-mesenchymal transition. Specifically, chronic inflammation may increase the risk of BC through activation of redox-sensitive transcription factors, augmentation of local estrogen production, and induction of angiogenesis. Statins exert anti-inflammatory effects. The main mechanisms include inhibition of neutrophil migration, oxidative stress, suppression of the intrinsic immune response, and increased expression of pro-inflammatory cytokines (interleukin (IL)-10, hepatocyte growth factor (HGF), and transforming growth factor β1 (TGF-β1). Our study confirmed that HMGCR can affect multiple inflammatory factor phenotypes and that multiple inflammatory phenotypes are associated with the risk of BC, with CRP as a significant mediator.
+
+[0069] [DISCUSS] Our study also has some limitations. MR estimates represent long-term modulation of disease risk by drug targets, which may suggest that they are not capable of reflecting the relationship between lipid-lowering drugs and BC risk over time; therefore, the results observed in clinical studies may differ from the results of the present study. Horizontal pleiotropy could not be completely ruled out in the present study despite the fact that various sensitivity analyses were performed to test the hypotheses of the MR analysis. Finally, because all data in our study were obtained from individuals of the European ancestry, this somewhat circumvents the heterogeneity that exists between different ethnic groups; however, the results of this study may not be applicable to other ethnic groups.
+
+[0070] [DISCUSS] In conclusion, this study is the first to demonstrate that phosphatidylcholine (18:1_0:0) levels are associated with the risk of BC, suggesting that HMGCR inhibitors are associated with a reduced risk of BC, and part of the mechanism may be through pathways other than lipid-lowering efficacy, such as modulating immune function and inflammatory factors. This study provides evidence for further exploration of the relationship between HMGCR inhibitors and BC.
+
+[0071] [SUPPL] Supplementary Information
+
+[0072] [SUPPL] Publisher's Note
+
+[0073] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0074] [AUTH_CONT] Author contributions
+
+[0075] [AUTH_CONT] THW and YY conceived and designed the study; XHG and LJL acquired the data. CGS obtained funding. HL and XW did the data analysis and verified the underlying data. All authors drafted the manuscript, revised and approved the final manuscript.
+
+[0076] [ACK_FUND] Funding
+
+[0077] [ACK_FUND] This study was funded by the Natural Science Foundation of Shandong Province (ZR2021LZY015), Shandong Province Taishan Scholars Specially Appointed Expert Talent Project (tstp20221166).
+
+[0078] [SUPPL] Data availability
+
+[0079] [SUPPL] The data that support the findings of this study are publicly available. The sources have been summarized in Supplementary File Table S2.
+
+[0080] [SUPPL] Declarations
+
+[0081] [SUPPL] Ethics approval and consent to participate
+
+[0082] [SUPPL] Data sources were based on publicly available summary- level data from the GWAS study and expression quantitative trait loci (eQTL) study, which were desensitized before uploading and did not involve personal privacy or identifiable information. This study did not involve confidential information and data and informed consent authorization of the institution; thus, no approval from the ethical review board was required.
+
+[0083] [SUPPL] Consent for publication
+
+[0084] [SUPPL] Not applicable.
+
+[0085] [COMP_INT] Competing interests
+
+[0086] [COMP_INT] The authors declare no competing interests.
+
+[0087] [REF] References
+
+[0088] [REF] Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries
+
+[0089] [REF] Global patterns of breast cancer incidence and mortality: a population-based cancer registry data analysis from 2000 to 2020
+
+[0090] [REF] LDL, HDL and endocrine-related cancer: from pathogenic mechanisms to therapies
+
+[0091] [REF] Prospective associations between serum biomarkers of lipid metabolism and overall, breast and prostate cancer risk
+
+[0092] [REF] Cholesterol and breast cancer risk: a systematic review and meta-analysis of prospective studies
+
+[0093] [REF] Lipid biomarkers and long-term risk of cancer in the Women’s Health Study
+
+[0094] [REF] Low-density lipoprotein cholesterol and the risk of cancer: a mendelian randomization study
+
+[0095] [REF] Efficacy and safety of further lowering of low-density lipoprotein cholesterol in patients starting with very low levels: a meta-analysis
+
+[0096] [REF] 2013 ACC/AHA guideline on the assessment of cardiovascular risk: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines
+
+[0097] [REF] New onset diabetes mellitus induced by statins: current evidence
+
+[0098] [REF] Statins in stroke prevention: present and future
+
+[0099] [REF] Simvastatin suppresses proliferation and migration in non-small cell lung cancer via pyroptosis
+
+[0100] [REF] The statins as anticancer agents
+
+[0101] [REF] Lovastatin causes FaDu hypopharyngeal carcinoma cell death via AMPK-p63-survivin signaling cascade
+
+[0102] [REF] Anti-inflammatory action of statins in cardiovascular disease: the role of inflammasome and toll-like receptor pathways
+
+[0103] [REF] Atorvastatin facilitates chemotherapy effects in metastatic triple-negative breast cancer
+
+[0104] [REF] Statins attenuate outgrowth of breast cancer metastases
+
+[0105] [REF] Statin use, cholesterol level, and mortality among females with breast cancer
+
+[0106] [REF] Statins use and risk of breast cancer recurrence and death: a systematic review and meta-analysis of observational studies
+
+[0107] [REF] The effect of pravastatin on coronary events after myocardial infarction in patients with average cholesterol levels
+
+[0108] [REF] Statin use and breast cancer: prospective results from the Women’s Health Initiative
+
+[0109] [REF] Long-term use of cholesterol-lowering drugs and cancer incidence in a large United States cohort
+
+[0110] [REF] Lipid changes during endocrine therapy in early-stage breast cancer patients: A real-world study
+
+[0111] [REF] Lipid-lowering drug use and breast cancer in older women: a prospective study
+
+[0112] [REF] Mendelian randomization: using genes as instruments for making causal inferences in epidemiology
+
+[0113] [REF] “Mendelian randomization”: can genetic epidemiology contribute to understanding environmental determinants of disease?
+
+[0114] [REF] Genetic drug target validation using Mendelian randomisation
+
+[0115] [REF] Validating therapeutic targets through human genetics
+
+[0116] [REF] Genetically predicted 486 blood metabolites concerning risk of systemic lupus erythematosus: a Mendelian randomization study
+
+[0117] [REF] Sleep disturbance and psychiatric disorders: a bidirectional Mendelian randomisation study
+
+[0118] [REF] Mendelian randomization
+
+[0119] [REF] Strengthening the reporting of observational studies in epidemiology using mendelian randomization: the STROBE-MR statement
+
+[0120] [REF] Genome-wide association analysis of plasma lipidome identifies 495 genetic associations
+
+[0121] [REF] Characterising metabolomic signatures of lipid-modifying therapies through drug target mendelian randomisation
+
+[0122] [REF] Discovery and refinement of loci associated with lipid levels
+
+[0123] [REF] Association analysis identifies 65 new breast cancer risk loci
+
+[0124] [REF] Michailidou K, Hall P, Gonzalez-Neira A, Ghoussaini M, Dennis J, Milne RL, et al. Large-scale genotyping identifies 41 new loci associated with breast cancer risk. Nat Genet. 2013;45:353–61, 361e1-1. 10.1038/ng.2563.
+
+[0125] [REF] Kimberley Burrows, Philip Haycock. Genome-wide Association Study of Cancer Risk in UK Biobank. 10.5523/bris.aed0u12w0ede20olb0m77p4b9 n.d.
+
+[0126] [REF] UK biobank: an open access resource for identifying the causes of a wide range of complex diseases of middle and old age
+
+[0127] [REF] Association between testosterone and cancers risk in women: a two-sample Mendelian randomization study
+
+[0128] [REF] de Klerk JA, Beulens JWJ, Mei H, Bijkerk R, van Zonneveld AJ, Koivula RW, Elders PJM, ’t Hart LM, Slieker RC. Altered blood gene expression in the obesity-related type 2 diabetes cluster may be causally involved in lipid metabolism: a Mendelian randomisation study. Diabetologia. 2023;66:1057–70. 10.1007/s00125-023-05886-8.
+
+[0129] [REF] 2018 AHA/ACC/AACVPR/AAPA/ABC/ACPM/ADA/AGS/APhA/ASPC/NLA/PCNA guideline on the management of blood cholesterol: a report of the American College of Cardiology/American Heart Association Task Force on Clinical Practice Guidelines
+
+[0130] [REF] 2019 ESC/EAS Guidelines for the management of dyslipidaemias: lipid modification to reduce cardiovascular risk
+
+[0131] [REF] LDL cholesterol: controversies and future therapeutic directions
+
+[0132] [REF] Ross S, D’Mello M, Anand SS, Eikelboom J, CARDIoGRAMplusC4D Consortium, Stewart AFR, Samani NJ, Roberts R, Paré G. Effect of Bile Acid Sequestrants on the Risk of Cardiovascular Events: A Mendelian Randomization Analysis. Circ Cardiovasc Genet. 2015;8:618–27. 10.1161/CIRCGENETICS.114.000952.
+
+[0133] [REF] Metabolism of triglyceride-rich lipoproteins in health and dyslipidaemia
+
+[0134] [REF] Mendelian randomization study of PCSK9 and HMG-CoA reductase inhibition and cognitive function
+
+[0135] [REF] Association of lipid-lowering drugs with COVID-19 outcomes from a Mendelian randomization study
+
+[0136] [REF] Inferring tumour purity and stromal and immune cell admixture from expression data
+
+[0137] [REF] Spatiotemporal dynamics of intratumoral immune cells reveal the immune landscape in human cancer
+
+[0138] [REF] Burgess S, Davey Smith G, Davies NM, Dudbridge F, Gill D, Glymour MM, Hartwig FP, Kutalik Z, Holmes MV, Minelli C, Morrison JV, Pan W, Relton CL, Theodoratou E. Guidelines for performing Mendelian randomization investigations: update for summer 2023. Wellcome Open Res. 2019;4:186. 10.12688/wellcomeopenres.15555.3.
+
+[0139] [REF] A comprehensive 1,000 Genomes-based genome-wide association meta-analysis of coronary artery disease
+
+[0140] [REF] Interpreting findings from Mendelian randomization using the MR-Egger method
+
+[0141] [REF] Mendelian randomization with invalid instruments: effect estimation and bias detection through Egger regression
+
+[0142] [REF] Immunotropic effects and proposed mechanism of action for 3-hydroxy-3-methylglutaryl-coenzyme a reductase inhibitors (Statins)
+
+[0143] [REF] The immune system and inflammation in breast cancer
+
+[0144] [REF] Systematic Mendelian randomization using the human plasma proteome to discover potential therapeutic targets for stroke
+
+[0145] [REF] Survival analysis across the entire transcriptome identifies biomarkers with the highest prognostic power in breast cancer
+
+[0146] [REF] Complex genetic signatures in immune cells underlie autoimmunity and inform therapy
+
+[0147] [REF] Genetics of circulating inflammatory proteins identifies drivers of immune-mediated disease risk and therapeutic targets
+
+[0148] [REF] Serum lipids and breast cancer risk: a meta-analysis of prospective cohort studies
+
+[0149] [REF] Reading Mendelian randomisation studies: a guide, glossary, and checklist for clinicians
+
+[0150] [REF] Mendelian randomisation in cardiovascular research: an introduction for clinicians
+
+[0151] [REF] Johnson KE, Siewert KM, Klarin D, Damrauer SM, the VA Million Veteran Program, Chang K-M, Tsao PS, Assimes TL, Maxwell KN, Voight BF. The relationship between circulating lipids and breast cancer risk: A Mendelian randomization study. PLoS Med. 2020;17:e1003302. 10.1371/journal.pmed.1003302.
+
+[0152] [REF] Serum lipids, lipoproteins, and risk of breast cancer: a nested case-control study using multiple time points
+
+[0153] [REF] A Mendelian randomization analysis of circulating lipid traits and breast cancer risk
+
+[0154] [REF] Nutrition, lipidic parameters, and cancer risk and progress
+
+[0155] [REF] Associations of genetically proxied inhibition of HMG-CoA reductase, NPC1L1, and PCSK9 with breast cancer and prostate cancer
+
+[0156] [REF] Breast cancer growth prevention by statins
+
+[0157] [REF] Identifying molecular features that distinguish fluvastatin-sensitive breast tumor cells
+
+[0158] [REF] 27-Hydroxycholesterol links hypercholesterolemia and breast cancer pathophysiology
+
+[0159] [REF] Simvastatin-induced breast cancer cell death and deactivation of PI3K/Akt and MAPK/ERK signalling are reversed by metabolic products of the mevalonate pathway
+
+[0160] [REF] Reduced risk of breast cancer recurrence in patients using ACE inhibitors, ARBs, and/or statins
+
+[0161] [REF] Comparative safety of cardiovascular medication use and breast cancer outcomes among women with early stage breast cancer
+
+[0162] [REF] Cholesterol, cholesterol-lowering medication use, and breast cancer outcome in the BIG 1–98 study
+
+[0163] [REF] Statins: a role in breast cancer therapy?
+
+[0164] [REF] The cholesterol metabolite 27 hydroxycholesterol facilitates breast cancer metastasis through its actions on immune cells
+
+[0165] [REF] On estrogen, cholesterol metabolism, and breast cancer
+
+[0166] [REF] Statins for primary prevention of cardiovascular disease: review of evidence and recommendations for clinical practice
+
+[0167] [REF] Intensive statin treatment in acute ischaemic stroke patients with intracranial atherosclerosis: a high-resolution magnetic resonance imaging study (STAMINA-MRI Study)
+
+[0168] [REF] Statins: pros and cons
+
+[0169] [REF] Evaluation of the cytotoxic and autophagic effects of atorvastatin on MCF-7 breast cancer cells
+
+[0170] [REF] Investigation of simvastatin-induced apoptosis and cell cycle arrest in cancer stem cells of MCF-7
+
+[0171] [REF] Statin-dependent modulation of mitochondrial metabolism in cancer cells is independent of cholesterol content
+
+[0172] [REF] Simvastatin, at clinically relevant concentrations, affects human uterine leiomyoma growth and extracellular matrix production
+
+[0173] [REF] Novel prospects of statins as therapeutic agents in cancer
+
+[0174] [REF] Mevalonate metabolism in cancer
+
+[0175] [REF] The cholesterol metabolite 27HC increases secretion of extracellular vesicles which promote breast cancer progression
+
+[0176] [REF] Rab27a supports exosome-dependent and -independent mechanisms that modify the tumor microenvironment and can promote tumor progression
+
+[0177] [REF] Atorvastatin enhances the efficacy of immune checkpoint therapy and suppresses the cellular and extracellular vesicle PD-L1
+
+[0178] [REF] IL-10-produced by human transitional B-cells down-regulates CD86 expression on B-cells leading to inhibition of CD4+T-cell responses
+
+[0179] [REF] CD24-Siglec interactions in inflammatory diseases
+
+[0180] [REF] Apoptotic tumor cells induce IL-27 release from human DCs to activate Treg cells that express CD69 and attenuate cytotoxicity
+
+[0181] [REF] Hallmarks of cancer: the next generation
+
+[0182] [REF] C-reactive protein and risk of breast cancer
+
+[0183] [REF] Statin-regulated phagocytosis and efferocytosis in physiological and pathological conditions
+
+[0184] [REF] Pravastatin up-regulates transforming growth factor-beta1 in THP-1 human macrophages: effect on scavenger receptor class A expression
+
+[0185] [REF] Effect of statins on toll-like receptors: a new insight to pleiotropic effects
+
+[0186] [REF] Statins as anti-pyroptotic agents

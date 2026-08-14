@@ -1,0 +1,301 @@
+[0001] [TITLE] From early-onset asthma to chronic obstructive pulmonary disease: potential mediating proteins and therapeutic targets
+
+[0002] [ABSTRACT] Abstract
+
+[0003] [ABSTRACT] Background and objective
+
+[0004] [ABSTRACT] Early-onset asthma (EOA) significantly increases the risk of chronic obstructive pulmonary disease (COPD), yet the causal mechanisms and molecular mediators underlying this progression remain poorly understood. Multi-omics integration provides a powerful framework for prioritizing potential mediating proteins and disease-specific therapeutic candidates.
+
+[0005] [ABSTRACT] Methods
+
+[0006] [ABSTRACT] This study integrated large-scale genetic and proteomic data using Mendelian randomization (MR) approaches to investigate the progression from EOA to COPD. Proteome-wide MR evaluated protein quantitative trait loci (pQTLs) in relation to EOA and COPD risk, with mediation analysis evaluating their roles and single-cell transcriptomics defining the cell-type-specific expression of the mediating proteins. Finally, colocalization, multi-tissue expression quantitative trait loci (eQTLs), and druggability assessment were used to prioritize potential disease-specific therapeutic targets.
+
+[0007] [ABSTRACT] Results
+
+[0008] [ABSTRACT] Evidence from genetic instruments supports a causal relationship between EOA and COPD. Proteome-wide analyses of 7847 pQTLs identified 339 proteins with potential effects on EOA and 389 on COPD. Six proteins, KREMEN1, BLMH, CNTN5, IL1RN, MIA, and PILRA, showed statistically significant mediation effects in the EOA-to-COPD pathway. PILRA strongly colocalized at shared genetic loci between the two diseases and was significantly downregulated in macrophages from COPD patients. For disease-specific targets, immune-tissue eQTL validation supported ITPKA in EOA. Integration of druggability assessment with multi-tissue eQTL analyses prioritized FES, CCN3, NMI, and NMT1 as promising therapeutic candidates for COPD.
+
+[0009] [ABSTRACT] Conclusion
+
+[0010] [ABSTRACT] These findings provide genetic evidence supporting a causal relationship between EOA and COPD, reveal putative mediating proteins, and prioritize therapeutic candidates with translational potential, offering new insights into pathogenesis, prevention, and intervention.
+
+[0011] [INTRO] Introduction
+
+[0012] [INTRO] Chronic respiratory diseases (CRDs) constitute a major category of noncommunicable diseases and impose a substantial burden on global health and population well-being. Among CRDs, chronic obstructive pulmonary disease (COPD) accounts for the largest proportion of CRD-related mortality, whereas asthma exhibits the highest prevalence worldwide. According to the Global Burden of Disease study, the age-standardized prevalence of asthma is 3340 cases per 100 000 population, with early-onset asthma (EOA), typically diagnosed during childhood or adolescence, accounting for a considerable proportion. In contrast, COPD predominantly affects older adults and has an age-standardized mortality of 45.22 per 100 000. Both conditions impact hundreds of millions of people globally and contribute substantially to disability-adjusted life years.
+
+[0013] [INTRO] Beyond their substantial disease burden, asthma and COPD are epidemiologically associated. Longitudinal cohorts indicate that EOA is associated with both a markedly increased risk of subsequent COPD and an overall decline in lung function, leading to more severe clinical outcomes. However, these observational findings are often confounded by various factors, limiting the ability to draw definitive conclusions regarding causality. Prospective multi-omics cohort studies tracking the progression from EOA to adult COPD typically require long-term follow-up and substantial resources, which pose considerable challenges for large-scale implementation. Therefore, the molecular mechanisms that facilitate the transition from asthma to COPD remain poorly characterized, hindering the development of effective early intervention strategies.
+
+[0014] [INTRO] Therapeutically, current strategies mainly aim at symptom control and slowing disease progression. Although inhaled glucocorticoids and other conventional therapies can significantly relieve symptoms in some patients, a portion of severe cases respond poorly, and long-term or high-dose use may cause serious adverse effects, such as osteoporosis, thromboembolic events, and gastrointestinal perforation, which can markedly impact patients’ quality of life. In recent years, molecular targeted therapies have provided new insights into disease mechanisms and enabled precision interventions. However, currently identified or approved targeted treatments remain limited, mostly focusing on specific inflammatory pathways. For example, anti-immunoglobulin E (IgE) and anti-interleukin 5 therapies are effective only in a subset of severe asthma patients characterized by specific immunological profiles, such as high IgE or elevated blood eosinophils. This highlights the urgent need to uncover novel molecular targets with broader and more reliable therapeutic potential.
+
+[0015] [INTRO] Conventional epidemiological studies can identify potential drug targets, but many seemingly associated biomarkers are not truly causal, resulting in the failure of numerous drugs in phase II/III clinical trials due to insufficient efficacy. Several studies have shown that genetically supported targets have a success rate at least twice as high as that of unsupported targets, with greater translational reliability, lower costs, and shorter development timelines, thereby significantly improving research efficiency. Building on these considerations, this study integrates extensive genetic and multi-omics data and employs a stepwise analytical approach centered on genetic causal inference, complemented by functional and expression-based evidence, to explore the potential causal relationship between EOA and COPD, suggest mediating proteins, and prioritize disease-specific therapeutic targets.
+
+[0016] [METHODS] Materials and methods
+
+[0017] [METHODS] The study was structured in three stages. First, we evaluated potential causal relationships by applying two-sample Mendelian randomization (MR) to assess and validate the causal effect of EOA on COPD, and performing proteome-wide MR to identify cis-protein quantitative trait loci (pQTLs) associated with these diseases. Second, we investigated mediating proteins by incorporating pQTLs into mediation analyses, validating mediating loci through colocalization, and delineating the cell-type-specific expression patterns using single-cell RNA sequencing (scRNA-seq). Third, we prioritized disease-specific therapeutic targets by confirming causal links between pQTLs and disease via Bayesian colocalization, multi-tissue cis-expression quantitative trait loci (eQTLs) analyses, and assessing druggability to shed light on potential biological mechanisms. The overall study design is illustrated in Fig. 1.
+
+[0018] [FIG] Overview of study design. A schematic representation of the study design, structured in three sequential stages: (i) evaluation of potential causal relationships: two-sample MR is applied to assess and validate the causal effect of EOA on COPD, while proteome-wide MR is conducted to identify cis-pQTLs associated with these diseases. (ii) Investigation of mediating proteins: candidate pQTLs are integrated into mediation analyses, with colocalization providing genetic validation of mediating loci. Single-cell RNA sequencing is leveraged to define cell-type-specific expression patterns of the mediating proteins. (iii) Prioritization of disease-specific therapeutic targets: Bayesian colocalization is used to confirm causal links between cis-pQTLs and disease, while multi-tissue eQTLs analyses combined with druggability assessment elucidate potential underlying biological mechanisms. (Created in BioRender.com. Yuhan, J. (2026) https://BioRender.com/44b7oia).
+
+[0019] [METHODS] Integration and meta-analysis of genome-wide association studies
+
+[0020] [METHODS] All genome-wide association study (GWAS) datasets were derived from large-scale cohort studies, with EOA data sourced from the FinnGen, comprising 7537 cases and 238 922 controls. GWAS data for COPD were sourced from three cohorts: the Million Veteran Program (MVP; 103 054 cases and 315 450 controls), FinnGen (21 617 cases and 372 627 controls), and the UK Biobank (UKBB; 11 536 cases and 408 995 controls). pQTLs were obtained from two large-scale sources: the UKBB and deCODE Genetics. The UKBB dataset, generated by the Pharma Proteomics Project, quantified 2940 plasma proteins in 34 557 participants using the Olink platform, while the deCODE dataset included 35 559 Icelandic individuals with 4907 aptamers measured via the SomaScan platform. All participants across cohorts were of European ancestry. Among these datasets, 1815 proteins were measured in both cohorts, providing an opportunity for cross-cohort validation. Further details are provided in Table S1.
+
+[0021] [METHODS] To increase statistical power, we performed a meta-analysis of COPD GWAS data using METAL under a fixed-effects model weighted by effective sample size. Heterogeneity across cohorts was assessed using Cochran’s Q statistic and I2. To ensure the reliability of the results, genomic control was applied to correct for population stratification and other confounding factors. Linkage disequilibrium score regression (LDSC) was subsequently performed to evaluate the overall quality of the GWAS results and to distinguish inflation driven by true polygenic signals from residual nonbiological confounding.
+
+[0022] [METHODS] Notably, to avoid sample overlap with the exposure GWAS, two separate meta-analyses for COPD were conducted: META1 Cohort, combining the UKBB and MVP cohorts to assess the association with EOA; and META2 Cohort, combining the FinnGen and MVP cohorts for the proteome-wide MR analyses.
+
+[0023] [METHODS] Two-sample Mendelian randomization
+
+[0024] [METHODS] Two-sample MR analyses were conducted using the “TwoSampleMR” R package, with the study design adhering to the three core assumptions of MR: relevance, independence, and exclusion restriction. Instrumental variables (IVs) were selected using strict criteria: (i) single-nucleotide polymorphisms (SNPs) significantly associated with exposure (P ≤ 5 × 10−8) and not significantly associated with outcome (P > 5 × 10−8); (ii) linkage disequilibrium clumping was performed using UK10K, retaining independent SNPs with r2 < 0.001 for each exposure. Notably, to minimize potential pleiotropic effects arising from the shared genetic architecture between EOA and COPD, we used FUMA to annotate the IVs for exposures and excluded overlapping SNPs. For the proteome-wide MR analysis, cis-pQTLs were selected as IVs to reduce pleiotropy and improve biological interpretability. Cis-pQTLs were defined as SNPs located within a 1 Mb window flanking the transcription start site of the corresponding protein-coding gene. Subsequently, MR-PRESSO was used to assess pleiotropy and remove outlier IVs. IVs with F-statistics <10 were considered weak instruments and excluded from further analyses.
+
+[0025] [METHODS] Multiple analytical methods and sensitivity analyses were applied to ensure robustness. For the primary MR analysis, the inverse variance weighted (IVW) method was employed for proteins with multiple IVs, while the Wald ratio method was applied for proteins with a single IV. Subsequently, sensitivity analyses were performed to assess potential heterogeneity and horizontal pleiotropy. In cases where horizontal pleiotropy was detected, MR-Egger was employed to evaluate potential bias. When significant heterogeneity was observed, multiplicative random-effects IVW and weighted median methods were applied to ensure the robustness of the results. Furthermore, the complementary methods, such as the simple mode and weighted mode, were also considered to confirm the findings. To reduce the risk of type I error, the false discovery rate (FDR) was applied to correct for multiple testing. These strategies collectively ensure that the results are not influenced by specific methodological choices or weak instruments.
+
+[0026] [METHODS] Proteome-wide mediation analyses and colocalization analyses
+
+[0027] [METHODS] This study conducted mediation analyses within the two-sample MR framework. This approach requires the following assumptions to be met: (i) a significant association exists between EOA and COPD; (ii) the mediating protein is independently associated with COPD, indicating a direct effect; and (iii) the EOA is associated with the mediating protein, without evidence of reverse causation. To minimize bias and reduce the risk of inflated false-positive findings due to sample overlap, GWAS sources were systematically integrated to ensure cohort independence across exposure, mediating protein, and outcome datasets. Finally, confidence intervals for the mediation proportion were computed using the Delta method.
+
+[0028] [METHODS] Bayesian colocalization was performed using the R package “coloc” to assess whether phenotypes share a common causal variant. This approach estimates the posterior probabilities for five mutually exclusive hypotheses. Particular emphasis was placed on the posterior probability of hypothesis 4 (PP.H4), which quantifies the probability that both traits share the same causal variant. A PP.H4 ≥ 0.7 was considered indicative of strong evidence for colocalization.
+
+[0029] [METHODS] Single-cell type differential expression analyses
+
+[0030] [METHODS] To validate the expression of mediating proteins in bronchoalveolar lavage fluid (BALF) cells and their cell type-specific patterns, scRNA-seq data (GSE171541) were analyzed. This dataset includes BALF samples from three COPD patients and six healthy controls. Raw data preprocessing was performed using the R package “Seurat”, which included quality filtering, normalization, log transformation, and batch correction. Dimensionality reduction and visualization were conducted via principal component analysis and uniform manifold approximation and projection (UMAP), enabling identification of cellular heterogeneity. Clusters were biologically annotated based on established cell-type-specific marker genes. Subsequently, genes encoding the significant mediating proteins were extracted, and their expression profiles were characterized across distinct cell types. Differential expression analysis comparing COPD and control groups was conducted within each cell type using the Wilcoxon rank-sum test. Genes exhibiting an absolute log₂ fold change greater than .25 and an FDR-adjusted P below .05 were deemed differentially expressed.
+
+[0031] [METHODS] Druggability evaluation and cross-tissue gene expression validation
+
+[0032] [METHODS] To prioritize potential therapeutic targets, related proteins for EOA and COPD were evaluated separately. Proteins that remained significant after FDR correction in the proteome-wide MR analyses and exhibited a colocalization probability ≥.7 were considered high-confidence candidates. To assess druggability, we retrieved information on associated drugs, approval status, therapeutic indications, and mechanisms of action from DrugBank. For proteins lacking known drug targets, 3D structures were predicted using AlphaFold to facilitate identification of potential ligand-binding sites: binding pockets of enzymes were evaluated using DoGSiteScorer, whereas hotspot regions of non-enzymes were assessed using FTMap. In addition, protein–protein interactions (PPIs) were analyzed using STRING to provide functional context and explore potential opportunities for indirect targeting.
+
+[0033] [METHODS] To validate the tissue-specific genetic regulation of high-confidence proteins and further evaluate their potential as therapeutic targets, we analyzed tissue-specific cis-eQTLs from the GTEx v10 project. Protein-coding cis-eQTLs from COPD and asthma-relevant tissues, including lung, systemic tissues (such as peripheral blood and liver), and immune tissues (such as spleen and lymphocytes), were selected for MR analyses. Additionally, to ensure robust instrument selection and maximize the representation of protein-coding genes as valid IVs within each tissue, cis-eQTLs were filtered using a liberal significance threshold (P ≤ 5 × 10−5) combined with an instrument strength criterion (F-statistic >10).
+
+[0034] [RESULTS] Results
+
+[0035] [RESULTS] Putative causal relationships between early-onset asthma and COPD
+
+[0036] [RESULTS] After excluding nine SNPs with potential shared genetic architecture between EOA and COPD, as detailed in Table S2, causal relationships were investigated across three datasets: the discovery cohort (MVP), the validation cohort (UKBB), and the META1 cohort, which represents a meta-analysis of the MVP and UKBB GWAS. Specifically, the META1 analysis included 839 035 individuals and evaluated 28 290 080 common genetic variants under a fixed-effects model. A total of 599 433 variants showing significant heterogeneity were excluded. After applying genomic control, the GWAS results showed a genomic inflation factor of 1.307 and a mean χ2 of 1.469. LDSC yielded an intercept of 0.867 (standard error 0.009) with a ratio <0, indicating that the observed inflation was primarily driven by true polygenic signals rather than systematic biases. These metrics are consistent with those reported in large-scale GWAS meta-analyses of complex traits, reflecting the polygenic and complex genetic architecture of COPD. Additionally, as MR analyses rely on independent genome-wide significant variants and ratio-based estimation, they are relatively robust to inflation arising from polygenicity.
+
+[0037] [RESULTS] Subsequently, in the discovery cohort, the IVW analysis indicated that EOA was a significant risk factor for COPD (odds ratio, OR = 1.050, 95% CI: 1.021–1.080, P = 6.04 × 10−4). Sensitivity analyses suggested that horizontal pleiotropy was well controlled. Although mild heterogeneity was detected, the causal estimates remained statistically significant after correction using both the multiplicative random-effects IVW and weighted median approaches. Furthermore, multiple MR approaches identified significant associations in a concordant direction. These findings were replicated in the validation cohort and the META1 cohort, reinforcing their robustness. Collectively, the results support EOA as a risk factor for COPD and suggest a potential causal relationship between the two conditions. Detailed results are provided in Fig. 2A.
+
+[0038] [FIG] Summary results of two-sample MR and proteome-wide association studies. (A) Two-sample MR results from EOA and COPD. Analyses were performed using the discovery cohort (MVP), the validation cohort (UKBB), and the META1 cohort (a meta-analysis of MVP and UKBB) to assess and validate causal effects. The central forest plot displays the estimated effect size of EOA on COPD, with squares representing ORs and horizontal lines indicating 95% confidence intervals. (B) Proteome-wide MR analyses for EOA. The Y-axis represents the negative base-10 logarithm of the P-value, and the X-axis shows OR. Points are color-coded by association direction (OR > 1 or OR < 1) and pleiotropy levels. Labeled points indicate proteins with statistically significant associations after FDR correction (FDR-adjusted P < .05). (C) Proteome-wide MR analyses for COPD. The Y-axis shows the negative base-10 logarithm of the P-value, and the X-axis shows OR. Points are color-coded by association direction (OR > 1 or OR < 1) and pleiotropy levels. Labeled points indicate proteins with statistically significant associations after FDR correction (FDR-adjusted P < .05). (D) Mediation effects of circulating proteins linking EOA to COPD. Each pathway is annotated with its corresponding effect size. Significance levels are denoted as follows: *(P < .05), ** (P < .01), and *** (P < .001).
+
+[0039] [RESULTS] Proteome-wide analyses of early-onset asthma and COPD
+
+[0040] [RESULTS] In parallel, proteome-wide MR was conducted to evaluate potential causal relationships of 7847 plasma proteins with EOA and COPD. For EOA, after selecting cis-pQTLs as IVs and excluding proteins without valid SNPs, a final analysis was performed on 3813 proteins. Among the analyzed proteins, 339 exhibited statistically significant causal effects. After controlling for multiple testing using the FDR correction, 23 proteins retained significance, including lymphotoxin-beta (LTB), interleukin-6 receptor subunit alpha (IL6R), and C-C motif chemokine 18 (CCL18), as illustrated in Fig. 2B. Notably, pantetheine hydrolase Vanin 2 (VNN2) exhibited consistent and significant effects across both protein cohorts, highlighting its potential relevance to EOA pathogenesis.
+
+[0041] [RESULTS] For COPD, the META2 cohort was used to ensure adequate statistical power while avoiding sample overlap with the datasets of pQTLs. The analysis integrated data from 812 748 individuals, encompassing 27 931 600 common genetic variants, of which 529 317 showed significant heterogeneity and were excluded. After genomic control, the GWAS showed a genomic inflation factor of 1.355 (mean χ2 = 1.525); the LDSC intercept was 0.880 (standard error 0.009), with a ratio <0. Cis-pQTLs were selected as IVs, yielding a final analytical set of 3782 proteins. In total, 389 proteins demonstrated statistically significant effects on COPD, of which 36 remained significant after FDR correction and passed sensitivity analyses, including elastin (ELN), alpha-1-antitrypsin (SERPINA1), and elafin (PI3), as shown in Fig. 2C. Notably, paired immunoglobulin-like type 2 receptor alpha (PILRA) and CCN family member 3 (CCN3, also known as NOV) exhibited consistent and significant effects after FDR correction in both independent protein cohorts, further highlighting their robustness and relevance to COPD pathogenesis. To ensure full transparency, all results from the proteome-wide analyses of EOA and COPD have been made publicly available and can be downloaded from Figshare (https://doi.org/10.6084/m9.figshare.30983989).
+
+[0042] [RESULTS] Mediation analyses and cell-type-specific expression
+
+[0043] [RESULTS] To further investigate the mechanisms by which EOA contributes to COPD pathogenesis, mediation analyses were conducted within the MR framework. A total of 78 candidate mediating proteins were identified, among which 6 proteins: kremen protein 1 (KREMEN1), bleomycin hydrolase (BLMH), contactin-5 (CNTN5), interleukin-1 receptor antagonist protein (IL1RN), melanoma-derived growth regulatory protein (MIA), and PILRA, exhibited statistically significant mediation effects. The corresponding results are shown in Fig. 2D and Table S3. To account for the potential of false positives due to weak mediation effects, colocalization was performed to validate the genetic associations of EOA and COPD within the gene regions encoding these proteins. Our results revealed that MIA (PP.H4 = 0.68) and PILRA (PP.H4 = 0.94) provided compelling evidence of colocalization, suggesting a shared genetic pathway. Detailed results are provided in Fig. 3A and Table S4.
+
+[0044] [FIG] Downstream analyses of mediating proteins. (A) Colocalization results for the MIA and PILRA gene regions in EOA and COPD. Left panel: X-axis shows the negative base-10 logarithm of the P-value for COPD-associated gene regions, Y-axis shows the negative base-10 logarithm of the P-value for EOA-associated gene regions. Right panel: X-axis represents genomic positions; Y-axis shows the negative base-10 logarithm of the P-value. Point colors indicate the strength of the correlation between association signals. (B) Clustering of single cells using UMAP identified 15 distinct cell types. (C) Expression profiles of typical marker genes across the identified cell types. (D) Expression of mediating protein-encoding genes within the UMAP clusters, with color intensity representing expression levels. (E) Differential expression analyses of candidate protein-coding genes between COPD patients and healthy controls within cell-type-specific enriched populations. Statistical significance is assessed using Wilcoxon rank-sum tests. Significance levels after FDR correction are indicated by * (P < .05), ** (P < .01), and *** (P < .001).
+
+[0045] [RESULTS] We further investigated the potential mechanisms of the mediating proteins by examining their cell-type-specific expression profiles in BALF obtained from COPD patients. The delineation of specific cellular clusters along with their respective marker genes is presented in Fig. 3B and C. It was observed that KREMEN1, BLMH, IL1RN, and PILRA were all expressed in BALF, as illustrated in Fig. 3D. Notably, when comparing COPD patients to healthy controls, PILRA expression was significantly downregulated in macrophages, whereas IL1RN showed a trend toward upregulation in dendritic cells, monocytes, and neutrophils. These findings suggest that PILRA and IL1RN may play differential roles in disease-associated immune regulation. Comprehensive results are shown in Fig. 3E with additional details available in Table S5.
+
+[0046] [RESULTS] Assessment of potential therapeutic targets for early-onset asthma
+
+[0047] [RESULTS] To assess whether the genetic cis-pQTLs and disease-associated loci reflected the same causal variant, colocalization analyses were performed on the 23 proteins that remained significant after FDR correction. Three proteins exhibited strong colocalization evidence (PP.H4 ≥ 0.7), including inositol-trisphosphate 3-kinase A (ITPKA), BPTF-associated chromatin complex component 1 (C17orf49), and docking protein 2 (DOK2), as shown in Fig. 4A and Table S6.
+
+[0048] [FIG] Potential disease-specific drug targets for EOA and COPD. (A) Colocalization analysis of high-confidence proteins for EOA. The X-axis represents the negative base-10 logarithm of the P-value for EOA-associated variants, while the Y-axis shows the negative base-10 logarithm of the P-value for corresponding cis-pQTLs. Point colors indicate the strength of correlation between cis-pQTLs and EOA association signals. (B) Heatmap illustrating the results for high-confidence protein-coding genes across tissue-specific transcriptomes for EOA and COPD. Colors indicate ORs, and asterisks denote statistically significant associations after FDR correction (P < .05). (C) Colocalization analysis of high-confidence proteins for COPD. The X-axis represents the negative base-10 logarithm of the P-value for COPD-associated variants, while the Y-axis shows the negative base-10 logarithm of the P-value for corresponding pQTLs. Point colors indicate the strength of correlation between cis-pQTLs and COPD association signals.
+
+[0049] [RESULTS] To further validate the regulatory effects of candidate targets in disease-relevant tissues, MR analyses were conducted using cis-eQTLs of the encoding genes. ITPKA showed statistically significant causal associations in whole blood and Epstein-Barr virus (EBV)-transformed lymphocytes, supporting its potential role in disease pathogenesis. Detailed results are provided in Fig. 4B and Table S7. Druggability assessment revealed that ITPKA, as an enzyme, possesses an ATP-like binding site, which is crucial for its enzymatic activity. Existing research on kinase inhibitors further supports its potential druggability, as outlined in Table S8.
+
+[0050] [RESULTS] Assessment of potential therapeutic targets for COPD
+
+[0051] [RESULTS] For COPD, colocalization was conducted on the 36 proteins that remained significant after FDR correction, identifying 7 unique proteins with strong colocalization evidence, including CCN3 (also known as NOV), glycylpeptide N-tetradecanoyltransferase 1 (NMT1), ubiquitin/ISG15-conjugating enzyme E2 L6 (UBE2L6), Asialoglycoprotein receptor 1 (ASGR1), N-myc-interactor (NMI), and ELN. Notably, CCN3 demonstrated colocalization in both the UKBB and deCODE cohorts, reinforcing its candidacy as a key protein in COPD pathogenesis, as shown in Fig. 4C and Table S6.
+
+[0052] [RESULTS] Furthermore, multi-tissue eQTL analyses revealed statistically significant causal associations between the cis-eQTLs of FES and CCN3 in lung and immune tissues and COPD. Additionally, cis-eQTLs of NMI and NMT1 in immune tissues also demonstrated significant relationships with the disease. These findings, which reinforce the potential role of these proteins, are detailed in Fig. 4B and Table S7.
+
+[0053] [RESULTS] Druggability assessment indicated that several candidate proteins have previously been investigated as therapeutic targets in other diseases, offering potential opportunities for drug repurposing and the identification of new targets for COPD. For example, the FES inhibitor Lorlatinib is widely used in the treatment of certain types of lung cancer. The NMT1 inhibitor Zelenirstat has demonstrated significant efficacy and promising therapeutic potential across multiple solid tumors, as shown in Table S8.
+
+[0054] [RESULTS] In contrast, no approved drugs currently target CCN3. However, structural pocket prediction identified 10 potential binding sites, 4 of which showed high composite scores (drug score > 0.7) across volume, surface, and depth, suggesting potential druggability, as shown in Table S9 and Fig. S1. For NMI, FTMap predicted binding hotspots primarily at residues A58 and A253. The A58 region contributed most strongly to nonbonded interactions, while A253 and adjacent residues were enriched in hydrogen bonds, suggesting potential functional binding interfaces, as illustrated in Figs S2–S4. Additionally, the PPI network revealed 10 high-confidence interacting partners, as shown in Fig. S5.
+
+[0055] [DISCUSS] Discussion
+
+[0056] [DISCUSS] This study integrated large-scale multi-omics data within a multistage genetic inference approach to systematically investigate the relationship between EOA and COPD. The analyses yielded consistent genetic evidence indicating EOA as a causal risk factor for COPD. Proteome-wide and mediation analyses further identified several plasma proteins, including MIA, IL1RN, and PILRA, which are consistent with statistically supported candidates as potential mediating proteins in the pathway linking EOA to COPD. Integration of tissue-specific expression analyses and druggability assessment highlighted ITPKA in EOA and FES, CCN3, NMI, and NMT1 in COPD as prioritized candidates for further experimental investigation. These results, based on data-driven and statistical analyses, offer insights into disease pathogenesis and provide genetically informed evidence that may support future mechanistic and therapeutic investigations.
+
+[0057] [DISCUSS] The causal relationship between EOA and COPD has long been hypothesized. However, observational studies are often confounded by factors such as smoking, occupational exposures, and environmental pollution, making it difficult to establish causality. As early as 1961, the Dutch hypothesis suggested that asthma and COPD may represent different manifestations of a shared spectrum of chronic airway disease with overlapping genetic susceptibility. Clinically, asthma and COPD can coexist, forming asthma-COPD overlap syndrome, a condition generally associated with poorer clinical outcomes, although no unified international definition or diagnostic criteria have been established. In this context, our findings provide genetic evidence that EOA may contribute causally to the development of COPD and even potentially to asthma-COPD overlap syndrome, thereby reinforcing the concept of a shared disease spectrum. These results highlight the importance of early airway intervention in childhood, not only for optimizing asthma control but also for reducing the risk of long-term chronic respiratory morbidity, offering new perspectives for precision prevention and management strategies.
+
+[0058] [DISCUSS] Furthermore, this study applied MR to identify six potential plasma proteins associated with EOA and COPD. Compared with other causal inference frameworks, such as multivariable regression or structural equation modeling, two-step MR enables the simultaneous causal assessment of thousands of proteins in large population-based samples and relies less on explicit modeling of unmeasured confounding and temporal ordering, thereby providing a clearer inference of the causal pathway linking EOA, plasma proteins, and COPD. Nevertheless, the inference remains substantially influenced by the choice of IVs and potential pleiotropy. Specifically, IVs for KREMEN1 (I2 = 19.41) and MIA (I2 = 13.52) exhibited low heterogeneity, while the remaining proteins showed no significant heterogeneity, supporting overall stability. MR-Egger intercepts for IL1RN, MIA, PILRA, CNTN5, and KREMEN1 were nonsignificant, and these instruments were mainly functionally well-characterized cis-pQTLs, suggesting a low likelihood of directional pleiotropy. In contrast, BLMH showed a borderline intercept (P = .049); although its causal estimate aligned with the primary analysis, residual pleiotropy cannot be fully excluded, warranting cautious interpretation.
+
+[0059] [DISCUSS] Additionally, several proteins, including PILRA, IL1RN, and MIA, were expressed in COPD BALF, suggesting a potential role in disease processes. Of particular interest, single-cell expression analysis reveals that PILRA is significantly downregulated in macrophages from COPD patients. In asthma, macrophages tend to polarize toward the M2 phenotype, exhibiting enhanced regulatory activity and Th2-dominant inflammation, whereas in COPD, macrophages are increased and polarized toward the M1 phenotype, characterized by persistent inflammation, impaired phagocytic and clearance functions, and elevated oxidative stress. PILRA, an inhibitory receptor containing an immunoreceptor tyrosine-based inhibitory motif, can recruit SHP-1 and SHP-2 upon ligand binding to suppress immune cell activation and maintain immune homeostasis. Taken together, we speculate that PILRA may play a role in macrophage polarization and inflammatory regulation in the context of EOA and COPD, which warrants further mechanistic investigation.
+
+[0060] [DISCUSS] Although EOA and COPD share certain genetic and pathological pathways, substantial evidence indicates significant heterogeneity between the two conditions, including differences in clinical manifestations, inflammatory profiles, and molecular mechanisms, which ultimately determine disease-specific therapeutic targets. In the present study, proteome-wide analyses identified several proteins with putative causal effects on EOA, many of which are supported by existing evidence. For example, animal experiments demonstrate that blocking IL6R with monoclonal antibodies alleviates allergen-induced airway inflammation and hyperresponsiveness, and CCL18 is associated with eosinophilic inflammation and severe asthma phenotypes. Furthermore, ITPKA was validated in our immune-related tissue eQTLs analyses, highlighting its potential involvement in airway disease pathways. Previous genetic studies have linked ITPKA to allergic diseases, including asthma, allergic rhinitis, and atopic dermatitis. Functionally, ITPKA is a key regulator of intracellular calcium signaling and the actin cytoskeleton, and its dysregulation may contribute to airway hyperresponsiveness and chronic inflammation in asthma. Structurally, the well-defined ATP-like binding pocket of ITPKA renders it potentially druggable.
+
+[0061] [DISCUSS] For COPD, proteome-wide analyses have identified 36 associated proteins, including ELN, SERPINA1, and PI3, which play pivotal roles in disease pathology. PI3, as a specific inhibitor of neutrophil and pancreatic elastases, reduces tissue damage, fibrosis, and structural remodeling. SERPINA1 deficiency further accelerates elastin degradation, exacerbating emphysematous changes. Further eQTL analyses validated FES, CCN3, NMI, and NMT1 in lung tissues and various immune-related tissues. Specifically, FES, a tyrosine kinase, participates in inflammation-related signaling pathways, such as PI3K-Akt and JAK-STAT, suggesting a potential role in chronic airway inflammation and tissue remodeling. Its targeted drug, fostamatinib, has demonstrated efficacy in modulating inflammation and alleviating acute respiratory distress syndrome in severe COVID-19 cases. NMT1 is involved in viral replication and immune signaling, and its targeted drug Zelenirstat is the first drug for this specific target, used in lung cancer treatment, supporting its candidacy for further pharmacological evaluation and potential drug repurposing research. Among proteins lacking current therapeutic agents, CCN3 is notable. In mouse models, CCN3 deficiency in pulmonary endothelial cells impairs angiogenesis and promotes fibrosis, whereas recombinant CCN3 restores vascular function and reduces fibrosis. Structural predictions reveal several high-confidence binding pockets, suggesting its potential as a small-molecule drug target. Furthermore, NMI plays a crucial role in inflammation signaling pathways and is involved in immune response and apoptosis during viral infections, contributing to COPD progression. PPI results and related studies indicate that NMI interacts with multiple transcription factors to regulate immune responses and inflammatory pathways, suggesting that NMI may be indirectly targetable through allosteric modulation or protein complex-mediated mechanisms.
+
+[0062] [DISCUSS] Strengths and limitations
+
+[0063] [DISCUSS] To our knowledge, this study represents the largest integrative proteomic analysis to date on EOA and COPD, with several notable advantages. Methodologically, unlike conventional MR-pQTL studies that primarily evaluate individual protein-disease associations, our study investigates the specific biological question of whether EOA contributes to COPD development via intermediate molecular mechanisms. We implemented a stepwise causal inference framework that transforms single-step causal inference into a directional, mechanistically informative chain. From an evidentiary perspective, MR analyses are inherently limited by factors such as potential pleiotropy, highlighting the need for multidimensional validation. Previous studies have shown that stronger causal evidence improves the likelihood of drug target success. To address these challenges, we applied multilayer complementary validation across several methods and databases, thereby reducing potential bias and enhancing robustness. Biologically and translationally, large-scale proteogenomic data not only facilitate systematic prioritization of candidate targets but also guide avoiding inefficient drug development when causal effects of certain biomarkers are excluded by genetic evidence. Therefore, all available results, both positive and negative, may serve as valuable references for future studies.
+
+[0064] [DISCUSS] However, several limitations should be acknowledged. First, MR analyses rely primarily on GWAS data. Although meta-analyses of COPD GWAS were conducted to enhance the statistical power of SNP associations, the limited availability of genetic variant data for exposures remains an unavoidable challenge. Second, mediation MR relies on assumptions such as linearity and the absence of exposure–mediator interaction, which may not fully hold in complex biological and environmental systems. The resulting mediation proportion should be interpreted as a statistical estimate rather than a direct measure of biological effect. In addition, to minimize population stratification bias, the study sample was restricted to individuals of European ancestry, limiting the generalizability of the findings to other racial or ethnic populations. Furthermore, due to the limitations of available GWAS cohorts and to avoid sample overlap, the mediation results have not yet been validated in independent datasets. Finally, asthma and COPD are highly heterogeneous diseases, with different subtypes and endotypes potentially exhibiting distinct pathological and molecular mechanisms. The present study was therefore limited in its ability to explore subtype-specific mechanisms.
+
+[0065] [DISCUSS] It is important to emphasize that the proteins highlighted in this study were prioritized based on statistical genetic evidence and computational predictions, reflecting their potential involvement in genetic causal pathways, tissue-specific regulation, and structural features indicative of druggability. Future studies could integrate functional experiments and independent cohort analyses to validate and quantify the framework’s incremental value, and to assess its translational potential at the empirical level.
+
+[0066] [DISCUSS] Key Points
+
+[0067] [DISCUSS] Our study provides large-scale genetic evidence supporting a potential causal association between EOA and COPD.
+
+[0068] [DISCUSS] Integrative multi-omics analyses highlight several plasma proteins (KREMEN1, BLMH, CNTN5, IL1RN, MIA, and PILRA) that may mediate the EOA-COPD pathway, with PILRA further supported by colocalization.
+
+[0069] [DISCUSS] Proteomic analyses prioritize therapeutic candidates for EOA (ITPKA) and COPD (FES, CCN3, NMI, and NMT1).
+
+[0070] [SUPPL] Supplementary Material
+
+[0071] [AUTH_CONT] Author contributions
+
+[0072] [AUTH_CONT] Yuhan Jiang (Methodology, Writing—original draft), Ju Guo (Methodology, Writing—original draft), Yifan Wang (Validation), Run Guo (Methodology), Yongjian Wei (Formal analysis), Tianchun Li (Investigation), Xuelin Wang (Visualization), Ruiwen Xia (Data curation), Wanyi Li (Investigation), Yingxue Zou (Conceptualization, Writing—review & editing, Funding acquisition), Hongxi Yang (Conceptualization, Writing—review & editing, Funding acquisition).
+
+[0073] [COMP_INT] Conflict of interest
+
+[0074] [COMP_INT] The authors declare that they have no competing interests.
+
+[0075] [ACK_FUND] Funding
+
+[0076] [ACK_FUND] This study was funded by the Tianjin Key Medical Discipline Construction Project (TJYXZDXK-3-016B), Tibet Autonomous Region Science and Technology Program (XZ202502ZY0008), and the National Natural Science Foundation of China (Grant numbers: 72474155 and 72104179).
+
+[0077] [SUPPL] Data availability
+
+[0078] [SUPPL] The proteome-wide analyses of EOA and COPD have been made publicly available and can be accessed for download at Figshare (https://doi.org/10.6084/m9.figshare.30983989), while the remaining results are provided in the Supplementary Tables.
+
+[0079] [SUPPL] Ethics statement
+
+[0080] [SUPPL] The UKBB has ethical approval from the North West Multi-Centre Research Ethics Committee (MREC), which covers the UK, and all participants provided written informed consent. This project received ethical approval from the Institutional Human Research Ethics Committee, University of Queensland. The deCODE has ethical approval from the National Bioethics Committee.
+
+[0081] [REF] References
+
+[0082] [REF] Global burden of chronic respiratory diseases and risk factors, 1990-2019: an update from the global burden of disease study 2019
+
+[0083] [REF] Global, regional, national burden of asthma from 1990 to 2021, with projections of incidence to 2050: a systematic analysis of the global burden of disease study 2021
+
+[0084] [REF] Global, regional, and national burden of chronic obstructive pulmonary disease and its attributable risk factors from 1990 to 2021: an analysis for the global burden of disease study 2021
+
+[0085] [REF] Patterns of growth and decline in lung function in persistent childhood asthma
+
+[0086] [REF] The association between childhood asthma and adult chronic obstructive pulmonary disease
+
+[0087] [REF] Bias and causal associations in observational research
+
+[0088] [REF] Overcoming the difficulties of cohort studies
+
+[0089] [REF] 2025 GINA report for asthma
+
+[0090] [REF] GOLD science committee recommendations for the use of pre- and post-bronchodilator spirometry for the diagnosis of COPD
+
+[0091] [REF] Systemic effects of inhaled corticosteroids: an overview
+
+[0092] [REF] Comparative effectiveness of anti-IL5 and anti-IgE biologic classes in patients with severe asthma eligible for both
+
+[0093] [REF] Omalizumab safety concerns
+
+[0094] [REF] Mendelian randomisation applied to drug development in cardiovascular disease: a review
+
+[0095] [REF] Refining the impact of genetic evidence on clinical success
+
+[0096] [REF] The support of human genetic evidence for approved drug indications
+
+[0097] [REF] FinnGen provides genetic insights from a well-phenotyped isolated population
+
+[0098] [REF] Diversity and scale: genetic architecture of 2068 traits in the VA million veteran program
+
+[0099] [REF] The UK biobank resource with deep phenotyping and genomic data
+
+[0100] [REF] Plasma proteomic associations with genetics and health in the UK biobank
+
+[0101] [REF] Large-scale plasma proteomics comparisons through genetics and disease associations
+
+[0102] [REF] METAL: fast and efficient meta-analysis of genomewide association scans
+
+[0103] [REF] LD score regression distinguishes confounding from polygenicity in genome-wide association studies
+
+[0104] [REF] Understanding the assumptions underlying Mendelian randomization
+
+[0105] [REF] The UK10K project identifies rare variants in health and disease
+
+[0106] [REF] Functional mapping and annotation of genetic associations with FUMA
+
+[0107] [REF] Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases
+
+[0108] [REF] Mendelian randomization: use of genetics to enable causal inference in observational studies
+
+[0109] [REF] Severity of bias of a simple estimator of the causal odds ratio in Mendelian randomization studies
+
+[0110] [REF] Interpreting findings from Mendelian randomization using the MR-Egger method
+
+[0111] [REF] Consistent estimation in Mendelian randomization with some invalid instruments using a weighted median estimator
+
+[0112] [REF] Robust inference in summary data Mendelian randomization via the zero modal pleiotropy assumption
+
+[0113] [REF] Controlling the false discovery rate: a practical and powerful approach to multiple testing
+
+[0114] [REF] Mendelian randomization evidence for the causal effect of mental well-being on healthy aging
+
+[0115] [REF] Bias due to participant overlap in two-sample Mendelian randomization
+
+[0116] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0117] [REF] Single-cell transcriptomics highlights immunological dysregulations of monocytes in the pathobiology of COPD
+
+[0118] [REF] Dictionary learning for integrative, multimodal and scalable single-cell analysis
+
+[0119] [REF] DrugBank 6.0: the DrugBank knowledgebase for 2024
+
+[0120] [REF] Highly accurate protein structure prediction with AlphaFold
+
+[0121] [REF] DoGSiteScorer: a web server for automatic binding site prediction, analysis and druggability assessment
+
+[0122] [REF] The FTMap family of web servers for determining and characterizing ligand-binding hot spots of proteins
+
+[0123] [REF] The STRING database in 2023: protein-protein association networks and functional enrichment analyses for any sequenced genome of interest
+
+[0124] [REF] The GTEx consortium atlas of genetic regulatory effects across human tissues
+
+[0125] [REF] Associations of 2923 plasma proteins with incident inflammatory bowel disease in a prospective cohort study and genetic analysis
+
+[0126] [REF] Common schizophrenia alleles are enriched in mutation-intolerant genes and in regions under strong background selection
+
+[0127] [REF] The overlap syndrome of asthma and COPD: what are its features and how important is it?
+
+[0128] [REF] Asthma and chronic obstructive pulmonary disease: common genes, common environments?
+
+[0129] [REF] Asthma-COPD overlap: current understanding and the utility of experimental models
+
+[0130] [REF] Mendelian randomization: genetic anchors for causal inference in epidemiological studies
+
+[0131] [REF] Recent developments in Mendelian randomization studies
+
+[0132] [REF] Alternatively activated macrophages; a double-edged sword in allergic asthma
+
+[0133] [REF] The role of lung macrophages in chronic obstructive pulmonary disease
+
+[0134] [REF] Abnormal M1/M2 macrophage phenotype profiles in the small airway wall and lumen in smokers and chronic obstructive pulmonary disease (COPD)
+
+[0135] [REF] Neutrophil infiltration during inflammation is regulated by PILRα via modulation of integrin activation
+
+[0136] [REF] Against the Dutch hypothesis: asthma and chronic obstructive pulmonary disease are distinct diseases
+
+[0137] [REF] Effects of interleukin-6 receptor blockade on allergen-induced airway responses in mild asthmatics
+
+[0138] [REF] Role of CCL18 in asthma and lung immunity
+
+[0139] [REF] Identification of potential drug targets for allergic diseases from a genetic perspective: a mendelian randomization study
+
+[0140] [REF] Inositol-1,4,5-trisphosphate 3-kinase-A (ITPKA) is frequently over-expressed and functions as an oncogene in several tumor types
+
+[0141] [REF] Therapeutic potential of human elafin
+
+[0142] [REF] Role of alpha-1 antitrypsin in human health and disease
+
+[0143] [REF] Kinase inhibitors in the treatment of obstructive pulmonary diseases
+
+[0144] [REF] CCN3/NOV promotes metastasis and tumor progression via GPNMB-induced EGFR activation in triple-negative breast cancer
+
+[0145] [REF] The matricellular protein CCN3 supports lung endothelial homeostasis and function
+
+[0146] [REF] NMI and IFP35 serve as proinflammatory DAMPs during cellular infection and injury
+
+[0147] [REF] NMI functions as immuno-regulatory molecule in sepsis by regulating multiple Signaling pathways
+
+[0148] [REF] Systematic Mendelian randomization using the human plasma proteome to discover potential therapeutic targets for stroke
+
+[0149] [REF] Mendelian randomization as a tool to inform drug development using human genetics
+
+[0150] [REF] Mendelian randomisation for mediation analysis: current methods and challenges for implementation
+
+[0151] [REF] Clinical approaches towards asthma and chronic obstructive pulmonary disease based on the heterogeneity of disease pathogenesis

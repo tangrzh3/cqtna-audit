@@ -1,0 +1,223 @@
+[0001] [TITLE] Association of antihypertensive drug target genes with alzheimer’s disease: a mendelian randomization study
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Epidemiological and genetic studies have elucidated associations between antihypertensive medication and Alzheimer’s disease (AD), with the directionality of these associations varying upon the specific class of antihypertensive agents.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] Genetic instruments for the expression of antihypertensive drug target genes were identified using expression quantitative trait loci (eQTL) in blood, which are associated with systolic blood pressure (SBP). Exposure was derived from existing eQTL data in blood from the eQTLGen consortium and in the brain from the PsychENCODE and subsequently replicated in GTEx V8 and BrainMeta V2. We performed two-sample Mendelian randomization (MR) to estimate the potential effect of different antihypertensive drug classes on AD using summary statistics from a meta-analysis (111,326 cases and 677,663 controls) and further replicated in FinnGen cohorts (9301 cases and 367,976 controls). The reverse causality detection, assessing horizontal pleiotropy, Bayesian co-localization, phenotype scanning, and protein quantitative trait loci (pQTL) analysis were implemented to consolidate the MR findings further.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] A 1-standard deviation (SD) lower expression of the angiotensin-converting enzyme (ACE) gene in blood was associated with a lower SBP of 3.92 (95% confidence interval (CI), 2.69–5.15) mmHg but an increased risk of AD (odds ratio (OR), 2.46; 95% CI, 1.82–3.33). A similar direction of association was also observed between ACE expression in prefrontal cortex (OR, 1.19; 95% CI, 1.10–1.28), frontal cortex (OR, 1.19; 95% CI, 1.11–1.27), cerebellum (OR, 1.13; 95% CI, 1.09–1.17), cortex (OR, 1.59; 95% CI, 1.33–1.28) and ACE protein levels in plasma (OR, 1.13; 95% CI, 1.09–1.17) and AD risk. Colocalization supports these results. Similar results were found in external validation. We found no evidence for an association between genetically estimated blood pressure (BP) and AD risk.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] There findings suggest an adverse association of lower ACE messenger RNA and protein levels with an elevated risk of AD, irrespective of its BP-lowering effects. These findings warrant greater pharmacovigilance and further investigation into the effect of ACE inhibitors, particularly those that are centrally acting, on neurodegenerative symptoms in patients with AD.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1186/s13195-025-01671-4.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Nearly one in three adults aged 30–79 years were estimated to have hypertension globally in 2019, leading to a high prevalence of antihypertensive medication use. Hypertension, particularly in midlife, is recognized as a significant predisposing factor for late-life cognitive decline, manifesting in both vascular dementia and Alzheimer’s disease (AD). The relationship between blood pressure (BP) and dementia risk in advanced age tends to exhibit a negative or U-shaped curve, indicating increased risk associated with both hypotension and hypertension. Additionally, different antihypertensive medications have yielded divergent effects on the risk of AD. For instance, a meta-analysis of 15 observational studies with 3,307,532 participants found that angiotensin receptor blockers (ARBs), but not angiotensin-converting enzyme inhibitors (ACEIs), reduced the risk of any dementia and AD. However, observational studies are susceptible to biases from factors such as residual confounding and reverse causation. Given the high prevalence of hypertension among Alzheimer’s patients, understanding the precise influence of these pharmaceuticals on neurodegenerative symptoms is critical for optimizing therapeutic strategies in patients with comorbidity conditions.
+
+[0014] [INTRO] Conventionally, randomized clinical trials (RCTs) are the gold standard for establishing causal relationships in drug efficacy studies. However, due to financial constraints and feasibility issues, large, high-quality RCTs still need to be conducted to investigate the effects of antihypertensives on AD. Mendelian randomization (MR) is a statistical genetics approach that uses genetic variants robustly associated with exposure as potentially unconfounded instruments to infer whether an observed association between the exposure and outcome is causal. Several genome-wide association studies (GWAS) of AD have identified genetic risk variants within the ACE gene, whose encoded protein is the target of antihypertensive agents inhibiting the angiotensin converting enzyme. However, the effect of whole standard classes of antihypertensive drugs on AD risk remains unknown. Ou et al. reported that calcium channel blockers (CCBs) were identified as a promising strategy for AD prevention using a two-sample MR analysis. However, the analysis did not include the ACEi, a common antihypertensive medication. Additionally, the instrumental variables (IVs) for some classes of drugs were so limited that analyses capturing all possible drug target genes with corresponding IVs are needed. Finally, IVs for the drugs were not distinguished tissue, such as blood or brain, which may limit its interpretability. Furthermore, both empirical results and theoretical models provide evidence that most common disease-associated variants act through changes in gene expression rather than directly influencing protein structure or function. MR analysis is particularly advantageous in analyzing the effects of drugs, where genetic variants associated with the expression of drug target genes (termed expression or protein quantitative trait loci - eQTLs or pQTLs) serve as proxies for drug exposure, such as eQTLGen, GTEx, PsychENCODE, and BrainMeta V2.
+
+[0015] [INTRO] In this study, we utilized publicly available eQTL datasets both in blood and brain to elucidate the potential associations between antihypertensive treatments and AD risk using a two-sample MR design. This study will add evidence to the current knowledge derived from observational studies and try to draw causal conclusions regarding the potential association between antihypertensive medication use and AD risk.
+
+[0016] [METHODS] Methods
+
+[0017] [METHODS] Study design
+
+[0018] [METHODS] The study design is illustrated in Fig. 1. First, we conducted a two-sample MR analysis to identify drug target genes utilizing publicly available eQTL datasets in blood and brain as genetic instruments (IVs) and GWAS summary statistics of SBP as the outcome. Second, we employed a two-sample MR analysis to estimate the relationship between each drug target gene expression and the risk of AD. Third, we performed sensitivity analyses to further validate the MR associations, including detecting reverse causality, assessing horizontal pleiotropy, Bayesian colocalization, scanning phenotypes, and protein quantitative trait loci (pQTL) analysis. Finally, we verified our findings with additional eQTL datasets and GWAS summary statistics for AD.
+
+[0019] [FIG] Summary of study design
+
+[0020] [METHODS] The MR framework relies on three key assumptions: (i) relevance, where genetic variants should be significantly associated with exposures; (ii) exclusiveness, where genetic variants are not linked to potential confounders; and (iii) independence, where genetic variants affect outcomes only through the exposures. The study adhered to the Strengthening the Reporting of Observational Studies in Epidemiology-Mendelian randomization reporting guidelines (STROBE-MR) (Table S1). The online tool mRnd (https://shiny.cnsgenomics.com/mRnd/) was utilized to assess the statistical power and calculate the results.
+
+[0021] [METHODS] Identification of drug target genes
+
+[0022] [METHODS] The commonly prescribed antihypertensive medications, including ACEis, ARBs, beta-blockers (BBs), CCBs, diuretics, and other antihypertensive agents, were included in the analysis. Potential therapeutic genes were obtained from the DrugBank (https://go.drugbank.com/) and ChEMBL (https://www.ebi.ac.uk/chembl/) databases. Genomic regions associated with these genes were retrieved from GeneCards (https://www.genecards.org/). To demonstrate that changes in gene expression are associated with reduced blood pressure due to drug exposure, we conducted summary-data-based Mendelian Randomization (SMR) analysis with blood gene expression (from the eQTLGen data) as exposure and systolic blood pressure (SBP) as the positive outcome, with summary data from a GWAS of SBP in 757,601 individuals of European ancestry sourced from the UK Biobank and the International Consortium of Blood Pressure Genome Wide Association Studies (ICBP). Genes with blood expression associated with SBP at least nominal significance (i.e., P < 0.05) were included in further analysis. The SMR method estimated SBP change per standard deviation (SD) increment in gene expression.
+
+[0023] [METHODS] Blood and brain expression quantitative trait loci
+
+[0024] [METHODS] Our analysis utilized publicly available data from the eQTLGen consortium (comprising 31,684 individuals) to identify significant (minor allele frequency > 1%; p < 5 × 10− 8) single-nucleotide polymorphisms (SNPs) associated with the expression of antihypertensive drug target genes in blood. Only cis associations are available in the eQTLGen data (distance between SNP and gene is < 1 MB). The eQTL data are scaled to a 1-SD change in gene expression per additional effect allele. The strength of SNP instruments was assessed using the F statistic. The discovery brain eQTL data were obtained from the PsychENCODE consortium, which included 1,387 prefrontal cortex, predominantly of European samples. In addition, we used whole blood and brain-related eQTLs from the Genotype-Tissue Expression (GTEx) project V8 and BrainMeta V2, including 2,865 cortex European samples, to validate our findings. Further details on the eQTLs are provided in Table S2.
+
+[0025] [METHODS] GWAS summary statistics of Alzheimer’s disease
+
+[0026] [METHODS] We obtained publicly available case-control GWAS summary statistics for AD, including 111,326 clinically diagnosed cases and 677,663 controls. This dataset includes contributions from various European GWAS consortia and a new dataset from 15 European countries. Moreover, an AD GWAS from the FinnGen cohort, which included 9,301 cases and 367,976 controls, was used to validate our finding. Details for accessing the summary statistics used in the current analyses are provided in Table S3.
+
+[0027] [METHODS] Summary-level mendelian randomization
+
+[0028] [METHODS] We conducted a two-sample MR analysis to estimate the association between target gene expression and the risk of AD. The association between AD and each target gene was analyzed after harmonizing the genetic data from the aforementioned AD GWAS. The SMR approach involved selecting the most significant or multiple associated eQTL SNP (located near the target gene, i.e., cis-eQTL SNP) as an instrument. When a gene probe has more than five instruments, the Heterogeneity in Dependent Instruments (HEIDI) test determines whether the observed association is due to two distinct SNPs in linkage disequilibrium, each independently associated with gene expression and AD risk. A HEIDI P value threshold of ≥ 0.05 indicated the reliability of the gene probe.
+
+[0029] [METHODS] SMR estimates were calculated using SMR software version 1.3.1 (https://cnsgenomics.com/software/smr/#Overview), with a p-value threshold of < 0.0024 considered strong evidence (Bonferroni correction for association testing of 21 genes).
+
+[0030] [METHODS] Sensitivity analysis
+
+[0031] [METHODS] First, Steiger filtering was used to determine the directionality in the eQTL-GWAS association, with significance set at P < 0.05. Second, MR estimates may be biased if genetic variants influence the outcome through a pleiotropic pathway unrelated to the exposure of interest (i.e., target gene expression). This can distort MR tests, leading to inaccurate causal estimates, reduced statistical power, and potential false-positive causal relationships. Therefore, we assessed horizontal pleiotropy by examining the available associations with other nearby genes (within a 2 MB window) for each genetic instrument. We then performed SMR analysis to investigate whether the significant association of these nearby genes with the genetic instrument was related to the risk of AD. Only cis-genes were considered for the analysis because of their proximity to the gene expression. Third, we identified traits and diseases associated with the causal variants using ‘phenoscanner V2’ for the significant genes and examined the relevance of these phenotypes to AD risk in the literature. Traits were selected based on a p-value less than 5 × 10− 8 and an r2 > 0.8 with European ancestry. Fourth, we employed Bayesian co-localization analyses with the ‘coloc’ package to assess the probability of shared causal variants between traits. The focus was on hypothesis 4 (PPH4), which suggests a shared variant association for both eQTL and Alzheimer’s disease. A gene-based PPH4 > 80% indicated significant co-localization. Finally, we validated our findings using pQTL data for the gene of interest (a significant gene in the association between eQTL and AD). pQTL data was obtained from the UK Biobank Pharma Proteomics Project (UKB-PPP), which includes 54,219 UK Biobank individuals.
+
+[0032] [METHODS] MR analysis to estimate the association between blood pressure and Alzheimer’s disease
+
+[0033] [METHODS] We also performed a two-sample MR analysis to estimate the relationship between blood pressure and the risk of AD using the TwosampleMR package version 0.5.6 in R. Exposure IVs were selected based on common SNPs (minor allele frequency [MAF] > 1%) that exhibited significant associations with BP at a genome-wide level of significance (p < 5 × 10− 8 ) but were not associated with AD risk (p > 0.05). These SNPs were then subjected to linkage disequilibrium (LD) clumping using a stringent threshold (r2 < 0.001; distance threshold, 10,000 kb) with the ieugwasr package version 0.1.5 in R. For palindromic SNPs, forward strand alleles were determined using allele frequency information. IVs of BP were listed in Table S4. After applying the above filtering criteria, the SNPs were considered as IVs of SBP and analyzed further. The primary analysis utilized inverse variance weighted (IVW), while secondary analyses included Mendelian randomization Egger Regression (MR Egger), weighted median, weighted mode, and Mendelian Randomization Pleiotropy RESidual Sum and Outlier (MR-PRESSO). IVW provided the most accurate estimates of causality in the absence of horizontal pleiotropy for all SNPs. The weighted median and weighted mode provide robust estimates in the presence of invalid instruments, while MR-Egger and MR-PRESSO (NbDistribution = 5000, SignifThreshold = 0.05) account for horizontal pleiotropy in genetic variation and tests for pleiotropy and heterogeneity in MR estimates.
+
+[0034] [METHODS] Data availability
+
+[0035] [METHODS] Data are available in public, open-access repositories. Blood pressure GWAS statistics can be downloaded at https://grasp.nhlbi.nih.gov/FullResults.aspx. Alzheimer’s disease meta-analysis GWAS statistics are stored at https://www.ebi.ac.uk/gwas/ under accession no. GCST90027158. GWAS summary statistics of the FinnGen (R9 release) were obtained from https://www.finngen.fi/en/access_results. eQTLGen data can be accessed at https://www.eqtlgen.org/. GTEx V8 data can be accessed at https://gtexportal.org/. PsychENCODE data and BrainMeta V2 data can be accessed at https://yanglab.westlake.edu.cn/software/smr/#Overview. ACE Protein level data can be accessed at http://ukb-ppp.gwas.eu.
+
+[0036] [RESULTS] Results
+
+[0037] [RESULTS] Genetic instrument selection
+
+[0038] [RESULTS] We identified 41 genes encoding pharmacologically active targets of five antihypertensive drug classes from the DrugBank and ChEMBL databases (Table S5). Among these, 14 genes were not represented in the eQTLGen dataset. For the remaining 27 genes, the most significant cis-eQTL SNPs with F-statistics exceeding 10 were used as genetic instruments. Of these 27 genes, 21 had gene expression levels in blood that were associated with SBP at nominal significance (SMR P < 0.05), making them eligible for further analysis (Table S6).
+
+[0039] [RESULTS] SMR analysis for the association between target gene expression and alzheimer’s disease
+
+[0040] [RESULTS] Applying a significance threshold of P < 0.0024 (Bonferroni correction for testing associations of 21 genes) and considering HEIDI P ≥ 0.05 to exclude linkage disequilibrium effects, a 1-SD reduction in blood ACE expression was correlated with a decrease in SBP (OR, 3.92; 95% CI, 2.69–5.15) mmHg and an increased risk of AD (OR, 2.46; 95%CI, 1.82–3.33) (Fig. 2A). Lower ACE expression in the prefrontal cortex, consistent with whole blood findings, was associated with a higher risk of AD (OR, 1.19; 95%CI, 1.10–1.28), a pattern mirrored in the brain’s frontal cortex (OR, 1.19, 95% CI: 1.11–1.27) and cerebellum (OR, 1.13, 95% CI: 1.09–1.17) in GTEx V8, as well as in the cortex (OR, 1.59, 95% CI: 1.33–1.90) in BrainMeta V2 datasets (Fig. 2A). Detailed SMR results for the expression of the 21 drug genes in blood and brain related to AD are available in Table S7.
+
+[0041] [FIG] Mendelian randomization (MR) analysis of angiotensin-converting enzyme (ACE) gene expression with risk of alzheimer’s disease
+
+[0042] [FIG] Forest plot of the association between a 1-SD change in expression of ACE gene in blood or brain with risk for AD (A), Discovery (B), Replication. Data are represented as odds ratio (ORs) with 95% CI (error bars). The change in the direction of gene expression reflects the BP-lowering association. Thus, an OR greater than 1.00 suggests an increased risk of disease associated with BP-lowering drug treatment. P_smr, the SMR estimated based on TopSNP
+
+[0043] [RESULTS] Sensitivity analyses
+
+[0044] [RESULTS] First, Steiger filtering was applied to validate the directionality of ACE gene expression’s effect on AD (Table 1). Second, the associations for the top SNP related to ACE with nearby genes within the 2 MB window are shown in Table S9. No horizontal pleiotropy gene was found linked to the risk of AD within the 2 MB window of ACE (Table S10). Third, Bayesian co-localization analysis indicated high posterior probabilities for a shared causal variant in ACE expression across various regions: 98.7% in whole blood, 99.5% in the prefrontal cortex, 99.1% in the brain frontal cortex, 99.5% in the brain cerebellum, and 99.7% in the brain cortex (Table 1). Forth, phenotype scanning linked ACE polymorphisms (rs4277405, rs6504163, rs4291, rs4292) with cerebrospinal fluid biomarkers of AD, diastolic blood pressure (DBP), and hypertension-related metrics (Table 1). Lastly, summary data from GWAS on plasma ACE levels showed that a 1-SD decrease in ACE protein levels in plasma (OR, 1.13, 95% CI: 1.09–1.17) corresponded with the observed effect sizes (Table S7).
+
+[0045] [TABLE] Summary of phenotypic scanning and reverse causality detection on the candidate causative gene ACE and alzheimer’s disease (Discovery)
+
+[0046] [TABLE] Tissue Gene Source TopSNP P.smr P.smr_multi P.value_HEIDI Steiger filter Co.localization.PPH4 Previously reported association Blood ACE eQTLGen rs4277405 5.04E-09 5.04E-09 0.57 7.14E-13 0.909 Cerebrospinal fluid levels of Alzheimer’s disease related proteins; Diastolic blood pressure; blood pressure medication; Self-reported hypertension; high blood pressure Brain_prefrontal_cortex ACE PsychENCODE rs6504163 4.73E-07 4.73E-07 0.24 8.25E-08 0.995 Brain_frontal_cortex ACE GTEx V8 rs4291 3.25E-06 3.25E-06 NA 1.01E-05 0.991 Brain_cerebellum ACE GTEx V8 rs4292 1.33E-06 1.33E-06 NA 2.40E-06 0.995 Brain_cortex ACE BrainMeta V2 rs4292 1.05E-13 2.52E-11 0.18 2.40E-06 0.997
+
+[0047] [TABLE] ACE, Angiotensin I Converting Enzyme; TopSNP, the SNP with the smallest p-value; P.smr, SMR estimated based on TopSNP; P.smr_multi, SMR estimated based on multiple SNPs
+
+[0048] [RESULTS] External validation
+
+[0049] [RESULTS] The lack of significant association in the predefined blood (GTEx V8) and brain (BrainMeta V2) datasets led to the inclusion of discovery datasets. The SMR analysis results correlate the expression of 21 antihypertensive drug target genes with AD (Table 2, Table S8, Fig. 2B). Conclusively, using similar analytical methods across various datasets, including FinnGen cohorts, replicated the association between ACE expression in blood and brain tissues with AD risk.
+
+[0050] [TABLE] Summary of phenotypic scanning and reverse causality detection on the candidate causative gene ACE and Alzheimer’s disease (Replication)
+
+[0051] [TABLE] Tissue Gene Source TopSNP P.smr P.smr_multi P.value_HEIDI Steiger filter Co.localization.PPH4 Previously reported association Blood ACE eQTLGen rs4277405 5.49E-04 5.49E-04 0.522 2.06E-13 0.221 Cerebrospinal fluid levels of Alzheimer’s disease related proteins; Diastolic blood pressure; blood pressure medication; Self-reported hypertension; high blood pressure Brain_prefrontal_cortex ACE PsychENCODE rs6504163 8.42E-04 8.42E-04 0.821 7.33E-07 0.896 Brain_frontal_cortex ACE GTEx V8 rs4291 2.33E-03 2.33E-03 NA 4.16E-06 0.864 Brain_cerebellum ACE GTEx V8 rs4308 1.84E-03 1.84E-03 NA 4.04E-08 0.864 Brain_cortex ACE BrainMeta V2 rs4292 4.11E-04 6.87E-03 0.187 9.23E-07 0.014
+
+[0052] [TABLE] ACE, Angiotensin I Converting Enzyme; TopSNP, the SNP with the smallest p-value; P.smr, SMR estimated based on TopSNP; P.smr_multi, SMR estimated based on multiple SNPs
+
+[0053] [RESULTS] MR analysis of the relationship between blood pressure and the risk of alzheimer’s disease risk
+
+[0054] [RESULTS] Using 388 and 395 SNPs independently associated at genome-wide significance with SBP and DBP as IVs, respectively. The genetic IVs used in the MR accounted for 3.9% and 4.1% of the total variance in SBP and DBP (Table S4). We found robust evidence supporting no significant association between genetically estimated SBP and the risk of AD (Table S11). The results were consistent with other MR methods or replication datasets. Interestingly, the association between DBP and AD risk in the discovery dataset was positive (OR per 1-mmHg, 1.00; 95% CI, 1.00-1.01; p value = 0.002) but not significant in the replication dataset (Table S11-S12).
+
+[0055] [DISCUSS] Discussion
+
+[0056] [DISCUSS] We utilized eQTL and GWAS summary data in a two-sample MR analysis to explore the potential effects of antihypertensive medication on AD. Our findings showed that lower expression of the ACE gene, typically influenced by ACE inhibitors, was associated with decreased SBP but increased risk of AD. This correlation remained consistent across all sensitivity analyses. Moreover, we found no evidence suggesting an association between genetically estimated SBP, DBP, and AD risk, implying that the ACE gene’s relationship with AD may function independently of its effects on blood pressure. Additionally, we found little evidence of an association between the expression of other RAS pathway genes, such as AGT, in brain tissues and AD risk.
+
+[0057] [DISCUSS] To our knowledge, no previous MR analysis has specifically investigated the expression of antihypertensive drug target genes and the risk of AD. A recent meta-analysis of 15 observational studies suggests that ARBs may be associated with a reduced neurodegenerative risk in AD compared to ACEis, indicating an alternative mechanism by which ACEis could influence AD risk. Furthermore, several genetic studies have suggested that protein targets of antihypertensive drugs might influence the development of AD independently of their blood pressure-lowering effects. In our findings, SBP was not significantly associated with AD risk in the discovery dataset. However, DBP was associated with AD risk, which is inconsistent with previous findings; the discrepancy may be due to the inclusion of clinical and proxy cases in the AD GWAS, as MR with proxy cases can yield counterintuitive results. The association between BP and AD risk in the replication dataset, obtained from all of Finland, was consistent with previous results. Overall, these findings should be interpreted with caution.
+
+[0058] [DISCUSS] The relationship between circulating ACE levels and AD risk remains unclear. Previous studies reporting decreased ACE levels in serum, cerebrospinal fluid (CSF), and brain tissue have also noted an increased risk of AD, potentially implicating ACE in the pathophysiological mechanisms underlying AD, such as amyloid-beta (Aβ) accumulation. For example, Rocha et al. found a significant positive correlation between ACE and Aβ42 levels in patients. Additionally, ACEis, regardless of their ability to cross the blood-brain barrier (BBB), show no long-lasting benefit on AD progression. Captopril, an ACE inhibitor that crosses the BBB, was shown to promote Aβ42 brain deposition in an animal model of AD. Furthermore, bradykinin (which is increased by all ACE inhibitors but not by ARBs) has been associated with AD risk, possibly through inducing BBB damage, inflammation, and microglia activation, as supported by the meta-analysis above. ACEis also inhibit AT1R, thereby simultaneously lowering Ang II and blocking the Ang II/AT2R and Ang IV/AT4R pathways, which counterbalance the potential benefits. Therefore, future directions based on our findings include well-designed, adequately powered longitudinal RCTs to compare the effects of ARBs, ACEis, and placebos on AD risk.
+
+[0059] [DISCUSS] The current MR study differs from previous observational studies in three key aspects. First, observational studies were conducted on patients with various conditions, with differences in baseline blood pressure, presence of comorbidities, or drug class. In contrast, the current MR study investigated genetically predicted drug effects in the general population without hypertension or other comorbidities. Patients at high risk of AD or with a history of AD who are undergoing antihypertensive treatment may require further investigation through prospective studies and RCTs. Second, observational studies measured drug use at baseline, but poor compliance with monotherapy might lead to contamination. In our MR study, drug adherence was not a major concern due to lifelong genetic exposure. Finally, unmeasured confounding factors may also be an issue in observational studies. Conversely, MR is expected to be less affected by confounders due to the random allocation of genetic variants at conception. Thus, our study indicates that compounds such as perindopril, captopril, and lisinopril, which target ACE, increase the risk of AD independent of BP.
+
+[0060] [DISCUSS] There are several limitations to this study. First, it is essential to recognize that changes in gene expression may not always correspond to changes in protein levels or activity. Therefore, the absence of an observed association in our analyses does not rule out a biological effect of the drug treatment but rather indicates a lack of evidence linking changes in the expression of drug target genes in the analyzed tissues to clinical outcomes. Second, the ability to perform tissue-specific analysis is currently limited by the sample size of available eQTL datasets. Thus, insufficient statistical power cannot be ruled out. Although previous studies have linked lower CSF ACE levels with an increased risk of AD, our research is limited by the absence of a genetic proxy for CSF ACE levels suitable for MR analysis, representing a potential avenue for future research. Finally, it is crucial to consider that genetic variants may represent the effect of lifelong exposure. Therefore, the results of these analyses cannot be directly translated into the effects of short-term drug treatment on disease risk.
+
+[0061] [CONCL] Conclusion
+
+[0062] [CONCL] This study revealed a negative correlation between reduced ACE mRNA and protein levels and increased AD risk, independent of its BP-lowering effects. Future RCTs with extensive follow-up are essential to assess the long-term safety of ACE inhibitors.
+
+[0063] [SUPPL] Electronic supplementary material
+
+[0064] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0065] [SUPPL] Publisher’s note
+
+[0066] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0067] [SUPPL] Change history
+
+[0068] [SUPPL] 7/30/2025
+
+[0069] [SUPPL] The original version of this article was revised: changes include adjusting the author affiliation order and funding information to reflect updated institutional details. The primary affiliation is now: “Guangdong Provincial Key Laboratory of Coronary Heart Disease Prevention, Guangdong Cardiovascular Institute, Guangdong Provincial People’s Hospital (Guangdong Academy of Medical Sciences), Southern Medical University, Guangzhou, 510080, China”. The secondary affiliation is “School of Medicine, South China University of Technology, Guangzhou, China”. Funding statement was updated to: This work was supported by the Noncommunicable Chronic Diseases‐National Science and Technology Major Project of China (No. 2023ZD0508906 and No. 2024ZD0526803), The Climbing Plan of Guangdong Provincial People’s Hospital (DFJH2020022), and Guangdong Special Funds for Science and Technology Innovation Strategy (Stability support for scientific research institutions affiliated to Guangdong Province‐GDCI 2024).
+
+[0070] [AUTH_CONT] Author contributions
+
+[0071] [AUTH_CONT] He Zheng and Yingqing Feng participated in study design. He Zheng contributed to data analysis and interpretation. He Zheng, Chaolei Chen and Yingqing Feng were responsible for drafting the manuscript or revising it critically for important intellectual content. All authors listed have read and approved submission of the paper.
+
+[0072] [ACK_FUND] Funding
+
+[0073] [ACK_FUND] This work was supported by the Noncommunicable Chronic Diseases‐National Science and Technology Major Project of China (No. 2023ZD0508906 and No. 2024ZD0526803), The Climbing Plan of Guangdong Provincial People’s Hospital (DFJH2020022), and Guangdong Special Funds for Science and Technology Innovation Strategy (Stability support for scientific research institutions affiliated to Guangdong Province‐GDCI 2024).
+
+[0074] [SUPPL] Data availability
+
+[0075] [SUPPL] Data is provided within the manuscript or supplementary information files.
+
+[0076] [SUPPL] Declarations
+
+[0077] [SUPPL] Ethics approval and consent to participate
+
+[0078] [SUPPL] Not applicable.
+
+[0079] [SUPPL] Consent for publication
+
+[0080] [SUPPL] All authors listed have read and approved the submission of the paper.
+
+[0081] [COMP_INT] Competing interests
+
+[0082] [COMP_INT] The authors declare no competing interests.
+
+[0083] [REF] References
+
+[0084] [REF] Hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants
+
+[0085] [REF] Hypertension and dementia
+
+[0086] [REF] Hypertension and dementia
+
+[0087] [REF] Association of Midlife to late-life blood pressure patterns with Incident Dementia
+
+[0088] [REF] Association of systolic blood pressure with dementia risk and the role of Age, U-Shaped associations, and Mortality
+
+[0089] [REF] Association between renin-angiotensin-aldosterone system inhibitors and risk of dementia: a meta-analysis
+
+[0090] [REF] Integrating human brain proteomes with genome-wide association data implicates new proteins in Alzheimer’s disease pathogenesis
+
+[0091] [REF] Evaluating the association between genetically proxied ACE inhibition and dementias
+
+[0092] [REF] Genetically determined blood pressure, antihypertensive medications, and risk of Alzheimer’s disease: a mendelian randomization study
+
+[0093] [REF] Kreutz R, Brunstrom M, Burnier M, Grassi G, Januszewicz A, Muiesan ML et al. 2024 European Society of Hypertension clinical practice guidelines for the management of arterial hypertension. EUR J INTERN MED. 2024.
+
+[0094] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0095] [REF] Consortium atlas of genetic regulatory effects across human tissues
+
+[0096] [REF] Wang D, Liu S, Warrell J, Won H, Shi X, Navarro F et al. Comprehensive functional genomic resource and integrative model for the human brain. Science. 2018;362.
+
+[0097] [REF] Genetic control of RNA splicing and its distinct role in complex trait variation
+
+[0098] [REF] Strengthening the reporting of observational studies in epidemiology using mendelian randomisation (STROBE-MR): explanation and elaboration
+
+[0099] [REF] DrugBank: a comprehensive resource for in silico drug discovery and exploration
+
+[0100] [REF] Genetic analysis of over 1 million people identifies 535 new loci associated with blood pressure traits
+
+[0101] [REF] New insights into the genetic etiology of Alzheimer’s disease and related dementias
+
+[0102] [REF] FinnGen. FinnGen documentation of R9 release. https://finngen.gitbook.io/documentation/. 2023.
+
+[0103] [REF] Plasma proteomic associations with genetics and health in the UK Biobank
+
+[0104] [REF] Repurposing antihypertensive drugs for the prevention of Alzheimer’s disease: a mendelian randomization study
+
+[0105] [REF] Mendelian randomization highlights significant difference and genetic heterogeneity in clinically diagnosed Alzheimer’s disease GWAS and self-report proxy phenotype GWAX
+
+[0106] [REF] Cerebrospinal Fluid Levels of Angiotensin-Converting Enzyme Are Associated with Amyloid-beta42 Burden in Alzheimer’s Disease
+
+[0107] [REF] Prioritization of drug targets for neurodegenerative diseases by integrating genetic and proteomic data from brain and blood
+
+[0108] [REF] Associations of centrally acting ACE inhibitors with cognitive decline and survival in Alzheimer’s disease
+
+[0109] [REF] Angiotensin-converting enzyme converts amyloid beta-protein 1–42 (abeta(1–42)) to Abeta(1–40), and its inhibition enhances brain abeta deposition
+
+[0110] [REF] Involvement of the bradykinin B(1) receptor in Microglial activation: in Vitro and in vivo studies
+
+[0111] [REF] Increased plasma bradykinin level is associated with cognitive impairment in Alzheimer’s patients
+
+[0112] [REF] Angiotensin receptor blockers and cognition: a scoping review

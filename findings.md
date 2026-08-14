@@ -78,3 +78,33 @@ Key manuscript observations and verified comparator findings will be recorded he
 - GB contains an additional functional-state/multiome branch and functional failure-mode branch absent from NC. These improve completeness and intellectual honesty but make the manuscript feel like three papers unless subordinate to the eight-diagnostic framework.
 - GB has a proper limitations section and a clearer relation-to-guidance section, both important advantages over NC. However it still has multiple `[ref]` placeholders and an HTML comment saying a self-imposed ground-truth decision remains open, so it is not submission-ready.
 - Direct choice: GB should be the base manuscript; NC is a useful compression donor. NC’s concision improves pace but removes qualifications precisely where this controversial negative-methods paper needs them.
+
+---
+
+# Findings — 105a blind coding
+
+## Dataset inventory
+- `105a_blind_coding.tsv` has 92 rows: 46 C1 rows and 46 C3 rows, representing the same 46-paper set.
+- Each criterion has 31 `(none found)` snippets and 15 nonempty candidate snippets; snippets are leads only and must be checked against full text.
+- `coder2` and `coder2_note` are initially blank.
+
+## Rule anchors
+- C1=1 only for an explicit comparison of this paper's own significant candidates/signals with previously reported loci for the same outcome.
+- C3=1 only when the paper reports how its candidate list changes or persists under a different outcome GWAS/power setting.
+- Generic instrument power, F statistics, exposure-QTL sample size, validation cohort size, and literature-reference titles are C3=0.
+- The first line of the rules explicitly limits coding to passages in the TSV `evidence` column. Full-text research may verify provenance/context but must not introduce an unshown passage as coding evidence.
+- Consequently, `(none found)` rows remain 0 unless the evidence itself is genuinely undecidable; a full-text passage discovered outside the evidence field cannot convert them to 1.
+
+## Preliminary evidence-only adjudication
+- Clear C3 positives: row 3 (more gene-cancer pairs attributed to greater outcome-GWAS power) and row 18 (analysis repeated with another outcome GWAS and candidate/protein results compared).
+- Other nonempty C3 snippets are generic power, exposure-QTL power, instrument strength, non-GWAS validation, or power-enhancing meta-analysis without reporting candidate-list dependence; they do not satisfy C3.
+- The nonempty C1 snippets are reference titles, dataset/method descriptions, candidate associations without a prior-locus comparison, cell-type annotation, or comparisons to prior biology/MR studies. No clear C1 positive has yet been identified.
+
+## Source strategy
+- NCBI exposes PMC Open Access full text through the official BioC REST API; it accepts batches of PMCIDs and returns structured JSON/XML.
+- Three spot-checked PMC pages resolved correctly, including PMCID 11606077, 11443760, and 12257706.
+- Use BioC full text as the batch evidence corpus and retain the canonical PMC article URL per paper for audit notes.
+- The TSV contains 46 distinct PMCIDs, each paired with one C1 row and one C3 row.
+- A live two-PMCID batch test returned two complete BioC collections; batch retrieval is suitable and reduces request count.
+- Batch retrieval produced structured full text for 45/46 papers. PMC13448146 (PMID 42563458) is the sole missing BioC record and requires a canonical-page fallback.
+- PMC13448146 is live at its canonical PMC URL (HTTP 200; ~301 KB HTML) despite not yet being exposed by BioC or Europe PMC fullTextXML. The canonical page is the fallback source.

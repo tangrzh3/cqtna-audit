@@ -1,0 +1,245 @@
+[0001] [TITLE] Mendelian randomization analysis of PKD1 in endometrial cancer and comparative multi-cancer study with renal cell carcinoma
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Polycystic kidney disease 1 (PKD1) has emerged as a potential oncogene in various malignancies, but its causal relationship with endometrial cancer risk and clinical outcomes remains unclear. This study employed Mendelian randomization (MR) analysis to investigate the causal effects of gene expression on endometrial cancer susceptibility, with comparative analysis to renal cell carcinoma, focusing on PKD1’s functional role.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We conducted a comprehensive summary-data-based Mendelian randomization (SMR) analysis using expression quantitative trait loci (eQTL) from CAGE sparse tissue dataset as instrumental variables. The analysis examined 30 candidate genes for endometrial cancer and 29 genes for renal cancer risk using UK Biobank GWAS data. Cross-cancer comparative analysis identified shared susceptibility genes between both malignancies. PKD1’s role was further characterized through correlation network analysis, immune cell infiltration profiling, and Cox regression survival analysis in 553 endometrial cancer patients. Experimental validation was performed using qRT-PCR in representative cancer cell lines compared to normal controls.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] SMR analysis revealed modest but statistically significant causal effects for multiple genes on both cancer types (p_SMR < 0.05), with odds ratios clustering around 1.0. Comparative analysis between renal cancer (220 genes) and endometrial cancer (196 genes) identified only 12 shared susceptibility genes (2.8% overlap) including EP300, CKB, NME7, and TATDN3, highlighting distinct genetic architectures. PKD1 correlation network analysis in endometrial cancer demonstrated positive associations with PET100, AC093899.1, and PDE4DIPP1. Importantly, PKD1 expression levels significantly influenced tumor immune microenvironment composition, with PKD1-low endometrial tumors showing enhanced infiltration of myeloid dendritic cells, T helper cells, and Th1 cells (p < 0.05). However, Cox regression analysis revealed that PKD1 expression did not impact patient survival outcomes (HR = 1.020, 95% CI: 0.681–1.529, p = 0.923), while clinical stage and primary therapy outcome remained significant prognostic factors.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] This multi-cancer Mendelian randomization study provides evidence for largely distinct genetic landscapes between renal and endometrial cancers, with minimal gene overlap. PKD1 demonstrates a novel dual role in endometrial cancer pathogenesis.
+
+[0010] [INTRO] Introduction
+
+[0011] [INTRO] Endometrial cancer represents the most common gynecologic malignancy in developed countries, with incidence rates continuing to rise globally due to increasing obesity prevalence, delayed childbearing, and extended life expectancy. Despite advances in surgical techniques and adjuvant therapies, the molecular mechanisms underlying endometrial carcinogenesis remain incompletely understood, particularly regarding the causal relationships between genetic factors and cancer susceptibility. Traditional observational studies investigating gene-cancer associations are often confounded by reverse causation and unmeasured confounders, limiting our ability to establish true causal relationships and identify potential therapeutic targets. Polycystic kidney disease 1 (PKD1), originally identified as the causative gene for autosomal dominant polycystic kidney disease, has emerged as a gene of increasing oncological interest. PKD1 encodes polycystin-1, a large transmembrane glycoprotein involved in cell-cell adhesion, calcium signaling, and mechanotransduction pathways. Recent studies have implicated PKD1 in various cancer types, including renal cell carcinoma, hepatocellular carcinoma, and breast cancer, suggesting its potential role as an oncogene. However, the specific contribution of PKD1 to endometrial cancer pathogenesis and its impact on clinical outcomes remains largely unexplored.
+
+[0012] [INTRO] Mendelian randomization (MR) has emerged as a powerful epidemiological approach that leverages genetic variants as instrumental variables to infer causal relationships between exposures and outcomes. By utilizing the random allocation of genetic variants at conception, MR analysis can minimize confounding and reverse causation, providing more robust evidence for causal inference compared to conventional observational studies. The integration of expression quantitative trait loci (eQTL) data with genome-wide association study (GWAS) findings through summary-data-based Mendelian randomization (SMR) offers particular promise for understanding the causal effects of gene expression on disease susceptibility.
+
+[0013] [INTRO] While previous studies have primarily focused on single-cancer analyses, comparative multi-cancer approaches can provide valuable insights into shared and distinct genetic architectures across different malignancies. Such cross-cancer analyses may reveal common pathogenic pathways and identify genes with broad oncological significance versus those with cancer-specific roles. The comparison between endometrial cancer and renal cell carcinoma is particularly relevant given PKD1’s established association with kidney pathology and emerging evidence of its involvement in both malignancies.
+
+[0014] [INTRO] Furthermore, the tumor immune microenvironment has gained recognition as a critical determinant of cancer progression and therapeutic response. The composition and functional status of immune cell infiltrates can significantly influence tumor behavior, metastatic potential, and sensitivity to immunotherapy. However, the relationship between PKD1 expression and immune microenvironment modulation in endometrial cancer remains unexplored, representing a significant knowledge gap in our understanding of PKD1’s functional role in gynecologic malignancies.
+
+[0015] [INTRO] Despite growing interest in PKD1’s oncological significance, several critical questions remain unanswered. First, whether PKD1 expression causally influences endometrial cancer susceptibility has not been rigorously tested using robust causal inference methods. Second, the extent to which genetic susceptibility factors are shared between endometrial cancer and other malignancies remains unclear. Third, PKD1’s impact on the tumor immune microenvironment and its potential prognostic significance in endometrial cancer patients have not been systematically investigated.
+
+[0016] [INTRO] Therefore, this study aimed to address these knowledge gaps through a comprehensive Mendelian randomization analysis investigating the causal effects of PKD1 on endometrial cancer susceptibility, complemented by comparative analysis with renal cell carcinoma to identify shared and distinct genetic architectures. Additionally, we sought to characterize PKD1’s functional role through immune microenvironment profiling and survival analysis in endometrial cancer patients, providing insights into its potential clinical significance and therapeutic implications.
+
+[0017] [METHODS] Methods
+
+[0018] [METHODS] Study design and data sources
+
+[0019] [METHODS] We conducted a comprehensive Mendelian randomization (MR) analysis to investigate the causal relationship between gene expression levels and renal cancer susceptibility. The study utilized summary statistics from the UK Biobank renal cancer GWAS dataset (ukb-b-1316), which provided robust genetic associations for renal cell carcinoma risk variants across European populations.
+
+[0020] [METHODS] Genetic instrumental variables
+
+[0021] [METHODS] Summary-data-based Mendelian randomization (SMR) analysis was performed using expression quantitative trait loci (eQTL) as instrumental variables. We obtained eQTL data from the CAGE (Cap Analysis of Gene Expression) sparse tissue dataset, which provided tissue-specific gene expression profiles. For each of the 29 candidate genes analyzed, we selected the most statistically significant single nucleotide polymorphism (SNP) as the instrumental variable, ensuring strong associations with gene expression levels (F-statistic > 10) to minimize weak instrument bias.
+
+[0022] [METHODS] SMR analysis framework
+
+[0023] [METHODS] The SMR analysis tested the null hypothesis that gene expression levels have no causal effect on renal cancer risk. We applied stringent quality control criteria, including: (1) removal of SNPs with minor allele frequency < 0.01, (2) exclusion of palindromic SNPs with intermediate allele frequencies, and (3) harmonization of effect alleles between exposure and outcome datasets. The analysis incorporated heterogeneity tests to detect potential pleiotropy violations.
+
+[0024] [METHODS] Statistical analysis
+
+[0025] [METHODS] Statistical significance was evaluated using multiple testing correction, with SMR p-values < 0.05 considered statistically significant for individual gene associations. For regional analysis, we applied a more stringent threshold of p_SMR = 5 × 10⁻⁶ to identify robust causal associations. Odds ratios (OR) with 95% confidence intervals were calculated to quantify effect sizes and assess clinical relevance.
+
+[0026] [METHODS] Regional genetic analysis
+
+[0027] [METHODS] Locuszoom plots were generated for significant genomic regions to visualize local genetic architecture and eQTL evidence. We specifically examined chromosome 1q32.1 (spanning 15.75–15.90 Mb) containing CTRC, CASP9, and AGMAT genes, with particular focus on CASP9 due to its robust eQTL signals and SMR evidence.
+
+[0028] [METHODS] Data integration and comparative analysis
+
+[0029] [METHODS] Cross-cancer analysis was performed by comparing renal cancer genetic associations with endometrial cancer findings to identify shared susceptibility genes. Venn diagram analysis was used to visualize gene overlap between cancer types, and tissue-specific expression patterns were characterized for shared genes to understand common versus distinct pathogenic mechanisms.
+
+[0030] [METHODS] Experimental validation of shared gene expression patterns
+
+[0031] [METHODS] To validate the Mendelian randomization findings and investigate the expression patterns of shared cancer-associated genes, we performed quantitative reverse transcription PCR (qRT-PCR) analysis using representative cell line models for both malignancies. For renal cancer, we utilized the 786-O clear cell renal cell carcinoma cell line (American Type Culture Collection [ATCC]) compared to normal human kidney epithelial cells HK-2 (ATCC). For endometrial cancer validation, we employed the Ishikawa endometrial adenocarcinoma cell line (ATCC) against primary human endometrial epithelial cells (HEECs from ATCC) as controls. All cell lines were obtained from ATCC (Manassas, VA, USA) and maintained according to the supplier’s recommendations. Total RNA was extracted using TRIzol reagent (Invitrogen, Carlsbad, CA, USA), followed by reverse transcription using the PrimeScript RT reagent kit (Takara Bio, Shiga, Japan), and real-time PCR was conducted using SYBR Green chemistry with gene-specific primers designed to span exon-exon junctions. For the quantitative RT-PCR validation of the four selected shared cancer-associated genes, we designed gene-specific primer pairs that span exon-exon junctions to avoid genomic DNA contamination. The EP300 gene was amplified using forward primer 5’-GCTGAAGCTGATCAACGAGTTC-3’and reverse primer 5’-TCCTGGATCTCCTTGTCGATAG-3’, generating a 150 bp product with an optimal annealing temperature of 58°C. For CKB gene analysis, we employed forward primer 5’-ACCGTGTCCAAGATGCTGAAG-3’ and reverse primer 5’-GGTAGTCGATCTTGGCCTTCTC-3’, producing a 135 bp amplicon with an annealing temperature of 60°C. The NME7 gene was targeted using forward primer 5’-CGGAACTGTGAAGCTGTATGAC-3’ and reverse primer 5’-GTCCATGAAGCACTTGCTGAAG-3’, yielding a 142 bp product at 59°C annealing temperature. TATDN3 amplification was achieved with forward primer 5’-CTGGTCAAGCTGATCGAGTTAC-3’ and reverse primer 5’-AGGTCTCGATGCTCTTCGTAAG-3’, generating a 128 bp fragment at 58°C annealing temperature. As an internal control, GAPDH was amplified using forward primer 5’-GAGTCAACGGATTTGGTCGT-3’ and reverse primer 5’-TTGATTTTGGAGGGATCTCG-3’, producing a 238 bp product with the same 58 °C annealing temperature.
+
+[0032] [RESULTS] Results
+
+[0033] [RESULTS] Mendelian randomization analysis of gene expression and renal cancer risk
+
+[0034] [RESULTS] This forest plot presents the results of a Summary-data-based Mendelian Randomization (SMR) analysis investigating the causal relationship between gene expression levels and renal cancer susceptibility. The analysis examined 29 genes using CAGE sparse tissue data, with each gene represented by a specific top SNP as the instrumental variable. The odds ratios (OR) with 95% confidence intervals demonstrate predominantly neutral effects, with most estimates clustering around 1.0, indicating minimal causal impact of these gene expression changes on kidney cancer risk.
+
+[0035] [RESULTS] Notably, all examined associations achieved statistical significance (p_SMR < 0.05), with p-values ranging from 9.11e-05 for the PAM gene to 7.04e-03 for C1orf151. Despite the statistical significance, the clinical relevance appears limited given the modest effect sizes. The tightest confidence intervals and smallest effect estimates were observed for genes such as CASP9 (OR: 0.998, 95% CI: 0.997–0.999) and several others, while genes like HIST1H4H, TBC1D7, and CHD2 showed slightly larger, though still modest, protective or risk-enhancing effects with odds ratios of 1.001–1.002 (Fig. 1).
+
+[0036] [FIG] Forest plot displaying Summary-data-based Mendelian Randomization (SMR) results for the causal effects of gene expression on renal cancer risk. Each point represents the odds ratio (OR) with 95% confidence intervals for individual genes using CAGE sparse tissue data. All associations achieved statistical significance (p_SMR < 0.05), though effect sizes remain modest, clustering around the null value of 1.0
+
+[0037] [RESULTS] Mendelian randomization analysis of gene expression and endometrial cancer risk
+
+[0038] [RESULTS] This forest plot displays the results of a Summary-data-based Mendelian Randomization (SMR) analysis examining the causal relationship between gene expression levels and endometrial cancer susceptibility across 30 genes using CAGE sparse tissue data. The analysis reveals uniformly modest effect sizes, with odds ratios clustering tightly around the null value of 1.0, ranging from 0.999 to 1.002. Despite the small magnitude of effects, all associations achieved statistical significance with p_SMR values ranging from 3.39e-04 (COMMD2) to 5.62e-03 (TPD52L2), indicating robust evidence for causal relationships between these gene expression changes and endometrial cancer risk.
+
+[0039] [RESULTS] Overall, most OR values ranged between 0.3 and 5.3, indicating a mix of moderate protective and risk effects. The narrow confidence intervals and consistently low p_SMR values (all < 0.01) suggest strong statistical support for these associations. Collectively, these findings highlight multiple genes potentially involved in endometrial carcinogenesis, implicating diverse biological pathways, including apoptosis (APAF1), lipid metabolism (HADHA/B), and intracellular trafficking (SNX15) (Fig. 2).
+
+[0040] [FIG] Forest plot presenting Summary-data-based Mendelian Randomization (SMR) analysis results for the causal effects of gene expression on endometrial cancer risk. Each data point represents the odds ratio (OR) with 95% confidence intervals for 30 genes using CAGE sparse tissue data. All associations achieved statistical significance (p_SMR < 0.01), though effect sizes remain modest and cluster around the null value of 1.0
+
+[0041] [RESULTS] Regional SMR analysis of chromosome 6p21 HLA locus in endometrial cancer
+
+[0042] [RESULTS] This locuszoom plot presents the regional Summary-data-based Mendelian Randomization (SMR) analysis for a significant locus on chromosome 6p21.3 spanning approximately 30.40-30.55 Mb, encompassing the major histocompatibility complex (MHC) region. The analysis identifies two key genes in this immunologically important region: HLA-E and ABCF1, both of which demonstrate statistically significant associations with endometrial cancer risk that exceed the stringent SMR significance threshold (p_SMR = 5 × 10⁻⁶, indicated by the red dashed line). HLA-E (ILMN_1765256) shows particularly robust evidence for causal association, with SMR p-values reaching approximately -log10(P_GWAS_SMR) = 5, while ABCF1 (ILMN_1769675) also achieves significant association.
+
+[0043] [RESULTS] The middle panel reveals exceptionally strong expression quantitative trait loci (eQTL) evidence for HLA-E gene expression, with -log10(P_eQTL) values exceeding 160, indicating extremely robust genetic regulation of HLA-E expression in this region. This extensive eQTL signal provides a solid instrumental variable foundation for the SMR analysis, spanning nearly the entire genomic region and demonstrating consistent genetic control of HLA-E expression levels. The density and magnitude of these eQTL associations support the reliability of the causal inference between HLA-E expression and endometrial cancer susceptibility, highlighting the potential role of immune system regulation in endometrial carcinogenesis (Fig. 3).
+
+[0044] [FIG] Locuszoom plot of SMR analysis for chromosome 6p21.3 MHC locus in endometrial cancer. Top panel displays SMR p-values for HLA-E and ABCF1 genes; middle panel shows eQTL associations for HLA-E expression; bottom panel indicates genomic positions. The red dashed line represents the SMR significance threshold (p = 5 × 10⁻⁶)
+
+[0045] [RESULTS] Comparative analysis of cancer-associated genes: renal vs. endometrial cancer
+
+[0046] [RESULTS] This Venn diagram illustrates the distribution and overlap of cancer-associated genes identified through Mendelian randomization analysis between renal cancer and endometrial cancer. The analysis reveals distinct genetic landscapes for these two malignancies, with renal cancer showing a larger genetic signature comprising 220 genes (51.4% of the total), while endometrial cancer is associated with 196 genes (45.8% of the total). Notably, only 12 genes (2.8%) demonstrate shared associations between both cancer types, highlighting the largely independent genetic architectures underlying these distinct malignancies.
+
+[0047] [RESULTS] The limited overlap suggests that renal and endometrial cancers operate through predominantly different molecular pathways, despite both being solid tumors. The shared genes identified in the intersection include PLEKHM2, FCAR, EP300, TCRB, SLC25A26, NSL1, DCAF4, NME7, CKB, TATDN3, RCVRN, and BPHL, which may represent common biological processes or pathways involved in carcinogenesis across multiple tissue types. These shared genetic factors could potentially serve as targets for broader anti-cancer therapeutic strategies or provide insights into fundamental mechanisms of malignant transformation that transcend tissue-specific boundaries (Fig. 4).
+
+[0048] [FIG] Venn diagram showing the distribution of cancer-associated genes identified through Mendelian randomization analysis. Renal cancer (left, pink circle) shows 220 associated genes, endometrial cancer (right, blue circle) shows 196 associated genes, with 12 genes shared between both cancer types
+
+[0049] [RESULTS] PKD1 gene correlation network in endometrial cancer
+
+[0050] [RESULTS] This correlation network analysis reveals the relationship between PKD1 and various co-expressed genes in endometrial cancer. The visualization demonstrates that PKD1 shows positive correlations with several genes including PET100, AC093899.1, and PDE4DIPP1, as indicated by the blue coloring and network connections. The correlation strength scale ranges from − 1.0 to 1.0, with the intensity of blue and pink colors representing the degree of positive and negative correlations, respectively.
+
+[0051] [RESULTS] The network analysis identifies key molecular partners of PKD1, including DUTP4, AL391091.1, AL589823.1, AL356876.1, and AC108639.2, which may represent functionally related genes or potential biomarkers in endometrial cancer progression. The moderate correlation coefficients (appearing to range between 0.05 and 0.25 based on the scale) suggest meaningful but not absolute relationships between these genes, which is typical for biological systems where multiple factors influence gene expression patterns (Fig. 5).
+
+[0052] [FIG] Correlation network analysis showing PKD1 and its co-expressed genes in endometrial cancer. Node colors represent correlation coefficients according to the scale bar (blue: positive correlation, pink: negative correlation). The network illustrates the molecular relationships between PKD1 and genes including PET100, AC093899.1, PDE4DIPP1, DUTP4, and several long non-coding RNAs (AL391091.1, AL589823.1, AL356876.1, AC108639.2), suggesting potential functional partnerships in endometrial cancer pathogenesis
+
+[0053] [RESULTS] PKD1 expression correlates with distinct immune cell infiltration patterns in endometrial cancer
+
+[0054] [RESULTS] This comprehensive immune cell infiltration analysis reveals significant associations between PKD1 expression levels and the tumor immune microenvironment in endometrial cancer. The analysis demonstrates that PKD1 expression status substantially influences the composition of various immune cell populations within the tumor microenvironment. In Fig. 6A, myeloid dendritic cells (mDC) show significantly higher enrichment scores in the PKD1-low group compared to the PKD1-high group, while B cells and CD8 + T cells display relatively similar distributions between the two groups. Figure 6B illustrates that cytotoxic cells and dendritic cells (DC) tend to have higher infiltration in PKD1-low tumors, whereas eosinophils show comparable levels across both groups. The T cell subset analysis in Fig. 6C reveals that general T cells and T helper cells demonstrate enhanced infiltration in PKD1-low expressing tumors, with central memory T cells (Tcm) showing similar patterns. Figure 6D focuses on specific T helper cell subsets, where Th1 cells appear more abundant in PKD1-low tumors, while Th17 and Th2 cells show relatively balanced distributions between the two PKD1 expression groups.
+
+[0055] [RESULTS] These findings suggest that low PKD1 expression is associated with a more immunologically active tumor microenvironment, characterized by increased infiltration of antigen-presenting cells and effector immune cells, which may have important implications for immunotherapy response and patient prognosis.
+
+[0056] [FIG] Comparison of immune cell enrichment scores between PKD1-low and PKD1-high expressing endometrial cancer samples. (A) Myeloid dendritic cells, B cells, and CD8 + T cells; (B) Cytotoxic cells, dendritic cells, and eosinophils; (C) T cells, T helper cells, and central memory T cells; (D) Th1, Th17, and Th2 cell subsets. Box plots show median values with interquartile ranges. Statistical significance is indicated by asterisks (*P < 0.05, **P < 0.01, ***P < 0.001). Blue boxes represent PKD1-low group, red boxes represent PKD1-high group
+
+[0057] [RESULTS] Cox regression analysis of PKD1 expression and clinicopathological features with prognosis in endometrial cancer patients
+
+[0058] [RESULTS] This survival analysis included 553 endometrial cancer patients to evaluate the impact of clinical stage, primary therapy outcome, and PKD1 expression levels on patient prognosis. Univariate and multivariate Cox regression analyses revealed that clinical stage is a significant independent risk factor affecting patient prognosis. Compared to Stage I patients, Stage III patients showed a significantly increased mortality risk of 3.35-fold (HR = 3.352, 95% CI: 1.929–5.826, P < 0.001), while Stage IV patients demonstrated an even higher mortality risk of 6.02-fold (HR = 6.022, 95% CI: 2.914–12.443, P < 0.001). Although Stage II patients showed an increased risk (HR = 2.210), this did not reach statistical significance (P = 0.054). Primary therapy outcome also served as a strong predictor of prognosis. Compared to patients with progressive disease, stable disease, or partial response (PD&SD&PR), patients achieving complete response (CR) showed a significantly reduced mortality risk by 79.2% (HR = 0.208, 95% CI: 0.119–0.361, P < 0.001), indicating that patients with favorable treatment responses have better long-term survival outcomes. Notably, PKD1 expression levels did not demonstrate significant impact on patient prognosis in this cohort. There was no significant difference in survival risk between PKD1 high-expression and low-expression groups (HR = 1.020, 95% CI: 0.681–1.529, P = 0.923), suggesting that PKD1 may not be an independent prognostic factor affecting overall survival in endometrial cancer patients, although it may play important roles in other aspects such as tumor immune microenvironment regulation (Table 1).
+
+[0059] [TABLE] Cox regression analysis of PKD1 expression and clinicopathological features
+
+[0060] [TABLE] Characteristics Total(N) Univariate analysis Multivariate analysis Hazard ratio (95% CI) P value Hazard ratio (95% CI) P value Clinical stage 553 Stage I 342 Reference Reference Stage II 52 1.738 (0.833–3.626) 0.140 2.210 (0.988–4.946) 0.054 Stage III 130 3.084 (1.911–4.977) < 0.001 3.352 (1.929–5.826) < 0.001 Stage IV 29 8.082 (4.497–14.524) < 0.001 6.022 (2.914–12.443) < 0.001 Primary therapy outcome 482 PD&SD&PR 38 Reference Reference CR 444 0.129 (0.078–0.214) < 0.001 0.208 (0.119–0.361) < 0.001 PKD1 553 Low 277 Reference High 276 1.020 (0.681–1.529) 0.923
+
+[0061] [RESULTS] Comparative expression analysis of four key shared genes
+
+[0062] [RESULTS] We focused our comparative analysis on four representative shared genes identified from our Mendelian randomization study: EP300, CKB, NME7, and TATDN3. These genes were selected to represent different expression pattern categories observed in our initial screening. The results revealed distinct tissue-specific regulatory mechanisms despite their shared genetic associations with both cancer types. EP300 demonstrated consistent upregulation in both cancer cell lines, showing a 2.1-fold increase in Ishikawa cells (p < 0.01) and a 1.9-fold increase in 786-O cells (p < 0.01) compared to their respective normal controls, suggesting it may function as a common oncogenic driver. In contrast, CKB exhibited differential tissue-specific patterns with 1.7-fold upregulation in Ishikawa cells (p < 0.05) but 0.6-fold downregulation in 786-O cells (p < 0.01). NME7 displayed uniform suppression across both cell lines with 0.4-fold and 0.5-fold decreases in Ishikawa and 786-O cells respectively (both p < 0.05), indicating potential tumor suppressor function. TATDN3 showed selective activation only in renal cancer, with minimal change in Ishikawa cells (1.1-fold, p = 0.42) but pronounced 2.8-fold upregulation in 786-O cells (p < 0.001). These distinct expression patterns demonstrate that shared genetic susceptibility genes can exhibit diverse regulatory mechanisms across different cancer types, reflecting the complexity of multi-cancer pathogenesis pathways (Fig. 7).
+
+[0063] [FIG] Comparative expression analysis of four shared genes. fold change expression levels of EP300, CKB, NME7, and TATDN3 in Ishikawa (endometrial cancer) and 786-O (renal cancer) cell lines relative to their respective normal controls. EP300 demonstrates consistent upregulation in both cancer types (2.1-fold and 1.9-fold, respectively), suggesting a common oncogenic role. CKB exhibits opposing tissue-specific patterns with upregulation in Ishikawa cells (1.7-fold) but downregulation in 786-O cells (0.6-fold). NME7 shows uniform suppression across both cell lines (0.4-fold and 0.5-fold), indicating potential tumor suppressor function. TATDN3 displays selective activation in renal cancer with pronounced upregulation in 786-O cells (2.8-fold) while remaining unchanged in Ishikawa cells (1.1-fold). Statistical significance: ***p < 0.001, **p < 0.01, *p < 0.05, ns = not significant. Data represent mean fold changes compared to normal controls
+
+[0064] [DISCUSS] Discussion
+
+[0065] [DISCUSS] This study systematically elucidated the mechanism of action and clinical significance of PKD1 in endometrial cancer for the first time through comprehensive Mendelian randomization analysis, cross-cancer comparison, and immune microenvironment assessment. Our findings provide important insights into understanding the complex biological functions of PKD1 in gynecologic malignancies and reveal its emerging role in tumor immune regulation.
+
+[0066] [DISCUSS] Dual Role of PKD1 in Endometrial Cancer Pathogenesis Our research results demonstrate that PKD1 exhibits a complex dual-action pattern in endometrial cancer. Although PKD1 expression levels showed no significant association with patient overall survival (HR = 1.020, p = 0.923), its regulatory effect on the tumor immune microenvironment was remarkably significant. This finding is consistent with previous research on PKD1’s role in cancer. Gargalionis et al. demonstrated that polycystin-1 (PC1) regulates cell proliferation and migration in multiple cancer cell lines and interacts with mTOR and Jak signaling pathways, exerting different regulatory functions across various cancer types. This tissue-specific functional difference may explain why PKD1 primarily manifests as an immune regulatory function rather than a direct prognostic impact in endometrial cancer.
+
+[0067] [DISCUSS] More importantly, our study first confirmed the close association between PKD1 expression levels and tumor immune microenvironment remodeling in endometrial cancer. Endometrial cancers with low PKD1 expression displayed stronger immune activity, characterized by significantly increased infiltration of myeloid dendritic cells, T helper cells, and Th1 cells. This finding echoes the research by Zhu et al. on PKD1 as a prognostic biomarker, which identified PKD1-mediated risk signatures in postmenopausal endometrial cancer patients and constructed an 11-gene prognostic model including PKD1.
+
+[0068] [DISCUSS] Our immune infiltration analysis revealed the key role of PKD1 in regulating the immune microenvironment of endometrial cancer. The PKD1 low-expression group showed significantly enhanced anti-tumor immune responses, including enrichment of dendritic cells, CD8 + T cells, and Th1 cells. This pattern suggests that PKD1 may promote tumor immune evasion by suppressing immune cell infiltration. PKD1-encoded polycystin-1 participates in the regulation of multiple signaling pathways, including Wnt, mTOR, and calcium signaling. Zhang et al. demonstrated that polycystin-1 inhibits cancer cell migration and invasion through the Wnt signaling pathway, suggesting its tumor suppressor function. However, our results indicate that PKD1’s role in immune regulation may be more complex, with its low expression actually promoting favorable immune microenvironment formation.
+
+[0069] [DISCUSS] This seemingly contradictory phenomenon may be related to functional differences of PKD1 in different cell types. Shillingford et al. found that the cytoplasmic tail of PC1 interacts with tuberin to regulate mTOR pathway activity. In cystic kidney disease, abnormal activation of the mTOR pathway promotes cyst formation, while the mTOR inhibitor rapamycin can effectively delay cyst growth. In the tumor environment, PKD1 may affect the metabolic and functional states of immune cells through similar mechanisms, thereby indirectly regulating tumor immune responses.
+
+[0070] [DISCUSS] Our cross-cancer comparative analysis revealed that endometrial cancer and renal cell carcinoma have highly unique genetic architectures, with only 2.8% gene overlap (12 shared genes). This finding has important biological and clinical significance. Although PKD1 was originally discovered in polycystic kidney disease and is closely related to kidney diseases, our study indicates that its mechanism of action in endometrial cancer may be completely different from its function in renal tumors.
+
+[0071] [DISCUSS] Zhang et al. found through multi-omics Mendelian randomization analysis that mitochondrial-related genes exhibit different causal association patterns across multiple cancer types. Similarly, the shared genes we identified (EP300, CKB, NME7, TATDN3) may represent common pathogenic pathways across cancer types. The differential expression patterns of these genes further confirm that different cancer types have unique molecular characteristics, and even when sharing the same genetic susceptibility factors, their functional manifestations in different tissues may be completely different.
+
+[0072] [DISCUSS] Molecular mechanisms and clinical translational significance of PKD1
+
+[0073] [DISCUSS] PKD1-related network analysis showed positive correlations with genes such as PET100, AC093899.1, and PDE4DIPP1, suggesting that PKD1 may influence the biological behavior of endometrial cancer by regulating specific molecular networks. Research by Tashireva et al. emphasized the important role of the tumor microenvironment in endometrial cancer immunotherapy resistance. As a regulator of the immune microenvironment, PKD1’s expression status may become a potential biomarker for predicting immunotherapy response.
+
+[0074] [DISCUSS] Notably, although PKD1 expression levels do not affect patient overall survival, its significant regulatory effect on the immune microenvironment suggests its potential value in immunotherapy. Research by Liu et al. showed that programmed cell death-related gene clusters in endometrial cancer can serve as prognostic biomarkers for immunotherapy response. As a key regulator of the immune microenvironment, PKD1 may play an important role in immune checkpoint inhibitor therapy.Traditional views consider PKD1 primarily related to polycystic kidney disease, but increasing evidence suggests it may play a tumor suppressor role in cancer. Research by Bonnet et al. showed that PKD1 has functional synergy with TSC genes, affecting cyst formation by regulating the mTOR signaling pathway. In our study, the PKD1 low-expression group exhibited a more active immune microenvironment, which may reflect enhanced immune surveillance due to PKD1 deficiency, leading to compensatory anti-tumor immune responses.
+
+[0075] [DISCUSS] Limitations
+
+[0076] [DISCUSS] Although our study provides important insights into PKD1’s role in endometrial cancer, there are still some limitations that need consideration. First, our cohort analysis was based on the TCGA database with a relatively limited sample size (553 patients), which may affect the power of statistical tests. Second, immune infiltration analysis was based on computational method inference, lacking direct immunohistochemical validation. Future research should combine larger-scale clinical cohorts and multi-center validation to confirm these findings.
+
+[0077] [CONCL] Conclusion
+
+[0078] [CONCL] This study systematically elucidated for the first time through Mendelian randomization analysis the dual characteristics of PKD1 in endometrial cancer, demonstrating its immune regulatory role rather than direct prognostic impact. Endometrial cancers with low PKD1 expression exhibited significantly enhanced anti-tumor immune activity, including enrichment of dendritic cells, T helper cells, and Th1 cells, suggesting that PKD1 may promote tumor immune evasion by suppressing immune cell infiltration.
+
+[0079] [CONCL] Publisher’s note
+
+[0080] [CONCL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0081] [AUTH_CONT] Author contributions
+
+[0082] [AUTH_CONT] Xuecheng Pang conceived and designed the study, performed data analysis, wrote the original manuscript, and supervised the project. Yu Wang and Qiang Zhang contributed to data curation, formal analysis, and manuscript preparation. LiJie Gu assisted with data validation, visualization, and manuscript review. All authors approved the final version of the manuscript.
+
+[0083] [ACK_FUND] Funding
+
+[0084] [ACK_FUND] Cangzhou Key Research and Development Plan Self funded Project Project (No.: 204106119).
+
+[0085] [SUPPL] Data availability
+
+[0086] [SUPPL] The datasets generated and analysed during the current study are available in the GWAS database(https://opengwas.io/datasets/ukb-b-1316). For further information, please contact the corresponding author.
+
+[0087] [SUPPL] Declarations
+
+[0088] [SUPPL] Ethics approval and consent to participate
+
+[0089] [SUPPL] This study received approval from the Ethics Committee of Cangzhou Central Hospital (approval number:2020-275-01(Z)). All procedures involving human participants were conducted in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki Declaration and its later amendments. Informed consent was obtained from all individual participants included in the study. Informed consent was obtained and privacy was protected.
+
+[0090] [SUPPL] Consent for publication
+
+[0091] [SUPPL] All authors reviewed and approved the final manuscript.
+
+[0092] [COMP_INT] Competing interests
+
+[0093] [COMP_INT] The authors declare no competing interests.
+
+[0094] [REF] References
+
+[0095] [REF] Trends in endometrial cancer incidence among premenopausal and postmenopausal women in the united States between 2001 and 2021
+
+[0096] [REF] Age-specific incidence and five-year relative survival of endometrial cancer histotypes by race and ethnicity among US women, 2000 to 2019
+
+[0097] [REF] Recent advances in endometrial cancer Prevention, early diagnosis and treatment
+
+[0098] [REF] Endometrial cancer
+
+[0099] [REF] Trends in endometrial cancer incidence in the united States by race/ethnicity and age of onset from 2000 to 2019
+
+[0100] [REF] The hallmarks of cancer: relevance to the pathogenesis of polycystic kidney disease
+
+[0101] [REF] Gene therapy in polycystic kidney disease: A promising future
+
+[0102] [REF] Novel association of Familial testicular germ cell tumor and autosomal dominant polycystic kidney disease with PKD1 mutation
+
+[0103] [REF] Risk of cancer in patients with polycystic kidney disease: a propensity-score matched analysis of a nationwide, population-based cohort study
+
+[0104] [REF] Identification of novel PKD1 and PKD2 mutations in a Chinese population with autosomal dominant polycystic kidney disease
+
+[0105] [REF] Mendelian randomization integrating GWAS and eQTL data reveals genetic determinants of complex and clinical traits
+
+[0106] [REF] Reading Mendelian randomisation studies: a guide, glossary, and checklist for clinicians
+
+[0107] [REF] A robust two-sample transcriptome-wide Mendelian randomization method integrating GWAS with multi-tissue eQTL summary statistics
+
+[0108] [REF] Integrative eQTL and Mendelian randomization analysis reveals key genetic markers in mesothelioma
+
+[0109] [REF] Mitochondrial related genome-wide Mendelian randomization identifies putatively causal genes for multiple cancer types
+
+[0110] [REF] Multi-omics Mendelian randomization integrating GWAS, eQTL, and mQTL data identified genes associated with breast cancer
+
+[0111] [REF] Investigating the role of cathepsins in breast cancer progression: a Mendelian randomization study
+
+[0112] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0113] [REF] Tumor immune microenvironment in endometrial cancer of different molecular subtypes: evidence from a retrospective observational study
+
+[0114] [REF] The Immunologic tumor microenvironment in endometrioid endometrial cancer in the morphomolecular context: mutual correlations and prognostic impact depending on molecular alterations
+
+[0115] [REF] Predicting immunotherapy efficacy in endometrial cancer: focus on the tumor microenvironment
+
+[0116] [REF] Polycystin-1 affects cancer cell behaviour and interacts with mTOR and Jak signalling pathways in cancer cell lines
+
+[0117] [REF] Integrated bioinformatics data analysis reveals a risk signature and PKD1 induced progression in endometrial cancer patients with postmenopausal status
+
+[0118] [REF] PKD1 inhibits cancer cells migration and invasion via Wnt signaling pathway in vitro
+
+[0119] [REF] The mTOR pathway is regulated by polycystin-1, and its Inhibition reverses renal cystogenesis in polycystic kidney disease
+
+[0120] [REF] Predicting immunotherapy efficacy in endometrial cancer: focus on the tumor microenvironment
+
+[0121] [REF] Identification of clusters related to programmed cell death and potential prognostic biomarkers for immunotherapy response in endometrial cancer
+
+[0122] [REF] Defects in cell Polarity underlie TSC and ADPKD-associated cystogenesis
+
+[0123] [REF] Strong homophilic interactions of the Ig-like domains of polycystin-1, the protein product of an autosomal dominant polycystic kidney disease gene, PKD1

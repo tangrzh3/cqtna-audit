@@ -1,0 +1,337 @@
+[0001] [TITLE] TRP channels in hepatocellular carcinoma: integrative Mendelian randomization and multi-omics analyses highlight MCOLN3/TRPV4 as candidate dual-effect biomarkers
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] The causal relationship between Transient receptor potential (TRP) and hepatocellular carcinoma (HCC) remains unclear. Our study aimed to identify potential drug targets for HCC within the TRP family using Mendelian randomization (MR).
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] The gene expression quantitative trait loci (eQTL) data for TRP was sourced from eQTLGen Consortium. Summary statistics for HCC came from European (nCase = 379, nControl = 475,259) and East Asian population (nCase = 2122, nControl = 159,201). We undertook main MR analysis in the European population using the R package ‘TwosampleMR’, with significance determined through Bonferroni correction. The East Asian population serves as the validation cohort. Sensitivity analyses include Steiger filtering, bidirectional MR analysis, multivariable MR (MVMR) analysis, and phenotype scanning for further validation of causal relationships.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] Main MR analysis had identified two causal TRPs, MCOLN3 (OR = 1.59, 95% CI: 1.24–2.06) and TRPV4 (OR = 0.597, 95% CI: 0.407–0.875). No heterogeneity or pleiotropy was detected. The basal metabolic rate may partially mediate the causal effect of TRPV4 on HCC. Drugs such as cisplatin and Cannabidiol were identified for their potential action on causal TRPs. High expression of MCOLN3 may lead to increased sensitivity to sorafenib, while patients with low expression of MCOLN3 and TRPV4 were more likely to benefit from immunotherapy. Furthermore, we revealed the expression landscape of causal TRPs in HCC by performing integrated multi-omics analyses.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] This MR analysis revealed a causal relationship between TRP and HCC, and MCOLN3 and TRPV4 were potential drug targets. They also served as potential molecular biomarkers for the efficacy of immunotherapy and/or targeted therapy, providing a strong theoretical basis for the clinical application of TRPs.
+
+[0010] [ABSTRACT] Graphical Abstract
+
+[0011] [ABSTRACT] Supplementary Information
+
+[0012] [ABSTRACT] The online version contains supplementary material available at 10.1186/s40246-025-00807-9.
+
+[0013] [INTRO] Background
+
+[0014] [INTRO] Hepatocellular carcinoma (HCC), as the most prevalent primary liver cancer, stands out as a malignancy characterized by high incidence and a formidable mortality rate. HCC is predominantly caused by chronic liver diseases stemming from factors such as hepatitis B or C virus infection, alcohol abuse, or metabolic syndrome. The continual advancement in hepatic surgery, coupled with research and applications of locoregional therapies, molecular targeted therapies, and immunotherapies, has led to improvements in the survival period of HCC patients (A. Huang et al. 2020a). Combination therapies, including the combination of anti-angiogenic drugs with immune checkpoint inhibitors (ICIs), dual ICIs, and targeted therapies combined with surgery or other local treatments, have been extensively researched and have shown promising prospect(A. Huang et al. 2020a). However, the current outcomes are still less than satisfactory. The identification of new drug targets is needed to improve prognosis.
+
+[0015] [INTRO] Transient receptor potential (TRP) channels are primarily located in the plasma membrane of mammalian animal tissues, characterized by six transmembrane spanning domains (S1–S6). TRP family is composed of 8 subfamilies: TRPA (ankyrin), TRPC (canonical), TRPM (melastatin), TRPML (mucolipin), TRPN (NO-mechano-potential), TRPP (polycystin), TRPS (soromelastatin), and TRPV (vanilloid). TRP channels serve as a group of relatively nonspecific cation channels. Different members of the TRP family are sensitive to various physical and chemical stimuli, including temperature, mechanical force, and calcium ion concentration, thereby participating in multiple physiological and pathological processes. While in the tumor microenvironment, abnormal status of such stimuli can lead to dysregulation of TRP channel expression. Some members of the TRP family have been found to be associated with the malignant phenotype of HCC. We previously demonstrated that TRPV2 knockdown enhances the stemness of cancer stem-like cells through increased expression levels of cancer stem cell markers ALDH1, CD133, and CD44. Additionally, the overexpression of TRPV2 attenuated the stemness of cancer stem-like cells by reducing marker levels. Koh et al. revealed that low TRPV6 expression was remarkably lined to adverse histologic features, resulting in the worse prognosis. Research has found that the increase in intracellular calcium ions mediated by TRPC6 is crucial for the proliferation of HCC cells and tumor development. Overexpression of TRPC6 led to increased cell proliferation and store-operated calcium entry, while knocking down TRPC6 showed the opposite effect. Our latest research has revealed the relationship between TRPM8 and HCC. TRPM8 regulates the expression of nucleolar relative molecule-small nucleolar RNA, H/ACA box 55 (SNORA55) by inducing changes in chromatin structure and histone modification types. SNORA55, as a bridge molecule triggered by TRPM8 in HCC, can translocate from the nucleus to the mitochondria and influence mitochondrial function by targeting ATP5A1 and ATP5B to exert its carcinogenic effect.The above studies have revealed the tremendous potential of TRP family members in the treatment of HCC. However, the number of experimental studies on TRPs and HCC remains limited. Therefore, a comprehensive analysis of the causal relationship between TRP family members and HCC for the identification of potential drug targets is necessary.
+
+[0016] [INTRO] Mendelian randomization (MR) is a method used for instrumental variable analysis, using single nucleotide polymorphisms (SNPs) from genome-wide association studies (GWAS) as genetic instrumental variables to estimate the causal effects of exposures on outcomes. Compared to observational studies, the advantage of MR lies in utilizing the random allocation of alleles to avoid biases from unobserved confounders (such as lifestyle factors and other environmental influences) and issues related to reverse causality. However, to date, there is no integrated research on the association between eQTL of the TRP family and GWAS data on HCC. In this study, our aim was to employ a two-sample MR analysis method to demonstrate the causal relationship between TRP family members and HCC.
+
+[0017] [METHODS] Materials and methods
+
+[0018] [METHODS] Data source
+
+[0019] [METHODS] This study was conducted in accordance with the reporting guidelines of Strengthening the Reporting of Observational Studies in Epidemiology, Supplementary Table 1).
+
+[0020] [METHODS] This study included 28 members of the TRP family, and their official gene symbol IDs could be found in Supplementary Table 2, and their cis-eQTL instruments were obtained from the eQTLGen Consortium (Supplementary Table 3). The inclusion criteria for cis-eQTL are as follows: variants located within 1 Mb up- and downstream of the coding sequence of TRP family members, minor allele frequency (MAF) > 1%, detected at a false-discovery rate of 0.05 (FDR < 0.05), and a significant p-value (P < 5 × 10–8). Using the European population from the 1000 Genome Project as a reference, we conducted linkage disequilibrium (LD) analysis with an r2 threshold set at 0.2, within a range of 10,000 kb. However, only one significant eQTL was available for MCOLN3 (rsID: rs6576739), and the only eQTL (rsID: rs113986451) for TRPV4 does not meet the criterion of a q-value less than 0.05 in the GTEx v10 liver eQTL dataset. Neither eQTL overlapped with our clumped SNP set. Consequently, we were unable to perform the validation in the current GTEx liver eQTL resource. We also computed F-statistics to exclude weak instrumental variables. Only cis-eQTLs meeting the aforementioned criteria were used as instrumental variables in the main MR analysis.
+
+[0021] [METHODS] The European population cohort was utilized as the primary cohort for the MR analysis, while the East Asian population cohort was employed as an independent validation cohort. The European cohort’s GWAS data was sourced from UK Biobank, IEU OpenGWAS project, and FinnGen research project, with disease classification based on the International Classification of Diseases (ICD) 10 code C, corresponding to HCC (Supplementary Table 3). The cohort comprised a total of 475,638 samples, including 379 cases and 475,259 controls. The GWAS data for the East Asian cohort was obtained from BBJ, with disease classification based on the ICD-10 code C, namely HCC. The cohort comprised a total of 161,323 samples, including 2,122 cases and 159,201 controls.
+
+[0022] [METHODS] Main MR analysis
+
+[0023] [METHODS] The R package "TwoSampleMR" was utilized for the main MR analysis. When only one eQTL was available for analysis, the Wald ratio method was chosen. When two or more eQTLs were available for analysis, the inverse variance weighted (IVW) method was selected, along with leave-one-out sensitivity analysis, heterogeneity test, and pleiotropy test. Cochran’s Q statistic was used to evaluate heterogeneity, and MR-Egger regression was employed to assess pleiotropy. We employed Bonferroni correction to adjust for multiple comparisons in the primary analysis, setting the significance threshold at p < 0.001786 (p < 0.05/28). For the external validation, the significance threshold was set at p < 0.05. Significance thresholds for heterogeneity and pleiotropy tests were set at p < 0.05. Additionally, we conducted outlier test using the Mendelian Randomization Pleiotropy RESidual Sum and Outlier (MR-PRESSO) test. This test not only identifies and removes outliers but also provides further validation for results of main MR analysis and horizontal pleiotropy test.
+
+[0024] [METHODS] Reverse causality inference
+
+[0025] [METHODS] The Steiger filtering method was employed to further validate the direction of causality between the exposure and the outcome. The critical determinant for directional assessment is the R-squared value, representing the proportion of SNP’s impact on the disease. Given the strong correlation between SNP and exposure and their independence from the outcome, the explanation for exposure should surpass that for the outcome. Additionally, we conducted bidirectional MR analysis using the TwoSampleMR package to exclude the presence of reverse causality. The GWAS summary data of HCC were chosen as exposures, and SNPs reaching a genome-wide significance threshold of p < 1 × 10–5 were selected as instrumental variables. TRP family members obtained from the primary MR analysis were chosen as outcomes. The significance threshold was set at p < 0.05.
+
+[0026] [METHODS] Phenotype scanning
+
+[0027] [METHODS] The Phenoscanner package was performed to identify previous GWAS phenotypes, genes, and proteins associated with the selected eQTLs. This step aims to further mitigate potential confounding biases in the analysis. If an eQTL simultaneously meets the following criteria: i) genome-wide significance threshold of p < 5 × 10–8, ii) ancestry of the population being European or East Asian, and iii) association with any known risk factors for HCC, including genes, proteins, traits, or diseases, then it is considered to exhibit pleiotropy.
+
+[0028] [METHODS] MVMR analysis
+
+[0029] [METHODS] For eQTLs exhibiting pleiotropy identified by Phenoscanner, we employed the TwoSampleMR package to conduct multivariable MR and mediation MR analyses. Multivariable MR was employed to adjust for potential confounders, assessing the significance of the causal effects of target genes on HCC. Mediation MR was utilized for vertical pleiotropy analysis.
+
+[0030] [METHODS] Drug prediction and bioinformatics analysis
+
+[0031] [METHODS] The DrugBank database and the Therapeutic Target Database (TTD) were utilized to identify drugs targeting causal TRPs. The Comparative Toxicogenomics Database (CTD) was employed for identifying chemicals that interact with causal TRPs. The Cancer Genome Atlas (TCGA), International Cancer Genome Consortium (ICGC), Integrative Molecular Database of Hepatocellular Carcinoma (HCCDB), and Human Liver Browser were utilized for multi-omics analysis to investigate the expression patterns of causal TRPs in HCC. Exploration of sorafenib response cohort in the Gene Expression Omnibus (GEO) database was employed to analyze the relationship between the expression of causal TRPs and sorafenib response. The Tumor Immune Dysfunction and Exclusion (TIDE) website was developed to predict tumor immune evasion capability, and its computed TIDE score was utilized to predict the immune response of cancer patients.
+
+[0032] [RESULTS] Results
+
+[0033] [RESULTS] Identification of causal TRPs for HCC
+
+[0034] [TABLE] Main MR results for causal inference between TRPs and HCC at Bonferroni significance
+
+[0035] [TABLE] Exposure Outcome Method No. of SNP Beta Se P value OR (95% CI) Heterogeneity test Pleiotropy test Cochran’s Q statistic P value Egger_intercept P value MCOLN3 HCC MR Egger 11 0.322442 0.341413 0.36961 1.38(0.71–2.70) 9.914352279 0.357463 0.01508621 0.656456 Weighted median 11 0.424778 0.157666 0.007057 1.53(1.22–2.08) NA NA NA NA Inverse variance weighted 11 0.466631 0.129802 0.000324 1.59(1.24–2.06) 10.14740767 0.427657 NA NA Simple mode 11 0.361394 0.245359 0.171536 1.44(0.88–2.32) NA NA NA NA Weighted mode 11 0.430982 0.168724 0.028649 1.54(1.11–2.14) NA NA NA NA
+
+[0036] [TABLE] Odds ratios (OR) for increased risk of HCC were expressed as per SD increase in expression level of MCOLN3
+
+[0037] [FIG] Cross-Population Comparison of EAF for MCOLN3 and TRPV4 cis-eQTLs. Top: Comparison of allele frequencies between East Asian and European cohorts for MCOLN3 (purple) and TRPV4 (pink) cis-eQTLs. Each point represents a specific SNP (rs ID labeled), with the dashed grey diagonal line serving as a reference for frequency consistency. Bottom: Absolute allele frequency differences (|ΔEAF|) for each SNP between populations, colored by target gene (MCOLN3: purple; TRPV4: pink). A: Asian Frequency; E: European Frequency
+
+[0038] [RESULTS] Main MR analysis unveiled that solely MCOLN3 withstood Bonferroni correction, with upregulated MCOLN3 expression correlating to escalated HCC susceptibility (OR = 1.59, CI: 1.24–2.06, P = 3.24 × 10–4, Table 1). Leave-one-out sensitivity tests revealed no SNP necessitating exclusion (Supplementary Fig. 1A). No signs of heterogeneity or pleiotropy were detected. MR-PRESSO test indicated a pronounced causal linkage between MCOLN3 and HCC, devoid of horizontal pleiotropy or outliers, thereby further buttressing the aforesaid findings (Supplementary Table 4). The Causal effect of MCOLN3 on HCC was confirmed in the validation cohort (OR = 1.44, CI: 1.08–1.94, P = 0.015, Supplementary Fig. 1B, Supplementary Fig. 2, Supplementary Table 5). It is worth mentioning that in the main MR analysis, although the causal effects of TRPC6 (OR = 1.32, CI: 1.08–1.62, P = 0.007) and TRPV4 (OR = 0.597, CI: 0.407–0.875, P = 0.008) on HCC did not pass the Bonferroni test, their p-values were both 0.05; and the causal effect of TRPV4 on HCC was also significant in the validation cohort (Supplementary 3, 4). Furthermore, TRPV4 also passed the pleiotropy, heterogeneity, PRESSO and leave-one-out sensitivity tests (Supplementary Fig. 1C–D, Supplementary Table 4, 5). We also visualized the alleles and their frequencies for the SNPs used in the MR analysis across the two populations (Fig. 1). Therefore, we selected MCOLN3 and TRPV4 as candidate causal TRPs to explore their potential as therapeutic targets for HCC drug treatment.
+
+[0039] [RESULTS] MCOLN3 and TRPV4 were identified as Causal TRPs for HCC
+
+[0040] [RESULTS] The reverse causality effect is a significant factor leading to bias in causal inference results. Through Steiger filtering, we further validated the causal directionality of MCOLN3 and TRPV4 on HCC (Supplementary Table 6). The directionalities of significant SNPs for both TRPs in this study were accurate, confirming the direction of the causal effect. Additionally, bidirectional MR analysis indicated no significant causal effects of HCC on MCOLN3 or TRPV4 (Supplementary Fig. 5, 6). Subsequent phenocanner results revealed associations between MCOLN3 and certain genes (WDR63, MCOLN2, CTBS, and SPATA1), with no significant correlations observed between MCOLN3 and other traits or proteins (Supplementary Table 6). TRPV4 was found to be associated with GWAS traits including blood routine indicators (hematocrit, hemoglobin concentration, red blood cell count, platelet count, etc.), basal metabolic rate, pulse rate, fat-free mass, as well as some genes (GPN3, GLTP, VPS29, and FAM216A). The sensitivity analysis results were directionally consistent in an independent East Asian cohort, despite the limitations of using European-derived instruments (Supplementary Table 7).
+
+[0041] [RESULTS] Basal metabolic rate may partially mediate the causal effect of TRPV4 on HCC
+
+[0042] [RESULTS] In recent years, some MR analyses suggested that a higher basal metabolic rate may increase the risk of cancer. Therefore, we conducted a MVMR analysis, considering both TRPV4 and basal metabolic rate as exposures, with HCC as the outcome. The results indicated that, even after correction, TRPV4 maintained a significant causal relationship with HCC (Supplementary Fig. 7). Further two-sample MR analysis revealed a significant causal relationship between TRPV4 and basal metabolic rate (Supplementary Fig. 8). This suggested that basal metabolic rate may play a partial mediating role in the process of TRPV4-mediated HCC.
+
+[0043] [RESULTS] Exploring the potential of TRPs as therapeutic targets
+
+[0044] [RESULTS] DrugBank did not currently have information on drugs targeting MCOLN3. In TTD, we found four small-molecule drugs targeting MCOLN3, all of which are activators. Since MCOLN3 is a risk factor for HCC, using activator is not suitable for HCC prevention or treatment. Current research is predominantly focused on identifying MCOLN3 agonists, while the exploration of new MCOLN3 inhibitors holds promise as potential adjunctive therapy for treating HCC. Through the CTD database, we found 10 chemicals that can inhibit MCOLN3 expression in the human body, including common chemotherapy drugs such as Cisplatin and Cytarabine (Supplementary Table 8).
+
+[0045] [RESULTS] In DrugBank, three non-withdrawn drugs targeted TRPV4, with Cannabidiol (CBD) having FDA approval as a TRPV4 agonist. Notably, CBD also affects several members of the TRP family: TRPV1 (Activator), TRPV2 (Activator), TRPV3 (Activator), TRPA1 (Agonist), and TRPM8, which may represent potential targets for anti-HCC effects. Additionally, two drugs in experimental or observational stages were related to cannabis or its extracts: Nabiximols and Medical Cannabis. In TTD, two drugs targeting TRPV4 were in clinical trials, with phorbol 12-myristate 13-acetate being a TRPV4 activator (Supplementary Table 9). TTD also listed seven investigational drugs serving as activators targeting TRPV4, including citric acid and GSK1016790A. Through the CTD database, we identified seven chemicals capable of enhancing TRPV4 expression or protein activity (Supplementary Table 8).
+
+[0046] [RESULTS] Expression landscape of MCOLN3 and TRPV4 in HCC microenvironment
+
+[0047] [FIG] The single-cell transcriptomic expression landscape of causal TRPs. The expression landscape of MCOLN3 A–B and TRPV4 C–D in HCC microenvironment was revealed
+
+[0048] [RESULTS] Since we have established the causal relationship between MCOLN3, TRPV4, and HCC, we aimed to further validate our MR analysis results through transcriptomics. The findings revealed that MCOLN3 tended to be highly expressed at the bulk RNA transcriptome level in HCC tissues from publicly available databases including TCGA, ICGC, and GEO database (Supplementary Fig. 9). Conversely, TRPV4 exhibited significantly lower expression at the bulk RNA transcriptome level (Supplementary Fig. 9). Further analysis using the HumanLiverBrowser and HCCDB indicated that at the single-cell transcriptome level, MCOLN3 was highly expressed in tumor cells, while TRPV4 was predominantly expressed in non-tumor cells such as hepatocytes, cholangiocytes, and myeloid cells (Fig. 2, Supplementary Fig. 10). Similar trends were observed at the spatial transcriptome level (Supplementary Fig. 11, 12). Through multi-omics analyses, we further demonstrated the causal relationship between causal TRPs and HCC.
+
+[0049] [RESULTS] MCOLN3 and TRPV4 are potential biomarkers for HCC
+
+[0050] [RESULTS] Additionally, analysis of the sorafenib response cohort revealed significant upregulation of MCOLN3 in the sorafenib responder group, while no significant difference in TRPV4 expression was observed between the two groups (Supplementary Fig. 13). These findings suggested that MCOLN3 may serve as a potential molecular biomarker for sorafenib efficacy. Through the TIDE website, we found the expression levels of MCOLN3 and TRPV4 exhibit a notable positive correlation with TIDE scores (Supplementary Fig. 14). Patients with lower expression of TRPV4 and MCOLN3 are more likely to benefit from immunotherapy. Our study revealed the potential of MCOLN3 and TRPV4 serving as molecular biomarkers for immunotherapy response.
+
+[0051] [DISCUSS] Discussion
+
+[0052] [DISCUSS] TRPs stand as pivotal cation-gated channels, intricately involved in numerous biological functions, thus establishing a foundation for its implication in the pathophysiological processes of cancer progression. Nevertheless, the causal relationship between the TRP family and the development of cancer remains elusive, indirectly limiting the scope of research on TRP channels and HCC. Employing Mendelian randomization, we provided the first conclusive evidence of the causal relationship between the TRP channel family and HCC by utilizing GWAS data from two independent cohorts of European and East Asian populations. We identified MCOLN3 and TRPV4 as potential therapeutic targets for treating HCC. Additionally, our research identified several drugs targeting causal TRPs, offering innovative perspectives and a theoretical foundation for the prevention and treatment of HCC.
+
+[0053] [DISCUSS] This study’s Mendelian randomization analysis primarily encompassed main MR analysis, sensitivity analysis, and external validation. From the data acquisition stage, efforts were made to enhance the study’s credibility. Initially, we selected cis-eQTLs as instrumental variables for exposure, considering their direct involvement in the regulation of target genes. Subsequently, to mitigate the increased risk of type I error due to multiple statistical tests, we applied Bonferroni correction to the significance level in the main MR analysis, bolstering the credibility of the identified causal relationships. MCOLN3 is the sole TRP member that achieved significance in the main MR analysis after Bonferroni correction, underscoring its pivotal research prospects in HCC. To minimize type II error, TRPV4, identified as a statistically significant TRP member in both the main MR analysis cohort and the validation cohort, was included in subsequent investigations. Among the genes selected by Phenoscanner as potential confounding factors, only VPS29 has been reported in recent Mendelian randomization studies to be associated with HCC, lacking experimental evidence. Moreover, MVMR analysis results demonstrated that TRPV4 maintained a significant causal relationship with HCC. This study conclusively established that both MCOLN3 and TRPV4 exerted substantial causal influences on the progression of HCC, underscoring their considerable research potential.
+
+[0054] [DISCUSS] Unlike most other TRP channels, the MCOLN/TRPML channels are primarily expressed intracellularly within organelles of the endolysosomal system, including early endosomes, recycling endosomes, late endosomes, and lysosomes. They play essential roles in processes such as endocytosis, fusion/fission, transport, secretion, lysosomal exocytosis, and autophagy. As the sole ion channel on autophagosomes, activation of MCOLN3 enhances the cellular autophagy. Currently, there is a lack of research on the mechanisms involving MCOLN3 in cancer. In this study, MCOLN3 was identified as a risk factor for HCC in two independent ethnic cohorts, validated through bioinformatics analysis. Furthermore, we discovered MCOLN3 as a potential molecular marker in response to sorafenib and immunotherapy. Targeted therapy and immunotherapy are the preferred approaches for advanced HCC. However, their efficacy remains less than satisfactory. The combined use of MCOLN3 inhibitors with targeted therapy may enhance the anti-tumor effects more robustly. Considering previous research findings, autophagy may be implicated in the MCOLN3-mediated response to sorafenib, a hypothesis requiring further experimental validation. There are currently no FDA-approved drugs targeting MCOLN3, indicating significant development potential. Given our study results, prioritizing mechanistic research and drug development along the MCOLN3/autophagy axis is advisable. Some researchers have explored MCOLN3 agonists aiming to activate lysosome acidification and protease activity. Leser and colleagues identified a weak inhibitor for MCOLN3. Combining this finding with the results of our study, there is further value in exploring its potential application in the treatment of HCC. Through CTD, we found cisplatin’s ability to downregulate MCOLN3 mRNA. Cisplatin is commonly administered via the hepatic artery for localized chemotherapy in advanced, unresectable HCC. Inhibited MCOLN3 leads to diminished autophagic activity, potentially altering malignant phenotypes such as tumor growth and drug resistance. This could represent an additional underlying mechanism of cisplatin in treating HCC, necessitating further mechanistic experiments for validation.
+
+[0055] [DISCUSS] TRPV4 is a widely expressed, multimodal, non-selective cation channel (including calcium, potassium, magnesium, and sodium). It can be activated by osmotic pressure, temperature, chemical stimuli, and various intracellular signaling pathways, thereby playing a crucial role in many physiological processes. Citric acid, an organic acid, is widely utilized as an antioxidant in food and cosmetic additives. Several studies have reported its anticancer properties. As an activator of TRPV4, citric acid has received additional theoretical support for its anticancer effects on HCC. Huang et al. discovered that CBD induces calcium flux through the activation of TRPV4 channels, leading to mitochondrial autophagy in glioma cells and thereby exhibiting anti-tumor effects. This aligns with the findings of our study. CBD, or cannabidiol, is an active cannabinoid found in hemp and cannabis. It has been demonstrated to exhibit promising anti-tumor properties across various cancer types. Jeon et al. found that CBD enhances the sensitivity of liver cancer cells to cabozantinib-mediated anti-cancer activity by increasing cytotoxicity and promoting apoptosis. Furthermore, Shangguan et al.’s research indicates that CBD effectively inhibits the growth of liver cancer cells both in vitro and in vivo. It induces pyroptosis in liver cancer cells by activating the caspase-3/GSDME pathway. CBD acting as an agonist for TRPV4, coupled with the results of our study, further elucidated its potential in combating HCC. However, there is currently controversy regarding the role of TRPV4 in tumor initiation and development. GSK1016790A activates TRPV4, inducing immediate cellular damage in melanoma cells and triggering apoptosis. Researches indicated that TRPV4 overexpression can promote metastasis in gastric cancer, breast cancer, and endometrial cancer by facilitating epithelial-mesenchymal transition. Our previous research revealed that the TRPV4 channel-specific antagonist HC-067047 inhibits the epithelial-mesenchymal transition (EMT) process in liver cancer cells and induces the deactivation of p-ERK. This inhibition leads to suppressed proliferation, induced apoptosis, and reduced migratory capacity of liver cancer cells. The study conducted was a single-center investigation, revealing that TRPV4 expression at both protein and RNA levels in HCC tissues was significantly higher compared to adjacent non-cancerous tissues. Interestingly, our bioinformatic analysis of TCGA and ICGC databases unveiled a contrasting finding, indicating a significantly lower expression of TRPV4 in HCC tissues compared to adjacent normal tissues. This discrepancy may account for the contradictory findings in our analyses. Therefore, we believe that the widespread distribution of TRPV4 channels across various tissues, coupled with the heterogeneity of its expression within samples and the varying stages of tumor development, results in its diverse roles in cancer progression. Regarding the other identified traits (e.g., hematocrit, platelet count) by Phenoscanner, while MVMR is not possible due to a lack of suitable GWAS summary data, we acknowledge that these pathways could confound our results. Observational studies have reported correlations between certain blood routine parameters and HCC risk or prognosis, though ​causal relationships remain incompletely understood​ and often confounded by underlying liver disease. To elucidate the mechanistic role of TRPV4 in HCC, it is imperative to increase sample sizes, analyze across different stages of tumor development, and conduct multicenter studies to clarify its mechanism of action in HCC.
+
+[0056] [DISCUSS] This study has some limitations. Firstly, the scarcity of exposure and outcome data sources, particularly in GWAS studies related to HCC, might constrain the widespread application of the primary MR analysis results. Nevertheless, through sensitivity analyses and various MR approaches, this study substantiates the credibility of the main MR analysis results. Secondly, the significance threshold selected for Bonferroni correction in the main MR analysis may be overly conservative, potentially missing causal TRPs. However, this underscores the research potential of identified TRPs. In bidirectional MR analysis, the amount of HCC-related significant SNPs was limited (only 1–2 SNPs) when using a threshold of 5 × 10–8 for clumping, restricting the choice of causal inference methods. Consequently, we adopted a threshold of 1 × 10–5, yielding two meaningless results of bidirectional MR analyses. Additionally, the treatment response part of study is an exploratory, hypothesis-generating analysis. In this context, correlation does not equal causation and that the MR findings on disease risk do not directly translate to treatment efficacy. The specific mechanisms of causal TRPs in HCC require further experimental validation to confirm our findings, such as using CRISPR to modulate MCOLN3/TRPV4 in HCC cell lines and then assessing sensitivity to sorafenib or co-culturing with immune cells to test immunotherapy-related mechanisms.
+
+[0057] [CONCL] Conclusion
+
+[0058] [CONCL] Our MR analysis rigorously investigated the causal relationship between the TRP channel family and HCC. Two causal TRPs (MCOLN3 and TRPV4) had been identified as potential therapeutic targets for treating HCC. Our study unveiled the significant potential of MCOLN3 and TRPV4 in HCC treatment, providing a theoretical foundation for their mechanistic research in HCC.
+
+[0059] [METHODS] Availability of data materials
+
+[0060] [METHODS] The data that support the findings of this study are available from the corresponding author upon reasonable request.
+
+[0061] [SUPPL] Supplementary Information
+
+[0062] [ABBR] Abbreviations
+
+[0063] [ABBR] CBD
+
+[0064] [ABBR] Cannabidiol
+
+[0065] [ABBR] CTD
+
+[0066] [ABBR] Comparative Toxicogenomics Database
+
+[0067] [ABBR] eQTL
+
+[0068] [ABBR] Gene expression quantitative trait loci
+
+[0069] [ABBR] FDR
+
+[0070] [ABBR] False-discovery rate of 0.05
+
+[0071] [ABBR] GEO
+
+[0072] [ABBR] Gene Expression Omnibus
+
+[0073] [ABBR] GWAS
+
+[0074] [ABBR] Genome-wide association studies
+
+[0075] [ABBR] HCC
+
+[0076] [ABBR] Hepatocellular carcinoma
+
+[0077] [ABBR] HCCDB
+
+[0078] [ABBR] Integrative Molecular Database of Hepatocellular Carcinoma
+
+[0079] [ABBR] ICGC
+
+[0080] [ABBR] International Cancer Genome Consortium
+
+[0081] [ABBR] ICI
+
+[0082] [ABBR] Immune checkpoint inhibitor
+
+[0083] [ABBR] IVW
+
+[0084] [ABBR] Inverse variance weighted
+
+[0085] [ABBR] LD
+
+[0086] [ABBR] Linkage disequilibrium
+
+[0087] [ABBR] MAF
+
+[0088] [ABBR] Minor allele frequency
+
+[0089] [ABBR] MR
+
+[0090] [ABBR] Mendelian randomization
+
+[0091] [ABBR] MR-PRESSO
+
+[0092] [ABBR] Mendelian randomization pleiotropy residual sum and outlier
+
+[0093] [ABBR] MVMR
+
+[0094] [ABBR] Multivariable mendelian randomization
+
+[0095] [ABBR] SNP
+
+[0096] [ABBR] Single nucleotide polymorphism
+
+[0097] [ABBR] TCGA
+
+[0098] [ABBR] The Cancer Genome Atlas
+
+[0099] [ABBR] TIDE
+
+[0100] [ABBR] Tumor Immune Dysfunction and Exclusion
+
+[0101] [ABBR] TRP
+
+[0102] [ABBR] Transient receptor potential
+
+[0103] [ABBR] TTD
+
+[0104] [ABBR] Therapeutic Target Database
+
+[0105] [ABBR] Publisher's Note
+
+[0106] [ABBR] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0107] [ABBR] Zhe Xu and Chong Pang contributed equally to this work.
+
+[0108] [AUTH_CONT] Author contributions
+
+[0109] [AUTH_CONT] All authors contributed to the study conception and design. Material preparation, data collection and analysis were performed by Chong Pang and Zhe Xu. The first draft of the manuscript was written by Zhe Xu and all authors commented on previous versions of the manuscript. All authors read and approved the final manuscript and managed project coordination under the supervision of Xundi Xu.
+
+[0110] [ACK_FUND] Funding
+
+[0111] [ACK_FUND] No financial support specific to this study was received.
+
+[0112] [ACK_FUND] Declarations
+
+[0113] [COMP_INT] Competing interests
+
+[0114] [COMP_INT] The authors declare no competing interests.
+
+[0115] [REF] References
+
+[0116] [REF] Comparative toxicogenomics database (CTD): update 2023
+
+[0117] [REF] When to use the bonferroni correction
+
+[0118] [REF] Reading mendelian randomisation studies: a guide, glossary, and checklist for clinicians
+
+[0119] [REF] Citrate activates autophagic death of prostate cancer cells via downregulation CaMKII/AKT/mTOR pathway
+
+[0120] [REF] Pharmacological inhibition of TRPV4 channel suppresses malignant biological behavior of hepatocellular carcinoma via modulation of ERK signaling pathway
+
+[0121] [REF] ‘FinnGen Provides Genetic Insights from a Well-Phenotyped Isolated Population - (February 15, 2024).
+
+[0122] [REF] TRPM8 promotes hepatocellular carcinoma progression by inducing SNORA55 mediated nuclear-mitochondrial communication
+
+[0123] [REF] Large-scale public data reuse to model immunotherapy response and resistance
+
+[0124] [REF] The role of transient receptor potential cation channels in Ca2+ signaling
+
+[0125] [REF] Modulation of the TRPV4 ion channel as a therapeutic target for disease
+
+[0126] [REF] Detecting pleiotropy in mendelian randomisation studies with summary data and a continuous outcome
+
+[0127] [REF] Cisplatin in liver cancer therapy
+
+[0128] [REF] Orienting the causal relationship between imprecisely measured traits using GWAS summary data
+
+[0129] [REF] The MR-base platform supports systematic causal inference across the human phenome
+
+[0130] [REF] Transient receptor potential channels: current perspectives on evolution, structure, function and nomenclature
+
+[0131] [REF] Transient receptor potential vanilloid-type 2 targeting on stemness in liver cancer
+
+[0132] [REF] Targeted therapy for hepatocellular carcinoma
+
+[0133] [REF] Cannabidiol inhibits human glioma by induction of lethal mitophagy through activating TRPV4
+
+[0134] [REF] Large-scale genome-wide association study in a Japanese population identifies novel susceptibility loci across different diseases
+
+[0135] [REF] Cannabidiol enhances cabozantinib-induced apoptotic cell death via phosphorylation of P53 regulated by ER stress in hepatocellular carcinoma
+
+[0136] [REF] Phenoscanner V2: an expanded tool for searching human genotype-phenotype associations
+
+[0137] [REF] The Ca(2+) channel TRPML3 regulates membrane trafficking and autophagy
+
+[0138] [REF] Predicted basal metabolic rate and cancer risk in the European prospective investigation into cancer and nutrition
+
+[0139] [REF] Down-regulation of TRPV6 is associated with adverse prognosis in hepatocellular carcinoma treated with curative resection
+
+[0140] [REF] ‘TRPV4 Regulates Breast Cancer Cell Extravasation
+
+[0141] [REF] MCOLN3/TRPML3 bridges the regulation of autophagosome biogenesis by PtdIns3P and the calcium channel
+
+[0142] [REF] Chemical and pharmacological characterization of the TRPML calcium channel blockers ML-SI1 and ML-SI3
+
+[0143] [REF] Calcium and TRPV4 promote metastasis by regulating cytoskeleton through the RhoA/ROCK1 pathway in endometrial cancer
+
+[0144] [REF] Mitochondrial related genome-wide Mendelian randomization identifies putatively causal genes for multiple cancer types
+
+[0145] [REF] Genetic association of lipids and lipid-lowering drug target genes with non-alcoholic fatty liver disease
+
+[0146] [REF] HCCDB: a database of hepatocellular carcinoma expression atlas
+
+[0147] [REF] Immunotherapies for hepatocellular carcinoma
+
+[0148] [REF] Hepatocellular carcinoma
+
+[0149] [REF] A single cell atlas of the human liver tumor microenvironment
+
+[0150] [REF] Effect of basal metabolic rate on cancer: a mendelian randomization study
+
+[0151] [REF] Pharmacological activation of TRPV4 produces immediate cell damage and induction of apoptosis in human melanoma cells and HaCaT keratinocytes
+
+[0152] [REF] Identification of a TRP channel-related risk model for predicting prognosis and therapeutic effects of patients with hepatocellular carcinoma
+
+[0153] [REF] Two-pore and TRPML cation channels: regulators of phagocytosis, autophagy and lysosomal exocytosis
+
+[0154] [REF] A cross-population atlas of genetic associations for 220 human phenotypes
+
+[0155] [REF] A novel mechanism of cannabidiol in suppressing hepatocellular carcinoma by inducing GSDME dependent pyroptosis
+
+[0156] [REF] Cancer statistics, 2022
+
+[0157] [REF] UK Biobank: an open access resource for identifying the causes of a wide range of complex diseases of middle and old age
+
+[0158] [REF] Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries
+
+[0159] [REF] The cancer Genome atlas (TCGA): an immeasurable source of knowledge
+
+[0160] [REF] Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases
+
+[0161] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0162] [REF] TRPV4 overexpression promotes metastasis through epithelial-mesenchymal transition in gastric cancer and correlates with poor prognosis
+
+[0163] [REF] Citric acid of ovarian cancer metabolite induces pyroptosis via the Caspase-4/TXNIP-NLRP3-GSDMD pathway in ovarian cancer
+
+[0164] [REF] DrugBank 5.0: a major update to the DrugBank database for 2018
+
+[0165] [REF] ML-SA1, a selective TRPML agonist, inhibits DENV2 and ZIKV by promoting lysosomal acidification and protease activity
+
+[0166] [REF] Potential functions and causal associations of VPS29 in hepatocellular carcinoma: a Bioinformatic and mendelian randomization study
+
+[0167] [REF] The international cancer genome consortium data portal
+
+[0168] [REF] The regulatory and modulatory roles of TRP family channels in malignant tumors and relevant therapeutic strategies
+
+[0169] [REF] TTD: therapeutic target database describing target druggability information

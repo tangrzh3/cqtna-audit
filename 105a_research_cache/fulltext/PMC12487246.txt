@@ -1,0 +1,327 @@
+[0001] [TITLE] Multi-omics Mendelian randomization integrating RNA-seq, eQTL and pQTL data revealed CPXM1 as a potential drug target for osteoporosis
+
+[0002] [ABSTRACT] Osteoporosis, a prevalent skeletal disorder characterized by decreased bone mineral density and increased fracture risk, continues to be a major global health concern. Traditional treatments for osteoporosis have limited efficacy and safety profiles, highlighting the need for novel therapeutic targets. This study integrates multi-omics data, including RNA-seq, expression quantitative trait loci (eQTL), and protein quantitative trait loci (pQTL) data, through Mendelian randomization (MR) to identify potential drug targets for osteoporosis. By leveraging bidirectional two-sample MR analysis, we identified CPXM1 (Carboxypeptidase X, M14 family member 1) as a novel gene that is causally linked to osteoporosis risk. Through transcriptomic and proteomic validation, we demonstrate that CPXM1 was upregulated in aged bone tissues and osteoporotic conditions in both human and murine models. Gene set enrichment analysis (GSEA) revealed significant dysregulation of bone homeostasis pathways, including increased extracellular matrix degradation and suppression of osteoblast differentiation in aged mice. Furthermore, phenome-wide association studies (PheWAS) confirmed minimal off-target effects of CPXM1, reinforcing its potential as a therapeutic target. Finally, computational drug repurposing predicted several promising drug candidates, including Doxorubicin, 5-Fluorouracil, and 2-Methylcholine, which may target CPXM1 pathways for osteoporosis treatment. These findings highlight CPXM1 as a potential biomarker and therapeutic target, offering new avenues for osteoporosis therapy.
+
+[0003] [ABSTRACT] Supplementary Information
+
+[0004] [ABSTRACT] The online version contains supplementary material available at 10.1186/s41065-025-00562-w.
+
+[0005] [INTRO] Introduction
+
+[0006] [INTRO] Osteoporosis, a systemic skeletal disorder characterized by reduced bone mineral density (BMD) and increased fracture risk, imposes a significant public health burden globally, particularly among the aging population. Traditional therapeutic modalities, such as bisphosphonates and selective estrogen receptor modulators, are often limited by suboptimal efficacy and potential safety concerns, underscoring the imperative need for innovative therapeutic strategies. The identification of novel drug targets remains a formidable challenge, given the multifaceted etiology of osteoporosis, which encompasses intricate interplay among genetic, molecular, and environmental factors. However, the advent of multi-omics technologies, encompassing transcriptomics, proteomics, and genomics, has revolutionized our understanding of osteoporosis by providing a comprehensive and integrative approach to elucidate its molecular underpinnings and identify potential therapeutic targets.
+
+[0007] [INTRO] Mendelian randomization (MR) analysis, leveraging genetic variants as instrumental variables, has emerged as a robust method to infer causal relationships between exposures and outcomes, thereby identifying potential drug targets. Recent methodological advancements in multi-omics MR frameworks enable simultaneous interrogation of transcriptomic, proteomic, and genomic datasets, offering unprecedented opportunities to disentangle molecular causality networks in complex disorders. While genome-wide association studies (GWAS) have identified over 500 loci associated with BMD variation, the functional interpretation of these signals and their translation into therapeutic targets remain elusive, primarily due to incomplete understanding of gene regulatory mechanisms and protein-disease pathways.
+
+[0008] [INTRO] The integration of expression quantitative trait loci (eQTLs) and protein quantitative trait loci (pQTLs) with disease-associated variants addresses this critical gap by establishing mechanistic links between genetic determinants and their molecular effectors. Our study pioneers the application of tri-omics MR (RNA-seq, eQTL, and pQTL) in osteoporosis research, systematically prioritizing targets through concordant evidence across multi-layered molecular datasets. This causal inference paradigm leverages bidirectional two-sample MR to dissect genetically proxied biomarker-disease relationships while implementing reverse causality analysis to identify off-target pharmacological effects – a methodological innovation that simultaneously advances target discovery and preclinical safety profiling.
+
+[0009] [METHODS] Methods
+
+[0010] [METHODS] Study design
+
+[0011] [METHODS] This study design was shown as Fig. 1.
+
+[0012] [FIG] Workflow of the study design
+
+[0013] [METHODS] Histological analysis via hematoxylin-eosin (HE) staining
+
+[0014] [METHODS] Femoral bones were harvested from 3-month-old (young, n = 3) and 18-month-old (aged, n = 3) C57BL/6 mice under sterile conditions. Fresh specimens were fixed in 4% paraformaldehyde (PFA) at 4 °C for 48 h, then decalcified in 14% EDTA (pH 7.4) with gentle agitation for 21 days. Decalcification was verified by radiographic imaging. Coronal bone sections were mounted on poly-L-lysine-coated slides and subjected to hematoxylin-eosin (HE) staining. Nuclei were stained with hematoxylin, differentiated in 1% ethanol, turned blue in 0.2% ammonia solution, and cytoplasm was counterstained with eosin Y. Sections were then dehydrated and mounted using neutral resin.
+
+[0015] [METHODS] Histological evaluation of trabecular architecture in the distal femoral metaphysis (0.5–1.5 mm proximal to the growth plate) was performed under 20× magnification using a Nikon microscope. Bone volume fraction (BV/TV) and bone surface (BS) were assessed qualitatively based on visual scoring criteria by three independent blinded observers. Scoring criteria were adapted from previously published semi-quantitative histological assessment methods.
+
+[0016] [METHODS] BV/TV was scored on a 5-point scale:
+
+[0017] [METHODS] 1 = almost no trabeculae,
+
+[0018] [METHODS] 2 = sparse trabeculae,
+
+[0019] [METHODS] 3 = moderate density,
+
+[0020] [METHODS] 4 = dense trabeculae,
+
+[0021] [METHODS] 5 = very dense, tightly packed trabeculae.
+
+[0022] [METHODS] BS was evaluated using a separate 5-point scale:
+
+[0023] [METHODS] 1 = smooth, minimal surface,
+
+[0024] [METHODS] 2 = limited surface undulation,
+
+[0025] [METHODS] 3 = moderate surface area and contour,
+
+[0026] [METHODS] 4 = increased surface complexity,
+
+[0027] [METHODS] 5 = highly irregular and extensive bone surface.
+
+[0028] [METHODS] Average scores from both observers were used for statistical analysis. Data were analyzed using a two-tailed Student’s t-test in GraphPad Prism v9.0, with statistical significance set at P < 0.05.
+
+[0029] [METHODS] Analysis of RNA sequencing
+
+[0030] [METHODS] Three 3-month-old and three 18-month-old C57BL/6 mice were euthanized under strict aseptic conditions for bilateral femoral bone collection. Following femoral artery ligation, soft tissue dissection was performed to isolate intact femurs, which were subsequently stripped of periosteum and residual musculature using microdissection forceps. Fresh bone tissue specimens were harvested within a 2-minute window to minimize RNA degradation, followed by three sequential PBS washes to remove extraneous connective tissues, adipose deposits, and surface contaminants. Processed samples were immediately transferred to RNase/DNase-free tubes and flash-frozen in liquid nitrogen for 30 min to preserve RNA integrity. Total RNA was isolated from bone tissue using TRIzol® Reagent followed by rigorous quality control: absorbance ratios (A260/A280) were quantified via Nanodrop ND-2000 (Thermo Scientific), and RNA integrity (RIN > 8.0) was verified using an Agilent Bioanalyzer 4150. Sequencing was performed by Applied Protein Technology Co., Ltd. (Shanghai, China) using the Illumina Novaseq 6000 / MGISEQ-T7. Qualified RNA underwent library preparation with the ABclonal mRNA-seq Kit, involving mRNA capture by oligo(dT) beads, thermal fragmentation, double-stranded cDNA synthesis (reverse transcriptase/DNA polymerase I), adapter ligation, and PCR amplification. Purified libraries (AMPure XP) were validated on the Bioanalyzer. Differential expression analysis was performed using the DESeq2 (http://bioconductor.org/packages/release/bioc/html/DESeq2.html), differentially expressed genes (DEGs) with |log2FC|>0.5 and adjust P value < 0.05 were considered to be significantly different expressed genes. We have deposited the raw sequencing data in the Sequence Read Archive (SRA) under accession number PRJNA 1,305,700.
+
+[0031] [METHODS] Gene set enrichment analysis (GSEA)
+
+[0032] [METHODS] Functional enrichment analyses, including Gene Ontology (GO) terms, Kyoto Encyclopedia of Genes and Genomes (KEGG) pathways, and gene set enrichment analysis (GSEA), were conducted using the Dr. Tom platform (https://bio.tools/dr_tom). Gene sets were compiled from the Molecular Signatures Database (MSigDB v7.5), encompassing canonical pathways, biological processes, and osteoporosis-related signatures. RNA-seq expression profiles were pre-ranked by log2 fold change values, and enrichment significance was evaluated using 1,000 permutations. Gene sets meeting the following thresholds were considered significantly enriched: normalized enrichment score (NES) ≥ 1 or ≤ − 1, nominal P < 0.05, and false discovery rate (FDR) < 0.25. Pathway topology was visualized via enrichment maps, highlighting interconnected biological modules.
+
+[0033] [METHODS] Data sources and instrumental variable selection
+
+[0034] [METHODS] GWAS summary statistics for osteoporosis were obtained from 7,751 cases and 476,847 controls through the GWAS Catalog (accession code GCST90038656). eQTLs corresponding to DEGs were sourced from the eQTLGen Consortium (Phase 2, whole-blood cis-eQTLs), while pQTLs were retrieved from the deCODE proteomics cohort (N = 35,559 Icelandic individuals) (https://www.decode.com/summarydata/).
+
+[0035] [METHODS] To satisfy the core assumptions of Mendelian randomization, instrumental variables (IVs) were selected through a multi-stage filtering protocol. First, SNPs with genome-wide significance (P < 5.0 × 10⁻⁸) were extracted from cis-eQTL data, followed by linkage disequilibrium (LD) clumping (r² < 0.1 within ± 10,000 kb genomic windows) using PLINK v1.9 to ensure genetic independence. Horizontal pleiotropy was rigorously assessed through MR-Egger intercept tests, with variants showing evidence of pleiotropic effects (P < 0.05) removed from subsequent analyses. The strength of IVs was quantified using the F-statistic (computed as R2/K × (n − k − 1)/(1 − R2)), where R2 represents the proportion of exposure variance explained by IVs, n the eQTL sample size, and k the number of IVs. To mitigate weak instrument bias, all SNPs with F -statistics < 10 were excluded, consistent with established thresholds for MR studies.
+
+[0036] [METHODS] Multi-omics integration analysis and Mendelian randomization analysis
+
+[0037] [METHODS] Our study integrated RNA-seq, eQTL, and pQTL datasets within a MR framework to infer causal effects of transcriptomic and proteomic markers on osteoporosis. First, DEGs identified from RNA-seq data were intersected with cis-eQTLs from the eQTLGen Consortium and pQTLs from the deCODE proteomics study. These overlapping loci served as candidate molecular instruments for MR.
+
+[0038] [METHODS] For statistical modeling, we primarily applied the inverse-variance weighted (IVW) method, as implemented in the TwoSampleMR R package (v0.5.7), to estimate the causal effects of gene or protein expression on osteoporosis risk. To evaluate potential heterogeneity across instrumental variables, IVW estimates were compared with MR-Egger regression, which simultaneously assesses directional pleiotropy through intercept tests (Bonferroni-adjusted P > 0.05). Sensitivity analyses included Cochran’s Q statistic to quantify between-SNP heterogeneity (P < 0.01 threshold) and leave-one-out analyses to identify disproportionately influential variants, with causal estimate stability confirmed when effect size variations remained within 95% confidence intervals. Potential pleiotropic bias was further interrogated through funnel plot asymmetry analysis, while significant associations (IVW P < 0.05) were visualized via ggplot2-generated scatter plots (exposure-outcome effect concordance) and forest plots (single-SNP effect consistency). All analyses were conducted in R v4.2.2 with analytical reproducibility ensured through version-controlled scripting.
+
+[0039] [METHODS] This multi-omics integration strategy builds on recent methodological advances in combining transcriptomic and proteomic QTLs with GWAS summary statistics to improve drug target discovery. Our analytic pipeline thus ensured that the identified candidate, CPXM1, was supported by concordant causal evidence across RNA, eQTL, and pQTL layers.
+
+[0040] [METHODS] All scripts used in this study for data preprocessing, Mendelian randomization and visualization are openly available at: https://github.com/yangyoung724/Multiomics-MR-analysis. The repository includes detailed documentation and instructions for reproducing the analyses presented in this manuscript.
+
+[0041] [METHODS] RNA-seq validation of CPXM1 expression
+
+[0042] [METHODS] Public RNA-seq data from osteoporosis patients and controls (GSE35958) were reanalyzed to validate CPXM1 expression differences. Specifically, mesenchymal stem cells (MSCs) were isolated from femoral head bone marrow of two distinct cohorts: (1) elderly osteoporosis patients (n = 5) suffered from osteoporosis were isolated from femoral heads after low-energy fracture of the femoral neck, and (2) age-matched non-osteoporotic donors (n = 4) undergoing total hip arthroplasty for osteoarthritis or developmental hip dysplasia. Raw expression data underwent log2 transformation to stabilize variance across intensity ranges, followed by quantile normalization using the normalize.quantiles function from the R package preprocessCore (v1.56.0) to eliminate inter-sample technical variability. Differential expression analysis was performed with DESeq2 (v1.38.3), defining significance as P < 0.05. CPXM1-specific expression patterns were visualized through customized volcano plots highlighting log2 fold changes against P-values.
+
+[0043] [METHODS] Quantitative real-time PCR analysis
+
+[0044] [METHODS] Femoral bone samples were collected from 3-month-old and 18-month-old mice. Total RNA was isolated from cells using RNAiso Plus reagent (Takara, Cat# 9108) following the manufacturer’s protocols. RNA purity and concentration were quantified with a Nanovue spectrophotometer (GE Healthcare Life Sciences, Marlborough, MA, USA). cDNA synthesis was performed with the PrimeScript RT reagent kit (Takara, Cat# RR047A). Quantitative real-time PCR was conducted on the MxPro-Mx3000P system using SYBR Premix Ex Taq™ (Takara, Cat# RR820A), with each sample analyzed in triplicate.
+
+[0045] [METHODS] Gene expression levels were normalized to GAPDH as an internal control, and relative quantification was calculated using the 2 − △ △Ct method. Primer sequences were as follows: CPXM1-F, 5’-CACTGTCTATGCTGGCACGA-3’, CPXM1-R, 5’- GGCTCCATTGATGACGTTGC3’; GAPDH-F, 5’- AACTCCCACTCTTCCACCTTC-3’, GAPDH-R, 5’- CCTGTTGCTGTAGCCGTATTC-3’.
+
+[0046] [METHODS] Tissue-specific expression profiling
+
+[0047] [METHODS] The expression profile of CPXM1 across human tissues was characterized using RNA-seq data from the Genotype-Tissue Expression (GTEx) database (v8), encompassing 54 normal tissue types. Protein-level validation was performed through the Human Protein Atlas (HPA). This conserved expression pattern across transcriptional and translational layers underscores CPXM1’s potential involvement in osteoporosis pathogenesis.
+
+[0048] [METHODS] Phenome-wide association analysis
+
+[0049] [METHODS] To comprehensively assess potential horizontal pleiotropy and off-target effects of CPXM1, we conducted a phenome-wide association study (PheWAS) using the AstraZeneca PheWAS Portal (https://azphewas.com/). This platform leverages exome sequencing data from approximately 450,000 participants in the UK Biobank, encompassing ~ 15,500 binary (e.g., disease diagnoses) and ~ 1,500 continuous (e.g., biomarker levels) phenotypes. Statistical associations between CPXM1 genetic instruments and phenotypes were evaluated genome-wide, with multiple testing correction applied using a stringent significance threshold of P < 2*10− 9, as recommended by the portal’s default parameters.
+
+[0050] [METHODS] Computational drug repurposing analysis
+
+[0051] [METHODS] To identify pharmacological agents targeting CPXM1-associated pathways, we leveraged the Drug Signatures Database (DSigDB v1.0, http://dsigdb.tanlab.org/DSigDBv1.0/), a comprehensive resource containing 22,527 experimentally validated drug-gene interaction profiles.
+
+[0052] [RESULTS] Results
+
+[0053] [RESULTS] Age-related trabecular deterioration revealed by histomorphometry
+
+[0054] [RESULTS] Histomorphometric analysis of hematoxylin and eosin (H&E)-stained sections revealed pronounced age-related deterioration in trabecular bone structure. Compared to 3-month-old mice, 18-month-old specimens exhibited a marked reduction in trabecular number and width, along with irregular and disrupted trabecular surfaces. The trabeculae appeared sparse and slender, and the marrow cavity was notably expanded (Fig. 2A).
+
+[0055] [RESULTS] In addition, there was a significant increase in both the number and size of bone marrow adipocytes in the aged group. Quantitative analysis of bone structural parameters based on H&E sections further confirmed these morphological observations: both bone volume fraction (BV/TV) and bone surface area (BS) were significantly decreased in 18-month-old mice (Fig. 2B-C). These findings indicate substantial bone loss and trabecular degradation associated with aging.
+
+[0056] [FIG] Age-related changes in bone microstructure. (A) Representative histological images of bone tissue sections from 3-month and 18-month-old animals. The top images show the overall bone structure, while the bottom panels are magnified views of the boxed areas. (B) Quantification of bone volume to total volume (BV/TV) at 3 and 18 months, with significantly reduced values in the 18-month group (P < 0.001). (C) Measurement of bone surface (BS) at 3 and 18 months, showing a marked decrease in the 18-month group (P < 0.0001). Statistical significance was determined by t-test
+
+[0057] [RESULTS] Transcriptomic profiling of age-associated osteoporosis changes
+
+[0058] [RESULTS] Raw RNA-seq reads underwent rigorous quality filtering to remove adapter sequences and low-quality bases (Phred score < 20) using Trimmomatic v0.39. Reads containing > 5 ambiguous bases (N) were excluded, yielding 6 high-confidence libraries (18-month-old: O-18 m-1/2/3; 3-month-old: Y-3 m-1/2/3) with an average of 42.6 million clean reads per sample (Table S1). Alignment to the Mus musculus reference genome (ENSEMBL GRCm39, May 2021 release).
+
+[0059] [RESULTS] Clustered heatmaps of the up-regulated and down-regulated DEGs expression were shown in Figs. 3A, based on z-scores normalization, DESeq2 analysis of read count data identified 306 differentially expressed genes (DEGs, |log2FC| >0.5, adjusted P < 0.05): 295 genes were upregulated (e.g., Serpina1d, log2FC = 7.8485, adjusted P = 4.8355E-58) and 11 downregulated (e.g., Igkv8-28, log2FC = -4.573, adjusted P = 0.000035668) (Fig. 3B-C) (Table S2).
+
+[0060] [FIG] Transcriptomic profiling of age-associated osteoporosis. (A) Heatmap of differentially expressed genes (DEGs) between 3-month-old and 18-month-old mice. Gene expression data were normalized using z-scores. Red indicates upregulation, while blue indicates downregulation of gene expression. (B) Bar plot showing the number of upregulated, downregulated, and total DEGs identified from RNA-seq analysis. A total of 306 DEGs were identified, with 295 genes upregulated and 11 downregulated. (C) Volcano plot illustrating the significance of DEGs with respect to fold change and adjusted p-values. Upregulated genes are shown in red, downregulated genes in blue, and non-significant genes in gray. The vertical dashed line represents a log2 fold change threshold of ± 0.5, and the horizontal dashed line represents the adjusted P -value threshold of 0.05
+
+[0061] [RESULTS] GSEA reveals age-associated imbalance in bone homeostasis
+
+[0062] [RESULTS] GSEA uncovered significant dysregulation of bone homeostasis pathways in 18-month-old versus 3-month-old mice. Pathways driving bone resorption were robustly activated in aged bone, including Degradation of the Extracellular Matrix (NES = 2.072, P = 1 × 10⁻¹⁰, FDR = 4.13 × 10⁻⁸) (Fig. 4B) and Collagen Degradation (NES = 2.104, P = 2.98 × 10⁻⁹, FDR = 4.61 × 10⁻⁷) (Fig. 4C), reflecting elevated proteolytic activity linked to osteoclast hyperactivity. Concurrently, aged mice exhibited marked suppression of bone formation, evidenced by enrichment of Negative Regulation of Osteoblast Differentiation (NES = 1.787, P = 0.0002, FDR = 0.013) (Fig. 4A). Cell cycle regulation was severely compromised in aged osteoprogenitors, with significant downregulation of Cell Cycle Checkpoints (NES=-1.875, P = 1.52 × 10⁻¹⁰, FDR = 4.70 × 10⁻⁸) (Fig. 4D) and DNA Replication pathway activation (NES=-1.819, P = 0.0003, FDR = 0.019) (Fig. 4E). While the TGF-β signaling pathway exhibited enrichment in aged bone (NES = 1.486, nominal P = 0.0086, FDR = 0.114) (Fig. 4F).
+
+[0063] [FIG] The enrichment of DEGs in 18-month-old versus 3-month-old mice was analyzed via gene set enrichment analysis (GSEA). (A) Negative Regulation of Osteoblast Differentiation. (B) Degradation of the Extracellular Matrix. (C) Collagen Degradation. (D) Cell Cycle Checkpoints. (E) DNA Replication. (F) TGF-β signaling pathway. The green dashed line illustrates the trajectory of the Enrichment Score (ES) for the gene set, with the Y-axis quantifying the ES magnitude. Individual genes within the analyzed pathway or Gene Ontology (GO) term are denoted by black vertical ticks along the ranked gene list. The accompanying heatmap visualizes expression-level changes across all genes, encoded by signal-to-noise ratio (SNR) or log2 fold change values. Red hues indicate upregulated expression (values > 0), while blue hues represent downregulation (values < 0), with color intensity scaled to reflect the absolute magnitude of differential expression
+
+[0064] [RESULTS] Mendelian randomization between eQTLs and osteoporosis
+
+[0065] [RESULTS] Intersection of RNA-seq-derived DEGs with cis-eQTL and pQTL datasets identified 31 candidate genes exhibiting transcriptional and post-translational regulatory signatures (Fig. 5A). MR (IVW method) using these genes as exposures against the GCST90038656 osteoporosis GWAS cohort revealed four genes with significant causal associations (P < 0.05). Three genes conferred increased osteoporosis risk: Collagen type VI alpha 2 chain (COL6A2) (OR = 1.001, 95% confidence interval (CI) 1.0001–1.0018, P = 0.029) (Fig. 5B-C), Carboxypeptidase X, M14 family member 1 (CPXM1) (OR = 1.005, 95% CI 1.001–1.009, P = 0.018) (Fig. 5B, D), and Matrix Gla protein (MGP) (OR = 1.003, 95% CI 1.001–1.005, P = 0.004) (Fig. 5B, E). Conversely, Secreted protein acidic and cysteine rich (SPARC) (OR = 0.997, 95% CI 0.995–0.999, P = 0.016) (Fig. 5B, F) exhibited protective effects.
+
+[0066] [FIG] Mendelian randomization analysis of significant eQTLs. (A) Venn diagram of three datasets. (B) Forest plot of the associations between genetically determined 4 gene expression with the risk of osteoporosis. Abbreviations: CI, confidence interval; OR, odds ratio; SNP, single nucleotide polymorphism. (C) Scatter plots illustrating the MR estimates for the significant causality between COL6A2 and the risk of osteoporosis. (D) Scatter plots illustrating the MR estimates for the significant causality between CPXM1 and the risk of osteoporosis. (E) Scatter plots illustrating the MR estimates for the significant causality between MGP and the risk of osteoporosis. (F) Scatter plots illustrating the MR estimates for the significant causality between SPARC and the risk of osteoporosis. Positive associations between gene expression and osteoporosis risk were represented by upward-sloping regression lines (left to right), suggesting a potential promoting influence. Conversely, downward-sloping lines denoted negative associations, implying protective effects of gene expression. Horizontal and vertical error bars delineate the 95% confidence intervals for each correlation estimate
+
+[0067] [RESULTS] Mendelian randomization between pQTLs and osteoporosis
+
+[0068] [RESULTS] Further MR analysis using pQTLs of the 31 overlapping genes identified four protein-level causal associations with osteoporosis risk (IVW method, P < 0.05). Extracellular matrix protein 1 (ECM1) (OR = 1.0006, 95% CI 1.0001–1.0011, P = 0.029) (Fig. 6A-B), CPXM1 (OR = 1.0009, 95% CI 1.0000–1.0017, P = 0.048) (Fig. 6A, C), and Ectonucleotide pyrophosphatase/phosphodiesterase 2 (ENPP2) (OR = 1.002, 95% CI 1.001–1.004, P = 0.004) (Fig. 6A, E). In contrast, MGP showed a protective effect (OR = 0.997, 95% CI 0.996–0.999, P = 7.26 × 10⁻⁶), opposite to its eqtl results (Fig. 6A, D).
+
+[0069] [FIG] Mendelian randomization analysis of significant pQTLs. (A) Forest plot of pQTL MR associations with osteoporosis risk. Abbreviations: CI, confidence interval; OR, odds ratio; SNP, single nucleotide polymorphism. (B) ECM1 in pQTL-MR analysis. (C) CPXM1 in pQTL-MR analysis. (D) MGP in pQTL-MR analysis. (E) ENPP2 in pQTL-MR analysis. The scatter plot illustrates the genetic association effects between SNP-exposure (x-axis) and SNP-outcome relationships (y-axis), with vertical and horizontal error bars indicating 95% confidence intervals. Regression lines represent causal effect estimates derived from five Mendelian randomization (MR) methods: inverse-variance weighted (IVW), MR-Egger, weighted median, simple mode, and weighted mode. Slopes of these lines reflect the magnitude and direction of putative causal relationships. Abbreviations: MR, Mendelian randomization; SNP, single-nucleotide polymorphism
+
+[0070] [RESULTS] Validation of CPXM1 in osteoporosis
+
+[0071] [RESULTS] To validate the role of CPXM1 in osteoporosis, we analyzed RNA-seq data from MSCs isolated from femoral head bone marrow of elderly osteoporosis patients and age-matched non-osteoporotic controls (GSE35958). After log2 transformation and quantile normalization, differential expression analysis using DESeq2 revealed significant upregulation of CPXM1 in osteoporosis patients (Fig. 7A) (Table S3).
+
+[0072] [RESULTS] To further confirm this finding in an aging model, femoral bone tissues from 3-month-old and 18-month-old mice were analyzed by qRT-PCR. CPXM1 expression was markedly elevated in aged mice compared to young (27-fold increase, P = 0.0035) (Fig. 7B) (Table S4), aligning with human RNA-seq results. Together, these multi-species datasets robustly demonstrated that CPXM1 expression was upregulated in osteoporotic conditions, supporting its potential role as a biomarker or therapeutic target in bone loss pathologies.
+
+[0073] [FIG] Validation of CPXM1 upregulation in osteoporosis. (A) CPXM1 expression in mesenchymal stem cells (MSCs) from osteoporosis patients (GSE35958). (B) CPXM1 expression in murine femoral bone was validated by qRT-PCR analysis of tissues from 3-month-old (young adult) and 18-month-old (aged) mice. **P < 0.01
+
+[0074] [RESULTS] CPXM1 expression in human tissues
+
+[0075] [RESULTS] The tissue-specific expression profile of CPXM1 was analyzed using the Human Protein Atlas. Results demonstrated that CPXM1 is predominantly expressed in the ovary, gallbladder, and endometrium (Fig. 8). This tissue-specific pattern may provide an explanation for the target organs and pathways through which CPXM1 exerts its biological effects.
+
+[0076] [FIG] The expression of CPXM1 in human tissues
+
+[0077] [RESULTS] PheWAS portal analysis
+
+[0078] [RESULTS] The PheWAS analysis revealed no genome-wide significant associations between CPXM1 and other phenotypes in the PheWAS Portal (P < 5 × 10⁻⁸) (Fig. 9). These findings corroborate the validity of our results and indicate minimal risk of adverse drug reactions or unintended horizontal pleiotropic effects associated with therapeutic targeting of CPXM1.
+
+[0079] [FIG] CPXM1 PheWAS associations with binary phenotypes
+
+[0080] [RESULTS] Candidate drug prediction for CPXM1
+
+[0081] [RESULTS] In our investigation using the DSigDB drug database, we identified promising drug candidates that may target CPXM1 for osteoporosis treatment (Table 1). Notably, Doxorubicin (CTD 00005874) showed a significant association with a P-value of 0.0375, an adjusted P-value of 0.0833, and an extraordinarily high odds ratio of 19,250.00, indicating strong potential for therapeutic efficacy. Similarly, 5-Fluorouracil (CTD 00005987) displayed a P-value of 0.0601 and an odds ratio of 18,798.00, and 2-Methylcholine (CTD 00002006) had a P-value of 0.0833 and an odds ratio of 18,334.00, indicating relevance despite not achieving traditional significance. Collectively, these findings highlight the viability of Doxorubicin, 5-Fluorouracil, and 2-Methylcholine as therapeutic candidates targeting CPXM1 in osteoporosis, warranting further preclinical and clinical investigations to assess their efficacy and safety in this context.
+
+[0082] [TABLE] Drug candidates were discovered using the DSigDB database
+
+[0083] [TABLE] Name P-value AdjustedP -value OddsRatio Combinedscore doxorubicin CTD 00005874 0.0375 0.0833 19250.00 63205.83 5-Fluorouracil CTD 00005987 0.0601 0.0833 18798.00 52855.26 2-Methylcholine CTD 00002006 0.0833 0.0833 18334.00 45565.67
+
+[0084] [DISCUSS] Discussion
+
+[0085] [DISCUSS] Our multi-omics MR framework, integrating RNA-seq, eQTL, and pQTL data, identified CPXM1 as a novel causal mediator of osteoporosis risk. Through transcriptomic and proteomic validation in human and murine models, we demonstrated that CPXM1 upregulation is robustly associated with age-related trabecular bone loss and osteoporotic phenotypes. The concordant risk effects observed across both eQTL and pQTL analyses (P < 0.05), coupled with the absence of genome-wide pleiotropy in PheWAS (P < 5 × 10⁻⁸), underscore CPXM1 as a prioritized therapeutic target for osteoporosis.
+
+[0086] [DISCUSS] Comprehensive histomorphometric and transcriptomic analyses have elucidated significant age-associated deterioration in bone microarchitecture and homeostatic regulation. Histological evaluations revealed that 18-month-old mice exhibited pronounced structural degradation of trabecular bone, characterized by reduced trabecular number and thickness, increased marrow adiposity, and disrupted trabecular surfaces. These morphological changes were emblematic of senile osteoporosis and align with previous findings on age-induced skeletal fragility. Quantitative reductions in BV/TV and BS further confirmed the loss of bone mass.
+
+[0087] [DISCUSS] Parallel transcriptomic profiling identified 306 DEGs, with a predominant upregulation pattern, indicating extensive transcriptional reprogramming in aged bone tissue. GSEA revealed that these DEGs were enriched in pathways associated with extracellular matrix degradation, collagen breakdown, and suppression of osteoblast differentiation, reflecting a shift towards catabolic bone remodeling. Furthermore, the downregulation of cell cycle checkpoint and DNA replication pathways suggests impaired proliferation of osteoprogenitor cells, contributing to diminished bone formation capacity. Notably, a modest enrichment of the TGF-β signaling pathway was observed, potentially indicating a compensatory response or involvement in dysregulated remodeling processes. Collectively, these findings highlight a multifaceted molecular basis for age-related bone loss, involving both enhanced osteoclastic activity and compromised osteoblastic renewal.
+
+[0088] [DISCUSS] MR analysis provided novel insights into the causal roles of specific genes and proteins in osteoporosis development. By integrating cis-eQTL, pQTL, and RNA-seq data, four candidate genes were identified with significant causal effects on osteoporosis risk, including COL6A2, CPXM1, MGP, and SPARC. COL6A2 and CPXM1, both associated with extracellular matrix composition and remodeling, were found to increase susceptibility to osteoporosis, whereas SPARC exhibited a protective effect, consistent with its known roles in bone matrix mineralization and osteoblast function. Further pQTL-based MR analysis also identified ECM1 and ENPP2 as risk-promoting factors, highlighting the contribution of extracellular matrix organization and lipid metabolism to osteoporosis pathophysiology. Interestingly, MGP showed opposing effects at the transcript and protein levels, suggesting complex regulatory mechanisms potentially involving post-transcriptional modifications or protein activity regulation. CPXM1, in particular, was validated through independent datasets, demonstrating robust upregulation in bone marrow-derived mesenchymal stem cells from osteoporotic patients as well as in aged murine bone tissue, suggesting that CPXM1 may serve as a potential biomarker or therapeutic target for age-related bone loss.
+
+[0089] [DISCUSS] CPXM1 is a secreted protein known for its collagen-binding properties. Although research on CPXM1’s direct involvement in bone metabolism, particularly in osteoporosis, is still limited, its role in bone matrix remodeling is of increasing interest. CPXM1’s interaction with collagen, suggested it could influence the structural integrity of the bone matrix. Given that osteoporosis was characterized by reduced bone mineral density and increased bone fragility, often associated with abnormal bone matrix degradation and remodeling, CPXM1 could play a significant role in regulating bone strength and density by modulating these processes. Moreover, Kim et al. suggested that CPXM1 acted as a positive regulator of adipogenesis, providing indirect evidence of its involvement in cell differentiation, which may be relevant to bone cell differentiation as well. These findings support the hypothesis that CPXM1 might be involved in bone matrix remodeling, affecting bone density and strength, and consequently playing a role in the pathophysiology of osteoporosis. Overall, while more research is required, CPXM1’s potential role in bone metabolism and osteoporosis is a promising area for future investigation, as it could lead to new therapeutic targets for osteoporosis treatment.
+
+[0090] [DISCUSS] The expression analysis of CPXM1 revealed a tissue-specific profile, with high expression levels in the ovary, gallbladder, and endometrium, suggesting that CPXM1 may play a role in the biological functions of these organs. Furthermore, the PheWAS analysis did not show any significant associations between CPXM1 and other phenotypes, indicating a low risk of adverse drug reactions or unintended effects from therapeutic targeting of CPXM1. In the drug prediction analysis, several promising candidates for osteoporosis treatment were identified, including Doxorubicin, 5-Fluorouracil, and 2-Methylcholine. These drugs showed strong associations with CPXM1, particularly Doxorubicin, which demonstrated an exceptionally high odds ratio, suggesting its potential as a therapeutic option. These findings provide a foundation for further research into CPXM1-targeting therapies for osteoporosis.
+
+[0091] [DISCUSS] While this study provides novel insights into the molecular mechanisms of age-related osteoporosis, several limitations must be acknowledged. First, caution is warranted in extrapolating findings from mouse models to humans. The reliance on murine models, though invaluable for studying trabecular microarchitecture, may not fully recapitulate human bone remodeling dynamics due to species-specific differences in osteoclast-osteoblast coupling and hormonal regulation. Species-specific differences in bone metabolism and osteocyte lacunar density have been well documented, which may confound direct translation of results from animal studies to human pathology. Future work integrating human genetic and transcriptomic resources, as well as patient-derived bone tissues, will be essential to strengthen translational relevance. Second, the exclusive use of European-ancestry GWAS and eQTL/pQTL datasets limits the generalizability of findings to ethnically diverse populations, as genetic architecture and allele frequencies of osteoporosis-associated loci vary across ancestries. Third, although anticancer drugs such as doxorubicin and 5-fluorouracil are highlighted by our computational repurposing screen, their strong cytotoxic and senescence-inducing properties limit their feasibility as osteoporosis treatments. Doxorubicin has been reported to drive therapy-induced senescence and bone loss, while 5-fluorouracil reduced osteoblast proliferation and bone formation. Thus, these compounds should not be considered therapeutic candidates; rather, they may serve as mechanistic probes to interrogate stress- and senescence-related pathways in bone remodeling. Moreover, recent studies suggest that cholinergic signaling may exert protective effects on bone by modulating osteoblast and osteoclast activity. This highlights a potentially underexplored neuroskeletal regulatory axis that warrants further discussion in the context of drug repurposing for osteoporosis. Fourth, while our study utilized bulk RNA-seq datasets, the availability of single-cell RNA-seq (scRNA-seq) from human bone marrow and bone tissues provides opportunities for higher-resolution dissection of disease-related cellular subpopulations. Future integration of scRNA-seq with eQTL and pQTL datasets could help refine causal inference and improve target prioritization. Finally, the role of CPXM1 requires further clarification. Although CPXM1 is categorized within the M14 metallocarboxypeptidase family, both database annotations and sequence analyses indicate it lacks key residues necessary for enzymatic activity. Functional characterization of the murine homolog CPX-1 further supports this, showing that the protein is secreted, contains a discoidin-like domain, and binds collagen via this domain, while exhibiting no catalytic activity. These findings suggest that CPXM1 may serve as an ECM-interacting scaffold, potentially involved in extracellular matrix organization or signal modulation, rather than functioning as a classical proteolytic enzyme. Further functional validation, including protein-level assays (e.g., ELISA or antibody-based assays), is needed to confirm CPXM1’s role in bone biology. Future studies should focus on investigating its interaction with ECM components, the kinetics of these interactions, and the impact of specific mutations in the discoidin-like domain to better understand its precise function in bone matrix remodeling and signal modulation. Similarly, interpretation of MGP expression requires caution, as it has been reported to promote bone formation through Wnt/β-catenin activation, yet al.so to inhibit osteoclast differentiation and bone resorption under different conditions. Such context-dependent effects emphasize the complexity of bone remodeling pathways and the need for multi-layered validation. Taken together, these considerations underscore the importance of distinguishing mechanistic probes from therapeutic candidates, exercising caution in cross-species generalization, and incorporating emerging high-resolution omics resources. While CPXM1 emerges as a promising candidate, its biological function should be further investigated in the context of ECM remodeling and osteoblast regulation, supported by both in vitro and in vivo validation.
+
+[0092] [DISCUSS] In conclusion, our study presents CPXM1 as a promising drug target for osteoporosis, leveraging a multi-omics MR approach to uncover novel molecular insights. The integration of genetic, transcriptomic, and proteomic data provides a robust platform for drug discovery in osteoporosis, with implications for future therapeutic strategies. Further validation and clinical trials will be critical in assessing the efficacy and safety of targeting CPXM1 in osteoporosis treatment.
+
+[0093] [SUPPL] Supplementary Information
+
+[0094] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0095] [SUPPL] Publisher’s note
+
+[0096] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0097] [SUPPL] Junxiang Lian and Xinjian Zhang contributed equally to this work.
+
+[0098] [SUPPL] Change history
+
+[0099] [SUPPL] 10/11/2025
+
+[0100] [SUPPL] The original article has been updated: Updated the Grant Numbers from “(SL2023A04J00922, SL2023A04J00925, SL2022A04J00235)” to “2024A04J3852, 2024A04J3853, 2023A04J0431”.
+
+[0101] [AUTH_CONT] Author contributions
+
+[0102] [AUTH_CONT] JL, XZ and XL wrote the manuscript, performed the experiments, analyzed the data, and prepared figures and/or tables. SS, XL, ZW and TW contributed to data collection and analysis, and results interpretation. HP and WG revised and edited the manuscript. XL revised and edited the manuscript. All authors have read and approved the final manuscript.
+
+[0103] [ACK_FUND] Funding
+
+[0104] [ACK_FUND] This work was supported by the Science research cultivation program of stomatological hospital, Southern medical university (PY2023033), Guangzhou Basic and Applied Basic Research Scheme (2024A04J3852, 2024A04J3853, 2023A04J0431), Guangdong Basic and Applied Basic Research Foundation (2023A1515111051). The above fundings were used the design of the study and collection, analysis, and interpretation of data.
+
+[0105] [SUPPL] Data availability
+
+[0106] [SUPPL] We have deposited the raw sequencing data in the Sequence Read Archive (SRA) under accession number PRJNA 1305700.
+
+[0107] [SUPPL] Declarations
+
+[0108] [SUPPL] Ethics approval and consent to participate
+
+[0109] [SUPPL] Not applicable.
+
+[0110] [SUPPL] Consent for publication
+
+[0111] [SUPPL] Not applicable.
+
+[0112] [COMP_INT] Competing interests
+
+[0113] [COMP_INT] The authors declare no competing interests.
+
+[0114] [COMP_INT] Clinical trial number
+
+[0115] [COMP_INT] Not applicable.
+
+[0116] [REF] References
+
+[0117] [REF] Adejuyigbe B, Kallini J, Chiou D, Kallini JR. Osteoporosis: molecular pathology, diagnostics, and therapeutics. Int J Mol Sci. 2023;24. 10.3390/ijms241914583.
+
+[0118] [REF] Fracture risk reduction and safety by osteoporosis treatment compared with placebo or active comparator in postmenopausal women: systematic review, network meta-analysis, and meta-regression analysis of randomised clinical trials
+
+[0119] [REF] The clinical effectiveness of denosumab (Prolia®) for the treatment of osteoporosis in postmenopausal women, compared to bisphosphonates, selective Estrogen receptor modulators (SERM), and placebo: A systematic review and network Meta-Analysis
+
+[0120] [REF] Insights from multi-omics integration in complex disease primary tissues
+
+[0121] [REF] Mendelian randomization analysis with multiple genetic variants using summarized data
+
+[0122] [REF] Integrating plasma protein-centric multi-omics to identify potential therapeutic targets for pancreatic cancer
+
+[0123] [REF] Han L, Wu J, Wang M, Zhang Z, Hua D, Lei S, et al. RNA Modification-Related genetic variants in genomic loci associated with bone mineral density and fracture. Genes (Basel). 2022;13. 10.3390/genes13101892.
+
+[0124] [REF] Synergistic insights into human health from aptamer- and antibody-based proteomic profiling
+
+[0125] [REF] Standardized nomenclature, symbols, and units for bone histomorphometry: a 2012 update of the report of the ASBMR histomorphometry nomenclature committee
+
+[0126] [REF] Guidelines for assessment of bone microstructure in rodents using micro-computed tomography
+
+[0127] [REF] Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles
+
+[0128] [REF] Common genetic associations between age-related diseases
+
+[0129] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0130] [REF] Large-scale integration of the plasma proteome with genetics and disease
+
+[0131] [REF] PLINK: a tool set for whole-genome association and population-based linkage analyses
+
+[0132] [REF] Consistent Estimation in Mendelian randomization with some invalid instruments using a weighted median estimator
+
+[0133] [REF] A review of instrumental variable estimators for Mendelian randomization
+
+[0134] [REF] Avoiding bias from weak instruments in Mendelian randomization studies
+
+[0135] [REF] Hemani G, Zheng J, Elsworth B, Wade KH, Haberland V, Baird D, et al. The MR-Base platform supports systematic causal inference across the human phenome. Elife. 2018;7. 10.7554/eLife.34408.
+
+[0136] [REF] Funnel plots for detecting bias in meta-analysis: guidelines on choice of axis
+
+[0137] [REF] Detecting Pleiotropy in Mendelian randomisation studies with summary data and a continuous outcome
+
+[0138] [REF] The transcriptional profile of mesenchymal stem cell populations in primary osteoporosis is distinct and shows overexpression of osteogenic inhibitors
+
+[0139] [REF] Consortium atlas of genetic regulatory effects across human tissues
+
+[0140] [REF] Proteomics. Tissue-based map of the human proteome
+
+[0141] [REF] Rare variant contribution to human disease in 281,104 UK biobank exomes
+
+[0142] [REF] DSigDB: drug signatures database for gene set analysis
+
+[0143] [REF] Bone quality–the material and structural basis of bone strength and fragility
+
+[0144] [REF] Identification of senescent cells in the bone microenvironment
+
+[0145] [REF] Oxidative stress antagonizes Wnt signaling in osteoblast precursors by diverting beta-catenin from T cell factor- to forkhead box O-mediated transcription
+
+[0146] [REF] TGF-beta1-induced migration of bone mesenchymal stem cells couples bone resorption with formation
+
+[0147] [REF] Converging evidence from exome sequencing and common variants implicates target genes for osteoporosis
+
+[0148] [REF] The role of SPARC in extracellular matrix assembly
+
+[0149] [REF] Extracellular matrix remodeling: the common denominator in connective tissue diseases. Possibilities for evaluation and current Understanding of the matrix as more than a passive architecture, but a key player in tissue failure
+
+[0150] [REF] Spontaneous calcification of arteries and cartilage in mice lacking matrix GLA protein
+
+[0151] [REF] Carboxypeptidase X-1 (CPX-1) is a secreted collagen-binding glycoprotein
+
+[0152] [REF] Identification of carboxypeptidase X (CPX)-1 as a positive regulator of adipogenesis
+
+[0153] [REF] The relevance of mouse models for investigating age-related bone loss in humans
+
+[0154] [REF] Moreno-Jiménez I, Cipitria A, Sánchez-Herrero A, van Tol AF, Roschger A, Lahr CA, et al. Human and mouse bones physiologically integrate in a humanized mouse model while maintaining species-specific ultrastructure. Sci Adv. 2020;6. 10.1126/sciadv.abb9265.
+
+[0155] [REF] Intraskeletal variation in human cortical osteocyte lacunar density: implications for bone quality assessment
+
+[0156] [REF] Therapy-Induced senescence drives bone loss
+
+[0157] [REF] Damage and recovery of the bone growth mechanism in young rats following 5-fluorouracil acute chemotherapy
+
+[0158] [REF] Bone complications of cancer treatment
+
+[0159] [REF] A cholinergic neuroskeletal interface promotes bone formation during postnatal growth and exercise
+
+[0160] [REF] Functional role of acetylcholine and the expression of cholinergic receptors and components in osteoblasts
+
+[0161] [REF] Wu S, Ohba S, Matsushita Y, Single-Cell RNA-S. Reveals the skeletal cellular dynamics in bone repair and osteoporosis. Int J Mol Sci. 2023;24. 10.3390/ijms24129814.
+
+[0162] [REF] Single-cell RNA sequencing reveals multiple immune cell subpopulations promote the formation of abnormal bone microenvironment in osteoporosis
+
+[0163] [REF] Matrix Gla protein promotes the bone formation by Up-Regulating Wnt/β-Catenin signaling pathway
+
+[0164] [REF] Zhang Y, Zhao L, Wang N, Li J, He F, Li X, et al. Unexpected role of matrix Gla protein in osteoclasts: inhibiting osteoclast differentiation and bone resorption. Mol Cell Biol. 2019;39. 10.1128/mcb.00012-19.

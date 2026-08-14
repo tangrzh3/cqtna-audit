@@ -18,3 +18,22 @@
 - 2026-08-13: Compared structure and read GB through the crossed disease/resource analysis; logged completeness gains and persistent/stronger overclaims.
 - 2026-08-13: Read GB in full and compared claim flags, limitations, evidence ladder and narrative branches against NC. Preliminary decision: GB is the stronger base, NC the compression template.
 - 2026-08-13: Fresh comparison verification passed (`COMPARISON_VERIFIED`); decision and supporting textual differences confirmed.
+
+---
+
+# Progress — 105a blind coding
+
+- 2026-08-14: Confirmed authorization to research online and fill the TSV.
+- 2026-08-14: Loaded the coding rules and inventoried 92 rows / 46 papers; no existing coder2 values.
+- 2026-08-14: Started literature-search, spreadsheet-editing, and persistent-audit workflows.
+- 2026-08-14: Logged and corrected a stale literature-workflow example path using the manifest-declared filename.
+- 2026-08-14: Completed required source-tier, deduplication, spreadsheet API, formatting, and scientific-research instruction reads.
+- 2026-08-14: Selected Tier-1 PubMed/PMC full text as the controlling evidence source; secondary sources will be used only if PMC retrieval is incomplete.
+- 2026-08-14: Verified the official NCBI PMC BioC full-text API and canonical PMC pages through live web search.
+- 2026-08-14: Loaded the bundled spreadsheet runtime required for final TSV authoring.
+- 2026-08-14: Live-tested BioC JSON retrieval on PMC11606077; structured full text, DOI, title, section metadata, and Unicode text are available.
+- 2026-08-14: Confirmed 46 unique PMCIDs and successful multi-ID BioC batch behavior.
+- 2026-08-14: Retrieved and locally indexed 45/46 official PMC full texts; generated criterion-specific candidate passages for manual adjudication.
+- 2026-08-14: Logged PMC13448146 as the only BioC Open Access gap and started fallback retrieval.
+- 2026-08-14: Confirmed canonical PMC13448146 HTML is available and selected it as the fallback full-text source after search indexing/BioC gaps.
+- 2026-08-14: Screened all 30 nonempty evidence rows against the strict definitions; identified two clear C3 positives and no clear C1 positive, pending paper-level context checks.

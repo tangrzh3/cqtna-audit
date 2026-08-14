@@ -1,0 +1,251 @@
+[0001] [TITLE] Genetically proxied therapeutic inhibition of antihypertensive drug targets and risk of pancreatic cancer: a mendelian randomization analysis
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Conventional epidemiological studies have reported inconsistent results regarding the potential adverse effects of long-term use of antihypertensive drugs on cancer risk. Nevertheless, evidence of their impact on pancreatic cancer risk is limited and deserves further elucidation.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We selected genetic variants from the genes encoding the target proteins (angiotensin-converting enzyme, beta-1 adrenergic receptor, and solute carrier family 12 member 3) of the examined antihypertensive drugs as instruments based on expression quantitative trait loci (eQTL) studies. Genetic summary statistics of blood pressure and pancreatic cancer were obtained from genome-wide association studies (GWASs) in Europeans and East Asians. Inverse-variance weight and MR-Egger methods were employed to estimate the effect of genetic variations in the drug targets on pancreatic cancer risk, and meta-analysis was used to combine the results from 3 independent datasets. Positive control analysis was conducted by using Wald ratio test to justify the genetic instruments of the drug by demonstrating the expected effect on the blood pressure which has an established causal relationship with the drug of interest.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] Genetically proxied ACEIs were associated with lower pancreatic risk (OR = 0.506, 95% CI: 0.284–0.901, P = 0.021; OR = 0.265, 95% CI: 0.094–0.751, P = 0.012; OR = 0.236, 95% CI:0.078–0.712, P = 0.010, respectively) in 3 independent datasets and the combined results were validated in a meta-analysis using a random effects model (OR = 0.37, 95% CI: 0.22–0.64, P < 0.01) or fixed effects model (OR = 0.39, 95% CI: 0.25–0.62, P < 0.01). Other drug targets did not show consistent significant associations with pancreatic cancer risk in all 3 independent datasets.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] Our study indicated that genetically proxied therapeutic inhibition of ACE was associated with a lower risk of pancreatic cancer, which may have translational potential in clinical practice. However, further long-term randomized controlled trials and observational studies are needed to clarify the effect of ACEIs on the pancreatic cancer risk.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1186/s12885-025-13824-7.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Pancreatic cancer (PC) is currently the fastest-growing contributor to cancer-related mortality, causing approximately 62,200 diagnoses and 48,800 deaths in the United States each year. PC is considered the most aggressive cancer, and the main curative options for PC currently include surgical resection, radiotherapy, and chemotherapy. Moreover, cancer patients commonly present with comorbidities, and both the comorbidities and the therapeutic agents may affect tumor biology, which poses a great challenge for cancer therapy and further research.
+
+[0014] [INTRO] Hypertension, which affects 30% of adults worldwide, is increasingly becoming a serious public health problem. It is also one of the most common comorbidities among cancer patients. However, there is uncertainty about the impact of antihypertensive therapy on cancer. Several observational studies have shown that long-term use of angiotensin-converting enzyme inhibitor (ACEI)-based antihypertensive drugs has potential adverse effects on cancer, whereas other studies have reported the opposite findings. Furthermore, β-blockers and thiazide diuretics are commonly used antihypertensive agents, as well as ACEIs. A meta-analysis showed that β-blockers increased the risk of skin melanoma, while thiazide diuretics and ACEI antihypertensive drugs were not associated with skin cancer risk. Fewer findings from epidemiological studies on the risk of PC are ambiguous and controversial. Conventional epidemiologic studies are subject to a variety of biases, such as confounders and selection biases, which may affect the accuracy and reliability of results. This approach has some limitations in inferring causality.
+
+[0015] [INTRO] Mendelian randomization is an extensively utilized causal inference method in which genetic variants naturally occurring in the genes encoding antihypertensive drug targets can serve as proxies to explore the impact of drug therapy on diseases. Because genetic variants (alleles) are randomly assigned during meiosis, participants in an MR study are ‘randomized’ according to the presence of alleles. Therefore, MR employs a ‘randomization’ method to reinforce the inference of exposure-outcome associations by diminishing potential confounding factors and eliminating reverse causality. Alternatively, MR analyses can exploit the impact of long-term modulation of drug targets on cancer risk. Consequently, MR studies of drug targets can be used to simulate the effects of pharmacological modulation of drug targets in clinical trials and have been used in previous studies to predict the clinical benefits and adverse effects of therapeutic interventions. The evolution of genome-wide association studies (GWAS) and molecular mechanism characterization have contributed to a favorable foundation for the implementation of MR studies. At present, no study has comprehensively explored the causal relationship between antihypertensive drugs and PC through MR analysis. The use of MR to investigate drug impact will help clinical doctors make better prescription decisions for patients with comorbidities. Here, we aimed to conduct an MR analysis to investigate the causal association between antihypertensive drugs (ACEIs, β-blockers and thiazide diuretics) and pancreatic cancer based on the genome-wide association study (GWAS) data.
+
+[0016] [METHODS] Materials and methods
+
+[0017] [METHODS] Study design and data sources
+
+[0018] [METHODS] The outline of the study design is shown in Fig. 1. In this particular study, we first selected the target genes of three antihypertensive drugs as previously reported: angiotensin-converting enzyme (ACE, the target of ACE inhibitors), beta-1 adrenergic receptor (ADRB1, the target of beta blockers) and solute carrier family 12 member 3 (SLC12A3, the target of thiazide diuretics). Second, eligible single nucleotide polymorphisms (SNPs) from the genes responsible for encoding the target proteins of these antihypertensive drugs were chosen as instrumental variables based on the eQTL dataset. The validity of our MR study relies on the following four assumptions: (I) SNPs are associated with drug target genes; (II) SNPs are not associated with potential confounders; and (III) SNPs can only affect outcomes via drug target genes; and (IV) SNPs are in the range of cis-action of drug target genes (kb = 100). Third, we conducted MR analyses to assess whether there was a causal effect between drug target genes (the exposure) and PC (the primary outcome) in separate datasets and combined the results on 3 different GWAS datasets for PC using fixed and random effects meta-analysis. Finally, we conducted MR for the genetically instrumented antihypertensive drugs and associated them with systolic and diastolic blood pressure (positive control outcomes) to evaluate the validity of the selected genetic instruments.
+
+[0019] [FIG] Overview of the study design. Abbreviations: SNPs, single nucleotide polymorphisms; MR, mendelian randomization; ACE, angiotensin-converting enzyme; ADRB1, beta-1 adrenergic receptor; SLC12A3, solute carrier family 12 member 3
+
+[0020] [METHODS] All publicly available exposure and outcome summary data in this study were obtained from the IEU OpenGWAS project (https://gwas.mrcieu.ac.uk/, accessed on December 29, 2023). The patients with PC included in this study are diagnosed by International Classification of Disease (ICD) codes. Specifically, the sample sizes of PC datasets were 476,245(1196 patients, ebi-a-GCST90018893, European ancestry), 196,187 (442 patients, bbj-a-140, East Asian ancestry), and 159,700 (499 patients, ebi-a-GCST90018673, East Asian ancestry). The details on these datasets are listed in Table 1. For more information on the statistical analysis, imputation, and quality control measures, please refer to the original publications. The original GWASs were approved by the relevant institutional review boards and all the participants provided informed consent, therefore our study did not require approval from the ethics committee.
+
+[0021] [TABLE] The data source used for MR analysis in this study
+
+[0022] [TABLE] Data source Phenotype Sample size Cases Population Adjustment eqtl-a-ENSG00000159640 ACE 31,684 - European Males and Females eqtl-a-ENSG00000043591 ADRB1 26,609 - European Males and Females eqtl-a-ENSG00000070915 SLC12A3 14,263 - European Males and Females bbj-a-140 Pancreatic cancer 196,187 442 East Asian Males and Females ebi-a-GCST90018673 Pancreatic cancer 159,700 499 East Asian - ebi-a-GCST90018893 Pancreatic cancer 476,245 1196 European - ebi-a-GCST90029011 Systolic blood pressure 469,767 - European - ieu-b-39 diastolic blood pressure 757,601 - European Males and Females
+
+[0023] [TABLE] Abbreviations: ACE, angiotensin-converting enzyme; ADRB1, beta-1 adrenergic receptor; SLC12A3, solute carrier family 12 member 3; MR, mendelian randomization; eqtl, expression quantitative trait loci
+
+[0024] [METHODS] Instrumental variable selection
+
+[0025] [METHODS] In the present study, we identified eligible independent significant SNPs (linkage disequilibrium (LD) clumping threshold of r2 = 0.3 with a physical distance threshold of 100 kb; minor allele frequency > 0.01, to ensure the independence of SNP avoiding LD; genome-wide P value < 5 × 10− 8) as instrumental variables from the eQTLs of drug target genes (Assumption I). F-statistic was also used to evaluate the strength of the selected SNPs and SNPs with F-statistic values less than 10 were excluded to reduce weak instrumental bias. Afterwards, with the use of the PhenoScanner database (http://www.phenoscanner.medschl.cam.ac.uk/), SNPs that were associated with confounders or outcomes were removed (Assumptions II and III). Considering that cis-eQTLs were more proximal to the drug target genes in the study, we selected cis-eQTLs within ± 100 kb from each gene’s genome position (Assumption IV). The relevant SNPs were extracted from the GWAS summary data for the outcome variables (pancreatic cancer, systolic blood pressure, and diastolic blood pressure). When harmonizing the exposure and outcome data, palindromic SNPs with intermediate allele frequencies were also removed. Basic information on the selected instrumental variables used to assess the associations of drug targets with PC and systolic and diastolic blood pressure are listed in Tables S1 and S2. The detailed selection process is presented in Table S3.
+
+[0026] [METHODS] MR analyses and meta-analysis
+
+[0027] [METHODS] We conducted MR analyses using the inverse-variance weighted (IVW) method and MR-Egger method to verify the causal relationship between antihypertensive drug targets and the outcome variable (pancreatic cancer). If a single instrumental variable was obtained, the causal effect was estimated by the ratio of genetic associations with PC and drug target genes (Wald ratio test). Random effects IVW was the primary method used when the instrumental variables consisted of multiple SNPs (≥ 4), as it offered more accurate estimates and confidence intervals than did the fixed effects IVW method. The MR-Egger method was used as a supplement to the IVW approach, and it provided a consistent estimate of the causal effect under a weaker assumption—the Instrument Strength Independent of Direct Effect (InSIDE) assumption. The intercept derived from MR-Egger regression was used to detect potential horizontal pleiotropy, and a P value less than 0.05 indicated that horizontal pleiotropy was present. If horizontal pleiotropy was detected, the MR‐Egger results were applied in our analysis. SNP heterogeneity was evaluated using I2 (< 25%: low heterogeneity, 25–50%: moderate, 50–75%: high and > 75%: very high) and Cochran’s Q methods (P < 0.05 as the significance level). We also conducted a sensitivity analysis using leave-one-out analysis. By removing each SNP in turn, the leave-one-out analysis could assess the possibility that a single SNP drives the observed associations. All the analyses above were completed using the TwoSample MR package in R software (version 4.1.0). All tests were at the alpha = 0.05 significance level.
+
+[0028] [METHODS] Fixed effects and random effects meta-analyses were performed to assess the pooled causal effects of drug target genes on PC using IVW estimates from the 3 outcome datasets (bbj-a-140, ebi-a-GCST90018673 and ebi-a-GCST90018893). Cochrane Q tests, and I-squared and τ2 statistics were used to test for and quantify between-study heterogeneity. The analyses were conducted using “meta” package in R software (version 4.1.0).
+
+[0029] [METHODS] Positive control analysis
+
+[0030] [METHODS] The purpose of the positive control analysis is to validate the effectiveness of the selected instrumental variables and statistical methods by examining the causal relationship between drug target genes and known clinical outcomes. In this study, we selected the antihypertensive drug target gene ACE as the target and used blood pressure (including both systolic and diastolic blood pressure) as the positive control outcome, as changes in blood pressure are the expected therapeutic effect of antihypertensive drugs. We used eQTLs of the ACE gene as instrumental variables and employed the Wald ratio method to assess the causal relationship between ACE inhibitors and blood pressure. This approach was used to confirm whether ACE inhibitors reduce blood pressure as expected, thereby demonstrating that the selected instrumental variables and statistical methods effectively reflect the biological effects of targeting ACE in antihypertensive drug therapy.
+
+[0031] [RESULTS] Results
+
+[0032] [RESULTS] Instrumental variable selection
+
+[0033] [RESULTS] By using the method mentioned above, we identified 6 SNPs as proxies for ACE, 45 SNPs as proxies for ADRB1, and 13 SNPs as proxies for SLC12A3 respectively to assess the causal relationship between drug targets and the risk of PC (Table S1). The power calculation is presented in Table S4. Specifically, the mean F statistics of the instruments were 135.74 for ADRB1, 48.08 for SLC12A3, and 51.98 for ACE, indicating that weak instrument bias was unlikely to contribute to the analyses. Furthermore, we identified 1 SNP as genetic instrument in ACE to validate the association between ACE and blood pressure from GWAS data (Table S2). The F statistic of the SNPs was also greater than 10. The detailed characteristics of the included SNPs are presented in Table S5.
+
+[0034] [RESULTS] Causal association of antihypertensive drugs with PC based on eQTLs data of drug target genes
+
+[0035] [RESULTS] The causal effect estimates of the MR analyses for the association of drug targets of antihypertensive drugs (ACE, ADRB1, and SLC12A3) with PC are depicted in Fig. 2. Based on GWAS summary datasets, our results demonstrated that inhibition of the genetic proxy ACE was associated with a lower risk of PC (OR = 0.506, 95% CI: 0.284–0.901, P = 0.021, for ebi-a-GCST90018893; OR = 0.265, 95% CI: 0.094–0.751, P = 0.012, for ebi-a-GCST90018673; OR = 0.236, 95% CI:0.078–0.712, P = 0.010, for bbj-a-140). Although inhibition of the genetic proxy ADRB1 was linked to an increased risk of PC by using IVW method (OR = 1.509, 95% CI:1.110–2.049, P = 0.009), the results were inconsistent when MR-Egger was used (OR = 2.052, 95% CI:0.992–4.246, P = 0.079). Notably, no significant association was detected between the genetic proxy SLC12A3 and the risk of PC (P > 0.05). There was no evidence of heterogeneity in the causal association of ACEIs with PC (I²=5%, Cochran’s Q = 1.0577, P = 0.3037) (Table 2).
+
+[0036] [FIG] Mendelian randomization estimates from instrument variants for drug targets of antihypertensive drugs on the risk of pancreatic cancer. Abbreviations: ACE, angiotensin-converting enzyme; ADRB1, beta-1 adrenergic receptor; SLC12A3, solute carrier family 12 member 3; MR, mendelian randomization; OR, odds ratio; CI, confidence interval; Nsnp, number of single nucleotide polymorphisms
+
+[0037] [TABLE] The association between genetically proxied Inhibition of ACE and risk of pancreatic cancer
+
+[0038] [TABLE] Exposure Outcome Method Nsnp MR Heterogeneity Horizontal pleiotropy OR(95%CI) P value I2(%) Cochran’s Q Pvalue Egger intercept SE Pvalue ACE inhibitor bbj-a-140 Inverse variance weighted 2 0.236(0.078–0.712) 0.0103 0 0.2249 0.6354 - - - ACE inhibitor ebi-a-GCST90018673 Inverse variance weighted 2 0.265(0.094–0.751) 0.0124 0 0.2050 0.6507 - - - ACE inhibitor ebi-a-GCST90018893 Inverse variance weighted 2 0.506(0.284–0.901) 0.0207 5 1.0577 0.3037 - - -
+
+[0039] [TABLE] Abbreviations: ACE, angiotensin-converting enzyme; MR, mendelian randomization; OR, odds ratio; CI, confidence interval; Nsnp, number of single nucleotide polymorphisms; SE, standard error
+
+[0040] [RESULTS] Consequently, we pooled individual-level data from the 3 cohorts together to examine the combined effect of associations between genetically proxied inhibition of ACE and risk of PC (Fig. 3). The results were similar whether the effect was assessed using random effects model (OR = 0.37, 95% CI: 0.22–0.64, P < 0.01) or fixed effects model (OR = 0.39, 95% CI: 0.25–0.62, P < 0.01), indicating genetically proxied inhibition of ACE was significantly associated with risk of PC. Additionally, the heterogeneity analysis also revealed no significant heterogeneity between datasets (I²=5%, τ²=0.0485, Cochran’s Q test P = 0.35).
+
+[0041] [FIG] Meta-analysis results of the association between genetically proxied inhibition of ACE and risk of pancreatic cancer. Abbreviations: TE, logOR; seTE, standard error of logOR; OR, odds ratio; CI, confidence interval
+
+[0042] [RESULTS] Causal association analysis of aceis with systolic and diastolic blood pressure (positive control)
+
+[0043] [RESULTS] To validate the instruments used in our study to proxy ACEI, we pooled summary genetic association data from published GWASs of systolic blood pressure (SBP) (ebi-a-GCST90029011) and DBP (ieu-b-39) using the Wald ratio test (Table 3, Supplemental Fig. 1). ACEIs was associated with lower SBP (OR = 0.919, 95% CI: 0.865–0.976, P = 0.0062). This mean that the genetically proxied serum ACE level per 1-SD decrease may be associated with a 0.919 mmHg decrease in SBP. Similarly, SNPs for ACE was associated with lower diastolic blood pressure (DBP) (OR = 0.373, 95% CI: 0.222–0.627, P = 0.0002), indicating that 1-SD decrease in the serum ACE level was associated with a 0.373 mmHg decrease in DBP. In summary, positive control analyses confirmed that the selected genetic instruments for ACEI were effective.
+
+[0044] [TABLE] The association between genetically proxied Inhibition of ACE and systolic and diastolic blood pressure
+
+[0045] [TABLE] Exposure Outcome Method Nsnp MR Heterogeneity Horizontal pleiotropy OR(95%CI) P value I2(%) Cochran’s Q Pvalue Egger intercept SE Pvalue ACE inhibitor Systolic blood pressure Wald ratio 1 0.919(0.865–0.976) 0.0062 - - - - - - ACE inhibitor Diastolic blood pressure Wald ratio 1 0.373(0.222–0.627) 0.0002 - - - - - -
+
+[0046] [TABLE] Abrreviations: Nsnp, number of single nucleotide polymorphisms; MR, mendelian randomization; OR, odds ration; ACE, angiotensin-converting enzyme
+
+[0047] [DISCUSS] Discussion
+
+[0048] [DISCUSS] This is the first MR study to evaluate the potential impact of antihypertensive drugs on PC. We employed genetic variants mimicking antihypertensive drug targets to investigate their respective effects on PC risk. The results showed that genetically proxied ACEIs were associated with lower PC risk. In contrast, such an association was not observed with other antihypertensive drugs. To ensure a strong association between the instrumental variables and the exposure, we applied a stringent threshold for SNPs selection, which consequently resulted in a limited number of SNPs included in the analysis. However, we implemented a positive control analysis, which served to validate the credibility and robustness of the selected instruments. These findings were validated by multiple MR approaches and different independent datasets, which exhibited reliability and consistency. The heterogeneity statistics showed no significant across the datasets. This suggests that the effect sizes observed in the different studies are consistent and that the datasets are sufficiently homogeneous for the purposes of our analysis. The absence of significant heterogeneity strengthens the validity of our findings, as it indicates that the observed associations are unlikely to be influenced by substantial differences in study design or population characteristics across the included datasets.
+
+[0049] [DISCUSS] Regarding the carcinogenic potential of antihypertensive drugs, prior studies have yielded somewhat controversial results. An early observational study reported that long-term use of ACEIs may protect against cancer. Two subsequent meta-analyses based on randomized trials revealed no consistent evidence that antihypertensive medication use had any effect on cancer risk, although an increased risk of cancer resulting from the combination of ACEIs and ARBs or calcium channel blockers cannot be ruled out. However, one recent study suggested that cessation of antihypertensive medications was associated with PC diagnosis in the next 2 years. All of the above results imply that the connection between antihypertensive drugs exposure and the risk of cancer is so inconsistent. The interpretation of these findings is complicated by the variable duration of drug use, and the heterogeneous effects of prescriptions.
+
+[0050] [DISCUSS] A previous MR analysis have investigated the association between antihypertensive drugs and risk of 4 common cancers (breast, colorectal, lung, and prostate cancer), which suggested that genetically proxied long-term ACE inhibition was associated with an increased risk of colorectal cancer in the European population.
+
+[0051] [DISCUSS] However, the prior MR analysis has not reported results separately for PC. Our study is the first to indicate the potential protective role of AECIs on PC at a causal level. To date, the evidence indicating the association between ACEIs and the risk of PC is limited. One conventional observational study have demonstrated no association between the use of ACEI and PC risk in patients with chronic pancreatitis, and another study showed that ACEI medication was not associated with a decreased risk of PC compared to other antihypertensive drugs. The discrepancy between these two findings and our conclusion can be explained by the heterogeneous study population and comparator groups. Notably, a multicenter retrospective study revealed that ACEIs might slow the progression of branch-duct intrapapillary mucinous neoplasms (BD-IPMNs), which are considered as precursor lesions of PC. These real-world data present modest evidence of the preventative effect of ACEIs on PC.
+
+[0052] [DISCUSS] In terms of beta blockers, several observational studies and experimental studies have confirmed the latent therapeutic effect of these agents on PC. However, evidence exploring the causal association between beta blockers and PC risk is rather limited. Our results on beta blockers showed no association with PC risk, which contradicts the findings of a nested case‒control study showing the preventive effect of beta-blockers on PC. This may be attributed to the inflated effect of observational studies caused by immortal time bias. To our knowledge, there is no prior research on the impact of thiazide diuretics on PC risk. Our study also did not reveal a causal effect of thiazide diuretics on PC risk. However, some studies have suggested that thiazide diuretics can lead to hyperglycemia and diabetes. Therefore, further clinical studies with long-term follow up are needed. In summary, when treating high-risk PC patients (e.g., chronic pancreatitis patients and diabetic patients) with antihypertensive drugs, ACE inhibitors may be a potential option to consider.
+
+[0053] [DISCUSS] The underlying mechanisms responsible for the association between genetically proxied ACE inhibition and PC risk remain unknown. Actually, the MR analysis primarily examines the causal relationship between genetically proxied ACE inhibition and PC risk, without elucidating the specific molecular pathways involved. Nevertheless, the underlying mechanisms may be postulated in light of the current evidence. Two meta-analyses showed that ACEI treatment more effectively improved insulin sensitivity. These ameliorative effects may be partially mediated by the bradykinin system. This might decrease the risk of the initiation and development of PC driven by hyperinsulinemia. Second, ACEIs appear to act as modulators for receptor for advanced glycation end products (RAGE) axis. Several studies have revealed that ACEIs can increase the level of soluble RAGE (sRAGE), which serves as an anti-inflammatory factor to neutralize advanced glycation end products(AGEs) and block the inflammatory response mediated by RAGE activation. Furthermore, AGEs can form endogenously through normal physiological metabolism or exogenously from environmental exposure (e.g., common foods and tobacco smoke). Consequently, ACEIs likely abolish chronic inflammation triggered by the RAGE axis, which has been demonstrated to be associated with pancreatic carcinogenesis in observational and experimental studies. Moreover, Fendrich et al. demonstrated that angiotensin II type 1 receptor (AT1) was not detected in normal pancreatic tissue except in blood vessels, but its expression became stronger in pancreatic intraepithelial neoplasia (PanIN) and PC. Using a genetically engineered mouse model of PC, they provided the first evidence that an ACEI (enalapril) might be a promising chemopreventive agent by delaying the progression of PanINs and partially inhibiting the formation of murine PC. The possible mechanisms may be related to the downregulation of VEGF and NF-kB, but regretfully, no further mechanism has been elucidated. Additionally, there are no current studies investigating which biological processes and pathways the corresponding SNPs may be involved in, thereby potentially reducing the risk of pancreatic cancer. Further basic research is needed to explore these mechanisms.
+
+[0054] [DISCUSS] Leveraging large-scale genetic data, our study has several strengths. First, we employed an MR design to make causal inferences, eliminating confounding bias and reverse causality. This includes confounding the environmental and lifestyle variables of users, which cannot be completely adjusted for an observational study. Second, we specifically selected SNPs from the range of cis-actions of drug target genes (kb = 100) as instruments that may be linked to gene function or expression. Moreover, we only kept only genetic variants with an F statistic > 10 to reduce weak instrumental bias. Finally, we conducted a positive control analysis that predicted the impact of antihypertensive drugs on the anticipated indications and additional defined outcomes to demonstrate the validity of the chosen genetic instruments. In conclusion, this study supports the idea that targeting ACE can reduce the risk of PC. However, randomized trials need to be conducted to evaluate the efficacy and safety of the prevention of PC.
+
+[0055] [DISCUSS] There are several limitations to this study. The properties of MR analysis limit its ability to investigate the long-term and on-target (i.e., target-mediated) effects of therapeutic drugs. Therefore, the effects that we have estimated may not fully reflect the association between ACEI medication and PC. Moreover, the possibility that ACEIs alter PC risk via other gene targets (off-target effects) cannot be excluded. Second, there was a considerable overlap between the two-sample GWAS data from the UK Biobank, and potential ‘healthy volunteer’ bias persisted. Third, our results were inferred by using data from the entire study population and we did not perform further stratification by age and sex or additional subgroup analysis. Fourth, horizontal pleiotropy could not be completely excluded despite various sensitivity analyses being conducted to assess the assumptions of the MR study. Fifth, the study lacks clinical real-world data validation and therefore serves merely as a hypothesis-generating basis for subsequent studies, which may involve clinical trials or observational cohort studies to validate these associations. Consequently, confirmatory evidence from long-term follow-up of clinical trials is warranted.
+
+[0056] [CONCL] Conclusion
+
+[0057] [CONCL] The present study indicated a protective effect of genetically proxied ACEIs on PC risk in both European and East Asian populations. This study supports the repurposing of antihypertensive medication in the field of comorbidity treatment and PC chemoprevention. Further studies should be conducted to confirm the effects and elucidate the underlying mechanisms involved.
+
+[0058] [SUPPL] Electronic supplementary material
+
+[0059] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0060] [SUPPL] Publisher’s note
+
+[0061] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0062] [SUPPL] Zehui Yao, Dailei Qin and Jianzhong Cao contributed equally to this work.
+
+[0063] [AUTH_CONT] Author contributions
+
+[0064] [AUTH_CONT] RW and SL conceived and designed the experiments. RW, HZ, DQ, CG, and PX performed the analysis. RW, HZ and DQ wrote the paper. SL reviewed the draft. All authors read and approved the final manuscript. The work reported in the paper has been performed by the authors, unless clearly specified in the text.
+
+[0065] [ACK_FUND] Funding information
+
+[0066] [ACK_FUND] The present study was supported by the National Natural Science Foundation of China (82103570).
+
+[0067] [SUPPL] Data availability
+
+[0068] [SUPPL] In this study, existing data were re-analyzed based on public, open access repositories. These open access datasets are listed in Table 1.
+
+[0069] [SUPPL] Declarations
+
+[0070] [SUPPL] Ethics approval and consent to participate
+
+[0071] [SUPPL] The original GWASs were approved by the relevant institutional review boards and all the participants provided informed consent, therefore our study does not involve the need for approval from the ethics committee.
+
+[0072] [COMP_INT] Competing interests
+
+[0073] [COMP_INT] The authors declare no competing interests.
+
+[0074] [COMP_INT] Reporting guidelines
+
+[0075] [COMP_INT] This study adhered to the reporting guidelines outlined in the Strengthening the Reporting of Observational Studies in Epidemiology using Mendelian Randomization (STROBE-MR) guidelines, as presented in Table S6.
+
+[0076] [REF] References
+
+[0077] [REF] Pancreatic cancer: changing epidemiology and new approaches to risk assessment, early detection, and prevention
+
+[0078] [REF] Del Chiaro M, Sugawara T, Karam SD, Messersmith WA. Advances in the management of pancreatic cancer. BMJ. 2023;383:e073995.10.1136/bmj-2022-073995.
+
+[0079] [REF] Preoperative chemotherapy, radiotherapy and surgical decision-making in patients with borderline resectable and locally advanced pancreatic cancer
+
+[0080] [REF] How comorbidities shape Cancer biology and survival
+
+[0081] [REF] Collaboration NCDRF. Worldwide trends in hypertension prevalence and progress in treatment and control from 1990 to 2019: a pooled analysis of 1201 population-representative studies with 104 million participants. Lancet. 2021;398(10304):957–80. 10.1016/S0140-6736(21)01330-1.
+
+[0082] [REF] Cohen JB, Brown NJ, Brown SA, Dent S, van Dorst DCH, Herrmann SM, Lang NN, Oudit GY, Touyz RM, American Heart Association Council on H, Council on, Arteriosclerosis T, Vascular B. Council on the Kidney in Cardiovascular D. Cancer Therapy-Related Hypertension: A Scientific Statement From the American Heart Association. Hypertension. 2023;80(3):e46-e57.10.1161/HYP.0000000000000224.
+
+[0083] [REF] Hicks BM, Filion KB, Yin H, Sakr L, Udell JA, Azoulay L. Angiotensin converting enzyme inhibitors and risk of lung cancer: population based cohort study. BMJ. 2018;363:k4209.10.1136/bmj.k4209.
+
+[0084] [REF] Association between angiotensin-converting enzyme inhibitors and the risk of lung cancer: a systematic review and meta-analysis
+
+[0085] [REF] Cheung KS, Chan EW, Seto WK, Wong ICK, Leung WK. ACE (Angiotensin-Converting Enzyme) Inhibitors/Angiotensin Receptor Blockers Are Associated With Lower Colorectal Cancer Risk: A Territory-Wide Study With Propensity Score Analysis. Hypertension. 2020;76(3):968– 75.10.1161/HYPERTENSIONAHA.120.15317.
+
+[0086] [REF] Anti-hypertensive drugs and skin cancer risk: a review of the literature and meta-analysis
+
+[0087] [REF] Antihypertensive drugs and pancreatic cancer risk in patients with chronic pancreatitis: a Danish nationwide population-based cohort study
+
+[0088] [REF] The use of drugs acting on the renin-angiotensin system and the incidence of pancreatic cancer
+
+[0089] [REF] Mc Menamin UC, Murray LJ, Cantwell MM, Hughes CM. Angiotensin-converting enzyme inhibitors and angiotensin receptor blockers in cancer progression and survival: a systematic review. Cancer Causes Control. 2012;23(2):221– 30.10.1007/s10552-011-9881-x.
+
+[0090] [REF] Bias in pharmacoepidemiologic studies using secondary health care databases: a scoping review
+
+[0091] [REF] Mendelian randomization’: can genetic epidemiology contribute to Understanding environmental determinants of disease?
+
+[0092] [REF] Effect of naturally random allocation to lower low-density lipoprotein cholesterol on the risk of coronary heart disease mediated by polymorphisms in NPC1L1, HMGCR, or both: a 2 × 2 factorial Mendelian randomization study
+
+[0093] [REF] Swerdlow DI, Preiss D, Kuchenbaecker KB, Holmes MV, Engmann JE, Shah T, Sofat R, Stender S, Johnson PC, Scott RA, Leusink M, Verweij N, Sharp SJ, Guo Y, Giambartolomei C, Chung C, Peasey A, Amuzu A, Li K, Palmen J, Howard P, Cooper JA, Drenos F, Li YR, Lowe G, Gallacher J, Stewart MC, Tzoulaki I, Buxbaum SG, van der Forouhi AD, Onland-Moret NG, van der Schouw NC, Schnabel YT, Hubacek RB, Kubinova JA, Baceviciene R, Tamosiunas M, Pajak A, Topor-Madry A, Stepaniak R, Malyutina U, Baldassarre S, Sennblad D, Tremoli B, de Faire E, Veglia U, Ford F, Jukema I, Westendorp JW, de Borst RG, de Jong GJ, Algra PA, Spiering A, van der Zee W, Klungel AH, de Boer OH, Doevendans A, Eaton PA, Robinson CB, Duggan JG, Consortium D, Consortium D, InterAct M, Kjekshus C, Downs J, Gotto JR, Keech AM, Marchioli AC, Tognoni R, Sever G, Poulter PS, Waters NR, Pedersen DD, Amarenco TR, Nakamura P, McMurray H, Lewsey JJ, Chasman JD, Ridker DI, Maggioni PM, Tavazzi AP, Ray L, Seshasai KK, Manson SR, Price JE, Whincup JF, Morris PH, Lawlor RW, Smith DA, Ben-Shlomo GD, Schreiner Y, Fornage PJ, Siscovick M, Cushman DS, Kumari M, Wareham M, Verschuren NJ, Redline WM, Patel S, Whittaker SR, Hamsten JC, Delaney A, Dale JA, Gaunt C, Wong TR, Kuh A, Hardy D, Kathiresan R, Castillo S, van der Harst BA, Brunner P, Tybjaerg-Hansen EJ, Marmot A, Krauss MG, Tsai RM, Coresh M, Hoogeveen J, Psaty RC, Lange BM, Hakonarson LA, Dudbridge H, Humphries F, Talmud SE, Kivimaki PJ, Timpson M, Langenberg NJ, Asselbergs C, Voevoda FW, Bobak M, Pikhart M, Wilson H, Reiner JG, Keating AP, Hingorani BJ, Sattar AD. N. HMG-coenzyme A reductase inhibition, type 2 diabetes, and bodyweight: evidence from genetic analysis and randomised trials. Lancet. 2015;385(9965):351– 61.10.1016/S0140-6736(14)61183-1.
+
+[0094] [REF] Genetically proxied therapeutic Inhibition of antihypertensive drug targets and risk of common cancers: A Mendelian randomization analysis
+
+[0095] [REF] Burgess S, Davey Smith G, Davies N, Dudbridge F, Gill D, Glymour M, Hartwig F, Kutalik Z, Holmes M, Minelli C, Morrison J, Pan W, Relton C, Theodoratou E. Guidelines for performing Mendelian randomization investigations: update for summer 2023. Wellcome open research. 2019;4:186.10.12688/wellcomeopenres.15555.3.
+
+[0096] [REF] Evaluating the potential role of Pleiotropy in Mendelian randomization studies
+
+[0097] [REF] Do inhibitors of angiotensin-I-converting enzyme protect against risk of cancer?
+
+[0098] [REF] Bangalore S, Kumar S, Kjeldsen SE, Makani H, Grossman E, Wetterslev J, Gupta AK, Sever PS, Gluud C, Messerli FH. Antihypertensive drugs and risk of cancer: network meta-analyses and trial sequential analyses of 324,168 participants from randomised trials. Lancet Oncol. 2011;12(1):65-82.10.1016/S1470-2045(10)70260-6.
+
+[0099] [REF] Copland E, Canoy D, Nazarzadeh M, Bidel Z, Ramakrishnan R, Woodward M, Chalmers J, Teo KK, Pepine CJ, Davis BR, Kjeldsen S, Sundstrom J, Rahimi K. Blood Pressure Lowering Treatment Trialists C. Antihypertensive treatment and risk of cancer: an individual participant data meta-analysis. Lancet Oncol. 2021;22(4):558– 70.10.1016/S1470-2045(21)00033– 4.
+
+[0100] [REF] Zhang Y, Wang QL, Yuan C, Lee AA, Babic A, Ng K, Perez K, Nowak JA, Lagergren J, Stampfer MJ, Giovannucci EL, Sander C, Rosenthal MH, Kraft P, Wolpin BM. Pancreatic cancer is associated with medication changes prior to clinical diagnosis. Nat Commun. 2023;14(1):2437.10.1038/s41467-023-38088-2.
+
+[0101] [REF] Yarmolinsky J, Diez-Obrero V, Richardson TG, Pigeyre M, Sjaarda J, Pare G, Walker VM, Vincent EE, Tan VY, Obon-Santacana M, Albanes D, Hampe J, Gsur A, Hampel H, Pai RK, Jenkins M, Gallinger S, Casey G, Zheng W, Amos CI, International Lung, Cancer C, consortium, Smith P, Martin GD, Moreno RM. V. Genetically proxied therapeutic inhibition of antihypertensive drug targets and risk of common cancers: A mendelian randomization analysis. PLoS Med. 2022;19(2):e1003897.10.1371/journal.pmed.1003897.
+
+[0102] [REF] Valente R, Crippa S, Arnelo U, Vanella G, Zerboni G, Zarantonello L, Fogliati A, Arcidiacono PG, Vujasinovic M, Lohr JM, Falconi M, Capurso G, Del Chiaro M. The use of ace inhibitors influences the risk of progression of BD-IPMNs under follow-up. Pancreatology. 2022;22(4):516– 24.10.1016/j.pan.2022.03.020.
+
+[0103] [REF] Partecke LI, Speerforck S, Kading A, Seubert F, Kuhn S, Lorenz E, Schwandke S, Sendler M, Kessler W, Trung DN, Oswald S, Weiss FU, Mayerle J, Henkel C, Menges P, Beyer K, Lerch MM, Heidecke CD, von Bernstorff W. Chronic stress increases experimental pancreatic cancer growth, reduces survival and can be antagonised by beta-adrenergic receptor blockade. Pancreatology. 2016;16(3):423– 33.10.1016/j.pan.2016.03.005.
+
+[0104] [REF] Udumyan R, Montgomery S, Fang F, Almroth H, Valdimarsdottir U, Ekbom A, Smedby KE, Fall K. Beta-Blocker Drug Use and Survival among Patients with Pancreatic Adenocarcinoma. Cancer Res. 2017;77(13):3700– 7.10.1158/0008-5472.CAN-17-0108.
+
+[0105] [REF] Saad A, Goldstein J, Margalit O, Shacham-Shmueli E, Lawrence YR, Yang YX, Reiss KA, Golan T, Mamtani R, Halpern N, Aderka D, Mouallem M, Goldstein A, Giantonio B, Boursi B. Assessing the effects of beta-blockers on pancreatic cancer risk: A nested case-control study. Pharmacoepidemiol Drug Saf. 2020;29(5):599-604.10.1002/pds.4993.
+
+[0106] [REF] Weberpals J, Jansen L, van Herk-Sukel MPP, Kuiper JG, Aarts MJ, Vissers PAJ, Brenner H. Immortal time bias in pharmacoepidemiological studies on cancer patient survival: empirical illustration for beta-blocker use in four cancers with different prognosis. Eur J Epidemiol. 2017;32(11):1019– 31.10.1007/s10654-017-0304-5.
+
+[0107] [REF] Yang Y, Wei RB, Wang ZC, Wang N, Gao YW, Li MX, Qiu Q. A meta-analysis of the effects of angiotensin converting enzyme inhibitors and angiotensin II receptor blockers on insulin sensitivity in hypertensive patients without diabetes. Diabetes Res Clin Pract. 2015;107(3):415– 23.10.1016/j.diabres.2014.11.007.
+
+[0108] [REF] Yao J, Fan S, Shi X, Gong X, Zhao J, Fan G. Angiotensin-converting enzyme inhibitors versus angiotensin II receptor blockers on insulin sensitivity in hypertensive patients: A meta-analysis of randomized controlled trials. PLoS One. 2021;16(7):e0253492.10.1371/journal.pone.0253492.
+
+[0109] [REF] Henriksen EJ, Jacob S, Augustin HJ, Dietze GJ. Glucose transport activity in insulin-resistant rat muscle. Effects of angiotensin-converting enzyme inhibitors and bradykinin antagonism. Diabetes. 1996;45 Suppl 1:S125-8.10.2337/diab.45.1.s125.
+
+[0110] [REF] Effects of Captopril on glucose transport activity in skeletal muscle of obese Zucker rats
+
+[0111] [REF] Chang HH, Moro A, Takakura K, Su HY, Mo A, Nakanishi M, Waldron RT, French SW, Dawson DW, Hines OJ, Li G, Go VLW, Sinnett-Smith J, Pandol SJ, Lugea A, Gukovskaya AS, Duff MO, Rosenberg DW, Rozengurt E, Eibl G. Incidence of pancreatic cancer is dramatically increased by a high fat, high calorie diet in KrasG12D mice. PLoS One. 2017;12(9):e0184455.10.1371/journal.pone.0184455.
+
+[0112] [REF] Dawson DW, Hertzer K, Moro A, Donald G, Chang HH, Go VL, Pandol SJ, Lugea A, Gukovskaya AS, Li G, Hines OJ, Rozengurt E, Eibl G. High-fat, high-calorie diet promotes early pancreatic neoplasia in the conditional KrasG12D mouse model. Cancer Prev Res (Phila). 2013;6(10):1064– 73.10.1158/1940–6207.CAPR-13-0065.
+
+[0113] [REF] Pisani P. Hyper-insulinaemia and cancer, meta-analyses of epidemiological studies. Arch Physiol Biochem. 2008;114(1):63-70.10.1080/13813450801954451.
+
+[0114] [REF] Zhang AMY, Xia YH, Lin JSH, Chu KH, Wang WCK, Ruiter TJJ, Yang JCC, Chen N, Chhuor J, Patil S, Cen HH, Rideout EJ, Richard VR, Schaeffer DF, Zahedi RP, Borchers CH, Johnson JD, Kopp JL. Hyperinsulinemia acts via acinar insulin receptors to initiate pancreatic cancer by increasing digestive enzyme production and inflammation. Cell Metab. 2023;35(12):2119-35 e5.10.1016/j.cmet.2023.10.003.
+
+[0115] [REF] Lanati N, Emanuele E, Brondino N, Geroldi D. Soluble RAGE-modulating drugs: state-of-the-art and future perspectives for targeting vascular inflammation. Curr Vasc Pharmacol. 2010;8(1):86-92.10.2174/157016110790226642.
+
+[0116] [REF] Derosa G, Bonaventura A, Romano D, Bianchi L, Fogari E, D’Angelo A, Maffioli P. Effects of enalapril/lercanidipine combination on some emerging biomarkers in cardiovascular risk stratification in hypertensive patients. J Clin Pharm Ther. 2014;39(3):277– 85.10.1111/jcpt.12139.
+
+[0117] [REF] Vazzana N, Santilli F, Cuccurullo C, Davi G. Soluble forms of RAGE in internal medicine. Intern Emerg Med. 2009;4(5):389-401.10.1007/s11739-009-0300-1.
+
+[0118] [REF] Uribarri J, Woodruff S, Goodman S, Cai W, Chen X, Pyzik R, Yong A, Striker GE, Vlassara H. Advanced glycation end products in foods and a practical guide to their reduction in the diet. J Am Diet Assoc. 2010;110(6):911– 16 e12.10.1016/j.jada.2010.03.018.
+
+[0119] [REF] Cerami C, Founds H, Nicholl I, Mitsuhashi T, Giordano D, Vanpatten S, Lee A, Al-Abed Y, Vlassara H, Bucala R, Cerami A. Tobacco smoke is a source of toxic reactive glycation products. Proc Natl Acad Sci U S A. 1997;94(25):13915– 20.10.1073/pnas.94.25.13915.
+
+[0120] [REF] Jiao L, Weinstein SJ, Albanes D, Taylor PR, Graubard BI, Virtamo J, Stolzenberg-Solomon RZ. Evidence that serum levels of the soluble receptor for advanced glycation end products are inversely associated with pancreatic cancer risk: a prospective study. Cancer Res. 2011;71(10):3582– 9.10.1158/0008-5472.CAN-10-2573.
+
+[0121] [REF] Kang R, Hou W, Zhang Q, Chen R, Lee YJ, Bartlett DL, Lotze MT, Tang D, Zeh HJ. RAGE is essential for oncogenic KRAS-mediated hypoxic signaling in pancreatic cancer. Cell Death Dis. 2014;5(10):e1480.10.1038/cddis.2014.445.
+
+[0122] [REF] Kang R, Tang D, Lotze MT, Zeh HJ 3. rd. AGER/RAGE-mediated autophagy promotes pancreatic tumorigenesis and bioenergetics through the IL6-pSTAT3 pathway. Autophagy. 2012;8(6):989– 91.10.4161/auto.20258.
+
+[0123] [REF] White DL, Hoogeveen RC, Chen L, Richardson P, Ravishankar M, Shah P, Tinker L, Rohan T, Whitsel EA, El-Serag HB, Jiao L. A prospective study of soluble receptor for advanced glycation end products and adipokines in association with pancreatic cancer in postmenopausal women. Cancer Med. 2018;7(5):2180– 91.10.1002/cam4.1426.
+
+[0124] [REF] Fendrich V, Chen NM, Neef M, Waldmann J, Buchholz M, Feldmann G, Slater EP, Maitra A, Bartsch DK. The angiotensin-I-converting enzyme inhibitor enalapril and aspirin delay progression of pancreatic intraepithelial neoplasia and cancer formation in a genetically engineered mouse model of pancreatic cancer. Gut. 2010;59(5):630– 7.10.1136/gut.2009.188961.
+
+[0125] [REF] Zheng J, Baird D, Borges MC, Bowden J, Hemani G, Haycock P, Evans DM, Smith GD. Recent Developments in Mendelian Randomization Studies. Curr Epidemiol Rep. 2017;4(4):330– 45.10.1007/s40471-017-0128-6.
+
+[0126] [REF] Skrivankova V, Richmond R, Woolf B, Yarmolinsky J, Davies N, Swanson S, VanderWeele T, Higgins J, Timpson N, Dimou N, Langenberg C, Golub R, Loder E, Gallo V, Tybjaerg-Hansen A, Davey Smith G, Egger M, Richards J. Strengthening the Reporting of Observational Studies in Epidemiology Using Mendelian Randomization: The STROBE-MR Statement. JAMA. 2021;326(16):1614– 21.10.1001/jama.2021.18236.

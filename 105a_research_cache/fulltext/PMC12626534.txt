@@ -1,0 +1,291 @@
+[0001] [TITLE] Integrative multi-omics analysis reveal novel therapeutic targets for glioblastoma
+
+[0002] [ABSTRACT] Background and objectives:
+
+[0003] [ABSTRACT] Glioblastoma (GBM) is the most common and aggressive primary malignant brain tumor in adults, yet effective therapeutic strategies remain limited. A comprehensive exploration of brain proteomic profiles may offer new insights into GBM pathogenesis and treatment.
+
+[0004] [ABSTRACT] Methods:
+
+[0005] [ABSTRACT] We integrated the largest available summary-level GWAS data for GBM, derived from eight studies of European ancestry, with brain proteomic and transcriptomic data. Proteome-wide association studies (PWAS) were performed using dorsolateral prefrontal cortex (dPFC) samples from the Religious Orders Study/Memory and Aging Project (ROS/MAP) and the Banner Sun Health Research Institute. Transcriptome-wide association studies (TWAS) utilized dPFC transcriptomic data from the CommonMind Consortium (CMC). To assess causality, Mendelian randomization (MR) analyses based on protein and expression quantitative trait loci (pQTL and eQTL) were conducted. Bayesian colocalization analyses were performed to determine whether GBM risk and candidate genes shared a common causal variant. Based on the integrative evidence, candidate genes were prioritized and assigned confidence levels regarding their therapeutic relevance.
+
+[0006] [ABSTRACT] Results:
+
+[0007] [ABSTRACT] The primary PWAS identified eight candidate genes associated with GBM (LIME1, EGFR, RHBDF1, SCFD1, FAIM, KDELC2, GPX1, and GMPPB). Among these, two (LIME1 and GMPPB) were replicated in a confirmatory PWAS, and six (LIME1, EGFR, SCFD1, FAIM, GPX1, and GMPPB) were validated in TWAS. pQTL-based MR analysis supported causal relationships for SCFD1, GPX1, and GMPPB, while eQTL-based MR analysis identified EGFR, SCFD1, FAIM, and GMPPB. Colocalization analysis revealed that EGFR, RHBDF1, SCFD1, and GMPPB share causal variants with GBM risk. Through comprehensive multi-omics integration, three genes – EGFR, SCFD1, and GMPPB – were identified as high-confidence therapeutic targets.
+
+[0008] [ABSTRACT] Discussion:
+
+[0009] [ABSTRACT] By leveraging brain proteomic and transcriptomic data alongside large-scale GBM GWAS, we identified eight candidate genes and prioritized three – EGFR, SCFD1, and GMPPB – as high-confidence therapeutic targets. Notably, SCFD1 and GMPPB represent novel candidates. These findings advance our understanding of the molecular mechanisms underlying GBM and warrant further functional validation.
+
+[0010] [INTRO] Introduction
+
+[0011] [INTRO] Glioblastoma (GBM), the most prevalent malignant primary brain tumor in adults, becomes more common after the age of 40, with its highest incidence observed in individuals aged 75 to 84. Surgery, when safely feasible, followed by targeted radiotherapy in combination with concomitant temozolomide chemotherapy and up to six maintenance cycles, constitutes the standard of care for most patients with newly diagnosed GBM. Despite surgical procedure and medical intervention, GBM is associated with a poor prognosis, characterized by a median overall survival of approximately 15 months and a 5-year survival rate of less than 8%. The complexity and heterogeneity of GBM have long posed challenges to therapeutic advancements, especially in recurrent GBM. Targeted therapy has emerged as a promising direction in recent years, with new drugs aimed at various pathways continuously being developed and introduced to the market, offering hope to patients with GBM. Therefore, continually identifying new and effective therapeutic targets is crucial for overcoming GBM.
+
+[0012] [INTRO] Proteins serve as highly efficient biomarkers and therapeutic targets, as they are the primary functional components of cellular and biological processes and represent the final products of gene expression. High-throughput proteomic and transcriptomic sequencing of human tissues have facilitated large-scale quantification of human proteins and expression quantitative trait loci (pQTL and eQTL), enabling a more in-depth exploration of proteins and genes. GBM originates in the brain and is known to interact with neurons and glial cells during its growth. Therefore, a deeper exploration of the brain proteomes in various ways enhances our understanding of GBM.
+
+[0013] [INTRO] In the current study, we integrated the largest human brain proteomes and transcriptomes to date with genome-wide association data to identify novel therapeutic targets for GBM. We first conducted proteome-wide association studies (PWAS) and transcriptome-wide association studies (TWAS) to screen for highly associated genes. Subsequently, Mendelian randomization (MR) and Bayesian co-localization analyses were performed to evaluate the causal relationships between specific genes and GBM, as well as to determine whether they share the same causal variant. Finally, based on an integrative and comprehensive evaluation, confidence levels were assigned to the candidate genes to inform their potential as therapeutic targets.
+
+[0014] [METHODS] Materials and methods
+
+[0015] [METHODS] The reporting of this study adheres to the STREGA (STrengthening the REporting of Genetic Association studies) recommendations, an extension of the STROBE Statement. Furthermore, the current study adheres to the Transparency In The reporting of Artificial INtelligence (TITAN; Supplementary Digital Content, available at: http://links.lww.com/JS9/E659) guidelines, and no artificial intelligence (AI) tools were used at any stage of the research or manuscript preparation.
+
+[0016] [FIG] The flowchart of the current study. Abbreviation: PWAS, proteome-wide association study; TWAS, transcriptome-wide association study; GWAS, genome-wide association study; QTL, quantitative trait loci; ROS, Religious Orders Study; MAP, Memory and Aging Project; CMC, CommonMind Consortium.
+
+[0017] [METHODS] The flowchart of the current study is presented in Fig. 1. Sample sizes and data characteristics for each cohort are presented in Supplementary Digital Content Figure 1, available at: http://links.lww.com/JS9/E658.
+
+[0018] [METHODS] Genome-wide association study data of GBM
+
+[0019] [METHODS] The largest summary-level GWAS data for GBM were sourced from the latest meta-analysis, which included 6,183 cases and 18,169 controls from eight studies of European descent. The collection of patient specimens and corresponding clinical and pathological data was conducted at each study site following ethical approval and informed written consent, in compliance with the Declaration of Helsinki. All glioma cases (ICDO-3 codes 9380–9480 or equivalent) were diagnosed via histopathological examination in accordance with World Health Organization classification standards. Meta-analyses were performed using a fixed-effects inverse-variance method via META software (v1.6), based on β-estimates and standard errors from each study. Heterogeneity was assessed with Cochran’s Q and quantified by I2 (I2 >75 indicating significant heterogeneity). Conditional association analyses were conducted using genome-wide complex trait analysis (GCTA), with meta-analysis summary statistics and linkage disequilibrium (LD) correlations from the combined 1000 Genomes Project and UK10K reference panel, conditioned step-wise on the top genome-wide significant SNP at each locus.
+
+[0020] [METHODS] Human brain proteome reference used in the PWAS
+
+[0021] [METHODS] The discovery PWAS data was obtained from post-mortem brain tissues of the dorsolateral prefrontal cortex (dPFC) from 376 subjects who participated in the Religious Orders Study/Memory and Aging Project (ROS/MAP). Digested peptides were labeled using isobaric tandem mass tags (TMT), and sequencing was performed with liquid chromatography coupled with mass spectrometry (LC-MS). Genotypes were obtained through whole-genome sequencing or genome-wide genotyping, utilizing either the Illumina Omni-Quad Express or the Affymetrix GeneChip 6.0 platforms. A total of 8,356 proteins had both proteomic and genomic data available, of which 1,475 proteins demonstrated significant cis-associations with genetic variations. In the confirmatory phase, the human brain proteome was obtained from the dPFC of a separate cohort of European participants recruited by the Banner Sun Health Research Institute. The methodology for proteome genetic profiling mirrored that used in the discovery PWAS. Following quality control, 152 individuals with both proteomic and genetic data were included in the confirmation TWAS.
+
+[0022] [METHODS] HIGHLIGHTS
+
+[0023] [METHODS] By integrating brain proteomic and transcriptomic data with the largest available GBM GWAS dataset, we identified eight GBM risk-associated genes, including high-confidence targets EGFR, SCFD1, and GMPPB.
+
+[0024] [METHODS] EGFR is a well-known GBM target and GMPPB shows preclinical relevance.
+
+[0025] [METHODS] SCFD1 emerges as a novel therapeutic candidate for GBM. All these findings offer a foundation for the development of targeted therapeutic strategies.
+
+[0026] [METHODS] Human brain transcriptome reference for TWAS
+
+[0027] [METHODS] The reference human brain transcriptome used in the TWAS was sourced from the dorsolateral prefrontal cortex (dPFC) of 452 European individuals recruited by the CommonMind Consortium (CMC) (gusevlab.org/projects/fusion). A total of 5,420 mRNA levels were identified as heritable, and their corresponding mRNA weights are available from public databases.
+
+[0028] [METHODS] Human brain pQTL and eQTL datasets used in the two-sample MR
+
+[0029] [METHODS] The pQTL and eQTL datasets utilized in the two-sample MR were obtained from the ROS/MAP cohort and the PsychENCODE Consortium (1387 participants of European ancestry), respectively. A total of 607 proteins and 10,489 genes were identified as having significant associations with the instrument variables (IVs) at a threshold of P <5E-08.
+
+[0030] [METHODS] PWAS and TWAS
+
+[0031] [METHODS] We utilized FUSION to perform PWAS and TWAS, a robust method that integrates gene expression and protein abundance data with summary statistics from GWAS to identify genes associated with their cis-regulated expression or protein levels and complex traits. The FUSION pipeline was executed using default settings, adhering to the investigator’s guidelines for conducting PWAS and TWAS. FUSION incorporates multiple predictive models (top1, GBLUP, LASSO, Elastic Net, BSLMM) to assess the collective influence of single nucleotide polymorphisms (SNPs) on the weights assigned to gene and protein expression. Additionally, the major histocompatibility complex (MHC) region on chromosome 6 was excluded from the analysis due to its structural complexity. A false discovery rate (FDR) of less than 0.05 was deemed significant.
+
+[0032] [METHODS] Joint and conditional tests
+
+[0033] [METHODS] To determine whether the significant genes within a locus had independent associations or were interconnected, we conducted joint and conditional tests using the post-process module in FUSION. Genes located in regions identified by PWAS or TWAS were grouped into a single locus to assess whether multiple gene-trait relationships within specific risk loci remained independent after accounting for the predicted expression of adjacent genes. Following the tests, genes representing independent associations were designated as jointly significant.
+
+[0034] [METHODS] Mendelian randomization analysis
+
+[0035] [METHODS] MR analysis employs SNPs as instrument variables (IVs) to infer causal relationships between exposure and outcome. Eligible IVs must meet three core assumptions: they are strongly associated with the exposure of interest; they are not related to any confounders; and they influence the outcome only through the exposure, not via any alternative pathways. SNPs significantly associated with the exposure (P < 5e-08) were included as IVs. The variants were then subjected to LD clumping, with an r2 threshold of <0.001 within a 10 megabase (Mb) distance. We also calculated the F-statistic for each SNP to assess instrument strength. SNPs with F-statistics greater than 10 were considered sufficiently strong for MR analysis, while those with F-statistics below this threshold were excluded. Subsequently, the exposure (pQTL and eQTL data) and outcome (GBM GWAS data) were harmonized based on the same effect alleles. MR effects were estimated using the Wald ratio when only one independent IV was available and the inverse variance weighted (IVW) method when two or more IVs were present. For analyses involving three or more IVs, sensitivity analyses were conducted using MR-Egger, weighted mode, weighted median mode, and simple mode. Additionally, post-MR analyses included the MR-Egger intercept test for horizontal pleiotropy, Cochran’s Q test for heterogeneity, and the MR-PRESSO test for outliers. A P value of <0.05 was considered suggestively significant, while an FDR of <0.05 indicated a significant causal relationship. To rule out the possibility of reverse causation distorting the results, the Steiger filtering method was employed. A P value of <0.05 indicated that the effect direction was from the exposure to the outcome.
+
+[0036] [METHODS] Bayesian colocalization analysis
+
+[0037] [METHODS] Bayesian colocalization analysis was conducted to evaluate whether the genetic associations between predicted protein abundance and GBM risk were consistent with a shared causal variant. The analysis was performed using the COLOC R package under default parameters, testing posterior probabilities for five hypotheses: H0 (no association with either trait), H1 (association with predicted protein, not disease), H2 (association with disease, not protein), H3 (association with both traits via distinct variants), and H4 (association with both traits via a shared variant). A PPH4 ≥0.8 was considered evidence of colocalization.
+
+[0038] [METHODS] Statistical analysis summary
+
+[0039] [METHODS] PWAS, TWAS and joint and conditional tests were performed with Fusion software (http://gusevlab.org/projects/fusion). MR analysis, Steiger filtering analysis, and Bayesian co-localization analysis were performed using R software (https://www.r-project.org/). Specifically, the TwoSampleMR package (version 0.5.6) was utilized for MR and Steiger filtering analyses, while the COLOC package (version 5.1.0) was employed for Bayesian co-localization analysis. We calculated FDR-adjusted P values using the Benjamini–Hochberg (BH) procedure.
+
+[0040] [RESULTS] Results
+
+[0041] [RESULTS] PWAS and TWAS for GBM
+
+[0042] [FIG] Manhattan plots depicting the results of the discovery PWAS (A), confirmatory PWAS (B), and TWAS (C) for GBM. Abbreviation: PWAS, proteome-wide association study; TWAS, transcriptome-wide association study; GBM, glioblastoma.
+
+[0043] [TABLE] The main results of the current study include PWAS, TWAS, and colocalization analyses
+
+[0044] [TABLE] Gene symbol Full gene name Chr Discovery PWAS Joint/conditional tests Confirmatory PWAS Confirmatory TWAS Bayesian colocalization PPH4 PWAS.Z PWAS.p PWAS.FDR PWAS.Z PWAS.p PWAS.FDR TWAS.Z TWAS.p TWAS.FDR LIME1 Lck Interacting Transmembrane Adaptor 1 20 6.892 5.49E-12 9.41E-09 Ture 13.198 9.01E-40 1.00E-36 12.164 4.83E-34 1.27E-30 0.033 EGFR Epidermal Growth Factor Receptor 7 −6.414 1.42E-10 1.22E-07 Ture - - - −8.333 7.90E-17 6.95E-14 0.818 RHBDF1 Rhomboid 5 Homolog 1 16 4.765 1.89E-06 0.001 Ture - - - - - - 0.889 SCFD1 Sec1 Family Domain Containing 1 14 −4.018 5.87E-05 0.019 Ture - - - −3.963 7.40E-05 0.021 0.926 FAIM Fas Apoptotic Inhibitory Molecule 3 4.004 6.24E-05 0.019 Ture - - - 3.787 1.53E-04 0.035 0.641 KDELC2 KDEL (Lys-Asp-Glu-Leu) containing 2 11 −3.983 6.79E-05 0.019 Ture - - - −0.772 0.440 0.929 0.008 GPX1 Glutathione Peroxidase 1 3 3.770 1.63E-04 0.035 Ture - - - 4.052 5.08E-05 0.017 0.468 GMPPB GDP-Mannose Pyrophosphorylase B 3 3.769 1.64E-04 0.035 Ture 3.922 8.78E-05 0.033 4.177 2.95E-05 0.011 0.919
+
+[0045] [TABLE] “–” indicates not profiled.
+
+[0046] [TABLE] Abbreviation: PWAS, proteome-wide association study; TWAS, transcriptome-wide association study; Chr, chromosome; FDR, false discovery rate; PPH4, posterior probability for hypothesis 4.
+
+[0047] [RESULTS] The primary discovery PWAS for GBM identified eight genes (LIME1, EGFR, RHBDF1, SCFD1, FAIM, KDELC2, GPX1, and GMPPB) whose cis-regulated brain protein levels were associated with GBM, with an FDR <0.05 (Table 1, Fig. 2, Supplementary Digital Content Table 1, available at: http://links.lww.com/JS9/E655). All eight genes passed the joint and conditional tests, indicating that variations in the expression of these proteins primarily accounted for the gene-trait correlations within their respective loci (Table 1).
+
+[0048] [RESULTS] In the confirmatory PWAS for GBM, two genes (LIME1 and GMPPB) were successfully replicated, GPX1 did not replicate, while EGFR, RHBDF1, SCFD1, and FAIM were not profiled (Table 1, Fig. 2B, Supplementary Digital Content Table 2, available at: http://links.lww.com/JS9/E656). To further assess the association of the eight genes with GBM, a confirmatory TWAS was conducted. Six of the initial eight genes (LIME1, EGFR, SCFD1, FAIM, GPX1, and GMPPB) were replicated in the confirmatory TWAS. The other two genes, RHBDF1 and KDELC2, were treated differently: RHBDF1 was not profiled, and KDELC2 was profiled but did not show significant cis-heritability (Table 1, Fig. 2C, Supplementary Digital Content Table 3, available at: http://links.lww.com/JS9/E657).
+
+[0049] [RESULTS] Mendelian randomization analysis
+
+[0050] [TABLE] Protein-level and transcriptional-level MR were performed using QTL data and summary-level GWAS data for GBM
+
+[0051] [TABLE] Gene symbol Chr Protein-level MR Transcriptional-level MR Method nSNP OR (95%CI) FDR Steiger filtering Method nSNP OR (95%CI) FDR Steiger filtering LIME1 20 - - - - - - - - EGFR 7 - - - - - Wald ratio 1 0.671 (0.627–0.717) 7.23E-30 7.44E-37 RHBDF1 16 - - - - - - - - SCFD1 14 Wald ratio 1 0.224 (0.108–0.465) 4.70E-04 4.87E-31 Wald ratio 1 0.781 (0.698–0.874) 3.74E-04 4.43E-47 FAIM 3 - - - - - Wald ratio 1 1.122 (1.058–1.190) 2.59E-03 1.61E-74 KDELC2 11 - - - - - Wald ratio 1 0.968 (0.902–1.037) 1.00E+00 1.45E-57 GPX1 3 Wald ratio 1 1.967 (1.333–2.904) 0.004 8.16E-44 Wald ratio 1 1.089 (1.008–1.175) 6.23E-01 5.08E-57 GMPPB 3 Wald ratio 1 3.155 (1.777–5.604) 6.14E-04 3.36E-19 Wald ratio 1 1.334 (1.168–1.523) 4.95E-04 3.60E-13
+
+[0052] [TABLE] “–” indicates either not profiled or no sufficient SNPs for MR analysis.
+
+[0053] [TABLE] Abbreviation: MR, Mendelian randomization; SNP, single nucleotide polymorphism; OR, odds ratio; CI, confidence interval; FDR, false discovery rate.
+
+[0054] [RESULTS] To confirm the causal relationship between the eight candidate brain proteins and GBM, we first conducted protein-level MR analysis. SCFD1, GPX1, and GMPPB were identified as having putative causal relationships with GBM, whereas the remaining five genes lacked sufficient SNP coverage or were not available in the relevant QTL datasets (Table2). Specifically, higher levels of SCFD1 were associated with a significantly decreased risk of GBM (OR 0.224, 95% CI 0.108–0.465, FDR 4.70E-04), while increased abundances of GPX1 (OR 1.967, 95% CI 1.333–2.904, FDR 0.004) and GMPPB (OR 3.155, 95% CI 1.777–5.604, FDR 6.14E-04) were linked to a higher risk of GBM. Steiger filtering analyses supported the causal direction from protein levels to GBM (Table 2).
+
+[0055] [RESULTS] To verify whether this causal relationship was replicated at the transcriptional level, we performed MR analysis using eQTL data and GBM GWAS results. At the transcriptional level, four genes were found to have significant causal associations with GBM: EGFR (OR = 0.671, 95% CI: 0.627–0.717, FDR = 7.23E-30), SCFD1 (OR = 0.781, 95% CI: 0.698–0.874, FDR = 3.74E-04), FAIM (OR = 1.122, 95% CI: 1.058–1.190, FDR = 2.59E-03), and GMPPB (OR = 1.334, 95% CI: 1.168–1.523, FDR = 4.95E-04). In contrast, KDELC2 (OR = 0.968, 95% CI: 0.902–1.037, FDR = 1.000) and GPX1 (OR = 1.089, 95% CI: 1.008–1.175, FDR = 0.623) did not show statistically significant associations (Table 2). Similarly, the MR analysis conducted between eQTL and GWAS data all passed the Steiger filtering tests.
+
+[0056] [RESULTS] Bayesian colocalization analysis
+
+[0057] [RESULTS] To assess whether the associations between genetically predicted protein levels and GBM for the eight genes identified in the discovery PWAS were driven by a shared causal variant, Bayesian colocalization analysis was performed. Using a threshold of PPH4 ≥0.8, colocalization was observed for four genes: EGFR, RHBDF1, SCFD1, and GMPPB (Table 1, Supplementary Digital Content Table 1, available at: http://links.lww.com/MS9/A877).
+
+[0058] [RESULTS] Level of evidence for the potential GBM therapeutic targets
+
+[0059] [TABLE] Confidence level assignment for candidate targets
+
+[0060] [TABLE] Gene Discovery PWAS Confirmatory PWAS Confirmatory TWAS Protein-level MR Transcriptional-level MR Colocalization Confidence level LIME1 Causal Replicated Replicated - - No Moderate EGFR Causal - Replicated - Causal Yes High RHBDF1 Causal - - - - Yes Moderate SCFD1 Causal - Replicated Causal Causal Yes High FAIM Causal - Replicated - Causal No Moderate KDELC2 Causal - Not replicated - Non-causal No Low GPX1 Causal Not replicated Replicated Causal Non-causal No Moderate GMPPB Causal Replicated Replicated Causal Causal Yes High
+
+[0061] [TABLE] “–” indicates either not profiled or no sufficient SNPs for MR analysis.
+
+[0062] [TABLE] Abbreviation: PWAS, proteome-wide association study; TWAS, transcriptome-wide association study; MR, Mendelian randomization.
+
+[0063] [RESULTS] We assigned confidence levels to the eight potential causal genes identified in the discovery PWAS, based on evidence from replication in the confirmatory PWAS and TWAS, MR analysis, and colocalization assessment (Table 3). Considering the combined evidence, three genes (EGFR, SCFD1, and GMPPB) were assigned high confidence, as they demonstrated consistent replication in either the confirmatory PWAS or TWAS, exhibited causal relationships with GBM at either protein or transcriptional levels, and showed robust colocalization. Four genes (LIME1, RHBDF1, FAIM, and GPX1) were assigned moderate confidence due primarily to limited evidence of causal associations in MR analyses or relatively weak colocalization support (low PPH4 values). KDELC2 was assigned low confidence, given its lack of replication in confirmatory PWAS or TWAS, and absence of significant findings in MR or colocalization analyses. Overall, among the eight candidate causal genes, we identified three with high-confidence associations.
+
+[0064] [DISCUSS] Discussion
+
+[0065] [DISCUSS] In this study, we aimed to identify brain proteins associated with GBM in order to discover new potential treatment targets. To accomplish this, we integrated reference human brain proteomes and transcriptomes with the largest GBM GWAS results, followed by MR and Bayesian co-localization analyses, utilizing both discovery and confirmatory study designs. In discovery PWAS, we identified 8 potential causal genes associated with GBM risk through their cis-regulated brain proteins. Among the eight genes, two were replicated in the confirmatory PWAS, one did not replicate, and five were not profiled in the confirmatory brain proteome. Consequently, an additional layer of validation based on TWAS was performed, revealing that 6/8 genes had cis-regulated brain mRNA levels associated with GBM. MR analyses at both the protein and transcriptional levels, along with Bayesian co-localization, further supported the causal associations between candidate genes and GBM risk. Based on a comprehensive evaluation, three genes – EGFR, SCFD1, and GMPPB – were assigned high confidence as potential therapeutic targets.
+
+[0066] [DISCUSS] Among the high-confidence genes, GMPPB and EGFR have been previously investigated in the context of GBM. In contrast, SCFD1 has not been investigated in the context of GBM or other types of gliomas. GMPPB, or guanosine diphosphate mannose pyrophosphorylase B, catalyzes the synthesis of guanosine diphosphate mannose, a crucial precursor for the glycosylation of lipids and proteins. GMPPB has primarily been studied in congenital myasthenic syndromes, a heterogeneous group of rare inherited neuromuscular junction disorders resulting from defects in proteins that are crucial for neuromuscular transmission. Recent studies have also established an association between GMPPB and various mental disorders, including depression, suicide attempts, and attention deficit hyperactivity disorder. To date, only one study has focused on the relationship between GMPPB and glioblastoma (GBM). Huang et al demonstrated that silencing GMPPB inhibits the proliferation, migration, and invasion of GBM cells both in vitro and in vivo, while overexpression of GMPPB produces the opposite effects. Furthermore, they indicated that GMPPB influences GBM through the Hippo/MMP3 pathways. The results were partly consistent with the current study, as we found that increased abundances of GMPPB were associated with a higher risk of GBM at both the protein level (OR 3.155, 95% CI 1.777–5.604) and the transcriptional level (OR 1.334, 95% CI 1.168–1.523). In addition, GMPPB has been identified as a prognostic marker in ovarian cancers.
+
+[0067] [DISCUSS] EGFR, also known as HER1 or ERBB1, is a transmembrane receptor tyrosine kinase belonging to the ERBB family. EGFR amplification and/or mutation is observed in approximately 57% of primary GBM and serves as both a diagnostic biomarker and a therapeutic target. Among EGFR alterations, the EGFRvIII mutant – characterized by an in-frame deletion of exons 2–7 – is the most frequent and is believed to emerge after amplification of wild-type EGFR, representing a late event in tumor evolution. Current therapeutic strategies targeting EGFR and EGFRvIII include, but are not limited to: tyrosine kinase inhibitors such as dacomitinib and rociletinib; monoclonal antibodies like nimotuzumab and mAb806; peptide vaccines such as rindopepimut; chimeric antigen receptor T (CAR-T) cells targeting EGFRvIII (currently in clinical trials); and RNA-based approaches, including antisense oligonucleotides, RNA interference, ribozymes, and miRNA-based adjuvant therapies. However, despite extensive efforts, EGFR/EGFRvIII-targeted therapies have not demonstrated consistent clinical benefit. Therapeutic resistance is attributed to factors such as poor blood–brain barrier permeability, intratumoral heterogeneity, activation of compensatory signaling pathways, and the emergence of secondary mutations.
+
+[0068] [DISCUSS] Notably, our study found that genetically predicted higher EGFR expression was associated with a reduced risk of GBM, a finding that may appear counterintuitive given EGFR’s well-established oncogenic role in glioblastoma. This apparent paradox can be explained by distinguishing between baseline physiological expression – as captured by eQTL-based MR – and non-physiological alterations such as gene amplification and activating mutations (e.g., EGFRvIII), which drive constitutive receptor activation and tumorigenesis. Our MR results reflect the effect of inherited variants regulating EGFR expression in normal brain tissue, rather than somatic changes occurring in the tumor microenvironment. Therefore, this inverse association may suggest that endogenous EGFR expression levels are not oncogenic per se, and that the pathogenicity of EGFR in GBM likely depends on its aberrant structural alterations and context-specific overactivation. This mechanistic distinction is critical for interpreting genetically informed associations within cancer research.
+
+[0069] [DISCUSS] SCFD1, or Sec1 Family Domain Containing 1, is located on chromosome 14 and plays a role in anterograde transport from the endoplasmic reticulum to the Golgi apparatus. Previous studies have reported that SCFD1 regulates the process of autophagosome-lysosome fusion. Researchers have also indicated that SCFD1 is a risk gene for amyotrophic lateral sclerosis (ALS). SCFD1 in blood and brain eQTL has shown a prognostic effect on ALS, with increased SCFD1 expression potentially reducing survival in ALS patients. The current study demonstrated that SCFD1 exerts a protective effect on the brain against the risk of GBM at both the protein and transcriptional levels. Given the importance of autophagy and vesicular trafficking in glioma cell survival, metabolism, and immune evasion, dysregulation of SCFD1 could influence GBM progression through multiple mechanisms. For instance, altered SCFD1 function may impair lysosomal degradation of signaling proteins or affect secretion of immunosuppressive factors, ultimately shaping the tumor microenvironment. These potential roles warrant further experimental investigation.
+
+[0070] [DISCUSS] Among the therapeutic targets with low to moderate confidence levels, KDELC2 and GPX1 have been investigated in GBM basic research. KDELC2, a factor associated with Notch signaling, plays a critical role in the maturation of Notch receptors (Notch1–4) and the activation of downstream signaling cascades. Tsai et al demonstrated that KDELC2 overexpression contributes to GBM tumorigenesis and promotes aggressive phenotypes by enhancing Notch signaling pathways. In subsequent studies, KDELC2 was also shown to facilitate glioblastoma angiogenesis by increasing reactive oxygen species (ROS) levels, inducing endoplasmic reticulum (ER) stress, and modulating the tumor microenvironment (TME). Glutathione peroxidase 1 (GPX1), another potential target, has been identified as a key enzyme in the breakdown of hydrogen peroxide under hypoxic tumor conditions in GBM. Evidence suggests that GPX1 may play an important role in GBM progression and could serve as a promising candidate for therapeutic intervention.
+
+[0071] [DISCUSS] Despite the benefits of integrating multi-omics data and various methodologies to gain comprehensive insights into the complex biological systems of GBM in the human brain, the current study has several limitations. First, the brain proteomic and transcriptomic data were derived from the dorsolateral prefrontal cortex region, with a relatively small sample size and a limited number of detectable proteins, which may affect the robustness and generalizability of the findings. Second, GBM exhibits substantial heterogeneity across subtypes and molecular features, such as IDH1-mutant versus IDH1-wildtype tumors. While we consider our multi-omics results to be broadly independent of these markers, stratified analyses would provide stronger validation. Third, as the study population was exclusively of European ancestry, the applicability of the findings to other ethnic groups remains uncertain. Fourth, the study did not include experimental validation using immunohistochemistry or other wet-lab techniques, which limits the biological interpretation of the computational results. Future work will focus on functional validation to substantiate these bioinformatics-driven findings. Fifth, the absence of detailed clinical information such as gender and age prevented us from performing stratified analyses across these key variables, which may have further refined the interpretability and translational value of our findings. Sixth, while the use of DLPFC-derived QTL datasets offers considerable statistical power and is supported by evidence of cross-regional QTL sharing, the reliance on a single brain region may not fully capture the spatially heterogeneous regulatory landscape relevant to GBM pathogenesis. Seventh, the sample size of the proteomic confirmatory cohort was relatively limited, which may reduce the statistical power to validate associations identified in the discovery phase. While this constraint reflects the current scarcity of brain tissues with matched proteomic and genomic data, it nonetheless warrants cautious interpretation of replication results.
+
+[0072] [CONCL] Conclusion
+
+[0073] [CONCL] In conclusion, by integrating brain proteomic and transcriptomic data with the largest available GBM GWAS dataset, we conducted a comprehensive multi-omics analysis – including PWAS, TWAS, pQTL/eQTL-based MR, and colocalization approaches – and identified eight potential therapeutic candidate genes for glioblastoma. Based on the strength of evidence across these analyses, we assigned confidence levels to each candidate. Three genes – EGFR, SCFD1, and GMPPB – were classified as high-confidence therapeutic targets. Among them, EGFR is a well-established target in GBM treatment, with ongoing efforts to develop more effective targeted therapies. GMPPB has been explored in preclinical GBM studies, while SCFD1 has not yet been investigated in the context of GBM. Thus, our study highlights two previously unrecognized high-confidence targets for GBM therapy. Overall, these findings provide new insights into brain-specific molecular mechanisms underlying glioblastoma and lay the groundwork for future research into novel therapeutic strategies.
+
+[0074] [CONCL] Sponsorships or competing interests that may be relevant to content are disclosed at the end of this article.
+
+[0075] [CONCL] Junhong Li, Yunbo Yuan, Yuze He, and Zhihao Wang contributed equally to the work.
+
+[0076] [CONCL] Supplemental Digital Content is available for this article. Direct URL citations are provided in the HTML and PDF versions of this article on the journal’s website, www.lww.com/international-journal-of-surgery.
+
+[0077] [CONCL] Ethical approval
+
+[0078] [CONCL] All data utilized in this study were obtained from publicly available databases; therefore, no additional ethical approval was required.
+
+[0079] [CONCL] Consent
+
+[0080] [CONCL] Our study was performed with the data from publicly available databases. Written informed consent from all participants has been obtained before they participated.
+
+[0081] [ACK_FUND] Sources of funding
+
+[0082] [ACK_FUND] This work was supported by the National Natural Science Foundation of China (Grant Nos. 82272644 to L.Y.H. and 82372836 to Y.W.C.).
+
+[0083] [AUTH_CONT] Author contributions
+
+[0084] [AUTH_CONT] J.L., Y.Y., and Y.H.: methodology, software, formal analysis, resources, visualization, writing – original draft; Z.W. and S.C.: visualization, software, writing – original draft; W.L., H.R., and Y.O.: validation, writing – original draft; Y.Z.: supervision, writing – original draft; W.Y. and Y.L.: conceptualization, supervision, writing – review & editing, funding acquisition.
+
+[0085] [COMP_INT] Conflicts of interest disclosure
+
+[0086] [COMP_INT] The authors declare that there are no conflicts of interest.
+
+[0087] [COMP_INT] Research registration unique identifying number (UIN)
+
+[0088] [COMP_INT] None.
+
+[0089] [COMP_INT] Guarantor
+
+[0090] [COMP_INT] Yanhui Liu.
+
+[0091] [COMP_INT] Provenance and peer review
+
+[0092] [COMP_INT] Not commissioned, externally peer-reviewed.
+
+[0093] [SUPPL] Data availability statement
+
+[0094] [SUPPL] The Brain PWAS and pQTL data can be accessed at https://doi.org/10.7303/syn23627957. The brain transcriptome dataset is available at https://data.broadinstitute.org/alkesgroup/FUSION/WGT/CMC.BRAIN.RNASEQ.tar.bz2. Data on brain eQTL from the PsychENCODE Consortium can be accessed in BESD format at https://cnsgenomics.com/software/smr/#eQTLsummarydata. Summary-level GWAS data for GBM can be obtained from The European Genome-phenome Archive (EGAS00001003372) upon application.
+
+[0095] [REF] References
+
+[0096] [REF] Glioblastoma and other primary brain malignancies in adults: a review
+
+[0097] [REF] Radiotherapy plus concomitant and adjuvant temozolomide for glioblastoma
+
+[0098] [REF] European Association for Neuro-Oncology (EANO) guideline on the diagnosis and treatment of adult astrocytic and oligodendroglial gliomas
+
+[0099] [REF] Glioblastoma and brain connectivity: the need for a paradigm shift
+
+[0100] [REF] Challenges to curing primary brain tumours
+
+[0101] [REF] Glioblastoma therapy: past, present and future
+
+[0102] [REF] Cell type- and brain region-resolved mouse brain proteome
+
+[0103] [REF] Functional proteogenomics reveals biomarkers and therapeutic targets in lymphomas
+
+[0104] [REF] The PsychENCODE project
+
+[0105] [REF] Strengthening the reporting of genetic association studies (STREGA): an extension of the STROBE statement
+
+[0106] [REF] Transparency In The reporting of Artificial INtelligence–the TITAN guideline
+
+[0107] [REF] Genome-wide association study of glioma subtypes identifies specific differences in genetic susceptibility to glioblastoma and non-glioblastoma tumors
+
+[0108] [REF] GCTA: a tool for genome-wide complex trait analysis
+
+[0109] [REF] The Mount Sinai cohort of large-scale genomic, transcriptomic and proteomic data in Alzheimer’s disease
+
+[0110] [REF] Integrating human brain proteomes with genome-wide association data implicates new proteins in Alzheimer’s disease pathogenesis
+
+[0111] [REF] Gene expression elucidates functional impact of polygenic risk for schizophrenia
+
+[0112] [REF] Comprehensive functional genomic resource and integrative model for the human brain
+
+[0113] [REF] Integrative approaches for large-scale transcriptome-wide association studies
+
+[0114] [REF] Two-step epigenetic Mendelian randomization: a strategy for establishing the causal role of epigenetic processes in pathways to disease
+
+[0115] [REF] Power and instrument strength requirements for Mendelian randomization studies using multiple genetic variants
+
+[0116] [REF] Avoiding bias from weak instruments in Mendelian randomization studies
+
+[0117] [REF] Mendelian randomization: genetic anchors for causal inference in epidemiological studies
+
+[0118] [REF] Mendel’s laws, Mendelian randomization and causal inference in observational data: substantive and nomenclatural issues
+
+[0119] [REF] Orienting the causal relationship between imprecisely measured traits using GWAS summary data
+
+[0120] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0121] [REF] Dolichol-phosphate mannose synthase: structure, function and regulation
+
+[0122] [REF] Clinical and genetic characterisation of a large Indian congenital myasthenic syndrome cohort
+
+[0123] [REF] Congenital myasthenic syndromes in adults: clinical features, diagnosis and long-term prognosis
+
+[0124] [REF] Identifying novel proteins for suicide attempt by integrating proteomes from brain and blood with genome-wide association data
+
+[0125] [REF] Identifying causal genes for depression via integration of the proteome and transcriptome from brain and blood
+
+[0126] [REF] Mendelian randomization analysis of the brain, cerebrospinal fluid, and plasma proteome identifies potential drug targets for attention deficit hyperactivity disorder
+
+[0127] [REF] Silencing GMPPB inhibits the proliferation and invasion of GBM via Hippo/MMP3 pathways
+
+[0128] [REF] Nine glycolysis-related gene signature predicting the survival of patients with endometrial adenocarcinoma
+
+[0129] [REF] Comprehensive analysis for the immune related biomarkers of platinum-based chemotherapy in ovarian cancer
+
+[0130] [REF] ERBB receptors: from oncogene discovery to basic science to mechanism-based cancer therapeutics
+
+[0131] [REF] Heterogeneity of epidermal growth factor receptor signalling networks in glioblastoma
+
+[0132] [REF] EGFRvIII mutations can emerge as late and heterogenous events in glioblastoma development and promote angiogenesis through src activation
+
+[0133] [REF] Epidermal growth factor receptor and EGFRvIII in glioblastoma: signaling pathways and targeted therapies
+
+[0134] [REF] Identification and structure of four yeast genes (SLY) that are able to suppress the functional loss of YPT1, a member of the RAS superfamily
+
+[0135] [REF] mTOR-mediated phosphorylation of VAMP8 and SCFD1 regulates autophagosome maturation
+
+[0136] [REF] Acetylation of SCFD1 regulates SNARE complex formation and autophagosome-lysosome fusion
+
+[0137] [REF] Identifying novel genes for amyotrophic lateral sclerosis by integrating human brain proteomes with genome-wide association data
+
+[0138] [REF] Genetic analysis of amyotrophic lateral sclerosis identifies contributing pathways and cell types
+
+[0139] [REF] Genome-wide association analyses identify new risk variants and the genetic architecture of amyotrophic lateral sclerosis
+
+[0140] [REF] SCFD1 expression quantitative trait loci in amyotrophic lateral sclerosis are differentially expressed
+
+[0141] [REF] Cancer cell autophagy, reprogrammed macrophages, and remodeled vasculature in glioblastoma triggers tumor immunity
+
+[0142] [REF] SDC1-dependent TGM2 determines radiosensitivity in glioblastoma by coordinating EPG5-mediated fusion of autophagosomes with lysosomes
+
+[0143] [REF] Molecular mechanisms of KDELC2 on glioblastoma tumorigenesis and temozolomide resistance
+
+[0144] [REF] KDELC2 upregulates glioblastoma angiogenesis via reactive oxygen species activation and tumor-associated macrophage proliferation
+
+[0145] [REF] Glutathione peroxidase 1 activity dictates the sensitivity of glioblastoma cells to oxidative stress
+
+[0146] [REF] Cellular and exosomal GPx1 are essential for controlling hydrogen peroxide balance and alleviating oxidative stress in hypoxic glioblastoma

@@ -983,6 +983,22 @@ enzymes MR cannot instrument sit at least as high on the axis as the one it can.
 The gene the framework named is a genuine member of this programme and is not its
 leading member.
 
+**Both results repeat in a second dataset** (Supplementary S32, pre-registered
+with its criterion before the run). GSE166188 is DOGMA-seq rather than 10x
+multiome, from a different study, and CD4 is assigned there by surface antibody
+rather than by transcript — which matters because calling lineage from
+transcripts is precisely what finding ⑦ shows to be unreliable. Rebuilding the
+axis in its two stimulated arms with the same TPI1-free construction places
+**TPI1 at rank 18 of 8,224 and 28 of 7,165, the top 0.22% and 0.39%**, against
+0.25% in discovery, with glycolysis enriched 27.4- and 23.9-fold. The unfavourable
+part repeats too, and more sharply: **PGAM1 ranks 3rd in both arms**, again above
+TPI1.
+
+⚠ The two arms are two lysis buffers applied to the same material — technical
+replicates, not two donors. This replicates across study, platform and lineage
+calling, **not across donors**, and cross-donor replication of this state remains
+untested.
+
 At the chromatin level the axis shares 42% of its variance with activation
 (r = 0.647), so the programme is **partially, not fully, distinct** from
 activation and we describe it that way. Restricting to activation-invariant peaks
@@ -2440,6 +2456,7 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, the PRISMA-style flow from 469 screened records, and the **validation of the automated coder against manual adjudication of a fixed-seed random 30% subsample** — per-paper codes, the passages each was judged on, measured precision and recall, and the precision-corrected field-level estimates that supersede both the generous and the strict counts | `SUPP_literature_audit.md`; `91a`–`91e`, `104a`–`104c` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S32 | **Pre-registration document** (axis replication in a second dataset), registered before the run, including what the design does not provide — the two arms are lysis-buffer technical replicates, so replication is across study, platform and lineage calling and not across donors — and two data-reading bugs its interpretation table caught before any rank was produced, one of which also affects an earlier script whose outputs are empty and cited nowhere | `PREREG_axis_replication.md`; `107a` |
 | S31 | **Leave-one-out reconstruction of the metabolic axis**: the axis rebuilt with the nominated gene removed from both the defining score and the enrichment family, its rank on the resulting axis as a held-out test, and the ranks of the glycolytic enzymes that carry no instrument | `106a`–`106c` |
 | S30 | **Pre-registration document** (density-matched permutation), registered before the test was run, with both failure modes fixed in advance — under-matching leaves the artefact, over-matching removes signal that gene-dense regions genuinely carry — and the result: the enrichment survives density matching at 3.44-fold (P = 0.041) with the attenuation from 4.09-fold reported as part of the finding | `PREREG_density_matched.md`; `103a` |
 | S29 | **Pre-registration document** (HCC known-locus de-circularisation), with the per-variant GWAS Catalog provenance of all ten outcome-sourced loci, the three references scored, and two items its section 0.3 fixed in advance: that the test could not have changed the result because the circular loci lie far from any significant one, and that over-correction raises the enrichment and must not be cited as a stricter standard | `PREREG_hcc_decircularisation.md`; `102a` |

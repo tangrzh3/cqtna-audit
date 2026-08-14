@@ -347,7 +347,8 @@ The worked example is best read as a ladder rather than a verdict: as a causal
 target for melanoma, not supported; as a dynamic *genetic* effect, not supported;
 as dynamic *expression*, supported; as a member of a definable CD4⁺ metabolic
 state, supported — it ranks 19th of 7,653 genes on an axis rebuilt without it,
-where the enzymes MR cannot instrument rank higher still; as a predictor of
+18th and 28th in a second dataset with protein-based lineage calling, and in
+every one the enzymes MR cannot instrument rank higher still; as a predictor of
 checkpoint-blockade response, unstable.
 Stated flatly, TPI1 is a nominal, prior-sensitive candidate selected by a
 multi-layer conjunction: MR P = 1.4×10⁻³
@@ -386,7 +387,7 @@ Colocalisation versus SMR/HEIDI · Fig. 4 Power and list stability by locus clas
 Fig. 5 Instrument availability across the pathway · Fig. 6 Compartment
 attribution · Fig. 7 Patients across three cohorts.
 
-Methods, References, and Supplementary Information (including the ten
+Methods, References, and Supplementary Information (including the eleven
 pre-registration documents, the multiple-testing unit and effect-size sensitivity
 analyses, the complete record of target-substantiation attempts, and the
 literature audit) accompany this manuscript separately.

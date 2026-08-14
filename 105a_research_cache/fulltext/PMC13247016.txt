@@ -1,0 +1,285 @@
+[0001] [TITLE] Mapping the Neurovascular Unit Genetic Architecture of Early-Onset Ischemic Stroke: A Single-Cell Causal Framework for Target Discovery and Therapeutic Translation
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] The global incidence of early-onset ischemic stroke (EOS) is rising, with younger patients showing marked heterogeneity and lacking traditional risk factors, underscoring the role of undiscovered genetic determinants. The neurovascular unit (NVU) is central to cerebral homeostasis, yet whether its functional alterations contribute to ischemic stroke susceptibility remains unclear. Defining the NVU’s genetic architecture is therefore crucial for elucidating pathogenic mechanisms and advancing therapeutic discovery.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We integrated single-nucleus RNA-seq–based expression quantitative trait loci (eQTL) from healthy brain tissue with GWAS from the EOS Consortium. Mendelian randomization (MR), Bayesian colocalization, and Steiger filtering were applied to infer causal effects of NVU cell-type–specific gene expression on EOS. Cross-ancestry validation and PheWAS were conducted to assess robustness and pleiotropy. For translational insights, in silico drug screening, drug–disease MR, and molecular simulations were performed.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] MR analysis identified two NVU-resident genes—CYP4V2 in excitatory neurons and ANXA11 in astrocytes—as significantly associated with EOS. Both showed strong colocalization and consistent directionality, with cross-ancestry validation prioritizing CYP4V2 as a robust candidate. PheWAS revealed no major pleiotropic effects. Evidence from CYP4V2 knockout mice revealed neurological and metabolic abnormalities, supporting its biological relevance to ischemic stroke susceptibility. Combined drug screening, genetic evidence, and molecular stability analyses prioritized methotrexate as the most promising candidate.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] This study maps the genetic architecture of NVU cells and highlights their role in EOS susceptibility. We identified CYP4V2 as a causal gene and a pharmacologically tractable target. These findings provide a translational framework linking NVU dysfunction to ischemic stroke risk and inform future precision medicine strategies.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1007/s10571-026-01722-w.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Stroke is the second leading cause of death worldwide, with a substantial burden of long-term disability. Over the past two decades, the global incidence and prevalence of stroke have risen by 70% and 85%, respectively, accompanied by a 43% increase in stroke-related deaths and a 32% rise in disability (Feigin et al.). While most strokes occur in individuals over 50, approximately 10% affect younger adults aged 18–50 (Putaala et al.). Notably, although the incidence of ischemic stroke has declined among older adults in high-income countries since 2000, it has been steadily increasing in younger and middle-aged populations (< 55 years) worldwide, with stroke-related mortality in this age group projected to increase by 50% by 2050 (Cheng et al.; Scott et al.).
+
+[0014] [INTRO] Early-onset ischemic stroke (EOS) is shaped by both environmental and genetic factors; however, ischemic stroke in young adults is more heterogeneous than in older adults because of the presence of multiple underlying risk factors and etiologies, highlighting the potential role of previously unrecognized genetic mechanisms (Group; Park et al.). These mechanisms are likely to operate within the brain’s cellular microenvironment (Li et al.). The neurovascular unit (NVU)—comprising neurons, glia, endothelial cells, and pericytes—has emerged as a central regulator of cerebral homeostasis and a potential determinant of ischemic stroke susceptibility (Schaeffer and Iadecola). Although NVU dysfunction is well established in the context of post-stroke injury, its role in disease pathogenesis remains underexplored (Santisteban and Iadecola). Elucidating the genetic regulatory mechanisms of specific NVU-resident cell types is therefore critical for uncovering the molecular drivers of EOS and identifying novel therapeutic targets.
+
+[0015] [INTRO] Recent genome-wide association studies (GWAS) have identified numerous genetic loci associated with EOS, many of which differ from those linked to late-onset stroke (Jaworek et al.). However, most of these loci are located in noncoding regions, limiting their interpretability in functional terms. Expression quantitative trait loci (eQTL) mapping offers a powerful approach to bridge this gap by linking genetic variation to gene expression levels, thereby providing mechanistic insights into disease susceptibility (Gibson et al.).
+
+[0016] [INTRO] Given the cellular heterogeneity of brain tissue and the complex gene regulatory networks across NVU cell types, tissue- and cell-type-specific analyses are critical (Zhang et al.). To capture both global and context-specific genetic effects, we integrated eQTL data from single-nucleus RNA sequencing (snRNA-seq) from discrete brain cell populations. Advances in snRNA-seq have enabled identification of cell-type-specific eQTLs, offering unprecedented resolution to study gene regulation in distinct neural and vascular cell types. This strategy allows us to detect both broadly acting genes and those with effects limited to specific cellular environments—effects that may be masked in bulk-tissue analyses. Such precision is particularly important in EOS, where different brain cell types may uniquely contribute to disease pathophysiology (Bormann et al.).
+
+[0017] [INTRO] Nevertheless, associations observed in GWAS and eQTL studies are fundamentally correlative and susceptible to confounding or reverse causation. For example, environmental exposures may influence both gene expression and ischemic stroke risk, or disease pathology itself may alter gene expression levels. Mendelian randomization (MR), a statistical approach that leverages genetic variants as instrumental variables, offers a robust framework to infer causality by minimizing these biases. MR has proven effective in prioritizing putative risk genes across complex diseases (Sanderson et al.). In this study, we aimed to elucidate the causal role of gene expression in EOS by integrating cell-type-specific eQTL data and MR analysis within the neurovascular unit of the brain. Our goal was to identify molecular drivers of EOS, uncover potential therapeutic targets, and explore opportunities for drug repurposing.
+
+[0018] [METHODS] Methods
+
+[0019] [METHODS] Study Design and Ethics
+
+[0020] [METHODS] This study followed the STROBE-MR (Strengthening the Reporting of Observational Studies in Epidemiology Using Mendelian Randomization) guidelines to ensure methodological rigor and transparent reporting (Skrivankova et al.; Kadam and Bhalerao). MR analysis is based on three core assumptions: (1) the genetic instrument is strongly associated with the exposure; (2) it is independent of confounders; and (3) it influences the outcome only through the exposure pathway. All analyses were conducted using publicly available GWAS summary statistics, without access to individual-level data; therefore, no additional ethical approval was required. Informed consent was obtained in the original GWAS studies and approved by their respective institutional review boards. The analytical workflow is illustrated in Fig. 1.
+
+[0021] [FIG] Analytical workflow of the study
+
+[0022] [METHODS] Exposure Definition and Instrument Selection
+
+[0023] [METHODS] We derived genetic instruments from cis-expression quantitative trait loci (cis-eQTLs) identified in a single-cell eQTL dataset comprising 183 neuropathologically normal individuals. Instrument selection followed a multistep protocol (Haglund et al.). First, conditionally independent cis-eQTLs surpassing the genome-wide significance threshold (P < 5 × 10⁻⁸) were retained. Second, linkage disequilibrium pruning was performed using the 1000 Genomes European reference panel (r² < 0.001, 10 Mb window). Third, exposure and outcome datasets were harmonized, excluding ambiguous or strand-incompatible SNPs. Palindromic SNPs were retained only when allele frequencies permitted unambiguous alignment. Finally, SNPs with an F-statistic < 10 were removed to avoid weak instrument bias. (Hong et al.)After screening, 1,746 SNPs across 1,745 cell-type-specific Genes were retained for MR analysis. (Table S1)
+
+[0024] [METHODS] GWAS Data Sources
+
+[0025] [METHODS] Ischemic Stroke cases and controls were obtained from the Early-Onset Ischemic Stroke Consortium (EOSC) (Jaworek et al.). All cases underwent neuroimaging to confirm ischemic stroke and enable subtype classification. Most studies excluded patients with known monogenic or non-genetic causes. Ischemic stroke subtypes were classified primarily according to TOAST (Trial of Org 10172 in Acute Ischemic Stroke Treatment) criteria. EOS was defined as ischemic stroke occurring between ages 18 and 59. The EOSC European-ancestry cohort included 11,114 EOS cases and 435,540 controls. Subtypes included large artery atherosclerosis (LAA), small artery occlusion (SAO), cardioembolic stroke (CE), undetermined stroke, and other determined causes. For validation, we used the EOSC cross-ancestry cohort comprising 16,730 cases and 599,237 controls. The cross-ancestry dataset encompasses populations of European, African, Hispanic, East Asian (Japanese), and South Asian descent. The available aggregated demographic characteristics and stroke subtype distributions of the EOSC cohort are summarized in Supplementary Table S2. Due to the inherent nature of summary-level GWAS meta-analyses, detailed individual-level clinical information, such as specific laboratory data and cardiovascular risk factors, was not available.
+
+[0026] [METHODS] Single-Cell Nuclei eQTL–Based Mendelian Randomization
+
+[0027] [METHODS] Two-sample MR was conducted using the TwoSampleMR R package to estimate causal effects of NVU cell-type-specific gene expression on EOS risk. For genes with a single SNP instrument, causal effects were estimated using the Wald ratio. For genes with multiple instruments, inverse variance weighting (IVW) was applied (Wang et al.). Bonferroni correction within each cell type was performed to account for multiple testing (Ye et al.).
+
+[0028] [METHODS] Colocalization Analysis
+
+[0029] [METHODS] To assess whether the same variants influenced both gene expression and ischemic stroke risk, we applied Bayesian colocalization analysis (coloc R package). Posterior probabilities were estimated for five hypotheses, focusing on PP.H4 (shared causal variants). PP.H4 > 80% was considered strong evidence of colocalization, and > 50% was considered moderate evidence (Ying et al.). Only eGenes with PP.H4 > 80% were prioritized for interpretation and drug target evaluation.
+
+[0030] [METHODS] Directionality Testing
+
+[0031] [METHODS] Steiger filtering was applied to ensure correct directionality of MR associations by excluding SNPs that explained greater variance in the outcome than in the exposure (Hemani et al.).
+
+[0032] [METHODS] PheWAS Analysis
+
+[0033] [METHODS] To evaluate pleiotropy and off-target risks of prioritized eGenes, we performed phenome-wide association studies (PheWAS) (Bastarache et al.) using the AstraZeneca PheWAS portal(https://azphewas.com/). This resource includes associations for 13,000 binary and 5,000 continuous traits from 500,000 UK Biobank participants. Significant associations were defined as P < 1 × 10⁻⁶.
+
+[0034] [METHODS] Brain Regional Expression of Candidate Targets
+
+[0035] [METHODS] The expression of the prioritized candidate gene expression across brain regions was evaluated using the Human Protein Atlas (https://www.proteinatlas.org) to explore potential mechanisms underlying its role in stroke (Uhlén et al.).
+
+[0036] [METHODS] Mouse Model Phenotype Query
+
+[0037] [METHODS] To evaluate the functional relevance of prioritized candidate genes in ischemic stroke pathology, we interrogated the Mouse Genome Informatics (MGI) database (Baldarelli et al.) (http://www.informatics.jax.org/) for knockout models displaying IS-related phenotypes. The MGI resource applies standardized nomenclature and controlled vocabularies, including the Mammalian Phenotype Ontology, Gene Ontology, and Mouse Developmental Anatomy Ontology, to ensure precise annotation (Michel et al.). Phenotypic abnormalities relevant to ischemic stroke are manually curated and systematically catalogued, providing an evidence-based framework to link gene disruption with stroke-related outcomes.
+
+[0038] [METHODS] Candidate Drug Prediction
+
+[0039] [METHODS] Candidate target genes were submitted to the Drug Signature Database (DSigDB, http://dsigdb.tanlab.org/DSigDBv1.0/) via the Enrichr platform to identify potential drug–gene interactions (Yoo et al.). DSigDB contains 22,527 gene sets and 17,389 compounds, enabling systematic drug repositioning analyses.
+
+[0040] [METHODS] Genetic Evidence for Drug Candidates
+
+[0041] [METHODS] To evaluate whether candidate drugs influence EOS risk, we analyzed GWAS datasets for methotrexate (MTX, GCST90042077: 2,422 cases, 453,854 controls) (Jiang et al.) and colchicine (GCST90042151: 224 cases, 456,052 controls)(Jiang et al.). Outcomes were ischemic stroke and subtypes (small vessel GCST90104543, cardioembolic GCST90104541, large artery GCST90104542, overall GCST90104540) (Mishra et al.)from the MEGASTROKE consortium. Restriction to European ancestry minimized population stratification. Genetic instruments were selected as SNPs associated with MTX at genome-wide significance (P < 5 × 10⁻⁸) and with colchicine at a relaxed threshold (P < 5 × 10⁻⁶). LD clumping (r² < 0.001, 10 Mb) was applied to remove redundant and ambiguous variants. Causal inference was performed using five MR methods (IVW, weighted median, MR-Egger, simple mode, weighted mode). Heterogeneity (Cochran’s Q) and pleiotropy (MR-Egger intercept, MR-PRESSO) were assessed, and leave-one-out analyses ensured robustness. This approach provided genetic evidence on whether MTX or colchicine use is causally associated with EOS and its subtypes.
+
+[0042] [METHODS] Molecular Docking
+
+[0043] [METHODS] Molecular docking simulations were conducted to predict binding affinities between the prioritized target protein and candidate compounds. The protein structure was predicted by AlphaFold (Jumper et al.), and ligand structures were retrieved from the ZINC library. Docking simulations employed semi-flexible modeling with standard preprocessing steps (hydrogen addition, charge assignment, solvent removal). Binding interactions were assessed based on electrostatic, hydrophobic, and van der Waals forces.
+
+[0044] [METHODS] Molecular Dynamics Simulations
+
+[0045] [METHODS] Molecular dynamics simulations were performed using the Desmond module (Schrödinger 2019)(Bhachoo and Beuming). The system was solvated using the SPC water model and OPLS2005 force field, neutralized with chloride and sodium ions, and subjected to energy minimization. Nose–Hoover temperature coupling and isotropic pressure scaling were applied (300 K, 1 atm). A 100 ns NPT simulation was run, with trajectories saved at 100 ps intervals.
+
+[0046] [RESULTS] Results
+
+[0047] [RESULTS] Cell-Type-Specific eGene Instrument Selection Within the Neurovascular Unit
+
+[0048] [RESULTS] To ensure the robustness of genetic instruments in the MR analysis, we performed a stringent screening of cis-eQTLs associated with brain cell type–specific gene expression. Initially, 133,492 eGenes were identified across eight brain cell types. To reduce linkage disequilibrium (LD) and retain independent instruments, we applied a clumping threshold of r² < 0.001 (10 Mb window), which yielded 1,746 independent eGenes. This refinement markedly altered the cell-type distribution. Excitatory neurons contributed the largest proportion (n = 626), followed by oligodendrocytes (n = 423), inhibitory neurons (n = 234), oligodendrocyte progenitor cells (OPCs, n = 129), microglia (n = 185), astrocytes (n = 82), endothelial cells (n = 49), and pericytes (n = 17) (Fig. 2A) (Weissgerber et al.). Gene expression data were derived from 183 neuropathologically normal individuals. Instruments were further categorized by the number of independent SNPs. Most eGenes were represented by a single SNP, ensuring the exclusion of weak instruments, while a smaller subset was supported by multiple independent SNPs, providing stronger causal inference (Fig. 2B).
+
+[0049] [FIG] Cell-type–specific distribution of eGenes used as genetic instruments. A Distribution of 133,492 eGenes across eight neurovascular unit (NVU) cell types before clumping (left) and 1,746 independent eGenes after stringent LD clumping (r² < 0.001, 10 Mb window, F-statistic > 10) (right). Clumping reduced redundancy and revealed altered proportions of eGenes across cell types. B Bar plot showing the number of independent eGenes per cell type after clumping. Excitatory neurons contributed the largest set, followed by oligodendrocytes, inhibitory neurons, astrocytes, oligodendrocyte progenitor cells (OPCs), microglia, endothelial cells, and pericytes
+
+[0050] [RESULTS] MR Analysis Identifies NVU-Derived Causal Genes for EOS
+
+[0051] [RESULTS] To explore the contribution of cell-specific gene expression within the NVU to EOS, we performed MR analysis using 1,745 independent eGenes as exposures. Significant associations were observed between NVU-derived eGenes and EOS, implicating molecular mechanisms of neurovascular dysfunction in ischemic stroke pathogenesis. Notably, one eGene in excitatory neurons—cytochrome P450 family 4 subfamily V member 2 (CYP4V2)—and one in astrocytes—annexin A11 (ANXA11)—showed robust associations with EOS (Supplementary Tables S3–S4). A complementary GWAS analysis indicated that variants near CYP4V2 and ANXA11 did not reach genome-wide significance for EOS, supporting the rationale for using MR to uncover subthreshold causal signals (Supplementary Figure S1). Colocalization analysis further supported their causal roles, with both genes showing strong evidence of shared variants with ischemic stroke (PP.H4 > 0.80; Supplementary Figure S2, Tables S5–S6). A volcano plot summarizes the global distribution of associations across NVU cell types (Fig. 3A–H), while a forest plot highlights the significant effects of CYP4V2 (OR = 0.78, 95% CI = 0.69–0.88, P = 5.15 × 10⁻⁵, FDR = 0.028) and ANXA11 (OR = 0.85, 95% CI = 0.78–0.93, P = 2.2 × 10⁻⁴, FDR = 0.033) (Fig. 3I). Directionality testing using Steiger filtering confirmed that gene expression alterations preceded ischemic stroke risk (Table S7).
+
+[0052] [FIG] Mendelian randomization identifies cell-type–specific causal genes for EOS.(A–H) Volcano plots show associations between neurovascular unit (NVU) cell-type–specific eGenes and EOS across excitatory neurons, oligodendrocytes, inhibitory neurons, astrocytes, oligodendrocyte progenitor cells (OPCs), microglia, endothelial cells, and pericytes. Each point represents an eGene, with blue and red indicating negative and positive associations, respectively. Significant associations were detected for CYP4V2 in excitatory neurons (A) and ANXA11 in astrocytes (D). (I) Forest plots summarize effect estimates for these two genes, both showing strong causal evidence with high posterior probability of colocalization (PP.H4 > 0.80)
+
+[0053] [RESULTS] Further stratified analyses revealed subtype-specific effects. CYP4V2 expression in excitatory neurons was associated with reduced risk of cardioembolic stroke (OR = 0.63, 95% CI = 0.40–0.99, P = 0.044) and undetermined stroke (OR = 0.73, 95% CI = 0.54–0.97, P = 0.033; Figure S3A). Similarly, ANXA11 expression in astrocytes was linked to lower risk of large artery atherosclerosis (OR = 0.68, 95% CI = 0.50–0.94, P = 0.019) and undetermined stroke (OR = 0.77, 95% CI = 0.63–0.94, P = 0.011; Figure S3B).
+
+[0054] [RESULTS] Collectively, these findings identify excitatory neurons and astrocytes within the NVU as critical cellular contexts mediating genetic risk of EOS. Dysregulation of pathways involving CYP4V2 and ANXA11 may contribute to ischemic stroke susceptibility, potentially through impaired vascular–neuronal coupling and inflammatory imbalance.
+
+[0055] [RESULTS] Validation of Candidate NVU Genes in the EOSC Cross-Ancestry Cohort
+
+[0056] [RESULTS] We further validated the associations of the candidate NVU genes in the cross-ancestry cohort of the EOSC consortium. In this dataset, CYP4V2 expression in excitatory neurons remained significantly associated with a lower risk of EOS (OR = 0.81, 95% CI = 0.73–0.90, P = 6.4 × 10⁻⁵), consistent with the discovery findings. By contrast, ANXA11 expression in astrocytes exhibited a protective trend (OR = 0.88, 95% CI = 0.74–1.05) but did not reach statistical significance (P = 0.16) (Fig. 4). These results reinforce the robustness of CYP4V2 across diverse populations, while suggesting that the effect of ANXA11 may be weaker or population-specific.
+
+[0057] [FIG] Cross-ancestry validation of candidate NVU genes in the Early-Onset Stroke Consortium (EOSC) cohort. Forest plots showing replication of Mendelian randomization associations for ANXA11 in astrocytes and CYP4V2 in excitatory neurons. CYP4V2 retained a significant association with EOS across ancestries, confirming its robustness as a candidate causal gene, while ANXA11 showed a consistent but non-significant trend
+
+[0058] [RESULTS] PheWAS Supports the Safety of Candidate NVU Gene as a Therapeutic Target
+
+[0059] [RESULTS] To evaluate potential off-target effects of CYP4V2, we conducted a phenome-wide association study (PheWAS) across a broad spectrum of clinical outcomes. No significant associations with adverse phenotypes were observed at the pre-specified threshold (P < 1 × 10⁻⁶) (Supplementary Figure S4). These findings suggest that drugs targeting CYP4V2 are unlikely to confer major pleiotropic risks, supporting its suitability as a therapeutic candidate for EOS.
+
+[0060] [RESULTS] Tissue-Specific Expression of Candidate NVU Gene in the Human Brain
+
+[0061] [RESULTS] We next assessed the tissue-specific expression of CYP4V2 using the Human Protein Atlas. The gene was detected in multiple brain regions, including the cerebral cortex, thalamus, hypothalamus, cerebellum, hippocampus, spinal cord, and choroid plexus, with the highest expression observed in the choroid plexus (Figure S5). These findings suggest that CYP4V2 may play a broad role in brain metabolism and vascular regulation, supporting its potential as a therapeutic target for EOS across different anatomical regions.
+
+[0062] [RESULTS] Mouse Knockout Models and Functional Relevance of CYP4V2
+
+[0063] [RESULTS] To evaluate the functional significance of CYP4V2 in ischemic stroke pathogenesis, we queried the Mouse Genome Informatics (MGI) database for knockout models. CYP4V2 deletion was associated with broad phenotypic abnormalities spanning the nervous system, cardiovascular system, and metabolic homeostasis, including altered lipid metabolism and neurological dysfunction (Figure S6A). Gene Ontology annotations further highlighted roles in lipid binding, oxidoreductase activity, and immune-related pathways, with subcellular enrichment in the cytosol and endoplasmic reticulum (Figure S6B). These findings converge to suggest that CYP4V2 regulates metabolic and vascular processes central to neurovascular homeostasis, thereby providing experimental support for its involvement in EOS susceptibility.
+
+[0064] [RESULTS] Drug Repurposing Analysis for Candidate NVU Gene
+
+[0065] [RESULTS] To explore the therapeutic potential of CYP4V2, we first performed an in silico drug screen using the DSigDB database. Strikingly, only two clinically approved and widely used agents—methotrexate and colchicine—were identified as candidate CYP4V2 modulators (Table S8). This restricted output highlights a highly specific but pharmacologically tractable space, underscoring the potential for targeted repurposing strategies.
+
+[0066] [RESULTS] Building on this, we applied drug–disease MR analysis to test whether these compounds exert causal effects on stroke. For methotrexate, no associations were observed with overall ischemic stroke (OR = 1.00, 95% CI = 0.95–1.04, P = 0.88), cardioembolic stroke (OR = 1.05, 95% CI = 0.90–1.22, P = 0.51), or small vessel stroke (OR = 1.02, 95% CI = 0.96–1.09, P = 0.26). However, a significant protective effect was detected for large artery atherosclerotic stroke (OR = 0.96, 95% CI = 0.92–0.99, P = 0.028) (Fig. 5). In contrast, colchicine showed no significant associations with ischemic stroke or its subtypes (all P > 0.05) (Fig. 5). These findings provide genetic evidence prioritizing methotrexate as a candidate for repurposing in stroke prevention.
+
+[0067] [FIG] Mendelian randomization analysis of drug exposures and ischemic stroke subtypes. Forest plots showing causal estimates of genetically proxied drug exposures—methotrexate and colchicine—on ischemic stroke and its subtypes. ORs with 95% CIs were derived using the IVW method
+
+[0068] [RESULTS] To further validate target engagement, we conducted molecular docking and molecular dynamics simulations. Both drugs were predicted to interact with CYP4V2, but methotrexate exhibited stronger binding affinity (–6.85 kcal/mol) and stable intermolecular contacts across a 100 ns trajectory (Figure S7A, Figure S8)., while colchicine demonstrated weaker binding and higher conformational variability (Figures S7B).
+
+[0069] [RESULTS] Taken together, these analyses identify only two clinically safe compounds—methotrexate and colchicine—as potential CYP4V2 modulators. Among them, methotrexate emerges as the more promising candidate, supported by both genetic and structural evidence. This integrative approach highlights the translational value of combining eQTL-based MR with molecular simulations to prioritize repurposing candidates for EOS.
+
+[0070] [DISCUSS] Discussion
+
+[0071] [DISCUSS] In this study, we provide genetic evidence that NVU dysfunction contributes to susceptibility to EOS. By integrating single-nucleus eQTLs with Mendelian randomization and colocalization, we identified CYP4V2 expression in excitatory neurons as a robust protective factor, validated across populations. These findings extend prior work on post-stroke NVU injury by demonstrating that neuronal regulation of lipid metabolism and neurovascular signaling may act upstream to shape ischemic stroke risk.
+
+[0072] [DISCUSS] Mechanistically, CYP4V2 appears to exert a protective effect against EOS by regulating lipid metabolism in neurons and supporting neurovascular signaling (Mackay and Halford). As a member of the cytochrome P450 enzyme superfamily (CYP4V subfamily), CYP4V2 is located on chromosome 4q35 and is highly expressed in the central nervous system (Nakano et al.). It catalyzes the ω-hydroxylation of long-chain fatty acids and contributes to the metabolism of polyunsaturated fatty acids—such as docosahexaenoic acid (DHA)—as well as cholesterol and steroid derivatives (Nakano et al.). Dysregulation of genes in this family, particularly through excessive production of 20-hydroxyeicosatetraenoic acid (20-HETE), has been implicated in various vascular pathologies, including coronary heart disease (Huang et al.).
+
+[0073] [DISCUSS] Reduced expression of CYP4V2 in excitatory neurons may impair lipid-dependent signaling pathways essential for maintaining membrane integrity, synaptic activity, and the metabolic foundation for neurovascular coupling (Haast and Kiliaan). Findings from CYP4V2 knockout mouse models support this, showing alterations in lipid processing and neurophysiological function. Such disruption likely impairs the coordinated interaction between neurons and endothelial cells required to match cerebral blood flow with metabolic demand (Andreone et al.; Badaut et al.). Consequently, a primary neuronal defect may initiate a cascade of dysfunction throughout the NVU, sequentially affecting astrocytes, endothelial cells, and pericytes (Segarra et al.). This may result in secondary astrocyte activation, breakdown of the endothelial barrier, and pericyte instability—collectively leading to the loss of NVU homeostasis.
+
+[0074] [DISCUSS] Genetic evidence from human populations further supports the role of CYP4V2 in ischemic stroke. Although this gene has not been extensively studied in ischemic stroke pathogenesis, two genome-wide association studies have identified population-specific variants linked to increased ischemic stroke risk. In a Chinese cohort of 575 ischemic stroke cases and 575 matched controls, the rs1398007 variant was associated with higher stroke susceptibility(Long et al.). Similarly, in a South Asian cohort of young adults with cryptogenic stroke, the rs13146272 variant emerged as a potential risk allele. These findings indicate that regulatory variation in CYP4V2 may influence stroke risk via mechanisms not fully explained by traditional vascular risk profiles (Salomi et al.).
+
+[0075] [DISCUSS] Taken together, our findings support a neuron-initiated model of NVU dysfunction, in which reduced CYP4V2 expression in excitatory neurons disrupts lipid metabolism, impairs neuron–endothelial communication, and triggers intercellular stress propagation throughout the NVU. This shifts the paradigm from a purely vascular-centric model of ischemic stroke initiation to one that recognizes excitatory neurons as upstream regulators of cerebrovascular stability. Preservation of neuronal CYP4V2 function may thus offer a novel therapeutic avenue for maintaining NVU integrity and preventing early-onset ischemic stroke.
+
+[0076] [DISCUSS] To enhance the translational relevance of our findings, we further explored drug repurposing opportunities for targeting CYP4V2, focusing on agents with known safety profiles and established clinical use. By cross-referencing drug–gene interaction databases, our analysis identified several candidate compounds with potential efficacy. Among these, methotrexate—a low-cost, well-tolerated anti-inflammatory drug widely used in autoimmune conditions—emerged as a compelling repurposing candidate(Chan and Cronstein). While observational studies have suggested cardiovascular benefits in patients treated with low-dose methotrexate, randomized evidence remains inconclusive (Reiner et al.). Although a large randomized trial published in The New England Journal of Medicine (2019) (Ridker et al.) found that low-dose methotrexate failed to reduce major cardiovascular events, including stroke, this study was conducted in an older population (mean age 66 years) with advanced atherosclerotic disease. These findings suggest that methotrexate may have limited efficacy in heterogeneous, late-onset cohorts dominated by traditional vascular risk factors. In contrast, our analysis focuses on EOS, a condition that often arises in the absence of conventional risk profiles and may involve distinct molecular drivers such as NVU dysfunction. Integrating genetic evidence with drug-target interaction data, we identified methotrexate as a plausible therapeutic agent in specific EOS subtypes, particularly those involving large artery atherosclerosis. This suggests a context-dependent role for methotrexate, potentially beneficial in younger patients with genetically mediated NVU instability. Overall, these findings illustrate the value of a precision repurposing approach, in which therapies like methotrexate—previously deemed ineffective in unstratified populations—may demonstrate efficacy when applied to genetically defined, mechanistically homogeneous subgroups.
+
+[0077] [DISCUSS] To our knowledge, this is the first study to systematically integrate sn-eQTL data into ischemic stroke research, establishing a novel framework for investigating EOS mechanisms mediated by the NVU. Previous studies have primarily relied on bulk eQTL and pQTL datasets, which average gene expression across heterogeneous cell populations and often obscure cell-type–specific regulatory signals. In contrast, our approach leverages the resolution of single-cell transcriptomics to dissect gene regulation within discrete NVU cell types. For example, Wu et al. (Wu et al.) employed Mendelian randomization and colocalization analysis using bulk brain pQTL data and identified stroke-associated genes such as NBEAL1. While our study did not replicate this finding, we uncovered a distinct set of EOS-associated eGenes using sn-eQTL data, highlighting the capacity of single-cell approaches to detect regulatory signals that may be diluted or masked in bulk-level analyses. These findings underscore the complementary value of both bulk and single-cell strategies in elucidating the genetic architecture of stroke. By combining sn-eQTL mapping with Mendelian randomization and Bayesian colocalization, we developed a powerful framework to identify causal genes implicated in EOS through NVU-mediated mechanisms. This approach enhances biological specificity, improves causal inference, and reduces confounding bias. Moreover, the robustness of our findings was supported by cross-cohort validation in both European-ancestry and multi-ancestry populations. Unlike prior studies that inferred NVU involvement indirectly, our results provide direct evidence linking genetic variants to ischemic stroke susceptibility via cell-type–specific gene expression patterns in NVU-resident cell types. Collectively, our work offers a blueprint for future studies aiming to unravel the cellular regulatory landscape of ischemic stroke using single-cell resolution, paving the way for more precise therapeutic strategies targeting vascular-neuronal interactions.
+
+[0078] [DISCUSS] Despite its strengths, several limitations merit consideration. First, our analysis focused exclusively on cis-eQTLs, limiting our ability to explore trans-acting regulatory effects that may influence distant genomic regions. Second, single-cell transcriptomic data do not fully capture the complexity of gene regulation at the protein level (Reimegård et al.). Post-transcriptional modifications, protein stability, and subcellular localization can significantly influence functional outcomes and are not accounted for in mRNA-based analyses. Third, as our investigation relies on publicly available summary-level GWAS statistics, we lacked access to individual-level clinical information, such as detailed laboratory data and specific cardiovascular risk factors, which prevented us from adjusting for these potential confounders. Thus, further validation through proteomic profiling, functional genomic perturbation (e.g., CRISPR interference), and in vivo modeling will be essential to confirm the mechanistic relevance of the genes identified in this study.
+
+[0079] [CONCL] Conclusion
+
+[0080] [CONCL] This study presents a novel integrative framework that combines single-nucleus eQTL data with Mendelian randomization and colocalization analysis to uncover NVU–mediated genetic mechanisms underlying EOS. Our findings highlight CYP4V2 as a neuron-specific protective gene, with causal links to ischemic stroke risk through regulation of lipid metabolism and neurovascular signaling in excitatory neurons. This supports a neuron-initiated model of NVU dysfunction, shifting the paradigm beyond traditional vascular-centric views of ischemic stroke susceptibility. By incorporating drug-target interaction databases, we further identified methotrexate and other compounds with repurposing potential, offering translational avenues for targeted ischemic stroke prevention. Our approach demonstrates the power of integrating cell-type–resolved genomics with causal inference to define the molecular architecture of EOS, providing a foundation for precision-targeted interventions in at-risk populations.
+
+[0081] [SUPPL] Supplementary Information
+
+[0082] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0083] [SUPPL] Publisher’s Note
+
+[0084] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0085] [SUPPL] Qiu-Han Xu, Zhao-Hui Chai and Yu-Ning Zhang contributed equally to this work.
+
+[0086] [AUTH_CONT] Author Contributions
+
+[0087] [AUTH_CONT] Q.-H.X. and Z.-H.C. conceived and designed the study. Q.-H.X. performed data analysis and drafted the manuscript. Y.-N.Z. contributed to statistical analysis and data visualization. J.S. supervised the study, provided critical revisions, and approved the final version. All authors read and approved the final manuscript.
+
+[0088] [ACK_FUND] Funding
+
+[0089] [ACK_FUND] This study was financially supported by grants from the National Natural Science Foundation of China (82071285) and the Medical Science and Technology Project of Zhejiang Province (2022505533).
+
+[0090] [SUPPL] Data Availability
+
+[0091] [SUPPL] The datasets analyzed in this study are publicly available in the International Stroke Genetics Consortium (ISGC) GWAS resource. All other data supporting the findings of this study are included in this published article and its supplementary materials.
+
+[0092] [SUPPL] Declarations
+
+[0093] [COMP_INT] Competing Interests
+
+[0094] [COMP_INT] The authors declare no competing interests.
+
+[0095] [COMP_INT] Ethical Approval
+
+[0096] [COMP_INT] This study was based on publicly available datasets and did not involve new human or animal experiments. Therefore, ethics approval and consent to participate were not required.
+
+[0097] [REF] References
+
+[0098] [REF] Blood-brain barrier permeability is regulated by lipid transport-dependent suppression of caveolae-mediated transcytosis
+
+[0099] [REF] Physiological and pathological roles of caveolins in the central nervous system
+
+[0100] [REF] Mouse genome informatics: an integrated knowledgebase system for the laboratory mouse
+
+[0101] [REF] Phenome-wide association studies
+
+[0102] [REF] Bhachoo J, Beuming T (2017) Investigating protein–peptide interactions using the Schrödinger computational suite. Modeling peptide-protein interactions: methods and protocols. 235–254. 10.1007/978-1-4939-6798-8_14
+
+[0103] [REF] Single-nucleus RNA sequencing reveals glial cell type-specific responses to ischemic stroke in male rodents
+
+[0104] [REF] Methotrexate—how does it really work?
+
+[0105] [REF] Projections of the stroke burden at the global, regional, and national levels up to 2050 based on the global burden of disease study 2021
+
+[0106] [REF] Global, regional, and national burden of stroke and its risk factors, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019
+
+[0107] [REF] Expression quantitative trait locus analysis for translational medicine
+
+[0108] [REF] Joint impact of polygenic risk score and lifestyles on early-and late-onset cardiovascular diseases
+
+[0109] [REF] Impact of fatty acids on brain circulation, structure and function
+
+[0110] [REF] Cell state-dependent allelic effects and contextual Mendelian randomization analysis for human brain phenotypes
+
+[0111] [REF] Orienting the causal relationship between imprecisely measured traits using GWAS summary data
+
+[0112] [REF] Mapping the immune-genetic architecture of aging: A single-cell causal framework for biomarker discovery and therapeutic targeting
+
+[0113] [REF] CYP4V2 rs56413992 C > T was associated with the risk of coronary heart disease in the Chinese Han population: a case–control study
+
+[0114] [REF] Contribution of common genetic variants to risk of early-onset ischemic stroke
+
+[0115] [REF] A generalized linear mixed model association tool for biobank-scale data
+
+[0116] [REF] Highly accurate protein structure prediction with AlphaFold
+
+[0117] [REF] Sample size calculation
+
+[0118] [REF] Changing genes, cells and networks to reprogram the brain after stroke
+
+[0119] [REF] CYP4 subfamily V member 2 (CYP4V2) polymorphisms were associated with ischemic stroke in Chinese Han population
+
+[0120] [REF] Focus on molecules: cytochrome P450 family 4, subfamily V, polypeptide 2 (CYP4V2)
+
+[0121] [REF] New author guidelines for displaying data and reporting data analysis and statistical methods in experimental biology
+
+[0122] [REF] Stroke genetics informs drug discovery and risk prediction across ancestries
+
+[0123] [REF] Expression and characterization of CYP4V2 as a fatty acid ω-hydroxylase
+
+[0124] [REF] Prevalence of mutations in Mendelian stroke genes in early onset stroke patients
+
+[0125] [REF] Analysis of 1008 consecutive patients aged 15 to 49 with first-ever ischemic stroke: the Helsinki young stroke registry
+
+[0126] [REF] A combined approach for single-cell mRNA and intracellular protein expression analysis
+
+[0127] [REF] Methotrexate for cardiovascular risk reduction: the right choice?
+
+[0128] [REF] Low-dose methotrexate for the prevention of atherosclerotic events
+
+[0129] [REF] Cryptogenic stroke in the young: role of candidate gene polymorphisms in Indian patients with ischemic etiology
+
+[0130] [REF] Mendelian randomization
+
+[0131] [REF] The pathobiology of neurovascular aging
+
+[0132] [REF] Revisiting the neurovascular unit
+
+[0133] [REF] Diverging temporal trends in stroke incidence in younger vs older people: a systematic review and meta-analysis
+
+[0134] [REF] Neurovascular interactions in the nervous system
+
+[0135] [REF] Strengthening the reporting of observational studies in epidemiology using Mendelian randomization: the STROBE-MR statement
+
+[0136] [REF] Tissue-based map of the human proteome
+
+[0137] [REF] Cross-tissue proteomic Mendelian randomization identifies therapeutic targets for vascular dementia
+
+[0138] [REF] Beyond bar and line graphs: time for a new data presentation paradigm
+
+[0139] [REF] Identifying causal genes for stroke via integrating the proteome and transcriptome from brain and blood
+
+[0140] [REF] Mapping the brain cell–specific regulatory architecture of migraine: a single-cell causal framework nominating inhibitory-neuronal BTBD16 and astrocytic RIMS1 as therapeutic targets
+
+[0141] [REF] Single-cell transcriptome-wide Mendelian randomization and colocalization reveals immune-mediated regulatory mechanisms and drug targets for COVID-19
+
+[0142] [REF] Dsigdb: drug signatures database for gene set analysis
+
+[0143] [REF] Monitoring of single-nucleus chromatin landscape of ischemic stroke in mouse cerebral cortex across time

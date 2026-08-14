@@ -1,0 +1,335 @@
+[0001] [TITLE] EP300 Regulates CD8br AC (TBNK Panel) to Facilitate Insomnia
+
+[0002] [ABSTRACT] Insomnia is a prevalent clinical condition that is caused by the interaction of environmental, inflammatory, immune system, physiological, and psychological factors. Nevertheless, the significance of lactylation-related gene in the pathogenesis of insomnia remains unknown. The causal relationship between lactylation-related gene and insomnia was initially analyzed using Mendelian randomization. Exposure was determined using cis-expression quantitative trait loci (cis-eQTL) from the Expression Quantitative Trait Locus Gen (eQTLGen) consortium. We obtained insomnia from the FinnGen database, which comprises 490,763 controls and 6776 cases. Subsequently, we performed a difference analysis of the Gene Expression Omnibus (Geo) data on insomnia and a summary-data-based MR (SMR) analysis to further validate our findings. We used a mediation approach by immune cells to study the effect of lactylation-related genes on insomnia. We identified one lactylation-related gene associated with insomnia. EP300 also passed the SMR test (p < 0.05), and heterogeneity was assessed using the auxiliary heterogeneity in dependent instruments (HEIDI) test (p > 0.05). Using data from the Geo database, the overall difference in EP300 expression between insomnia patients and healthy individuals was compared and found to be significant. A mediation analysis was employed to investigate the impact of immune cells and EP300 on insomnia. We found that EP300 may promote insomnia by regulating the CD8br AC (TBNK panel). This provides new insights into the relationship between lactylation-related genes and insomnia and serves as a novel therapeutic target for future research.
+
+[0003] [ABSTRACT] Supplementary Information
+
+[0004] [ABSTRACT] The online version contains supplementary material available at 10.1007/s12035-025-05188-7.
+
+[0005] [INTRO] Introduction
+
+[0006] [INTRO] As a common clinical condition, insomnia is characterized by difficulty initiating and maintaining sleep, often accompanied by irritability or fatigue during the day. In a particular epidemiological study concerning insomnia, the prevalence was observed to range between 5 and 35%. In another study, researchers using more stringent criteria still concluded a prevalence of 10–15% for severe insomnia. However, insomnia is often overlooked. It is believed that excessive arousal is the result of genetic, environmental, behavioral, and physiological factors that contribute to the etiology and pathophysiology of insomnia. Insomnia is a risk factor for impaired functioning, mental disorders, and increased healthcare costs. An expanding amount of evidence suggests that chronic insomnia may increase the risk of developing mental illness. Persistent insomnia patients are at a greater risk of experiencing new episodes of anxiety disorders and abuse of drugs. Frequently, insomnia is accompanied by mental and physical health conditions. The comorbidity of insomnia in schizophrenia patients has been demonstrated in some studies. The prevalence of insomnia with daytime dysfunction among participants in general medical practice varied from 10% to as high as 34%. Behavioral, cognitive, and pharmacological interventions are among the most effective treatments for insomnia. Due to its effectiveness and safety, behavioral therapy is the most common therapy for insomnia; however, there is a deficit of training in this approach. Therefore, insomnia symptoms are still commonly treated through pharmacological treatment.
+
+[0007] [INTRO] There is a correlation between insomnia and immune function. Insomnia can lead to immune dysfunction. In rat experiments, sleep deprivation resulted in alterations to the immune system and hormone, metabolic, and neurochemical levels. Tufik et al. demonstrated that tumor necrosis factor-α (TNF-α) levels were substantially lower during sleep than during nocturnal wakefulness. Andersen et al. documented elevated levels of leukocytes, neutrophils, and cluster of differentiation 4 (CD 4 +) after 48 h of complete sleep deprivation. An increase in the epigenetic age of blood tissue and a higher count of late-differentiating CD8 + T cells were associated with insomnia. The pathogenesis of insomnia was significantly influenced by the dysregulation of immune system-related genes, according to a multi-omics study.
+
+[0008] [INTRO] In a recent study, a novel epigenetic modification was identified: lactic acid-derived histone lysine lactylation. Histone lactylation is a novel pathway, and lactate is the first epigenetic regulatory molecule to be reported. Enhanced metastasis, increased angiogenesis, metabolic reprogramming in adjacent tissues, and the induction of a pro-inflammatory state are all associated with lactic acid production by aerobic glycolysis in cancer cells. Strong immunosuppressive effects are induced by elevated concentrations of lactic acid. It was suggested that insomnia was characterized by hyperarousal and hypermetabolism. Preliminary research findings supported this assumption. At the same time, lactic acid levels in insomnia patients increased at midnight. A rat experiment demonstrated that lactate concentrations in the cerebral cortex of mice increased during forced wakefulness. However, few studies have described whether lactylation-related genes promote insomnia through immune cells.
+
+[0009] [INTRO] We performed a correlation analysis based on cis-eQTL data for batch lactylation-related genes and insomnia. We identified the lactylation-related genes associated with insomnia using a SMR analysis and a differential analysis with the GEO data. In addition, we implemented mediation analyses to examine the effect of lactylation-related genes on insomnia. These findings provide a novel therapeutic target for subsequent insomnia research.
+
+[0010] [METHODS] Methods
+
+[0011] [METHODS] Study Design
+
+[0012] [FIG] The flowchart of our study design. MR, Mendelian randomization
+
+[0013] [METHODS] The flowchart for this study is shown in Fig. 1.
+
+[0014] [METHODS] The exposure variable that we used was the cis-eQTL of lactylation-related genes in blood. Using the FinnGen database, insomnia was used as the outcome variable. The causal relationships between the expression of lactylation-related genes and the incidence of insomnia were examined using a two-sample MR analysis. On the Basis of appropriate inclusion criteria, relevant SNPs were chosen to serve as instrumental variables (IVs). Sensitivity analysis was employed to identify lactylation-related genes with significant MR results. Furthermore, we also performed a SMR analysis and a differential analysis with the GEO data to assess the impact of the results and further verified these lactylation-related genes.
+
+[0015] [METHODS] Data Source
+
+[0016] [FIG] Choose cis-eQTL of lactylation-related genes as instrumental variables (IVs) to investigate the causal relationship between the lactylation-related genes and insomnia
+
+[0017] [METHODS] The cis-eQTLs for all genes from blood samples of 31,684 healthy individuals of European ancestry were offered by the blood eQTL dataset from eQTLGen (https://eqtlgen.org/). In this study, 24 lactylation-related genes were selected based on previous studies and reviews, and eQTL data for 16 lactylation genes were extracted and organized (Fig. 2). We obtained immune cell genetic data from the GWAS Catalog online website (http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/), with IDs from GCST 90001391 to GCST 90002121. We included a total of 731 immunophenotypes, which consist of absolute cell (AC) counts for 118 types, median fluorescence intensities (MFI) showing surface antigen levels for 389 types, morphological parameters (MP) for 32 types, and relative cell (RC) counts for 192 types. Specifically, the MFI, AC, and RC features covered B cells, CDCs, mature T cells, monocytes, myeloid cells, TBNK (T cells, B cells, and natural killer cells), and Treg panels, while the MP features included CDC and TBNK panels. The FinnGen database provided the insomnia statistics and comprised 490,763 controls and 6776 cases. The GWAS ID for insomnia was finngen_R12_F5_INSOMNIA. There were more than 400,000 SNPs in the insomnia data, and both males and females from Europe are included (Supplementary Table 1). The study participants were 64.5% females and 35.5% males, with a median age of 49.38 years. Insomnia was diagnosed according to the International Classification of Diseases (ICD) criteria, using the 10th edition code (ICD-10). The following link provides detailed information: https://risteys.finngen.fi/endpoints/F5_INSOMNIA.
+
+[0018] [METHODS] Instrumental Variables (IVs) Selection
+
+[0019] [METHODS] For MR analysis to be performed, three fundamental assumptions need to be satisfied: (1) IVs must be highly correlated with exposure; (2) IVs must not be affected by any other factors; and (3) horizontal pleiotropy must not happen.
+
+[0020] [METHODS] In this study, we performed rigorous filtering for each lactylation-related gene. First, with a tight threshold of 5.0 × 10⁻⁸, Single nucleotide polymorphisms (SNPs) with p-values below the genome-wide significance threshold were selected from the cis-eQTL data. The 1000 Genomes Project European population was utilized to cluster the SNPs of each gene with a linkage disequilibrium (LD) threshold of r2 < 0.1 and a clustering window of 10,000 kb to achieve a set of mutually independent SNPs. SNPs with an incompatibility between exposure and outcome were excluded, and the allele frequency of the palindromes was used to infer the alleles of the positive strand. If the allele frequency was not available, the palindrome SNPs were directly excluded. Finally, to prevent weak instrument bias, SNPs with an F-statistic of less than 10 were eliminated.
+
+[0021] [METHODS] Mendelian Randomization
+
+[0022] [METHODS] The R package “TwoSampleMR” (version 0.6.8) was used to perform the MR analysis. When only one SNP was utilized as the IV for the MR analysis, the Wald ratio approach was applied. A total of five methods were used when multiple SNPs were used as IVs: inverse variance weighted (IVW), MR-Egger, weighted median, simple mode, and weighted mode. Compared with the other four approaches, the IVW method is more robust and conservative. Therefore, regardless of the presence of heterogeneity, the IVW method was used as the primary method and the other methods were used as supplementary methods. To evaluate the heterogeneity between the multiple causal effects of SNPs, Cochran’s Q test was employed. For the Cochrane’s Q test, heterogeneity was indicated by a p value of less than 0.05. Using MR-Egger regression, we searched for potential pleiotropy between exposure and outcome. Pleiotropy is indicated when the MR-Egger regression intercept has a p value of less than 0.05. We also applied the MR Pleiotropy Residuals and Outlier (MR-PRESSO) method to identify potential outliers influenced by pleiotropy. The absence of horizontal pleiotropic outliers is indicated by a p-value greater than 0.05 for the global test.
+
+[0023] [METHODS] Summary-Data-Based Mendelian Randomization
+
+[0024] [METHODS] The SMR and HEIDI methods can distinguish between pleiotropic and linkage models. We used the SMR software (version 1.3.1) as a supplemental method to confirm the causal relationship between insomnia and gene expression. In order to confirm that the genes linked to insomnia were not genetically linked, the HEIDI test was used. SMR p < 0.05 is correlated, whereas HEIDI p > 0.05 indicates that the correlation is caused by shared genetic variation. The findings of the Mendelian randomization method concerning a causal relationship are further supported by this approach.
+
+[0025] [METHODS] Identification of Differences in EP300 Between Insomnia and Healthy Individuals
+
+[0026] [METHODS] The GEO database (https://www.ncbi.nlm.nih.gov/geo/) was used to get the gene expression matrices related to insomnia (GSE208668). Data from 17 people with insomnia and 25 healthy people were used for the next analyses. The “limma” package was employed to compare the overall differences in gene expression between insomnia patients and healthy individuals, and the “ggplots2” package was employed to visualize the results.
+
+[0027] [METHODS] Mediation Analysis
+
+[0028] [METHODS] The two-step Mendelian randomization (TSMR) method was used to look at the direct and indirect effects of immune cells and lactylation-related genes on insomnia. TSMR assumes no interaction between exposure and mediator. We got two more estimates besides the basic effect estimate of the lactylation gene on insomnia (Beta_all) from the univariate MR analysis. These were (1) the effect of the mediator (731 immune cells) on insomnia (Beta2) and (2) the effect of the exposure (lactylation gene) on the mediator (731 immune cells) (Beta1).
+
+[0029] [RESULTS] Results
+
+[0030] [RESULTS] Effects of Lactylation-Related Genes on Insomnia Disorders
+
+[0031] [FIG] Forest plots showed the causal associations between lactylation-related genes and insomnia by the IVW method. IVW: inverse variance weighting; CI: confidence interval
+
+[0032] [RESULTS] Two-sample MR analysis was performed to explore the causal effect of lactylation-related genes on insomnia, with IVW as the main analysis method (Fig. 3). Only EP300 was significantly associated with insomnia in the blood eQTL (p < 0.05). Cochran’s Q test results indicated that there was no heterogeneity. Additionally, the MR-Egger regression method did not detect any pleiotropy. The MR-PRESSO test did not detect any outliers, further supporting the reliability of our MR analysis results (Supplementary Table 9). Supplementary Tables 2–3 shows the detailed results for the complete MR results and the important IVs.
+
+[0033] [RESULTS] Summary-Data-Based Mendelian Randomization and Gene Expression Omnibus Database
+
+[0034] [FIG] Significant overall differences in EP300 gene expression between insomnia patients and healthy individuals
+
+[0035] [RESULTS] We did SMR and HEIDI tests on the EP300 eQTL to confirm the above results and get rid of the effects of pleiotropy and linked imbalances even more. The SMR and HEIDI test results were in complete agreement with the MR results in terms of effect direction (Supplementary Table 4). After obtaining the insomnia-related gene expression matrices (GSE208668), we obtained the expression profiles of 17 insomnia patients and 25 healthy controls (Supplementary Table 5). There were significant overall differences in EP300 gene expression between insomnia patients and healthy individuals (Fig. 4).
+
+[0036] [RESULTS] Mediation Analysis
+
+[0037] [FIG] Forest plots showed the causal associations between EP300 and immune cell traits by the IVW method. IVW: inverse variance weighting; CI: confidence interval
+
+[0038] [FIG] Forest plots showed the causal associations between immune cell traits and insomnia by the IVW method. IVW: inverse variance weighting; CI: confidence interval
+
+[0039] [RESULTS] In the first step, we explored the causal effect of EP300 on immune phenotypes. We performed a two-sample MR analysis and used the IVW method as the primary analysis method. Two immunophenotypes were identified (p < 0.05, Fig. 5). Mo MDSC AC (myeloid cell) (OR = 1.234, 95% CI = 1.054 ~ 1.445, p = 0.009) and CD8br AC (TBNK) (OR = 0.816, 95% CI = 0.728 ~ 0.914, p = 0.0005). We also explored the causal effect of immune phenotypes on insomnia. We found ten immune phenotypes that were causally related to insomnia (Fig. 6). The odds ratio (OR) of Mo MDSC AC on insomnia risk was estimated to be 0.961 (95% CI = 0.930 ~ 0.993, p = 0.018) by using the IVW method. The IVW method was used to find that the OR of EM DN (CD4-CD8-) %DN on the risk of insomnia was 1.088 (95% CI = 1.014 ~ 1.168, p = 0.019). With the IVW method, the odds ratio (OR) of CD8br AC on the risk of insomnia was found to be 0.906 (95% CI = 0.829 ~ 0.990, p = 0.03). The IVW method was used to find that the OR of CD62L on CD62L + myeloid DC on the risk of insomnia was 1.092 (95% CI = 1.014 ~ 1.175, p = 0.02). The OR of CD28 on CD28 + CD4 + on insomnia risk was estimated to be 1.10 (95% CI = 1.02 ~ 1.186, p = 0.012) by using the IVW method. The IVW method was used to find that the OR of CD28 on CD4 Treg on the risk of insomnia was 1.145 (95% CI = 1.011 ~ 1.298, p = 0.03). The IVW method was used to find that the OR of CD28 on activated Treg on the risk of insomnia was 1.137 (95% CI = 1.035 ~ 1.249, p = 0.007). The IVW method was used to find that the OR of FSC-A on NK on the risk of insomnia was 1.129 (95% CI = 1.005 ~ 1.269, p = 0.04). The IVW method showed that the OR of HLA DR on CD14-CD16 + monocyte on the risk of insomnia was 0.974 (95% CI = 0.950 ~ 0.999, p = 0.04). The IVW method was used to find that the OR of HLA DR on the risk of monocyte insomnia was 1.022 (95% CI = 1.000 ~ 1.044, p = 0.045).
+
+[0040] [RESULTS] In the second step, we used EP300 as a tool to assess the causal effect of immune cells as mediators of insomnia risk. We calculated the total effect, the indirect effect, and the proportion of the mediation effect. We observed an indirect effect of CD8br AC (TBNK) in associations between EP300 and insomnia, with a mediated proportion of 10.5% (Supplementary Table 6).
+
+[0041] [RESULTS] The complete MR results were provided in Supplementary Tables 7–8. Cochran’s Q test results indicated that there was no heterogeneity. It was ruled out that there could be horizontal pleiotropy by the MR-Egger intercept. The MR-PRESSO test did not detect any outliers, further supporting the reliability of our MR analysis results (Supplementary Tables 10 and 11).
+
+[0042] [DISCUSS] Discussion
+
+[0043] [DISCUSS] In this study, we put together eQTL data for 16 genes related to lactylation and did a correlation analysis with insomnia. We also used differential analysis of the GEO data and SMR verification to find genes related to lactylation that are linked to insomnia. Our research reveals a significant connection between an elevated prevalence of insomnia and the lactylation-related genes. This research illustrates the mechanism in which the EP300 may regulates CD8br AC (TBNK panel) to facilitate insomnia.
+
+[0044] [DISCUSS] Insomnia is a prevalent sleep disorder that is caused by the interplay of environmental, inflammatory, immune system, physiological, and psychological factors. Insomnia may inhibit both innate and adaptive immune responses, and immune system disorders can affect sleep at night. A thorough genetic study using GWAS data showed that the immune system and hippocampus may play a major role in the development of the brain and the risk of insomnia. During sleep problems, the sympathetic nervous system sends norepinephrine to the primary and secondary lymphoid organs. This causes the adrenal glands to release adrenaline into the bloodstream. Neurotransmitters like adrenaline, acidic fibroblast growth factor, and epidermal growth factor can make leukocyte adrenergic receptors work better. This stimulation turns on nuclear factor-κB (NF-κB) even more, which controls the transcription of genes that help the immune system. The quality of NREM sleep is enhanced, while rapid eye movement (REM) sleep is impaired, through acute, mild immune activation. On the other hand, a severe immune response can make both non-rapid eye movement (NREM) and REM sleep worse, which can cause sleep disorders. Similar to prior research, our study demonstrated that immune cells had a regulatory effect on sleep. Compared to Han’s findings, we found that myeloid cells, monocytes, conventional dendritic cells, B cells, T cells, and natural killer (TBNK) cells are associated with insomnia. EM DN (CD4-CD8-) %DN on mature stage of T cells, CD8br AC and FSC-A on NK on TBNK, CD62L on CD62L + myeloid DC on cDC, CD28 on CD28 + CD4 +, CD28 on CD4 Treg, CD28 on activated Treg on Treg, and HLA DR on monocyte in monocytes could promote insomnia.
+
+[0045] [DISCUSS] Lactylation is a relatively new modification, and study has indicated that it may be crucial in the regulation of gene expression, cell metabolism, and immune responses. Studies of a variety of tumors have verified that cancer cells utilize glycolysis to swiftly consume glucose in order to generate energy and significant quantities of lactic acid. The development of cancer is facilitated by the secretion of lactic acid into the extracellular environment by cancer cells. The tumor microenvironment also contains hypoxic and nutrient-deficient regions. Despite the metabolic differences between tumors, the tumor microenvironment is generally regarded as characterized by an acidic pH and nutrient deficiencies, which can result in lactate levels of up to 40 mM. Lactate in the tumor microenvironment stimulates the release of vascular endothelial growth factor (VEGF) from damaged endothelial cells, promotes tumor-associated angiogenesis, induces the expression of transforming growth factor beta-2 proprotein (TGF-β2), which leads to the production of T-cell factors and a decrease in cytotoxic activity, and increases the number of myeloid-derived suppressor cells to inhibit the function of NK cells, thereby mediating tumor immune escape. Recent epigenetic study has demonstrated that lactate-induced histone lactylation significantly influences cellular reprogramming and regulates immune cell modification. The lactylation genes that are highly associated with Crohn’s disease are highly correlated with the level of immune cell infiltration, as has been demonstrated. Overall, B cells, CD4 T cells, and NK cells exhibit relatively low lactylation levels among immune cells. This study confirmed that there was a correlation between lactase-related genes and immune cells, which has not been previously demonstrated. Previous studies have demonstrated an association between EP300 and tumors. The relationship between insomnia and EP300 has not been examined in previous studies. One study on major depressive disorder identified EP300 as a shared protein-coding gene between insomnia and depression in a cross-trait analysis. EP300 promotes glycolysis and lactate excretion, and hypermetabolism is a hallmark of insomnia. This study found significant differences in EP300 expression between insomnia patients and healthy individuals, which is a first in previous research.
+
+[0046] [DISCUSS] Lactylation-related genes can affect diseases through immune cells. Inhibiting lactate synthesis or transport plays a role in inhibiting cancer among various types of tumors. A study on hematological malignancies showed that EP300 is also involved in the tumor immune response by regulating the differentiation and function of multiple immune cells. Zhang DD et al. demonstrated that the downregulation of EP300 leads to decreased glucose consumption and lactate production, and that the glycolytic capacity, invasion, and migration of oral squamous cell carcinoma are inhibited. Liu Y et al. showed that inhibition of EP300 reduced the regulatory function of Foxp3 + Treg cells, resulting in limited tumor growth. EP300 can lead to a deficiency or dysfunction of T regulatory (Treg) cells, resulting in autoimmune diseases. Yang X et al. demonstrated that lactate has a beneficial impact on the metabolic characteristics of CD4 + CD25 + Treg cells, thereby preserving their persistence in the acidic Tumor microenvironment (TME) and enhancing immunosuppressive function. Researchers have demonstrated that sleep deprivation’s adverse health effects are mediated by the damage to the immune system, particularly its impact on the risk and prognosis of chronic diseases such as infections, metabolic and autoimmune diseases, neurodegenerative diseases, and cancer. Similar to other research, our mediation analysis confirmed the connection between immune cells and Lactylation-related genes. It also showed that EP300 may play a part in how immune cells affect insomnia.
+
+[0047] [DISCUSS] Strengths and Limitations
+
+[0048] [DISCUSS] We applied rigorous filtering to instrumental variables. By adhering to these strict protocols and ensuring that important assumptions were met, the potential for bias was minimized. The EP300 passed the SMR test (p < 0.05), and heterogeneity was evaluated using the supporting HEIDI test (p > 0.05). The results of the difference analysis of the geo data related to insomnia have increased the reliability of the MR analysis results. To our knowledge, no previous studies have linked lactylation-related genes with insomnia. There are certain constraints associated with our study. First, the GWAS data primarily represent individuals of European ancestry, which may restrict the generalizability of our findings to other populations. Second, there is a lack of animal experiments to experimentally verify EP300 expression. Third, while our study provides valuable insights for therapeutic development, clinical trials are necessary to validate these findings.
+
+[0049] [CONCL] Conclusions
+
+[0050] [CONCL] In conclusion, our research conducted a thorough analysis and found that EP300 may promote insomnia by regulating the CD8br AC (TBNK panel). This offers novel insights into the correlation between insomnia and lactylation-related genes and may serve as a novel therapeutic target for subsequent insomnia research.
+
+[0051] [SUPPL] Supplementary Information
+
+[0052] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0053] [ABBR] Abbreviations
+
+[0054] [ABBR] AC
+
+[0055] [ABBR] Absolute cell
+
+[0056] [ABBR] CI
+
+[0057] [ABBR] Confidence interval
+
+[0058] [ABBR] eQTLGen
+
+[0059] [ABBR] Expression Quantitative Trait Locus Gen Consortium
+
+[0060] [ABBR] EP300
+
+[0061] [ABBR] E1A binding protein p300
+
+[0062] [ABBR] GWAS
+
+[0063] [ABBR] Genome-wide association study
+
+[0064] [ABBR] GEO
+
+[0065] [ABBR] Gene Expression Omnibus
+
+[0066] [ABBR] HEIDI
+
+[0067] [ABBR] Heterogeneity in dependent instruments
+
+[0068] [ABBR] HLA
+
+[0069] [ABBR] Human leukocyte antigen
+
+[0070] [ABBR] IV
+
+[0071] [ABBR] Instrumental variable
+
+[0072] [ABBR] ICD
+
+[0073] [ABBR] International Classification of Diseases
+
+[0074] [ABBR] IVW
+
+[0075] [ABBR] Inverse variance weighting
+
+[0076] [ABBR] LD
+
+[0077] [ABBR] Linkage disequilibrium
+
+[0078] [ABBR] MR
+
+[0079] [ABBR] Mendelian Randomization
+
+[0080] [ABBR] MR-Egger
+
+[0081] [ABBR] A method for detecting and adjusting for pleiotropy in Mendelian Randomization
+
+[0082] [ABBR] MR-PRESSO
+
+[0083] [ABBR] Mendelian Randomization Pleiotropy Residuals and Outlier
+
+[0084] [ABBR] MFI
+
+[0085] [ABBR] Median fluorescence intensities
+
+[0086] [ABBR] MP
+
+[0087] [ABBR] Morphological parameters
+
+[0088] [ABBR] NREM
+
+[0089] [ABBR] Non-rapid eye movement
+
+[0090] [ABBR] OR
+
+[0091] [ABBR] Odds ratio
+
+[0092] [ABBR] REM
+
+[0093] [ABBR] Rapid eye movement
+
+[0094] [ABBR] RC
+
+[0095] [ABBR] Relative cell
+
+[0096] [ABBR] SNP
+
+[0097] [ABBR] Single nucleotide polymorphism
+
+[0098] [ABBR] SMR
+
+[0099] [ABBR] Summary-data-based Mendelian randomization
+
+[0100] [ABBR] TME
+
+[0101] [ABBR] Tumor microenvironment
+
+[0102] [ABBR] TNF-α
+
+[0103] [ABBR] Tumor necrosis factor-α
+
+[0104] [ABBR] TGF-β2
+
+[0105] [ABBR] Transforming growth factor beta-2 proprotein
+
+[0106] [ABBR] VEGF
+
+[0107] [ABBR] Vascular endothelial growth factor
+
+[0108] [ABBR] Publisher's Note
+
+[0109] [ABBR] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0110] [AUTH_CONT] Author Contributions
+
+[0111] [AUTH_CONT] MX: This author helped design the study and wrote the paper. WQ: This author helped perform statistical analysis and do the work of data collecting. All authors have read the manuscript and approved the final paper submitted.
+
+[0112] [SUPPL] Data Availability
+
+[0113] [SUPPL] All data used in this study are publicly available and listed in Supplementary Table 1. The cis-eQTL data were obtained from the eQTLGen Consortium (https://eqtlgen.org/). The GWAS statistics for insomnia were obtained from the FinnGen database (https://www.finngen.fi/fi). Genetic data for 731 immune cells were obtained from the GWAS Catalog online website (http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/).
+
+[0114] [SUPPL] Declarations
+
+[0115] [SUPPL] Ethics Approval
+
+[0116] [SUPPL] Not applicable.
+
+[0117] [SUPPL] Consent for Publication
+
+[0118] [SUPPL] Not applicable.
+
+[0119] [SUPPL] Clinical Trial Number and Registry URL
+
+[0120] [SUPPL] Not applicable.
+
+[0121] [COMP_INT] Competing interests
+
+[0122] [COMP_INT] The authors declare no competing interests.
+
+[0123] [REF] References
+
+[0124] [REF] Sateia MJ, Doghramji K, Hauri PJ, Morin CM (2000) Evaluation of chronic insomnia. An American Academy of Sleep Medicine review. Sleep 23(2):243–308.
+
+[0125] [REF] Evaluation of severe insomnia in the general population: results of a European multinational survey
+
+[0126] [REF] Sleep disturbance and psychiatric disorders: a longitudinal epidemiological study of young adults
+
+[0127] [REF] Epidemiologic study of sleep disturbances and psychiatric disorders
+
+[0128] [REF] The morbidity of insomnia uncomplicated by psychiatric disorders
+
+[0129] [REF] Sutton EL (2021) Insomnia. Ann Intern Med 174(3):ITC33-ITC48. 10.7326/AITC202103160
+
+[0130] [REF] Insomnia in patients with schizophrenia: current understanding and treatment options
+
+[0131] [REF] Hohagen F, Rink K, Käppler C, Schramm E, Riemann D, Weyerer S, Berger M (1993) Prevalence and treatment of insomnia in general practice. A longitudinal study. Eur Arch Psychiatry Clin Neurosci 242(6):329–336. 10.1007/BF02190245
+
+[0132] [REF] Prevalence of insomnia: a survey of the enrollees at five managed care organizations
+
+[0133] [REF] Prevalence, burden, and treatment of insomnia in primary care
+
+[0134] [REF] Role of hippocampal oxidative stress in memory deficits induced by sleep deprivation in mice
+
+[0135] [REF] Reversal of the increase in apomorphine-induced stereotypy and aggression in REM sleep deprived rats by dopamine agonist pretreatments
+
+[0136] [REF] Distinct effects of paradoxical sleep deprivation and cocaine administration on sexual behavior in male rats
+
+[0137] [REF] Different stress modalities result in distinct steroid hormone responses by male rats
+
+[0138] [REF] Endocrinological and catecholaminergic alterations during sleep deprivation and recovery in male rats
+
+[0139] [REF] Genetically predicted leucine level mediates association between CD4/CD8br T lymphocytes and insomnia
+
+[0140] [REF] Chronic insomnia and immune functioning
+
+[0141] [REF] Systematic genetic analyses of GWAS data reveal an association between the immune system and insomnia
+
+[0142] [REF] Metabolic regulation of gene expression by histone lactylation
+
+[0143] [REF] Profiling of immune responses by lactate modulation in cervical cancer reveals key features driving clinical outcome
+
+[0144] [REF] Gehrman P, Sengupta A, Harders E, Ubeydullah E, Pack AI, Weljie A (2018) Altered diurnal states in insomnia reflect peripheral hyperarousal and metabolic desynchrony: a preliminary study. Sleep 41(5):zsy043. 10.1093/sleep/zsy043
+
+[0145] [REF] Sleep slow-wave activity regulates cerebral glycolytic metabolism
+
+[0146] [REF] Histone lactylation in macrophage biology and disease: from plasticity regulation to therapeutic implications
+
+[0147] [REF] Lactate metabolism and histone lactylation in the central nervous system disorders: impacts and molecular mechanisms
+
+[0148] [REF] Crossing epigenetic frontiers: the intersection of novel histone modifications and diseases
+
+[0149] [REF] Complex genetic signatures in immune cells underlie autoimmunity and inform therapy
+
+[0150] [REF] Statistical methods for cis-Mendelian randomization with two-sample summary-level data
+
+[0151] [REF] Power and instrument strength requirements for Mendelian randomization studies using multiple genetic variants
+
+[0152] [REF] Combining information on multiple instrumental variables in Mendelian randomization: comparison of allele score and summarized data methods
+
+[0153] [REF] Evaluating the potential role of pleiotropy in Mendelian randomization studies
+
+[0154] [REF] Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets
+
+[0155] [REF] Integrative analysis of omics summary data reveals putative mechanisms underlying complex traits
+
+[0156] [REF] Sleep health: reciprocal regulation of sleep and innate immunity
+
+[0157] [REF] Reciprocal regulation of the neural and innate immune systems
+
+[0158] [REF] Elevating the perspective on human stress genomics
+
+[0159] [REF] Role of sleep deprivation in immune-related disease risk and outcomes
+
+[0160] [REF] Analysis of the correlation between immune cell characteristics and insomnia: a Mendelian randomization study
+
+[0161] [REF] High lactate levels predict likelihood of metastases, tumor recurrence, and restricted patient survival in human cervical cancers
+
+[0162] [REF] Multiple biological activities of lactic acid in cancer: influences on tumor growth, angiogenesis and metastasis
+
+[0163] [REF] Tumor metabolite lactate promotes tumorigenesis by modulating MOESIN lactylation and enhancing TGF-β signaling in regulatory T cells
+
+[0164] [REF] Acetyltransferase P300 regulates glucose metabolic reprogramming through catalyzing succinylation in lung cancer
+
+[0165] [REF] Shared genetic liability and causal effects between major depressive disorder and insomnia
+
+[0166] [REF] CBP/p300 acetyltransferase activity in hematologic malignancies
+
+[0167] [REF] TGF-βRII/EP300/SMAD4 cascade signaling pathway promotes invasion and glycolysis in oral squamous cell carcinoma
+
+[0168] [REF] Inhibition of p300 impairs Foxp3⁺ T regulatory cell function and promotes antitumor immunity

@@ -1,0 +1,313 @@
+[0001] [TITLE] Brain tissue- and cell type-specific eQTL Mendelian randomization reveals efficacy of FADS1 and FADS2 on cognitive function
+
+[0002] [ABSTRACT] Epidemiological studies suggested an association between omega-3 fatty acids and cognitive function. However, the causal role of the fatty acid desaturase (FADS) gene, which play a key role in regulating omega-3 fatty acids biosynthesis, on cognitive function is unclear. Hence, we used two-sample Mendelian randomization (MR) to estimate the gene-specific causal effect of omega-3 fatty acids (N = 114,999) on cognitive function (N = 300,486). Tissue- and cell type-specific effects of FADS1/FADS2 expression on cognitive function were estimated using brain tissue cis-expression quantitative trait loci (cis-eQTL) datasets (GTEx, N ≤ 209; MetaBrain, N ≤ 8,613) and single cell cis-eQTL data (N = 373), respectively. These causal effects were further evaluated in whole blood cis-eQTL data (N ≤ 31,684). A series of sensitivity analyses were conducted to validate MR assumptions. Leave-one-out MR showed a FADS gene-specific effect of omega-3 fatty acids on cognitive function [β = −1.3 × 10−2, 95% confidence interval (CI) (−2.2 × 10−2, −5 × 10−3), P = 2 × 10−3]. Tissue-specific MR showed an effect of increased FADS1 expression in cerebellar hemisphere and FADS2 expression in nucleus accumbens basal ganglia on maintaining cognitive function, while decreased FADS1 expression in nine brain tissues on maintaining cognitive function [colocalization probability (PP.H4) ranged from 71.7% to 100.0%]. Cell type-specific MR showed decreased FADS1/FADS2 expression in oligodendrocyte was associated with maintaining cognitive function (PP.H4 = 82.3%, respectively). Increased FADS1/FADS2 expression in whole blood showed an effect on cognitive function maintenance (PP.H4 = 86.6% and 88.4%, respectively). This study revealed putative causal effect of FADS1/FADS2 expression in brain tissues and blood on cognitive function. These findings provided evidence to prioritize FADS gene as potential target gene for maintenance of cognitive function.
+
+[0003] [INTRO] Introduction
+
+[0004] [INTRO] Cognitive dysfunction is an important issue in the aging population. However, changes in brain function start to occur several years before the diagnose of cognitive impairment. Hence, identifying factors associated with the development of cognitive impairment is of great societal interest.
+
+[0005] [INTRO] Evidence suggested that fatty acids play an important role in cognition. Previous studies reported that omega-3 fatty acids were associated with cognitive and mental health. However, recent observational studies and randomized controlled trials (RCTs) have shown inconsistent evidence. Therefore, other line of evidence is needed to clarify whether there is a causal effect of omega-3 fatty acids on cognitive function. Omega-3 fatty acids were influenced by genetic factors. Delta-5 desaturase and delta-6 desaturase are key rate-limiting enzymes that crucial in a series of elongation and desaturation reactions of omega-3 fatty acids, which are encoded by two genes: fatty acid desaturase 1 (FADS1) and fatty acid desaturase 2 (FADS2). Several studies reported the associations between single nucleotide polymorphisms (SNPs) in the FADS loci and omega-3 fatty acids concentrations, implying that variants in the FADS gene region modify the activity of polyunsaturated fatty acids desaturation. However, evidence between FADS1/FADS2 gene expression and their own cognitive impairment is limited. In addition, FADS1 and FADS2 gene are expressed in multiple human tissues and cells. The role of expression levels of FADS1 and FADS2 in different tissues and cell types on cognitive function needs further investigation.
+
+[0006] [INTRO] Mendelian randomization (MR) analysis is an emerging method that using genetic variants as instrumental variables (IVs) to infer the causal effect of an exposure on an outcome. Due to specificity of IVs, the MR estimates are not commonly subject to confounding bias and reverse causation. MR has also been applied to detect putative causal effect of tissue-specific gene expression and a wide range of diseases using expression quantitative trait loci (eQTLs) as instruments. However, the eQTL relationship was highly dependent on cell type and eQTLs that from bulk tissue samples may mask the cell specificity of genetic regulatory effects. With development of novel omics tools, especially single-cell sequencing technology and genetic colocalization methologies, estimating the effect of gene on disease in single-cell level will provide novel insight of disease etiology and molecular mechanism soon. In addition to tissue specificity, recent studies have demonstrated that many eQTL effects are cell type-specific, as well as genes showing cell type-specific effects including FADS1 and FADS2. By using eQTLs of diverse cell types will help us to supplement the potential molecular mechanisms that underlie cognitive function.
+
+[0007] [INTRO] Therefore, the aim of this study was to investigate the causal effect of omega-3 fatty acids on cognitive function within and outside the FADS region by using MR method. To identify potential target gene, the tissue- and cell type-specific causal effects of FADS1 and FADS2 gene expression on cognitive function were evaluated using cis-eQTL-based MR and colocalization.
+
+[0008] [METHODS] Methods
+
+[0009] [METHODS] Overall study design
+
+[0010] [FIG] Flow chat of the whole study design.
+
+[0011] [FIG] SNP single nucleotide polymorphism, eQTL expression quantitative trait loci, GWAS Genome-wide association study, MR Mendelian randomization.
+
+[0012] [METHODS] Figure 1 presented the overall design of the study. In this study, i) we applied a two-sample MR analysis to determine whether omega-3 fatty acids have causal effect on cognitive function within and outside the FADS region; ii) conducting tissue- and cell type-specific MR analyses to assess tissue- and cell type-dependent effects of FADS1 and FADS2 expression in brain and blood on cognitive function. It is important to note that we applied the MR Steiger filtering approach to exclude cis-eQTLs with potential reverse causality. Ethical approval of all data was obtained in the original studies.
+
+[0013] [METHODS] Data sources
+
+[0014] [METHODS] Genetic instruments of omega-3 fatty acids
+
+[0015] [METHODS] Genome-wide association study (GWAS) results in individuals of mostly European ancestry were obtained from the UK Biobank (up to 114,999 individuals) for plasma concentration of omega-3 fatty acids. This is one of the largest available GWASs of circulating polyunsaturated fatty acids. SNPs were excluded if it had a minor allele frequency no more than 0.01 or did not reach the significant genome-wide association level (P ≤ 5 × 10−8) (Supplementary Table 1).
+
+[0016] [METHODS] Genetic instruments of FADS1 and FADS2 expression in brain and blood
+
+[0017] [METHODS] Brain tissue-specific cis-eQTL data of FADS1 and FADS2 expression was obtained from the GTEx project (v8; https://gtexportal.org/home/). For each tissue, the independent cis-eQTL that passed the false discovery rate (FDR) threshold (with FDR < 0.05) was selected as instrument for the tissue-specific analysis, which resulted in 10 cis-eQTLs of the 10 tissues for FADS1 gene and nine cis-eQTLs of the nine tissues for FADS2 gene respectively (Supplementary Table 2A). Besides, the results were also validated using the brain cis-eQTL data from the MetaBrain consortium (https://www.metabrain.nl), which is a large scale eQTL meta-analysis of previously published human brain eQTL datasets (N ≤ 8,613). For consistency, we selected the significant cis-eQTLs (q-value < 0.05) for FADS1 and FADS2 genes with FDR < 0.05. After selection, three cis-eQTLs of FADS1 gene derived from three brain tissues were selected (Supplementary Table 2A).
+
+[0018] [METHODS] Single-cell cis-eQTL data of FADS1 and FADS2 expression was obtained from a brain cell type cis-eQTL study, which including eight brain cell types from 373 brain samples that published by Bryois et al.. The cis-eQTLs (with FDR < 0.05) were identified in two cell types for FADS1 and one cell type for FADS2 expression respectively. Same as tissue-specific instruments, only cis-eQTL with the strongest association for each cell type was selected as instrument for the cell-type specific analysis (Supplementary Table 2B).
+
+[0019] [METHODS] The cis-eQTL associations of FADS1 and FADS2 expression derived from whole blood in 31,470 individuals made available by the eQTLGen Consortium, and the study included rigorous quality control (Supplementary Table 1).
+
+[0020] [METHODS] Outcome data
+
+[0021] [METHODS] The GWAS summary statistics of cognitive function was extracted from Davies et al., which included 300,486 individuals of European ancestry from 57 population-based cohorts brought together by the Cohorts for Heart and Aging Research in Genomic Epidemiology (CHARGE), the Cognitive Genomics Consortium (COGENT) consortia, and the UK Biobank. Cognitive function in the three cohorts was estimated by applying a consistent method of extracting a general cognitive function component from cognitive test, which has been reported in more details in the original study (Supplementary Table 3).
+
+[0022] [METHODS] Statistical analyses
+
+[0023] [METHODS] MR analysis of omega-3 fatty acids on cognitive function
+
+[0024] [METHODS] For each omega-3 fatty acids instrument set, we harmonized the SNP-omega-3 fatty acids and SNP-cognitive function data and did the univariable MR analysis by using the TwosampleMR R package (version 0.5.6). In total, 45 SNPs were selected from the UK Biobank as IVs for omega-3 fatty acids, and the primary analysis used the inverse variance weighted (IVW) method to estimate the causal effect.
+
+[0025] [METHODS] Leave-one-out analysis
+
+[0026] [METHODS] We further conducted leave-one-out analysis and assessed the causal effect of single SNP rs174564 within the FADS region by using the Wald ratio method. Considering the potential effect of rs174564 on cognitive function, we further excluded it from 45 instruments for omega-3 fatty acids to estimate the causal effect of the other variants outside the FADS region on cognitive function.
+
+[0027] [METHODS] LD Score regression analysis of omega-3 fatty acids on cognitive function
+
+[0028] [METHODS] Considering the GWAS data of omega-3 fatty acids and cognitive function have minor sample overlap, which may induce spurious correlation. We employed linkage disequilibrium score regression (LDSC, v.1.0.1) analysis to evaluate the genetic correlation between omega-3 fatty acids and cognitive function and to test the existence of sample overlap. The LD scores from the European 1000 Genomes Project dataset were referenced.
+
+[0029] [METHODS] Tissue- and cell type-specific MR analyses
+
+[0030] [METHODS] MR analysis of FADS1 and FADS2 expression in brain tissues on cognitive function
+
+[0031] [METHODS] For tissue-specific MR analysis, we estimated the putative causal effects of FADS1 expression in 10 brain tissues and FADS2 expression in nine brain tissues using data from the GTEx. MR analysis of FADS1 expression in three brain tissues on cognitive function were also conducted using the MetaBrain data. The Wald ratio method was used since one instrument were available for each tissue. FDR correction was applied using the Benjamini-Hochberg method.
+
+[0032] [METHODS] MR analysis of FADS1 and FADS2 expression in brain single cell on cognitive function
+
+[0033] [METHODS] In cell type-specific MR analysis, the putative causal effects of FADS1 expression in two brain cell types and FADS2 expression in one brain cell type on cognitive function were estimated by using the Wald ratio method. FDR was computed using the Benjamini-Hochberg method.
+
+[0034] [METHODS] MR analysis of FADS1 and FADS2 expression in whole blood on cognitive function
+
+[0035] [METHODS] We further used three cis-eQTLs of FADS1 expression and five cis-eQTLs of FADS2 expression derived from whole blood respectively to estimate the causal effects of expression of these two genes on cognitive function by using IVW method. Moreover, a novel MR method with automated instrument determination (MRAID) was applied.
+
+[0036] [METHODS] MR sensitivity analysis
+
+[0037] [METHODS] We conducted a set of sensitivity analyses to estimate the effects using methods that were robust to other forms of pleiotropy using MR-Egger, weighted median, simple mode, and weighted mode, as each method can obtain consistent estimate of the causal effect if the pleiotropic effect is independent of the effect on the exposure. Cochrane’s Q test for inverse variance weighted analysis was conducted to assess the presence of heterogeneity between individual SNP.
+
+[0038] [METHODS] Genetic colocalization analysis
+
+[0039] [METHODS] To examine the posterior probability for a shared causal variant between FADS1/FADS2 expression and cognitive function for the candidate MR signal, we used a Bayesian colocalization method that is noted as COLOC. A colocalization probability (PP.H4) > 70% would suggest that the two genetic association signals are likely to share the same causal variant. Besides, we used an approximate colocalization analysis which is called LD check. We estimated the linkage disequilibrium (LD) r2 between each cis-eQTL against all variants with GWAS P < 1 × 10−3 in the region associated with cognitive function. In this analysis, r2 > 0.7 between each cis-eQTL and cognitive function variants was considered as approximate colocalization.
+
+[0040] [RESULTS] Results
+
+[0041] [RESULTS] We selected 45 omega-3 fatty acids variants as instruments, which were selected from Borges CM (N = 114,999). Besides, we selected 10 cis-eQTLs and nine cis-eQTLs respectively which is the strongest cis-eQTL for each brain tissue from the GTEx v8 database, and three cis-eQTLs from the MetaBrain data for tissue-specific MR analysis. For brain cell type-specific MR analysis, we used two cis-eQTLs from two cell types and one cis-eQTL from one cell type respectively that published from Bryois (N = 373). For instruments of FADS1 and FADS2 expression in whole blood, we selected three cis-eQTLs and five cis-eQTLs respectively that from eQTLGen Consortium (N ≤ 31,684). All the above cis-eQTLs were tested for Steiger filtering method so that there is no potential reverse causality. For FADS1 and FADS2 expression in different tissues, mean F statistics ranged from 8.5 to 581.5, indicating that most instruments were unlikely to be subject to weak instrument bias. F statistics for hippocampus and substantia nigra is less than 10 (Supplementary Table 2A). For FADS1 and FADS2 expression in different cell types, the F statistics only for inhibitory neurons is less than 10 (Supplementary Table 2B). We kept all instruments but with caution that three of these cis-eQTL dataset could suffer from weak instrument bias.
+
+[0042] [RESULTS] Effect of omega-3 fatty acids on cognitive function
+
+[0043] [FIG] Mendelian randomization analysis of the causal effect of omega-3 fatty acids on cognitive function within and outside the FADS region.
+
+[0044] [FIG] A All instruments of omega-3 fatty acids on cognitive function. B Single SNP within the FADS region of omega-3 fatty acids on cognitive function. C SNPs outside the FADS region of omega-3 fatty acids on cognitive function. The vertical line in this plot indicates the null of beta = 0 and the error bars correspond to 95% confidence intervals. CI confidence interval.
+
+[0045] [RESULTS] We investigated the causal effect of omega-3 fatty acids on cognitive function using genetic variants within and outside the FADS region. Little evidence was observed to support a causal effect using the IVW method [β = −6 × 10−3, 95% confidence interval (CI) (−1.8 × 10−2, 6 × 10−3), P = 3.3 × 10−1], although weighted median and weighted mode estimates suggested potential causal effects [β = −1.2 × 10−2, 95% CI (−2 × 10−2, −4 × 10−3), P = 3 × 10−3; β = −1.3 × 10−2, 95% CI (−2.1 × 10−2, −5 × 10−3), P = 3 × 10−3, respectively] (Fig. 2A). Besides, strong evidence of heterogeneity was observed for the overall effect of omega-3 fatty acids on cognitive function (P-value of the Q test = 5.5 × 10−17) (Supplementary Table 4). Specially, leave-one-out analysis indicated that the potential effect on cognitive function was driven by a single variant, rs174564, within the FADS region [β = −1.3 × 10−2, 95% CI (−2.2 × 10−2, −5 × 10−3), P = 2 × 10−3] (Fig. 2B, Supplementary Fig. 1). The estimated effect using instruments outside the FADS region showed little evidence by using IVW and the other sensitivity MR methods (P > 0.05) (Fig. 2C). In addition, the LDSC results showed that there was no genome-wide genetic correlation between omega-3 fatty acids and cognitive function after controlling for sample overlap (intercept = −1.3 × 10−2, P = 0.36, Supplementary Table 5).
+
+[0046] [RESULTS] Tissue- and cell type-specific effect of FADS1 and FADS2 expression on cognitive function
+
+[0047] [FIG] Forest plot illustrating the brain tissue-dependent association for FADS1 and FADS2 expression on cognitive function.
+
+[0048] [FIG] A FADS1. B FADS2. The vertical line in this plot indicates the null of beta = 0 and the error bars correspond to 95% confidence intervals. Solid squares represented results that passed the LD check, while hollow squares represented results that failed the LD check. Asterisks represented results using the MetaBrain database.
+
+[0049] [FIG] Forest plot illustrating the causal effect association for single cell gene expression of FADS1 and FADS2 on cognitive function.
+
+[0050] [FIG] The vertical line in this plot indicates the null of beta = 0 and the error bars correspond to 95% confidence intervals. Solid squares represented results that passed the LD check, while hollow squares represented results that failed the LD check. CI confidence interval.
+
+[0051] [RESULTS] Due to the key role of FADS gene on cognitive function, we investigated the tissue- and cell type-specific causal effect of FADS1 and FADS2 expression on cognitive function (Figs. 3 and 4). As brain is closely related to cognitive function, we focused on explored the causal effect of FADS1 and FADS2 gene expression on cognitive function using cis-eQTL data from 10 and nine brain tissues respectively (e.g., amygdala, cortex, etc). The MR and colocalization analyses suggested putative causal effects of FADS1 expression in 10 brain tissues and FADS2 expression in one brain tissue on cognitive function, and these associations passed FDR threshold of 0.05: increased expression levels of FADS1 gene in cerebellar hemisphere showed a cognitive function maintenance effect. While, decreased expression levels of FADS1 in nine additional brain tissues showed effects on maintaining cognitive function, including cerebellum, spinal cord cervical c-1, hypothalamus, cortex, hippocampus, putamen basal ganglia, anterior cingulate cortex BA24, caudate basal ganglia, and frontal Cortex BA9. In addition, the significant results with colocalization evidence for cerebellum, cortex and hippocampus were validated in the MetaBrain data and were all directionally consistent with the MR effects in GTEx (Fig. 3A). For FADS2, increased expression levels in nucleus accumbens basal ganglia showed a possible maintenance effect of cognitive function. The MR and colocalization results suggested little evidence to support causality for FADS2 in other eight brain tissues (Fig. 3B, Supplementary Table 6).
+
+[0052] [RESULTS] Secondly, we estimated the cell type-specific causal effect of gene expression of FADS1 and FADS2 on cognitive function using brain single-cell cis-eQTL data. FADS1 and FADS2 expression in one cell type showed MR and colocalization evidence: decreased levels of FADS1 and FADS2 expression in oligodendrocytes showed cognitive function maintenance effect. Causal effect of FADS1 expression on cognitive function was not observed in inhibitory neurons (Fig. 4, Supplementary Table 7).
+
+[0053] [FIG] Mendelian randomization analysis of the causal effect of FADS1 and FADS2 gene expression in whole blood on cognitive function.
+
+[0054] [FIG] A FADS1. B FADS2. The vertical line in this plot indicates the null of beta = 0 and the error bars correspond to 95% confidence intervals. CI confidence interval.
+
+[0055] [FIG] Regional association plots of FADS1 and FADS2 expression in whole blood on cognitive function in the FADS region.
+
+[0056] [FIG] The candidate signal within FADS region is rs174564.
+
+[0057] [RESULTS] In order to further verified the role of FADS1 and FADS2 gene expression on cognitive function in whole blood, we estimated the causal effect using three cis-eQTLs for FADS1 and five cis-eQTLs for FADS2 respectively. MR analysis indicated that increased expression levels of FADS1 and FADS2 in whole blood showed effects on cognitive function maintenance [IVW β = 9 × 10−3, 95% CI (3 × 10−3, 1.5 × 10−2), P = 5 × 10−3; IVW β = 5 × 10−3, 95% CI (1 × 10−4, 1 × 10−2), P = 4.6 × 10−2; respectively]. In sensitivity analysis, weighted median suggested that increased expression levels of FADS1 was associated with maintenance of cognitive function [β = 9 × 10−3, 95% CI (3 × 10−3, 1.5 × 10−2), P = 4 × 10−3], while the estimates showed little causal evidence using other sensitivity MR methods (Fig. 5). Little evidence of heterogeneity was observed (P-value of all the Q test > 0.05) (Supplementary Table 4). The MRAID method showed that FADS1 expression in whole blood had robust causal effect on cognitive function (P = 0.02) and directionally consistent with the MR effects from the IVW method, while the causal effect of FADS2 were not observed (Supplementary Table 8). After performing colocalization analysis with the candidate MR signal, we observed compelling evidence of gene colocalization between expression of FADS1 and FADS2 and cognitive function (PP.H4 = 86.6% and 88.4%, respectively) (Fig. 6, Supplementary Table 9).
+
+[0058] [RESULTS] Furthermore, to understand the link between omega-3 fatty acids variants and FADS gene variants, we estimated the LD between them. The omega-3 fatty acids variant rs174564 is located in the intron of FADS2 gene and it is in strong LD (r2 > 0.7) with several of the FADS1 and FADS2 cis-eQTLs/instruments we used. This suggested that omega-3 fatty acids and FADS1/FADS2 cis-eQTLs are likely to represent the same genetic signal in the FADS region. Therefore, the effect of FADS1/FADS2 expression on cognitive function could be related to the omega-3 fatty acids variant rs174564. The pairwise LD r2 between each cis-eQTL and rs174564 was presented in Supplementary Table 10.
+
+[0059] [RESULTS] Finally, we attempted to identify potential mechanistic pathways between omega-3 fatty acids, FADS1/FADS2 genes, and cognitive function through MELODI Presto. The results showed that potential intermediates between omega-3 fatty acids or FADS1/FADS2 genes and cognitive function were mostly associated with metabolic or neurological diseases, such as non-insulin dependent diabetes, metabolic syndrome, obesity and Alzheimer’s disease (Supplementary Table 11).
+
+[0060] [DISCUSS] Discussion
+
+[0061] [DISCUSS] In this study, we found that FADS1 and FADS2 expression in different brain tissues and cell types showed causal effect on cognitive function using genetic tools. Data on the expression of FADS1 and FADS2 in whole blood further confirmed this finding. Our results revealed that FADS1 and FADS2 are likely to be two causal genes influencing cognitive function, while the FADS gene as potential target gene, may be functional especially in specific cell type.
+
+[0062] [DISCUSS] Previous epidemiology studies reported a protective effect of omega-3 fatty acids on cognitive function, and this effect is particularly pronounced in individuals with early and mild cognitive impairment. However, no benefit was observed when subjects with diagnosed Alzheimer’s disease were supplemented with omega-3 fatty acids as well as in many other population-based studies. These inconsistencies may be attributed to interventions in RCTs that have been carried out too late to against the progression of cognitive impairment and are vulnerable to confounding factors. In our MR analysis, we found a weak negative association between omega-3 fatty acids and cognitive function using some MR methods, while the sensitivity analysis suggested strong evidence of heterogeneity, which suggested that a few genes may drive the causal effect between the two. Leave-one-out analysis further suggested that the effect of omega-3 fatty acids on cognitive function is more likely to be driven by SNP within the FADS gene region rather than a general effect of omega-3 fatty acids.
+
+[0063] [DISCUSS] As a natural extension, we investigated the impact of FADS1 and FADS2 gene expression on cognitive function. The FADS variants have been reported to be associated with cognitive function in previous studies, but the association has only been studied in the context of the effect of FADS gene variation on children or offspring. Genetic variants in the FADS1/FADS2 region are associated with maternal long-chain polyunsaturated fatty acid status and could modified cognitive development of infants. In addition, FADS1/FADS2 genetic variants have been reported to be associated with behavioral outcomes in children. However, one issue to be resolved is whether there is an association between FADS gene expression and cognitive function, and whether this association is influenced by tissue type, especially brain tissue. Our tissue-specific MR analysis showed that increased levels of FADS1 expression in cerebellar hemisphere and FADS2 expression in nucleus accumbens basal ganglia may maintain cognitive function, while decreased levels of FADS1 expression in other nine brain tissues, including cerebellum, spinal cord cervical c-1, hypothalamus, cortex, hippocampus, putamen basal ganglia, anterior cingulate cortex BA24, caudate basal ganglia, and frontal Cortex BA9, may benefit cognitive function maintenance. It is accepted that the cerebellum played a possible role in the mediation of cognitive processes. Previous studies have showed that individuals with Parkinson’s disease had significant atrophy of left cerebellar hemisphere. A broad variety of cognitive and linguistic deficits can occur after cerebellar damage. The most popular mechanism of cerebellar involvement in cognitive functions is Schmahmann’s dysmetria of thought theory, which assuming that the way the cerebellum regulates movement may also influence mental processes. Besides, basal ganglia are critical for several cognitive, motor and emotional functions and are part of a complex functional circuit. Early animal experiments confirmed the relationship between basal ganglia and cognitive and memory function, which pointed out that this relationship may be related to the cholinergic neuronal impulse transmission in the basal ganglia and the role of dopamine neurons for reward learning. Human studies have also reported that basal ganglia may play an integrative role in cognitive information processing and that the electrical activity of multifunctional clusters of neuronal populations may underlie this nonspecific integrative effect. In this study, we revealed a putative causal mechanism that increased expression levels of FADS1 gene in cerebellar hemisphere and FADS2 gene in nucleus accumbens basal ganglia are associated with maintenance of cognitive function.
+
+[0064] [DISCUSS] It is important to notice that eQTL effect of the same gene could be different dependent on the tissues or cell types of the human brain. In tissue-specific MR analysis, we observed that both FADS1 and FADS2 expression in cortex showed MR evidence, which decreased FADS1 expression levels and increased FADS2 expression levels showed maintenance effect on cognitive function. However, the causal effect of FADS2 were not confirmed by colocalization evidence. Similar with cortex, decreased expression levels of FADS1 in anterior cingulate cortex BA24 and frontal cortex BA9 was associated with maintaining cognitive function. This directional inconsistency may be due to the limitation of tissue sample size or there may be different pathways involved in FADS1/FADS2 expression in cortex on cognition. More datasets of larger independent tissue-specific eQTL data and additional genetic methods, such as transcriptome-wide association study (TWAS), should be considered in future studies to further improve the statistical power and identify true causal genes with functions. Previous studies have affirmed the role of the anterior cingulate cortex and frontal cortex in social cognition and cognitive control, and we supplied new evidence for this association at genetic level. Furthermore, our cell type-specific MR analysis used single-cell brain cis-eQTL data highlighted the important role of FADS1/FADS2 gene in oligodendrocytes. Recently, Kenigsbuch et al. confirmed that oligodendrocyte state was associated with brain pathologies among multiple central nervous system diseases. Our findings provided new evidence that decreased expression levels of FADS1/FADS2 in oligodendrocytes could influence cognitive function. The potential mechanism causing the differences between tissues and cells need further investigation.
+
+[0065] [DISCUSS] To further verify our findings, we also used cis-eQTL data in whole blood and found a protective effect of FADS1 and FADS2 expression in blood on cognition. Additionally, the causal effect of FADS1 gene was also confirmed by MRAID method, which provided additional evidence to prove the robustness of this finding. As one of the main MR approaches, the IVW method relies on pre-selected independent SNPs as instruments for MR analysis and could not account for horizontal pleiotropy. MRAID uses multiple correlated genetic variants and account for correlated and uncorrelated pleiotropy. While, the causal effect of FADS2 gene was only observed using the IVW method. Despite the good statistical power from both IVW or MRAID analysis, the effect of FADS2 on cognitive function needs to be investigated in future studies. Importantly, our colocalization evidence confirmed the causal effect of FADS1/FADS2 expression levels on cognitive function. It is well known that FADS1 and FADS2 polymorphisms could modulate fatty acid metabolism. The results from MELODI Presto also identified and prioritized metabolic and neurological diseases as potential intermediates between omega-3 fatty acids or FADS1/FADS2 genes and cognitive function, which provided direction for future mechanistic studies.
+
+[0066] [DISCUSS] There are some strengths in our study. First, we have used large-scale GWAS data of omega-3 fatty acids, tissue and single-cell sequencing cis-eQTL data of gene expression and GWAS data of cognitive function, which brought good instrument strength and statistical power to our study. Second, traditional studies tend to focus on the association between omega-3 fatty acids and cognition, while we proposed for the first time that FADS1 and FADS2 expression in multiple brain tissues and cell types had different effect on cognitive function. Third, we have supplemented the mechanism of cognition at the genetic level by providing evidence to prioritize FADS1 and FADS2 as two potential target genes on cognition, which could be functional in brain.
+
+[0067] [DISCUSS] Our study has several limitations. Firstly, the instruments of omega-3 fatty acids and a small proportion of the outcome samples were obtained from the UK Biobank, which have minor sample overlap issue. However, there was no sample overlap between cis-eQTL data and the outcome GWAS, which means the vast majority of the MR results will not be influenced by the sample overlap issue. Secondly, there were limited number of instruments for the cis-eQTL data, which means most of the MR sensitivity methods such as MR-Egger were not applicable. However, we systematically conducted colocalization analysis to enhance the causal evidence of our findings. Thirdly, the F statistics of hippocampus, substantia nigra and inhibitory neurons were lower than the common threshold of 10, the weak instrument bias need to be carefully considered when interpreting the findings. However, our top findings were observed in oligodendrocytes, which showed good instrument strength. Large-scale single-cell eQTL studies are needed in the future to provide better statistical power.
+
+[0068] [DISCUSS] In conclusion, our MR analysis showed novel insight between FADS1/FADS2 gene expression and cognitive function by using tissue and single cell cis-eQTL data and state-of-the-art methods such as genetic colocalization. Integrating these novel data and methods suggested that FADS1 and FADS2 expression levels could influence cognitive function in different brain tissues and cell types. Our results provided clues for the understanding of the genetic mechanism of cognitive function and improved the current knowledge of FADS gene and cognition. Future studies are needed to prioritize FADS1/FADS2 as potential target genes for maintenance of cognitive function.
+
+[0069] [DISCUSS] Supplementary information
+
+[0070] [DISCUSS] Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0071] [DISCUSS] These authors contributed equally: Xueyan Wu, Lei Jiang, Hongyan Qi.
+
+[0072] [SUPPL] Supplementary information
+
+[0073] [SUPPL] The online version contains supplementary material available at 10.1038/s41398-024-02784-4.
+
+[0074] [AUTH_CONT] Author contributions
+
+[0075] [AUTH_CONT] Conceptualization, XW, JZ and JL; Data curation, XW, HQ, CH, XJ and LL; Formal analysis, XW, HQ and CH; Funding acquisition, JZ, YB and JL; Methodology, JZ; Project administration, JZ, YB and JL; Resources, YB and JL; Supervision, JL; Validation, HL and SW; Writing - original draft, XW, HQ and CH; Writing - review & editing, LJ, YZ, RZ, ML, TW, ZZ, MX, YX and YC. All authors have read and agreed to the final version of the manuscript.
+
+[0076] [SUPPL] Data availability
+
+[0077] [SUPPL] GWAS data of omega-3 fatty acids are available from the UK Biobank (https://www.ukbiobank.ac.uk). Brain tissue cis-eQTL data of FADS gene can be obtained from the GTEx project (v8; https://gtexportal.org/home) and the MetaBrain consortium (https://www.metabrain.nl). Single-cell sequencing cis-eQTL data of FADS gene can be accessed from the respective publication. The cis-eQTL data of FADS gene expression in whole blood are available on the eQTLGen Consortium (https://eqtlgen.org). The GWAS summary statistics for cognitive function are available from the respective publication.
+
+[0078] [SUPPL] Code availability
+
+[0079] [SUPPL] The main statistical analyses were conducted using TwoSampleMR R package (v.0.5.6). Colocalization analysis was conducted using coloc R package (v.5.2.0).
+
+[0080] [COMP_INT] Competing interests
+
+[0081] [COMP_INT] The authors declare no competing interests. Some icons in Graphical Abstract were created with BioRender.com.
+
+[0082] [REF] References
+
+[0083] [REF] Education and Cognitive Functioning Across the Life Span. Psychol Sci
+
+[0084] [REF] Changes in brain function occur years before the onset of cognitive impairment
+
+[0085] [REF] Study of 300,486 individuals identifies 148 independent genetic loci influencing general cognitive function
+
+[0086] [REF] Association of fish oil supplement use with preservation of brain volume and cognitive function
+
+[0087] [REF] Associations between plasma fatty acid concentrations and schizophrenia: a two-sample Mendelian randomisation study
+
+[0088] [REF] Long-chain omega-3 polyunsaturated fatty acids and cognitive decline in non-demented adults: a systematic review and meta-analysis
+
+[0089] [REF] Fatty fish intake and cognitive function: FINS-KIDS, a randomized controlled trial in preschool children
+
+[0090] [REF] Effect of long-term omega 3 polyunsaturated fatty acid supplementation with or without multidomain intervention on cognitive function in elderly adults with memory complaints (MAPT): a randomised, placebo-controlled trial
+
+[0091] [REF] Dietary and supplemental long-chain omega-3 fatty acids as moderators of cognitive impairment and Alzheimer’s disease
+
+[0092] [REF] Genetic loci associated with plasma phospholipid n-3 fatty acids: a meta-analysis of genome-wide association studies from the CHARGE Consortium
+
+[0093] [REF] An atlas of genetic influences on human blood metabolites
+
+[0094] [REF] Genome-wide association study identifies novel loci associated with concentrations of four plasma phospholipid fatty acids in the de novo lipogenesis pathway: results from the Cohorts for Heart and Aging Research in Genomic Epidemiology (CHARGE) consortium
+
+[0095] [REF] Structure, function, and dietary regulation of delta6, delta5, and delta9 desaturases
+
+[0096] [REF] Delta-5 and delta-6 desaturases: crucial enzymes in polyunsaturated fatty acid-related pathways with pleiotropic influences in health and disease
+
+[0097] [REF] SNPs of the FADS gene cluster are associated with polyunsaturated fatty acids in a cohort of patients with cardiovascular disease
+
+[0098] [REF] Evidence for an association between genetic variants of the fatty acid desaturase 1 fatty acid desaturase 2 (FADS1 FADS2) gene cluster and the fatty acid composition of erythrocyte membranes
+
+[0099] [REF] Genetic variants of the FADS1 FADS2 gene cluster are associated with altered (n-6) and (n-3) essential fatty acids in plasma and erythrocyte phospholipids in women during pregnancy and in breast milk during lactation
+
+[0100] [REF] Genetic Variants of the FADS Gene Cluster Are Associated with Erythrocyte Membrane LC PUFA Levels in Patients with Mild Cognitive Impairment
+
+[0101] [REF] Mendelian Randomization Study on the Putative Causal Effects of Omega-3 Fatty Acids on Low Back Pain
+
+[0102] [REF] Systemic inflammatory markers in relation to cognitive function and measures of brain atrophy: a Mendelian randomization study
+
+[0103] [REF] ‘Mendelian randomization’: can genetic epidemiology contribute to understanding environmental determinants of disease?
+
+[0104] [REF] Mendelian Randomization
+
+[0105] [REF] Prioritizing putative influential genes in cardiovascular disease susceptibility by applying tissue-specific Mendelian randomization
+
+[0106] [REF] & Davey Smith G. A transcriptome-wide Mendelian randomization study to uncover tissue-dependent regulatory mechanisms across the human phenome
+
+[0107] [REF] Using Mendelian randomisation to identify opportunities for type 2 diabetes prevention by repurposing medications used for lipid management
+
+[0108] [REF] Single cell eQTL analysis identifies cell type-specific genetic control of gene expression in fibroblasts and reprogrammed induced pluripotent stem cells
+
+[0109] [REF] Cell-type-specific cis-eQTLs in eight human brain cell types identify novel risk genes for psychiatric and neurological disorders
+
+[0110] [REF] Immune disease risk variants regulate gene expression dynamics during CD4(+) T cell activation
+
+[0111] [REF] Single-cell eQTL mapping identifies cell type-specific genetic control of autoimmune disease
+
+[0112] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0113] [REF] Polygenic burdens on cell-specific pathways underlie the risk of rheumatoid arthritis
+
+[0114] [REF] Orienting the causal relationship between imprecisely measured traits using GWAS summary data
+
+[0115] [REF] Role of circulating polyunsaturated fatty acids on cardiovascular diseases risk: analysis using Mendelian randomization and fatty acid genetic association data from over 114,000 UK Biobank participants
+
+[0116] [REF] Brain expression quantitative trait locus and network analyses reveal downstream effects and putative drivers for brain-related diseases
+
+[0117] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0118] [REF] & Davey Smith G. Mendelian randomization: using genes as instruments for making causal inferences in epidemiology
+
+[0119] [REF] LD Score regression distinguishes confounding from polygenicity in genome-wide association studies
+
+[0120] [REF] An atlas of genetic correlations across human diseases and traits
+
+[0121] [REF] The MR-Base platform supports systematic causal inference across the human phenome
+
+[0122] [REF] Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing
+
+[0123] [REF] Likelihood-based Mendelian randomization analysis with automated instrument selection and horizontal pleiotropic modeling
+
+[0124] [REF] A framework for the investigation of pleiotropy in two-sample summary data Mendelian randomization
+
+[0125] [REF] Colocalization of GWAS and eQTL Signals Detects Target Genes
+
+[0126] [REF] Phenome-wide Mendelian randomization mapping the influence of the plasma proteome on complex diseases
+
+[0127] [REF] MELODI Presto: a fast and agile tool to explore semantic triples derived from biomedical literature
+
+[0128] [REF] Dietary fatty acids and risk for Alzheimer’s disease, dementia, and mild cognitive impairment: A prospective cohort meta-analysis
+
+[0129] [REF] Effect of Vitamin D Supplementation, Omega-3 Fatty Acid Supplementation, or a Strength-Training Exercise Program on Clinical Outcomes in Older Adults: The DO-HEALTH Randomized Clinical Trial
+
+[0130] [REF] Omega-3, Omega-6, and Polyunsaturated Fat for Cognition: Systematic Review and Meta-analysis of Randomized Trials
+
+[0131] [REF] Omega-3 fatty acids and blood-based biomarkers in Alzheimer’s disease and mild cognitive impairment: A randomized placebo-controlled trial
+
+[0132] [REF] Maternal FADS2 single nucleotide polymorphism modified the impact of prenatal docosahexaenoic acid (DHA) supplementation on child neurodevelopment at 5 years: Follow-up of a randomized clinical trial
+
+[0133] [REF] Genetic variation in FADS genes is associated with maternal long-chain PUFA status but not with cognitive development of infants in a high fish-eating observational study
+
+[0134] [REF] Association of fatty acid desaturase genes with attention-deficit/hyperactivity disorder
+
+[0135] [REF] FADS single-nucleotide polymorphisms are associated with behavioral outcomes in children, and the effect varies between sexes and is dependent on PPAR genotype
+
+[0136] [REF] The cerebellum and language: historical perspective and review
+
+[0137] [REF] The role of the medial frontal cortex in cognitive control
+
+[0138] [REF] Meeting of minds: the medial frontal cortex and social cognition
+
+[0139] [REF] Cognitive and affective disturbances following focal cerebellar damage in adults: a neuropsychological and SPECT study
+
+[0140] [REF] Cognitive functions in patients with MR-defined chronic focal cerebellar lesions
+
+[0141] [REF] Cerebellar Functional Lateralization From the Perspective of Clinical Neuropsychology
+
+[0142] [REF] From movement to thought: anatomic substrates of the cerebellar contribution to cognitive processing
+
+[0143] [REF] The role of the ventromedial prefrontal cortex in abstract state-based inference during decision making in humans
+
+[0144] [REF] Anatomical evidence for cerebellar and basal ganglia involvement in higher cognitive function
+
+[0145] [REF] Cortico-Basal Ganglia Circuit Function in Psychiatric Disease
+
+[0146] [REF] Mnemonic functions of the basal ganglia
+
+[0147] [REF] Learning and memory functions of the Basal Ganglia
+
+[0148] [REF] Cognitive- and movement-related potentials recorded in the human basal ganglia
+
+[0149] [REF] Transcriptome-wide association studies: recent advances in methods, applications and available databases
+
+[0150] [REF] A gene-based association method for mapping traits using reference transcriptome data
+
+[0151] [REF] Testing and controlling for horizontal pleiotropy with probabilistic Mendelian randomization in transcriptome-wide association studies
+
+[0152] [REF] Multi-trait transcriptome-wide association studies with probabilistic Mendelian randomization
+
+[0153] [REF] Cognitive and emotional influences in anterior cingulate cortex
+
+[0154] [REF] Is anterior cingulate cortex necessary for cognitive control?
+
+[0155] [REF] A shared disease-associated oligodendrocyte signature among multiple CNS pathologies
+
+[0156] [REF] Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases
+
+[0157] [REF] FADS1 and FADS2 Polymorphisms Modulate Fatty Acid Metabolism and Dietary Impact on Health

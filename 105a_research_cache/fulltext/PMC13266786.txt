@@ -1,0 +1,227 @@
+[0001] [TITLE] Identification of potential drug target genes for atopic dermatitis leveraging Mendelian randomization, single-cell transcriptomics, and spatial transcriptomics
+
+[0002] [ABSTRACT] Introduction
+
+[0003] [ABSTRACT] Atopic dermatitis (AD), the most common chronic inflammatory dermatosis, currently lacks definitive curative treatments. This study aimed to identify potential drug targets for AD through an integrative genomic approach.
+
+[0004] [ABSTRACT] Material and methods
+
+[0005] [ABSTRACT] Cis-expression quantitative trait loci (cis-eQTL) from the eQTLGen consortium were used as genetic instruments for druggable genes. Summary-level AD statistics were obtained from the largest available GWAS dataset (cases = 22,474; controls = 774,187) with replication in an independent cohort (cases = 10,788; controls = 30,047). Mendelian randomization (MR) was employed to explore the causal relationship between druggable genes and AD risk, augmented by colocalization analysis to identify shared causal variants. A pQTL dataset was thereafter used for further validation. Furthermore, the potential association between the identified genes and five other inflammatory skin diseases was also assessed. Finally, we specifically investigated expression patterns of identified genes through analysis of single-cell RNA sequencing and spatial transcriptomics data from GEO datasets via Seurat.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] Three druggable genes, HSP90AA1, IL2RA, and MANBA, were positively associated with an increased risk of AD. Colocalization analysis identified rs61839660 as a shared variant between IL2RA and AD, with pQTL data confirming IL2RA protein-level effects. Increased IL2RA gene expression was observed in natural killer cells within leukocyte infiltration regions. Moreover, MR analysis indicated that IL2RA gene expression also increases the risk of psoriasis and eczema, though without colocalization evidence.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] These findings suggest that IL2RA inhibitors could be promising therapeutic agents for the treatment of AD.
+
+[0010] [INTRO] Introduction
+
+[0011] [INTRO] Atopic dermatitis (AD), the most common chronic inflammatory dermatosis, is clinically characterized by intense pruritus and recurring eczematous lesions. This condition exhibits a striking age-dependent prevalence, affecting 15–20% of children compared to only 5–10% of adults. The pathogenesis of AD remains uncertain and intricate. The current understanding of AD’s causes includes genetic predisposition and environmental triggers, skin barrier disruptions, microbial community imbalances, and immune system dysregulation. As a chronic condition with variable clinical presentations, AD management primarily focuses on maintaining epidermal barrier function through emollient use. For more resistant cases, treatment options expand to include biologic therapies, phototherapy, and immunomodulators. However, the lack of targeted treatments for severe AD underscores the urgent need to better understand its underlying mechanisms and develop more effective therapies.
+
+[0012] [INTRO] Drug discovery and optimization are protracted, costly, and fraught with risk. The traditional drug development pipeline encompasses multiple rigorous phases, including target validation, compound screening, lead optimization, preclinical efficacy and toxicity assessments, clinical trials, and ultimately regulatory approval and commercialization. Despite these extensive efforts, the overall success rate of clinical drug development remains alarmingly low at 10–15%. A major contributing factor to this high attrition rate is the frequent failure of late-stage clinical candidates, primarily because early-stage target selection failed to accurately predict therapeutic efficacy. Notably, emerging evidence suggests that genetically supported drug targets demonstrate significantly higher therapeutic potential, offering promising opportunities to improve development success rates.
+
+[0013] [INTRO] The integration of genetic research findings into drug target research is a promising avenue that generates novel methodologies for the advancement of pharmaceutical development. Mendelian randomization (MR), a powerful genetic epidemiological approach, employs genetic variants as instrumental variables (IVs) to infer causal relationships between exposures and outcomes while addressing key limitations of observational studies, including confounding and reverse causation. By leveraging quantitative trait loci (QTLs) as IVs, MR analysis has successfully identified novel drug targets across multiple diseases. This methodology not only enhances the precision of therapeutic effect estimation but also holds significant potential to accelerate drug development.
+
+[0014] [INTRO] In this study, we applied an integrative multiomics framework to identify and validate potential drug targets for AD. Specifically, we performed two-sample MR and colocalization analyses by integrating data on druggable genes, blood eQTLs, and two independent AD genome-wide association study (GWAS) datasets to infer causal relationships between gene expression and AD risk. Validation was carried out with pQTL dataset data, and the causal effects of putative druggable genes on five other inflammatory dermatoses were also explored. Finally, we characterized the cellular and spatial expression patterns of candidate targets through integrated single-cell RNA sequencing (scRNA-seq) and spatial transcriptomics (ST) data, providing multi-dimensional evidence to prioritize therapeutic candidates.
+
+[0015] [METHODS] Material and methods
+
+[0016] [METHODS] Exposure data sources
+
+[0017] [METHODS] A total of 4,302 druggable genes located on the autosomal chromosomes with HGNC nomenclature were identified. These are 1,375 protein targets that are currently under clinical development, 646 proteins associated with drug targets and compounds, and 2,281 proteins associated with members of major drug target families. Given the observation that cis-eQTLs exhibited greater proximity to the target gene in the context of drug development investigations, we acquired cis-eQTLs within a range of ±1 megabase (Mb) from the eQTLGen consortium’s peripheral blood study (n = 31,684). For protein-level validation, we analyzed pQTL data derived from a GWAS of plasma proteins measured by 4,907 aptamers in 35,559 Icelandic individuals (Supplementary Table SI). Genes showing consistent cis-eQTL associations in both discovery and replication phases were further examined using this pQTL resource, including analysis of significant cis-pQTLs identified in the original study’s supplemental data. Significant cis-pQTLs from the original study’s supplemental data were analyzed.
+
+[0018] [METHODS] Outcome data sources
+
+[0019] [METHODS] Atopic dermatitis
+
+[0020] [METHODS] The genetic summary data for AD was obtained from a recent large-scale meta-analysis study involving 796,661 individuals of European ancestry (Supplementary Table SI). The dataset encompassed sources from the Estonian Biobank (11,187 cases and 125,537 controls), FinnGen (8,383 cases and 236,161 controls), and the UK Biobank consortium (2,904 cases and 412,489 controls). FinnGen required cases to be entered using the International Classification of Diseases, Tenth Revision (ICD-10) code L20, ICD-9 number 6918, or ICD-8 code 691. Participants having the ICD-10 code L20 were judged to have AD in both the Estonian Biobank and the UK Biobank. Both FinnGen and the Estonian Biobank’s association models used age, sex, and genetic features such as the top 10 genetic main components. FinnGen modified models for genotyping batches. The UK Biobank study accounted for many confounders, such as age, sex, age × sex, age2, age2 × sex, and the first 10 genetic main components. Replication data were obtained from the EArly Genetics and Life Course Epidemiology (EAGLE) Consortium’s 10,788 AD patients and 30,047 controls (excluding the 23andMe study). The EAGLE Consortium diagnosed AD by self-report or dermatological examination.
+
+[0021] [METHODS] Five inflammatory dermatoses
+
+[0022] [METHODS] GWAS summary statistics for psoriasis (9,267 cases; 364,071 controls), rosacea (1,195 cases; 211,139 controls), and acne (2,787 cases; 361,140 controls) were made public by the FinnGen consortium. The EAGLE Consortium released GWAS summary data on eczema with 10,788 cases and 30,047 controls. Summary results were obtained from the greatest GWAS meta-analyses for vitiligo (4,680 cases; 29,586 controls).
+
+[0023] [METHODS] IV selection
+
+[0024] [METHODS] We initially identified cis-eQTLs within ±100 kb of gene probes in 2,630 druggable genes. Second, for potential IVs to be selected, the SNP-phenotype association level must meet the genome-wide significance threshold (p < 5 × 10–8). Furthermore, minor allele frequency (MAF) < 0.01 was eliminated. Fourth, to ensure the independence of IVs without linkage disequilibrium (LD), SNPs with R2 > 0.1 (window size = 10,000 kb) were filtered based on the 1000 Genomes European reference panel. We assessed weak IV bias using the F-statistic (beta2/se2); an F-statistic greater than 10 indicates that there is little evidence of weak IVs. The IVs’ directionality was evaluated by exploiting the MR Steiger filtering estimate to determine whether the SNP had a stronger association with the exposure than with the outcome. SNPs not meeting this criterion were eliminated (Supplementary Tables SII, SIII).
+
+[0025] [METHODS] Mendelian randomization
+
+[0026] [METHODS] We applied MR to assess causal relationships between druggable gene expression and AD risk using summary-level genetic data. The analysis excluded SNPs when exposure-related SNPs were unavailable in outcome GWAS datasets. We implemented strict allele harmonization procedures to ensure consistency between exposure and outcome data. For SNPs with discordant effect alleles across datasets, we performed strand alignment adjustments. Palindromic SNPs were removed due to their inherent allele ambiguity, as previously described. For single SNP instruments, we employed the Wald ratio method. Multiple SNP analyses primarily used the inverse-variance weighted method (IVW). Weighted median and MR-Egger regression estimators are employed to evaluate the robustness of the findings. The weighted median method presents a median estimate of all SNP effect values sorted by weight, with consistent results even if up to 50% of IV is invalid. The MR-Egger regression method was used to evaluate pleiotropy, taking into account the existence of the intercept. The MR-Egger intercept test was used to conduct pleiotropy testing. Cochran’s Q test was employed to identify the existence of heterogeneity in IVs.
+
+[0027] [METHODS] Bayesian colocalization analysis
+
+[0028] [METHODS] Bayesian colocalization analysis was performed to determine whether two traits share the common causal variant rather than being linked owing to LD. The analysis was conducted using the default parameters in the “coloc” package (https://github.com/chr1swallace/coloc). As indicated, colocalization analysis calculates posterior probability for five hypotheses regarding shared genetic associations. PP.H0 indicates no genetic association for either trait in the region. PP.H1 suggests an association only for trait 1. PP.H2 indicates an association only for trait 2. PP.H3 represents an association for both traits but with distinct causal variants. PP.H4 provides evidence for shared causal variants between traits. The analysis included all cis-eQTLs within ±1 Mb of each gene without LD or p-value filtering. Colocalization analysis uses coloc.abf algorithms. We considered PP.H4 > 80% as strong evidence for colocalization and designated such genes as potential therapeutic targets.
+
+[0029] [METHODS] Leveraging MR and colocalization analysis, we also explored causal relationships between candidate target genes and five other inflammatory skin diseases. To evaluate therapeutic potential, we queried DrugBank and ChEMBL databases for relevant small-molecule compounds. ClinicalTrials.gov provided additional information on clinical development status.
+
+[0030] [METHODS] Discovery analyses used a Bonferroni-corrected threshold of p < 2.16e-05 (0.05/2316). Replication analyses required p < 0.005 (0.05/10). Other analyses used p < 0.05 as the significance threshold. All analysis was conducted exploiting the “TwoSampleMR” and “coloc” packages in R software (version 4.3.1).
+
+[0031] [METHODS] Single-cell RNA-sequencing data acquisition and processing
+
+[0032] [METHODS] In this study, scRNA-seq data were obtained from the GSE153760 dataset in the GEO database, which includes 7 healthy controls (HC) and 8 AD patients. Data processing used the “Seurat” package (v4.4.0) with the following workflow. First, quality control (QC) removed cells expressing fewer than 200 or more than 7,000 genes and those with mitochondrial content exceeding 20% conducted by the “PercentageFeatureSet” function. Second, data normalization was carried out using the “NormalizeData” function, followed by identification of the top 2,000 highly variable genes (HVGs) with the “FindVariableFeatures” function. We then conducted principal component analysis (PCA) on the HVGs using the “RunPCA” function. To correct for batch effects, the “RunHarmony” function was employed. Cell clusters were identified with the “FindClusters” function (resolution = 0.5) and visualized in the Harmony space through the “RunTSNE” function. Marker gene identification for each cluster was accomplished through the “FindAllMarkers” function, focusing on genes with at least a 0.25 logFC increase compared to other cell clusters. Finally, we visualized IL2RA expression patterns using both the “FeaturePlot_scCustom” and “DotPlot” functions.
+
+[0033] [METHODS] Spatial transcriptomic sequencing data acquisition and processing
+
+[0034] [METHODS] We obtained ST-seq data from the GEO dataset GSE197023, consisting of 6 HC and 6 lesional skin (LS) samples from AD patients. The ST data were processed and analyzed using the “Seurat” package, similar to the methods applied for scRNA-seq data. Samples with fewer than 100 spot counts were excluded. The filtered ST-seq data were then normalized using the “NormalizeData” and “SCTransform” functions. The top 5,000 HVGs were selected based on their consistent variability across datasets. Dimension reduction was performed using PCA on each sample individually before integration, using the “RunPCA” function. The Seurat objects were then integrated into a single ST dataset using the “SelectIntegrationFeatures”, “FindIntegrationAnchors”, and “IntegrateData” functions. Canonical correlation analysis (CCA) and “Harmony” were employed to correct for batch effects across samples. Afterward, clusters were identified using the “FindNeighbors” and “FindClusters” functions. These clusters were annotated based on marker genes identified in previous studies. Finally, the expression levels and spatial distribution of IL2RA were determined.
+
+[0035] [METHODS] Gene expression analysis using integrated ST-seq and scRNA-seq data
+
+[0036] [METHODS] Additionally, cell-type mapping of ST-seq data with scRNA-seq data was performed using the “FindIntegrationAnchors” and “TransferData” functions. Cell types within the ST data were identified using the “CreateAssayObject” function. The expression levels, as well as the cellular and spatial distribution of IL2RA, were determined.
+
+[0037] [RESULTS] Results
+
+[0038] [RESULTS] Research design
+
+[0039] [RESULTS] The study design consisted of six consecutive analytical steps (Figure 1). First, druggable genes were identified. Then, appropriate IVs for these genes were determined. Following that, MR analysis of the gene expression-AD relationship was performed in both the discovery and replication cohorts. Additionally, colocalization analysis was carried out to detect common causal variations. Furthermore, the validation process used pQTL datasets and conducted cross-disease MR/colocalization analyses involving five additional inflammatory dermatoses. Additionally, druggability and the progress of clinical development of drugs were assessed. Finally, candidate gene expression profiles were characterized with scRNA-seq and ST-seq analysis.
+
+[0040] [FIG] Flowchart of the study process
+
+[0041] [RESULTS] Discovery cohort findings
+
+[0042] [RESULTS] Ultimately, the MR analysis results for 2,316 druggable genes were obtained. MR research found ten genes that were strongly linked to the risk of AD (Figure 2). Among these, the expression of the druggable genes GPX3, HLA-DRB1, and IL2RA was associated with an increased risk of AD (OR = 1.20; 95% CI: 1.11, 1.29; p = 1.43e-6; OR = 1.12; 95% CI: 1.07, 1.17; p = 3.71e-06; OR = 1.50; 95% CI: 1.33, 1.67; p = 3.55e-12 [IVW]) (Figure 2). The expression of the druggable genes HSP90AA1, IMPG2, MANBA, MCL1, OPRL1, SENP7, and TNFRSF10C has an inhibitory effect on the risk of AD. No association between the expression of the remaining druggable genes and the risk of AD was detected (p > 2.16-05) (Figure 2). For the 10 significant druggable genes identified above, our analyses showed no evidence of heterogeneity among the IVs (Q_pval > 0.05). Furthermore, MR-Egger intercept tests confirmed the absence of significant pleiotropic effects (Pleiotropy_pval > 0.05) (Supplementary Table SIV).
+
+[0043] [FIG] Mendelian randomization estimates of druggable gene expression associated with atopic dermatitis using discovery datasets
+
+[0044] [FIG] nSNPs – number of single nucleotide polymorphisms, IVW – inverse-variance weighted, OR – odds ratio, 95% CI – 95% confidence interval.
+
+[0045] [RESULTS] Replication cohort validation
+
+[0046] [RESULTS] We validated the ten significant druggable genes in an independent AD cohort. The IVW results showed that expression of three druggable genes (HSP90AA1, IL2RA, and MANBA) remained significant after Bonferroni correction (p < 0.005, 0.05/10 genes), consistent with the discovery dataset (Figure 3). Nominal significance was observed in the expression of the druggable genes HLA-DRB1, MCL1, and OPRL1 (p < 0.05 [IVW]) (Figure 3). While part of heterogeneity was observed (Q_pval < 0.05), the MR-Egger intercept test ruled out horizontal pleiotropy (Pleiotropy_pval > 0.05) (Figure 3).
+
+[0047] [FIG] Mendelian randomization estimates of druggable gene expression associated with atopic dermatitis using replication datasets
+
+[0048] [FIG] nSNPs – number of single nucleotide polymorphisms, IVW – inverse-variance weighted, OR – odds ratio, 95% CI – 95% confidence interval.
+
+[0049] [RESULTS] Colocalization analysis
+
+[0050] [RESULTS] For genes significant in both discovery and replication cohorts, we examined shared genetic architecture with AD. IL2RA showed strong colocalization evidence (rs61839660, PP.H4 > 0.8) (Supplementary Table SIV; Figure 4), while HSP90AA1 and MANBA demonstrated no colocalization (Supplementary Table SV; Figure 4).
+
+[0051] [FIG] LocusZoom plot of the IL2RA locus (±500 kb) in relation to atopic dermatitis. Regional Manhattan plot showing SNP associations within the IL2RA locus. A – rs61839660 was used as a proxy for serum IL2RA expression. B – rs61839660 and its flanking 500 kb region on either side in atopic dermatitis (AD)
+
+[0052] [RESULTS] pQTL dataset
+
+[0053] [RESULTS] The finding revealed a statistically significant positive impact on the IL2RA protein-associated cis-pQTL (rs12722489) and the risk of AD (Supplementary Tables SVI, SVII), which aligns with the direction of impact in the primary discoveries.
+
+[0054] [RESULTS] Five inflammatory dermatoses
+
+[0055] [RESULTS] Elevated IL2RA expression increased the risk of psoriasis (OR = 1.48; 95% CI: 1.25, 1.75; p = 4.8e-06) and eczema (OR = 1.40; 95% CI: 1.18, 1.66; p = 1.4e-04), but showed no association with vitiligo, rosacea or acne (p > 0.05) (Figure 5). However, colocalization analyses found no shared variants between IL2RA and these dermatoses (Supplementary Table SVIII).
+
+[0056] [FIG] Mendelian randomization estimates of IL2RA gene expression in five inflammatory dermatoses
+
+[0057] [FIG] nSNPs – number of single nucleotide polymorphisms, IVW – inverse-variance weighted, OR – odds ratio, 95% CI – 95% confidence interval.
+
+[0058] [RESULTS] Identify druggability and clinical development status
+
+[0059] [RESULTS] A systematic review of DrugBank and ChEMBL databases revealed that most small-molecule drugs targeting IL2RA are currently in either approved or investigational stages (Supplementary Table SIX). The approval of aldesleukin has been granted for the treatment of metastatic renal cell carcinoma in adults. Denileukin diftitox has been approved to treat cutaneous T-cell lymphoma. Basiliximab is a monoclonal anti-C25 antibody (IL2RA) approved for prophylactic treatment of kidney transplant rejection. Furthermore, multiple IL2RA inhibitors are undergoing clinical trials, with a primary focus on organ transplant rejection (Supplementary Table SX).
+
+[0060] [RESULTS] Identification of IL2RA expression in AD based on scRNA-seq and ST-seq data
+
+[0061] [RESULTS] Current evidence indicates that IL2RA expression is associated with a high risk of AD. Therefore, we further investigated IL2RA expression at both cellular and tissue levels. After QC, a total of 33,162 cells and 33,408 genes were retained for further analysis (Supplementary Figures S1 A–D). Cells were then clustered and annotated using canonical markers (Figures 6 A–C, E; Supplementary Figures S1 E–G), including keratinocytes (KRT14 and KRT10), melanocytes (PMEL and MLANA), natural killer cells (GZMB and NKG7), T cells (IL7R and CD3D), phagocytes (LYZ and F13A1), mast cells (TPSAB1 and TPSB2), fibroblasts (COL6A2 and COL1A2), endothelial cells (RAMP2 and CLDN5), and smooth muscle cells (ACTA2 and TAGLN). We observed increased proportions of keratinocytes and phagocytes in AD compared to HC (Figure 6 D). IL2RA expression was noted in T cells and natural killer cells within AD samples (Figure 6 F), suggesting its involvement in AD-related immune modulation.
+
+[0062] [FIG] Identification of IL2RA gene expression in AD using scRNA-seq and ST-seq data. A–C – t-SNE plots showing the nine major cell types in all samples (A), HC samples (B), and AD samples (C). D – Bar plots illustrating the distribution of cell types in HC and AD samples. E – Bubble plots displaying the expression of the top two marker genes in each cell type. F – t-SNE plots depicting IL2RA gene expression in major cell types within HC and AD samples. G – Spatial scatter pie plots showing the annotated regions in skin tissue. H – Bubble plots presenting IL2RA gene expression in the annotated regions. I – Spatial scatter pie plots showing the annotated cell types in the capture location
+
+[0063] [RESULTS] Furthermore, ST-seq data were obtained, processed, and clustered (Supplementary Figures S2 A, B; S3 A). A total of 7 regions were identified: upper epidermis (niche 5), lower epidermis (niches 3 and 18), leukocyte infiltration (niches 0, 4, 8, and 16), ECM/fibroblast (niches 1, 2, 6, 7, 9, 10, 14, and 15), sweat gland (niche 11), fibroblast (niche 12), smooth muscle cell (niche 13), and hair follicle (niche 17) (Figure 6G; Supplementary Figure S3 B). IL2RA expression was prominent in leukocyte infiltration zones (Figure 6 H). Following cell-type mapping, four cell types were identified: natural killer cells, keratinocytes, phagocytes, and T cells (Figure 6 I). Phagocytes and T cells were predominantly enriched in the leukocyte infiltration region, consistent with the scRNA-seq analysis.
+
+[0064] [DISCUSS] Discussion
+
+[0065] [DISCUSS] This study employed integrative multi-omics to systematically assess the causal significance of druggable genes in AD. We leveraged GWAS and eQTL data to conduct MR and colocalization investigations, identifying greater IL2RA expression as a potential cause of increased AD risk, with pQTL validation at the protein level. While MR associated higher IL2RA expression with a higher risk of psoriasis and eczema, colocalization analysis provided no evidence. Notably, scRNA-seq and ST revealed a relationship between IL2RA expression and T and NK cells in leukocyte infiltration zones in AD tissues.
+
+[0066] [DISCUSS] IL2RA, namely interleukin 2 receptor a subunit, which is also known as CD25, represents the a chain of the interleukin-2 receptor, characterized by a short cytoplasmic region and low affinity. IL2RA is widely regarded as the predominant molecular marker for regulatory T cells due to its continuous and elevated expression on resting and activated regulatory T cells (Tregs). The receptor plays a role in the modulation of immunological tolerance through Treg activity. Tregs exert a suppressive effect on the activation and proliferation of autoreactive T cells. Currently, little is known about the underlying mechanism by which greater IL2RA expression contributes to increased susceptibility to AD. We propose the following potential hypotheses. IL2RA interacts with IL2 on CD8+ T cells, facilitating the generation of memory cytolytic T lymphocytes, which subsequently convert into memory T cells. Memory T cells play a crucial role in the infiltration of inflammatory T cells in the development of AD. Furthermore, IL2RA plays a crucial role in the formation and operation of Tregs. Regulatory T cells stimulate the initiation of innate inflammation following a breach in the skin barrier through the activation of TGF-β. Additionally, therapeutic interventions targeting IL2RA may hold promise for AD treatment. The monoclonal antibody basiliximab, which specifically binds CD25, has demonstrated clinical efficacy in psoriasis management by suppressing hyperactive T cell responses. Given the shared pathophysiology of T cell dysregulation in both psoriasis and AD, this therapeutic approach warrants further investigation for potential application in AD treatment strategies.
+
+[0067] [DISCUSS] This study offers several significant advantages. It is the first to identify potential drug targets for AD using MR analysis. Second, drug research and development is a lengthy, resource-intensive process with a low success rate. By focusing on druggable genes, this study aims to enhance the efficacy of AD treatments and improve the success rate of drug development. Specifically, our research has identified IL2RA as a potential drug target for AD. Additionally, the integration of scRNA-seq and ST-seq data allowed us to provide biological evidence for IL2RA-related inflammation in AD. By using cis-eQTLs as IVs for druggable gene expression and combining GWAS and eQTL datasets for MR analysis, we addressed limitations commonly associated with observational studies and randomized controlled trials, such as small sample sizes, confounding, reverse causality, and feasibility issues. This approach also helps minimize the risk of horizontal pleiotropy, which can violate the assumptions of MR. Furthermore, our MR study explored the impact of IL2RA gene expression on five other inflammatory skin diseases, revealing potential alternative indications. Finally, we identified several targeted small molecule inhibitors currently under development, providing guidance for future drug development efforts targeting these pathways.
+
+[0068] [DISCUSS] Several limitations of this study should also be noted. Foremost, excluding the potential impact of pleiotropy entirely poses challenges in MR studies. Furthermore, trans-eQTL SNPs (SNPs and gene centers > 5 Mb) may exert a significant influence on regulatory networks. However, our research merely concentrated on the cis-eQTLs of the druggable genes. Although a Bayesian colocalization strategy was employed in this study under the premise that two traits are associated with a common genetic variant, the scenario involving multiple causative variants has not been extensively investigated. Moreover, it is imperative to conduct clinical trials to assess the efficacy and safety of this putative drug target in the treatment of AD. Furthermore, the study was restricted to people of European descent, therefore constraining the applicability of the results to other populations. Finally, the findings necessitate basic experimental validation of IL2RA in specimens from AD patients, although ethical limitations in biopsy collection and limited access to untreated lesions present hurdles.
+
+[0069] [DISCUSS] In conclusion, our study indicates a potential causal relationship between increased expression of the IL2RA gene and a greater risk of AD. Nevertheless, our investigation yielded no support regarding the impact of IL2RA gene expression on the remaining five inflammatory dermatoses. The present investigation highlights the potential of IL2RA inhibitors as therapeutic targets for the treatment of AD. Further research is required to enhance comprehension of the pathogenesis of AD, and it is imperative to assess the potential efficacy of IL2RA inhibitors in the treatment of AD by conducting preclinical and clinical studies.
+
+[0070] [SUPPL] Supplementary Material
+
+[0071] [SUPPL] Data availability
+
+[0072] [SUPPL] The eQTL data conducted by eQTLGen were available at https://eqtlgen.org/. The AD GWAS data were available at https://gwas.mrcieu.ac.uk/ (Discovery) and https://www.ebi.ac.uk/gwas/ (Replication). Psoriasis, rosacea, and acne GWAS data contributed by the FinnGen consortium were from https://finngen.gitbook.io/documentation/. Vitiligo and eczema GWAS data were from https://gwas.mrcieu.ac.uk/. Single-cell RNA-sequencing data and spatial transcriptomic data were available in Gene Expression Omnibus (GEO, https://www.ncbi.nlm.nih.gov/geo) under GEO accession GSE153760 and GSE197023, respectively.
+
+[0073] [SUPPL] Ethical approval
+
+[0074] [SUPPL] Not applicable.
+
+[0075] [COMP_INT] Conflict of interest
+
+[0076] [COMP_INT] The authors declare no conflict of interest.
+
+[0077] [REF] References
+
+[0078] [REF] Atopic dermatitis
+
+[0079] [REF] Atopic dermatitis
+
+[0080] [REF] Novel insights into atopic dermatitis
+
+[0081] [REF] Accelerating therapeutics for opportunities in medicine: a paradigm shift in drug discovery
+
+[0082] [REF] Principles of early drug discovery
+
+[0083] [REF] Exploring different approaches to improve the success of drug discovery and development projects: a review
+
+[0084] [REF] Clinical development success rates for investigational drugs
+
+[0085] [REF] The support of human genetic evidence for approved drug indications
+
+[0086] [REF] ‘Mendelian randomization’: can genetic epidemiology contribute to understanding environmental determinants of disease
+
+[0087] [REF] Mendelian randomization
+
+[0088] [REF] Genetic insights into therapeutic targets for aortic aneurysms: a Mendelian randomization study
+
+[0089] [REF] Potential drug targets for multiple sclerosis identified through Mendelian randomization analysis
+
+[0090] [REF] Therapeutic targets for inflammatory bowel disease: proteome-wide Mendelian randomization and colocalization analyses
+
+[0091] [REF] Association of antihypertensive drug target genes with psychiatric disorders: a Mendelian randomization study
+
+[0092] [REF] Therapeutic targets for heart failure identified using proteomics and mendelian randomization
+
+[0093] [REF] Mendelian randomization and clinical trial evidence supports TYK2 inhibition as a therapeutic target for autoimmune diseases
+
+[0094] [REF] Systematic Mendelian randomization using the human plasma proteome to discover potential therapeutic targets for stroke
+
+[0095] [REF] The druggable genome and support for target identification and validation in drug development
+
+[0096] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0097] [REF] Uniting biobank resources reveals novel genetic pathways modulating susceptibility for atopic dermatitis
+
+[0098] [REF] Multi-ancestry genome-wide association study of 21,000 cases and 95,000 controls identifies new risk loci for atopic dermatitis
+
+[0099] [REF] FinnGen provides genetic insights from a well-phenotyped isolated population
+
+[0100] [REF] Genome-wide association studies of autoimmune vitiligo identify 23 new risk loci and highlight key pathways and regulatory variants
+
+[0101] [REF] Using multiple genetic variants as instrumental variables for modifiable risk factors
+
+[0102] [REF] Two-sample Mendelian randomization: avoiding the downsides of a powerful, widely applicable but potentially fallible technique
+
+[0103] [REF] Common methods for performing mendelian randomization
+
+[0104] [REF] Using published data in Mendelian randomization: a blueprint for efficient identification of causal risk factors
+
+[0105] [REF] Mendelian randomization analysis with multiple genetic variants using summarized data
+
+[0106] [REF] Mendelian randomization with invalid instruments: effect estimation and bias detection through Egger regression
+
+[0107] [REF] Consistent estimation in mendelian randomization with some invalid instruments using a weighted median estimator
+
+[0108] [REF] Spatial transcriptomics combined with single-cell RNA-sequencing unravels the complex inflammatory cell network in atopic dermatitis
+
+[0109] [REF] Interleukin-2 at the crossroads of effector responses, tolerance, and immunotherapy
+
+[0110] [REF] Inflammatory skin diseases, T cells, and immune surveillance
+
+[0111] [REF] Regulatory T cells promote innate inflammation after skin barrier breach via TGF-beta activation
+
+[0112] [REF] Successful treatment of severe generalized pustular psoriasis with basiliximab (interleukin-2 receptor blocker)
+
+[0113] [REF] Successful treatment of severe psoriasis with basiliximab, an interleukin-2 receptor monoclonal antibody
+
+[0114] [REF] A more accurate method for colocalisation analysis allowing for multiple causal variants

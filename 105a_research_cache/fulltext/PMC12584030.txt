@@ -1,0 +1,325 @@
+[0001] [TITLE] Druggable Genome Mendelian Randomization and GWAS-sceQTLs MR Analysis Reveal Genetic Associations Between Open-Angle Glaucoma and Immune Cells, and Identify Potential Drugs
+
+[0002] [ABSTRACT] Purpose
+
+[0003] [ABSTRACT] The purpose of this study was to identify therapeutic targets and repurposable drugs for primary open-angle glaucoma (POAG) by investigating its immunometabolic mechanisms using druggable genomic and single-cell transcriptomic approaches.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We integrated druggable genome-wide and single-cell Mendelian randomization (MR) using POAG genome-wide association study (GWAS) data, blood and single-cell expression quantitative trait loci (eQTL) datasets. Causal genes were identified via colocalization and MR inference (inverse-variance weighted [IVW]). Drug-gene interactions were predicted using molecular docking (DSigDB/CB-Dock2), and safety was assessed via phenome-wide association studies (PheWAS).
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] (1) Identified two POAG causal genes: risk genes YWHAG (odds ratio [OR] = 1.207, 95% confidence interval [CI] = 1.131–1.288) and protective genes GFPT1 (OR = 0.874, 95% CI = 0.840–0.910). (2) Cell-type-specific paradoxical effect: In CD4+KLRB1-T cells, high GFPT1 expression increased POAG risk (OR = 1.448, 95% CI = 1.241–1.690, P = 2.545 × 10−6), suggesting its role in driving immunometabolic reprogramming via the hexosamine biosynthesis pathway (HBP). (3) Drug screening: Molecular docking confirmed strong binding of trimipramine, desipramine, and cyclosporin to GFPT1 (Vina score < −5), with PheWAS indicating no significant off-target effects.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] GFPT1 in CD4+ memory T cells contributes to POAG pathogenesis through immunometabolic dysregulation. Three existing drugs identify potential for therapeutic repurposing.
+
+[0010] [ABSTRACT] Translational Relevance
+
+[0011] [ABSTRACT] This study identifies GFPT1-driven immunometabolic dysfunction as a novel target in POAG and nominates three US Food and Drug Administration (FDA)-approved drugs for immediate clinical translation, accelerating the path to trials.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Primary open-angle glaucoma (POAG) is a chronic neurodegenerative disorder characterized by progressive optic nerve damage and visual field defects, representing a leading global cause of irreversible blindness. Although elevated intraocular pressure (IOP) is a primary risk factor, approximately 30% of patients present with normal-tension glaucoma, suggesting complex interactions between genetic predisposition and microenvironmental factors in disease pathogenesis. First-line therapy primarily relies on topical prostaglandin analogs (e.g. latanoprost), reducing IOP by 5 to 8 millimeters of mercury (mm Hg). However, limitations exist: 20% to 30% of patients exhibit an inadequate response, and long-term use may cause adverse effects, such as conjunctival hyperemia and ocular surface disease. Furthermore, current drugs predominantly target aqueous humor outflow pathways, offering insufficient coverage of parallel mechanisms like neuroprotection and vascular regulation. Therefore, integrating multi-omic strategies to identify novel targets and repurpose oral drugs is critical for overcoming current therapeutic bottlenecks.
+
+[0014] [INTRO] Over the past decade, the immune microenvironment has emerged as a prominent focus in biological research, encompassing immune infiltration, antigen presentation, immune cell exhaustion, and intercellular communication. Composed of diverse lymphocytes (e.g. T cells, B cells, and macrophages), this microenvironment plays a pivotal role in POAG. Prior studies indicate that neuroinflammation in patients with POAG may stem from dysregulated immune responses. For instance, M1-polarized macrophages exhibit enhanced antigen-presenting capacity and drive tissue inflammation. Thus, delineating the immune landscape of POAG is essential to elucidate its neuroinflammatory mechanisms. Given the functional heterogeneity of immune cells and their unique gene expression profiles—factors contributing to clinical trial failures—single-cell analysis offers deeper mechanistic insights and enables precise cell-targeted therapies.
+
+[0015] [INTRO] Mendelian randomization (MR) is a method for evaluating causal relationships between modifiable exposures or risk factors and clinically relevant outcomes. Widely applied in drug repurposing, MR integrates summary data from disease GWAS and expression quantitative trait loci (eQTL) studies to discover novel therapeutic targets. Gene expression levels can be considered lifelong exposures, with eQTLs in druggable genomic regions serving as instrumental variables. Large-scale human genetic studies provide opportunities for drug development in complex diseases, as genetically validated targets show higher success rates in discovery pipelines. In essence, “druggable” genes encoding proteins or regulating expression offer robust clues for target identification. Although numerous GWAS have identified POAG-associated SNPs, the relationship between the druggable genome and POAG remains unexplored.
+
+[0016] [INTRO] This study innovatively integrates druggable genome-wide MR analysis, single-cell immune MR, and molecular docking to identify potential POAG therapeutics from genetic and single-cell perspectives. First, we constructed an MR framework using large-scale POAG GWAS and eQTL data to prioritize high-confidence causal targets. Second, druggable genome annotation identified repositionable approved drugs. Finally, molecular docking validated binding efficacy between lead compounds and target proteins.
+
+[0017] [METHODS] Methods
+
+[0018] [METHODS] The study roadmap is illustrated in Figure 1. Summary-level datasets were utilized, with all informed consent and ethical approvals obtained in original studies. This research workflow commenced with the identification of the druggable genome to systematically screen for genes with targeting potential. Subsequently, genetic approaches were used to identify druggable genes significantly associated with POAG, pinpointing potential therapeutic targets. To further investigate their cell-specific mechanisms, a single-cell cis-eQTL analysis of the prior candidate druggable genes was conducted to evaluate their regulatory effects within specific cell types. To assess the potential risks of targeting these genes, the study also identified the side effects associated with the previously shortlisted druggable genes. Finally, based on these findings, the research focused on the identification of actionable, marketed drugs and molecular docking for the candidate genes, providing a rationale for drug repurposing and guiding clinical translation for POAG.
+
+[0019] [FIG] Study workflow.
+
+[0020] [METHODS] Identification of Druggable Genes
+
+[0021] [METHODS] Druggable genes were sourced from Finan et al. (Table 1). This resource links GWAS-identified loci of complex diseases to druggable genes, facilitating drug target identification and validation.
+
+[0022] [TABLE] Data Sources for Mendelian Randomization Analysis
+
+[0023] [TABLE] Type of Dataset Data Subtype Source Sample Size Population Download Site Druggable genome Prior druggable gene Finan C, et al. 2017 – – Finan C, et al. PMID: 28356508. QTL datasets Blood cis‐eQTL eQTLGen Consortium (Võsa U, et al. 2021) 31,684 European https://www.eqtlgen.org/cis-eqtls.html34475573 QTL datasets sc‐eQTL OneK1K 982 European https://onek1k.org/ GWAS summary Primary open-angle glaucoma, strict FinnGen R12 484,589 European https://www.finngen.fi/en/access_results36653562
+
+[0024] [METHODS] eQTL Data
+
+[0025] [METHODS] Given the more direct and specific biological effects of cis-regulatory elements compared with trans-acting factors, we used blood cis-eQTL data for variants within ±1 Mb of druggable gene coding sequences (see Table 1). Blood cis-eQTLs were obtained from the eQTLGen Consortium, covering 19,250 gene transcripts in 31,684 individuals. Single-cell eQTLs for immune cells were derived from the OneK1K database, comprising scRNA-seq data from 1.27 million peripheral blood mononuclear cells (PBMCs) across 982 donors.
+
+[0026] [METHODS] POAG GWAS Dataset
+
+[0027] [METHODS] Summary statistics for POAG were acquired from FinnGen (https://www.finngen.fi/en; accessed January 1, 2025), including 10,832 patients and 473,757 healthy controls.
+
+[0028] [METHODS] Instrumental Variable Selection
+
+[0029] [METHODS] MR uses single-nucleotide polymorphisms (SNPs) strongly associated with exposures as instrumental variables (IVs) to infer causal effects. Valid IVs must satisfy three assumptions: (1) direct association with the exposure and independence from confounders; (2) no direct effect on the outcome; and (3) we first intersected 4463 druggable genes with 19,127 blood eQTL genes to obtain druggable gene-specific eQTLs (see Fig. 1). Genetic variants significantly associated with gene expression (±1 Mb window) were extracted. To minimize pleiotropy and ensure IV strength: genome-wide significance threshold: P < 5 × 10−8; minimum F-statistic: 10. Linkage disequilibrium (LD) refers to the non-random association of alleles at two or more loci in a genome; independent IVs were clumped (LD r2 < 0.01 and window = 10 Mb) using the TwoSampleMR package. For single-cell reverse-MR, the significance threshold was relaxed to P < 5 × 10−6 due to limited power.
+
+[0030] [METHODS] Mendelian Randomization and Steiger Filtering
+
+[0031] [METHODS] Causal effects were estimated using Wald ratio (single IV); and the inverse-variance weighted (IVW) method (multiple IVs; fixed-effects).
+
+[0032] [METHODS] Sensitivity analyses included MR-Egger, weighted mode, and weighted median. Significance was defined by Bonferroni correction (threshold = 0.05/2,888). Heterogeneity (IVW Q-statistic) and pleiotropy (MR-Egger intercept) were assessed. Outliers were detected via Mendelian randomization pleiotropy residual sum and outlier (MR-PRESSO). Significant heterogeneity (P < 0.05) prompted random-effects IVW analysis. Steiger filtering ensured correct causal direction by excluding SNPs explaining more outcome than exposure variance. Analyses were performed in R software version 4.4.3.
+
+[0033] [METHODS] Bayesian Colocalization
+
+[0034] [METHODS] We evaluated whether POAG and druggable gene associations shared causal variants using five hypotheses: H0 = no association for either trait; H1 = association only with druggable gene; H2 = association only with POAG; H3 = separate causal variants for each trait; and H4 = shared causal variant. A posterior probability H4 > 80% indicated colocalization. Implemented via the coloc R software package.
+
+[0035] [METHODS] SMR Analysis and HEIDI Test
+
+[0036] [METHODS] Summary-data-based Mendelian randomization (SMR) integrated GWAS and eQTL data to distinguish pleiotropy from linkage. SMR analysis (version 1.3.1) tested POAG-gene expression causality, with HEIDI testing excluding linkage effects (HEIDI > 0.05). False discovery rate (FDR) correction was applied (significant threshold = FDR < 0.05).
+
+[0037] [METHODS] Phenome-Wide Association studies
+
+[0038] [METHODS] Phenome-wide association studies (PheWAS) assessed target pleiotropy and adverse effect risks using the Atlas PheWAS portal (https://azphewas.com/). Data covered approximately 15,500 binary and 1500 continuous traits from UK Biobank exome sequencing.
+
+[0039] [METHODS] Candidate Drug Prediction and Molecular Docking
+
+[0040] [METHODS] Target genes were submitted to the Drug Signatures Data Base (DSigDB; http://dsigdb.tanlab.org/DSigDBv1.0/) to identify protein-drug interactions. This database links 22,527 gene sets to 17,389 compounds targeting 19,531 genes. Potential drugs were predicted using the enrichplot R software package. Protein structures were retrieved from RCSB Protein Data Bank (PDB; (https://www.rcsb.org/), and drug 3D structures from PubChem (https://pubchem.ncbi.nlm.nih.gov/). Molecular docking was performed via CB-Dock2 (https://cadd.labshare.cn/cb-dock2/index.php), with Vina scores < −5 indicating high binding affinity.
+
+[0041] [RESULTS] Results
+
+[0042] [RESULTS] Selection of Instrumental Variables
+
+[0043] [RESULTS] Intersection of druggable genes from Finan et al. and significant cis-eQTL genes from the eQTLGen consortium yielded 2888 druggable genes (Fig. 2). Applying IV selection criteria, we identified 37,672 cis-eQTLs for 2534 druggable genes as IVs in the discovery analysis.
+
+[0044] [FIG] Venn diagram of two datasets.
+
+[0045] [RESULTS] MR Analysis of Gene Expression and POAG
+
+[0046] [RESULTS] A two-sample MR analysis was performed for POAG. Genetic variants of eQTLs are listed in the file called “eqtlclump.zip.” After Steiger filtering (to ensure causal directionality), Bonferroni correction (P < 0.05/2888), and exclusion of variants with heterogeneity (P > 0.05) or horizontal pleiotropy (P > 0.05), 14 genes showed significant associations with POAG (Fig. 3; Supplementary Table S2).
+
+[0047] [FIG] Forest plot of MR results for 14 significant genes.
+
+[0048] [RESULTS] Colocalization and SMR Validation
+
+[0049] [RESULTS] Bayesian colocalization provided strong evidence for shared causal variants between gene expression and POAG risk: GFPT1 (PPH4 = 0.9405), YWHAG (PPH4 = 0.8103; Table 2), indicating that linkage disequilibrium did not drive the MR associations. SMR analysis validated four genes (FDR < 0.05 and HEIDI > 0.05), whereas ACP2 showed unreliable results (HEIDI ≤ 0.05; see Table 2).
+
+[0050] [TABLE] Bayesian Colocalization Results for 14 Genes With POAG
+
+[0051] [TABLE] ID Nsnps PP.H4.abf SMR-FDR SMR-HEIDI GFPT1 47 0.940539 8.61E-05 0.211 YWHAG 19 0.810306 0.000371 0.198 PIK3C2A 31 0.508874 \ \ CLEC3B 29 0.486347 \ \ SLC22A4 42 0.353355 \ \ COL5A2 5 0.31385 \ \ FAAH 30 0.222195 \ \ ADAM12 9 0.210002 \ \ TNXB 23 0.186696 \ \ DAPK2 11 0.12744 \ \ NENF 18 0.038625 \ \ ADCK3 83 0.019805 \ \ FDFT1 113 0.013529 \ \ BCAT1 66 0.01177 \ \
+
+[0052] [RESULTS] Single-Cell MR in Immune Cells
+
+[0053] [RESULTS] Genetic variants of single cell-eQTLs are listed in the file called “sceqtlclump.zip.” Extracting cis-eQTLs for 5 candidate targets from 14 immune cell types revealed GFPT1-associated IVs in CD4+ KLRB1– T cells. Wald ratio analysis demonstrated a positive association between GFPT1 expression and POAG risk in this subset (odds ratio [OR] = 1.448, 95% confidence interval [CI] = 1.241–1.690, P = 2.545 × 10−6; Supplementary Table S3). Colocalization supported shared causal variants (PPH4 = 0.998), and reverse MR analysis excluded reverse causation (P = 0.584; Supplementary Table S5).
+
+[0054] [RESULTS] Phenome-Wide Association Studies
+
+[0055] [RESULTS] PheWAS of GFPT1 using the Atlas portal showed no significant associations with other phenotypes at genome-wide significance (P < 5 × 10−8; Fig. 4), suggesting low risk of adverse effects or horizontal pleiotropy if targeted therapeutically.
+
+[0056] [FIG] PheWAS associations for GFPT1 (binary traits).
+
+[0057] [RESULTS] Candidate Drug Prediction
+
+[0058] [RESULTS] Drug enrichment analysis identified GFPT1-targeting compounds (adjusted P ≤ 0.05; Fig. 5; Supplementary Table S6).
+
+[0059] [FIG] Drug enrichment bubble plot for GFPT1.
+
+[0060] [RESULTS] Molecular Docking
+
+[0061] [RESULTS] The top five clinically approved candidates underwent molecular docking with GFPT1 protein (PDB = 6 × 7T). Vina scores < −5 indicated strong binding affinity for trimipramine, desipramine, and cyclosporin (Table 3), with cyclosporin showing the highest affinity. Docking poses are visualized in Figure 6.
+
+[0062] [TABLE] Molecular Docking Results for GFPT1 and Candidate Drugs
+
+[0063] [TABLE] Drug Target Vina Score Trimipramine GFPT1 −7.8 Desipramine GFPT1 −7.6 Cyclosporin GFPT1 −14.2
+
+[0064] [FIG] Docking conformations of FDA-approved drugs with GFPT1. (A) Trimipramine-GFPT1, (B) Desipramine-GFPT1, and (C) Cyclosporin-GFPT1.
+
+[0065] [DISCUSS] Discussion
+
+[0066] [DISCUSS] This study identified four significant therapeutic targets through druggable genome cis-eQTL MR analysis with POAG, validated by colocalization and SMR. Notably, YWHAG (FDR = 4.44 × 10−5; OR = 1.207, 95% CI: 1.131–1.288) increased POAG risk; GFPT1 (FDR = 8.22 × 10−8; OR = 0.874, 95% CI: 0.840–0.910) conferred protective effects.
+
+[0067] [DISCUSS] Given the cell-type specificity of gene expression, single-cell MR across 14 immune cell subtypes revealed that elevated GFPT1 expression in CD4+ KLRB1– T cells was significantly associated with increased POAG risk (OR = 1.448, 95% CI: 1.241–1.690; P = 2.545 × 10−6), contrasting with its protective role in bulk tissue analysis.
+
+[0068] [DISCUSS] GFPT1 in Hexosamine Biosynthesis
+
+[0069] [DISCUSS] As the rate-limiting enzyme of the hexosamine biosynthesis pathway (HBP), GFPT1 catalyzes fructose-6-phosphate conversion to glucosamine-6-phosphate. The end-product of the HBP, UDP-GlcNAc is required for the O-linked β-N-acetylglucosamine (O-GlcNAc) modification, a prevalent and often regulatory protein modification. Essential for cellular function, its activity is allosterically regulated by metabolites. Although GFPT1 upregulation promotes tumor progression in cervical cancer and hepatocellular carcinoma, its downregulation in osteoarthritis suggests context-dependent mechanisms. Intriguingly, UDP—an HBP metabolite—reduces IOP by 82.9 ± 2.6% in rabbits via P2Y6 receptors in ciliary processes and enhances retinal ganglion cell (RGC) axon growth via P2Y6 activation, implicating HBP modulation in glaucoma neuroprotection. However, at the single-cell level, we found that elevated GFPT1 expression in CD4+ KLRB1– T cells (a central memory T cell subset) was significantly associated with an increased risk of POAG (OR = 1.448). This apparent paradox highlights the complexity of gene function within cell-type-specific contexts.
+
+[0070] [DISCUSS] Immunological Implications
+
+[0071] [DISCUSS] O-GlcNAcylation is a post-translational protein modification that involves the enzymatic addition of a single O-GlcNAc molecule to serine or threonine residues of proteins. Accumulating evidence supports the importance of dynamic O-GlcNAc cycling in T cell activation and regulation, underscoring the significance of O-GlcNAc modification both in early T-cell receptor (TCR) signaling and in the subsequent modulation of T cell activation.
+
+[0072] [DISCUSS] Upon TCR activation, naive CD4+ T cells can differentiate into various effector lineages—including T helper (Th)1, Th2, Th17, and regulatory T (Treg) cells—depending on the microenvironment and proximal signals, such as cytokines and ligands from antigen-presenting cells. Each effector subtype performs distinct functions: Th1, Th2, and Th17 cells are responsible for eliminating various pathogens, whereas Treg cells suppress inflammatory immune responses. Interestingly, O-GlcNAcylation is required for both the differentiation and homeostasis of Th17 and Treg cells, highlighting its role in balancing opposing immune functions. Notably, production of IL-17A—a major pro-inflammatory cytokine secreted by Th17 cells—is significantly enhanced when splenic CD4+ T cells are treated with thiamet G (TMG), a highly selective OGA inhibitor.
+
+[0073] [DISCUSS] T cell subsets, particularly the balance between effector T cells and Treg cells, play a critical role in determining RGC survival during glaucoma progression. CD4+ KLRB1– T cells represent central memory T cells (Tm) capable of homing to lymph nodes. Lymphocytic infiltration has been shown to exacerbate RGC loss in glaucoma models, with CD4+ T cells directly promoting RGC death under ischemic injury. An imbalance in Treg/Th17 responses is observed in experimental autoimmune optic neuritis, which shares features with glaucoma pathology, and elevated IOP can trigger T-cell-mediated RGC degeneration.
+
+[0074] [DISCUSS] Therefore, we speculate that high expression of GFPT1 may promote the differentiation of naive CD4+ T cells into Th17 cells or cause an imbalance in Treg/Th17 cells, thereby exacerbating optic nerve inflammation in patients with POAG. In vivo, the flux through the HBP pathway is tightly regulated; however, under inflammatory conditions, this regulatory mechanism may become disrupted, leading to a substantial increase in intracellular HBP flux. Previous studies have shown that treating R28 cells (rat retinal precursor cells) with excessive glucosamine—an intermediate of the HBP—elevated the level of UDP-HexNAc, the end product of HBP, by up to 1600%, and induced apoptosis in a dose-dependent manner. In summary, we hypothesize that high GFPT1 expression promotes the differentiation of naive CD4+ T cells into Th17 cells or disrupts the Treg/Th17 balance, contributing to optic nerve inflammation in patients with POAG. This inflammatory microenvironment may further lead to dysregulation of HBP metabolism and a significant increase in metabolic flux, ultimately triggering RGC apoptosis.
+
+[0075] [DISCUSS] It is important to note that the single-cell data used in this study were primarily derived from peripheral blood. Whereas this provides a valuable window into the systemic immune state, the eye possesses a unique immune microenvironment where resident immune cells, such as microglia, play a more direct role in glaucoma progression. Future studies utilizing eye tissue-specific data (e.g. from aqueous humor, retina, or microglia) are needed to further validate the cell-specific functions of GFPT1 within the eye. This would enhance the tissue relevance of our findings and could reveal novel therapeutic targets.
+
+[0076] [DISCUSS] Therapeutic Potential
+
+[0077] [DISCUSS] In terms of drug repositioning, we identified three FDA-approved drugs: trimipramine, desipramine, and cyclosporin. Among these, cyclosporin, a well-established immunosuppressant, is already widely used in ophthalmology for treating dry eye disease. Its local administration (e.g. eye drops) has well-documented safety and tolerability profiles, providing a solid foundation for its direct repurposing for immunomodulatory therapy in POAG. The two tricyclic antidepressants (TCAs) present a scenario of concurrent opportunities and challenges. Although epidemiological studies suggest a link between depression/anxiety and glaucoma, the systemic side effects of TCAs (e.g. anticholinergic effects, sedation, and cardiovascular impacts) cannot be overlooked. This, however, underscores the necessity of developing topical ophthalmic formulations. Local delivery could bypass systemic side effects and directly target intraocular immune cells, potentially being the key to realizing their therapeutic potential.
+
+[0078] [DISCUSS] Furthermore, this study is the first to integrate a druggable genome-wide MR analysis for drug repositioning in the context of POAG. Although no previous POAG-specific studies of this kind exist, the druggable genome MR strategy has been successfully applied in other disease areas, such as identifying zinc supplements for sarcopenia and vitamin E for migraine. This methodology successfully validates the credibility and innovativeness of our current findings.
+
+[0079] [DISCUSS] Strengths and Limitations
+
+[0080] [DISCUSS] This study pioneers the integration of single-cell MR with druggable genomics in POAG, offering novel insights for targeted therapies. Rigorous methods addressed pleiotropy and confounding.
+
+[0081] [DISCUSS] Limitations
+
+[0082] [DISCUSS] Two key limitations warrant careful consideration when interpreting our results. First, the genetic datasets used are primarily from individuals of European ancestry. This limits the generalizability of our findings, as genetic architecture, including linkage disequilibrium patterns and allele frequencies, varies across populations. Consequently, the identified therapeutic targets may not be equally transferable or effective in non-European populations, potentially exacerbating health disparities. Second, whereas our single-cell MR analysis offers a novel, cell-type-specific perspective, the sample size for the single-cell eQTL dataset (n = 982) is modest. This may constrain the statistical power to detect anything but the strongest genetic effects and could increase the false negative rate. Therefore, our results, particularly the single-cell findings for GFPT1, should be viewed as robust but preliminary hypotheses that necessitate validation in larger, more diverse multi-ancestry cohorts with cell-type-specific data. Other limitations include potential unmeasured confounding in MR and untested nonlinearity in genetic effects.
+
+[0083] [CONCL] Conclusions
+
+[0084] [CONCL] Integrating MR, colocalization, and SMR analyses, our results support an association between elevated GFPT1 expression in CD4+ KLRB1– T cells and an increased risk of POAG, suggesting a potential role in disease pathogenesis. Drug repositioning identified trimipramine, desipramine, and cyclosporin as potential GFPT1-targeting therapeutics, laying the groundwork for future studies to investigate their reuse in glaucoma management.
+
+[0085] [SUPPL] Supplementary Material
+
+[0086] [REF] References
+
+[0087] [REF] Primary open-angle glaucoma
+
+[0088] [REF] Laser in Glaucoma and Ocular Hypertension (LiGHT) Trial: six-year results of primary selective laser trabeculoplasty versus eye drops for the treatment of glaucoma and ocular hypertension
+
+[0089] [REF] Latanoprost administered once daily caused a maintained reduction of intraocular pressure in glaucoma patients treated concomitantly with timolol
+
+[0090] [REF] Addressing neurodegeneration in glaucoma: mechanisms, challenges, and treatments
+
+[0091] [REF] Neuroinflammation in primary open-angle glaucoma
+
+[0092] [REF] Macrophage M1/M2 polarization
+
+[0093] [REF] Mendelian randomization as an approach to assess causality using observational data
+
+[0094] [REF] The interleukin-6 receptor as a target for prevention of coronary heart disease: a mendelian randomisation analysis
+
+[0095] [REF] Finding genetically-supported drug targets for Parkinson's disease using Mendelian randomization of the druggable genome
+
+[0096] [REF] Actionable druggable genome-wide Mendelian randomization identifies repurposing opportunities for COVID-19
+
+[0097] [REF] Genetic drug target validation using Mendelian randomisation
+
+[0098] [REF] Integration of summary data from GWAS and eQTL studies predicts complex trait Gene targets
+
+[0099] [REF] The support of human genetic evidence for approved drug indications
+
+[0100] [REF] Are drug targets with genetic support twice as likely to be approved? Revised estimates of the impact of genetic support for drug mechanisms on the probability of drug approval
+
+[0101] [REF] Large-scale multitrait genome-wide association analyses identify hundreds of glaucoma risk loci
+
+[0102] [REF] Advancing the use of genome-wide association studies for drug repurposing
+
+[0103] [REF] AutoDock4 and AutoDockTools4: Automated docking with selective receptor flexibility
+
+[0104] [REF] The druggable genome and support for target identification and validation in drug development
+
+[0105] [REF] Co-regulatory networks of human serum proteins link genetics to disease
+
+[0106] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0107] [REF] Single-cell eQTL mapping identifies cell type-specific genetic control of autoimmune disease
+
+[0108] [REF] FinnGen provides genetic insights from a well-phenotyped isolated population
+
+[0109] [REF] Two-step epigenetic Mendelian randomization: a strategy for establishing the causal role of epigenetic processes in pathways to disease
+
+[0110] [REF] Mediation analysis: a practitioner's guide
+
+[0111] [REF] Understanding the consequences of education inequality on cardiovascular disease: Mendelian randomisation study
+
+[0112] [REF] Using published data in Mendelian randomization: a blueprint for efficient identification of causal risk factors
+
+[0113] [REF] Mendelian randomization with invalid instruments: effect estimation and bias detection through Egger regression
+
+[0114] [REF] Consistent estimation in Mendelian randomization with some invalid instruments using a weighted median estimator
+
+[0115] [REF] Robust inference in summary data Mendelian randomization via the zero modal pleiotropy assumption
+
+[0116] [REF] Alterations in cerebral cortical glucose and glutamine metabolism precedes amyloid plaques in the APPswe/PSEN1dE9 mouse model of Alzheimer's disease
+
+[0117] [REF] Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases
+
+[0118] [REF] Physical activity and risks of breast and colorectal cancer: a Mendelian randomisation analysis
+
+[0119] [REF] Orienting the causal relationship between imprecisely measured traits using GWAS summary data
+
+[0120] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0121] [REF] Efficiently controlling for case-control imbalance and sample relatedness in large-scale genetic association studies
+
+[0122] [REF] Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets
+
+[0123] [REF] Integrative analysis of omics summary data reveals putative mechanisms underlying complex traits
+
+[0124] [REF] Rare variant contribution to human disease in 281,104 UK Biobank exomes
+
+[0125] [REF] DSigDB: drug signatures database for gene set analysis
+
+[0126] [REF] The Protein Data Bank
+
+[0127] [REF] PubChem 2025 update
+
+[0128] [REF] CB-Dock2: improved protein-ligand blind docking by integrating cavity detection, docking and homologous template fitting
+
+[0129] [REF] FitDock: protein-ligand docking by template fitting
+
+[0130] [REF] Hexosamine biosynthetic pathway mutations cause neuromuscular transmission defect
+
+[0131] [REF] Hexosamines and insulin resistance
+
+[0132] [REF] Nutrient regulation of signaling and transcription
+
+[0133] [REF] Human glutamine: fructose-6-phosphate amidotransferase: characterization of mRNA and chromosomal assignment to 2p13
+
+[0134] [REF] cDNA cloning and mapping of a novel subtype of glutamine:fructose-6-phosphate amidotransferase (GFAT2) in human and mouse
+
+[0135] [REF] Ordering of C-terminal loop and glutaminase domains of glucosamine-6-phosphate synthase promotes sugar ring opening and formation of the ammonia channel
+
+[0136] [REF] GFPT1 promotes the proliferation of cervical cancer via regulating the ubiquitination and degradation of PTEN
+
+[0137] [REF] UDP-sugar accumulation drives hyaluronan synthesis in breast cancer
+
+[0138] [REF] Enhancing GFPT1 expression with glutamine protects chondrocytes in osteoarthritis
+
+[0139] [REF] Hypotensive effect of UDP on intraocular pressure in rabbits
+
+[0140] [REF] Müller cell-mediated neurite outgrowth of the retinal ganglion cells via P2Y6 receptor signals
+
+[0141] [REF] Impact of glaucoma on the spatial frequency processing of scenes in central vision
+
+[0142] [REF] Diabetic photoreceptors: mechanisms underlying changes in structure and function
+
+[0143] [REF] Contribution of the hexosamine biosynthetic pathway in the hyperglycemia-dependent and -independent breakdown of the retinal neurovascular unit
+
+[0144] [REF] Altered glycan-dependent signaling induces insulin resistance and hyperleptinemia
+
+[0145] [REF] Leptin-induced mTOR activation defines a specific molecular and transcriptional signature controlling CD4+ effector T cell responses
+
+[0146] [REF] The role of O-GlcNAcylation in immune
+
+[0147] [REF] Elevated O-GlcNAcylation enhances pro-inflammatory Th17 function by altering the intracellular lipid microenvironment
+
+[0148] [REF] The lineage stability and suppressive program of regulatory T cells require protein O-GlcNAcylation
+
+[0149] [REF] The role of the adaptive immune system and T cell dysfunction in neurodegenerative diseases
+
+[0150] [REF] The role of the adaptive immune system and T cell dysfunction in neurodegenerative diseases
+
+[0151] [REF] Adoptive transfer of immune cells from glaucomatous mice provokes retinal ganglion cell loss in recipients
+
+[0152] [REF] CD4 positive T helper cells contribute to retinal ganglion cell death in mouse model of ischemia reperfusion injury
+
+[0153] [REF] Roles of Treg/Th17 cell imbalance and neuronal damage in the visual dysfunction observed in experimental autoimmune optic neuritis chronologically
+
+[0154] [REF] Commensal microflora-induced T cell responses mediate progressive neurodegeneration in glaucoma
+
+[0155] [REF] The imbalance of FOXP3/GATA3 in regulatory T cells from the peripheral blood of asthmatic patients
+
+[0156] [REF] Excessive hexosamines block the neuroprotective effect of insulin and induce apoptosis in retinal neurons
+
+[0157] [REF] Glial cell response to constant low light exposure in rat retina
+
+[0158] [REF] ATP-P2X7R-mediated microglia senescence aggravates retinal ganglion cell injury in chronic ocular hypertension
+
+[0159] [REF] Chemically induced cone degeneration in the 13-lined ground squirrel
+
+[0160] [REF] The association between glaucoma, anxiety, and depression in a large population
+
+[0161] [REF] Immune-related gene expression with colorectal cancer risk: a Mendelian randomization analysis
+
+[0162] [REF] Systematic druggable genome-wide Mendelian randomization identifies therapeutic targets for sarcopenia
+
+[0163] [REF] Multi-omics Mendelian randomization integrating GWAS, eQTL and pQTL data revealed GSTM4 as a potential drug target for migraine

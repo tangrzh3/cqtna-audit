@@ -1,0 +1,393 @@
+[0001] [TITLE] Single-cell transcriptome-wide Mendelian randomization and colocalization reveals immune-mediated regulatory mechanisms and drug targets for COVID-19
+
+[0002] [ABSTRACT] Summary
+
+[0003] [ABSTRACT] Background
+
+[0004] [ABSTRACT] COVID-19 continues to show long-term impacts on our health. Limited effective immune-mediated antiviral drugs have been launched.
+
+[0005] [ABSTRACT] Methods
+
+[0006] [ABSTRACT] We conducted a Mendelian randomization (MR) and colocalization analysis using 26,597 single-cell expression quantitative trait loci (sc-eQTL) to proxy effects of expressions of 16,597 genes in 14 peripheral blood immune cells and tested them against four COVID-19 outcomes from COVID-19 Genetic Housing Initiative GWAS meta-analysis Round 7. We also carried out additional validations including colocalization, linkage disequilibrium check and host–pathogen interactome predictions. We integrated MR findings with clinical trial evidence from several drug gene related databases to identify drugs with repurposing potential. Finally, we developed a tier system and identified immune-cell-based prioritized drug targets for COVID-19.
+
+[0007] [ABSTRACT] Findings
+
+[0008] [ABSTRACT] We identified 132 putative causal genes in 14 immune cells (343 MR associations) for COVID-19, with 58 genes that were not reported previously. 145 (73%) gene-COVID-19 pairs showed effects on COVID-19 in only one immune cell type, which implied widespread immune-cell specific effects. For pathway analyses, we found the putative causal genes were enriched in natural killer (NK) recruiting cells but de-enriched in NK cells. Using a deep learning model, we found 107 (81%) of the putative causal genes (41 novel genes) were predicted to interact with SARS-COV-2 proteins. Integrating the above evidence with drug trial information, we developed a tier system and prioritized 37 drug targets for COVID-19.
+
+[0009] [ABSTRACT] Interpretation
+
+[0010] [ABSTRACT] Our study showcased the central role of immune-mediated regulatory mechanisms for COVID-19 and prioritized drug targets that might inform interventions for viral infectious diseases.
+
+[0011] [ABSTRACT] Funding
+
+[0012] [ABSTRACT] This work was supported by grants from the (2022YFC2505203).
+
+[0013] [INTRO] Research in context
+
+[0014] [INTRO] Evidence before this study
+
+[0015] [INTRO] We searched for key terms in PubMed for publications prior to August 1, 2024, using the following terms: (“COVID-19" or “SARS-CoV-2”) AND (“single-cell eQTL” or “protein” or “transcript”) AND (“Genome-wide association study” or “single-cell Mendelian randomization” or “causal genes”). Our search identified multiple studies that have pinpointed genes or proteins associated with COVID-19. However, there is a notable lack of studies that integrate single-cell eQTLs with Mendelian randomization to systematically investigate the potential causal relationships between immune-related genes and COVID-19 in European populations.
+
+[0016] [INTRO] Added value of this study
+
+[0017] [INTRO] We systematically evaluated the immune-mediated genes and mechanisms for COVID-19 by combining single-cell eQTL MR and colocalization with pathway and protein–protein interaction information. We identified 343 MR associations for 132 genes in 14 immune-cell types related to four types of COVID-19 outcomes, with 58 genes that, to the best of our knowledge, were not reported previously. NCR3, a gene with robust MR evidence on severe COVID-19, interacted with SARS-COV-2 proteins, and its targeted drug is currently under clinical trials for cancer treatment. We further developed a tier system to prioritize COVID-19 drug targets and identified 37 promising drug target genes that showed multiple layers of evidence.
+
+[0018] [INTRO] Implications of all the available evidence
+
+[0019] [INTRO] Our study identifies immune-mediated causal genes and mechanisms for COVID-19 and provides a tier system to prioritize immune-related drug targets for COVID-19.
+
+[0020] [INTRO] Introduction
+
+[0021] [INTRO] The coronavirus disease (COVID-19) pandemic has resulted in nearly 7 million deaths during the past four years (https://covid19.who.int/). Although vaccination against COVID-19 reduces the risk of severe COVID-19 disease and death, the continual emergence of SARS-CoV-2 variants with increased transmission and immune evasion has led to breakthrough infections in vaccinated individuals.
+
+[0022] [INTRO] Until now, over 700 agents with anti-SARS-CoV-2 mechanisms have been investigated in preclinical and/or clinical studies, with more than 20 anti-SARS-CoV-2 drugs proposed to reduce the risk of severe COVID-19. However, the emergence of drug safety issues, drug resistance, and limited treatment effectiveness have made it imperative to search for new anti-coronavirus drug candidates that are highly specific to one cell type and widely applicable to many people.
+
+[0023] [INTRO] Given the strong connections between the immune system and COVID-19, previous studies have extensively investigated the use of immunomodulators, such as systemic corticosteroids, anticoagulants, and cytokine antagonists, to mitigate the dysfunctional responses in patients with COVID-19. Immune cells exhibit diverse states during different stages of infection. In the early stage, the virus enters the body through endothelial cells expressing targets like OAS1 and ACE2. This alters the expression of genes like IFNAR2, affecting cell interactions and downstream gene expression. Consequently, a cascade effect occurs, leading to reduced functionality of natural killer (NK) cells and monocytes/macrophages, as well as coagulation disorders. However, the exact cause of immune cell responses, e.g. NK cell dysfunction, on COVID-19 remains unclear. It is urgently needed to uncover the immune-mediated mechanism and additional drug targets for COVID-19.
+
+[0024] [INTRO] Recent studies have shown the value of human genetic evidence in increasing the success rate of drug trials. Existing genome-wide association studies (GWAS) have identified a whole set of genomic loci that are associated with COVID-19. However, the causality of these genes is less clear. Some post-GWAS approaches, such as Mendelian randomization (MR), can estimate the putative causal effects of expression levels of genes and proteins on COVID-19, which have prioritized drug targets, such as OAS1, IL6R, in a cost-effective manner. However, most of the existing studies have used expression data measured in bulk tissues, which may mask the cell-type specific effect of genes and proteins on COVID-19. Advancements in single-cell RNA sequencing (scRNA-seq) technology have facilitated the examination of gene expression patterns at the individual cell level. Recent genetic studies have mapped genetic variants with single-cell expression data and identified a list of cell-type specific expression quantitative trait loci (eQTL, which is a genetic variant robustly associated with expression levels of a gene in a certain cell type). Single cell eQTL mapping has proven to be a valuable tool in identifying causal genes and understanding their involvement in disease pathogenesis, including immune diseases and COVID-19 in the Japanese population. However, few studies have integrated single-cell eQTLs with MR to systematically investigate the putative causal relationships between immune-related genes and COVID-19 in other ancestries.
+
+[0025] [INTRO] In this study, we conducted a single-cell eQTL MR and colocalization analysis to investigate the putative causal effects of gene expressions from 14 immune cell types on risk of COVID-19 severities. Functional enrichment analysis and predictions of host-pathogen protein interactions were further applied to identify immune-mediated causal genes and networks involved in the pathophysiology of COVID-19. Integrating genetic evidence with clinical trial information, we developed a tier system to prioritize immune-mediated drug targets for COVID-19.
+
+[0026] [METHODS] Methods
+
+[0027] [METHODS] Ethics
+
+[0028] [METHODS] This study did not require ethical approval as all analysis was based on publicly available aggregated statistics without access to individual data. The included GWAS studies obtained informed consent from the study participants and were approved by the relevant local ethics committees.
+
+[0029] [METHODS] Instrument selection and validation
+
+[0030] [METHODS] In this study, the genetic variants associated with plasma eQTLs were used as genetic instruments for the Mendelian randomization (MR) analysis. We started the instrument selection process by accessing the cis-eQTL data from OneK1K data. We selected all conditionally independent cis-eQTLs that were associated with eGenes at a p-value <0.005. To ensure accuracy, we removed highly correlated SNPs by performing linkage disequilibrium (LD) clumping with a clumping r2 cutoff of 0.01. The LD reference panel selected was ‘EUR’. We estimated the strength of the genetic predictors of each instrument using F-statistics. If any eQTLs had F-statistics lower than the widely used threshold of 10, we considered them to have limited power (potentially causing weak instrument bias) and removed these from the MR and follow-up analyses. Weak instrument selection and validation are provided in Supplementary Notes.
+
+[0031] [METHODS] Outcome selection
+
+[0032] [FIG] Study design of the Mendelian randomization analysis of immune-cell specific gene expressions on COVID-19. The immune cell specific gene expression data were obtained from single-cell sequencing of the OneK1K participants. The COVID-19 genome-wide association studies were derived from the Genetic Housing Initiative GWAS meta-analysis Round 7.
+
+[0033] [METHODS] In the two-sample MR study, GWAS summary statistics of outcome were obtained from the COVID-19 Host Genetic Initiative (HGI) (Round 7, https://www.covid19hg.org/results/r7/) and Long Covid GWAS summary statistics. Data were from European ancestry populations. The sample composition of the four COVID-19 (also shown in Fig. 1) phenotypes and four types of Long Covid were listed in Table S2. Ethical approval was not required for this study since the original GWAS previously received appropriate ethics and institutional review board approval. The number of SNPs for each group of COVID-19 and Long Covid are provided in Table S2.
+
+[0034] [METHODS] Single-cell eQTL MR analysis
+
+[0035] [METHODS] During the discovery MR analysis, we aimed to estimate the potential causal effects of eGenes at the single cell level on COVID-19 in individuals of European ancestry. To ensure that the genetic signals in the cis-acting region were accurately represented and to increase power, we conducted one of two sets of analyses depending on the number of instruments selected from the exposure. For eGenes with only one eQTL, we utilized the Wald ratio analysis to estimate the effects between eGenes and outcome group. For eGenes with two or more eQTLs, we used the conditional independent eQTLs as genetic instruments and applied a generalized inverse variance weighted (gIVW) approach that considered the correlation between nearby eQTLs. The MR estimates were obtained using the TwoSampleMR R package (github.com/MRCIEU/TwoSampleMR) and were subjected to two thresholds to select MR estimates with good genetic evidence. A Benjamini-Hochberg false discovery rate (FDR) of 0.05 was applied to select the best MR estimates with robust signals. MR analysis was performed according to the STROBE-MR checklist.
+
+[0036] [METHODS] For the definition of novelty of our MR findings, we conducted a comprehensive search of COVID-19 related genes in 10 databases as well as twenty-five COVID-19 associated MR research (Table S3, Table S4, Supplementary Materials, ST1).
+
+[0037] [METHODS] Directionality test using MR steiger filtering
+
+[0038] [METHODS] A drug that alters disease risk should in theory influence both gene expression and protein levels. To determine the direction of effect of our MR findings, we conducted a directionality test using Steiger filtering. This allowed us to test the directionality of the eQTL-disease associations for all candidate instruments. Any eQTLs flagged by the Steiger filtering as explaining more of the variance in the outcome than the exposure was removed from subsequent MR and follow-up analyses (Table S3, Table S5, Table S7).
+
+[0039] [METHODS] Genetic colocalization and LD check analyses
+
+[0040] [METHODS] To improve the reliability of MR signals, we conducted three sensitivity analyses for candidate MR signals. Firstly, we used Cochran's Q test for gIVW results to estimate the potential heterogeneity of MR estimates across each eQTL. The results showed that all the gIVW results had limited evidence of heterogeneity (Q-value>0.05). Therefore, we could use these eGenes for the follow-up analyses. The heterogeneity results are listed in the Supplementary Materials.
+
+[0041] [METHODS] To distinguish putative causative MR signals from gene–disease pairs confounded by LD, the results that passed the MR corrected p-value (Bonferroni corrected threshold, False discovery rate, FDR) filtering (<0.05) were evaluated using genetic colocalization analysis. For more robust colocalization evidence, we applied two sets of colocalization analyses. First, we developed an approximate colocalization analysis called LD check, which estimated the LD r2 between each eQTL against all variants with GWAS (p < 1 × 10−4) in the region associated with the disease outcomes. Evidence for approximate colocalization was based on an R2 of 0.7 and above between the eQTL and any of the outcome variants.
+
+[0042] [METHODS] We then performed genetic colocalization analysis using the ‘coloc’ R package, following conventional methods. To ensure the inclusion of all eQTLs near the phenotype, we expanded the eQTL screening range of each phenotype in the exposure to a range of 100 KB upstream and downstream. A colocalization probability (PP.H4/(PP.H3 + PP.H4) ≥70%) in this analysis indicated a likely colocalization of the two genetic association signals within the test region (Table S3). If any one method passed the test, it could be identified as having a co-localization relationship or a causal effect. Causal genes were confirmed as unreported genes via searches conducted in 10 databases.
+
+[0043] [METHODS] Additional methodological details as well as the results of colocalization analysis for multiple causal variants, tissue-specific Mendelian randomization, MR sensitivity analyses, differential gene analysis (DEG), entropy analysis and mediation analysis are provided in Supplementary Notes.
+
+[0044] [METHODS] Gene ontology and pathway enrichment analysis
+
+[0045] [METHODS] Metascape (version 3.5) is a comprehensive bioinformatics tool that integrates over forty databases. It offers several features such as enrichment analysis of biological pathways, structural analysis of protein interaction networks, and gene annotation capabilities. Cytoscape (version 3.1), is an open-source software platform that allows for the visualization of complex networks and integration with any type of attribute data. In this study, we utilized Cytoscape and Metascape online tools (http://metascape.org/) to analyze the functional enrichment of all identified causal genes (min overlap = 3, p -value cutoff = 0.05, and min enrichment = 1.5). We also used Metascape's combined (all) option for Protein–protein interaction (PPI) analysis (min network size = 3) and visualized the Pathway enrichment results together with PPI results using the ggplot2 R package (R package, ggplot2, v3.4)) and Cytoscape software respectively. The MCODE algorithm was applied to the network to identify neighborhoods where proteins were densely connected. GO enrichment analysis was applied to each MCODE network to extract “biological meanings” from the network component, where the three terms with the smallest p-values were retained.
+
+[0046] [METHODS] Enrichment of MR results was conducted via function phyper () with all MR results, all significant MR results, significant MR results in each cell type and MR results in each cell type as values.
+
+[0047] [METHODS] Host–pathogen interactome predictions
+
+[0048] [METHODS] We used a computational method called ‘DeepHPI’ to predict the host–pathogen network with our putative unreported causal genes and SARS-COV-2 proteins. We used convolutional neural network (CNN) models for the host–pathogen interactions (HPI) prediction process. We also used String (https://string-db.org/) to explore potential relationship with our unreported causal genes and previously identified SARS-COV-2 causal genes. These results were then integrated into a single diagram (Figs. S1 and S2, Tables S8 and S9).
+
+[0049] [METHODS] Drug targets prioritization
+
+[0050] [METHODS] Most drugs target small-molecule proteins. To identify potential drug targets, we used 132 causal genes from four outcome groups. We integrated our MR findings with clinical trial evidence from OpenTargets, DrugBank, and Drug Gene Interaction database (https://www.dgidb.org/) to identify drugs with repurposing opportunities. The selection of prioritized genes was based on drug targets with current clinical indications for inflammation, respiratory disorders, viral infection and top symptoms from COVID-19 as well as long-COVID.
+
+[0051] [METHODS] Role of funders
+
+[0052] [METHODS] The funders had no involvement in the design, execution, analysis, or interpretation of the study, nor in the writing or decision to submit the manuscript for publication.
+
+[0053] [RESULTS] Results
+
+[0054] [RESULTS] Summary of instrument selection for immune-cell specific gene expressions
+
+[0055] [RESULTS] In this study, we aimed to select valid instruments using a three-step selection process. We extracted 26,597 independent cis-acting eQTLs associated with expression levels of 16,597 genes in 14 different immune cells (single-cell gene expression data measured in 982 participants from the OneK1K cohort), and used them as candidate genetic instruments for this study (Fig. 1). Given the complexity of single-cell sequencing data, the expression level of a gene in a specific immune-cell type was noted as a gene expression profile of that gene in this study (Supplementary Information: definitions).
+
+[0056] [FIG] Selection of genetic instruments from immune-cell specific eQTLs. (a) Cell proportions of independent cis-eQTLs after linkage disequilibrium (LD) clumping analysis. CD4 NC: CD4 naïve and central memory T cells; CD8 NC: CD8 naïve and central memory T cells; CD4 ET: CD4+ T cells with an effector memory or central memory phenotype; CD8 ET: CD8+ T cells with an effector memory or central memory phenotype; CD4 SOX4: CD4+ T cells expressing SOX4; CD8 S100B: CD8+ T cells with expression of S100B; NK: natural killer cells; NK R: NK recruiting cells; B IN: immature B cells; B Mem: memory B cells; Mono C: classical monocytes; Mono NC: nonclassical monocytes; DC: dendritic cells; Plasma: plasma cells. (b) Bar plot for statistic results of eGenes (a gene with an eQTL) with their independent eQTLs (the central and the right one) in each cell type from numerous tested samples (left one).
+
+[0057] [RESULTS] For the instrument selection, we removed highly correlated genetic variants by performing linkage disequilibrium (LD) clumping with a LD r2 cutoff of 0.01. The Europeans from the 1000 Genome project were used as the LD reference panel. After clumping, a total 17,959 independent cis–eQTLs for expression levels of 16,597 genes in 14 cell types were selected (Fig. 2a, Table S1). Second, we calculated F-statistics for each eQTL and excluded 20 eQTLs with F-statistics<10 from further analysis, since they may suffer from potential weak instrument bias. Third, we used Steiger filtering to verify the directionality of the instruments. This approach tested whether an eQTL explained more variance for the exposure (gene expression profile of a gene) than the outcome (COVID-19). All of our cis-eQTLs showed right directionality and were kept as valid instruments (Table S1). In summary, 17,939 eQTLs for expression levels of 16,597 genes in 14 immune cells had been selected as valid instruments for the MR analysis.
+
+[0058] [RESULTS] Our instruments and eGenes (in which eGene means a gene with one or more eQTLs) were consistently enriched in CD4 naïve and central memory T cells before and after instrument selection (CD4 NC; Fig. 2a and b), where CD4 SOX4 and plasma cells showed the smallest number of instruments and eGenes.
+
+[0059] [RESULTS] Identification of putative causal genes for COVID-19 infection
+
+[0060] [RESULTS] We then estimated the putative causal effects of gene expression profiles in 14 immune cell types on COVID-19 outcomes using two-sample MR. Four types of COVID-19 outcome data were extracted from the COVID-19 Genetic Housing Initiative GWAS meta-analysis Round 7 (https://www.covid19hg.org/results/r7/), including “very severe respiratory confirmed COVID-19 vs. population” (noted as “A2”, N case = 13,769, N control = 1,072,442); “Hospitalized COVID-19 vs. population” (“B2”, N case = 32,519, N control = 2,062,805); “COVID-19 vs. population” (“C2”, N case = 122,616, N control = 2,475,240) and “hospitalized COVID-19 vs. not hospitalized COVID-19” (“B1”, N case = 16,512, N control = 71,321) groups (see “Outcome selection” in Fig. 1). For COVID-19 outcomes, only GWAS summary statistics of participants of European ancestry were used. For “hospitalized COVID-19 vs. not hospitalized COVID-19” (B1), GWAS summary statistics of the European only data were not publicly available, we therefore used data from an admixed population instead, the proportion of which were European was 81% in this data (Table S2).
+
+[0061] [FIG] Summary of Mendelian randomization results of immune-cell specific gene expressions on COVID-19 risk. (a) Total number of the MR associations determined through two-sample MR, sensitivity analysis, linkage disequilibrium (LD) test and colocalization analysis. Bar plot marked in purple refers to the number of detected newly found causal genes in each outcome group. (b) Venn plot of the number of merged gene-COVID-19 pairs discovered via the whole filtering process as mentioned previously within four outcome groups. (c) MR results for gene NBEAL2 visualized in forest plot. (d–e) Regional association plot of gene expression of NBEAL2 (Upper) and two types (A2 and B2) of COVID-19 severity in the NBEAL2 region in European ancestry population (Lower). The regional plots refer to the genetic associations of gene expression of NBEAL2 and types of COVID-19 severity. The X-axis is the chromosome and position of the NBEAL2 region.
+
+[0062] [RESULTS] After harmonizing the exposure data (gene expression profiles of tested genes) and outcome data (COVID-19 outcomes), 14,249–14,485 MR estimates of gene expressions on COVID-19 were calculated for the four types of COVID-19 outcomes respectively (Fig. 3a). Following false discovery rate (FDR) correction, a total of 144, 3, 191 and 40 MR associations (which means association of one gene expression profile against one type of COVID-19 outcome with MR and colocalization evidence, see Supplementary Information: definitions) remained for A2 (“very severe respiratory confirmed COVID-19 vs. population”), B1 (“hospitalized COVID-19 vs. not hospitalized COVID-19”), B2 (“Hospitalized COVID-19 vs. population”) and C2 (“COVID-19 vs. population”) respectively (Fig. 3a). In order to examine heterogeneity in the MR results, we conducted a Cochran's Q test for 16 MR associations estimated by two or more instruments, which found little evidence to support heterogeneity among instruments (Q-value>0.05). To distinguish causality from confounding by linkage disequilibrium (LD), we applied two colocalization approaches, LD check, genetic colocalization, Susie and SharePro colocalization. These analyses showed that 343 of the 378 (91%) MR associations showed colocalization evidence (defined as colocalization probability ≥70% for colocalization or r2 ≥ 0.7 for LD check; Susie and SharePro colocalization probability>0.9; Fig. 3a, Table S3). These 343 MR associations were related to expressions of 132 genes in 14 immune cell types.
+
+[0063] [RESULTS] We conducted a comprehensive search of COVID-19 related genes in 10 databases as well as twenty-five COVID-19 associated MR research (Table S3, Table S4, Supplementary Materials, ST1). We found that 58 of the 132 identified genes were not reported before for COVID-19 (Fig. 3a, Table S3).
+
+[0064] [RESULTS] When comparing MR associations between four COVID-19 outcomes, we found 54 genes showed MR and colocalization evidence in two or more COVID-19 outcomes. One gene, NBEAL2, showed evidence in four COVID-19 outcomes, 12 genes showed evidence in three outcomes, where 41 genes showed evidence in two outcomes (Fig. 3b). As an example, the NBEAL2 gene, showed robust MR and colocalization evidence in all four types of COVID-19 outcomes (Fig. 3c–e). These 54 genes showed associations with two or more COVID-19 outcomes were considered as the replicable genes (Supplementary Information: definitions) connected with COVID-19. Mendelian randomization on Long COVID is provided in Supplementary Notes.
+
+[0065] [RESULTS] Immune-cell type specific effects of gene expressions on COVID-19 outcomes
+
+[0066] [FIG] Immune-cell type specificity of the top Mendelian randomization findings across four types of COVID-19 outcomes. (a) The whole profiles of all the demonstrated eGenes in cell types and groups. Histogram graph in the external ring represents cell-type combined with groups for all identified eGenes. Chord plot in the middle shows the recurring eGenes in groups connected by gradient lines. (b) Sector bubble chart summaries cell-type and group distribution characteristics of high-frequency (at least occurred in two groups) eGenes. Bar plot on the top represents the total number of occurrences of eGenes in each group from all cell types. Bar plot on the right refers to the total number of eGenes in each cell type with groups. (c) Bar plot shows final proportions of all the putative causal eGenes in groups as well as cell types compared with the figure of exposure.
+
+[0067] [RESULTS] We further estimated the cell-type specificity of the 132 putative causal genes for COVID-19, which included 343 MR associations (200 gene-COVID-19 pairs) in total. Of them, 145 of the 200 (73%) pairs only showed effects on COVID-19 in one specific immune cell type (Fig. 4a). Similarly, 30 (56%) of the 54 replicable genes (with robust MR evidence in two or more COVID-19 outcomes) showed cell-type specific effects in only one immune cell type (Fig. 4b). In contrast, seven genes showed MR associations in five or more immune cell types, for example TOMM7 expressions in 13 immune cell types were associated with COVID-19. This implied a generalized immune-mediated effect of these genes on COVID-19 (Fig. 4b).
+
+[0068] [RESULTS] The cell-type specific MR analysis provided some evidence to support CD4 NC cell as an enriched cell type for COVID-19. However, we also observed that CD4 NC had the largest number of eGenes (Fig. 2a and b). We then estimated the ratio between number of identified causal genes versus number of eGenes for each of the 14 immune cell types (Fig. 4c). The results showed that the COVID-19-associated genes were enriched in three immune cell types: natural killer (NK) recruiting, plasma and CD4 SOX4 cells, after adjusting the influence of eGenes' number. In contrast, the figure was de-enriched in some other cell types like NK cells. By using another enrichment method via function ‘phyper’, compared with all the significant MR results and significant cell type MR results, as shown in Supplementary Materials ST5, the figure was consistent with that of from Fig. 4c.
+
+[0069] [RESULTS] Enrichment of the COVID-19 associated genes in immune-viral related mechanisms
+
+[0070] [FIG] Pathway and gene-set enrichment analysis results of the unreported genes associated with COVID-19 risk. (a) Lollipop chart illustrated representative results of functional enrichment analysis via GO and KEGG for all putative causal genes. The details were listed in Table S11. (b) Circle plot (lower right side) shows protein–protein interaction (PPI) network of all putative causal eGenes via Metascape online. Dot size for each eGene represents the degree of interaction with other genes. The Molecular Complex Detection (MCODE) algorithm was applied to identify tightly connected network components when the network contained 3 to 500 proteins. Four MCODE networks for all genes were collected and shown in the lower left and upper right corners, respectively. Pathway and process enrichment analyses are applied independently to each MCODE component, and the three items with the highest p-value values are retained as characterization, as shown in Table S10.
+
+[0071] [RESULTS] To explore the immune-mediated mechanisms that were enriched by the identified COVID-19 associated genes, we performed a set of functional enrichment analysis including ontology clusters, pathway analysis, and gene cluster analysis. Among the 132 genes associated with COVID-19, 119 genes could be converted into Entrez gene ID and were included in the enrichment analysis. The results showed that the 119 genes were enriched in pathways such as interferon signalling, cytokine signalling in immune system and interferon alpha/beta signaling (Table S10, “MyList_MCODE_ALL” part), consistent with findings reported in a previous study. The enrichment results could be classified into six types of biological pathways: virus response pathways, immune-inflammatory pathways, cellular process pathways, metabolic process pathways, response to stimulus and disease pathways (Fig. 5a, Table S11). We then performed protein–protein interaction (PPI) network analysis for the identified causal genes. Among the 119 genes included in this analysis, 15 of their encoded proteins showed little evidence of interaction with any other proteins, leaving 104 protein coding genes for the PPI analysis. 34 of the 104 gene-coding proteins (33%) were further clustered into four modules using Metascape (Fig. 5b).
+
+[0072] [RESULTS] Validation and repurposing of immune-related drug target for COVID-19
+
+[0073] [TABLE] Drug target validation and repurposing opportunities.
+
+[0074] [TABLE] Type Gene-celltype-outcome MR information Drug information MR evidence from this study (≤) Gene Celltype Outcome Drug name Molecular action Current clinical indication(s) Un-reported EHMT2 CD4 SOX4 HGI_A2_EUR ZFP-462 regulator Neurodevelopmental Disorders 1.22E-05 ASIC3 CD4 NC HGI_B2_EUR THA-902 inhibitor inflammatory pain 4.00E-04 B4GALT1 CD4 ET/CD8 ET/CD4 NC HGI_A2_EUR AX1412 inhibitor cardiovascular disease 4.36E-04 GALM CD8 NC HGI_B2_EUR Beta-d-Glucose Small Molecule Cardiovascular Diseases, Type 1 diabetes, Metabolic Syndrome 4.72E-04 FUBP1 CD4 NC/CD8 ET/CD4 NC/B mem HGI_A2/B2_EUR Sacituzumab govitecan inhibitor Breast Cancers 2.04E-05 YY1AP1 CD4 ET HGI_C2_EUR TT-10 agonist solid tumours 1.06E-08 TY-0584 inhibitor non-small cell lung cancer PNPO CD4 NC HGI_B2_EUR Pyridoxine Small Molecule Alzheimer's disease 9.98E-06 NCR3 CD4 SOX4 HGI_B2/C2_EUR NKp30/TAA bispecific antibody agonist unspecified cancer, multiple Myeloma 7.04E-04 STK19 NK R HGI_B2_EUR ZT-12-037-01 regulator Melanoma, Musculoskeletal Diseases 1.12E-04 RHEB CD8 ET HGI_A2_EUR Rheb inhibitor NR1 inhibitor Neurological Disease; Inflammation/Immunology; Cancer 1.71E-04 Previous reported HLA-C NK R/NK/CD8 S100B HGI_A2/B2/C2_EUR CB-101 Unknown solid tumours 2.91E-04 CAT Mono C HGI_A2/B2/C2_EUR PEG-catalase Enzyme disorders resulting from oxygen toxicity 1.54E-05 IFNAR1 CD4 NC HGI_A2/B2_EUR Glycoferon agonist hepatitis-C viral infection, potential in hepatitis-B virus and HIV infections 1.30E-07 CRHR1 CD4 NC/CD8 NC HGI_A2/B2_EUR E−2009 antagonist depression, anxiety or sleep disorders 1.44E-05 HLA-A Plasma/CD8 S100B HGI_A2/B2_EUR Tedopi vaccine pancreatic and non-small cell lung cancer. 5.93E-04 ICAM3 Mono NC HGI_A2/B2_EUR anti-ICAM-3 MAb antagonist Cancer, leukemia 9.08E-06 GBA CD4 NC HGI_B2/C2_EUR NMRA-GCase Enzyme neurodegenerative diseases 1.88E-05 Pharmaprojects No. 4562 inhibitor viral infection TNF Mono C HGI_A2_EUR SAR-442970 inhibitor immuno-inflammatory diseases 2.20E-05 IDC-007 Antibody Systemic inflammatory response syndrome (SIRS) SAR-442999 Antibody immuno-inflammatory diseases EEF2 CD4 ET/CD8 S100B/CD8 NC HGI_A2_EUR CD4-ricin inhibitor anti-AIDS, Antiviral, anti-HIV 3.68E-04 interleukin-4 fusion toxin inhibitor allergy, autoimmune diseases, including AIDS NOTCH4 CD4 NC HGI_A2_EUR BMS-906024 inhibitor Cancer, non-small cell lung cancer 6.74E-06 PSIP1 CD8 ET HGI_B2_EUR GS-9822 inhibitor Infection, anti-HIV/AIDS 1.21E-05 MAPT CD8 ET HGI_B2_EUR ACI-3024 inhibitor neurodegenerative diseases 2.85E-05 HLA-DRB1 Mono NC HGI_B2_EUR ZYBK-2 inhibitor rheumatoid arthritis (RA) 1.93E-04 ITGB2 except for plasma and CD4 SOX4 HGI_B2_EUR AIRZ-FF antagonist chronic obstructive pulmonary disease (COPD) 2.00E-04 leukotoxin antagonist blood cancers, potential against HIV/AIDS and autoimmune diseases dual Mac-1/LFA-1 antagonist inhibitor asthma, COPD Clotinab antagonist clot-related cardiovascular disease
+
+[0075] [TABLE] Ps: outcome type: HGI_A2_EUR, very severe respiratory confirmed COVID-19 vs. population (Eur); HGI_B2_EUR, hospitalized COVID-19 vs. population (Eur); HGI_C2_EUR, COVID-19 vs. population (Eur).
+
+[0076] [RESULTS] In light of identifying potential immune-related drug targets for COVID-19, we conducted two analyses. First of all, we searched for drugs that target the 132 identified genes in PubChem (https://pubchem.ncbi.nlm.nih.gov/) and in existing drug–gene interaction databases, including OpenTargets, DrugBank and Drug-gene interaction database. This search identified 32 candidate drugs that target 24 of the identified genes (Table 1). The main indications of the 32 drugs were chronic cough, various types of pain (neuropathic, musculoskeletal, and inflammatory), tumour and lipid metabolism abnormalities, which were symptoms that occurred in patients with COVID-19 infection and post-COVID sequalae. 10 of the 24 identified genes were unreported genes that were not reported in any previous studies and 90% of them showed an effect on the severe COVID-19 (“very severe and hospitalized COVID-19 cases” in A2 and B2 groups) and eight genes only showed MR associations in one specific cell type.
+
+[0077] [RESULTS] Evidence triangulation to prioritize drug targets for COVID-19
+
+[0078] [FIG] Evidence synthesis for the unreported genes and drug targets for COVID-19 risk. (a) All the putative causal genes underwent systematic prioritization using four lines of evidence and were classified into three tiers (Table S17). (b) Causal network of genes in Tier 1–2 and known targets via String (score ≥ 0.7) with their respective evidence results.
+
+[0079] [RESULTS] Combining the above evidence obtained from this study, the following criteria were used to prioritize promising drug target genes for COVID-19 (Supplementary Information: definitions): (i) the gene showed MR and colocalization to support it as a putative causal gene for COVID-19 and was not reported by previous studies (therefore it has to be an unreported gene, and the gene will get an extra score if it is also a replicable gene); (ii) the unreported gene was enriched in related pathways or included in the four clustered modules; (iii) the gene showed predicted interaction with SARS-COV-2 proteins and/or associations with existing host proteins for COVID-19; (iv) the gene is a druggable gene (either as a target for an existing drug or as a druggable target). For the 58 unreported genes with MR and colocalization evidence to support their causality, we scored and ranked them into three tiers based on the above criteria. 18 genes were ranked as Tier 1 drug targets (overall score ≥1). 23 genes, including 19 protein-coding genes and 4 non-coding genes, were ranked as Tier 2 targets (overall score between 0.35 and 1) and the remaining targets were ranked as Tier 3 targets (Table S17). Except 4 non-coding genes, the remaining 37 Tier 1 and Tier 2 genes were treated as promising drug targets genes for COVID-19 (Fig. 6). Of them, NCR3 was ranked as the top candidate gene with highest score of 2.1, which showed good evidence from all tested criteria. Similarly, EHMT2, RHEB and HSPA1B also showed good evidence from multiple criteria (overall score between 1.85 and 1.95). Additional findings of results are provided in Supplementary Notes.
+
+[0080] [DISCUSS] Discussion
+
+[0081] [DISCUSS] In this study, we systematically evaluated the immune-mediated genes and mechanisms for COVID-19 by combining single-cell eQTL MR and colocalization with pathway and protein–protein interaction information. Through MR and colocalization analyses, we identified 343 MR associations for 132 genes in 14 immune-cell types related to four types of COVID-19 outcomes, with 58 genes that we believe have not been reported before. The MR associations were enriched in some specific immune cell types such as NK recruiting, plasma and CD4 SOX4 cells, but de-enriched in other cell types such as NK cells. Of note, 145 gene-COVID-19 pairs (73%) showed causal effects in one specific immune cell type. We also found two pathways, brain-derived neurotrophic factor (BDNF) signalling and primary ovarian insufficiency, that were enriched by the genes we identified. By using a deep learning model, we observed 107 causal genes (81%) that were predicted to interact with SARS-COV-2 proteins. We further developed a tier system to prioritize COVID-19 drug targets and identified 37 promising drug target genes that showed multiple layers of evidence like functional enrichment, interactions with SARS-COV-2 proteins and druggability. Collectively, our study identifies immune-mediated causal genes and mechanisms for COVID-19 and provides a tier system to prioritize immune-related drug targets for COVID-19.
+
+[0082] [DISCUSS] Our study provided a comprehensive demonstration of cell-type specificity for the prioritized COVID-19 associated genes. The MR results revealed that 73% of the identified gene-COVID-19 pairs only showed effects on one specific immune cell type. For instance, the MR associations of NBEAL2 and ZNF311 were exclusively identified in CD4 NC cells. Recent studies have showed that NBEAL2 acts as a causal gene for gray platelet syndrome and bovine pigmentation disease, and also regulates the expression of CTLA-4 in conventional T cells and thereby influences the number and status of effector T cells. In conjunction with the pathway enrichment findings and the tissue-specific MR results, it is hypothesized that this gene might impact the inflammatory responses of immune cells through the regulation of granulocyte degranulation. Additionally, considering recent discussions on coagulation issues in COVID-19, NBEAL2 could also play a role in platelet function by influencing the differentiation of myeloid cells. In summary, our study illustrated that cell-type specificity is commonplace for causal genes influencing COVID-19 risk.
+
+[0083] [DISCUSS] The cell type enrichment analysis suggested that the identified genes for COVID-19 were de-enriched in NK cells but were enriched in NK R cells. NK cells in patients with severe COVID-19 exhibit significant phenotypic and functional changes, such as a decrease in number and impaired function, which might partly explain the de-enrichment of NK cells we observed. In addition, our study suggested that most of the causal genes identified in NK recruiting cells were associated with hospitalized COVID-19 cases (B2) and severe COVID-19 cases (A2). Although the role of NK cells in COVID-19 has been summarized before, few studies have linked NK recruiting cells with COVID-19. The distinguished enrichment pattern between NK and NK recruiting cells may suggest that the causal genes may specifically activate NK recruiting cells to fight against SARS-COV-2 infected cells by recruiting other immune cells via cytokine productions, rather than other NK cell functions. Additional functional investigations are warranted for specific immune cell types, such as NK recruiting cells.
+
+[0084] [DISCUSS] Our mediation results (see Supplementary Information) detected a few cell-type eGenes (48 MR associations, accounting for 12%) that could be mediated by smoking (5 MR results) or obesity (48 MR results, BMI was utilized as an indicator of obesity) in their impact on the development of COVID-19 (2–13% mediation proportions), which are consistent with conclusions drawn in previous literature identifies smoking as a significant risk factor for the progression and exacerbation of COVID-19.
+
+[0085] [DISCUSS] More and more research has indicated that COVID-19 infection could lead to damage in multiple systems of the human body. It is noted that the genes identified in the present study and their enriched pathways were also involved in various systems. For instance, the BDNF signalling pathway (including FRS3) is known to play an important role in a variety of neurological diseases, and recent studies have also found that serum BDNF levels were decreased in individuals with COVID-19, which suggests a potential mechanism for immune-cell mediated neurological pathways on COVID-19 infection. MSH5, has been linked to male azoospermia and female primary ovarian failure and is proposed to influence the development and function of the reproductive system by participating in DNA mismatch repair during meiosis. Given the observed disruption of the HPG axis in patients with COVID-19 affecting spermatogenesis and epididymis, our identification of those immune-cell derived reproductive-related genes and pathways might offer some insight into this impairment.
+
+[0086] [DISCUSS] Recent studies have prioritized drug targets for complex diseases using human genetics tools. However, there is still a huge gap between causal genes and promising drug targets for COVID-19. Therefore, we developed a tier system to prioritize drug targets from the 132 COVID-19 associated genes, which combined four pieces of evidence from multiple independent data sources. This approach prioritized 37 genes as the most promising drug targets for COVID-19 (Tier 1 and Tier 2 genes). Among them, NCR3, got the highest score, which showed causal effects on three COVID-19 outcomes (very severe respiratory confirmed COVID-19 vs. population; Hospitalized COVID-19 vs. population; and COVID-19 vs. population). This gene showed effects in two cell types, CD4 SOX9 and Mono NC. Combining this evidence, NCR3 could be considered as a druggable target with cell-specificity upon different types of COVID-19 severity. The drug targeting of NCR3 is under clinical trial investigation for tumour and tumour metastasis. This finding aligned with our pathway enrichment results, which suggested that NCR3 is related to leukocyte activation and proliferation. Furthermore, emerging studies suggest that COVID-19, particularly severe COVID-19, may serve as a biomarker for tumour formation. We hypothesized that this could be a contributing factor to tumourigenesis, as several of our causal genes were known to be associated with tumours, such as FUBP1, YY1AP1, HLA-A, HLA-C, ICAM3, STK19, RHEB and NOTCH4.
+
+[0087] [DISCUSS] Our study has several limitations. Due to the lack of gene expression data before and after cell activation, we are unable to understand the dynamic causal pattern of our identified genes on COVID-19, which may identify additional causal genes and mechanisms for COVID-19. Second, it is worth noting that due to the smaller number of cases in the Long COVID dataset and COVID-19 outcome B1 (hospitalized COVID-19 vs. not hospitalized COVID-19), we had limited statistical power to identify causal genes in these groups compared with other COVID-19 outcomes. Third, the COVID-19 genome-wide association study data is related to prevalent COVID-19 cases. Thus, the new targets identified in this study might be better suited for COVID-19 prevention. However, it is fully possible that a target for disease prevention can also be a target for disease treatment, such as OAS1 for COVID-19. Therefore, the causal genes identified in this study still require further experimental confirmation and population-based verification to determine their specificity for COVID-19 treatment.
+
+[0088] [DISCUSS] In conclusion, we comprehensively examined the immune-mediated genes and mechanisms across 14 immune-cell types for COVID-19. The tier system we developed supports identification of 37 genes as promising drug targets for COVID-19. Future studies are warranted to understand the causal mechanisms, optimal targets, efficacy and safety of these targets and their potential benefits on preventing and treating COVID-19.
+
+[0089] [DISCUSS] Contributors
+
+[0090] [DISCUSS] Conceptualization: J.Z., Y.F.B., Formal analysis: H.Y., X.Y.W., Methodology: J.Z., H.Y., Investigation: H.Y., X.Y.W., Visualization: H.Y., Funding acquisition: Y.F.B., J.Z., Project administration: J.Z., Supervision: Y.F.B., J.Z., Writing—original draft: H.Y. Writing—review & editing: Y.F.B., X.J.J., Q.Q.Y., H.Y.L., M.X., T.G.W., M.L., Z.Y.Z., R.Z.Z., S.Y.W., H.L., Y.X., J.L.L., W.Q.W., G.N.
+
+[0091] [DISCUSS] All authors read and approved the final version of the manuscript, J.Z., H.Y. and X.Y.W. have accessed and verified the underlying data.
+
+[0092] [DISCUSS] Data sharing statement
+
+[0093] [DISCUSS] All data shown is provided in the tables or supplemental tables. Single-cell eQTL mapping data of eQTL analysis were derived from OneK1K data (https://onek1k.org/). These data can be downloaded without restriction. We used publicly available software for the analyses. The outcome data was freely accessible from COVID-19 Genetic Housing Initiative genome-wide association studies (GWAS) meta-analysis Round 7 (https://www.covid19hg.org/results/r7/, GRCh37). The code for reproducing the study is available at GitHub repository (https://github.com/geneinmylife/single-cell-COVID19-MR).
+
+[0094] [DISCUSS] Further information and requests for resources should be directed to and will be fulfilled by the lead contact, Jie Zheng (jie.zheng@bristol.ac.uk). The MR analysis was conducted using TwoSampleMR R package (https://github.com/MRCIEU/TwoSampleMR/). We conducted the colocalization analysis using the coloc R package that can be downloaded at https://www.rdocumentation.org/packages/coloc/versions/2.0.
+
+[0095] [COMP_INT] Declaration of interests
+
+[0096] [COMP_INT] Authors declare that they have no competing interests.
+
+[0097] [REF] References
+
+[0098] [REF] A novel coronavirus from patients with pneumonia in China, 2019
+
+[0099] [REF] The origins of SARS-CoV-2: a critical review
+
+[0100] [REF] Progress of the COVID-19 vaccine effort: viruses, vaccines and variants versus efficacy, effectiveness and escape
+
+[0101] [REF] Pan-coronavirus vaccine pipeline takes form
+
+[0102] [REF] Therapeutic strategies for COVID-19: progress and lessons learned
+
+[0103] [REF] Approved antiviral drugs over the past 50 years
+
+[0104] [REF] Infectious diseases society of America guidelines on the treatment and management of patients with COVID-19
+
+[0105] [REF] SARS-CoV-2, SARS-CoV, and MERS-CoV viral load dynamics, duration of viral shedding, and infectiousness: a systematic review and meta-analysis
+
+[0106] [REF] Recommendations for the management of drug-drug interactions between the COVID-19 antiviral nirmatrelvir/ritonavir (paxlovid) and comedications
+
+[0107] [REF] Innate immunity: the first line of defense against SARS-CoV-2
+
+[0108] [REF] The trinity of COVID-19: immunity, inflammation and intervention
+
+[0109] [REF] The immunology and immunopathology of COVID-19
+
+[0110] [REF] Evaluating the effects of circulating inflammatory proteins as drivers and therapeutic targets for severe COVID-19
+
+[0111] [REF] Dexamethasone modulates immature neutrophils and interferon programming in severe COVID-19
+
+[0112] [REF] Anticoagulation in patients with COVID-19: JACC review topic of the week
+
+[0113] [REF] Tocilizumab in patients admitted to hospital with COVID-19 (RECOVERY): a randomised, controlled, open-label, platform trial
+
+[0114] [REF] Systems biological assessment of immunity to mild versus severe COVID-19 infection in humans
+
+[0115] [REF] Single-cell multi-omics analysis of the immune response in COVID-19
+
+[0116] [REF] Immune response in COVID-19: what is next?
+
+[0117] [REF] Systems analysis of human innate immunity in COVID-19
+
+[0118] [REF] GWAS and meta-analysis identifies 49 genetic variants underlying critical COVID-19
+
+[0119] [REF] The support of human genetic evidence for approved drug indications
+
+[0120] [REF] A second update on mapping the human genetic architecture of COVID-19
+
+[0121] [REF] Phenome-wide and expression quantitative trait locus associations of coronavirus disease 2019 genetic risk loci
+
+[0122] [REF] Whole-genome sequencing reveals host factors underlying critical COVID-19
+
+[0123] [REF] Multi-ancestry Mendelian randomization of omics traits revealing drug targets of COVID-19 severity
+
+[0124] [REF] An integrated strategy to identify COVID-19 causal genes and characteristics represented by LRRC37A2
+
+[0125] [REF] Single-cell RNA sequencing identifies celltype-specific cis-eQTLs and co-expression QTLs
+
+[0126] [REF] scQTLbase: an integrated human single-cell eQTL database
+
+[0127] [REF] Single-cell eQTL mapping identifies cell type-specific genetic control of autoimmune disease
+
+[0128] [REF] Single-cell eQTL models reveal dynamic T cell state dependence of disease loci
+
+[0129] [REF] DOCK2 is involved in the host genetics and biology of severe COVID-19
+
+[0130] [REF] Single-cell analyses and host genetics highlight the role of innate immune cells in COVID-19 severity
+
+[0131] [REF] Bias in causal estimates from Mendelian randomization studies with weak instruments
+
+[0132] [REF] Mendelian randomization: using genes as instruments for making causal inferences in epidemiology
+
+[0133] [REF] Mendelian randomization with fine-mapped genetic data: choosing from large numbers of correlated instrumental variables
+
+[0134] [REF] The MR-Base platform supports systematic causal inference across the human phenome
+
+[0135] [REF] Strengthening the reporting of observational studies in epidemiology using mendelian randomisation (STROBE-MR): explanation and elaboration
+
+[0136] [REF] Strengthening the reporting of observational studies in epidemiology using mendelian randomization: the STROBE-MR statement
+
+[0137] [REF] SIGNOR 3.0, the SIGnaling network open resource 3.0: 2022 update
+
+[0138] [REF] The COVID-19 Host Genetics Initiative, a global initiative to elucidate the role of host genetic factors in susceptibility and severity of the SARS-CoV-2 virus pandemic
+
+[0139] [REF] COVID19db: a comprehensive database platform to discover potential drugs and targets of COVID-19 at whole transcriptomic scale
+
+[0140] [REF] The COVID-19 drug and gene set library
+
+[0141] [REF] COVID-19 Disease Map, building a computational repository of SARS-CoV-2 virus-host interaction mechanisms
+
+[0142] [REF] Longitudinal analysis reveals that delayed bystander CD8+ T cell activation and early immune pathology distinguish severe COVID-19 from mild disease
+
+[0143] [REF] A blood atlas of COVID-19 defines hallmarks of disease severity and specificity
+
+[0144] [REF] COVIDpro: database for mining protein dysregulation in patients with COVID-19
+
+[0145] [REF] An OpenData portal to share COVID-19 drug repurposing data in real time
+
+[0146] [REF] Orienting the causal relationship between imprecisely measured traits using GWAS summary data
+
+[0147] [REF] A framework for the investigation of pleiotropy in two-sample summary data Mendelian randomization
+
+[0148] [REF] Phenome-wide Mendelian randomization mapping the influence of the plasma proteome on complex diseases
+
+[0149] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0150] [REF] Metascape provides a biologist-oriented resource for the analysis of systems-level datasets
+
+[0151] [REF] Cytoscape: a software environment for integrated models of biomolecular interaction networks
+
+[0152] [REF] deepHPI: a comprehensive deep learning platform for accurate prediction and visualization of host–pathogen protein–protein interactions
+
+[0153] [REF] STRING v11: protein-protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets
+
+[0154] [REF] Open Targets Platform: supporting systematic drug-target identification and prioritisation
+
+[0155] [REF] DrugBank 3.0: a comprehensive resource for 'omics' research on drugs
+
+[0156] [REF] Integration of the drug-gene interaction database (DGIdb 4.0) with open crowdsource efforts
+
+[0157] [REF] A global reference for human genetic variation
+
+[0158] [REF] A more accurate method for colocalisation analysis allowing for multiple causal variants
+
+[0159] [REF] SharePro: an accurate and efficient genetic colocalization method accounting for multiple causal signals
+
+[0160] [REF] Bioinformatics and machine learning approach identifies potential drug targets and pathways in COVID-19
+
+[0161] [REF] The immunology of long COVID
+
+[0162] [REF] NBEAL2 is mutated in gray platelet syndrome and is required for biogenesis of platelet α-granules
+
+[0163] [REF] Abnormal megakaryocyte development and platelet function in Nbeal2(-/-) mice
+
+[0164] [REF] Novel manifestations of immune dysregulation and granule defects in gray platelet syndrome
+
+[0165] [REF] Identification of QTL for UV-protective eye area pigmentation in cattle by progeny phenotyping and genome-wide association analysis
+
+[0166] [REF] NBEAL2 deficiency in humans leads to low CTLA-4 expression in activated conventional T cells
+
+[0167] [REF] Understanding COVID-19-associated coagulopathy
+
+[0168] [REF] Natural killer cell immunotypes related to COVID-19 disease severity
+
+[0169] [REF] Severe COVID-19 patients display hyper-activated NK cells and NK cell-platelet aggregates
+
+[0170] [REF] Defining the role of natural killer cells in COVID-19
+
+[0171] [REF] Genetic mechanisms of COVID-19 and its association with smoking and alcohol consumption
+
+[0172] [REF] Investigation of a COVID-19 outbreak on the Charles de Gaulle aircraft carrier, March to April 2020: a retrospective cohort study
+
+[0173] [REF] Pathophysiology and imaging findings of COVID-19 infection: an organ-system based review
+
+[0174] [REF] Multi-organ assessment in mainly non-hospitalized individuals after SARS-CoV-2 infection: the Hamburg City Health Study COVID programme
+
+[0175] [REF] BDNF signaling in context: from synaptic regulation to psychiatric disorders
+
+[0176] [REF] Serum brain-derived neurotrophic factor (BDNF) in COVID-19 patients and its association with the COVID-19 manifestations
+
+[0177] [REF] COVID-19 affects serum brain-derived neurotrophic factor and neurofilament light chain in aged men: implications for morbidity and mortality
+
+[0178] [REF] Mutations of MSH5 in nonobstructive azoospermia (NOA) and rescued via in vivo gene editing
+
+[0179] [REF] Selected genetic factors associated with primary ovarian insufficiency
+
+[0180] [REF] Mammalian MutS homologue 5 is required for chromosome pairing in meiosis
+
+[0181] [REF] SARS-CoV-2 and male infertility: from short- to long-term impacts
+
+[0182] [REF] Plasma proteomic associations with genetics and health in the UK Biobank
+
+[0183] [REF] NKp30 - a prospective target for new cancer immunotherapy strategies
+
+[0184] [REF] A role for the immune system in advanced laryngeal cancer
+
+[0185] [REF] Severe SARS-CoV-2 infection as a marker of undiagnosed cancer: a population-based study
+
+[0186] [REF] Learning through a pandemic: the current state of knowledge on COVID-19 and cancer
+
+[0187] [REF] Cross-ancestry genome-wide meta-analysis of 61,047 cases and 947,237 controls identifies new susceptibility loci contributing to lung cancer
+
+[0188] [REF] YAP induces an oncogenic transcriptional program through TET1-mediated epigenetic remodeling in liver growth and tumorigenesis
+
+[0189] [REF] Comprehensive analysis of cancer-associated somatic mutations in class I HLA genes
+
+[0190] [REF] ICAM3 mediates inflammatory signaling to promote cancer cell stemness
+
+[0191] [REF] STK19: a new target for NRAS-driven cancer
+
+[0192] [REF] STK19 is a DNA/RNA-binding protein critical for DNA damage repair and cell proliferation
+
+[0193] [REF] Over-expressed RHEB promotes the progression of pancreatic adenocarcinoma
+
+[0194] [REF] Targeting Notch 4 in cancer: molecular mechanisms and therapeutic perspectives
+
+[0195] [REF] A SARS-CoV-2 protein interaction map reveals targets for drug repurposing
+
+[0196] [SUPPL] Supplementary data
+
+[0197] [SUPPL] Supplementary data related to this article can be found at https://doi.org/10.1016/j.ebiom.2025.105596.

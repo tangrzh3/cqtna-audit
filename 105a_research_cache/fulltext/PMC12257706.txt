@@ -1,0 +1,407 @@
+[0001] [TITLE] Multi-omics analysis for identifying cell-type-specific and bulk-level druggable targets in Alzheimer’s disease
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Analyzing disease-linked genetic variants via expression quantitative trait loci (eQTLs) helps identify potential disease-causing genes. Previous research prioritized genes by integrating Genome-Wide Association Study (GWAS) results with tissue-level eQTLs. Recent studies have explored brain cell type-specific eQTLs, but a systematic analysis across multiple Alzheimer’s disease (AD) genome-wide association study (GWAS) datasets or comparisons between tissue-level and cell type-specific effects remain limited. Here, we integrated brain cell type-level and bulk-level eQTL datasets with AD GWAS datasets to identify potential causal genes.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We used Summary Data-Based Mendelian Randomization (SMR) and Bayesian Colocalization (COLOC) to integrate AD GWAS summary statistics with eQTLs datasets. Combining data from five AD GWAS, two single-cell eQTL datasets, and one bulk eQTL dataset, we identified novel candidate causal genes and further confirmed known ones. We investigated gene regulation through enhancer activity using H3K27ac and ATAC-seq data, performed protein–protein interaction (PPI) and pathway enrichment, and conducted a drug/compound enrichment analysis with Drug Signatures Database (DSigDB) to support drug repurposing for AD.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] We identified 28 candidate causal genes for AD, of which 12 were uniquely detected at the cell-type level, 9 were exclusive to the bulk level and 7 detected in both. Among the 19 cell-type level candidate causal genes, microglia contributed the highest number of candidate genes, followed by excitatory neurons, astrocytes, inhibitory neurons, oligodendrocytes, and oligodendrocyte precursor cells (OPCs). PABPC1 emerged as a novel candidate causal gene in astrocytes. We generated PPI networks for the candidate causal genes and found that pathways such as membrane organization, cell migration, and ERK1/2 and PI3K/AKT signaling were enriched. The AD-risk variant associated with candidate causal gene PABPC1 is located near or within enhancers only active in astrocytes. We classified the 28 genes into three drug tiers and identified druggable interactions, with imatinib mesylate emerging as a key candidate. A drug-target gene network was created to explore potential drug targets for AD.
+
+[0008] [ABSTRACT] Conclusions
+
+[0009] [ABSTRACT] We systematically prioritized AD candidate causal genes based on cell type-level and bulk level molecular evidence. The integrative approach enhances our understanding of molecular mechanisms of AD-related genetic variants and facilitates interpretation of AD GWAS results.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1186/s12967-025-06739-1.
+
+[0012] [INTRO] Background
+
+[0013] [INTRO] Alzheimer’s Disease (AD) is a multifaceted neurodegenerative disorder characterized by progressive cognitive decline and memory loss. AD is broadly categorized into early-onset and late-onset forms, with late-onset AD (LOAD) being the most common. The genetic architecture of AD is complex, involving numerous deleterious variants distributed across various genes. Among these, the APOE ε4 allele is recognized as the strongest genetic risk factor for late-onset AD. Genome-Wide Association Studies (GWAS) have significantly advanced our understanding of the genetic basis of AD. Early AD GWAS studies identified key loci like CLU and CR1. The latest AD GWAS study has significantly expanded our understanding of the genetic basis of Alzheimer’s disease, identifying 83 genetic variants across 75 loci, including 42 newly discovered variants in European ancestry populations.
+
+[0014] [INTRO] However, while GWAS studies are instrumental in identifying genetic variants associated with AD, they fail to elucidate the molecular and cellular mechanisms by which the variants contribute to the disease. Only a small fraction of these variants resides within coding regions, while a significant number of non-coding risk variants remain unexplained. To better understand the underlying mechanisms through which these risk variants act, recent studies have employed Expression Quantitative Trait Loci (eQTL) analyses for following up GWAS study results. The eQTL analyses can reveal how non-coding variants identified by GWAS influence the risk of AD through changes in gene expression. Several public eQTL datasets derived from brain tissue have become available, including the Braineac dataset from the UK Brain Expression Consortium (UKBEC), the Genotype-Tissue Expression (GTEx) consortium and the MetaBrain dataset. These datasets have enhanced the interpretation of GWAS findings by elucidating how risk variants regulate gene expression on the tissue level.
+
+[0015] [INTRO] Furthermore, a few recent eQTL studies have demonstrated that these non-coding variants affect gene expression in a cell-type-specific manner, underscoring the complexity of their functional impact. Cell type-specific eQTLs enable researchers to determine the cell types that are most influenced by genetic variants and enable the identification of key cell types and regulatory networks involved in the disease progression, thereby offering enhanced understanding of the underlying mechanisms of diseases. Moreover, previous research has shown that GWAS-identified risk variants in non-coding regions can influence phenotypic outcomes by perturbing transcriptional gene promoters and enhancers. For instance, a study has shown that the AD-associated genes BIN1 and PICALM are regulated by AD risk variants that overlap with microglia-specific enhancers, which interact with the active promoters of these genes. Understanding whether these genetic risk variants overlap with specific regulatory elements provides deeper insights into the cell-type-specific mechanisms underlying gene expression regulation.
+
+[0016] [INTRO] In this study, we systematically integrated AD GWAS summary statistics with cell type-level and bulk-level eQTL data to enhance our understanding of the genetic mechanisms underlying AD. We employed Summary Data-Based Mendelian Randomization (SMR) and Bayesian colocalization (COLOC) methods to identify and prioritize potential disease-causing genes. Our analysis included five recent AD GWAS datasets and two cell type-level eQTL datasets derived from single-cell sequencing of AD brain samples, as well as a tissue-level metabrain eQTL dataset from previous studies. We focused on prioritizing candidate causal genes for follow-up functional studies in the future. We examined their associated variants and the possible effects on enhancers in a cell type-specific manner. By comparing our results with existing studies, we identified novel cell type-specific candidate genes and used tools such as eQTpLot to visualize their colocalization. Additionally, we used differential gene expression analysis data to investigate the associations between these novel candidate causal genes and AD. This comprehensive approach aims to improve our understanding of AD's genetic basis at the molecular and cellular level and identify potential therapeutic targets.
+
+[0017] [METHODS] Methods
+
+[0018] [METHODS] Datasets
+
+[0019] [METHODS] We utilized summary statistics from 5 latest GWAS studies on AD involving European ancestry, downloaded from the NHGRI-EBI GWAS Catalog. As shown in Additional file 1: Table S1, Kunkle et al. included 21,982 AD cases, and 41,944 controls from the U.S., Canada, France, Germany, Netherlands, Iceland, U.K., Greece, and other regions, totaling 63,926 samples. Jansen et al. involved 24,087 AD cases, 47,793 proxy cases, and 383,378 controls, with a total of 455,258 samples from the U.S., Norway, Sweden, U.K., and other regions (Additional file 1: Table S1). Wightman et al. analyzed 39,918 AD cases, 46,613 proxy cases, and 676,386 controls, with a total sample size of 762,917 from Finland, Iceland, Norway, Spain, Sweden, U.K., U.S., and other regions (Additional file 1: Table S1). Schwartzentruber et al. included 21,982 AD cases, 53,000 proxy cases, and 419,944 controls, totaling 472,868 samples from Greece, Canada, U.S., U.K., France, and Germany (Additional file 1: Table S1). Bellenguez et al. provided data on 39,106 clinically diagnosed AD cases, 46,828 proxy cases, and 401,577 controls, amounting to 487,511 samples from Portugal, Switzerland, Spain, Greece, Czech Republic, Netherlands, Sweden, U.S., Belgium, Norway, Finland, Denmark, Italy, U.K., Bulgaria, France, and Germany (Additional file 1: Table S1).
+
+[0020] [METHODS] We utilized multiple cis-eQTL datasets predominantly from individuals of European ancestry, including both tissue and cell type levels datasets in brain cortex (Additional file 1: Table S2). The Metabrain eQTL dataset provides tissue-level cis-eQTL data derived from a meta-analysis of 14 bulk RNA-seq datasets focused on the brain cortex (see Additional file 1: Table S2). Two cell type-specific cis-eQTL datasets were obtained from single-cell sequencing data. Bryois et al. provided a cell type-specific eQTL dataset encompassing the temporal cortex, white matter, DLPFC, and prefrontal cortex (PFC) (see Additional file 1: Table S2). Moreover, we performed eQTL analysis and generated a cell type-specific eQTL dataset utilizing the snRNA data from the DLPFC region of the Religious Orders Study and Memory and Aging Project (ROSMAP) cohort, as reported in the study by Mathys et al. (Additional file 1: Table S2).
+
+[0021] [METHODS] eQTL analysis
+
+[0022] [METHODS] To conduct eQTL analysis using the snRNA dataset from the Mathys et al. ROSMAP cohort, we generated pseudobulk expression profiles. We focused on seven main cell types (Excitatory neurons, Inhibitory neurons, Oligodendrocytes, Oligodendrocyte Progenitor Cells (OPCs), Astrocytes, Immune cells, Vasculature cells). Pseudobulk UMI count matrices for each cell type were generated by summing UMI counts per gene across all cells within each individual using Seurat (Version 5.0.1). Low-expression genes were filtered out using the ‘filterByExpr’ function from edgeR (version 3.40.2) with default parameters. The remaining pseudobulk counts were normalized using the trimmed mean of M-values (TMM) method from edgeR, and log2 counts per million (CPM) were computed and then quantile normalized with the ‘voom’ function from limma (version 3.54.2) as a previous study.
+
+[0023] [METHODS] To identify cis-eQTLs within 1 Mb of the transcription start site of each gene, we used Matrix EQTL (version 2.3) for analysis. Bi-allelic SNPs were retained if they had a minor allele frequency > 0.05, a call rate > 95%, and Hardy–Weinberg equilibrium p > 10−6 using PLINK2 as a previous study. Gene expression was modeled using a linear regression with SNP allele counts and several covariates, and significance was determined by t-statistics. To account for population structure, the top 3 genotype principal components (PCs) were included as covariates as a previous study. Additionally, the top 40 expression PCs, calculated within each cell type, were chosen because they captured, on average, 95% of the expression variance across cell types, controlling for non-genetic sources of variation. Covariates including age, sex, post-mortem interval, study cohort (ROS or MAP), and total number of genes detected were also included as a previous study.
+
+[0024] [METHODS] Summary data-based Mendelian randomization
+
+[0025] [METHODS] We performed SMR and Heterogeneity in Dependent Instruments (HEIDI) tests to investigate pleiotropic associations between gene expression and AD within cis-regions, using the SMR software tool (version 1.3.1). The SMR method, as detailed in the previous study, enables the testing of whether the effect size of a SNP on a phenotype is mediated through gene expression. This tool facilitates the prioritization of candidate causal genes underlying GWAS hits for further functional studies by leveraging summary-level data from both GWAS and eQTL datasets (as mentioned above). For our analysis, we used default parameters in the SMR software with a p-value threshold of 5.0e−8 to select the top associated eQTLs for the SMR test, focusing exclusively on cis-regions. The HEIDI test, which assesses heterogeneity among dependent instruments, was conducted using a default eQTL p-value threshold of 1.57e−3 to filter SNPs for each probe, corresponding to a chi-squared value (df = 1) of 10. The association between gene expression and AD was determined as P-value of SMR < 0.05/number of probes tested. For the HEIDI test, significance was determined as P-value of HEIDI > 0.05 as previous studies.
+
+[0026] [METHODS] Bayesian colocalization analysis
+
+[0027] [METHODS] We conducted colocalization analysis using the Coloc package (version 5.2.3) to investigate whether AD phenotype and gene expression share common causal variants in a given region. The input data comprised SNP effect sizes and associated p-values from both the AD GWAS and eQTL datasets (as mentioned above), formatted according to the package’s requirements. Using the coloc.abf function in the package, we tested the hypothesis of a shared causal variant, assuming at most one causal variant per trait. Colocalization analysis calculates posterior probabilities (PPs) of the five hypotheses: (1) PPH0; no association with either gene expression or phenotype; (2) PPH1; association with gene expression, not with the phenotype; (3) PPH2; association with the phenotype, not with gene expression; (4) PPH3; association with gene expression and phenotype by independent SNVs; and (5) PPH4; association with gene expression and phenotype by shared causal SNVs. As a large PP for H4 strongly supports shared causal variants affecting both gene expression and phenotype, we considered PPH4 > 0.75 and PPH4/PPH3 > 3 as strong evidence for colocalization as previous studies.
+
+[0028] [METHODS] Visualization of identified candidate causal genes across eQTL and GWAS datasets
+
+[0029] [METHODS] Figures S1–S5 in Additional file 2 present heatmaps displaying SMR beta values and significance levels for candidate causal genes identified through SMR and colocalization analyses for five AD GWAS datasets respectively. For genes detected in multiple GWAS datasets, the direction of effect (MR beta sign) was found to be consistently aligned across the GWAS datasets. To summarize and integrate findings across all five GWAS datasets, we generated a comprehensive heatmap showing the sign of SMR beta values for each candidate gene, including genes found to be significant in at least one GWAS analysis. These heatmaps were generated using the ComplexHeatmap R package, with columns grouped by eQTL datasets (two cell-type-level and one bulk-level) and rows representing candidate genes.
+
+[0030] [METHODS] Network analysis of candidate causal genes
+
+[0031] [METHODS] We utilized the identified candidate causal genes as input to construct a protein–protein interaction (PPI) network. This network was generated using STRING (version 12.0) with a confidence score threshold of 0.4 as the minimum required interaction score and default settings for all other parameters. The resulting network was then visualized using Cytoscape (version 3.10.2). In the network, nodes represent proteins, while edges illustrate the interactions between these molecules. The shape of each node in the PPI network was used to represent the detection context of candidate genes: ellipses indicate genes detected only in cell type-level datasets, diamonds represent genes found only in bulk-level datasets, and rectangles denote genes shared between both cell type-level and bulk-level analyses. The thickness of the edges corresponds to the combined interaction score from STRING.
+
+[0032] [METHODS] Pathway enrichment of all candidate causal genes
+
+[0033] [METHODS] To identify biologically relevant pathways and processes associated with all candidate causal mRNA genes, we performed functional enrichment analysis using the enrichR R package. We conducted enrichment analysis with multiple up-to-date databases, including KEGG 2021 Human, Reactome Pathways 2024, WikiPathways 2024 Human, GO Biological Process 2025, GO Cellular Component 2025, GO Molecular Function 2025. Enrichment results were filtered to retain only those terms with an adjusted P-value ≤ 0.05 and a minimum gene count of 3. The GeneRatio was computed as the number of overlapping genes (Gene Count) divided by the total number of genes in each term (Total In Term). The significantly enriched terms were ranked by GeneRatio values and visualized using the ggplot2 package in R.
+
+[0034] [METHODS] eQTpLot analysis for visualizing colocalization
+
+[0035] [METHODS] We utilized the eQTpLot (version 0.0.0.9000) R package to visualize the colocalization between AD GWAS data and eQTL data. This tool enables comprehensive visualization of gene-trait interactions by generating a series of customizable plots. Using eQTpLot, we produced visualizations that highlight the overlap between AD GWAS and eQTL signals, the correlation between their p-values, and the enrichment of eQTLs among trait-significant variants. Additionally, the tool provided insights into the linkage disequilibrium (LD) landscape of the locus and the relationship between the directions of effect for eQTL signals and colocalizing GWAS peaks, which help us to better understand the genetic relationships between gene expression and AD.
+
+[0036] [METHODS] Cell-type-specific enhancer activity analysis
+
+[0037] [METHODS] GWAS risk variants located in noncoding regions can influence phenotypic outcomes by affecting transcriptional gene promoters and enhancers. Clusters of enhancers, known as super-enhancers, play a vital role in regulating cell-identity genes and are key to establishing cell-type-specific gene expression patterns. In this study, we evaluated the impact of disease variants on cis-gene expression in specific cell types by evaluating whether disease variants are located within or next to regulatory elements, including enhancers and promoters. A previous study highlights that while active promoters are typically conserved across different brain cell types, active enhancers exhibit marked cell-type specificity. Thus, we focused on variant-enhancer analysis. We used a publicly available dataset, including ATAC-seq, which identifies open chromatin regions, and ChIP-seq, which marks active enhancers (H3K27ac) and promoters (H3K4me3) for each brain cell type, accessed through the UCSC genome browser session (hg19). This dataset was generated from nuclei isolated from brain tissue resected during epilepsy treatment in 10 individuals. This approach allowed us to identify which enhancers are active in specific cell types, thereby elucidating the cell-type-specific effects of disease variants on gene expression.
+
+[0038] [METHODS] Druggability analysis
+
+[0039] [METHODS] To identify druggable genes, we classified all identified candidate causal genes into three tiers based on druggability confidence according to a previous study. Tier 1 included genes whose protein products are targets of approved small molecule, and biotherapeutic drugs were identified using manually curated efficacy target information from release 17 of the ChEMBL database. Tier 2 comprised proteins with high sequence similarity to drug targets or proteins associated with drug-like compounds, identified through a BLASTP search of Ensembl peptide sequences against approved drug efficacy targets. Tier 3 encompassed proteins with more distant relationships to drug targets, identified by BLASTP with ≥ 25% identity over ≥ 75% of the sequence and E-value ≤ 0.001. Additionally, to prioritize alternative targets for non-druggable candidate causal genes, we utilized data from EpiGraphDB to identify directly AD related interacting genes that are indicated to be druggable with Tier1 druggability based on protein–protein interaction (PPI) networks (IntAct, STRING) and with literature or xQTL evidence for AD relevance.
+
+[0040] [METHODS] Potential drug/compound prediction
+
+[0041] [METHODS] To identify potential pharmacological drug/compound that could modulate the expression of candidate causal genes for AD, we utilized the Drug Signatures Database (DSigDB). This resource includes 22,527 gene sets and 17,389 unique compounds linked to 19,531 genes. We accessed and downloaded the annotated drug/compound gene sets from DSigDB's official website. Using the enricher function from the R package clusterProfiler (version 4.10.1), we performed enrichment analysis to explore connections between our target genes (either druggable causal genes or tier 1 interacting genes) and potential drugs, aiming for AD drug repurposing. We set an Benjamini–Hochberg adjusted p-value threshold of < 0.01 to identify drugs significantly associated with these target genes. The top 10 enriched drugs/compounds were visualized using a dot plot, and an interaction network was generated with Cytoscape (version 3.10.2) to illustrate the relationships between the target genes and the enriched drugs/compounds.
+
+[0042] [RESULTS] Results
+
+[0043] [RESULTS] Workflow
+
+[0044] [FIG] Study workflow. Created by BioRender
+
+[0045] [FIG] SMR beta value signs for candidate causal genes from SMR and colocalization analysis. Note: all five GWAS datasets results are combined. The candidate causal genes are filtered by SMR FDR < 0.05, HEIDI > 0.05, Coloc PPH4 > 0.75, Coloc PPH4/PPH3 > 3
+
+[0046] [RESULTS] To identify and prioritize genes associated with AD, we integrated summary-level data from GWAS with eQTL data. As shown in Fig. 1, we incorporated data from five recent AD GWAS datasets and two cell type-level eQTL datasets from single-cell sequencing of AD brain samples, along with a tissue-level Metabrain eQTL dataset from previous research, as described in “Methods”. As outlined in Fig. 1, we first employed SMR to evaluate how SNPs associated with AD risk influence gene expression. Subsequently, we used Coloc to validate the colocalization of genetic variants within specific genomic regions. We identified 28 candidate causal genes that met our rigorous criteria (Fig. 2). We explored how associated variants might regulate gene expression in a cell type-specific manner, utilizing previous data on cell type-specific enhancers or promoters in brain tissue. Additionally, we compared our findings with prior studies to highlight novel candidate genes with less previous support as shown in Fig. 1. For these novel genes, we visualized colocalization results and derived differential gene expression data from earlier studies to confirm their association with AD. Finally, we assessed the druggability of the prioritized candidate causal genes to explore potential therapeutic targets.
+
+[0047] [RESULTS] Summary results of detected candidate causal genes
+
+[0048] [RESULTS] We integrated data from five recent AD GWAS datasets and two cell type-level eQTL datasets obtained from single-cell sequencing of AD brain samples, along with a metabrain tissue-level eQTL dataset from prior research (Fig. 2). The Bryois single cell RNA data was from a range of regions such as the temporal cortex, white matter, and PFC, while the Mathys et al. single cell RNA sequencing data was from DLPFC region (Fig. 2). Utilizing SMR and HEIDI as well as Coloc analyses, we identified 28 candidate causal genes across these datasets that met the filtering criteria: SMR FDR < 0.05, HEIDI p-value > 0.05, Coloc PPH4 > 0.75, and Coloc PPH4/PPH3 > 3, as shown in Fig. 2 and Additional file 1: Tables S3–S5. Out of the 28 candidate causal genes, two (AL355353.1 and AL137789.1) are lncRNA genes, while the remaining 26 genes are mRNA genes. As shown in Additional file 2: Figures S1–S5, the Bellenguez AD GWAS summary statistics revealed the highest number of candidate causal genes compared to the other AD GWAS datasets. Among the 28 candidate causal genes, 12 were uniquely detected at the cell-type level, 7 were shared between cell-type and bulk analyses, and 9 were exclusive to the bulk level (Additional file 2: Figure S6. Furthermore, we noted concordant MR beta signs between cell type-level eQTL and bulk-level eQTL datasets. EGFR, SNX31, PABPC1, ACE, ARL17B, PRSS36 and LRRC37A were identified in both the bulk-level and cell type-level datasets with aligned direction of effect (Fig. 2, Additional file 2: Figure S6). Additionally, TSPAN14, GRN, CD2AP, APH1B, SLC39A13, FCER1G, CR1, NDUFAF6, TP53INP1 were identified exclusively as candidate causal genes in the bulk metabrain eQTL dataset (Fig. 2, Additional file 2: Figure S6). RIN3, PICALM, JAZF1, RABEP1, KANSL1, AL355353.1, SCIMP, USP6NL, CASS4, FERMT2, BIN1, AL137789.1 were identified exclusively as candidate causal genes in the cell type eQTL datasets (Fig. 2, Additional file 2: Figure S6).
+
+[0049] [TABLE] Comparison of cell type-level candidate causal genes between the two snRNA eQTL datasets
+
+[0050] [TABLE] -Celltypes Cell type-level causal genes (combined results with 5 GWAS summary data) Uniquely identified in Bryois snRNA dataset Uniquely identified in the Mathys snRNA dataset Identified in both snRNA datasets Astrocytes – PABPC1, KANSL1 EGFR, SNX31 Excitatory Neurons LRRC37A PRSS36, AL355353.1, ACE, SCIMP – Immune Cells or Microglia RIN3 USP6NL, FERMT2, ARL17B, CASS4, BIN1 PICALM, JAZF1, RABEP1 Inhibitory Neurons – SCIMP, ACE – Oligodendrocytes – AL137789.1 OPCs – ARL17B –
+
+[0051] [TABLE] The underlined genes are identified as candidate causal genes in multiple cell types
+
+[0052] [RESULTS] With the combined results from all GWAS datasets, of the 19 cell type level candidate causal genes, 16 were found to be causal in only one cell type (Fig. 2 and Table 1). While 3 genes including ACE, ARL17B and SCIMP were shared across multiple cell types with concordant MR beta signs, as shown in Fig. 2 and Table 1. The highest number of candidate causal genes was detected in microglia, followed by excitatory neurons, astrocytes, inhibitory neurons, oligodendrocytes, and OPCs (Fig. 2 and Table 1). We identified 5 cell type-specific candidate causal genes (EGFR, SNX31, PICALM, JAZF1 and RABEP1), which were detected in both snRNA eQTL datasets (Table 1).
+
+[0053] [TABLE] Comparison of candidate causal genes identified in this study with prior literature
+
+[0054] [TABLE] Detection categories Gene groups based on literature support Gene names Detected only in bulk-level data Known candidate causal genes (bulk-level data) TSPAN14, GRN, CD2AP, APH1B, SLC39A13, FCER1G, CR1, NDUFAF6, TP53INP1 Known candidate causal genes (cell type-level data) FCER1G, GRN, CD2AP, APH1B, CR1 Detected only in cell type-specific data Known candidate causal genes (bulk-level data) RIN3, BIN1, CASS4, RABEP1, AL355353.1, KANSL1, SCIMP, USP6NL, PICALM, AL137789.1, FERMT2 Known candidate causal genes (cell type-level data) RIN3, PICALM, RABEP1, SCIMP, USP6NL, CASS4, BIN1, AL355353.1, JAZF1 Known bulk-Level Candidate Genes with New Cell Type Evidence AL137789.1, FERMT2 Novel cell type-level candidate causal genes (No or Limited Prior Evidence) – Detected in both bulk-level and cell type-specific data Known candidate causal genes (bulk-level data) ACE, PRSS36, EGFR, SNX31, ARL17B, LRRC37A Known candidate causal genes (cell type-level data) ACE, PRSS36 Known bulk-Level Candidate Genes with New Cell Type Evidence EGFR, SNX31, ARL17B, LRRC37A Novel cell type-level candidate causal genes (No or Limited Prior Evidence) PABPC1
+
+[0055] [RESULTS] To evaluate the novelty and robustness of candidate causal genes identified in this study, we cross-referenced them with prior literature. Genes were grouped based on whether they have support from previous bulk-level or cell type-specific studies (Agora nomination or significant detection by SMR or Coloc analysis) or represent novel findings. Firstly, for the 9 candidate causal genes exclusively detected in the bulk-level dataset, all of them were previously reported in the literature (Table 2). Interestingly, FCER1G, GRN, CD2AP, APH1B, and CR1 have also been identified as cell type-level causal genes in previous studies by colocalization or SMR analyses (Table 2). Secondly, for the 12 genes identified exclusively in cell type-level datasets, genes including RIN3, BIN1, CASS4, RABEP1, AL355353.1, SCIMP, USP6NL, PICALM have been previously supported by both bulk and cell type-level evidence (Table 2). KANSL1, AL137789.1 and FERMT2 have prior support at the bulk-level and JAZF1 has prior support at the cell type level (Table 2). Additionally, the previous known candidate causal gene AL137789.1 and FERMT2 at the bulk level are now confirmed with new cell type-level evidence in this study (Table 2). Lastly, for the 7 genes identified in both cell type-level and bulk-level datasets, ACE and PRSS36 have been previously supported by both bulk and cell type-level evidence (Table 2). EGFR, SNX31, ARL17B and LRRC37A have prior support at the bulk-level and are now confirmed with new cell type-level evidence in this study (Table 2). Lastly, PABPC1 emerged as a novel candidate causal gene by SMR and colocalization analysis, with no or limited prior supporting evidence (Table 2).
+
+[0056] [FIG] Candidate causal genes network analysis and pathway enrichment. A STRING PPI network of candidate causal genes. Nodes represent proteins, while edges illustrate the interactions between them. The shape of each node was used to represent the detection context of candidate genes: ellipses indicate genes detected only in cell type-level datasets, diamonds represent genes found only in bulk-level datasets, and rectangles denote genes shared between both cell type-level and bulk-level analyses. The thickness of the edges corresponds to the combined interaction score from STRING. ACE and SCIMP were detected in both excitatory neurons and inhibitory neurons, while ARL17B was detected in both microglia and OPCs. B Pathway enrichment of candidate causal (mRNA) genes based on the Gene Ontology (GO) biological process category. C Pathway enrichment of candidate causal (mRNA) genes based on Reactome pathways
+
+[0057] [RESULTS] To analyze interactions among the identified candidate causal genes, we constructed PPI networks as described in Methods. Our PPI analysis revealed interactions among the proteins encoded by 23 candidate causal genes, except for PRSS36, CR1, TSPAN14, FCER1G, SLC39A13, which showed no detectable interaction in the network, as illustrated in Fig. 3A. EGFR, identified in astrocytes, was the most highly connected node (n = 7 interactions), suggesting it may serve as a central hub coordinating signals across multiple pathways (Fig. 3A). Other highly connected genes included RIN3, CASS4, and PICALM, all primarily detected in microglia, each with six interactions (Fig. 3A). Several strong interactions were observed among microglia-expressed genes, such as BIN1 ~ RIN3, CASS4 ~ FERMT2, and CD2AP ~ PICALM, indicating a dense microglial subnetwork (Fig. 3A).
+
+[0058] [RESULTS] To identify the enriched pathways and processes, we conducted enrichment analysis with multiple up-to-date databases, including KEGG 2021 Human, Reactome Pathways 2024, WikiPathways 2024 Human, GO Biological Process 2025, GO Cellular Component 2025, GO Molecular Function 2025, on the 26 candidate causal mRNA genes. Enrichment analysis showed that candidate causal genes are significantly associated with membrane organization, cell migration, and key signaling pathways including the ERK1/2 and PI3K/AKT cascades (GO Biological Process) (Fig. 3B and Table S6). Genes were also enriched in cellular components such as vesicles, early endosomes, focal adhesions, axons, and dendrites (Figure S7). Reactome analysis highlighted membrane trafficking, vesicle-mediated transport, and clathrin-mediated endocytosis as significantly enriched pathways (Fig. 3C).
+
+[0059] [RESULTS] Visualization of colocalization for the novel astrocyte-specific candidate causal gene
+
+[0060] [FIG] eQTpLot for colocalization between eQTLs for the gene PABPC1 and a GWAS signal for AD. The GWAS dataset is from Bellenguez et al. and the cell type eQTL dataset of astrocyte is from Mathys et al.. A Shows the locus of interest, containing the PABPC1 gene, with chromosomal space indicated along the horizontal axis. The position of each point on the vertical axis corresponds to the p-value of association for that variant with AD, while the color scale for each point corresponds to the magnitude of that variant’s p-value for association with PABPC1 expression. Variants with congruous effects are plotted using a blue color scale, while variants with incongruous effects are plotted using a red color scale. The directionality of each triangle corresponds to the GWAS direction of effect, while the size of each triangle corresponds to the effect size for the eQTL data. The default genome-wide p-value significance threshold for the GWAS analysis, 5e−8, is depicted with a horizontal red line. B Displays the genomic positions of all genes within AD. C Depicts a heatmap of LD information of all PABPC1 eQTL variants, displayed in the same chromosomal space as panels A and B for ease of reference (R2min = 0.1, LDmin = 10). D Depicts the enrichment of PABPC1 eQTLs among GWAS-significant variants, while E and F depicts the correlation between PGWAS and PeQTL for PABPC1 and AD, with the computed Pearson correlation coefficient (r) and p-value (p) displayed on the plot. For E, the analysis is confined only to variants with congruous directions of effect, while for F the analysis includes only variants with incongruous directions of effect. A lead variant is indicated in both E and F, and both are also labeled in A
+
+[0061] [RESULTS] We used eQTpLot to visualize the colocalization between eQTL (Astrocyte specific eQTL from Mathys et al.) and AD GWAS signals for the novel candidate causal gene, PABPC1. As shown in Fig. 4A–C, PABPC1 is indicated to be affected by the lead GWAS significant loci rs1693551 (GWAS P-value: 1.785e−08; Beta: 0.0459 from Bellenguez et al. AD GWAS summary statistics data). Our analysis indicates that rs1693551 may also affect the other nearby gene SNX31 (Fig. 2 and Fig. 4B). We observed a tendency for eQTL to be overrepresented in the lists of significant variants from the AD GWAS (p-value = 1.12e−4 for PABPC1 in astrocyte) (Fig. 4D). Congruous SNPs effect on the gene expression in astrocyte and AD risk were also observed for PABPC1 (Fig. 4A, E, F). eQTpLot P-value correlation analysis further confirms the colocalization between the PABPC1 gene expression in astrocyte and AD risk as shown in Fig. 4E (r = 0.85, p = 1.19e−72). The variant rs1693551, with reference allele T and alternative allele C, was not identified as a new risk locus in the latest GWAS study. However, our analysis reveals that it exceeds the genome-wide significance threshold, as illustrated by the Manhattan plot for chromosome 8 shown in Additional file 2: Figure S8. Additionally, we also observed colocalization of the shared causal variant for PABPC1 gene expression and AD risk with eQTL datasets from Metabrain (Additional file 2: Figure S9).
+
+[0062] [RESULTS] The MR and colocalization analyses identified a causal link between PABPC1 gene expression in astrocytes and AD risk. To further explore this relationship, we examined PABPC1 expression in both astrocytes and astrocyte subtypes, and its association with AD pathology, cognitive function and AD groups. Specifically, we utilized differential gene expression (DEG) results from a previous study focused on the DLPFC region and applied multiple testing corrections. The findings, presented in Additional file 2: Figure S10, indicate that PABPC1 expression in astrocytes is significantly associated with perceptual orientation, but not associated with AD diagnosis. Additionally, the expression of PABPC1 in the astrocyte sub-type GRM3 shows a significant association with tangle density.
+
+[0063] [RESULTS] Enhancers harboring AD risk variants regulate cell-type-specific gene expression
+
+[0064] [RESULTS] Our results reveal that certain genes, such as PABPC1, were identified as candidate causal gene exclusively in one cell type, but not in other brain cell types. To explore the SNP and gene expression relationship, we examined genotype-dependent expression patterns and found a stepwise increase in PABPC1 expression from genotypes TT to TC to CC, observed exclusively in astrocytes (FDR = 5.32 × 10⁻12) (Figure S11). The nearby gene SNX31 affected by the same SNP also exhibited a much stronger eQTL association in astrocytes (FDR = 8.97 × 10⁻52) compared to excitatory neurons (FDR = 0.017) and OPCs (FDR = 0.00038) (Figure S12), suggesting a potential astrocyte-specific regulatory mechanism at this locus. This highlights that many candidate causal genes may be specific to a single cell type. To further understand this cell-type-specific effect, it is crucial to investigate how these variants influence gene expression and the underlying regulatory mechanisms. Enhancers are genomic regions that regulate gene expression, often in a cell-specific manner. A previous study analyzed enhancer and promoter activity in human brain cell nuclei, revealing that genetic variants associated with brain traits and diseases exhibit cell-specific enhancer enrichment patterns. To determine if the cell-type-specific causal genes identified in our study are regulated by cell-type-specific enhancer activity, we analyzed a publicly available dataset, including ATAC-seq for open chromatin regions and ChIP-seq for active enhancers (H3K27ac) and promoters (H3K4me3) for each brain cell type, as detailed in the Methods section.
+
+[0065] [FIG] Brain cell-type-specific chromatin profiles by UCSC Genome Browser (hg19). A H3K27ac and ATAC-seq data for PABPC1, showing active enhancer regions and open chromatin specific to astrocytes, with a yellow vertical line marking the location of the associated disease variant and a dashed square showing the region of active enhancer
+
+[0066] [RESULTS] As illustrated in Fig. 5, for the candidate causal gene PABPC1 and SNX31 in astrocytes, the associated disease variant is rs1693551 (chr8, hg19_position: 10,675,584 bp), which is located just 59 bp from the boundary of an astrocyte-specific enhancer (chr8, hg19_position: 101,675,643–101,676,301 bp) identified in the previous study. Given its proximity to the enhancer boundary, it is possible that the enhancer region extends beyond what was detected, especially considering the dynamic nature of enhancers and technical limitations of current detection methods. Figure 5 shows that this enhancer, located downstream of the PABPC1 gene and upstream of SNX31, is active only in astrocytes, evidenced by prominent H3K27ac and ATAC-seq peaks, while not active in other cell types. This suggests that the variant likely influences gene expression through a cell-type-specific enhancer, which may explain why PABPC1 was detected as a causal gene exclusively in astrocytes and why SNX31 expression was more affected by the genotype of this locus in astrocyte than other cell types.
+
+[0067] [RESULTS] Furthermore, a previous Hi-C (High-throughput Chromosome Conformation Capture) dataset from 11 postmortem female brain samples (prefrontal cortex), including 4 Alzheimer’s disease (AD) cases, 4 aged cognitively normal controls, and 3 young cognitively normal controls, revealed that SNX31, rs1693551, and PABPC1 are located within a chromatin loop present in both young and aged control brains but notably absent in AD brains (Figure S13). Increasing dosage of the rs1693551 risk allele correlates with elevated expression of both SNX31 and PABPC1, suggesting that this SNP may influence transcription within a shared regulatory domain.
+
+[0068] [RESULTS] Druggability analysis and drug/compound prediction
+
+[0069] [RESULTS] To identify druggable genes from our candidate causal genes, we categorized them based on a prior drug tier classification. Tier 1 includes targets of approved drugs and clinical candidates; Tier 2 includes targets with known drug-like interactions or high similarity to approved drug targets; and Tier 3 includes proteins with distant similarities to drug targets or those in key druggable families, as mentioned in the Methods. As detailed in Additional file 1: Table S7, we identified three candidate causal genes, EGFR, ACE, and APH1B, as Tier 1 druggable, and three genes, GRN, PRSS36, and CR1, as Tier 3 druggable. The remaining candidate causal genes were not classified as druggable based on the previous study. For these non-druggable genes, we used EpiGraphDB to prioritize potential alternative drug targets within the same PPI network. We identified directly AD related interacting genes with Tier 1 druggability using PPI networks from IntAct and STRING databases, shown in Additional file 1: Table S7.
+
+[0070] [FIG] Potential drugs enrichment analysis and gene-drug interaction network. A Top 10 enriched drug/compounds based on DSigDB predictions. B Interaction network illustrating connections between enriched drugs/compounds and target genes. Blue circles indicate druggable/non-druggable causal genes identified in this study, green circles represent druggable interacting genes linked to non-druggable causal genes, and pink nodes denote the top 10 enriched drugs/compounds
+
+[0071] [RESULTS] To identify drugs targeting the causal genes identified in this study and to broaden the scope of potential drug targets, we conducted a drug/compound enrichment analysis using DSigDB. This analysis aimed to find potential drugs for all the target genes, which include both the druggable causal genes identified in this study and directly interacting genes with Tier 1 druggability, as detailed in Additional file 1: Table S7. The results of the enrichment analysis are presented in Additional file 1: Table S8. We focused on drugs with an adjusted p-value of less than 0.01 and selected the top 10 most significant potential drugs/compound based on their adjusted p-value (Additional file 1: Table S8 and Fig. 6A). Figure 6A presents the drugs grouped by gene ratio (the percentage of target genes overlapping with the drug gene set). Within each group, the drugs are ranked by their adjusted p-value significance. The results highlight that 3-(1-methylpyrrolidin-2-yl)pyridine targets the highest number of genes, with 16 target genes including EGFR, ACE, MAPK1, TNFRSF1A, EEF2, ADRB2, CD4, APP, TFRC, ITGAL, PLD1, FYN, PIK3CA, RAF1, TP53 and VEGFA (Additional file 1: Table S8). In the second group, Dinoprostone is the most significant drug, targeting 14 genes. In the third group, Imatinib mesylate is the most significant drug, targeting 13 genes, followed by histamine. Imatinib mesylate is detected as the most significant drug across groups. These top 10 enriched drugs (Fig. 6A) show promise for therapeutic applications in AD and need further investigation.
+
+[0072] [RESULTS] To illustrate the interactions between drugs and target genes (both causal genes identified in this study and directly interacting genes (AD related) with Tier 1 druggability), we constructed an interaction network using Cytoscape, as shown in Fig. 6B. This network highlights that Tier 1 druggable genes, such as EGFR (targeted by all top 10 drugs) and ACE (targeted by 5 of the top 10 drugs) (Additional file 1: Table S8 and Fig. 6B), are directly targeted by multiple drugs. Additionally, the Tier 3 druggable gene CR1 is directly targeted by Imatinib mesylate. In the network, druggable and non-druggable causal genes are represented by blue circles; interacting genes are shown in green circles, and drugs/compounds are depicted in pink (Fig. 6B). The central area of the network features drugs and Tier 1 druggable genes, indicating direct targeting, while the surrounding groups represent interacting genes and non-druggable causal genes, which are indirectly targeted through these interactions. This visualization demonstrates the role and significance of the top 10 drugs in targeting multiple causal genes, both directly and indirectly (Fig. 6B).
+
+[0073] [DISCUSS] Discussion
+
+[0074] [DISCUSS] Many disease-associated loci exert effects that are specific to cell types. Brain diseases are influenced by genetic effects that are specific to both cell types and brain regions. Previous GWAS studies often identify risk variants that impact disease phenotypes by regulating genes in specific tissues, yet the precise cell types involved are often not well characterized. Our study addresses this knowledge gap by using brain single-cell eQTL data to reveal how genetic variants impact AD at the cellular level, offering crucial insights into cell-type-specific regulation driving the disease. In this study, we combined data from five recent AD GWAS with two cell type-level eQTL datasets from single-cell RNA sequencing and one bulk tissue eQTL dataset from a prior meta-analysis. Through SMR and colocalization analyses, we identified candidate causal genes at both bulk and cell-type levels, uncovering novel genes and confirming known ones. We investigated gene regulation in specific cell types by analyzing enhancer activity using previous H3K27ac, ATAC-seq and Hi-C data. Network and pathway enrichment analyses provided additional insights into the biological relevance of these genes. To facilitate drug repurposing for AD, we performed a drug/compound enrichment analysis using the DSigDB, mapping drug interactions with both causal and interacting druggable genes. This integrated approach highlights the importance of cell-type specific functional evidence in genetic research, revealing how AD GWAS variants contribute to disease through cell-specific gene expression. By examining genetic effects at the cellular level, we gain clearer insights into AD molecular mechanism and identify promising targets for drug discovery.
+
+[0075] [DISCUSS] In recent years, there has been growing recognition of the context-specific nature of eQTLs, extending from tissue types to functional, environmental, and cellular contexts. Our study underscores the critical value of cell-type-specific eQTL datasets in identifying candidate causal genes for AD. Specifically, we identified 12 genes exclusively as candidate causal genes within the cell-type eQTL datasets (Figure S6). This finding highlights the limitations of bulk tissue analyses, which often aggregate signals across various cell types and may miss gene-regulatory effects that are specific to cellular contexts. By focusing on cell-type-specific eQTL data, we can uncover gene associations that are masked when only bulk tissue data is used. Furthermore, of the 19 candidate causal genes identified through cell-type-specific eQTL datasets, 16 were found to be causal in only one cell type (Fig. 2 and Table 1). This cell-type specificity highlights the importance of considering cellular heterogeneity in genetic studies of complex diseases like AD.
+
+[0076] [DISCUSS] In our analysis, PABPC1 emerged as a novel candidate causal gene for AD, highlighting its potential role in disease mechanisms. Specifically, the MR and colocalization analyses identified a causal link between PABPC1 gene expression in astrocytes and AD risk. We found that PABPC1 expression in astrocytes is significantly linked to perceptual orientation and significantly associated with tangle density in the GRM3 astrocyte subtype. Although we did not observe a significant association between PABPC1 expression and AD diagnosis in astrocytes, previous studies have reported its upregulation in other brain regions, such as the parahippocampal gyrus region (Figure S14). PABPC1 is known to bind tau proteins. It also regulates translation and mRNA stability. Additionally, PABPC1 is involved in stress granules and RNA splicing, critical for managing cellular stress and maintaining protein synthesis. Its associations with neurofilament light chain (NF-L), along with its co-localization with small tau inclusions in tauopathy, underscore its relevance in AD pathology. These findings warrant further investigation into PABPC1 as a potential therapeutic target. The AD risk loci rs1693551, which achieved GWAS significance only in the latest AD GWAS summary statistics, has been less studied. It is the leading GWAS locus associated with the expression of the causal genes SNX31 and PABPC1 in astrocytes, underscoring its potential significance in AD. This highlights the need for further investigation into its role and relevance in the disease.
+
+[0077] [DISCUSS] In our results, 16 of the 19-cell type level candidate causal genes were found to be causal in only one specific cell type (Fig. 2 and Table 1). Previous research indicates that cell-type-specific enhancers harboring AD-risk variants can drive such cell type-specific gene regulation. For example, while PICALM and BIN1 are expressed in multiple cell types, they contain microglia-specific enhancers with AD-risk variants. Although direct enhancer–promoter interactions remain unconfirmed due to the absence of PLAC-seq data in astrocytes, bulk-level Hi-C data from control brains reveal a chromatin loop encompassing rs1693551, SNX31, and PABPC1. Notably, this loop is absent in AD brains, suggesting that its loss may disrupt regulatory interactions and contribute to the dysregulation of these genes. eQTL analysis indicates a regulatory effect of the SNP on both genes in astrocytes. This indicates that regulatory effect could be from dynamic chromatin configurations or involvement in shared transcriptional hubs. These findings support a potential pleiotropic role for rs1693551, mediated by higher-order chromatin architecture, and underscore the importance of 3D genome organization in mediating gene regulatory changes in AD. In addition to microglia, which are well-known for their roles in AD, our study highlights the importance of astrocytes. We provide more molecular evidence showing that astrocytes are critically involved in AD through specific gene expression and enhancer activity associated with AD-risk variants.
+
+[0078] [DISCUSS] Our analysis identified 19 candidate causal genes at the cell type level, with 16 showing cell type-specific effects. While this may reflect true biological specificity, However, it’s essential to consider technical factors such as single-cell RNA-seq data quality, gene expression variability, sample size, and the proportion of each cell type within the data. Single-cell RNA-seq, while powerful, is prone to technical noise, including amplification biases, dropout events, and variability between individual cells, making it less reliable compared to bulk RNA-seq data. Previous studies have found that genes with cell type-specific eQTLs often have higher expression variability, making them easier to detect in eQTL analyses. Additionally, the ability to detect these effects depends on factors like the number of samples and how well each cell type is represented in the data. With fewer cells in certain cell types, such as vascular cells, it becomes harder to identify causal genes. Thus, while our findings suggest some biological specificity, the technical factors like expression variability and differences in cell type representation likely play a significant role in detecting these associations. Adequate sample size is critical for reliable eQTL detection, particularly when evaluating allele-specific effects. In this analysis, although FERMT2 was identified as a potential causal gene in immune cells, the number of individuals carrying the risk allele was much lower than those without it (Figure S15). This imbalance may limit statistical power for eQTL analysis and impact the detection of causal gene. Future studies with larger sample sizes, better brain sample quality, and improved single-cell sequencing techniques will be essential for separating these biological and technical influences and better understanding the role of these genes in different cell types.
+
+[0079] [DISCUSS] Our DSigDB enrichment analysis identified several drugs/compounds with potential therapeutic relevance for AD, such as Imatinib mesylate, histamine, Dinoprostone, 3-(1-methylpyrrolidin-2-yl)pyridine, Gefitinib, Crystal violet, cerivastatin, and hexachlorophene. Imatinib mesylate was highlighted as the most significant drug (Additional file 1: Table S8). Imatinib mesylate is notable for its role as a tyrosine kinase inhibitor and has been shown to reduce Aβ production in various experimental models. Research suggests it may be effective in treating neurodegenerative disorders, including AD. However, further studies are needed to fully understand its effects on the brain, particularly its ability to cross the blood–brain barrier. Some research has explored how imatinib interacts with brain transporters such as breast cancer resistance protein and P-glycoprotein, which is important for optimizing its use in neurodegenerative diseases. 3-(1-methylpyrrolidin-2-yl)pyridine (Nicotine) stands out for targeting the highest number of analyzed genes. Nicotine, an alkaloid in tobacco, functions by activating nicotinic acetylcholine receptors (nAChRs), which are widely expressed throughout the nervous system. It has dual effects on oxidative stress and neuroprotection, suppresses neuroinflammation, and prevents Aβ aggregation. Despite these benefits, its use in AD is limited by cardiovascular risks, addiction and negative associations with smoking. However, Nicotine’s gene targeting profile found in this study suggests it could impact multiple pathways involved in AD, potentially offering a therapeutic approach through nicotinic derivatives that mitigate these adverse effects.
+
+[0080] [DISCUSS] There are several limitations in this study. The study analyzed data from various brain regions across multiple datasets, including the cortex from the bulk metabrain eQTL dataset, the DLPFC region from the Mathys_2023 snRNA eQTL dataset, and a range of regions such as the temporal cortex, white matter, and PFC from the Bryois 2021 snRNA eQTL dataset. The variability in brain regions might limit the generalizability of our findings, as genetic effects can be region-specific. A limitation of this study is the partial sample overlap between some of the snRNA-seq eQTL datasets and the GWAS datasets used in colocalization and SMR analyses. Specifically, the cell type-level eQTL datasets are partly derived from the ROSMAP cohort, which also contributes to four of the five GWAS datasets included in this study (Table S1). However, it is important to note that the ROSMAP-based eQTL datasets comprise only a few hundred individuals, whereas the GWAS cohorts typically involve tens to hundreds of thousands of participants. As such, the degree of overlap represents a small fraction of the total sample size and is unlikely to meaningfully bias the integrative analyses. Moreover, most gene prioritization results were observed in the Bellenguez et al. GWAS, which does not include ROSMAP samples in its stage 1 discovery phase used in this study, supporting the robustness of our findings. Nonetheless, we acknowledge the possibility of minor inflation in test statistics due to limited overlap and have noted this accordingly. However, the MetaBrain bulk eQTL dataset, which includes 2,683 samples, has a greater overlap with the GWAS datasets (Tables S1 and S2), which may lead to more inflation in the test statistics. Therefore, further validation of these candidate causal genes is required. Additionally, some GWAS datasets used in this study incorporate proxy cases, individuals with a family history of AD but no clinical diagnosis, which may introduce phenotype heterogeneity. While this approach increases power for genetic discovery, it could also dilute associations with clinical AD. Future studies incorporating sensitivity analyses limited to clinically diagnosed AD cases will be important for refining causal inference.
+
+[0081] [DISCUSS] Also, the GWAS and eQTL datasets primarily included individuals of European ancestry, which limits the generalizability of the findings to other ethnic groups. Additionally, our analysis was limited to cis-eQTLs, which reflect direct effects on genes. Cis-eQTLs do not capture the full spectrum of genetic influences, as trans-eQTLs could reveal downstream gene sets and pathways affected by disease variants. Future studies should explore available cell-specific trans-eQTL data to better understand the causal effects of genetic variants acting in trans. Furthermore, future research should use independent snRNA eQTL datasets for validation. While our study identified potential drug targets through enrichment analysis, their clinical efficacy remains unconfirmed. Experimental validation and clinical trials are necessary to establish their therapeutic potential. Moreover, since the candidate causal genes were identified from brain tissue data and in drugs that face challenges in crossing the blood–brain barrier, further investigation is needed to evaluate the viability of these targets for drug development. Lastly, the identification of PABPC1 as a novel astrocyte-specific candidate gene is compelling, but functional validation is essential to confirm its regulatory role in AD. Quantitative PCR and immunohistochemistry could be used to validate the expression of PABPC1 specifically in astrocytes from AD and control brain tissues. For regulatory effect validation, CRISPR interference (CRISPRi) targeting the rs1693551 enhancer region could be applied in iPSC-derived astrocytes to assess its causal effect on PABPC1 and SNX31 expression. In addition, assays such as chromatin conformation capture in astrocyte-specific models would help determine whether enhancer–promoter loops involving rs1693551 are disrupted in AD.
+
+[0082] [DISCUSS] Our analysis identified both novel and established candidate causal genes, elucidating their roles in AD molecular mechanisms and highlighting the significance of cell-type specificity in gene expression regulation and enhancer activity.
+
+[0083] [SUPPL] Supplementary Information
+
+[0084] [ABBR] Abbreviations
+
+[0085] [ABBR] AD
+
+[0086] [ABBR] Alzheimer’s Disease
+
+[0087] [ABBR] eQTLs
+
+[0088] [ABBR] Expression Quantitative Trait Loci
+
+[0089] [ABBR] GWAS
+
+[0090] [ABBR] Genome-Wide Association Study
+
+[0091] [ABBR] SMR
+
+[0092] [ABBR] Summary Data-Based Mendelian Randomization
+
+[0093] [ABBR] COLOC
+
+[0094] [ABBR] Bayesian Colocalization
+
+[0095] [ABBR] LOAD
+
+[0096] [ABBR] Late-Onset Alzheimer’s Disease
+
+[0097] [ABBR] UKBEC
+
+[0098] [ABBR] The UK Brain Expression Consortium
+
+[0099] [ABBR] GTEx
+
+[0100] [ABBR] Genotype-Tissue Expression Consortium
+
+[0101] [ABBR] DLPFC
+
+[0102] [ABBR] Dorsolateral Prefrontal Cortex
+
+[0103] [ABBR] PFC
+
+[0104] [ABBR] Prefrontal cortex
+
+[0105] [ABBR] OPCs
+
+[0106] [ABBR] Oligodendrocyte Progenitor Cells
+
+[0107] [ABBR] TMM
+
+[0108] [ABBR] Trimmed mean of M-values
+
+[0109] [ABBR] CPM
+
+[0110] [ABBR] Counts per million
+
+[0111] [ABBR] PCs
+
+[0112] [ABBR] Principal components
+
+[0113] [ABBR] HEIDI
+
+[0114] [ABBR] Heterogeneity in Dependent Instruments
+
+[0115] [ABBR] PPs
+
+[0116] [ABBR] Posterior probabilities
+
+[0117] [ABBR] PPI
+
+[0118] [ABBR] Protein–protein interaction
+
+[0119] [ABBR] LD
+
+[0120] [ABBR] Linkage disequilibrium
+
+[0121] [ABBR] DSigDB
+
+[0122] [ABBR] The Drug Signatures Database
+
+[0123] [ABBR] DEG
+
+[0124] [ABBR] Differential Gene Expression
+
+[0125] [ABBR] Hi-C
+
+[0126] [ABBR] High-throughput Chromosome Conformation Capture
+
+[0127] [ABBR] Publisher's Note
+
+[0128] [ABBR] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0129] [AUTH_CONT] Author contributions
+
+[0130] [AUTH_CONT] S. L. performed the data analysis and wrote the manuscript. All other authors contributed to manuscript revisions and reviewed the manuscript.
+
+[0131] [ACK_FUND] Funding
+
+[0132] [ACK_FUND] A.S. receives support from multiple NIH grants (P30 AG010133, P30 AG072976, R01 AG075959, R01 AG082348, R01 AG081951, R01 AG057739, R01 AG070883, U01 AG024904, R01 LM013463, T32 AG071444, U24 AG074855, U01 AG068057, U01 AG072177, U01 AG24904, and U19 AG074879, R01 AG019771, R01 AG068193). K.N receives support from NIH grants (R01LM012535, U01AG072177, and U19AG0748790). U19AG074879). S.C was supported by ADNI Health Enhancement Scholarship (ADNI HESP) a sub-award of NIA grant (U19AG024904). S.L was supported by CLEAR-AD Scholarship of U19AG074879.
+
+[0133] [METHODS] Availability of data and materials
+
+[0134] [METHODS] GWAS summary statistics for AD were downloaded from https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST007001-GCST008000/GCST007511/, https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST013001-GCST014000/GCST013197/, http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90027001-GCST90028000/GCST90027158/, http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90012001-GCST90013000/GCST90012877/, http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST007001-GCST008000/GCST007320/.
+
+[0135] [METHODS] Publicly available summary statistics of metabrain eQTLs was obtained from MetaBrain website (https://www.metabrain.nl/). Bryois Single cell eQTL dataset was obtained from 10.5281/zenodo.5543734. Mathys et al. snRNA dataset from ROSMAP cohort (downloaded from Synapse: syn52293442). The publicly available dataset, including ATAC-seq, which identifies open chromatin regions, and ChIP-seq, which marks active enhancers (H3K27ac) and promoters (H3K4me3) for each brain cell type, accessed through the UCSC genome browser session (hg19) at: https://genome.ucsc.edu/s/nottalexi/glassLab_BrainCellTypes_hg19. The brain Hi-C data is accessed through http://menglab.pub/hic/.
+
+[0136] [METHODS] Any additional information required to reanalyze the data reported in this paper is available from the lead contact upon request.
+
+[0137] [METHODS] Declarations
+
+[0138] [METHODS] Ethics approval and consent to participate
+
+[0139] [METHODS] This study used publicly available datasets, no ethics approval and consent to participate was not required.
+
+[0140] [METHODS] Consent for publication
+
+[0141] [METHODS] This study used publicly available datasets. All data were anonymized, and no information that could reveal the identity of participants was used. Therefore, consent for publication from individual participants was not required.
+
+[0142] [COMP_INT] Competing interests
+
+[0143] [COMP_INT] A.S. has received support from Avid Radiopharmaceuticals, a subsidiary of Eli Lilly (in kind contribution of PET tracer precursor) and participated in Scientific Advisory Boards (Bayer Oncology, Eisai, Novo Nordisk, and Siemens Medical Solutions USA, Inc) and an Observational Study Monitoring Board (MESA, NIH NHLBI), as well as several other NIA External Advisory Committees. He also serves as Editor-in-Chief of Brain Imaging and Behavior, a Springer-Nature Journal. S. L., T. R., P. B., D. C., D. B., N. T., K. N., S. C., M. C., Y. H., and T. P. have no interest to declare. The funders had no role in the study's design, the collection, analyses, or interpretation of data, the writing of the manuscript, or the decision to publish the results.
+
+[0144] [REF] References
+
+[0145] [REF] Alzheimer’s disease, a multifactorial disorder seeking multitherapies
+
+[0146] [REF] New frontiers in Alzheimer’s disease genetics
+
+[0147] [REF] Gene dose of apolipoprotein E type 4 allele and the risk of Alzheimer’s disease in late onset families
+
+[0148] [REF] New insights into the genetic etiology of Alzheimer’s disease and related dementias
+
+[0149] [REF] Meta-analysis of 74,046 individuals identifies 11 new susceptibility loci for Alzheimer’s disease
+
+[0150] [REF] Genetic meta-analysis of diagnosed Alzheimer’s disease identifies new risk loci and implicates Aβ, tau, immunity and lipid processing
+
+[0151] [REF] Genome-wide meta-analysis identifies new loci and functional pathways influencing Alzheimer’s disease risk
+
+[0152] [REF] Genome-wide meta-analysis, fine-mapping and integrative prioritization implicate new Alzheimer’s disease risk genes
+
+[0153] [REF] A genome-wide association study with 1,126,563 individuals identifies new risk loci for Alzheimer’s disease
+
+[0154] [REF] Brain expression quantitative trait locus and network analyses reveal downstream effects and putative drivers for brain-related diseases
+
+[0155] [REF] Cell-type-specific cis-eQTLs in eight human brain cell types identify novel risk genes for psychiatric and neurological disorders
+
+[0156] [REF] Cell-type-specific expression quantitative trait loci associated with Alzheimer disease in blood and brain tissue
+
+[0157] [REF] Integrative analysis of summary data from GWAS and eQTL studies implicates genes differentially expressed in Alzheimer’s disease
+
+[0158] [REF] Cell subtype-specific effects of genetic variation in the Alzheimer’s disease brain
+
+[0159] [REF] Brain Catalog: a comprehensive resource for the genetic landscape of brain-related traits
+
+[0160] [REF] The study of eQTL variations by RNA-seq: from SNPs to phenotypes
+
+[0161] [REF] Quality control parameters on a large dataset of regionally dissected human control brains for whole genome expression studies
+
+[0162] [REF] The GTEx Consortium atlas of genetic regulatory effects across human tissues
+
+[0163] [REF] Brain cell type–specific enhancer–promoter interactome maps and disease-risk association
+
+[0164] [REF] Single-cell atlas reveals correlates of high cognitive function, dementia, and resilience to Alzheimer's disease pathology
+
+[0165] [REF] Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets
+
+[0166] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0167] [REF] Identification of candidate Parkinson disease genes by integrating genome-wide association study, expression, and epigenetic data sets
+
+[0168] [REF] Complex heatmaps reveal patterns and correlations in multidimensional genomic data
+
+[0169] [REF] Enrichr: a comprehensive gene set enrichment analysis web server 2016 update
+
+[0170] [REF] eQTpLot: a user-friendly R package for the visualization of colocalization between eQTL and GWAS signals
+
+[0171] [REF] The druggable genome and support for target identification and validation in drug development
+
+[0172] [REF] EpiGraphDB: a database and data mining platform for health data science
+
+[0173] [REF] The MIntAct project—IntAct as a common curation platform for 11 molecular interaction databases
+
+[0174] [REF] The STRING database in 2023: protein-protein association networks and functional enrichment analyses for any sequenced genome of interest
+
+[0175] [REF] DSigDB: drug signatures database for gene set analysis
+
+[0176] [REF] Drug SIGnatures DataBase. http://dsigdb.tanlab.org/DSigDBv1.0/.
+
+[0177] [REF] omicSynth: An open multi-omic community resource for identifying druggable targets across neurodegenerative diseases
+
+[0178] [REF] Alzheimer’s genetic risk factor FERMT2 (Kindlin-2) controls axonal growth and synaptic plasticity in an APP-dependent manner
+
+[0179] [REF] Three-dimensional chromatin architecture datasets for aging and Alzheimer’s disease
+
+[0180] [REF] Single-cell eQTL mapping identifies cell type–specific genetic control of autoimmune disease
+
+[0181] [REF] Transcriptomic diversity of cell types across the adult human brain
+
+[0182] [REF] Transcriptional risk scores in Alzheimer’s disease: from pathology to cognition
+
+[0183] [REF] Genetic control of RNA splicing and its distinct role in complex trait variation
+
+[0184] [REF] The Genotype-Tissue Expression (GTEx) project
+
+[0185] [REF] Dynamic genetic regulation of gene expression during cellular differentiation
+
+[0186] [REF] Single-cell eQTL models reveal dynamic T cell state dependence of disease loci
+
+[0187] [REF] Agora: an open-access platform for the exploration of nascent targets for Alzheimer’s disease therapeutics
+
+[0188] [REF] Dysregulation of RNA Binding protein aggregation in neurodegenerative disorders
+
+[0189] [REF] PABPC1——mRNA stability, protein translation and tumorigenesis
+
+[0190] [REF] Tau interactome and RNA binding proteins in neurodegenerative diseases
+
+[0191] [REF] Coregulation of light neurofilament mRNA by poly(A)-binding protein and aldolase C: implications for neurodegeneration
+
+[0192] [REF] RNA binding proteins co-localize with small tau inclusions in tauopathy
+
+[0193] [REF] eQTL studies: from bulk tissues to single cells
+
+[0194] [REF] A unified framework for cell-type-specific eQTL prioritization by integrating bulk and scRNA-seq data
+
+[0195] [REF] The power of single-cell RNA sequencing in eQTL discovery
+
+[0196] [REF] Gleevec inhibits β-amyloid production but not Notch cleavage
+
+[0197] [REF] Expanding spectrum of anticancer drug, imatinib, in the disorders affecting brain and spinal cord
+
+[0198] [REF] Influence of breast cancer resistance protein (Abcg2) and p-glycoprotein (Abcb1a) on the transport of imatinib mesylate (Gleevec®) across the mouse blood–brain barrier
+
+[0199] [REF] The modulatory role of nicotine on cognitive and non-cognitive functions
+
+[0200] [REF] Dual effects of nicotine on oxidative stress and neuroprotection in PC12 cells
+
+[0201] [REF] Activation of the cholinergic anti-inflammatory system by nicotine attenuates neuroinflammation via suppression of Th1 and Th17 responses
+
+[0202] [REF] Chronic nicotine treatment reduces β-amyloidosis in the brain of a mouse model of Alzheimer's disease (APPsw)
+
+[0203] [REF] Cardiovascular effects of electronic cigarettes
+
+[0204] [REF] The effects of tobacco smoke and nicotine on cognition and the brain

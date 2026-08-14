@@ -1,0 +1,231 @@
+[0001] [TITLE] Network toxicology and Mendelian randomization reveal pathogenic factors of monoethyl phthalate-induced thyroid cancer
+
+[0002] [ABSTRACT] Monoethyl phthalate, a major metabolite of phthalate esters, is commonly found in the environment and has been linked to an increased risk of thyroid cancer. This study uses network toxicology to predict molecular initiators involved in monoethyl phthalate-induced thyroid cancer and to explore causal relationships and biological mechanisms. We identified 72 common candidate genes of monoethyl phthalate and thyroid cancer from PubChem, CTD, STITCH, GeneCards, and OMIM databases and selected 48 genes for Mendelian randomization (MR) analysis. Using the IEU database and employing expression quantitative trait loci (eQTLs) as instrumental variables, we executed MR analysis to identify 10 monoethyl phthalate-related targets with potential causal relationship to thyroid cancer. Gene ontology and the Kyoto Encyclopedia of Genes and Genomes (KEGG) enrichment analyses highlighted that the biological processes primarily involve intracellular receptor signaling, response to estradiol, nuclear receptor activity, ligand-activated transcription factor activity, and cancer-related signaling pathways, such as the cell cycle and tryptophan metabolism. A protein–protein interaction (PPI) network identified interactions between seven of these genes, revealing five core genes (ESR1, SKP2, CASP8, ARNT, and CDKN1B) as key candidate mediators in monoethyl phthalate-induced thyroid cancer. Molecular docking simulations suggested potential direct interactions between monoethyl phthalate and its protein products. Our findings propose 10 genes as potential mediators of monoethyl phthalate-induced thyroid cancer, with ESR1, SKP2, CASP8, ARNT, and CDKN1B highlighted as core factors potentially involved in thyroid cancer pathogenesis.
+
+[0003] [INTRO] Introduction
+
+[0004] [INTRO] Thyroid cancer represents the most common form of malignancy within the endocrine system. In recent decades, its incidence has risen sharply, with rates continuing to increase globally. For most types of thyroid cancer, early surgical intervention remains the cornerstone of treatment. Alongside surgery, adjunctive therapies, such as radioactive iodine therapy and thyroid hormone replacement therapy, are frequently utilized. Several ultrasound-based risk stratification systems have been developed internationally to assist in treatment planning. However, for patients with advanced thyroid cancer, novel systemic therapies have shown only limited improvements in survival rates. Furthermore, effective treatment options for advanced, metastatic, and iodine-refractory thyroid cancer remain limited. The mechanisms underlying the pathogenesis of thyroid cancer are intricate and remain incompletely elucidated, which contributes to the variability in diagnosis and treatment approaches. Therefore, identifying the underlying factors contributing to the development of thyroid cancer holds significant clinical importance.
+
+[0005] [INTRO] Monoethyl phthalate is a primary metabolite of the widely used plasticizer diethyl phthalate and a ubiquitous environmental contaminant. Human exposure to diethyl phthalate occurs mainly through dermal absorption, inhalation, and ingestion from products such as perfumes and cosmetics. Monoethyl phthalate is subsequently excreted in urine as a metabolite. As such, urinary monoethyl phthalate concentration serves as a specific biomarker for assessing internal human exposure to diethyl phthalate. As an endocrine-disrupting chemical, monoethyl phthalate has been associated with various adverse health outcomes. Epidemiological research has indicated a correlation between exposure to monoethyl phthalate and an elevated likelihood of thyroid dysfunction, thyroid nodules, and even thyroid cancer, with some studies reporting a more pronounced risk increase in male individuals. In vitro experiments have also demonstrated that phthalates, including monoethyl phthalate, may affect normal thyroid function by inducing oxidative stress, disrupting hormone synthesis, and regulating cell proliferation and apoptosis. These findings suggest that monoethyl phthalate plays a crucial role in the onset and progression of thyroid cancer. However, a meta-analysis emphasizes the complex, varied effects of endocrine disruptors, indicating that not all individuals exposed will develop thyroid cancer. Therefore, it is crucial to explore the underlying mechanisms and molecular targets involved in monoethyl phthalate-induced thyroid cancer.
+
+[0006] [INTRO] Network toxicology is an interdisciplinary field that merges methodologies from bioinformatics, big data analytics, and systems biology, and it employs genomics, proteomics, and metabolomics to explore toxicity mechanisms. The fundamental principle of network toxicology lies in the use of diverse databases to establish relational networks among compounds, their toxic effects, and biological targets. This strategy facilitates the simplification of intricate mechanisms associated with multi-component and multi-target toxins into comprehensible graphical representations, thereby enabling a systematic examination of interactions between target proteins and the anticipation of the molecular mechanisms that contribute to disease-inducing agents. Mendelian randomization (MR) serves as a robust analytical approach that utilizes genetic variations linked to particular exposures as instrumental variables (IVs) to assess the causal relationships between these exposures and their corresponding outcomes. This methodology has been pivotal in identifying potential therapeutic targets for numerous diseases. By integrating network toxicology, which predicts key molecular players, with MR, which tests causal relationships, we can prioritize candidates with both mechanistic plausibility and epidemiological evidence of causality. Therefore, in this study, we applied this integrated approach to investigate the pathogenic pathways of monoethyl phthalate in thyroid cancer. Given the complexity and diversity of disease mechanisms, as well as the influence of confounding factors, we first identify potential targets via network toxicology and then assess their causal roles using MR based on genetic variations.
+
+[0007] [INTRO] The objective of this research is to pinpoint common potential molecular targets of monoethyl phthalate and thyroid cancer via network toxicology methodologies, while also investigating the potential causal associations between the expression of these candidate genes and thyroid cancer through MR analysis. The results aim to identify high-priority candidate genes and their protein products for subsequent investigations into the underlying mechanisms of thyroid cancer.
+
+[0008] [METHODS] Materials and methods
+
+[0009] [METHODS] Identification of common candidate genes between monoethyl phthalate and thyroid cancer
+
+[0010] [METHODS] In order to ascertain the standard structural representation and Simplified Molecular Input Line Entry System (SMILES) notation for monoethyl phthalate, an inquiry was performed utilizing the PubChem database (https://pubchem.ncbi.nlm.nih.gov/). Monoethyl phthalate-interacting proteins mapped to their encoding genes were retrieved from the Comparative Toxicogenomics Database (CTD, https://ctdbase.org/). The SMILES notation of monoethyl phthalate was then uploaded to the Search Tool for Interactions of Chemicals (STITCH) database (https://stitch.embl.de/), which facilitated the identification and prediction of additional, possibly overlooked genes. A comprehensive search for thyroid cancer-related genes was carried out in both the GeneCards database (https://www.genecards.org/) and the Online Mendelian Inheritance in Man (OMIM) database (https://www.omim.org/). To ensure comprehensive coverage of the disease heterogeneity, the search incorporated both the general keyword ‘thyroid cancer’ and specific keywords for major histological subtypes, including ‘papillary thyroid cancer (PTC)’, ‘follicular thyroid cancer (FTC)’, and ‘anaplastic thyroid cancer (ATC)’. In order to guarantee that the chosen genes exhibited a strong association with both thyroid cancer and toxicological impacts, a threshold was established according to the median ‘score’ value. Genes that surpassed this median score were selected for the creation of a thyroid cancer target database. Moreover, to maintain the quality and accuracy of the gene list, additional filtering criteria were applied. We retained only human genes at the gene level, excluding non-protein-coding genes, duplicates, and synonymous entries. The common candidate genes shared by monoethyl phthalate and thyroid cancer were subsequently identified and visualized using a Venn diagram.
+
+[0011] [METHODS] Sources of Mendelian randomization data
+
+[0012] [METHODS] The genetic correlations, based on variants associated with thyroid cancer, were sourced from the genome-wide association study (GWAS) catalog (https://www.ebi.ac.uk/gwas/) utilizing the dataset ID GCST90043902. Subsequently, candidate genes were entered into the IEU database (https://gwas.mrcieu.ac.uk/) to identify associated expression quantitative trait loci (eQTLs). The dataset was accessed on January 24, 2025. It is important to note that all data utilized in this analysis are derived from cohorts of European ancestry, as summarized in Supplementary Table 1 (see section on Supplementary materials given at the end of the article). Furthermore, all original investigations secured informed consent from their participants; therefore, no approval from an ethical review board was necessary for the present study.
+
+[0013] [METHODS] Selection of instrumental variables
+
+[0014] [METHODS] The selection of IVs was based on the three core assumptions of MR: relevance, exclusion restriction, and independence. Initially, we selected relevant single nucleotide polymorphisms (SNPs) from the eQTL data of protein-coding genes based on the following criteria: a P-value threshold <5 × 10−8, a linkage disequilibrium (LD) coefficient (r2) of 0.3, a 500 kb LD region, and a minor allele frequency >0.01. These criteria were implemented to guarantee the independence of the SNPs from one another and to reduce the impact of LD on the findings. To satisfy the exclusivity assumption, we performed a comprehensive screen for potential pleiotropy and confounders. Based on previous studies, we identified the following traits as potential confounders: sex (female), obesity (body mass index), smoking status, alcohol consumption, and the presence of thyroid cancer itself (to prevent sample overlap bias). We queried the GWAS catalog to identify SNPs associated with these confounders at genome-wide significance (P < 5 × 10−8). SNPs related to confounding factors and outcomes were excluded from further analysis. In addition, SNPs located within a ±500 kb cis-regulatory region of protein-coding genes were extracted. Next, we obtained the selected SNPs from the GWAS summary data of thyroid cancer, excluding those with a palindromic structure, and utilized Mendelian Randomization Pleiotropy RESidual Sum and Outlier (MR-PRESSO) to remove any outlier SNPs.
+
+[0015] [METHODS] Mendelian randomization analysis and statistical tests
+
+[0016] [METHODS] In this study, we employed a two-sample MR framework to evaluate the potential causal association between monoethyl phthalate and the risk of thyroid cancer, using eQTLs as IVs. The causal effect for each SNP was estimated using the Wald ratio method. When multiple SNPs were analyzed, we primarily utilized the inverse variance weighted (IVW) method to derive a consolidated causal estimate. In the IVW approach, the causal effect estimates from individual SNPs are weighted by the inverse of their variances and then aggregated. To ensure the robustness of our findings, we complemented the IVW method with four additional MR models: MR-Egger regression, weighted median, weighted mode, and simple mode. To assess the validity of the MR assumptions, we performed a series of statistical tests. Heterogeneity across the SNPs was evaluated using Cochran’s Q test, with a P-value <0.05 indicating its presence. The magnitude of heterogeneity was quantified using the I2 statistic, where values exceeding 50% were considered significant. Depending on the heterogeneity results, both random-effects and fixed-effects IVW models were applied, and we conservatively selected the model that yielded the larger P-value for the final causal estimate to minimize false positives. To assess horizontal pleiotropy more comprehensively, both the MR-Egger intercept and MR-PRESSO methodologies were applied. The absence of detectable pleiotropy was defined by a P-value >0.05 for both tests. Furthermore, a leave-one-out sensitivity analysis was conducted by iteratively removing each SNP and repeating the MR analysis to evaluate whether the overall causal estimate was unduly influenced by any individual SNP. All analyses were performed using the TwoSampleMR package in R version 4.1.0 (R Foundation for Statistical Computing, Austria). A two-sided P-value of less than 0.05 was considered statistically significant for the causal effect estimates.
+
+[0017] [METHODS] Functional enrichment and pathway analysis
+
+[0018] [METHODS] In order to investigate the functional characteristics and biological significance of the prospective targets, we conducted gene ontology (GO) enrichment analysis encompassing biological processes (BPs), cellular components, and molecular functions (MFs), alongside Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway enrichment analysis. This was accomplished using the R package ‘clusterProfiler’, with a significance threshold set at P.adjust <0.05. The purpose of these analyses was to elucidate and evaluate the functional importance and relevant pathways linked to the identified targets.
+
+[0019] [METHODS] Construction of the protein–protein interaction network
+
+[0020] [METHODS] The assessment and analysis of protein–protein interaction (PPI) networks offers a critical understanding into how proteins interact with each other within the cellular environment. In this study, a PPI network was established for the 10 identified genes utilizing the Search Tool for the Retrieval of Interacting Genes/Proteins (STRING) database, with a threshold for minimum interaction confidence set at 0.4. This resulted in the identification of seven genes from Homo sapiens. The PPI network was further visualized using Cytoscape version 3.6.0. To identify the most significant hub genes, the MCC (maximal clique centrality) method was employed for further analysis.
+
+[0021] [METHODS] Molecular docking
+
+[0022] [METHODS] Molecular docking simulations facilitate the examination of the binding affinity and interaction dynamics between ligands and their respective targets. In the present investigation, protein–ligand docking was executed utilizing the AutoDock Vina 1.2.2 software (https://autodock.scripps.edu/). The leading five core targets were preprocessed alongside their associated target proteins, which are encoded by the respective genes. Subsequent docking simulations were carried out employing CB-DOCK2 (https://cadd.labshare.cn/cb-dock2/php/index.php). The monoethyl phthalate structure data were sourced from the PubChem compound database (https://pubchem.ncbi.nlm.nih.gov/), while the protein structural data were retrieved from the Protein Data Bank (https://www.rcsb.org/). Prior to conducting the docking simulations, all water molecules were eliminated from the protein and ligand files, and polar hydrogen atoms were incorporated.
+
+[0023] [RESULTS] Results
+
+[0024] [RESULTS] Identification of common candidate genes between monoethyl phthalate and thyroid cancer
+
+[0025] [RESULTS] Initially, we identified monoethyl phthalate-interacting proteins mapped to their encoding genes (n = 90) through the CTD and STITCH databases (Supplementary Table 2). Concurrently, we retrieved 6,840 genes that demonstrated a strong association with thyroid cancer from the GeneCards and OMIM databases. The intersection of these two sets revealed 72 common candidate genes, which were considered potential mediators of monoethyl phthalate-induced thyroid cancer (Fig. 1A). To ensure comprehensive coverage of thyroid cancer heterogeneity, a further analysis was performed by extending the search to include major histological subtypes (papillary, follicular, and anaplastic thyroid carcinoma). The intersection of these subtype-specific genes with monoethyl phthalate-targeted proteins yielded four additional candidate genes: MIR376C, PLEKHA6, BCL2L10, and PLTP (Fig. 1B, C, D). Subsequently, we input the 76 potential genes into the IEU database to obtain eQTL data. Ultimately, 1,280 eQTLs associated with 50 thyroid cancer-related genes were identified for subsequent MR analysis (Supplementary Table 3).
+
+[0026] [FIG] Venn diagram of the common candidate genes between monoethyl phthalate and thyroid cancer. (A) The intersection of thyroid cancer and monoethyl phthalate sets revealed 72 common candidate genes. (B) The intersection of PTC and monoethyl phthalate sets revealed two common candidate genes (MIR376C and PLEKHA6). (C) The intersection of FTC and monoethyl phthalate sets revealed two common candidate genes (BCL2L10 and PLTP). (D) The intersection of ATC and monoethyl phthalate sets revealed two common candidate genes (MIR376C and PLEKHA6). T&M+: genes overlapping between thyroid cancer and monoethyl phthalate (n = 72). T&M−: genes that do not intersect between thyroid cancer and monoethyl phthalate (n = 18). T&M+ and T&M− combined represent monoethyl phthalate-associated genes (n = 90).
+
+[0027] [RESULTS] Causal relationship between gene expression of monoethyl phthalate-associated genes and thyroid cancer
+
+[0028] [RESULTS] We utilized eQTLs as genetic instruments in MR analysis to systematically investigate the causal impacts of the expression of monoethyl phthalate-associated genes on thyroid cancer (Fig. 2). The MR analysis demonstrated significant associations between 12 candidate genes and thyroid cancer risk. However, PLEKHA6 and PLTP, identified through the analysis of additional histological subtypes, showed no evidence of a causal effect on thyroid cancer (Fig. 3).
+
+[0029] [FIG] MR analysis framework flow chart for evaluating the influence of the expression of monoethyl phthalate-associated genes on thyroid cancer.
+
+[0030] [FIG] Manhattan plot of the Mendelian randomization analysis for the causal effect of gene expression on thyroid cancer.
+
+[0031] [RESULTS] After conducting robustness analyses, we identified 10 potential genes that exhibited a significant causal relationship with thyroid cancer (Supplementary Table 4). In particular, the subsequent genes were linked to a heightened risk of thyroid cancer: AHR (OR = 1.425, 95% CI: 1.112–1.825, P = 0.005), ARNT (OR = 1.461, 95% CI: 1.101–1.936, P = 0.009), CASP8 (OR = 1.397, 95% CI: 1.131–1.725, P = 0.002), CAT (OR = 1.152, 95% CI: 1.062–1.250, P < 0.001), DCAKD (OR = 1.256, 95% CI: 1.129–1.399, P < 0.001), NR1I3 (OR = 22.894, 95% CI: 2.416–216.941, P = 0.006), and SKP2 (OR = 1.386, 95% CI: 1.028–1.869, P = 0.032). Conversely, CDKN1B (OR = 0.534, 95% CI: 0.298–0.957, P = 0.035), ESR1 (OR = 0.511, 95% CI: 0.274–0.952, P = 0.035), and PPARD (OR = 0.313, 95% CI: 0.103–0.948, P = 0.04) were linked to a markedly lower risk of thyroid cancer. The Q-test and I2 statistic revealed an absence of heterogeneity among the 10 identified genes (P > 0.05). In addition, the MR-Egger regression analysis demonstrated that the intercept did not significantly differ from zero (P > 0.05), while the MR-PRESSO method did not identify any substantial horizontal pleiotropy (P > 0.05), suggesting that the IVs used were unlikely to bias the causal estimates. Furthermore, leave-one-out analysis revealed that the MR estimates remained stable with the removal of any individual SNP (Supplementary Fig. 1); this analysis could not be performed for NR1I3, as only one SNP was available as an IV. These results collectively confirm the robustness of our MR findings.
+
+[0032] [RESULTS] Biological mechanisms of monoethyl phthalate-induced thyroid cancer
+
+[0033] [RESULTS] GO enrichment analysis revealed that the BPs associated with the 10 potential genes were predominantly related to the intracellular receptor signaling pathway and response to estradiol. The MFs of these genes were primarily linked to nuclear receptor activity and ligand-activated transcription factor activity (Fig. 4, Supplementary Table 5). Furthermore, the KEGG pathway enrichment analysis revealed the five most prominent pathways linked to these targets: pathways in cancer, cell cycle, tryptophan metabolism, colorectal cancer, and small cell lung cancer (Fig. 5, Supplementary Table 6).
+
+[0034] [TABLE] Core targets screened from PPI network.
+
+[0035] [TABLE] Rank Name Score 1 ESR1 10 2 SKP2 8 3 CASP8 6 3 ARNT 6 3 CDKN1B 6 6 AHR 4 7 NR1I3 2
+
+[0036] [TABLE] Top seven in network string_interactions_short.tsv ranked by the MCC method.
+
+[0037] [TABLE] Hub gene molecular docking.
+
+[0038] [TABLE] Target Target PBD ID Toxicant Vina score ESR1 6PSJ Monoethyl phthalate −6.4 SKP2 1FS1 Monoethyl phthalate −6.8 CASP8 7LVM Monoethyl phthalate −5.4 ARNT 5V0L Monoethyl phthalate −6.8 CDKN1B 2AST Monoethyl phthalate −5.9
+
+[0039] [FIG] GO enrichment analysis.
+
+[0040] [FIG] KEGG enrichment analysis.
+
+[0041] [RESULTS] Molecular docking of monoethyl phthalate with core targets
+
+[0042] [RESULTS] A PPI network was established through STRING analysis, which revealed 7 nodes, 12 edges, and an average node degree of 3.429, illustrating the interactions between seven key genes (Fig. 6). The top five genes, identified using the MCC method, were considered as core targets in monoethyl phthalate-induced thyroid cancer, including ESR1, SKP2, CASP8, ARNT, and CDKN1B (Table 1). The interactions among these core genes were further visualized (Fig. 6).
+
+[0043] [FIG] PPI network diagram.
+
+[0044] [RESULTS] The binding sites and interactions of monoethyl phthalate with the proteins encoded by the hub genes were determined using CB-DOCK2, which also provided the binding energies for each interaction. A total of five protein targets showed effective docking with monoethyl phthalate (Fig. 7, Table 2). All five core proteins demonstrated high affinity for monoethyl phthalate, characterized by binding energies lower than −5 kcal/mol. The interaction of monoethyl phthalate with these protein targets occurs via discernible hydrogen bonds and significant electrostatic interactions.
+
+[0045] [FIG] Hub gene molecular docking. (A) ARNT, (B) CASP8, (C) CDKN1B, (D) ESR1, and (E) SKP2.
+
+[0046] [DISCUSS] Discussion
+
+[0047] [DISCUSS] This study integrated network toxicology and MR analysis to investigate the pathogenic pathways linking monoethyl phthalate to thyroid cancer. Our approach identified 10 candidate genes whose expression levels demonstrate a potential causal relationship with thyroid cancer risk. Notably, among these, five hub genes (ESR1, SKP2, CASP8, ARNT, and CDKN1B) were computationally predicted to exhibit high binding affinity with monoethyl phthalate. GO and KEGG enrichment analyses indicated that the BPs and MFs related to the potential genes were primarily linked to intracellular receptor signaling, response to estradiol, nuclear receptor activity, and ligand-activated transcription factor activity. Moreover, these targets were found to be strongly associated with colorectal cancer, small cell lung cancer, cancer-related cell cycle, and tryptophan metabolism pathways. These results support the hypothesis that monoethyl phthalate may play a critical role in the pathogenesis of thyroid cancer via specific genetic pathways, underscoring the necessity for further investigation of these targets to elucidate the underlying biological mechanisms.
+
+[0048] [DISCUSS] Environmental exposure to endocrine-disrupting chemicals, such as phthalates, can disrupt thyroid homeostasis by mimicking or interfering with hormone synthesis, transport, and metabolism, which is linked to autoimmune thyroid diseases. These exposures can also dysregulate the hypothalamic–pituitary–thyroid (HPT) axis, potentially resulting in morphological and functional abnormalities, such as thyroid hypertrophy/hyperplasia, hypothyroidism, hyperthyroidism, and thyroid cancer. Moreover, mechanisms such as oxidative stress, genetic susceptibility, and epigenetic modifications (e.g., DNA methylation and miRNA) leading to altered gene expression represent potential pathways through which these chemicals promote tumorigenesis. Our MR analysis reveals a potential causal association between monoethyl phthalate-related gene expression and thyroid cancer. This finding reinforces and extends previous studies, such as the work by Xu et al., which conducted a study involving 144 thyroid cancer patients and 144 healthy controls, which demonstrated that specific phthalate metabolites, including monoethyl phthalate, are associated with increased risks of thyroid cancer. Similarly, Wang et al. highlighted oxidative stress as a key mechanistic link between phthalate exposure and the risk of thyroid cancer.
+
+[0049] [DISCUSS] Research on monoethyl phthalate’s impact on thyroid cancer is limited, but current studies suggest that monoethyl phthalate may promote thyroid cancer by affecting the expression of several key genes (ESR1, SKP2, CASP8, ARNT, and CDKN1B) integral to cell cycle regulation and apoptosis. Estrogen receptor 1 (ESR1) is known to promote various cancers. In particular, elevated ESR1 expression has been implicated in PTC, where its overexpression is often associated with more aggressive disease and poorer prognostic outcomes. S-phase kinase-associated protein 2 (SKP2), a critical cell cycle regulatory factor, is closely associated with the progression of several tumors when upregulated. SKP2 has been shown to be highly expressed in PTC, FTC, and ATC, and it may play a crucial role in thyroid cancer progression and could serve as a potential target for therapeutic interventions. In addition, genes associated with apoptosis, including CASP8, are crucial in regulating the equilibrium between the survival and demise of tumor cells. The aryl hydrocarbon receptor nuclear translocator (ARNT) is crucial in cellular responses to environmental toxins and may influence tumor development by modulating growth and apoptosis-related signaling pathways. Furthermore, CDKN1B, a cell cycle inhibitor, is often underexpressed in various malignant tumors. Future studies should investigate how monoethyl phthalate and its metabolites affect thyroid cancer via these targets to support early prevention and intervention strategies.
+
+[0050] [DISCUSS] Our enrichment analysis suggests that monoethyl phthalate may influence thyroid cancer by altering receptor signaling pathways involved in the regulation of nuclear receptor activity. Studies have shown that thyroid hormones T3 and T4 interact with nuclear receptors to affect gene transcription, impacting cell growth and cancer progression. T4 binds to integrin αvβ3, a receptor involved in non-genomic signaling that promotes cancer proliferation and angiogenesis, supporting tumor growth and resistance to apoptosis. The interaction between monoethyl phthalate and these receptors may alter gene expression in thyroid cancer, which needs further research to clarify the underlying mechanisms.
+
+[0051] [DISCUSS] The results of this study suggest that the cell cycle and tryptophan metabolism may play a key role in regulating the interaction between monoethyl phthalate and thyroid cancer. Previous research highlights the significance of the PI3K-Akt signaling pathway in facilitating cell proliferation and survival, particularly by influencing the G1/S transition of the cell cycle. Tryptophan metabolism, especially via the kynurenine pathway, is associated with immune evasion in tumors, as elevated levels of kynurenine can suppress T cell responses, thereby promoting tumor progression. Furthermore, tryptophan metabolism exhibits notable alterations in patients with differentiated thyroid cancer, with specific metabolites serving as potential early diagnostic markers. Consequently, targeting tryptophan metabolism may enhance anti-tumor immunity in individuals with thyroid cancer.
+
+[0052] [DISCUSS] This research employs a two-sample MR methodology to investigate the causal link between monoethyl phthalate and thyroid cancer. Our methodology incorporates eQTL data, facilitating a more accurate estimation of causal effects by accounting for confounding factors that may have biased earlier findings. In contrast to previous studies that frequently depended on observational data susceptible to confounding variables, our analysis employs genetic instruments to bolster causal inference, thereby enhancing the reliability of our conclusions.
+
+[0053] [DISCUSS] In conclusion, our integrated analysis provides novel insights into the potential mechanistic link between monoethyl phthalate and thyroid cancer, nominating a set of candidate genes including ESR1, SKP2, CASP8, ARNT, and CDKN1B as key mediators. However, several limitations of this study must be acknowledged. First, although MR and molecular docking suggest causality and binding, respectively, they cannot reveal how monoethyl phthalate binding alters the function of the encoded proteins – a key question for future experimental work. Second, the selection of genes for MR was based on prior associations with thyroid cancer, which means that our findings are confirmatory in nature for establishing causality within this preselected set, rather than being an exploratory search for novel genes. Despite these limitations, our study brings together evidence from both computational and epidemiological sources to propose a compelling hypothesis. Future research employing in vitro and in vivo mechanistic experiments is essential to definitively confirm the functional impact of monoethyl phthalate on these core targets and to assess their translational potential.
+
+[0054] [SUPPL] Supplementary materials
+
+[0055] [COMP_INT] Declaration of interest
+
+[0056] [COMP_INT] The authors declare that there is no conflict of interest that could be perceived as prejudicing the impartiality of the work reported.
+
+[0057] [ACK_FUND] Funding
+
+[0058] [ACK_FUND] This work was supported by grants from the National Natural Science Funds of China (No. 82460168), Jiangxi Provincial Science and Technology Innovation Base Plan – Provincial Clinical Medical Research Center (No. 2020BCG74001), Jiangxi Provincial Science and Technology Innovation Base Construction – Clinical Medical Research Center (No. 20221ZDG02011), and Jiangxi Provincial Natural Science Foundation (No. 20224ACB206010).
+
+[0059] [AUTH_CONT] Author contribution statement
+
+[0060] [AUTH_CONT] JW: writing – original draft, software, investigation, formal analysis, data curation, conceptualization. DC: writing-review, editing, methodology. JZ: writing – review, editing, methodology. XH: validation, software, methodology, investigation. JX: methodology, investigation, funding acquisition. YL: writing – review, editing, supervision, project administration. All authors contributed to the article and approved the final manuscript.
+
+[0061] [REF] References
+
+[0062] [REF] Thyroid cancer
+
+[0063] [REF] Thyroid cancer
+
+[0064] [REF] Recent advances in thyroid cancer research
+
+[0065] [REF] Progress and challenges in thyroid cancer management
+
+[0066] [REF] New therapies for advanced thyroid cancer
+
+[0067] [REF] Physiologically-based toxicokinetic modeling of human dermal exposure to diethyl phthalate: application to health risk assessment
+
+[0068] [REF] Phthalate metabolites: characterization, toxicities, global distribution, and exposure assessment
+
+[0069] [REF] A study of the relationship between phthalate exposure and the occurrence of adult asthma in Taiwan
+
+[0070] [REF] Urinary biomarkers of phthalates exposure and risks of thyroid cancer and benign nodule
+
+[0071] [REF] Associations between phthalate metabolite concentrations in follicular fluid and reproductive outcomes among women undergoing in vitro fertilization/intracytoplasmic sperm injection treatment
+
+[0072] [REF] Phthalate exposure and risk of diabetes mellitus: implications from a systematic review and meta-analysis
+
+[0073] [REF] Transcriptome-metabolome-wide association study (TMWAS) in rats revealed a potential carcinogenic effect of DEHP in thyroid associated with eicosanoids
+
+[0074] [REF] Oxidative stress mediates the associations between phthalate exposures and thyroid cancer/benign nodule risk
+
+[0075] [REF] Association between diethylhexyl phthalate exposure and thyroid function: a meta-analysis
+
+[0076] [REF] Efficient analysis of toxicity and mechanisms of environmental pollutants with network toxicology and molecular docking strategy: acetyl tributyl citrate as an example
+
+[0077] [REF] Analysis of environmental pollutant bisphenol F elicited prostate injury targets and underlying mechanisms through network toxicology, molecular docking, and multi-level bioinformatics data integration
+
+[0078] [REF] An integrated strategy combining network toxicology and feature-based molecular networking for exploring hepatotoxic constituents and mechanism of epimedii Folium-induced hepatotoxicity in vitro
+
+[0079] [REF] Network toxicological and molecular docking to investigate the mechanisms of toxicity of agricultural chemical Thiabendazole
+
+[0080] [REF] Clarification of the molecular mechanisms underlying glyphosate-induced major depressive disorder: a network toxicology approach
+
+[0081] [REF] Exploring the potential toxicological mechanisms of Vine tea on the liver based on network toxicology and transcriptomics
+
+[0082] [REF] Identification of potential drug targets for rheumatoid arthritis from genetic insights: a Mendelian randomization study
+
+[0083] [REF] Interpreting the clinical implications of drug-target Mendelian randomization studies
+
+[0084] [REF] Potential drug targets for multiple sclerosis identified through Mendelian randomization analysis
+
+[0085] [REF] Risk factors for thyroid cancer: a hospital-based case-control study in Korean adults
+
+[0086] [REF] The NHGRI-EBI GWAS catalog: knowledgebase and deposition resource
+
+[0087] [REF] Automated genome annotation and pathway identification using the KEGG orthology (KO) as a controlled vocabulary
+
+[0088] [REF] Analysis of long non-coding RNA and mRNA expression profiling in immature and mature bovine (Bos taurus) testes
+
+[0089] [REF] The STRING database in 2023: protein-protein association networks and functional enrichment analyses for any sequenced genome of interest
+
+[0090] [REF] Cytoscape automation: empowering workflow-based network analysis
+
+[0091] [REF] Environmental triggers and future risk of developing autoimmune diseases: molecular mechanism and network toxicology analysis of bisphenol A
+
+[0092] [REF] Mechanism of Nardostachyos Radix et Rhizoma-Salidroside in the treatment of premature ventricular beats based on network pharmacology and molecular docking
+
+[0093] [REF] The impact of environmental factors and contaminants on thyroid function and disease from fetal to adult life: current evidence and future directions
+
+[0094] [REF] Endocrine disruptor chemicals and children’s health
+
+[0095] [REF] Current knowledge on endocrine disrupting chemicals (EDCs) from animal biology to humans, from pregnancy to adulthood: highlights from a national Italian meeting
+
+[0096] [REF] Endocrine disruptors and thyroid autoimmunity
+
+[0097] [REF] Oestrogenic endocrine disruptors in the placenta and the fetus
+
+[0098] [REF] Estrogen enhances the proliferation, migration, and invasion of papillary thyroid carcinoma via the ERα/KRT19 signaling axis
+
+[0099] [REF] Upregulation of the ESR1 gene and ESR ratio (ESR1/ESR2) is associated with a worse prognosis in papillary thyroid carcinoma: the impact of the estrogen receptor α/β expression on clinical outcomes in papillary thyroid carcinoma patients
+
+[0100] [REF] SKP2 contributes to AKT activation by ubiquitination degradation of PHLPP1, impedes autophagy, and facilitates the survival of thyroid carcinoma
+
+[0101] [REF] Targeting RET to induce medullary thyroid cancer cell apoptosis: an antagonistic interplay between PI3K/Akt and p38MAPK/caspase-8 pathways
+
+[0102] [REF] ARNTL2: a key player in promoting tumor aggressiveness in papillary thyroid cancer
+
+[0103] [REF] A novel likely pathogenic germline variant in CDKN1B in a patient with MEN4 and medullary thyroid cancer
+
+[0104] [REF] ESR1 mutant breast cancers show elevated basal cytokeratins and immune activation
+
+[0105] [REF] Skp2 stabilizes Mcl-1 and confers radioresistance in colorectal cancer
+
+[0106] [REF] Overexpression of the S-phase kinase-associated protein 2 in thyroid cancer
+
+[0107] [REF] Association of CASP8 polymorphisms and cancer susceptibility: a meta-analysis
+
+[0108] [REF] The complex biology of aryl hydrocarbon receptor activation in cancer and beyond
+
+[0109] [REF] CDKN1B mutation and copy number variation are associated with tumor aggressiveness in luminal breast cancer
+
+[0110] [REF] Metabolic messengers: Thyroid hormones
+
+[0111] [REF] Extranuclear effects of thyroid hormones and analogs during development: an old mechanism with emerging roles
+
+[0112] [REF] Thyroid hormone induces oral cancer growth via the PD-L1-dependent signaling pathway
+
+[0113] [REF] Nuclear imaging modalities in the diagnosis and management of thyroid cancer
+
+[0114] [REF] Targeting SLITRK4 restrains proliferation and liver metastasis in colorectal cancer via regulating PI3K/AKT/NFκB pathway and tumor-associated macrophage
+
+[0115] [REF] Hydroxyamidine inhibitors of indoleamine-2,3-dioxygenase potently suppress systemic tryptophan catabolism and the growth of IDO-expressing tumors
+
+[0116] [REF] Analysis of tryptophan metabolic profile characteristics and clinical value in differentiated thyroid cancer patients

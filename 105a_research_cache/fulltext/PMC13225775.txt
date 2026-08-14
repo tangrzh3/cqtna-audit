@@ -1,0 +1,309 @@
+[0001] [TITLE] Multi-omics mendelian randomization integrating GWAS and eQTL data revealed potential drug target for irritable bowel syndrome
+
+[0002] [ABSTRACT] Introduction
+
+[0003] [ABSTRACT] Irritable bowel syndrome (IBS) is a common gastrointestinal disorder mainly affecting the young and female with limited therapeutic options, necessitating the identification of novel drug targets. This study aimed to identify and prioritize new, genetically validated drug targets for IBS by leveraging large-scale human genetic data.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We conducted a systematic, druggable genome-wide Mendelian randomization (MR) analysis to evaluate the causal effects of 5,642 potential druggable protein-coding genes on IBS risk. The analysis integrated summary statistics from the largest available IBS genome-wide association study (GWAS), including 53,400 cases and 433,201 controls, with comprehensive blood expression quantitative trait loci (eQTL) data. Significant findings were further validated using colocalization analysis. A phenome-wide association study (PheWAS) was performed to assess the potential for on-target adverse effects. Finally, potential therapeutic compounds were predicted using the Drug Signatures Database (DSigDB) and molecular docking.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] The MR analysis identified eight genes with potential causal associations with IBS. Following rigorous validation with colocalization analysis, EP300 and P2RY14 emerged as the most promising candidate targets. Genetically predicted higher expression of both EP300 (OR: 1.128, 95% CI: 1.079-1.180) and P2RY14 (OR: 1.118, 95% CI: 1.067-1.172) was suggestively causally associated with an increased risk of IBS. The PheWAS analysis indicated that EP300 and P2RY14 did not show genome-wide significant associations with any other phenotypes. Additionally, molecular docking predicted that existing compounds, such as captopril and menadione, could effectively bind to the EP300 protein.
+
+[0008] [ABSTRACT] Conclusion
+
+[0009] [ABSTRACT] Our study provides genetic evidence establishing EP300 and P2RY14 as promising drug targets for the treatment of IBS, laying a foundation for future drug development and repurposing efforts.
+
+[0010] [INTRO] Introduction
+
+[0011] [INTRO] Irritable bowel syndrome (IBS) is a prevalent chronic functional gastrointestinal disorder. Its primary characteristics include recurrent episodes of abdominal pain or discomfort, occurring in the absence of evidence of organic lesions and biochemical abnormalities, accompanied by alterations in bowel habits. These manifestations significantly impair patients’ quality of life and daily functioning. The prevalence of IBS varies from 1.1% to 35.5% and the disorder predominantly affects females, with an incidence approximately 1.5–2 times higher than that in males. Moreover, IBS is among the commonest functional gastrointestinal disorders (FGIDs) in children and the prevalence in Asian children was reported to be of 12.4%. IBS imposes a substantial disease burden on the healthcare system, for instance, the annual direct healthcare costs of irritable bowel syndrome in the UK range from £130 million to £2 billion.
+
+[0012] [INTRO] Despite its prevalence, the management of IBS remains a clinical challenge. Current treatment strategies are often directed at symptom relief and include dietary modifications, lifestyle changes, and pharmacotherapy such as antispasmodics, antidiarrheals, laxatives, and antidepressants. However, these treatments offer only modest efficacy, and many patients experience persistent or relapsing symptoms, leading to a high degree of dissatisfaction. The heterogeneity of IBS subtypes and symptom presentations further complicates the development of a “one-size-fits-all” therapy. Consequently, there is an urgent and unmet need to identify novel therapeutic targets to develop more effective and targeted treatments for IBS.
+
+[0013] [INTRO] Human genetic research is now widely applied in drug development for a variety of complex diseases. Integrating genetic evidence into drug discovery and development—particularly by prioritizing genetically supported drug targets—represents one of the most effective strategies as such targets are more likely to succeed in clinical trials. Druggable genes refer to those in the human genome that encode proteins capable of being specifically bound and modulated by therapeutic agents. These genes serve as prime candidates for precision medicine and play a pivotal role in targeted therapies, drug repurposing, and the development of novel therapeutic strategies. Genome-wide association studies (GWAS) datasets offer broad prospects for drug repurposing based on genetic discoveries. For instance, among the 50 drugs approved by the U.S. Food and Drug Administration (FDA) in 2021, two-thirds were supported by corresponding genetic evidence, underscoring the considerable potential of GWAS in drug development. Mendelian randomization (MR) is a powerful genetic epidemiological approach that uses genetic variants as instrumental variables to infer causal relationships between exposures and disease outcomes by leveraging the random allocation of genotypes, mimicking a randomized controlled trial. By integrating MR with expression quantitative trait loci (eQTL) data which are genetic variants associated with gene expression levels, it is possible to assess the causal effect of lifelong variation in the expression of a specific druggable gene on disease risk.
+
+[0014] [INTRO] In this study, we performed a systematic, druggable genome-wide MR analysis by integrating the largest available IBS genome-wide association study (GWAS) summary statistics with comprehensive blood eQTL data. Our primary objective was to identify and prioritize novel, genetically validated drug targets for IBS. By further employing colocalization analysis to ensure the robustness of our findings, we identified EP300 and P2RY14 as promising candidate targets. Furthermore, by drug effect prediction and molecular docking, we inferred the pharmacological activities of candidate pharmaceutic agents targeting EP300 for IBS treatment. This study provides a valuable genetic foundation to guide future drug development and repurposing efforts, potentially accelerating the path toward more effective therapies for IBS.
+
+[0015] [METHODS] Materials and methods
+
+[0016] [METHODS] Druggable genes list
+
+[0017] [METHODS] Druggable genes are defined as genes encoding proteins that can be targeted by drugs. The proteins encoded by these genes can specifically bind drug molecules to mediate their biological effects, making them potential targets in drug development. Drug-Gene Interaction Database (DGIdb, https://www.dgidb.org/) integrates comprehensive drug-gene interaction data, enabling efficient identification of potential druggable targets to support both biomedical research and clinical decision-making (Supplementary Table S1). Finan et al. integrated GWAS data with the druggable genome to systematically assess the utility of genetic associations in drug target discovery and therapeutic repurposing, revealing substantial cross-disease target opportunities and providing a scalable framework for target identification (Supplementary Table S2). We compiled a list of druggable genes by integrating data from the DGIdb database and the review by Finan et al., excluding pseudogenes (Supplementary Table S3).
+
+[0018] [METHODS] eQTL data
+
+[0019] [METHODS] eQTLGen Consortium (https://eqtlgen.org/) is a comprehensive resource that integrates multiple datasets to elucidate the genetic basis of gene expression regulation. We obtained complete cis-eQTL data and allele frequency statistics from the eQTLGen Consortium, comprising 31,684 blood samples and 19,960 genes, all from individuals of European ancestry (Supplementary Table S4).
+
+[0020] [METHODS] IBS data sources
+
+[0021] [METHODS] Genome-wide association study (GWAS) data for the IBS cohort were obtained from the GWAS Catalog. The IBS GWAS (Study ID: GCST90016564) included 53,400 cases and 433,201 controls, all of European ancestry. Summary statistics and cohort details are available in the original publication (Supplementary Table S4).
+
+[0022] [METHODS] Mendelian randomization analysis
+
+[0023] [METHODS] In this study, eQTLs were used as exposure variables. Instrumental variables (IVs) were selected as SNPs significantly associated with gene expression (false discovery rate [FDR] < 0.05) and located within ±100 kb of the transcription start site (TSS) of each target gene. To ensure SNP independence, linkage disequilibrium clumping was performed using genotype data from the European (EUR) population of the 1000 Genomes Project, with an r 2 threshold of 0.1. Subsequently, phenotype annotation of the selected SNPs was performed using the “FastTraitR” (version 1.0.0) to identify and exclude variants associated with potential confounders of IBS, including abdominal obesity, gastrointestinal infection, somatic symptoms, copper and zinc levels, gluten-free diet, and asthma (Supplementary Table S5). Finally, independent SNPs with no evidence of significant pleiotropy were retained and used as instrumental variables in a two-sample Mendelian randomization (MR) analysis, leveraging GWAS summary statistics for IBS to assess the potential causal effect of gene expression on IBS risk.
+
+[0024] [METHODS] In the primary analysis, for genes with a single valid instrumental variable, the causal effect was estimated using the Wald ratio method, defined as the ratio of the SNP’s effect on the outcome to its effect on the exposure. For genes with multiple independent instrumental variables, the inverse-variance weighted (IVW) method was used as the primary approach to estimate the overall causal effect, with MR-Egger regression and weighted median methods applied for sensitivity analysis to assess robustness and potential pleiotropy. Cochran’s Q test was used to assess heterogeneity among the causal effect estimates of individual SNPs. A P value <0.05 was considered statistically significant and suggestive of heterogeneity. Additionally, the intercept term from MR-Egger regression was used to test for the presence of horizontal pleiotropy. To control for the risk of false positives due to multiple testing, false discovery rate (FDR) correction was applied at the gene level. An FDR threshold of <0.05 was considered statistically significant. To assess potential reverse causality and evaluate the robustness of the assumed causal direction, we performed Steiger’s directionality test. This test determines whether the genetic instruments explain more variance in the exposure than in the outcome, thereby supporting the directionality of the causal effect from exposure to outcome. MR analyses were conducted using the “TwoSampleMR” package (version 0.6.6) in R version 4.4.1.
+
+[0025] [METHODS] Colocalization analysis
+
+[0026] [METHODS] For genes that reached statistical significance in cohorts, we conducted colocalization analysis using the “coloc” package (version 5.2.3) to assess whether the association signals for IBS risk and gene expression (eQTLs) shared a common causal variant. Since a single SNP may reside within regulatory regions shared by multiple genes, its association with disease risk could be confounded by expression changes in more than one gene. Therefore, colocalization analysis was performed to determine whether a shared causal genetic variant underlies both genetic susceptibility to IBS and the expression levels of specific genes.
+
+[0027] [METHODS] Specifically, for genes found to be significant in the MR analysis, we conducted colocalization analysis using GWAS summary statistics for IBS and eQTL data within a ±100 kb window centered on the TSS of each gene. Prior probabilities were set as follows: P1 = 1 × 10−4 (prior probability of a SNP being associated with gene expression), P2 = 1 × 10−4 (prior probability of a SNP being associated with IBS risk), and P12 = 1 × 10−5 (prior probability of a shared causal variant for both traits).
+
+[0028] [METHODS] Colocalization analysis yielded posterior probabilities for five mutually exclusive hypotheses, PPH0: No association with either trait; PPH1: Association with gene expression only; PPH2: Association with IBS risk only; PPH3: Associations with both traits, but driven by distinct causal variants; PPH4: A single shared causal variant underlies both gene expression and IBS risk. When PPH4 ≥ 0.8, strong evidence of colocalization was considered to exist between the two signals, supporting a shared genetic basis for expression changes in the gene and IBS risk.
+
+[0029] [METHODS] PheWAS analysis
+
+[0030] [METHODS] To evaluate the safety of potential drug targets and predict the risk of adverse reactions that may arise from targeted interventions, we conducted a phenome-wide association analysis based on a high-quality, predominantly unrelated whole-genome sequencing subset of approximately 500,000 participants released by the UK Biobank. This analysis systematically assessed the associations between protein-coding variants and approximately 13,000 binary traits as well as 5,000 continuous traits.
+
+[0031] [METHODS] Genetic regulation and tissue expression characteristics analysis of target genes
+
+[0032] [METHODS] To minimize the potential influence of tissue specificity on the results, this study systematically validated the eQTLs of the identified target genes through a series of colocalization analyses based on the GTEx database (https://www.gtexportal.org/home/). Furthermore, we utilized The Human Protein Atlas database (https://www.proteinatlas.org) to further evaluate the mRNA and protein expression profiles of relevant genes across different tissues, thereby clarifying their expression characteristics in the target tissues.
+
+[0033] [METHODS] Candidate drug prediction
+
+[0034] [METHODS] The Drug Signatures Database (DSigDB, https://dsigdb.tanlab.org/) contains 22,527 gene sets, encompassing 17,389 unique compounds and covering 19,531 genes. This comprehensive resource provides robust support for the systematic identification of potential druggable targets. Based on key target genes identified through Mendelian randomization and colocalization analyses, we performed drug-gene matching using the DSigDB. This approach was used to identify candidate drugs significantly associated with these targets, predict their pharmacological activities, and explore their potential for drug repurposing.
+
+[0035] [METHODS] Molecular docking
+
+[0036] [METHODS] To evaluate the binding affinity and molecular interaction profiles between candidate drugs and their target proteins, we performed molecular docking analysis. This provides structural insights into their potential mechanisms of action and supports assessment of target druggability. The three-dimensional structure of the target protein was retrieved from the Protein Data Bank (PDB, http://www.rcsb.org/), while the three-dimensional structures of small-molecule ligands were obtained from the PubChem Compound Database (https://pubchem.ncbi.nlm.nih.gov/) in SDF format. All protein structures were prepared by removing crystallization water molecules and adding hydrogen atoms, while ligand structures were energy-minimized using OpenBabel 3.1.1. The active binding sites were predicted using proteins. plus (https://proteins.plus/), an online platform for protein structure analysis and binding site prediction. These predicted sites were used to define the docking regions for subsequent molecular docking analyses. Molecular docking was conducted using AutoDock 4.2.6 (http://autodock.scripps.edu/), and the docking results were evaluated based on binding free energy. A binding free energy lower than −5.0 kcal/mol is typically considered indicative of potential binding, while values below −7.0 kcal/mol suggest stronger binding activity. The final docking conformations were visualized using PyMol 3.1.0 (https://www.pymol.org/) to identify key molecular interactions, such as hydrogen bonds and hydrophobic interactions.
+
+[0037] [METHODS] Clinical sample collection
+
+[0038] [METHODS] To validate the expression of EP300 in clinical samples, we retrospectively enrolled 10 patients diagnosed with IBS at Guangzhou Women and Children’s Medical Center between 2020 and 2025. The inclusion criteria for the IBS group were children, adolescents, or young adults aged with a clinical diagnosis of IBS and no organic gastrointestinal diseases, systemic inflammatory conditions, or significant comorbidities. Concurrently, 10 healthy controls matched for age and sex were randomly selected from the hospital’s health examination center. Detailed clinical baseline characteristics of all participants are summarized in Supplementary Table S9.
+
+[0039] [METHODS] RNA extraction and reverse transcription quantitative PCR (RT-qPCR)
+
+[0040] [METHODS] Whole blood samples were collected in EDTA tubes. After red blood cell lysis and centrifugation, total RNA was extracted using the TRIZOL method (Invitrogen, 15596018CN). Reverse transcription was performed to obtain cDNA using the HiScript III All-in-one RT SuperMix (Vazyme, R333-01). Quantitative real-time PCR (qPCR) was conducted on the QuantStudio 6 Flex (ABI) platform using SYBR Green qPCR Master Mix (EZB, A0012-R2), with β-actin as the internal control. The primer sequences used were: β-actin (Forward: 5′-GCA​CAG​AGC​CTC​GCC​TTT-3′, Reverse: 5′-TAT​CAT​CAT​CCA​TGG​TGA​GCT​GG-3′) and EP300 (Forward: 5′-TCT​GCA​AAC​AAT​CGA​GCG​GA-3′, Reverse: 5′-GAA​ACT​GGA​ACC​ATG​CCT​GC-3′). And all the procedures were performed according to the manufacturers’ manuals. Relative expression levels were calculated using the 2−ΔΔCT method, and the statistical difference between groups was evaluated using the Wilcoxon rank-sum test.
+
+[0041] [METHODS] Processing of bulk RNA-sequencing datasets
+
+[0042] [METHODS] To robustly evaluate EP300 expression and its downstream targets in IBS, we obtained raw count data from two independent RNA-sequencing (RNA-seq) datasets, GSE166869 and GSE168759, via the Gene Expression Omnibus (GEO) database. Raw counts were normalized to Counts Per Million (CPM). To eliminate technical variations between the two studies, we applied the ComBat function from the sva R package to the log-transformed CPM matrix for batch effect correction. Principal Component Analysis (PCA) was performed to visualize sample distribution before and after batch correction. The final high-quality integrated dataset comprised expression profiles for 15,439 genes across 84 samples, consisting of 53 IBS patients and 31 healthy controls.
+
+[0043] [METHODS] Gene regulatory network inference
+
+[0044] [METHODS] We inferred the EP300-centered gene regulatory network based on the integrated IBS RNA-seq dataset using the arboreto Python package. Specifically, the GRNBoost2 algorithm was employed to infer a regulatory network among the known transcription factors and potential target genes through a gradient-boosting machine approach. Subsequently, to ensure the reliability of the predicted interactions, we utilized the pySCENIC workflow with the cisTarget database to prune the network. Only targets possessing significant enrichment of EP300-associated motifs in their cis-regulatory regions were retained, resulting in a high-confidence EP300 regulon.
+
+[0045] [METHODS] Functional enrichment and regulon activity analysis
+
+[0046] [METHODS] To assess the statistical significance of the overlap between the EP300 regulon targets and IBS-upregulated genes, a hypergeometric distribution test was performed using the phyper function in R. Gene Ontology (GO) biological process and Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway enrichment analyses for the overlapping genes were conducted using the clusterProfiler R package, with a significance threshold of P < 0.05. For the bulk RNA-seq data, the overall activity score of the EP300 regulon for each sample was calculated using the single-sample Gene Set Enrichment Analysis (ssGSEA) algorithm.
+
+[0047] [METHODS] Single-cell transcriptome profiling
+
+[0048] [METHODS] To explore the cell-type specificity of the EP300 regulon, we utilized the full single-cell RNA-sequencing dataset from the Gut Cell Atlas (https://www.gutcellatlas.org/), containing approximately 428,000 intestinal cells. We filtered the dataset to include only cells from adult and pediatric donors, excluding fetal samples. Cell type annotations (major and detailed levels) were adopted from the original dataset. The activity of the IBS-associated EP300 regulon in individual cells was scored using the AUCell algorithm based on the log-normalized expression matrix. To quantitatively and statistically determine the enrichment of the regulon in specific cell lineages, the Expression-Weighted Cell-type Enrichment (EWCE) method was employed.
+
+[0049] [RESULTS] Results
+
+[0050] [RESULTS] Instruments for druggable genes
+
+[0051] [RESULTS] By integrating data from the DGIDB database and the review by Finan et al., and excluding pseudogenes, a total of 5,642 druggable genes were obtained (Supplementary Table S6). Subsequently, these genes underwent matching for cis-eQTLs, followed by further linkage disequilibrium analysis and exclusion of confounding factors. Ultimately, 26,101 eligible single nucleotide polymorphisms (SNPs) were selected as instrumental variables.
+
+[0052] [RESULTS] Candidate druggable genes
+
+[0053] [RESULTS] Our study identified eight cis-eQTL genes with potential causal associations with IBS (FDR <0.05) (Supplementary Table S7). Among them, HLA-C (OR: 0.951, 95% CI: 0.934-0.968, P = 0.07 × 10–3, PAM (OR: 0.972, 95% CI :0.962 -0.983, P = 0.87 × 10–3), and PRMT5 (OR: 0.939, 95% CI: 0.914 -0.965, P = 1.76 × 10–2) were identified as protective targets, whereas ABCG2 (OR:1.099, 95% CI: 1.066 -1.133, P = 0.03 × 10–4, BTN3A2 (OR: 1.053, 95% CI: 1.029 -1.076, P = 2.34 × 10–2), CDC42 (OR :1.066, 95% CI: 1.036 -1.096, P = 3.70 × 10–2), EP300 (OR: 1.128,95% CI: 1.079 -1.180, P = 0.31 × 10–3), and P2RY14 (OR: 1.118,95% CI: 1.067-1.172, P = 1.00 × 10–2) were associated with increased risk of IBS (Figure 1A).
+
+[0054] [FIG] Mendelian randomization identification of genes and their co localization analysis. (A) Forest plot showing the MR associations between eQTL and IBS risk. (B) Bayesian colocalization analysis assessing the association between eQTL signals at specific gene/SNP loci and IBS. Red dots indicate significant colocalization evidence (posterior probability for hypothesis 4, PP.H4 > 0.8). (C) Bayesian colocalization of GWAS and eQTL signals. The genomic regions of EP300 and P2RY14 reveal strong colocalization signals (PP.H4 > 0.8).
+
+[0055] [RESULTS] Sensitivity analyses were performed on the MR results to assess the robustness of the causal inferences. Cochran’s Q test showed no significant heterogeneity for any of the associations (P > 0.05), and MR-Egger regression indicated no evidence of substantial horizontal pleiotropy (P > 0.05). Furthermore, Steiger’s directionality test supported the direction of effect from gene expression to IBS risk, with no indication of reverse causality between the exposure and the outcome. These findings support a potential causal role of genetically predicted gene expression in IBS risk.
+
+[0056] [RESULTS] Colocalization analysis
+
+[0057] [RESULTS] Given that instrumental variable SNPs may be in linkage disequilibrium with independent causal variants, potentially leading to false positive associations in MR results, we further performed colocalization analysis to evaluate whether the exposure and outcome share the same causal SNP (Supplementary Table S8). Previous studies have demonstrated that integrating colocalization analysis significantly improves the success rate of MR in drug target discovery, thereby substantially enhancing the translational potential from genetic discoveries to therapeutic interventions. We performed colocalization analysis on eight key genes from MR screening (Figure 1B). Results showed two genes share the same IBS-risk causal variant (PP4 > 0.8) with statistically significant associations, indicating they may be potential pathogenic genes and therapeutic targets for IBS (Figure 1C).
+
+[0058] [RESULTS] Phenome-wide association analysis
+
+[0059] [RESULTS] The results demonstrated that, at the genetic level, the candidate targets EP300 and P2RY14 did not show genome-wide significant associations (P < 10–8) with any other phenotypes (Figures 2A,B). This outcome implies that drug interventions targeting these two genes are likely to cause fewer cross-trait off-target effects, thereby indicating a relatively low potential for adverse side effects. It is worth noting that under the relatively relaxed nominal significance threshold (P < 1 × 10−5), the instrumental variables for EP300 and P2RY14 still show nominal associations with several non-IBS phenotypes, suggesting that this significance threshold may have an impact on the determination of the range of genetic associations.
+
+[0060] [FIG] PheWAS analysis of EP300 and P2RY14. (A) Binary and continuous trait PheWAS analysis of EP300 gene. (B) Binary and continuous trait PheWAS analysis of P2RY14 gene.
+
+[0061] [RESULTS] Gene regulation and tissue expression profiling analysis
+
+[0062] [RESULTS] To further investigate the regulatory role of genetic variation in gene expression and its potential association with IBS risk, we analyzed cis-eQTLs for the EP300 and P2RY14 genes using data from the GTEx database (Figure 3A). Our analysis revealed that the allele frequencies of relevant SNPs were significantly associated with the expression levels of both genes across multiple human tissues, suggesting their potential involvement in disease pathogenesis through the regulation of gene expression. Furthermore, we found that both EP300 and P2RY14 are expressed at moderate levels in the small intestine, indicating that they may exert biological functions locally within the gut (Figure 3B).
+
+[0063] [FIG] The regulatory effect of SNPs on genes and the expression of genes. (A) Distribution of expression levels for EP300 and P2RY14 across genotypes in individuals from the GTEx database. (B) Expression levels of EP300 and P2RY14 in human small intestine tissue.
+
+[0064] [RESULTS] Targeted drug prediction and molecular docking
+
+[0065] [RESULTS] We utilized the DSigDB to predict potential therapeutic compounds. The results indicated that four small-molecule compounds were predicted to have the potential to downregulate EP300 gene expression. To further evaluate their ability to interact with the EP300 protein, molecular docking analysis was performed between these four candidate drugs and the EP300 protein (Figure 4A). The docking results suggested that DAUNORUBICIN exhibited the strongest binding affinity to the EP300 protein, with a binding energy of −12.47 kcal/mol. In addition, CAPTOPRIL, MENADIONE, and VORINOSTAT also showed favorable binding activity, suggesting that they may exert regulatory effects by directly binding to the EP300 protein (Figure 4B).
+
+[0066] [FIG] DSigDB prediction and molecular docking analysis. (A) Four small molecule compounds predicted to downregulate EP300 expression. (B) Molecular docking of EP300 protein and drugs.
+
+[0067] [RESULTS] EP300 and its potential regulatory targets were upregulated in IBS
+
+[0068] [RESULTS] To validate the expression characteristics of EP300 in IBS intestine, we employed two independent publicly-available RNA-sequencing datasets, GSE166869 and GSE168759. In the GSE166869 dataset, EP300 expression was significantly elevated in the IBS-C subgroup compared with healthy controls (Figure 5A, left). And this upregulation was further corroborated in the GSE168759 dataset (Figure 5A, right). To corroborate the in silico findings, we collected an independent clinical cohort consisting of blood samples from 10 IBS patients and 10 healthy controls with matched age and gender distribution (Supplementary Table S9), and the mRNA expression levels of EP300 were quantified using reverse transcription quantitative PCR (RT-qPCR). Consistently, EP300 expression was significantly elevated by approximately 1.8-fold in the blood of IBS patients compared to healthy controls (Figure 5B; Supplementary Table S9). These clinical results provide robust evidence supporting the upregulation of EP300 in IBS.
+
+[0069] [FIG] Association of EP300 and its transcriptional regulon with IBS. (A) Beeswarm diagrams illustrating the differential expression of EP300 between IBS and control samples in two public RNA-seq datasets: GSE166869 (left) and GSE168759 (right). Error bars indicate mean ± SD. Statistical significance of the results was determined using Student’s t-test. IBS-C: IBS with constipation; IBS-D: IBS with diarrhea. (B) Bar chart of EP300 expression levels in IBS and control blood samples determined by RT-qPCR. Bars represent median values of values of RT-qPCR experiment, and error bars represent 25% and 75% quantile. Statistical significance of the results was determined using Wilcoxon rank-sum test. (C) PCA scatter plots depicting sample distribution from GSE166869 and GSE168759 before (upper panel) and after (lower panel) batch effect correction using ComBat. (D) Venn diagram displaying the overlap between genes significantly upregulated in IBS patients compared to controls and EP300 regulon target genes identified using the GRNBoost2 + pySCENIC-cisTarget workflow (n = 382). (E) Network visualization of the 92 IBS-upregulated EP300 regulon target genes. Node colors represent the differential expression effect size (Cohen’s d) between IBS and controls, and edge widths represent regulation importance estimated by GRNBoost2. (F) Beeswarm diagram comparing EP300 regulon activity scores between IBS and control groups in the integrated dataset. Scores were calculated using ssGSEA based on all 382 EP300 regulon targets. (G,H) Bar charts showing the top enriched Gene Ontology (GO) biological processes (G) and KEGG pathways (H) for the 92 IBS-associated EP300 target genes. The x-axis represents the EnrichR Combined Enrichment Score. “+ Reg”: Positive regulation. (I) Combined beeswarm diagrams showcase the differential expression of top upregulated EP300 regulon target genes in IBS versus control groups.
+
+[0070] [RESULTS] As EP300 is well-known as a transcriptional coactivator, we next sought to decipher the downstream regulatory network of EP300 to understand how it drives IBS pathology. We employed a stepwise analytic approach: First, we merged the two datasets (GSE166869 and GSE168759) and removed batch effects using the ComBat algorithm, as evidenced by the separation of dataset-specific clusters in PCA before correction and their cohesive integration afterwards (Figure 5C). Second, we utilized the GRNBoost2 algorithm to infer a regulatory network from the integrated dataset. Then, we applied the pySCENIC cisTarget workflow to prune this network based on transcription factor motif enrichment, retaining only high-confidence direct targets. This analysis identified a validated “EP300 regulon” consisting of 382 target genes. Motif analysis confirmed that the regulatory regions of these targets were significantly enriched for EP300-specific binding motifs (e.g., tfdimers__MD00332, NES >4.0), providing a physical basis for this regulation (Supplementary Table S10).
+
+[0071] [RESULTS] To specifically pinpoint the pathogenic component of this regulon, we mapped the 382 EP300 regulon targets to the 818 genes significantly upregulated in IBS identified from the integrated dataset, revealing a robust enrichment of the regulon within the disease signature, and this yielded a core set of 92 IBS-related EP300 regulon targets (Figure 5D). Network visualization highlights EP300 as a potential regulator driving the overexpression of these genes (Figure 5E). Consistently, the overall activity score of the EP300 regulon was significantly higher in IBS patients than in controls (Figure 5F), suggesting that EP300 hyperactivity may contribute to the transcriptomic alteration in IBS.
+
+[0072] [RESULTS] Functional enrichment analysis of the IBS-related EP300 regulon provided insights into the molecular mechanisms driven by EP300. GO analysis revealed enrichment in processes such as “cortical microtubule organization” and “positive regulation of cell fate commitment” (Figure 5G), while KEGG analysis highlighted the “Notch,” “Rap1,” and “mTOR” signaling pathways (Figure 5H). The upregulation of key targets involved in these pathways, such as ATP7B, DST, and NNAT (Figure 5I), suggests that EP300 may promote IBS pathogenesis by altering cell differentiation or renewal trajectories.
+
+[0073] [RESULTS] IBS-related EP300 regulatory targets were enriched in intestinal epithelium
+
+[0074] [RESULTS] To determine the major cellular source of this EP300-driven signature, we mapped the regulon activity onto the Gut Cell Atlas, a comprehensive single cell RNA-sequencing (scRNA-seq) dataset for human intestine (Figure 6A). Interestingly, the activity of the IBS-related EP300 regulon was highly enriched in the epithelial lineage, including absorptive enterocytes, secretory cells and progenitors, but low in immune subsets like B and T cells (Figures 6B,C). Consistently, Expression-Weighted Cell-type Enrichment (EWCE) analysis confirmed that the EP300 regulon targets were only significantly enriched in the epithelial lineage, more specifically, BEST4+ epithelial cells, enterocytes, tuft cells and transit-amplifying epithelial cells (Figures 6D,E). These results suggested that the pathogenic effects of EP300 in IBS are more likely to be mediated through the disruption of intestinal epithelial homeostasis than a direct immune modulation.
+
+[0075] [FIG] Profiling of the IBS-associated EP300 regulon in the intestinal single-cell transcriptome. (A,B) UMAP plots visualizing major cell types from the Human Gut Cell Atlas (A) and IBS-associated EP300 regulon scores among them (B). Scores were calculated using AUCell based on the 92 IBS-upregulated target genes. (C) Violin plots displaying the distribution of IBS-associated EP300 regulon scores across different cell types. (D,E) Dot plots illustrating the cell-type enrichment of IBS-associated EP300 regulon target genes in major (D) and detailed (E) cell types using the EWCE analysis. The dashed line indicates a Fold Enrichment of one and significant enrichment is defined as Fold Enrichment >1 with P < 0.05.
+
+[0076] [DISCUSS] Discussion
+
+[0077] [DISCUSS] The primary objective of this study was to identify novel therapeutic targets for irritable bowel syndrome (IBS) by leveraging a systematic, druggable genome-wide Mendelian randomization (MR) approach. By integrating extensive genetic data from GWAS and eQTL studies, we provided robust evidence implicating EP300 and P2RY14 as promising candidate drug targets. Our findings indicate that genetically predicted higher expression of both genes is potentially causally associated with an increased risk of IBS. The subsequent phenome-wide association analysis further strengthened their candidacy by tentatively indicating a favorable safety profile that warrants further validation.
+
+[0078] [DISCUSS] Our analysis highlighted the purinergic receptor P2RY14 as another candidate target. This G-protein coupled receptor is activated by extracellular UDP-sugars, which are often released during cellular stress or damage, and is highly expressed with highest expression in placenta, adipose tissue, stomach and intestine. Recent studies have demonstrated its pro-inflammatory role in the intestine. In preclinical disease models, P2Y14 has been implicated in gastrointestinal inflammation. For example, showed that P2RY14 expression is upregulated in colonic mucosa of ulcerative colitis patients, and genetic deletion or pharmacological blockade of P2Y14 ameliorates colitis via limiting epithelial necroptosis mediated by the cAMP/PKA/CREB → RIPK1 axis. Mechanistically, P2Y14 may amplify signals from damaged or stressed mucosa (as a DAMP receptor) to downstream MAPK or ERK pathways in eosinophils in large intestinal inflammation. Given that low-grade mucosal immune activation is implicated in the pathophysiology of IBS, genetic variation leading to higher P2RY14 expression could plausibly contribute to the development of IBS symptoms. Therefore, antagonizing the P2RY14 receptor may represent a promising therapeutic strategy for IBS.
+
+[0079] [DISCUSS] Our study also identified EP300, which encodes the p300 protein, as a significant risk factor for IBS. As a central transcriptional co-activator and lysine acetyltransferase, p300 plays a crucial role in regulating chromatin structure and the expression of a wide range of genes involved in cell growth, differentiation, and inflammation. Its dysregulation has been linked to various diseases, including cancer, fibrosis and inflammatory disorders. Notably, p300 is reported to be essential in the pathogenesis of inflammatory bowel disease (IBD) by altering H3K27ac modification near specific inflammation-related genes to trigger their expression. Therefore, we speculate that the function of EP300 in orchestrating inflammatory programs is also relevant to IBS, where low-grade mucosal inflammation is considered a key pathophysiological driver. Genetic variants influencing EP300 expression could therefore modulate the intestinal immune environment, providing a plausible biological mechanism for its association with IBS risk. These clues suggest that inhibition of the protein may potentially ameliorate IBS symptoms by dampening pro-inflammatory signaling pathways in the intestine.
+
+[0080] [DISCUSS] The identification of EP300 as a druggable target opens avenues for drug repurposing. Prediction by DSigDB and our molecular docking analysis indicated that several existing compounds could bind to the EP300 protein, including the ACE inhibitor captopril and the synthetic vitamin K analog menadione. Interestingly, captopril, a well-tolerated antihypertensive drug, has demonstrated anti-inflammatory properties in preclinical colitis models, making it a viable candidate for repurposing. Menadione has also shown promise by reducing inflammation in gastric and acute pancreatitis models via its modulating effect on the NF-кB signaling pathway. In contrast, chemotherapeutic agents like daunorubicin and vorinostat, despite showing binding potential, carry a high risk of severe toxicity and gastrointestinal side effects that would likely outweigh any potential benefits for a non-malignant condition like IBS. Therefore, safer compounds such as captopril warrant further investigation for their potential to modulate EP300 activity in the context of IBS. However, these computational predictions require further validation through cellular and animal preclinical experiments.
+
+[0081] [DISCUSS] Our scRNA-seq profiling pinpointed the intestinal epithelium as the primary site of IBS-related EP300 regulon activity, a finding that resonates with the critical role of EP300 in maintaining intestinal epithelial homeostasis. Studies have established that p300 is indispensable for crypt cell proliferation and the maintenance of the intestinal stem cell niche, primarily through the Myb-p300 regulatory axis. Moreover, under pathological stress conditions, an EP300-dependent transcriptional program has been shown to coordinate the inflammatory activation of intestinal epithelial cells, while pharmacological inhibition of EP300 significantly protects epithelial integrity and restores intestinal ecology. This epithelial-related mechanism is particularly relevant to IBS, as compromised epithelial barrier function is well-documented pathophysiological hallmarks that link luminal perturbations to IBS. Consequently, the epithelial-specific upregulation of the EP300 regulon identified in our study suggests that EP300 hyperactivity may contribute to IBS pathogenesis by disrupting the fine-tuned transcriptional control of epithelial differentiation and barrier maintenance, thereby leading to alteration in mucosal permeability and low-grade inflammation. This provides a potential mechanistic rationale for prioritizing EP300-targeted repurposed agents in future trials aimed at reinforcing the gut barrier.
+
+[0082] [DISCUSS] This study has several notable strengths. To our knowledge, it is the first and most comprehensive druggable genome-wide MR analysis to identify potential therapeutic targets for IBS. By leveraging the largest available IBS GWAS dataset and employing a rigorous analytical framework that includes both MR and colocalization, we provide potentially robust, genetically validated evidence. Furthermore, the use of PheWAS to assess potential on-target side effects adds an important layer of translational relevance. Our findings not only reveal novel biological pathways potentially involved in IBS but also provide a data-driven foundation for prioritizing drug development and repurposing efforts.
+
+[0083] [DISCUSS] Nevertheless, some limitations should be acknowledged. First, our analysis was based on individuals of European ancestry, and the findings may not be generalizable to other populations. Future studies in diverse ancestral groups are needed to confirm these results. Second, the eQTL data were derived from blood samples, which may not fully capture the tissue-specific gene expression patterns in the gastrointestinal tract. Although blood eQTLs often reflect systemic inflammatory processes relevant to IBS, validation with gut-specific eQTL data would strengthen our conclusions. Third, although qPCR and public datasets support the upregulation of EP300, the sample size of the local validation cohort in this study is relatively small, which may affect the precision of effect estimates, and residual confounding cannot be fully excluded. In addition, although the PheWAS did not reveal any signals for serious adverse reactions after strict correction, EP300 and P2RY14 show nominally significant associations with traits related to femur shaft bone and caudate nucleus (P < 1 × 10−5), suggesting that their biological effects may not be limited to the intestine. This not only reflects the shared mechanisms between IBS and comorbidities but also implies that future development of targeted therapies should be mindful of potential systemic effects. Finally, while MR analysis provides strong evidence for causality, the identified targets require further functional validation in preclinical models and ultimately in randomized controlled trials to confirm their therapeutic efficacy and safety for IBS treatment.
+
+[0084] [DISCUSS] Edited by: Ahmed Rebai, Centre of Biotechnology of Sfax, Tunisia
+
+[0085] [DISCUSS] Reviewed by: Xinge (Jessie) Jeng, North Carolina State University, United States
+
+[0086] [DISCUSS] Zhongshan Cheng, St. Jude Children’s Research Hospital, United States
+
+[0087] [SUPPL] Data availability statement
+
+[0088] [SUPPL] The original contributions presented in the study are publicly available. This data can be found in the NHGRI-EBI GWAS Catalog under accession GCST90016564 and in the Gene Expression Omnibus (GEO) under accession numbers GSE166869 and GSE168759.
+
+[0089] [SUPPL] Ethics statement
+
+[0090] [SUPPL] The studies involving humans were approved by Institutional Review Board of Guangzhou Women and Children’s Medical Center. The studies were conducted in accordance with the local legislation and institutional requirements. Written informed consent for participation in this study was provided by the participants' legal guardians/next of kin.
+
+[0091] [AUTH_CONT] Author contributions
+
+[0092] [AUTH_CONT] HK: Writing – original draft, Writing – review and editing. WC: Writing – original draft, Writing – review and editing. QZ: Writing – original draft, Writing – review and editing. ZL: Writing – review and editing. PW: Writing – review and editing. LL: Writing – review and editing. HY: Writing – review and editing. DH: Writing – review and editing. CL: Writing – review and editing. NX: Writing – original draft, Writing – review and editing. LP: Writing – original draft, Writing – review and editing. KS: Writing – original draft, Writing – review and editing.
+
+[0093] [COMP_INT] Conflict of interest
+
+[0094] [COMP_INT] The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+
+[0095] [COMP_INT] Generative AI statement
+
+[0096] [COMP_INT] The author(s) declared that generative AI was not used in the creation of this manuscript.
+
+[0097] [COMP_INT] Any alternative text (alt text) provided alongside figures in this article has been generated by Frontiers with the support of artificial intelligence and reasonable efforts have been made to ensure accuracy, including review by the authors wherever possible. If you identify any issues, please contact us.
+
+[0098] [COMP_INT] Publisher’s note
+
+[0099] [COMP_INT] All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher.
+
+[0100] [SUPPL] Supplementary material
+
+[0101] [SUPPL] The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fgene.2026.1798264/full#supplementary-material
+
+[0102] [REF] References
+
+[0103] [REF] Characterization of the UDP-glucose receptor (re-named here the P2Y14 receptor) adds diversity to the P2Y receptor family
+
+[0104] [REF] The role of genetics in Advancing Cardiometabolic Drug Development
+
+[0105] [REF] Irritable bowel syndrome: diagnosis and management
+
+[0106] [REF] Menadione (vitamin K3) inhibits hydrogen sulfide and substance P via NF-кB pathway in caerulein-induced acute pancreatitis and associated lung injury in mice
+
+[0107] [REF] Exploitation of EP300 and CREBBP lysine acetyltransferases by cancer
+
+[0108] [REF] A global reference for human genetic variation
+
+[0109] [REF] Molecular mechanisms underlying loss of vascular and epithelial integrity in irritable bowel syndrome
+
+[0110] [REF] Mendelian randomization with invalid instruments: effect estimation and bias detection through Egger regression
+
+[0111] [REF] Guidelines for performing Mendelian randomization investigations: update for summer 2023
+
+[0112] [REF] Associations of modifiable factors with risk of irritable bowel syndrome
+
+[0113] [REF] Irritable bowel syndrome: a clinical review
+
+[0114] [REF] Irritable bowel syndrome in children: current knowledge, challenges and opportunities
+
+[0115] [REF] Epidemiology of irritable bowel syndrome in children and adolescents in Asia
+
+[0116] [REF] TBK1, a prioritized drug repurposing target for amyotrophic lateral sclerosis: evidence from druggable genome Mendelian randomization and pharmacological verification in vitro
+
+[0117] [REF] Development of a human genetics-guided priority score for 19,365 genes and 399 drug indications
+
+[0118] [REF] Gut microbial β-Glucuronidases regulate host luminal proteases and are depleted in irritable bowel syndrome
+
+[0119] [REF] Genome-wide analysis of 53,400 people with irritable bowel syndrome highlights shared genetic pathways with mood and anxiety disorders
+
+[0120] [REF] Cells of the human intestinal tract mapped across space and time
+
+[0121] [REF] Using mendelian randomization to improve the design of randomized trials
+
+[0122] [REF] The druggable genome and support for target identification and validation in drug development
+
+[0123] [REF] Integration of the Drug–Gene Interaction Database (DGIdb 4.0) with open crowdsource efforts
+
+[0124] [REF] Detecting pleiotropy in Mendelian randomisation studies with summary data and a continuous outcome
+
+[0125] [REF] Intestinal chemosensitivity in irritable bowel syndrome associates with small intestinal TRPV channel expression
+
+[0126] [REF] Irritable bowel syndrome: new and emerging treatments
+
+[0127] [REF] Intestinal barrier dysfunction in irritable bowel syndrome: a systematic review
+
+[0128] [REF] The MR-Base platform supports systematic causal inference across the human phenome
+
+[0129] [REF] Pathophysiology of irritable bowel syndrome
+
+[0130] [REF] The druggable genome
+
+[0131] [REF] Irritable bowel syndrome: epidemiology, overlap disorders, pathophysiology and treatment
+
+[0132] [REF] PharmGWAS: a GWAS-based knowledgebase for drug repurposing
+
+[0133] [REF] PubChem 2025 update
+
+[0134] [REF] Correction to: inference of gene regulatory network from single-cell transcriptomic data using pySCENIC
+
+[0135] [REF] Inhibitory effects of menadione on Helicobacter pylori growth and helicobacter pylori-induced inflammation via NF-κB inhibition
+
+[0136] [REF] Targeting P2Y14R protects against necroptosis of intestinal epithelial cells through PKA/CREB/RIPK1 axis in ulcerative colitis
+
+[0137] [REF] Co-condensation between transcription factor and coactivator p300 modulates transcriptional bursting kinetics
+
+[0138] [REF] GRNBoost2 and Arboreto: efficient and scalable inference of gene regulatory networks
+
+[0139] [REF] AutoDock4 and AutoDockTools4: automated docking with selective receptor flexibility
+
+[0140] [REF] Inactivation of nuclear histone deacetylases by EP300 disrupts the MiCEE complex in idiopathic pulmonary fibrosis
+
+[0141] [REF] Irritable bowel syndrome: pathogenesis, diagnosis, treatment, and evidence-based medicine
+
+[0142] [REF] Orally administered angiotensin-converting enzyme-inhibitors captopril and isoleucine-proline-proline have distinct effects on local renin-angiotensin system and corticosterone synthesis in dextran sulfate sodium-induced colitis in mice
+
+[0143] [REF] The Myb-p300-CREB axis modulates intestine homeostasis, radiosensitivity and tumorigenesis
+
+[0144] [REF] Mendelian randomization
+
+[0145] [REF] Illuminating the druggable genome: pathways to progress
+
+[0146] [REF] Identification of vulnerable cell types in major brain disorders using single cell transcriptomes and expression weighted cell type enrichment
+
+[0147] [REF] The NHGRI-EBI GWAS catalog: knowledgebase and deposition resource
+
+[0148] [REF] Tissue-based map of the human proteome
+
+[0149] [REF] Large-scale cis- and trans-eQTL analyses identify thousands of genetic loci and polygenic scores that regulate blood gene expression
+
+[0150] [REF] Single-cell transcriptomics reveals intestinal cell heterogeneity and identifies Ep300 as a potential therapeutic target in mice with acute liver failure
+
+[0151] [REF] DSigDB: drug signatures database for gene set analysis
+
+[0152] [REF] STAT1 epigenetically regulates LCP2 and TNFAIP2 by recruiting EP300 to contribute to the pathogenesis of inflammatory bowel disease
+
+[0153] [REF] UDP-glucose sensing P2Y14R: a novel target for inflammation
+
+[0154] [REF] Major depressive disorder and the risk of irritable bowel syndrome: a Mendelian randomization study
+
+[0155] [REF] Combining evidence from Mendelian randomization and colocalization: review and comparison of approaches

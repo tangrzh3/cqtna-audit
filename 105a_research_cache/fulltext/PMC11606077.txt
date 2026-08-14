@@ -1,0 +1,401 @@
+[0001] [TITLE] Uncovering immune cell-associated genes in breast cancer: based on summary data-based Mendelian randomized analysis and colocalization study
+
+[0002] [ABSTRACT] Background
+
+[0003] [ABSTRACT] Breast cancer, which is the most prevalent form of cancer among women globally, encompasses various subtypes that demand distinct treatment approaches. The tumor microenvironment and immune response are of crucial significance in the development and progression of breast cancer. Nevertheless, there has been scant evidence concerning the genes within breast cancer - specific immune cells.
+
+[0004] [ABSTRACT] Methods
+
+[0005] [ABSTRACT] We utilized summary data-based Mendelian randomization (SMR) to identify genes associated with breast cancer by utilizing expression quantitative trait loci (eQTL) datasets for 14 different immune cell types and genome-wide association studies (GWAS) for overall breast cancer and its subtypes. Furthermore, colocalization analysis was carried out to evaluate whether the observed association in SMR analyses is influenced by the same causal variant. Replication analysis and bulk RNA sequencing (bulkRNA-seq) analysis were employed to validate promising immune genes as potential drug targets.
+
+[0006] [ABSTRACT] Results
+
+[0007] [ABSTRACT] After correcting for the rate of false discovery, we discovered a total of 17 genes in 9 immune cell types that were significantly associated with overall breast cancer and its subtypes. The genes KCNN4, L3MBTL3, ZBTB38, MDM4, and TNFSF10 were identified in overall breast cancer and its subtypes. Colocalization analyses provided robust evidence in support of these associations. Notably, the KCNN4 gene in non-classical MONOcytes (MONOnc) was further validated through replication analysis and bulkRNA-seq analysis.
+
+[0008] [ABSTRACT] Conclusion
+
+[0009] [ABSTRACT] In summary, our research has revealed a repertoire of genes within diverse immune cells associated with breast cancer. KCNN4 gene in non-classical MONOcytes (MONOnc) exhibited a negative association with overall breast cancer and its subtypes, which was identified as a potential drug target for breast cancer, opening up new avenues for therapeutic interventions.
+
+[0010] [ABSTRACT] Supplementary Information
+
+[0011] [ABSTRACT] The online version contains supplementary material available at 10.1186/s13058-024-01928-0.
+
+[0012] [INTRO] Introduction
+
+[0013] [INTRO] Breast cancer stands as the prevailing malignancy among women and the primary cause of cancer-related mortality, with a staggering 665,684 deaths in 2022. From a comprehensive clinical perspective, there are four subtypes of breast cancer requiring different treatment approaches: triple-negative, hormone receptor-negative and human epidermal growth factor receptor 2 (HER2)-positive, hormone receptor-positive and HER2-positive, hormone receptor-positive and HER2-negative breast cancer. Recent research has shown that breast cancer consists not only tumor cells, but also involves significant changes in the tumor microenvironment. These changes are now acknowledged as pivotal contributors to breast cancer initiation, advancement, and potential therapeutic targets. The tumor microenvironment incorporates immune cells, soluble factors, and altered extracellular matrix. Harris et al. found that women who took anti-inflammatory drugs twice a week or more for more than five years exhibited a 21% reduced risk of developing breast cancer, suggesting that it may be possible to mitigate breast cancer risk by regulating the function of immune cells. In addition, more evidence points out that strong infiltration of immune cells is often an indicator of chemotherapy response and positive prognosis of breast cancer.
+
+[0014] [INTRO] The immune system is generally categorized into two major components: innate immunity and acquired (or adaptive) immunity. The innate immune system comprises various cell types, including phagocytes, neutrophils, macrophages, natural killer cells, basophils, eosinophils, and more. Adaptive immunity includes B and T cells. Traditionally, breast cancer has been regarded as immunosilent, and characterized by lower tumor mutation burden (TMB) and immunogenicity compared to other tumor types. Studies indicate that 36% of basal-like tumors are classified with high TMB. However, among these high-TMB tumors, only 24% exhibit significant immune invasion. These findings imply that only a minority of these tumors exhibit significant immunogenicity. In addition, the immunogenicity of breast cancer exhibits significant heterogeneity, with distinct subtypes showing varying levels of immune infiltration. However, precise gene expression in specific immune cells that influence the development of breast cancer and different subtypes has not been fully elucidated.
+
+[0015] [INTRO] Mendelian randomization (MR) uses genetic variation as an instrumental variable to examine the causal influence of risk factors on health outcomes. The instrumental variable (IV) method is put forth as an alternative statistical method to examine causality for expose-outcome associations while controlling for confounding factors. Therefore, to better understand whether gene expression in different immune cell types influences breast cancer, we used pooled data to identify potential associations based on summary data-based Mendelian randomization (SMR).
+
+[0016] [METHODS] Methods
+
+[0017] [METHODS] This Mendelian randomization study utilized expressed quantitative trait loci (eQTL) data from Yazar et al., and the genome-wide association study (GWAS) from the Breast Cancer Association Consortium (BCAC) to explore the potential causal association between gene expression in specific immune cells and breast cancer. GWAS data from the FinnGen consortium was further employed to validate the observed findings. In addition, we performed differential gene expression analysis using the Bulk RNA sequencing (bulkRNA-seq) database to identify genes differentially expressed in breast cancer tissue. An overview of the study design is shown in Fig. 1.
+
+[0018] [FIG] Summary of study design, methods of analysis, and critical process. SMR, summary data-based Mendelian randomization; eQTL, expression quantitative trait loci; HEIDI test, heterogeneity in dependent instruments test; PP.H4, the posterior probability of hypothesis 4; GWAS, the genome-wide association study; GEO, the Gene Expression Omnibus; TCGA_GTEx, The Cancer Genome Atlas database combined with Genotype-Tissue Expression database
+
+[0019] [METHODS] Data sources for exposure
+
+[0020] [METHODS] The eQTL data utilized in this study were obtained from the OneK1K cohort, as presented in the Yazar et al. article. The cohort for this study consisted of 1.27 million peripheral blood mononuclear cells (PBMCs) obtained from 982 donors, with single-cell RNA sequencing (scRNA-seq) data utilized for analysis. The study identified 26,597 independent cis-eQTLs from 14 different immune cell types, including CD4 + primary and central memory T cells (CD4NC), CD4 + T cells with effector memory or central memory phenotype (CD4ET), SOX4-expressing CD4 + T cells (CD4SOX4), and CD8 + T cells with effector memory phenotype (CD8ET). CD8 + infantilistic and central memory T cells (CD8NC), CD8 + expressing S100B T cells (CD8S100B), natural killer cells (NK), NK recruitment cells (NKR), Plasma cells, memory B cells (Bmem), immature and naive B cells (Bin), classical MONOcytes (MONOc), non-classical MONOcytes (MONOnc), and dendritic cells (DC).
+
+[0021] [METHODS] Data sources for the outcome
+
+[0022] [METHODS] The Breast Cancer Association Consortium (BCAC) provided the largest available genome-wide association study (GWAS) summary data for breast cancer, This dataset includes a substantial number of cases (133,384) and controls (113,789), as well as 18,908 individuals of European ancestry with BRCA1 mutations from the Consortium of Investigators of Modifiers of BRCA1/2 (CIMBA). Apart from studying overall breast cancer risk, BCAC also investigates subtype-specific characteristics. Breast cancer can be classified into different subtypes based on the presence or absence of hormone receptors (estrogen receptor (ER) and progesterone receptor (PR)), human epidermal growth factor receptor 2 (HER2) status, and tumor grade. The subtypes include luminal A-like (Luminal A), luminal B-like (Luminal B), luminal B/HER2-negative-like (Luminal B HER2Neg), HER2-enriched-like (HER2 Enriched), and triple-negative or basal-like (Triple Negative). In order to enhance the sensitivity for detecting associations with triple-negative subtypes, Zhang et al. performed a meta-analysis of BCAC triple-negative cases and CIMBA BRCA1 mutation carriers, hereafter referred to as the BRCA-TN subtype.
+
+[0023] [METHODS] In the replication analysis, we obtained published GWAS from the FinnGen Consortium for 18,786 breast cancer patients and 182,927 controls. The FinnGen study, a large-scale genomics initiative, has comprehensively examined more than 500,000 samples sourced from the Finnish biobank. This collaborative project encompasses research biobanks in Finland, various organizations, and international industry partners.
+
+[0024] [METHODS] Data sources for bulk RNA sequencing data
+
+[0025] [METHODS] We obtained microarray sequencing data GSE162228 from the Gene Expression Omnibus (GEO) (https://www.ncbi.nlm.nih.gov/geo/). UCSC Xena is an integrated website that aggregates bulk RNA-seq data from various cancer databases (http://xena.ucsc.edu/). We downloaded the breast cancer cohort from the GDC, the Cancer Genome Atlas (TCGA) Breast Cancer dataset, which includes 1,104 breast tumor samples and 113 normal breast tissue samples. Additionally, we used the Genotype-Tissue Expression (GTEx) database, which contains 179 normal breast tissue samples.
+
+[0026] [METHODS] Selection of genetic instruments
+
+[0027] [METHODS] In the SMR analysis, cis-eQTL genetic variants were utilized as instrumental variables (IVs) to assess gene expression. The cis region was defined as a 2 MB distance from the probe in both directions. Only genes with at least one cis-eQTL having PeQTL <5.0 × 10− 8 were considered. Furthermore, single nucleotide polymorphisms (SNPs) with allele frequency differences greater than 0.2 between the eQTL data and the GWAS data were excluded. We permitted to exclude a maximum of 5% of SNPs based on allele frequency differences. The strength of the genetic instruments was calculated using the F-statistic (F-statistic = β2/SE2). If the F-statistic of the genetic variable is < 10, it is considered as a weak genetic instrument and is thus excluded. Finally, the top-associated SNP with gene expression was selected as the genetic instrument. The screening of genetic instruments was performed by SMR software (version 1.3.1, https://yanglab.westlake.edu.cn/software/smr/#Download).
+
+[0028] [METHODS] Statistical analyses
+
+[0029] [METHODS] Summary data-based mendelian randomization and heterogeneity in dependent instrument test
+
+[0030] [METHODS] SMR is a statistical approach that combines summary-level data from GWAS with data from eQTL studies to infer potential causal associations between genes and outcomes. Detailed methodologies have been previously described in the literature. In brief, consider y as the outcome, x as the exposure, and z as the instrumental variable. By employing the two-step least-squares (2SLS) method, we estimate the size of the impact of exposure on the results with the formula:
+
+[0031] [METHODS] Where and represent the least-squares estimates of outcome and exposure with respect to the instrumental variable, is the effect size of exposure on outcome.
+
+[0032] [METHODS] The heterogeneity in dependent instruments (HEIDI) test was introduced to examine whether there is a single causal variant underlying the association between gene expression and a trait. The HEIDI test was performed only when the number of SNPs reached or exceeded three. Additionally, SNPs that did not meet the criteria, such as those exhibiting high linkage disequilibrium (LD) (r2 > 0.9) or weak LD (r2 < 0.05), were excluded from the analysis. Associations with PHEIDI < 0.05 indicated the presence of pleiotropy and were consequently excluded. The exclusion of SNPs and the HEIDI test were conducted using “smr” command in SMR software. False discovery rate (FDR) correction was applied across all immune cell types. The visualizations were generated using the online platform https://www.bioinformatics.com.cn.
+
+[0033] [METHODS] Colocalization analysis
+
+[0034] [METHODS] In order to disentangle the confounding effect of linkage disequilibrium and examine the concordance between genes and breast cancer regarding a shared causal variant, we conducted colocalization analysis using the “coloc” R package. There are five hypotheses: Null hypothesis (H0): absence of a causal variant for either genes or breast cancer; Hypothesis 1 (H1): presence of single causal variant for genes only; Hypothesis 2 (H2): presence of single causal variant for breast cancer only; Hypothesis 3 (H3): presence of two independent causal variants for genes and breast cancer; Hypothesis 4 (H4): presence of a shared causal variant for genes and breast cancer. All significant genes of different cell types (PSMR < 0.05, PHEIDI > 0.05) were colocalized. The analysis employed default prior probabilities (PP.H1 = 1 × 10− 4, PP.H2 = 1 × 10− 4, PP.H3 = 1 × 10− 5). If the posterior probability for the colocalization hypothesis of H4 exceeds 80%, it suggests a high likelihood of colocalization between the gene and breast cancer.
+
+[0035] [METHODS] Evaluate horizontal pleiotropy
+
+[0036] [METHODS] To eliminate the effect of horizontal pleiotropy, we examined the correlations between each instrumental variable and all other genes in its vicinity (within a 2 MB window) to detect whether there was a significant correlation. If the genetic variation was associated with other genes and P < 5 × 10− 8, SMR analysis was performed to assess the potential association between the expression of those genes and the outcome. If the data was insufficient to perform SMR analysis, the GWAS Catalog was utilized to explore the relationship between the adjacent genes and breast cancer. For those adjacent genes that do not meet either of these conditions, we believe that horizontal pleiotropy cannot be ruled out.
+
+[0037] [METHODS] Identification of differential genes based on GEO and TCGA_GTEx databases
+
+[0038] [METHODS] In the differential analysis, we employed the “limma” analysis method to identify genes that exhibited differential expression between 110 tumor samples and 23 normal samples obtained from GSE162228. A cutoff of P < 0.05 and |log2 fold change (FC)| > 0.5 was applied. To further explore the effect of differential gene expression on breast cancer, we combined the GTEx database with the TCGA database to compensate for the limited number of normal samples in the TCGA database, forming the TCGA_GTEx database. The batch effect was corrected using the “sva” package. TCGA_GTEx database was converted to log2(counts + 1). A Wilcoxon test was used for the hypothesis tests, considering a significance level of P < 0.05 as statistically significant. Boxplots were drawn with the R package “ggpubr”.
+
+[0039] [METHODS] Druggable genes identification
+
+[0040] [METHODS] To assess the druggability of identified genes for breast cancer, we searched the identified gene in DrugBank, Dependency Map, and the ChEMBL databases to identify the potential drugs that target this gene. Additionally, we conducted thorough searches of PubMed, Embase, Scopus, and Web of Science to review the research on these drugs associated with breast cancer.
+
+[0041] [METHODS] Data were analyzed using R v4.2.3 and SMR v1.3.1 (https://yanglab.westlake.edu.cn/software/smr/#Download).
+
+[0042] [RESULTS] Results
+
+[0043] [RESULTS] SMR and HEIDI tests
+
+[0044] [RESULTS] Under a threshold of FDRSMR < 0.05 and PHEIDI > 0.05, we identified a total of 116 genes associated with overall breast cancer and its subtypes across 14 cell types (Figs. 2 and 3, Figures S1-S8). Although genes related to breast cancer were found in all cells, they were mainly concentrated in CD4nc, NKr, CD8et, CD8nc, and CD4et cells. The results from SMR and HEIDI are shown in Table S1-S14. The top 3 genes associated with overall breast cancer were L3MBTL3 in CD4nc (PFDR = 2.11 × 10− 6), MRPS18C in CD4nc (PFDR = 3.19 × 10− 6) and KCNN4 in MONOnc (PFDR = 3.19 × 10− 6). For Luminal A breast cancer, the top 3 notable genes were KCNN4 in MONOnc (PFDR = 4.04 × 10− 5), TNNT3 in CD4nc (PFDR = 3.73 × 10− 4), SCAMP3 in CD4nc (PFDR = 4.48 × 10− 4). For Triple Negative breast cancer, the top 3 significant genes were MDM4 in CD4nc (PFDR = 2.50 × 10− 7) and Bin (PFDR = 5.78 × 10− 7), RPS18 in Bmem (PFDR = 6.07 × 10− 7). The top 3 genes associated with BRCA-TN breast cancer were RPS18 in Bmem (PFDR = 6.59 × 10− 9) and CD8nc (PFDR = 6.59 × 10− 9), MDM4 in CD4nc (PFDR = 6.59 × 10− 9). No significant genes associated with breast cancer were found in the remaining subtypes. Table S15 presents significant genes related to breast cancer in each specific cell type.
+
+[0045] [FIG] Manhattan plots of significant results from summary data-based Mendelian randomization in overall breast cancer. A - F represents the associations between genes and overall breast cancer in Bin, Bmem, CD4nc, CD4et, CD8nc and CD8et cells, respectively. Black solid line indicates P-value threshold after false discovery rate is 0.05
+
+[0046] [FIG] Manhattan plots of significant results from summary data-based Mendelian randomization in overall breast cancer. A - E represents the associations between genes and overall breast cancer in CD8s100b, DC, MONOnc, NK and NKr cells, respectively. Black solid line indicates P-value threshold after false discovery rate is 0.05
+
+[0047] [RESULTS] Colocalization analysis
+
+[0048] [RESULTS] Based on the colocalization analysis in overall breast cancer and its subtypes (Table S1-S14), we identified a total of 39 genes in 14 different cell types that share causal variation with breast cancer and its subtypes, with a posterior probability more than 80% for the colocalization under hypothesis 4 (PP.H4 > 0.8). Specifically, we observed 24 genes associated with overall breast cancer across 11 immune cell types, 19 genes associated with Luminal A breast cancer across 12 immune cell types, 5 genes associated with Triple-Negative breast cancer across 14 immune cell types, and 5 genes associated with BRCA-TN breast cancer across 14 immune cell types.
+
+[0049] [RESULTS] Evaluation of horizontal pleiotropy
+
+[0050] [RESULTS] After the colocalization analysis, a total of 39 genes were included in the subsequent analysis. In order to eliminate the influence of horizontal pleiotropy, we extracted adjacent genes and tested their correlation with breast cancer. Detailed results are shown in Table S16. Finally, we found 11 genes related to overall breast cancers, namely C4orf32 (in CD4nc, and CD8nc), CDC7 (in CD4nc), CTD-3110H11.1 (in CD4nc, and NKr), CTSA (in CD4nc), GCHFR (in CD8et), GNAQ (in CD8et), HLA-DOB (in CD4nc, and CD8et), KCNN4 (in MONOnc), L3MBTL3 (in Bin, Beme, CD4nc, CD4et, CD8nc, CD8et, and NKr), RGS19 (in CD4nc), and ZBTB38 (in CD4nc). The expression of genes AKAP13 (in CD8et), KCNN4 (in MONOnc), L3MBTL3 (in Bin, Beme, CD4nc, CD4et, CD8nc, and CD8et), MPRL42 (in CD4nc, and CD8et), TNNT3 (in CD4nc), YBEY (in MONOc), and ZBTB38 (in CD4nc, and CD8et) were associated with Luminal A breast cancer. Besides, KCNN4 (in MONOnc), MDM4 (in Beme, CD4et, and CD8et), TNFSF10 (in CD4nc) were related to Triple-Negative and BRCA-TN breast cancer. The expression of gene L3MBTL3 in Bin, Beme, CD4nc, CD4et, and CD8nc was also associated with BRCA-TN breast cancer.
+
+[0051] [RESULTS] Our conclusion, supported by the evidence from the comprehensive analysis mentioned above, is that 17 genes exhibited causal associations with breast cancer and its subtypes in 9 specific immune cell types.
+
+[0052] [RESULTS] Replication analysis
+
+[0053] [RESULTS] We conducted the same analysis using GWAS data provided by the FinnGen Consortium and eQTL data from immune cells as described above. After SMR analysis and HEIDI test, 73 genes were screened out from 14 immune cells. After colocalization analysis, 13 genes were shown to have a potential causal relationship with breast cancer. By extracting adjacent genes within 2 MB of these genes, we finally found causal relationships between the expression of genes CNN2, FIBP, and KCNN4 with breast cancer. By comparing the BCAC Consortium and the FinnGen Consortium, we found that the KCNN4 gene had a potential causal relationship with breast cancer in both GWAS databases, as shown in Table 1.
+
+[0054] [TABLE] SMR analysis and colocalization analysis results of KCNN4 in discovery and replication databases
+
+[0055] [TABLE] Consortium Type β SE P FDR PHEIDI PP.H4.abf Breast Cancer Association Consortium Overall -2.42 0.41 3.59E-09 3.19E-06 4.41E-01 0.997 LuminalA -2.80 0.50 2.07E-08 4.04E-05 1.82E-01 0.992 Triple-Negative -3.18 0.76 2.81E-05 7.57E-03 9.54E-01 0.988 BRCA1_Mutation -2.47 0.59 2.62E-05 6.03E-03 5.47E-01 0.988 FinnGen Consortium Overall -1.79 0.53 6.38E-04 8.29E-02 7.84E-01 0.857
+
+[0056] [TABLE] SMR, Summary data-based Mendelian randomization; β means the effect of genes on breast cancer using SMR method; SE means standard error; P means the P-value of the SMR analysis; FDR means P-value after false discovery rate; PHEIDI, the P-value of the heterogeneity in dependent instruments; PP.H4.abf, the posterior probability of hypothesis 4
+
+[0057] [RESULTS] Identification of differential genes associated with breast cancer
+
+[0058] [RESULTS] We screened the gene sequencing data of GSE162228 and identified 2824 breast cancer-related differential expressed genes (DEGs) (Fig. 4A), including 1501 upregulated and 1323 down-regulated genes. We found the KCNN4 gene exhibited different expression between tumor and normal tissues, consistent with the results of SMR analysis (log2FC = -0.735, P = 0.001, Fig. 4B and C). As shown in Fig. 4D, the relative expression level of KCNN4 in breast cancer samples was significantly lower than in normal samples (P < 0.05). This result was consistent with the differential gene analysis results from the GEO database.
+
+[0059] [FIG] Combination figure of BulkRNA-seq analysis. A Heat map of differential gene analysis in GEO database; B The volcano map of differential gene analysis in GEO database, blue represents down-regulated gene, orange represents up-regulated gene, and gray represents no significant gene; C Box plot of KCNN4 gene expression(log2counts) in normal tissues and breast cancer tissues in GEO database; D Box plot of KCNN4 gene expression(log2counts) in normal tissues and breast cancer tissues of different stages in TCGA_GTEx database
+
+[0060] [RESULTS] Druggability evaluation of the KCNN4
+
+[0061] [RESULTS] Among these 17 genes, we identified KCNN4, L3MBTL3, MDM4, TNFSF10, and ZBTB38 were genes consistently associated with overall breast cancer and some subtypes. We conducted drug screening for five genes and reviewed the literature for relevant studies (Table S17). We found 21 drugs that target KCNN4, but none of them are specifically designed to treat breast cancer. However, it is worth noting that riluzole seems to have a preventive effect on breast cancer. We searched relevant literature and found that riluzole could induce apoptosis or inhibit the growth of breast cancer cells to a certain extent (Table S18). However, drugs targeting the other genes (L3MBTL3: Unc-1215, MDM4: Nutlin-3, TNFSF10: Onc201) have not yet been approved for clinical utilization.
+
+[0062] [DISCUSS] Discussion
+
+[0063] [DISCUSS] In this study, we employed MR analyses to investigate the genes within 14 immune cell types that are associated with breast cancer and its subtypes. Through SMR analysis (PFDR <0.05 and PHEIDI >0.05), colocalization with Hypothesis 4 posterior probability > 80% (PP.H4 > 0.8), and horizontal pleiotropy evaluation, we identified 17 genes across 9 immune cell types that showed significant associations with overall breast cancer and its subtypes. Among these 17 genes, we identified that KCNN4, L3MBTL3, MDM4, TNFSF10, and ZBTB38 were genes consistently associated with overall breast cancer and some subtypes. In this study, we aimed to explore the causal associations of genes in various immune cell types with breast cancer and its subtypes through SMR and colocalization analyses, and indeed we identified a couple of strong reproducible associations among them. However, further replication analyses were needed to confirm these findings. KCNN4 in MONOnc was also verified through the replication analysis and bulkRNA-seq analysis (GEO, TCGA_GTEx). As far as we know, our research is the first study to explore the genetic contributions of various genes across 14 immune cell types to breast cancer and its subtypes. The scRNA-seq has emerged as a valuable transcriptional profiling tool for defining cellular subpopulations and identifying cell-type-specific biomarkers and heterogeneity in various cancers, including breast cancer. We made use of extensive scRNA-seq data obtained from over a million peripheral blood mononuclear cells to examine the genetic effects on gene expression within each immune cell type.
+
+[0064] [DISCUSS] KCNN4 (potassium calcium-activated channel subfamily N member 4), also known as SK4 and KCa3.1, is located in 19q13.31. Belonging to the family of K+ channels activated by Ca2+, KCa 3.1 channels are widely expressed in many organs and play a role in the migration, proliferation, and activation of blood cells and nervous system and vascular diseases. In our SMR results, KCNN4 exhibited a negative correlation with breast cancer. However, other studies indicate that high expression of KCNN4 is related to tumor growth based on quantitative trait loci of gene expression, DNA methylation, and protein expression data. This may be because the K+ channel is often dysregulated in cancer. In particular, KCa 3.1 is upregulated during tumor progression and leads to malignancy. Previous studies have explored the association between KCNN4 and breast cancer by using mRNA expression data in whole blood, which could explain the potential inconsistency because our study examined the association by using single-cell transcriptomics within various immune cells. Recent evidence has suggested that ion channels expressed in tumor stromal cells, including immune cells, significantly contribute to the remodeling of the microenvironment and the progression of tumors. Studies have demonstrated that elevated levels of extracellular potassium (K+) in the cancer microenvironment result in an increased intracellular K+ concentration, which subsequently inhibits T cell function. However, the overexpression of KV 1.3 and KCa 3.1 in T cells has been shown to enhance K+ release, thereby restoring T cell function and reducing cancer growth. Therefore, the tumor lethality of T cells can be greatly amplified by using drugs that stimulate KCa 3.1 channels. It has been reported that Riluzole can activate the SK4 channel, which provides an explanation for why Riluzole is capable of inhibiting the growth of breast cancer cells.
+
+[0065] [DISCUSS] L3MBTL3, also referred to as MBT1, is a member of the MBT (malignant brain tumor) family. Studies have demonstrated that the expression level of L3MBTL3 varies between different cancers and normal tissues. However, the expression trends differ among various tumors, indicating that L3MBTL3 may fulfill distinct functions in different tumor types. Siddhartha et al. found that L3MBTL3 was a common risk locus for breast and prostate cancers. In addition, L3MBTL3 variants were associated with colorectal, ER-negative breast, clear cell ovarian, and aggressive prostate cancers. ZBTB38, a new member of the ZBTB family, is located on chromosome 3q23 and has eight exons. At present, studies specifically focusing on the relationship between ZBTB38 and breast cancer are still lacking, but some studies have pointed out that the expression of ZBTB38 is related to the development of prostate cancer. It was observed that elevated levels of ZBTB38 could inhibit the proliferative and migratory capacities of prostate cancer cells, which was consistent with the results of another study.
+
+[0066] [DISCUSS] In both triple-negative breast cancer and BRCA-TN breast cancer, we identified TNFSF10 and MDM4 as significant genes. TNFSF10, also known as TRAIL, is a member of the tumor necrosis factor (TNF) superfamily. This ligand is classified as a homotrimeric type II transmembrane protein, which selectively triggers apoptosis in tumor cells or transformed cells, while demonstrating non-toxicity towards normal cells. Han et al. have used the mouse model to explore the impact of TNFSF10-deficient tumor cells on the modulation of immune cell infiltration and antitumor immune response. Their findings revealed that decreased TNFSF10 expression could result in an unfavorable tumor microenvironment (TME) and reduced responsiveness to chemotherapy and immunotherapy. The MDM4 gene serves as an inhibitor of the p53 tumor suppressor protein. Increased expression of the MDM4 gene promotes breast cancer cells growth. Conversely, reducing MDM4 expression can result in decreased cell numbers. However, these findings contradict our research results, indicating a need for further investigation.
+
+[0067] [DISCUSS] Our research presents several notable advantages. First, recognizing that gene function could vary by distinct cell type, we examined the causal relationship between gene expression in 14 different immune cell types and breast cancer, providing valuable insights into the cell-specific mechanisms underlying breast cancer. It should be noted that some genes were identified in different immune cells, which highlighted their potential combined action or synergy function on breast cancer. However, the effect sizes of the same genes on breast cancer and its subtypes showed a significant difference, underscoring the concept of tumor heterogeneity. Second, considering the various immunogenicity of different subtypes of breast cancer, we examined the overall breast cancer and its different subtypes separately. Third, we used replication analysis and bulkRNA-seq analysis for validation to enhance the robustness evidence of our studies. Finally, we employed various statistical analyses, including the HEIDI test and colocalization analysis, to ensure the validity and reliability of the results. A couple of limitations should be noted when we interpret our research findings. First, we only looked at European populations in both the discovery and validation databases, which means we cannot rule out the possibility that breast cancer may differ across ethnic groups. The incidence of breast cancer is higher in women of African descent than in women of European descent, which could contribute to growing health disparities in the field, especially as our goal is to identify druggable targets. Second, the small sample size of the eQTL data may have lower power to detect genes associated with breast cancer. Therefore, future studies including other more diverse populations and larger sample sizes were needed to make up these limitations.
+
+[0068] [CONCL] Conclusion
+
+[0069] [CONCL] Overall, we have successfully identified 17 genes that are associated with breast cancer and its subtypes across 9 different immune cell types. These genes exhibited varied effect sizes and distinct associations with breast cancer subtypes, offering insight into the potential role of immune cell-specific genes in cancer development and paving the way for targeted interventions or treatments in the future. Meanwhile, the identification of these genes opens up new avenues for the development of gene - targeted drugs. By precisely targeting these genes, there is potential to design more effective and less toxic therapeutic agents, which could potentially enhance current breast cancer treatment approaches and offer additional options for patients to improve survival and quality of life.
+
+[0070] [SUPPL] Electronic supplementary material
+
+[0071] [SUPPL] Below is the link to the electronic supplementary material.
+
+[0072] [SUPPL] Publisher’s note
+
+[0073] [SUPPL] Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+[0074] [SUPPL] Jingyang Liu and Wen Sun contributed equally to this work.
+
+[0075] [SUPPL] Deqiang Zheng, Jianguang Ji, and Huan Yi are equally contributing corresponding authors.
+
+[0076] [AUTH_CONT] Author contributions
+
+[0077] [AUTH_CONT] DZ, JJ and JL designed the research question; JL did the analyses; WS verified the analysis; JL drafted the manuscript; JL, WS, NL, HL, LW, HY, JJ, DZ revised the manuscript; DZ is responsible for the decision to submit the manuscript. All authors read and approved the final manuscript.
+
+[0078] [ACK_FUND] Funding
+
+[0079] [ACK_FUND] This work was supported by the Swedish Research Council (2021 − 01187) to Jianguang Ji, and the Beijing Municipal Health System Special Funds of High-Level Medical Personnel Construction (2022-3-042) to Deqiang Zheng.
+
+[0080] [SUPPL] Data availability
+
+[0081] [SUPPL] No datasets were generated or analysed during the current study.
+
+[0082] [SUPPL] Declarations
+
+[0083] [SUPPL] Ethical approval
+
+[0084] [SUPPL] All participating studies in the GWAS and eQTL data used in the article were approved by their appropriate ethics or institutional review board and all participants provided informed consent.
+
+[0085] [COMP_INT] Competing interests
+
+[0086] [COMP_INT] The authors declare no competing interests.
+
+[0087] [ABBR] Abbreviations
+
+[0088] [ABBR] SMR
+
+[0089] [ABBR] Summary data-based Mendelian randomization
+
+[0090] [ABBR] eQTL
+
+[0091] [ABBR] Expression quantitative trait loci
+
+[0092] [ABBR] GWAS
+
+[0093] [ABBR] Genome-wide association studies
+
+[0094] [ABBR] bulkRNA-seq
+
+[0095] [ABBR] Bulk RNA sequencing
+
+[0096] [ABBR] HER2
+
+[0097] [ABBR] Human epidermal growth factor receptor 2
+
+[0098] [ABBR] TMB
+
+[0099] [ABBR] Tumor mutation burden
+
+[0100] [ABBR] MR
+
+[0101] [ABBR] Mendelian randomization
+
+[0102] [ABBR] IV
+
+[0103] [ABBR] Instrumental variable
+
+[0104] [ABBR] BCAC
+
+[0105] [ABBR] The Breast Cancer Association Consortium
+
+[0106] [ABBR] PBMCs
+
+[0107] [ABBR] Peripheral blood mononuclear cells
+
+[0108] [ABBR] scRNA-seq
+
+[0109] [ABBR] Single-cell RNA sequencing
+
+[0110] [ABBR] CD4NC
+
+[0111] [ABBR] CD4 + primary and central memory T cells
+
+[0112] [ABBR] CD4ET
+
+[0113] [ABBR] CD4 + T cells with effector memory or central memory phenotype
+
+[0114] [ABBR] CD4SOX4
+
+[0115] [ABBR] SOX4-expressing CD4 + T cells
+
+[0116] [ABBR] CD8ET
+
+[0117] [ABBR] CD8 + T cells with effector memory phenotype
+
+[0118] [ABBR] CD8NC
+
+[0119] [ABBR] CD8 + infantilistic and central memory T cells
+
+[0120] [ABBR] CD8S100B
+
+[0121] [ABBR] CD8 + expressing S100B T cells
+
+[0122] [ABBR] NK
+
+[0123] [ABBR] Natural killer cells
+
+[0124] [ABBR] NKR
+
+[0125] [ABBR] NK recruitment cells
+
+[0126] [ABBR] Bmem
+
+[0127] [ABBR] Memory B cells
+
+[0128] [ABBR] Bin
+
+[0129] [ABBR] Immature and naive B cells
+
+[0130] [ABBR] MONOc
+
+[0131] [ABBR] Classical MONOcytes
+
+[0132] [ABBR] MONOnc
+
+[0133] [ABBR] Non-classical MONOcytes
+
+[0134] [ABBR] DC
+
+[0135] [ABBR] Dendritic cells
+
+[0136] [ABBR] CIMBA
+
+[0137] [ABBR] The Consortium of Investigators of Modifiers of BRCA1/2
+
+[0138] [ABBR] ER
+
+[0139] [ABBR] Estrogen receptor
+
+[0140] [ABBR] PR
+
+[0141] [ABBR] Progesterone receptor
+
+[0142] [ABBR] GEO
+
+[0143] [ABBR] The Gene Expression Omnibus
+
+[0144] [ABBR] TCGA
+
+[0145] [ABBR] The Cancer Genome Atlas
+
+[0146] [ABBR] GTEx
+
+[0147] [ABBR] The The Genotype-Tissue Expression
+
+[0148] [ABBR] SNPs
+
+[0149] [ABBR] Single nucleotide polymorphisms
+
+[0150] [ABBR] 2SLS
+
+[0151] [ABBR] Two-step least-squares
+
+[0152] [ABBR] HEIDI
+
+[0153] [ABBR] The heterogeneity in dependent instruments
+
+[0154] [ABBR] LD
+
+[0155] [ABBR] Linkage disequilibrium
+
+[0156] [ABBR] FDR
+
+[0157] [ABBR] False discovery rate
+
+[0158] [REF] References
+
+[0159] [REF] Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries
+
+[0160] [REF] De-escalating and escalating treatments for early-stage breast cancer: the St. Gallen International Expert Consensus Conference on the primary therapy of early breast Cancer 2017
+
+[0161] [REF] Role of the Tumor Microenvironment in breast Cancer
+
+[0162] [REF] Breast cancer and nonsteroidal anti-inflammatory drugs: prospective results from the women’s Health Initiative
+
+[0163] [REF] Natural and therapy-induced immunosurveillance in breast cancer
+
+[0164] [REF] Prognostic value of tumor-infiltrating lymphocytes in triple-negative breast cancers from two phase III randomized adjuvant breast cancer trials: ECOG 2197 and ECOG 1199
+
+[0165] [REF] A brief outline of the immune system
+
+[0166] [REF] Cancer and the Immune System: the history and background of Immunotherapy
+
+[0167] [REF] Tumor mutational burden is a determinant of immune-mediated survival in breast cancer
+
+[0168] [REF] Dieci MV, Miglietta F, Guarneri V. Immune infiltrates in breast Cancer: recent updates and clinical implications. Cells. 2021;10(2).
+
+[0169] [REF] Meta-analysis and mendelian randomization: a review
+
+[0170] [REF] Mendelian randomization as an Approach to assess causality using Observational Data
+
+[0171] [REF] Single-cell eQTL mapping identifies cell type-specific genetic control of autoimmune disease
+
+[0172] [REF] Zhang H, Ahearn TU, Lecarpentier J, Barnes D, Beesley J, Qi G, et al. Genome-wide association study identifies 32 novel breast cancer susceptibility loci from overall and subtype-specific analyses. Nat Genet. 2020;52(6):572–81.
+
+[0173] [REF] Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets
+
+[0174] [REF] Bayesian test for colocalisation between pairs of genetic association studies using summary statistics
+
+[0175] [REF] LRRC superfamily expression in stromal cells predicts the clinical prognosis and platinum resistance of ovarian cancer
+
+[0176] [REF] Riluzole synergizes with paclitaxel to inhibit cell growth and induce apoptosis in triple-negative breast cancer
+
+[0177] [REF] Riluzole mediates anti-tumor properties in breast cancer cells independent of metabotropic glutamate receptor-1
+
+[0178] [REF] Riluzole exerts distinct antitumor effects from a metabotropic glutamate receptor 1-specific inhibitor on breast cancer cells
+
+[0179] [REF] Metabotropic glutamate receptor-1: a potential therapeutic target for the treatment of breast cancer
+
+[0180] [REF] Metabotropic glutamate receptor 1 disrupts mammary acinar architecture and initiates malignant transformation of mammary epithelial cells
+
+[0181] [REF] Up-regulation of the IKCa1 potassium channel during T-cell activation. Molecular mechanism and functional consequences
+
+[0182] [REF] KCa3.1: target and marker for cancer, autoimmune disorder and vascular inflammation?
+
+[0183] [REF] Role of KCa3.1 channels in CNS diseases: a concise review
+
+[0184] [REF] Blockade of the intermediate-conductance calcium-activated potassium channel as a new therapeutic strategy for restenosis
+
+[0185] [REF] Identifying actionable druggable targets for breast cancer: mendelian randomization and population-based analyses
+
+[0186] [REF] Ho PJ, Khng A, Tan BK, Khor CC, Tan EY, Lim GH et al. Characterizing the relationship between expression quantitative trait loci (eQTLs), DNA methylation quantitative trait loci (mQTLs), and breast Cancer risk variants. Cancers (Basel). 2024;16(11).
+
+[0187] [REF] The combined activation of K(ca)3.1 and inhibition of K(v)11.1/hERG1 currents contribute to overcome cisplatin resistance in colorectal cancer cells
+
+[0188] [REF] hERG1 positivity and Glut-1 negativity identifies high-risk TNM stage I and II colorectal cancer patients, regardless of adjuvant chemotherapy
+
+[0189] [REF] Ionic immune suppression within the tumour microenvironment limits T cell effector function
+
+[0190] [REF] Channelling potassium to fight cancer
+
+[0191] [REF] Microglial SK3 and SK4 currents and activation state are modulated by the neuroprotective drug, riluzole
+
+[0192] [REF] RBPJ/CBF1 interacts with L3MBTL3/MBT1 to promote repression of notch signaling via histone demethylase KDM1A/LSD1
+
+[0193] [REF] Gan L, Yang C, Zhao L, Wang S, Ye Y, Gao Z. L3MBTL3 is a potential prognostic biomarker and correlates with Immune infiltrations in gastric Cancer. Cancers (Basel). 2023;16(1).
+
+[0194] [REF] Genome-wide Meta-analyses of breast, ovarian, and prostate Cancer Association studies identify multiple new susceptibility loci Shared by at least two Cancer types
+
+[0195] [REF] Genetic variants in epigenetic pathways and risks of multiple cancers in the GAME-ON Consortium
+
+[0196] [REF] ZBTB38 suppresses prostate cancer cell proliferation and migration via directly promoting DKK1 expression
+
+[0197] [REF] de Dieuleveult M, Marchal C, Jouinot A, Letessier A, Miotto B. Molecular and clinical relevance of ZBTB38 expression levels in prostate Cancer. Cancers (Basel). 2020;12(5).
+
+[0198] [REF] TRAIL and apoptosis induction by TNF-family death receptors
+
+[0199] [REF] An enhancer variant associated with breast cancer susceptibility in black women regulates TNFSF10 expression and antitumor immunity in triple-negative breast cancer
+
+[0200] [REF] MDM2, MDMX and p53 in oncogenesis and cancer therapy
+
+[0201] [REF] Targeting mdmx to treat breast cancers with wild-type p53

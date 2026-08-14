@@ -1,0 +1,35 @@
+==============================================================================
+LLL_stim
+  ADT barcodes: 711,378 (unfiltered droplets)
+  RNA barcodes 7,264; with ADT: 7,264
+  protein-gated CD4 cells: 2,757 of 7,264 (38.0%)
+  matched 1,093 hi / 1,093 lo
+  genes passing detection filter: 8,224
+  TPI1 rank 18 of 8,224 (top 0.219%), lfc +1.5079
+  glycolysis (TPI1-free) in top 300: 12/12 -> 27.41x
+==============================================================================
+DIG_stim
+  ADT barcodes: 731,770 (unfiltered droplets)
+  RNA barcodes 11,651; with ADT: 11,651
+  protein-gated CD4 cells: 4,024 of 11,651 (34.5%)
+  matched 1,593 hi / 1,593 lo
+  genes passing detection filter: 7,165
+  TPI1 rank 28 of 7,165 (top 0.391%), lfc +1.1444
+  glycolysis (TPI1-free) in top 300: 12/12 -> 23.88x
+
+==============================================================================
+VERDICT (S32 section 5)
+==============================================================================
+  LLL_stim: TPI1 top 0.219%  lfc +1.5079  meets the 5% criterion
+  DIG_stim: TPI1 top 0.391%  lfc +1.1444  meets the 5% criterion
+  -> A: replicates in both arms
+
+  ranks of the enzymes MR cannot instrument (discovery: all above TPI1)
+    LLL_stim: TPI1 18   PGAM1 3  GAPDH 6  ENO1 36  PKM 21  LDHA 9
+    DIG_stim: TPI1 28   PGAM1 3  GAPDH 8  ENO1 29  PKM 7  LDHA 10
+
+  S32 section 2: LLL and DIG are lysis buffers, i.e. technical replicates of the
+  same material. This replicates across study, platform and lineage calling,
+  NOT across donors.
+
+wrote 107a
