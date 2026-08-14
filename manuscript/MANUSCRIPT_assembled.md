@@ -25,7 +25,11 @@ smaller;
 it recurs when the exposure side is held fixed and hepatocellular carcinoma is
 substituted — three of four significant loci are known HCC loci, including
 *PNPLA3*, though at 30% of melanoma's effective sample size that pre-registered
-test does not itself reach significance. **The mirror-image test gives the same
+test does not itself reach significance; and it holds outside cancer, in
+rheumatoid arthritis, where the CD4⁺ T cell IS the accepted causal cell type and
+the outcome has more cases than the melanoma meta-analysis (2.31-fold,
+P = 3.0×10⁻⁴) — though it is the weakest of the four outcomes, which we report as
+an observation rather than a tested claim. **The mirror-image test gives the same
 answer**: holding the melanoma outcome fixed and replacing the exposure entirely
 with a whole-blood eQTL resource 300-fold larger — which changes donors, cell
 composition and platform together, and so identifies a resource rather than a
@@ -428,6 +432,43 @@ here, but it was already short of it before density was controlled (P = 0.110 on
 two significant loci), so that is a power limit rather than something density
 matching revealed. The 3.44-fold figure is a deliberately conservative estimate
 and should not be read back up towards 4.09.
+
+**Outside cancer, in a disease where the exposure cell type is the causal one.**
+Every generalisation above stays inside cancer, and in both melanoma and HCC the
+CD4⁺ T cell is not the accepted causal cell type — so the attribution finding
+could be what happens when the exposure tissue is simply irrelevant to the
+disease. Rheumatoid arthritis removes that objection: CD4⁺ T cells are
+canonically causal in RA, making it the most favourable case this framework can
+be given, and FinnGen's RA endpoint carries 16,775 cases against the melanoma
+meta-analysis's 12,530, so a null could not be attributed to power. The
+reference list is Okada et al.'s 2014 lead SNPs, published before FinnGen existed
+and drawn from cohorts that do not include it; the design, the reference and the
+reading table were registered before any RA statistic was read (Supplementary
+S33).
+
+**The attribution holds.** Of 36 FDR-significant independent loci under the CD4⁺
+exposure, 16 carry an Okada lead SNP against a 19.2% background — **2.31-fold,
+one-sided P = 3.0×10⁻⁴** — with the whole-blood exposure giving 40 of 76 loci and
+2.25-fold (P = 1.9×10⁻⁹). The positive control passes (69 nominally associated
+records in the MHC, where *HLA-DRB1* is RA's strongest locus).
+
+**But the enrichment is the weakest of the four outcomes, and that is worth
+stating rather than smoothing.** It runs 17.6-fold and 8.85-fold in HCC,
+4.09-fold in melanoma, and 2.31-fold in RA — the one disease of the four for
+which the exposure cell type is the accepted causal one. The number of
+nominations moves the other way: 36 significant loci here against 7 for melanoma
+under the same exposure, 20 of them not on Okada's list. That ordering is
+consistent with the mechanism this paper proposes — where the instrumented cell
+type is genuinely causal, more signal falls outside the already-known — but it
+was noticed after the fact, rests on four outcomes, and uses a causal-cell-type
+classification we made ourselves, so we report it as an observation and not as a
+tested result. Two limits belong with it: Okada 2014 predates a decade of
+subsequent RA loci, which are counted as novel here and bias the 2.31-fold
+**downward**, so part of the ordering is the age of the reference rather than
+biology; and the mismatched-list control is less clean than in cancer (1.60-fold,
+P = 0.16, against 1.30- and 0.00-fold there), because RA and melanoma share
+immune loci, particularly across the MHC. It does not reach significance and so
+does not void the cell, but it is not a clean negative either.
 
 One unplanned observation from the grid is worth stating, with a caveat about
 what it can attribute. Swapping in the eQTLGen resource multiplied significant
@@ -1271,7 +1312,7 @@ two evidence grades, no borrowing between them.
 ### 4.2 The central argument of Part I: the failure rate is the finding
 
 A pipeline that passes every positive control and recovers known melanoma biology
-at five nested power levels, in two diseases, nevertheless sustained no
+at five nested power levels, in three diseases, nevertheless sustained no
 target-level claim: of eleven tests, seven overturned the claim under test, three
 were inconclusive, and the one that was significant on discovery has not been
 confirmed in the same arm in either follow-up (Box 1).
@@ -2467,6 +2508,7 @@ correctly identified as declaring the gap rather than closing it.
 | S24 | **Pre-registration document** (disease × exposure-resource grid), with its reading table, the mismatched-list negative control, and two logged deviations: the grid was reduced from seven diseases to two because per-disease known-locus coordinates could not be resolved for the rest, and the negative control was reformulated | `PREREG_generality_grid.md`; `94d`–`94f` |
 | S23 | Search-defined audit of 152 eQTL-MR target-nomination papers: four PubMed queries, eligibility rule, five pre-fixed scoring criteria, a logged scoring bug and a logged post-hoc broadening, the PRISMA-style flow from 469 screened records, and the **validation of the automated coder against manual adjudication of a fixed-seed random 30% subsample** — per-paper codes, the passages each was judged on, measured precision and recall, and the precision-corrected field-level estimates that supersede both the generous and the strict counts | `SUPP_literature_audit.md`; `91a`–`91e`, `104a`–`104c` |
 | S21 | **Pre-registration document** (patient stratification in a second tumour type), including the minimum attainable P value of each arm computed from the sample structure before any expression value was read, the positive controls, and the three-cohort comparison; accompanying tables: sample-level scores, per-arm results and positive controls | `PREREG_hcc_part2_generalisation.md`; `87a`–`87c` |
+| S33 | **Pre-registration document** (non-cancer outcome), registered before any RA statistic was read, with the reference chosen for predating FinnGen, the pre-committed refusal to attribute a null to power since RA has more cases than the melanoma meta, and a post-hoc observation logged as an observation: the enrichment is weakest in the one disease of four for which the exposure cell type is the accepted causal one | `PREREG_noncancer_outcome.md`; `108a` |
 | S32 | **Pre-registration document** (axis replication in a second dataset), registered before the run, including what the design does not provide — the two arms are lysis-buffer technical replicates, so replication is across study, platform and lineage calling and not across donors — and two data-reading bugs its interpretation table caught before any rank was produced, one of which also affects an earlier script whose outputs are empty and cited nowhere | `PREREG_axis_replication.md`; `107a` |
 | S31 | **Leave-one-out reconstruction of the metabolic axis**: the axis rebuilt with the nominated gene removed from both the defining score and the enrichment family, its rank on the resulting axis as a held-out test, and the ranks of the glycolytic enzymes that carry no instrument | `106a`–`106c` |
 | S30 | **Pre-registration document** (density-matched permutation), registered before the test was run, with both failure modes fixed in advance — under-matching leaves the artefact, over-matching removes signal that gene-dense regions genuinely carry — and the result: the enrichment survives density matching at 3.44-fold (P = 0.041) with the attenuation from 4.09-fold reported as part of the finding | `PREREG_density_matched.md`; `103a` |

@@ -11,14 +11,14 @@
 Context-specific expression quantitative trait loci (eQTLs) combined with
 Mendelian randomization are widely used to nominate immune targets in cancer. We
 audited it in melanoma, instrumenting CD4⁺ T cell cis-eQTLs from eight activation
-profiles against a 12,530-case meta-analysis. Significant signal
-concentrates on loci already known for the outcome — across five nested power
-levels of one resource, in a second disease, and when the exposure is replaced by
-a whole-blood eQTL dataset 300-fold larger — in six of six disease-by-resource
-combinations, against a clean mismatched-locus control. Swapping the outcome for
-a higher-powered meta-analysis, which also changes study composition, replaced
-the candidate list entirely. Of 28 glycolytic genes, three carry instruments, two
-survive harmonisation and one yields an association, and that gene is principally
+profiles against a 12,530-case meta-analysis. Significant signal concentrates on
+loci already known for the outcome: across five nested power levels of one
+resource, in a second cancer, in rheumatoid arthritis where CD4⁺ T cells are the
+accepted causal cell type, and when the exposure is replaced by a whole-blood
+eQTL dataset 300-fold larger. Swapping the outcome for a higher-powered
+meta-analysis, which also changes study composition, replaced the candidate list
+entirely. Of 28 glycolytic genes, three carry instruments, two survive
+harmonisation and one yields an association, and that gene is principally
 expressed by tumour rather than T cells. Which loci a nomination lands on is set
 by the outcome GWAS; how many instruments exist, by the exposure resource.
 
@@ -53,7 +53,7 @@ We report an audit of what this framework nominates and why. The organising
 constraint is arithmetic: with one instrument per exposure, the Wald ratio has
 test statistic z = β_out/se_out, so the outcome GWAS supplies every MR
 significance claim. What follows tests the consequences of that constraint
-empirically, on two diseases and two exposure resources.
+empirically, on three diseases and two exposure resources.
 
 ---
 
@@ -120,6 +120,21 @@ pigmentation lead SNP, 4.44-fold over this resource's own 15.0% background
 version agrees (4.14–4.48-fold, empirical P = 10⁻⁴). The two resources' novel
 nominations intersect in exactly one gene, ZFYVE19, so "novel nominations never
 reproduce" would be too strong.
+
+**Outside cancer, where CD4 is the causal cell type.** In melanoma and HCC the
+CD4⁺ T cell is not the accepted causal cell type, so the finding could be what
+happens when the exposure is irrelevant to the disease. Rheumatoid arthritis
+removes that: CD4⁺ T cells are canonically causal there, and its 16,775 cases
+exceed the melanoma meta's 12,530, so a null could not be blamed on power. Scored
+against Okada et al. 2014 lead SNPs — published before FinnGen existed, from
+cohorts excluding it, registered in advance — **16 of 36 significant loci are
+known RA loci against a 19.2% background, 2.31-fold, P = 3.0×10⁻⁴** (whole blood
+2.25-fold, P = 1.9×10⁻⁹). It is the weakest of the four outcomes and yields the
+most nominations (36 loci against melanoma's 7 under the same exposure), an
+ordering consistent with our proposed mechanism but noticed after the fact on
+four outcomes, so reported as observation not result. The 2014 reference biases
+the fold downward, and the mismatched-list control is less clean here (1.60-fold,
+P = 0.16) because RA and melanoma share MHC loci.
 
 **Both axes crossed.** Scoring every disease-by-resource combination against its
 own disease's known loci, all six enrich (4.09 and 4.44 for melanoma; 8.85 and
@@ -360,7 +375,7 @@ availability and biological importance are separable — the strongest enzyme in
 the functional data carries no instrument, and the gene that does carry one is
 principally expressed by tumour.
 
-Three limits bound the general claim. The grid covers two diseases and two
+Three limits bound the general claim. The grid covers three diseases and two
 exposure resources, with the two HCC power levels drawn from one resource, so it
 shows the pattern is not peculiar to melanoma or to one small eQTL dataset — not
 that it holds for any disease or any resource. The power-recovery curves rest on
@@ -387,7 +402,7 @@ Colocalisation versus SMR/HEIDI · Fig. 4 Power and list stability by locus clas
 Fig. 5 Instrument availability across the pathway · Fig. 6 Compartment
 attribution · Fig. 7 Patients across three cohorts.
 
-Methods, References, and Supplementary Information (including the eleven
+Methods, References, and Supplementary Information (including the twelve
 pre-registration documents, the multiple-testing unit and effect-size sensitivity
 analyses, the complete record of target-substantiation attempts, and the
 literature audit) accompany this manuscript separately.

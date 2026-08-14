@@ -1,0 +1,4 @@
+cell	n_records	bg_known	bg_loci	bg_pct	sig_records	sig_loci	sig_known	pct_known	fold	fisher_p	mhc_nominal
+N1 Soskic x RA	3434	105	546	19.23	169	36	16	44.4	2.311	0.0002960475161712393	69
+N2 eQTLGen x RA	12835	131	559	23.43	247	76	40	52.6	2.246	1.9029290692566793e-09	53
+NC Soskic x RA scored with melanoma list	3434	57	546	10.44	169	36	6	16.7	1.596	0.16106924509240014	69

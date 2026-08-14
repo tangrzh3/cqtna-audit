@@ -1,0 +1,26 @@
+instruments: Soskic 3,434, eQTLGen 12,835
+known-locus references: Okada 2014 87 rsIDs; Landi melanoma 157 loci (negative control)
+
+scanning finngen_R13_M13_RHEUMA.gz ...
+    5M rows, 3,397 instrument positions, 54 known loci placed
+    10M rows, 5,754 instrument positions, 103 known loci placed
+    15M rows, 8,942 instrument positions, 171 known loci placed
+    20M rows, 13,661 instrument positions, 223 known loci placed
+  scanned 21,323,448 rows; 14,255 instrument positions; 238 of 244 known rsIDs placed
+  Okada loci placed on GRCh38: 238
+  [N1 Soskic x RA] records 3,434; background known 105/546 = 19.2%; FDR<0.05 169 records / 36 loci, 16 known -> 2.31x, P = 0.000296; MHC nominal 69
+  [N2 eQTLGen x RA] records 12,835; background known 131/559 = 23.4%; FDR<0.05 247 records / 76 loci, 40 known -> 2.25x, P = 1.9e-09; MHC nominal 53
+  [NC Soskic x RA scored with melanoma list] records 3,434; background known 57/546 = 10.4%; FDR<0.05 169 records / 36 loci, 6 known -> 1.60x, P = 0.161; MHC nominal 69
+
+========================================================================================
+VERDICT (S33 section 6)
+========================================================================================
+  N1: 2.311x, P = 0.000296, background 19.23%, MHC nominal 69
+  -> A: attribution holds outside cancer, where CD4 is the causal cell type
+  NC mismatched melanoma list: 1.596x, P = 0.161 (clean)
+
+  S33 section 7: Okada 2014 predates a decade of later RA loci, so loci found
+  after it count as novel here and the enrichment is biased DOWNWARD. That is
+  deliberate: under-estimating beats reintroducing circularity.
+
+wrote 108a
