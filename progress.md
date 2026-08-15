@@ -43,3 +43,14 @@
 - 2026-08-14: Authored `105a_blind_coding_coded.tsv` through the required spreadsheet runtime and exported a verification XLSX/preview.
 - 2026-08-14: Visual QA found fixed-row-height clipping in the support XLSX; changed only row sizing to automatic and rerendered successfully.
 - 2026-08-14: Fresh final verification passed (`VERIFICATION_OK`): 92 rows, 0 source-field mismatches, 89 zeros, 3 ones, 0 blanks, 0 blank notes; positive rows 3/18/47.
+
+---
+
+# Progress — Four-part methodological upgrade
+
+- 2026-08-15: Started a preregistration-oriented design for multi-signal coloc, FinnGen release trajectories, blinded gene attribution, and an eight-diagnostic software package.
+- 2026-08-15: Loaded the project’s existing review findings and the required multi-source literature-search workflow.
+- 2026-08-15: Established three design constraints: nested releases are correlated; gene truth must be independent of eQTL evidence; failed positive-control/QC gates produce an uninformative result.
+- 2026-08-15: Verified the current manuscript’s exact colocalisation, release-trajectory, S34 benchmark, and eight-diagnostic definitions.
+- 2026-08-15: Verified primary/official sources for `coloc.susie`, coloc data requirements, SuSiE external-LD mismatch diagnostics, FinnGen release data, and Open Targets gold-standard provenance.
+- 2026-08-15: Completed a staged design with frozen universes, control gates, estimands, failure labels, and software deliverables for all four upgrades.

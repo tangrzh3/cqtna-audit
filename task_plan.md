@@ -22,6 +22,32 @@ Read `manuscript/MANUSCRIPT_GB.md`, compare it directly with the already reviewe
 
 ---
 
+# Task plan — Four-part methodological upgrade
+
+## Goal
+Design an executable, preregisterable workflow for: (1) conditional/multiple-signal colocalisation, (2) nested FinnGen-release colocalisation trajectories, (3) an independent blinded gene-attribution benchmark, and (4) a reusable implementation of the eight diagnostic checks.
+
+## Phases
+- [completed] 1. Reconstruct the manuscript-specific estimands, candidate universes, and current evidence limitations.
+- [completed] 2. Verify primary methods and official implementations for multiple-signal colocalisation and fine-mapping.
+- [completed] 3. Specify each analysis with frozen inputs, controls, QC gates, estimands, failure criteria, and outputs.
+- [completed] 4. Integrate the four analyses into a staged package/repository architecture and manuscript decision tree.
+- [completed] 5. Deliver a prioritized implementation sequence and minimum/ideal versions.
+
+## Boundaries
+- Design only; do not execute new analyses or edit the manuscript in this turn.
+- Treat nested FinnGen releases as correlated observations, not independent replication cohorts.
+- Do not treat an external gene-prioritization score as ground truth if it reuses eQTL/colocalisation evidence being benchmarked.
+- Real-data positive controls must be supplemented by simulation because causal truth is not fully known at complex loci.
+- Any analysis failing its preregistered QC/positive-control gate is labelled uninformative, not negative.
+
+## Errors encountered
+| Error | Attempt | Resolution |
+|---|---:|---|
+| A stale path was used for the literature workflow (`multi-source-search.md`) | 1 | Loaded the manifest-declared `wf1-multi-source-search.md`; no task analysis was affected. |
+
+---
+
 # Task plan — Blind coding of 105a literature set
 
 ## Goal

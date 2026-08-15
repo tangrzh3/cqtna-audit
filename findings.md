@@ -117,3 +117,27 @@ Key manuscript observations and verified comparator findings will be recorded he
 - A live two-PMCID batch test returned two complete BioC collections; batch retrieval is suitable and reduces request count.
 - Batch retrieval produced structured full text for 45/46 papers. PMC13448146 (PMID 42563458) is the sole missing BioC record and requires a canonical-page fallback.
 - PMC13448146 is live at its canonical PMC URL (HTTP 200; ~301 KB HTML) despite not yet being exposed by BioC or Europe PMC fullTextXML. The canonical page is the fallback source.
+
+---
+
+# Findings — Four-part methodological upgrade
+
+## Project-specific constraints
+- The current draft uses `coloc.abf` across full cis windows and already documents prior/window sensitivity. The unresolved risk is the one-causal-variant assumption.
+- The available CD4 dynamic-eQTL cohorts contain only about 85–100 donors and do not provide in-sample LD. The existing 525-person proxy-LD SuSiE run produced 19 MC1R credible sets versus 3 in FinnGen in-sample fine-mapping, so an external-LD SuSiE count cannot be treated as truth without a reliability gate.
+- FinnGen R8–R12 already form a fixed-endpoint, nested power series with 2,000 R12 down-sampling replicates. Extending this to regional colocalisation is feasible, but the nested releases are correlated and must not be analysed as independent replications.
+- S34 already implemented process blinding against the 2019 Open Targets gold-standard snapshot, but failed its preregistered coverage floor: 2 trait-matched and 16 cross-trait evaluable loci. This analysis must not be reopened by lowering the floor; a new benchmark must expand the prospectively fixed outcome/locus universe.
+
+## Verified method anchors
+- Wallace 2021 showed that `coloc.susie` compares each detected signal pair and is generally more accurate than conditioning-based alternatives when multiple causal variants exist.
+- Official `coloc` documentation requires dense regional coverage and the same SNP set in both traits; `runsusie` requires a signed LD matrix and sample size and exposes convergence information.
+- Current official `susieR` diagnostics explicitly warn that external/finite LD mismatch can create spurious extra credible sets; allele checks, kriging, finite-reference correction, mismatch modelling, convergence and reliability diagnostics are required before interpretation.
+- FinnGen publicly provides release-specific summary statistics, GRCh38 variant definitions, and release-specific fine-mapping/LD resources; phenotype definitions still require code-level identity checks before a release enters a trajectory.
+- The Open Targets 2019 gold-standard snapshot is an external, versioned locus-to-gene resource, but its evidence is mixed. Molecular-QTL/functional-observational assignments are circular for this benchmark and L2G predictions themselves are not truth labels.
+
+## Design consequences
+- Multiple-signal analysis should be a gated triangulation: baseline `coloc.abf`, `coloc.susie` only where LD/fit diagnostics pass, a conditioning or masking sensitivity, and an explicit `unresolved` state when they do not.
+- The primary multiple-signal universe should be fixed independently of MR significance (all analysable exposure-region records or a preregistered representative subset), otherwise candidate-only analysis introduces selection bias.
+- The FinnGen trajectory should use fixed regions, fixed variant intersections, fixed priors, and fixed exposure data across R8–R12. Continuous regional metrics and categorical transitions should be reported; monotonicity of individual loci should not be assumed.
+- A stronger attribution benchmark should keep the Open Targets gene field masked while using only coordinates/traits to prospectively select a larger panel of FinnGen outcomes. It should estimate both end-to-end recovery and conditional attribution, with coverage and structural non-instrumentability kept separate.
+- The reusable package should be built before the confirmatory runs, with schemas, synthetic truth fixtures, real positive/negative controls, claim-level verdicts, an HTML report, lockfile/container and CI. The package is infrastructure, not independent evidence, until it reproduces the frozen analyses and passes external/synthetic benchmarks.
