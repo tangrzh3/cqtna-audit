@@ -1,0 +1,3 @@
+control	cell	scored_with	matched_fold	matched_p	prereg_fold	prereg_p	bg_loci	bg_known	sig_loci	sig_known	pct_known	fold	fisher_p	agrees_with_prereg
+NC1	eQTLGen_blood x melanoma	HCC known loci	4.44	3.724056802770761e-11	1.3	0.411	559	43	30	3	10.0	1.3	0.41093270838049406	True
+NC2	Soskic_CD4 x HCC_low	melanoma known loci	17.62	0.0031240945794450406	0.0	1.0	564	59	2	0	0.0	0.0	0.9999999999999528	True

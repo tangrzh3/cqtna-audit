@@ -1,0 +1,11 @@
+exposure	disease	status	source	note	bg_loci	bg_known	sig_loci	sig_known	pct_known	fold	fisher_p
+Soskic_CD4	melanoma	main	13_meta_locus_annotation.tsv		554	58	7	3	42.9	4.09	0.028123181205575935
+eQTLGen_blood	melanoma	main	92c_locus_annotated.tsv		559	84	30	20	66.7	4.44	3.724056802770761e-11
+Soskic_CD4	HCC_high	main	85c_G1_enrichment.tsv		549	31	2	1	50.0	8.85	0.1098413838032661
+Soskic_CD4	HCC_low	sensitivity	85c_G1_enrichment.tsv	power sensitivity: the two HCC levels come from one resource and are not independent (S20 §9)	564	32	2	2	100.0	17.62	0.003124094579445
+eQTLGen_blood	HCC_low	sensitivity	94f_eqtlgen_hcc.tsv	power sensitivity: the two HCC levels come from one resource and are not independent (S20 §9)	559	43	3	2	66.7	8.67	0.0165173526498536
+eQTLGen_blood	HCC_high	main	94f_eqtlgen_hcc.tsv		562	44	5	2	40.0	5.11	0.0514939993405116
+Soskic_CD4	RA	main	108a_ra_attribution.tsv		546	57	36	13	36.1	3.46	1.649943771135048e-05
+eQTLGen_blood	RA	main	108a_ra_attribution.tsv		559	66	76	32	42.1	3.57	7.695365476056421e-14
+eQTLGen_blood	lung	void_bad_coords	94d_grid.tsv	VOID -- PREREG_generality_grid.md §8.2 偏离1: known-locus rsIDs were looked up in an outcome extract already filtered to instrument positions, leaving a background of only 2/559 and 5/559 known loci against 58/554 for melanoma. MUST NOT BE CITED.	559	2	8	0	0.0	0.0	0.9999999999996588
+eQTLGen_blood	colorectal	void_bad_coords	94d_grid.tsv	VOID -- PREREG_generality_grid.md §8.2 偏离1: known-locus rsIDs were looked up in an outcome extract already filtered to instrument positions, leaving a background of only 2/559 and 5/559 known loci against 58/554 for melanoma. MUST NOT BE CITED.	559	5	22	3	13.6	15.25	0.0005049201889729

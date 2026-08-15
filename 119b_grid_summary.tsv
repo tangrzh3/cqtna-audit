@@ -1,0 +1,2 @@
+n_main_cells	n_fold_gt1	pct_fold_gt1	n_p_lt_05	n_sensitivity	n_void	diseases	resources
+6	6	100.0	4	2	2	melanoma;HCC_high;RA	Soskic_CD4;eQTLGen_blood
