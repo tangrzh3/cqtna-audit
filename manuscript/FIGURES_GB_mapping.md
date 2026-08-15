@@ -15,7 +15,7 @@
 | GB | 图注要求 | 现有资产 | 数据源 | 状态 |
 |---|---|---|---|---|
 | **1** | 两个结局下的位点归属，**按独立位点** | `FigA_locus_attribution`<br>`make_figures.py::fig_A` | `13_meta_locus_annotation.tsv` | ⚠ 只画了 **meta 一个结局**，且是**按记录**的 Manhattan。GB 要"两个结局 + 按独立位点"。缺 FinnGen 轮面板（`06_locus_annotation.tsv`）与位点级计数（`36e_locus_level_attribution.tsv`，4.09×） |
-| **2** | 泛化：五个嵌套 release · 迁移检验 · 第二疾病 · 非癌结局 · 第二暴露资源 · 双轴交叉网格 + 错配位点对照 | `FigG_release_trajectory` 只覆盖第一项 | 见 §二 | ❌ **须新建合成图**。⚠ 建前须先跑 `step119`（§三） |
+| **2** | 泛化：五个嵌套 release · 迁移检验 · 第二疾病 · 非癌结局 · 第二暴露资源 · 双轴交叉网格 + 错配位点对照 | — | 见 §二 | ✅ **已建**：`Fig2_generality`（`make_gb_fig2_generality.py`），三面板。**只读 `119a`/`119c`，不读 `94d`/`94e`**（§三） |
 | **3** | 按位点类别的功效-稳定性，**以及同一分层对全功效 \|z\|** | `FigF_power_stability`（a/b/c） | `53a` `53b` `54a` `54b` `55a` | ⚠ 缺第四面板：对全功效 \|z\| 的分层（`101c_stratified.tsv`） |
 | **4** | 共定位 vs SMR/HEIDI，**含 in-sample 精细定位** | `FigB_coloc_vs_HEIDI` | `16_coloc_meta_results.tsv` `15_SMR_meta_results.tsv` | ⚠ 缺 in-sample 精细定位面板（`60a_susie_outcome_signals.tsv`：MC1R 三个 high-purity credible set，log₁₀BF 45.6/36.6/19.5） |
 | **5** | 通路上三个层级的工具变量可得性 | — | `75a` `34a` `34b` | ✅ **已建**：`Fig5_instrument_ladder`（`make_gb_fig5_instrument_ladder.py`）。28 → 3 → 2 → 1，与正文逐字吻合 |
@@ -62,7 +62,11 @@ HANDOFF_v6 的判断（"不是编号问题，是图件本身没按九图口径�
 
 ---
 
-## 三、⚠ 画 Fig 2 之前必须先修的两处（新发现，不是审稿人提的）
+## 三、⚠ 画 Fig 2 之前必须先修的三处（新发现，不是审稿人提的）
+
+> **状态：已由 `step119_grid_rebuild.py` 处理**，产出 `119a_grid_main.tsv`、
+> `119b_grid_summary.tsv`、`119c_mismatch_controls.tsv`。
+> 原表 `94d`/`94e` **保留不动**，但**任何新脚本一律不得再读它们**。
 
 ### 1. `94d_grid.tsv` 里混着两行**已作废、且无任何作废标记**的结果
 
@@ -100,12 +104,22 @@ Soskic×{melanoma, HCC-high, HCC-low} + eQTLGen×{melanoma, **lung**, **colorect
 **处置**：`step119` 重算两个错配对照，落 `119c_mismatch_controls.tsv`，
 并与预注册 §8 记录的数字逐位比对；**若对不上，以重算为准并披露差异**。
 
+**结果：两个都逐位重现，正文数字成立。**
+
+| 对照 | 重算 | 预注册 §8 记录 |
+|---|---|---|
+| eQTLGen × melanoma 用 HCC 名单 | 3/30 显著位点已知，背景 43/559 = 7.7% → **1.30×，P = 0.4109** | 1.30×，P = 0.411 ✔ |
+| Soskic × HCC-low 用 melanoma 名单 | 0/2 显著位点已知，背景 59/564 = 10.5% → **0.00×，P = 1.0** | 0.00×，P = 1.0 ✔ |
+
+重算同时确认主网格 **六格 fold>1 = 6/6**（预注册 U1 判据 ≥80%，达标）、
+**四格 P<0.05**（与 2026-08-14 的更正一致）。
+
 ---
 
 ## 四、执行顺序
 
-1. `step119`：重建网格主表 + 汇总 + 错配对照（→ `119a`/`119b`/`119c`）
-2. **Fig 2** 合成图（只读 `119a`–`119c`、`59a`/`58a`、`99c`、`108a`、`92d`）
+1. ~~`step119`：重建网格主表 + 汇总 + 错配对照（→ `119a`/`119b`/`119c`）~~ ✅
+2. ~~**Fig 2** 合成图~~ ✅
 3. Fig 1 补 FinnGen 轮面板 + 改为位点级
 4. Fig 3 补 \|z\| 分层面板 · Fig 4 补 in-sample 精细定位面板
 5. Fig 6 / 7 / 9 从 `Fig9_part2`、`FigS7` 拆分重组
