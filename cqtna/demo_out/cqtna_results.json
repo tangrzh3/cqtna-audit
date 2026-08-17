@@ -105,5 +105,107 @@
   "note": "report all three; collapsing them attributes an outcome-side limit to the biology"
  },
  "E": [],
- "F": null
+ "F": null,
+ "G": {
+  "known_sweep": [
+   {
+    "known_window_kb": 100,
+    "locus_window_kb": 1000,
+    "background_loci": 554,
+    "background_known": 13,
+    "significant_loci": 7,
+    "significant_known": 3,
+    "fold": 18.26,
+    "fisher_p_one_sided": 0.0003361896157234458
+   },
+   {
+    "known_window_kb": 250,
+    "locus_window_kb": 1000,
+    "background_loci": 554,
+    "background_known": 29,
+    "significant_loci": 7,
+    "significant_known": 3,
+    "fold": 8.19,
+    "fisher_p_one_sided": 0.003929335816495441
+   },
+   {
+    "known_window_kb": 500,
+    "locus_window_kb": 1000,
+    "background_loci": 554,
+    "background_known": 42,
+    "significant_loci": 7,
+    "significant_known": 3,
+    "fold": 5.65,
+    "fisher_p_one_sided": 0.011470299500690962
+   },
+   {
+    "known_window_kb": 1000,
+    "locus_window_kb": 1000,
+    "background_loci": 554,
+    "background_known": 58,
+    "significant_loci": 7,
+    "significant_known": 3,
+    "fold": 4.09,
+    "fisher_p_one_sided": 0.028123181205575935
+   }
+  ],
+  "locus_sweep": [
+   {
+    "locus_window_kb": 100,
+    "known_window_kb": 1000,
+    "background_loci": 1065,
+    "background_known": 100,
+    "significant_loci": 8,
+    "significant_known": 4,
+    "fold": 5.33,
+    "fisher_p_one_sided": 0.003817394683115093
+   },
+   {
+    "locus_window_kb": 250,
+    "known_window_kb": 1000,
+    "background_loci": 876,
+    "background_known": 81,
+    "significant_loci": 7,
+    "significant_known": 3,
+    "fold": 4.63,
+    "fisher_p_one_sided": 0.020299904356983107
+   },
+   {
+    "locus_window_kb": 500,
+    "known_window_kb": 1000,
+    "background_loci": 728,
+    "background_known": 68,
+    "significant_loci": 7,
+    "significant_known": 3,
+    "fold": 4.59,
+    "fisher_p_one_sided": 0.020767428243743363
+   },
+   {
+    "locus_window_kb": 1000,
+    "known_window_kb": 1000,
+    "background_loci": 554,
+    "background_known": 58,
+    "significant_loci": 7,
+    "significant_known": 3,
+    "fold": 4.09,
+    "fisher_p_one_sided": 0.028123181205575935
+   }
+  ],
+  "significant_distances_bp": [
+   5491,
+   11067,
+   73995,
+   2166836,
+   7275442,
+   20136133,
+   38493779
+  ],
+  "significant_median_bp": 2166836,
+  "background_median_bp": 10728257,
+  "threshold_gap": {
+   "nearest_below_bp": 73995,
+   "nearest_above_bp": 2166836,
+   "threshold_bp": 1000000
+  }
+ }
 }

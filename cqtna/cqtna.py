@@ -110,6 +110,23 @@ def known_flagger(known, window_kb):
     return f
 
 
+def nearest_known_bp(known):
+    """distance in bp to the nearest known lead SNP; inf if that chromosome
+    carries none. Same neighbour search as known_flagger, so the two can never
+    disagree about whether a variant is inside a given window."""
+    KN = {c: np.sort(s.pos.values)
+          for c, s in known.astype({"chr": str}).groupby("chr")}
+
+    def f(ch, pos):
+        arr = KN.get(str(ch))
+        if arr is None or not len(arr):
+            return float("inf")
+        i = np.searchsorted(arr, pos)
+        return min((abs(int(arr[j]) - int(pos))
+                    for j in (i - 1, i) if 0 <= j < len(arr)), default=float("inf"))
+    return f
+
+
 # ----------------------------------------------------------------- input
 REQUIRED_MR = ["record_id", "gene", "chr", "pos", "p"]
 REQUIRED_KNOWN = ["chr", "pos"]
@@ -234,6 +251,79 @@ def module_e(path, genes, cfg):
                          ratio_other_over_target=round(float(v[top] / ref), 2)
                          if ref else None))
     return pd.DataFrame(rows)
+
+
+SWEEP_KB = (100, 250, 500, 1000)
+
+
+def module_g(d, known, cfg):
+    """window sensitivity, and the continuous distance behind the binary flag
+
+    Two different conventions get called "the 1 Mb window" and they carry
+    different weight, so they are swept separately:
+
+      known_window_kb  what counts as landing on a known locus -- this one moves
+                       the fold directly
+      locus_window_kb  how independent loci are defined -- this one moves the
+                       denominator
+
+    A threshold chosen to flatter a result weakens when tightened. Reporting the
+    sweep is what distinguishes a convention from a tuned parameter.
+
+    The distance for a SIGNIFICANT locus is taken over that locus's significant
+    records only, because that is what the binary flag is computed from. Taking
+    it over every record in the locus lets a non-significant variant supply the
+    distance and produces a number that contradicts the flag.
+    """
+    dist = nearest_known_bp(known)
+    d = d.copy()
+    d["dist_bp"] = [dist(c, p) for c, p in zip(d.chr, d.pos)]
+    t = cfg["fdr_threshold"]
+
+    def enrich(loci, known_kb):
+        kn = d.dist_bp <= known_kb * 1000
+        tmp = pd.DataFrame(dict(locus=loci, known=kn.values, fdr=d.fdr.values))
+        bg = tmp.groupby("locus").agg(known=("known", "any"))
+        sg = tmp[tmp.fdr < t].groupby("locus").agg(known=("known", "any"))
+        BT, BK, ST, SK = len(bg), int(bg.known.sum()), len(sg), int(sg.known.sum())
+        fold = ((SK / ST) / (BK / BT)) if ST and BK else None
+        p = fisher_greater(SK, ST - SK, BK - SK, (BT - BK) - (ST - SK)) if ST else None
+        return dict(background_loci=BT, background_known=BK,
+                    significant_loci=ST, significant_known=SK,
+                    fold=round(fold, 2) if fold is not None else None,
+                    fisher_p_one_sided=p)
+
+    known_sweep = [dict(known_window_kb=kb,
+                        locus_window_kb=cfg["locus_window_kb"],
+                        **enrich(d.locus.values, kb)) for kb in SWEEP_KB]
+
+    locus_sweep = []
+    for kb in SWEEP_KB:
+        loci = assign_loci(d.chr.tolist(), d.pos.tolist(), kb)
+        locus_sweep.append(dict(locus_window_kb=kb,
+                                known_window_kb=cfg["known_window_kb"],
+                                **enrich(loci, cfg["known_window_kb"])))
+
+    sig = d[d.fdr < t]
+    sig_d = (sig.groupby("locus").dist_bp.min()
+                .replace(float("inf"), np.nan).dropna().sort_values())
+    bg_d = (d.groupby("locus").dist_bp.min()
+              .replace(float("inf"), np.nan).dropna())
+    # 阈值落在数据的空隙里，还是正踩在数据上？后者说明结论依赖这个阈值
+    gap = None
+    if len(sig_d) > 1:
+        v = sig_d.values
+        below = v[v <= cfg["known_window_kb"] * 1000]
+        above = v[v > cfg["known_window_kb"] * 1000]
+        if len(below) and len(above):
+            gap = dict(nearest_below_bp=int(below[-1]),
+                       nearest_above_bp=int(above[0]),
+                       threshold_bp=cfg["known_window_kb"] * 1000)
+    return dict(known_sweep=known_sweep, locus_sweep=locus_sweep,
+                significant_distances_bp=[int(v) for v in sig_d.values],
+                significant_median_bp=int(sig_d.median()) if len(sig_d) else None,
+                background_median_bp=int(bg_d.median()) if len(bg_d) else None,
+                threshold_gap=gap)
 
 
 def module_f(path):
@@ -379,6 +469,41 @@ def report(res, cfg, out_dir):
         else:
             w("⚠ **not run** — no input supplied.\n")
 
+    if res.get("G"):
+        g = res["G"]
+        w("## G. Window sensitivity and the distances behind the flag\n")
+        def fmt(rows, cols):
+            t = pd.DataFrame(rows)[cols].copy()
+            t["fisher_p_one_sided"] = [None if v is None else f"{v:.3g}"
+                                       for v in t.fisher_p_one_sided]
+            return md_table(t)
+
+        w(fmt(g["known_sweep"],
+              ["known_window_kb", "significant_known", "significant_loci",
+               "background_known", "background_loci", "fold",
+               "fisher_p_one_sided"]))
+        w("")
+        w(fmt(g["locus_sweep"],
+              ["locus_window_kb", "background_loci", "significant_loci", "fold",
+               "fisher_p_one_sided"]))
+        w("")
+        if g["significant_distances_bp"]:
+            w("- distances of significant loci to the nearest known lead SNP (kb): "
+              + ", ".join(f"{v/1000:,.0f}" for v in g["significant_distances_bp"]))
+            w(f"- median {g['significant_median_bp']/1000:,.0f} kb, against "
+              f"{g['background_median_bp']/1000:,.0f} kb for all testable loci")
+        gap = g["threshold_gap"]
+        if gap:
+            w(f"- the {gap['threshold_bp']/1000:,.0f} kb threshold falls between "
+              f"{gap['nearest_below_bp']/1000:,.0f} kb and "
+              f"{gap['nearest_above_bp']/1000:,.0f} kb — "
+              + ("**a gap, so the cut is not near your data**"
+                 if gap["nearest_above_bp"] >= 4 * max(gap["nearest_below_bp"], 1)
+                 else "**close to your data, so the result depends on this choice**"))
+        w("\n⚠ A window chosen to flatter a result weakens when tightened. If the "
+          "fold *rises* as the window narrows, the reported value is the "
+          "conservative one.\n")
+
     w("## Evidence tiers\n")
     t = res["tiers"]
     if t:
@@ -419,6 +544,7 @@ def run(cfg, out_dir):
     res["E"] = module_e(cfg["expression_table"], sig_genes, cfg) \
         if cfg.get("expression_table") else None
     res["F"] = module_f(cfg["peak_table"]) if cfg.get("peak_table") else None
+    res["G"] = module_g(d, known, cfg)
     res["tiers"] = assign_tiers(res["A"], res["C"], res["E"], cfg)
 
     res["B"].to_csv(os.path.join(out_dir, "cqtna_units.tsv"), sep="\t", index=False)

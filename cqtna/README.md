@@ -21,6 +21,7 @@ python cqtna.py --config my_audit.json    # runs on yours
 | D | instrument attrition: instrumentable → analysable → associated | pathway gene table |
 | E | compartment attribution: per-cell-type expression ratio | expression table |
 | F | distance between eQTL and GWAS peaks | peak table |
+| G | window sensitivity: the known-locus and locus-definition windows swept at 100/250/500/1000 kb, plus the continuous distances behind the binary flag | nothing extra |
 
 **Three of the eight diagnostics cannot be automated** and are listed by name in
 every report: colocalisation with multiple-signal modelling and matched LD;
