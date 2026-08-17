@@ -1,0 +1,26 @@
+Package: cqtna
+Title: Context-Specific QTL Target Nomination Audit
+Version: 0.2.0
+Authors@R:
+    person("MR audit project", role = c("aut", "cre"),
+           email = "noreply@example.com")
+Description: Runs the automatable part of eight diagnostics on a candidate list
+    produced by any cis-eQTL-instrumented Mendelian randomization pipeline, and
+    reports what kind of evidence each gene actually carries. Checks locus
+    attribution against the outcome's own known loci by independent locus, with a
+    mismatched-list negative control; recomputes the significant list over four
+    inference units; measures list stability against a second outcome GWAS;
+    reports instrument availability at three separate levels; computes
+    compartment attribution and eQTL-to-GWAS peak distance; and sweeps the two
+    window conventions that a fold enrichment depends on. Three of the eight
+    diagnostics cannot be automated from a candidate list and are named in every
+    report rather than omitted.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1)
+Imports: stats, utils, graphics
+Suggests: testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://github.com/OWNER/cqtna
+BugReports: https://github.com/OWNER/cqtna/issues
+Config/roxygen2/version: 8.0.0
