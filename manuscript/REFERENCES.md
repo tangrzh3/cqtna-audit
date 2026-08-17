@@ -282,6 +282,31 @@ GB 与 NC 的正文引用已同步。下表的"投稿版"映射相应更新：18
 （新 40），其后 40–45 顺延为 41–46，GB 与 NC 的六处引用须同步。
 ⚠ 同时须核实所用的 ORCS release 号，与 1,471 这个分母对应。
 
+### ★ 新增条目 47：Okada 2014（RA 已知位点参照系）—— 2026-08-17
+
+**这条是漏的，不是可选的。** GB 与 NC 都写 "Okada et al. 2014 lead SNPs"
+（GB 正文 1 处、GB Methods 1 处并注明 GCST002318、NC 正文 1 处），
+而 1–46 号编号表里**根本没有这篇**。RA 是本文"非癌结局"这一格的全部依据，
+其已知位点名单的来源必须可引。
+
+核实方式（与 ORCS 同一套纪律，**不从记忆填**）：
+1. GWAS Catalog REST `studies/GCST002318` → trait = Rheumatoid arthritis，
+   `pubmedId` = **24390342**，author = Okada Y，journal = Nature；
+2. NCBI E-utilities esummary（PMID 24390342）→
+   *Nature* **2014 Feb 20**（epub 2013 Dec 25），**卷 506，期 7488，页 376–81**，
+   **97 位作者**，DOI **10.1038/nature12873**。
+
+> **47. Okada Y, Wu D, Trynka G, et al. Genetics of rheumatoid arthritis
+> contributes to biology and drug discovery. *Nature* 2014;506(7488):376–381.
+> doi:10.1038/nature12873 (GWAS Catalog GCST002318)**
+
+**编号处置：追加为 47，不插队。** 1–46 的编号在上一窗口刚因插入 ORCS 而整体动过一次
+（18–40 → +6），再插一次风险高于收益。若期刊要求按出现顺序排号，
+**留到排版阶段一次性重排**，不要在投稿稿里再动。
+GB 的 2 处与 NC 的 1 处 Okada 提及均已加上 `[47]`。
+
+---
+
 ### 未被 GB 正文引用的条目 —— 2026-08-17 重新逐条核过
 
 **原记录（7 条）不准确，实为 8 条**，且其中一条属于漏引而非多余。
@@ -328,3 +353,44 @@ HANDOFF v5/v6 都记着"DepMap release 号须与脚本核对"。2026-08-17 查�
 
 ⚠ 顺带：**GB 从头到尾没出现过 "DepMap"**，所以对 GB 而言条目 39 属上表的
 "未被引用"一类；此事只影响全文源与 assembled。
+
+---
+
+## NC 稿的引用密度 —— 2026-08-17 处理结果
+
+**处理前：全文只有 2 处引用（`[40]` ORCS、`[42]` Tambets）。处理后 16 条被引。**
+
+新加的 14 条都挂在 **NC 本来就在陈述的论断**上，没有为了安置引用而新造句子
+（只多了 35 词，全是方括号标记）：
+
+| 位置 | 加了 | 依据 |
+|---|---|---|
+| Introduction「a common route to causal target nomination」 | `[1–3]` | **本文审计的正是这三篇**，此前整个 Introduction 一条引用都没有 |
+| Results「Eight CD4⁺ T cell activation profiles」 | `[4]` | Soskic 时程 |
+| Abstract「a 12,530-case meta-analysis」 | `[6,7]` | 结局 GWAS |
+| 「FinnGen's sequential releases」 | `[5,22]` | FinnGen 与 R12 endpoint |
+| 「eQTLGen whole-blood cis-eQTLs」 | `[21]` | Võsa |
+| 「Okada et al. 2014 lead SNPs」 | `[47]` | 见上节新增条目 |
+| 「Colocalisation assigned…」 | `[24]` | coloc |
+| 「…on 8–20 variants per test」 | `[26]` | SMR/HEIDI |
+| 「The published genotype × pseudotime interaction test」 | `[8]` | Nathan |
+| 「Raising eQTL sample size is known to…colocalisation gap」 | `[43]` | Rosen |
+
+### ⚠ 剩下 31 条未被 NC 引用，原因是**结构性的，不是漏标**
+
+未引清单：9–20、23、25、27–39、41、44–46。这些全是**数据集与软件类**引用
+（ICB 队列、空转、multiome、1000G、susieR、TwoSampleMR、PLINK、Seurat、
+JASPAR、chromVAR、GWAS Catalog、Open Targets、TISCH、Xena、TCGA-CDR、DepMap…）。
+
+**GB 把它们全部放在 Methods 里；而 NC 稿目前没有 Methods 章节**
+（章节只有 Abstract · Introduction · Results · Discussion · Display items · References）。
+
+→ **正确的修法不是继续往正文塞引用，而是补上 NC 的 Methods。**
+   Nature Communications 本来就要求 Methods，投稿时无论如何得写；
+   一旦写了，这 31 条自然各归其位。在此之前**不应**把数据集引用硬塞进 Results，
+   那会既伤可读性又不合格式。
+
+⚠ 另：GB 的 Discussion 引了 `[41]`（Reales）、`[44]`（Howe）、`[45,46]`（Lin、Karhunen）
+来做文献对位，NC 的 Discussion 是纯自证结构、没有对应句子。
+**要不要在 NC 补这几句对位讨论，是取舍问题，留给作者定**——
+NC 正文有字数上限，加了就得减别的。

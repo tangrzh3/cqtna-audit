@@ -232,7 +232,7 @@ RA** — one among several that also include B cells, myeloid cells and synovial
 fibroblasts — and FinnGen's RA endpoint has 16,775 cases against the melanoma
 meta's 12,530, an effective sample size about 29% larger, so **a null could not
 readily be attributed to a smaller outcome effective sample size**. Scored
-against Okada et al.'s 2014 lead SNPs, published before FinnGen existed and from
+against Okada et al.'s 2014 lead SNPs [47], published before FinnGen existed and from
 cohorts that exclude it, registered in advance (Supplementary S33): **13 of 36
 FDR-significant loci carry a known RA lead SNP against a 10.4% background,
 3.46-fold, P = 1.7×10⁻⁵**, with the whole-blood exposure at 3.57-fold
@@ -931,7 +931,7 @@ et al. 2020 GWAS [7] retrieved from the GWAS Catalog REST API [34] and mapped to
 GRCh38: 157 loci. Hepatocellular loci were lead variants for EFO_0000182 and
 liver cancer at P < 5×10⁻⁸ together with those tabulated in the outcome
 publication — 83 rsIDs, 73 placeable on GRCh38. The rheumatoid arthritis
-reference was the 87 lead rsIDs of Okada et al. 2014 (GCST002318), published
+reference was the 87 lead rsIDs of Okada et al. 2014 [47] (GCST002318), published
 before FinnGen existed and from cohorts that exclude it; 83 were placeable.
 Independent loci are 1 Mb single-linkage clusters of instrument positions within
 a chromosome, and a locus counts as known if any of its instruments lies within
@@ -1195,3 +1195,4 @@ audit.
 44. Howe LJ, et al. Evaluating transportability of in vitro cellular models to in vivo human phenotypes using gene perturbation data. *Nat Commun* 2025. doi:10.1038/s41467-025-67199-1
 45. Lin Z, Pan W. A robust cis-Mendelian randomization method with application to drug target discovery. *Nat Commun* 2024. doi:10.1038/s41467-024-50385-y
 46. Karhunen V, et al. Integrating genetic data with biological insight: a practical guide to cis-Mendelian randomization. *Am J Hum Genet* 2026. doi:10.1016/j.ajhg.2026.03.011
+47. Okada Y, Wu D, Trynka G, et al. Genetics of rheumatoid arthritis contributes to biology and drug discovery. *Nature* 2014;506(7488):376–381. doi:10.1038/nature12873 (GWAS Catalog GCST002318)
