@@ -776,7 +776,7 @@ a positive result there cannot be read back as CD4-specific; the three additiona
 resources we tried, which include Peruvian and African-ancestry donors, were
 underpowered or failed their control, so they neither extend the finding nor
 broaden its ancestry. That limit is structural rather than incidental. Across the
-whole eQTL Catalogue, stimulation resources profiling several conditions at
+whole eQTL Catalogue [33], stimulation resources profiling several conditions at
 adequate donor numbers exist only for myeloid cells — one macrophage resource
 covers 24 conditions at n = 199 — while for CD4⁺ T cells the only multi-condition
 stimulation resource is the one used here, and every other stimulated CD4⁺

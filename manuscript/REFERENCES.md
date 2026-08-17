@@ -258,7 +258,14 @@ biomedical resource of curated protein, genetic, and chemical interactions.
 核实方式：PubMed 全库检索 `"BioGRID ORCS"` **只返回这一条**（PMID 33070389）；
 著录字段（15 位作者、卷 30、期 1、页 187–200、2021）取自 **CrossRef API 返回**，
 非从记忆填写。**未找到 ORCS 的独立专文**，故引这篇 BioGRID 主文。
-⚠ 仍须核对正文所用的 **ORCS release 号**与 1,471 这个分母是否对应。
+✅ **2026-08-17 已核对**：release = **BioGRID ORCS 2.0.18**。
+下载归档 `orcs/human_screens.tar.gz` 里 1,953 个 human screen 文件的文件名
+（`BIOGRID-ORCS-SCREEN_<id>-2.0.18.screen.tab.txt`）**全部**带同一个版本串，
+无混版。TPI1 出现在其中 **1,471** 个 screen（`orcs/tpi1_all_screens.tsv` 恰 1,471 行，
+无表头），命中 628 / 未命中 843 = **42.7%**，与正文一致。
+著录时应写明 release：**BioGRID ORCS release 2.0.18**。
+（各基因的 screen 数不同——FOXP3 1,050、MC1R 1,404、GAPDH 1,437 等——
+1,471 是 **TPI1 自己的**分母，不是全库 screen 总数 1,953。）
 
 **编号后果**：新条目插为 40，原 40–45（Reales…Karhunen）顺延为 **41–46**，
 GB 与 NC 的正文引用已同步。下表的"投稿版"映射相应更新：18–40 → **+6**。
@@ -275,9 +282,49 @@ GB 与 NC 的正文引用已同步。下表的"投稿版"映射相应更新：18
 （新 40），其后 40–45 顺延为 41–46，GB 与 NC 的六处引用须同步。
 ⚠ 同时须核实所用的 ORCS release 号，与 1,471 这个分母对应。
 
-### 未被 GB 正文引用的条目（不是错，但投稿前须确认合理）
+### 未被 GB 正文引用的条目 —— 2026-08-17 重新逐条核过
 
-17、18（GSE316760 / GSE300445，仅补充材料用）· 32、33（DICE、eQTL Catalogue，
-GB 压缩版方法学未含"公开 eQTL 资源普查"一节）· 36、37、38（TISCH、Xena、TCGA-CDR，
-对应分析未进 GB）。**若期刊不允许列出未引用文献，须从 GB 的 References 中删去，
-或在方法学中补回相应句子。**
+**原记录（7 条）不准确，实为 8 条**，且其中一条属于漏引而非多余。
+核法：从 GB 正文（`## References` 之前的全部内容）提取所有 `[n]`、`[n,m]`、`[n–m]`
+形式的引用（**范围用 en dash，早先的核对漏了这种写法**），与编号表 1–46 求差。
+
+| 条目 | 内容 | GB 正文是否提到该主题 | 处置 |
+|---|---|---|---|
+| **33** | Kerimov 等，**eQTL Catalogue** | **提到**（"Across the whole eQTL Catalogue…"） | ✅ **已补引 `[33]`**，属漏引，非多余 |
+| 17 | Virós 等，空间转录组 GSE31676 | 否 | 待定 |
+| 18 | Pham 等，空间免疫生态 GSE300445 | 否 | 待定 |
+| 32 | Schmiedel 等，**DICE** | 否（GB 只说"第三个资源"，未点名） | 待定 |
+| 36 | Sun 等，**TISCH** | 否 | 待定 |
+| 37 | Goldman 等，**UCSC Xena** | 否 | 待定 |
+| 38 | Liu 等，**TCGA-CDR** | 否 | 待定 |
+| 39 | Tsherniak 等，**DepMap** | 否（"DepMap" 一词在 GB 正文中 0 次） | 待定，且见下 |
+
+余下 7 条对应的分析都只在全文源／补充材料里，GB 压缩版没有承载它们的句子。
+**三条路，须作者定，不宜代拍**：
+(a) 从 GB 的 References 中删去这 7 条——**会引起 17→46 段的重新编号**，
+    而编号刚在上一窗口因插入 ORCS 而动过一次，再动风险高；
+(b) 保留，并在 GB 的 Methods 已有的"…are given in Supplementary S12"这类指针处
+    补上引用（GB 现在就是这么处理 `[9–13,19]` 的）——**但必须先逐条核实
+    该数据集确实用于对应的补充分析**，不能为了安置引用而挂靠；
+(c) 保留，另立 "Supplementary references" 一节。
+⚠ GB 正文已贴着 8,000 词上限，(b) 若要加句子须同时减内容。
+
+### ⚠ 条目 39（DepMap）的 release 号：**核不了，因为没有脚本**
+
+HANDOFF v5/v6 都记着"DepMap release 号须与脚本核对"。2026-08-17 查证结果：
+**仓库里既没有使用 DepMap 的脚本，也没有任何 DepMap 数据文件**
+（`*.py` 全文检索 `DepMap|depmap|CRISPRGeneEffect|Achilles` 无命中；
+全盘 `find` 同名文件无命中；`D:/Downloads` 亦无）。
+
+即正文的 "TPI1 is DepMap-essential"（全文源 3 处）与著录里写的
+"release used: 22Q2 common-essential and gene-effect calls"，
+**来自一次未留痕的门户手查**，无法与脚本核对——**这项待办按原样是做不成的**。
+
+可行的替代（与 ORCS/CrossRef 用的是同一套纪律）：
+1. 上 DepMap 门户重查，把 **release 号、查询日期、TPI1 的 gene-effect 数值与
+   common-essential 判定**记成一张小表落盘，著录按该 release 定稿；或
+2. 把措辞改成不依赖具体 release 的说法；或
+3. 删去该主张（它在 GB 正文里本来就不存在，只在全文源里）。
+
+⚠ 顺带：**GB 从头到尾没出现过 "DepMap"**，所以对 GB 而言条目 39 属上表的
+"未被引用"一类；此事只影响全文源与 assembled。
