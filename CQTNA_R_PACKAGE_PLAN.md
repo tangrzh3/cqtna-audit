@@ -1,6 +1,7 @@
 # 把 CQTNA 做成 R 包 —— 方案构思
 
-**日期**：2026-08-17 · **状态**：构思，未动工
+**日期**：2026-08-17 · **状态**：✅ **已建成**，见文末 §十一
+**范围**：按拍板只做表格接口（不引 Seurat）；发布走 GitHub + Zenodo
 **前提**：`cqtna/` 已有一个可跑的 Python 实现（469 行，仅依赖 numpy + pandas），
 正文 code availability 已写明"CQTNA, a runnable implementation of the diagnostics
 in the Discussion, is included in the deposit"。
@@ -199,3 +200,80 @@ R 侧的等价函数都存在且是精确的，**移植风险低**：
 不是写 R 代码，是**先给 Python 版补 `module_g`（窗口扫描）并让 demo 覆盖它**——
 这样 R 移植过去时，oracle 里已经有这一项可比对。
 顺序反过来会导致新功能只有一处实现、没有参照。
+
+---
+
+## 十一、建成记录（2026-08-17）
+
+### 做了什么
+
+**先补 Python 版**（按 §十 的顺序，不能让新功能只有一处实现）：
+`cqtna.py` 新增 **module G**（窗口敏感性 + 连续距离），demo 重跑，
+与 `step121` 逐位吻合（18.26/8.19/5.65/4.09 与 5.33/4.63/4.59/4.09）。
+
+**再建 R 包** `cqtna_r/`：
+
+| | |
+|---|---|
+| 依赖 | **仅 base R**（stats / utils / graphics），无 Bioconductor、无 tidyverse、无 Seurat |
+| `R CMD check` | **Status: OK**——零 error、零 warning、**零 note** |
+| 测试 | 3 组，共 **约 110 项断言**，全部通过 |
+| 文档 | roxygen 生成 15 个 `.Rd`；README、CITATION.cff、.zenodo.json、GitHub Actions（4 平台矩阵） |
+
+**导出函数**：`cqtna_audit()` 总入口，加 A–G 七个模块函数各自可单用，
+外加 `as_cqtna_mr()` / `as_cqtna_known()` / `cqtna_demo()` / `cqtna_report()` /
+`cqtna_not_automated()` 与 `print` / `summary` / `plot` 方法。
+
+### 测试套件
+
+1. **`test-paper-numbers.R`** —— 断言论文自己的数：
+   4.09× / P = 0.0281、错配 0.00×、record 10 基因 vs locus 28 基因、
+   Jaccard 0.455、28 → 3 → 2 → 1、两个窗口扫描、以及**没有任何基因能到
+   `target-supported`**（含渲染后的报告文本）。
+2. **`test-python-oracle.R`** —— 与 Python 参照实现逐项比对。
+   参照值由 `python cqtna.py --demo` 导出为
+   `inst/extdata/reference_python.tsv` 并随包提交，
+   所以**测试环境不需要装 Python**。任一侧漂移即失败。
+3. **`test-guards.R`** —— R 版新增的三道守卫（下节）。
+
+### R 版比 Python 版多出来的三件事
+
+1. **构建版本必须声明，不一致直接报错**（`build =` 无默认值）。
+   坐标系错配不会报错，只会把每个位点挪走并给出一个看着正常的数。
+2. **已知位点名单缺 `source` 列时警告**（循环性）；
+   **缺错配名单时警告**而不是静默跳过。
+3. **FDR 一律重算，绝不读取输入里的 `fdr` 列**——有一条测试专门投毒验证。
+
+### ⚠ 移植中查出的一处真实分歧（oracle 抓到的）
+
+位点扫描在 100 kb 处的真值是 **5.325000000000000177**。
+- R 的 `round(v, 2)` → **5.32**（R 会向十进制字面量"修正"）
+- `sprintf("%.2f", v)` 与 Python 的 `round()` → **5.33**（按实际二进制值取整）
+
+真值高于中点，**5.33 才对**，也是论文与 Python 参照报的数。
+处置：**模块返回值一律全精度，四舍五入只在渲染时用 `sprintf` 做**。
+这同时是更好的包设计——函数不该返回预先取整的数。
+另修 `cq_fmt_kb`：`format = "d"` 是截断，会把 73,600 bp 显示成 73 kb（应为 74）。
+
+### 还没做的（需要你的账号，我不动）
+
+1. **建 GitHub 仓库并 push**。`DESCRIPTION` / `README.md` / `CITATION.cff` /
+   `.zenodo.json` 里的 **`OWNER` 是占位符**，建库后统一替换。
+2. **Zenodo**：在 Zenodo 里打开该仓库的开关，然后在 GitHub 打一个 release
+   （建议 `v0.2.0`），Zenodo 会自动铸 DOI。`.zenodo.json` 已备好元数据。
+3. **正文的 code availability 要提一句 R 包**。现在只写了
+   "CQTNA, a runnable implementation of the diagnostics in the Discussion,
+   is included in the deposit"。⚠ GB 正文贴着 8,000 词上限，加则须减。
+4. 决定是否投 CRAN。现在 `R CMD check` 已经是 OK，技术上够格；
+   但 CRAN 会带来长期维护义务，且 GitHub + Zenodo 已满足可引用性。
+
+### 复现方式
+
+```bash
+# Python 参照实现
+cd cqtna && python cqtna.py --demo
+
+# R 包
+R CMD build cqtna_r && R CMD check cqtna_0.2.0.tar.gz
+Rscript -e 'testthat::test_local("cqtna_r")'
+```
