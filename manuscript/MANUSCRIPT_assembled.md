@@ -1,6 +1,6 @@
 <!-- GENERATED FILE - do not edit by hand.
      Sources: MANUSCRIPT_v2_dual_thread.md + METHODS_draft.md
-     Regenerate with: python assemble.py   (last built 2026-08-15) -->
+     Regenerate with: python assemble.py   (last built 2026-08-17) -->
 
 # When a pathway can be interrogated genetically, and which gene gets named: an audit of dynamic-eQTL target nomination in melanoma
 
@@ -1124,7 +1124,7 @@ reading table against which the outcome below was scored). The results are mixed
 and we report both halves.
 
 *Pre-treatment* replicates in magnitude but not in significance. Using the
-authors' own cell-type annotation, Δ = +0.56 (CD4 T cells) to +0.65 (including
+authors' own cell-type annotation, Δ = +0.55 (CD4 T cells) to +0.64 (including
 regulatory T cells), against +0.74 in the discovery cohort, with the predicted
 direction in all twelve configurations tested. The effect is not explained by
 anatomical site: sites are balanced across response groups, the signature does not
@@ -1171,7 +1171,7 @@ could not have reached significance in any case.
 discovery cohort (P = 0.0005 post-treatment, P = 0.009 pre-treatment); in the two
 follow-ups **no arm reached significance twice**, and the follow-ups fail in mirror
 image — pre-treatment matches in magnitude in the same-disease cohort
-(Δ = +0.56 versus +0.74) but is underpowered there and absent in HCC, while
+(Δ = +0.55 versus +0.74) but is underpowered there and absent in HCC, while
 post-treatment reverses in the same-disease cohort and is reproduced in magnitude
 and significance in HCC (Δ = +0.874, P = 0.043). We therefore describe the
 patient-level finding as **suggestive: significant on discovery in both arms,
@@ -2479,9 +2479,11 @@ locked 16-gene signature, and the signature with TPI1 removed, at both timepoint
 permutation (Supplementary Table S19), because these genes are correlated**.
 
 **d**, Family composition of the top of the residualised multiome axis: glycolysis
-is enriched 21.3-fold (15 genes) among the axis-defining genes, and none of the
-eleven biological modules tested exceeds a composition-matched null, so the axis is
-a definable state rather than a restatement of activation intensity. **e**, Motif
+is enriched 21.3-fold (15 genes) among the axis-defining genes, the activation
+module itself sits at a composition-matched null (SMD = −0.003), and of the eleven
+biological modules tested only OXPHOS and the proliferation positive control —
+which must exceed the null, or the null is uninformative — rise above it, so the axis
+is a definable state rather than a restatement of activation intensity. **e**, Motif
 enrichment in axis-high versus background peaks, restricted to
 activation-invariant peaks. ⚠ Panel **e** is an axis-level chromatin
 characterisation and is **not** the claim, withdrawn during revision, that the

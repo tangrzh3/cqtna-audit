@@ -514,10 +514,12 @@ could not distinguish that from a true null.
 Because MR names one gene of a pathway, we asked what that gene marks. In
 purified CD4⁺ T cell multiome data, residualising expression on activation
 intensity leaves an axis enriched 21.3-fold for glycolysis and 10.3-fold for
-ribosomal proteins, while **none of the eleven biological modules tested exceeds
-a composition-matched null** — a definable anabolic state rather than a
-restatement of activation strength, with a concordant chromatin signature whose
-AP-1 motif enrichment persists in activation-invariant peaks (Fig. 7).
+ribosomal proteins, while **the activation module itself sits at a
+composition-matched null (SMD = −0.003), and of the eleven biological modules
+tested only OXPHOS and the proliferation positive control exceed that null** —
+a definable anabolic state rather than a restatement of activation strength,
+with a concordant chromatin signature whose AP-1 motif enrichment persists in
+activation-invariant peaks (Fig. 7).
 
 As first built the analysis was circular with respect to TPI1, which entered both
 the defining score and the enrichment family. Rebuilt without it, everything else

@@ -135,11 +135,20 @@ ax.axvline(1, color="#999", lw=.8, ls=":")
 ax.set_yticks(np.arange(len(up))); ax.set_yticklabels(lbl, fontsize=7.8)
 ax.set_xlim(0, max(up.enrichment) * 1.42)
 ax.set_xlabel("Enrichment in the top of the residual axis")
+# ⚠ 2026-08-15 更正：原注释写的是"all 11 biological modules within the matched
+# null (9/11)"，自相矛盾且不实。43c 里 OXPHOS 与 Proliferation 两个模块**超过**
+# 零模型，而 Proliferation 是 step43 预先写死的**阳性对照**（它不超过则该检验
+# 功效不足、零模型无信息）。要说明"该轴不是活化强度的换个说法"，该引的是
+# Activation 模块自己贴在零模型上这一条。正文与 v2 图注已同步改。
 nnull = int((~ver.exceeds_null).sum())
+act = float(ver.loc[ver.module == "Activation", "smd"].iloc[0])
+over = ", ".join(ver.loc[ver.exceeds_null, "module"])
 ax.text(.98, .04,
-        "all {} biological modules within\nthe matched null ({}/{})"
-        .format(len(ver), nnull, len(ver)),
-        transform=ax.transAxes, ha="right", va="bottom", fontsize=7.2,
+        "Activation sits at the matched null (SMD = {:+.3f})\n"
+        "{}/{} modules within it; {} exceed\n"
+        "(Proliferation is the pre-specified positive control)"
+        .format(act, nnull, len(ver), over),
+        transform=ax.transAxes, ha="right", va="bottom", fontsize=6.6,
         color="#444", bbox=dict(fc="white", ec="#DDD", lw=.6, pad=2.5))
 ax.set_title("d  A definable state, orthogonal to activation",
              fontsize=9.5, loc="left", pad=6)

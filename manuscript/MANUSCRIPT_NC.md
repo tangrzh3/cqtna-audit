@@ -290,7 +290,7 @@ response label, fixed as primary in advance; rank tests are secondary. In the
 discovery cohort both arms are significant (post-treatment Δ = +0.87,
 P = 0.0005; pre-treatment Δ = +0.74, P = 0.009). In two pre-registered follow-ups
 **no arm was confirmed a second time**, and they fail in mirror image:
-pre-treatment matches in magnitude in the same-disease cohort (+0.56 versus
+pre-treatment matches in magnitude in the same-disease cohort (+0.55 versus
 +0.74) but is underpowered there and absent in the cross-disease one, while
 post-treatment reverses in the same-disease cohort and reproduces at full
 magnitude in the cross-disease one (Δ = +0.874, P = 0.043) (Fig. 7).

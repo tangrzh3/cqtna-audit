@@ -1,5 +1,17 @@
 """Build the Genome Biology version from the full manuscript.
 
+⚠⚠ 2026-08-17 起本脚本**默认不再覆盖 `MANUSCRIPT_GB.md`**，改写到
+    `MANUSCRIPT_GB_regenerated.md`。原因：
+
+      `MANUSCRIPT_GB.md` 早已**不是**本脚本的产物。第四轮审稿之后它被手工大改过
+      （补进完整 Methods 与 References、摘要压到 382 词、图目录改成九图口径、
+      三幕重排），而本脚本的 CUTS 锚点没跟着更新——现在跑起来会打出一串
+      `[anchor missing]`，产出 **14,259 词**的正文，而手工母稿是 **7,886 词**。
+      直接覆盖等于把上一窗口的手工成果删掉。
+
+    要真的重建，先看 `MANUSCRIPT_GB_regenerated.md` 与母稿的 diff，
+    确认锚点已修好，再用 `python build_gb.py --overwrite`。
+
 GB constraints: structured abstract ~350 words; main text 6,000-8,000 by
 convention; no hard display-item cap. Reviewer 3 asked for a 25-35% cut of the
 main text with the process material moved to Supplementary, and for the seven
@@ -19,10 +31,12 @@ Usage: python build_gb.py
 import io
 import os
 import re
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "MANUSCRIPT_v2_dual_thread.md")
-OUT = os.path.join(HERE, "MANUSCRIPT_GB.md")
+MASTER = os.path.join(HERE, "MANUSCRIPT_GB.md")
+OUT = os.path.join(HERE, "MANUSCRIPT_GB_regenerated.md")   # 见文件头的警告
 
 GB_ABSTRACT = """## Abstract
 
@@ -108,6 +122,13 @@ CUTS = [
 
 
 def main():
+    out = OUT
+    if "--overwrite" in sys.argv:
+        out = MASTER
+        print("*** --overwrite given: writing MANUSCRIPT_GB.md itself.")
+        print("*** Make sure the CUTS anchors are current -- any [anchor missing]")
+        print("*** below means this run is dropping less than it should.\n")
+
     s = io.open(SRC, encoding="utf-8").read()
 
     i = s.index("## Abstract")
@@ -126,7 +147,7 @@ def main():
         removed.append((len(s[i:j].split()), what, where))
         s = s[:i] + s[j:]
 
-    io.open(OUT, "w", encoding="utf-8").write(s)
+    io.open(out, "w", encoding="utf-8").write(s)
 
     L = s.split("\n")
     def seg(a, b):
@@ -135,7 +156,7 @@ def main():
         return next(k for k, l in enumerate(L) if l.startswith(p))
     body = seg(find("## 1. Introduction"), find("## 5. Methods"))
     ab = seg(find("## Abstract") + 1, find("## 1. Introduction"))
-    print(f"wrote {os.path.basename(OUT)}")
+    print(f"wrote {os.path.basename(out)}")
     print(f"  abstract {ab} words (GB convention ~350)")
     print(f"  main text (Introduction through Discussion) {body:,} words")
     print("  moved to Supplementary:")
