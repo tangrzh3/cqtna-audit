@@ -30,7 +30,11 @@ swept.}
 }
 \value{
 a list with `known_sweep`, `locus_sweep`, the significant-locus
-  distances, and whether the chosen threshold falls in a gap.
+  distances, and `threshold_neighbourhood`: the nearest significant-locus
+  distance below and above the chosen threshold, with their ratio and its
+  log10. No verdict is attached. An earlier version printed "falls in a gap"
+  when the ratio exceeded 4, a cutoff with no basis beyond looking reasonable
+  on one dataset. Read the two neighbours and decide.
 }
 \description{
 Two different conventions get called "the 1 Mb window" and they carry
@@ -42,8 +46,11 @@ how independent loci are defined and moves the denominator.
 A threshold chosen to flatter a result weakens when tightened. If the fold
 *rises* as the window narrows, the value you reported is the conservative one.
 
-The distance for a significant locus is taken over that locus's significant
-records only, because that is what the binary flag is computed from. Taking it
-over every record in the locus lets a non-significant variant supply the
-distance and yields a number that contradicts the flag.
+Distances are reported on the same footing as the binary flag. A locus counts
+as known when ANY of its records lies inside the window, so the headline
+distance is the minimum over all records at that locus. The minimum over the
+locus's significant records is reported alongside as
+`significant_distances_sig_records_bp`: when the two differ, the locus is
+near a known lead SNP because of a record that is not itself significant, and
+that is worth seeing rather than hiding behind either convention.
 }

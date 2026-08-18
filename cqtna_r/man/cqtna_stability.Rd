@@ -4,17 +4,26 @@
 \alias{cqtna_stability}
 \title{C. List stability against a second outcome GWAS}
 \usage{
-cqtna_stability(mr, mr2, fdr = 0.05)
+cqtna_stability(mr, mr2, fdr = 0.05, locus_kb = NULL)
 }
 \arguments{
 \item{mr, mr2}{two `cqtna_mr` objects from the same exposure data and
 different outcome GWAS.}
 
 \item{fdr}{FDR threshold.}
+
+\item{locus_kb}{window used for the joint clustering. Defaults to the window
+both tables were built with, and errors if they disagree rather than
+silently picking one.}
 }
 \value{
-a list with Jaccard indices and what moved.
+a list with Jaccard indices at gene and locus level, what moved, the
+  shared locus keys, and a `coverage` block separating "lost" from "never
+  tested in the second outcome".
 }
 \description{
-C. List stability against a second outcome GWAS
+Locus identity is recomputed on the UNION of both tables' coordinates, so the
+two share one partition. Per-table locus ids are not comparable: on the demo
+data both tables carry an internal id 206, one at 16:87.7 Mb and one at
+16:89.7 Mb, and a naive set intersection called them the same locus.
 }

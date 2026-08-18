@@ -46,6 +46,11 @@ test_that("C: the two outcome rounds share 5 of 11 genes", {
   expect_equal(s$genes_outcome2, 6L)
   expect_equal(s$genes_shared, 5L)
   expect_equal(as.numeric(sprintf("%.3f", s$jaccard_gene)), 0.455)
+  # 位点身份改为在两表并集上统一聚类后，locus Jaccard 仍是 0.286——
+  # 但先前那个 0.286 是碰巧对的：靠的是两表各自的整数编号恰好撞上
+  expect_equal(as.numeric(sprintf("%.3f", s$jaccard_locus)), 0.286)
+  expect_equal(s$loci_shared, 2L)
+  expect_true(all(grepl("^(1|16):", s$shared_locus_keys)))
 })
 
 test_that("D: the instrument ladder is 28 -> 3 -> 2 -> 1", {
@@ -79,23 +84,31 @@ test_that("G: tightening either window raises the fold", {
 
 test_that("G: the 1 Mb cut falls in a gap in the distances", {
   g <- cqtna_window_sweep(mr, kn)
+  # locus-level distances, matching the locus-level flag. The series computed
+  # over significant records only is reported alongside and differs at four loci.
   expect_equal(round(g$significant_distances_bp / 1000),
+               c(5, 11, 42, 2167, 4808, 20121, 36448))
+  expect_equal(round(g$significant_distances_sig_records_bp / 1000),
                c(5, 11, 74, 2167, 7275, 20136, 38494))
-  expect_true(g$threshold_gap$in_gap)
-  expect_equal(round(g$threshold_gap$nearest_below_bp / 1000), 74)
-  expect_equal(round(g$threshold_gap$nearest_above_bp / 1000), 2167)
+  n <- g$threshold_neighbourhood
+  expect_equal(round(n$nearest_below_bp / 1000), 42)
+  expect_equal(round(n$nearest_above_bp / 1000), 2167)
+  # 只报邻点，不下"落在空隙里"的判语——那个 4 倍判据没有依据，已删
 })
 
-test_that("no gene reaches target-supported, and the tiers hold", {
+test_that("no gene reaches target-supported, and the evidence fields hold", {
   au <- cqtna_audit(cqtna_demo("mr"), cqtna_demo("known"),
                     mismatch = cqtna_demo("mismatch"),
                     mr_alt = cqtna_demo("mr_alt"),
                     instruments = cqtna_demo("instruments"),
                     expression = cqtna_demo("expression"),
                     target_cell_type = "CD4_T", build = "GRCh38")
-  tiers <- vapply(au$tiers, function(r) r$tier, character(1))
-  expect_false(any(tiers == "target-supported"))
-  expect_true(all(tiers %in% c("screened", "unresolved", "state-informative")))
+  expect_false(any(grepl("target-supported", au$evidence$overall_interpretation)))
+  # CTU2 is significant only under the second outcome, so it carries a status of
+  # its own rather than being forced into known/novel here
+  expect_setequal(unique(au$evidence$known_locus_status),
+                  c("known", "novel", "not significant here"))
+  expect_false(any(au$evidence$manual_diagnostics_completed))
   expect_length(au$not_automated, 3L)
   # the refusal must survive into the rendered report, not only the object
   txt <- cqtna_report(au)

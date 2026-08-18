@@ -6,8 +6,6 @@
 ## than propagating silently into a user's report.
 
 #' Benjamini-Hochberg adjusted p-values
-#' @param p numeric vector of p-values
-#' @return numeric vector of adjusted p-values
 #' @keywords internal
 #' @noRd
 cq_bh <- function(p) stats::p.adjust(p, method = "BH")
@@ -41,34 +39,47 @@ cq_fisher_greater <- function(a, b, c, d) {
 #' Single-linkage clustering of variant positions into independent loci
 #'
 #' Two variants on one chromosome join the same locus when they are within
-#' `window_kb`. Returns an integer locus id per input row, in input order.
+#' `window_kb`. Returns a STABLE character key per input row, in input order:
+#' `chr:start-end`, the extent of the cluster the row belongs to.
+#'
+#' The key is a character, not an integer counter, for a reason. Module C
+#' compares loci between two outcome tables, and per-table integer ids are not
+#' comparable -- id 206 was locus 16:87.7 Mb in one table and 16:89.7 Mb in the
+#' other, 2 Mb apart, and intersect() called them the same locus. A key carrying
+#' chromosome and extent cannot make that mistake.
+#'
+#' Note that single-linkage extents depend on which records are present, so keys
+#' from two different record sets are still not directly comparable. That is why
+#' [cqtna_stability()] re-clusters on the union rather than comparing keys built
+#' separately.
 #' @keywords internal
 #' @noRd
 cq_assign_loci <- function(chr, pos, window_kb) {
   chr <- as.character(chr)
   pos <- as.numeric(pos)
   n <- length(chr)
-  if (n == 0L) return(integer(0))
+  if (n == 0L) return(character(0))
   ord <- order(chr, pos)
-  out <- integer(n)
+  grp <- integer(n)
   id <- 0L
   lc <- NA_character_
   lp <- NA_real_
   for (i in ord) {
     if (is.na(lc) || chr[i] != lc || (pos[i] - lp) > window_kb * 1000) id <- id + 1L
-    out[i] <- id
+    grp[i] <- id
     lc <- chr[i]
     lp <- pos[i]
   }
-  out
+  rng <- vapply(split(pos, grp), function(v) paste0(min(v), "-", max(v)), character(1))
+  ch <- vapply(split(chr, grp), function(v) v[1], character(1))
+  paste0(ch[as.character(grp)], ":", rng[as.character(grp)])
 }
 
 ## Known-locus lookup -----------------------------------------------------
 ##
 ## cq_known_index / cq_nearest_bp / cq_is_known share one index so the distance
 ## and the binary flag can never disagree about whether a variant is inside a
-## given window. Keeping them separate is how the Python version first produced
-## a distance that contradicted its own flag.
+## given window.
 
 #' @keywords internal
 #' @noRd
@@ -89,7 +100,7 @@ cq_nearest_bp <- function(idx, chr, pos) {
     sel <- which(chr == ch)
     if (is.null(arr) || length(arr) == 0L) next
     p <- pos[sel]
-    j <- findInterval(p, arr)          # number of arr entries <= p
+    j <- findInterval(p, arr)
     lo <- ifelse(j >= 1L, abs(arr[pmax(j, 1L)] - p), Inf)
     hi <- ifelse(j < length(arr), abs(arr[pmin(j + 1L, length(arr))] - p), Inf)
     out[sel] <- pmin(lo, hi)
@@ -101,6 +112,31 @@ cq_nearest_bp <- function(idx, chr, pos) {
 #' @noRd
 cq_is_known <- function(idx, chr, pos, window_kb) {
   cq_nearest_bp(idx, chr, pos) <= window_kb * 1000
+}
+
+#' Locus-level known status -- the single source of truth
+#'
+#' A locus is "known" if ANY record at that locus lies within `window_kb` of a
+#' known lead SNP. Status is a property of the LOCUS, computed once over every
+#' record, and everything downstream inherits it: the background count, the
+#' significant count, the gene labels, module G's sweeps and the evidence
+#' fields.
+#'
+#' This exists because the first version computed the denominator over all
+#' records and the numerator over significant records only, and labelled genes
+#' from per-record flags. Those three conventions can disagree: a gene could be
+#' listed as novel while the locus it sits on was counted as known. On the demo
+#' data they happen to agree, which is exactly why it needed a test rather than
+#' an inspection.
+#'
+#' @return a list with `by_locus` (named logical, one entry per locus) and
+#'   `by_record` (logical, one entry per record, the locus status broadcast back)
+#' @keywords internal
+#' @noRd
+cq_locus_known <- function(locus, chr, pos, idx, window_kb) {
+  rec <- cq_is_known(idx, chr, pos, window_kb)
+  by_locus <- tapply(rec, locus, any)
+  list(by_locus = by_locus, by_record = unname(by_locus[as.character(locus)]))
 }
 
 #' Format base pairs as kb for display

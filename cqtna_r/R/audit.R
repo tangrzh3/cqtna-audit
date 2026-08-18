@@ -1,4 +1,4 @@
-## The driver, and the evidence tiers.
+## The driver, and the evidence fields.
 
 #' The three diagnostics this tool cannot run
 #'
@@ -20,69 +20,103 @@ cqtna_not_automated <- function() {
                      "reliably summarise")))
 }
 
-#' Assign an evidence tier to each nominated gene
+#' Per-gene evidence, as independent fields
 #'
-#' The tier says what *kind* of evidence a gene has. Stability across outcome
-#' GWAS is reported beside it rather than folded into it: a gene on a known locus
-#' that also fails to replicate is still a gene on a known locus, and collapsing
-#' the two produces rows reading "unresolved" over a basis saying "already known".
+#' NOT a single ordered tier. An earlier version collapsed everything into one
+#' label, so a compartment ratio above 2 overwrote the locus evidence and a gene
+#' on a known locus came back reading "state-informative" with its known-locus
+#' status gone. These are different facts about a gene and none of them ranks
+#' above another:
 #'
-#' Deliberately conservative. **Nothing reaches `target-supported` from this
-#' tool**, because the three diagnostics it cannot run are exactly the ones that
-#' would license that word.
+#' \itemize{
+#'   \item known_locus_status -- known / novel, inherited from the locus
+#'   \item outcome_stability -- retained / lost / gained / not tested
+#'   \item compartment_ratio, compartment_flag -- expression outside the target
+#'     cell type
+#'   \item peak_distance_bp -- eQTL-to-GWAS peak distance
+#'   \item manual_diagnostics_completed -- always FALSE from this tool
+#'   \item overall_interpretation -- a sentence assembled from the fields above,
+#'     never a grade
+#' }
 #' @keywords internal
 #' @noRd
-cq_tiers <- function(a, stab, comp) {
-  rows <- list()
-  for (g in a$known_genes)
-    rows[[g]] <- list(tier = "screened",
-                      basis = "significant, but on a locus already known for this outcome",
-                      stability = "not tested")
-  for (g in a$novel_genes)
-    rows[[g]] <- list(tier = "unresolved",
-                      basis = "significant on a locus not previously reported for this outcome",
-                      stability = "not tested")
+cq_evidence <- function(a, stab, comp, peaks) {
+  gained <- if (is.null(stab)) character(0) else stab$gained
+  genes <- sort(unique(c(a$known_genes, a$novel_genes, gained)))
+  if (!length(genes)) return(data.frame())
+
+  status <- rep("not significant here", length(genes))
+  names(status) <- genes
+  status[genes %in% a$novel_genes] <- "novel"
+  status[genes %in% a$known_genes] <- "known"
+
+  stability <- rep("not tested", length(genes))
+  names(stability) <- genes
   if (!is.null(stab)) {
-    for (g in names(rows))
-      rows[[g]]$stability <- if (g %in% stab$lost) "lost under the second outcome GWAS"
-                             else "retained under the second outcome GWAS"
-    for (g in stab$gained)
-      if (is.null(rows[[g]]))
-        rows[[g]] <- list(tier = "unresolved",
-                          basis = "significant only under the second outcome GWAS",
-                          stability = "gained under the second outcome GWAS")
+    stability[] <- "retained under the second outcome GWAS"
+    stability[genes %in% stab$lost] <- "lost under the second outcome GWAS"
+    stability[genes %in% gained] <- "gained under the second outcome GWAS"
+    never <- stab$coverage$genes_never_tested_in_2
+    stability[genes %in% never] <- "not tested under the second outcome GWAS"
   }
+
+  ratio <- rep(NA_real_, length(genes))
+  flag <- rep(NA_character_, length(genes))
   if (!is.null(comp) && nrow(comp)) {
-    for (i in seq_len(nrow(comp))) {
-      g <- comp$gene[i]
-      r <- comp$ratio_other_over_target[i]
-      if (!is.null(rows[[g]]) && !is.na(r) && r > 2) {
-        rows[[g]]$tier <- "state-informative"
-        rows[[g]]$basis <- sprintf(
-          paste("expression dominated by %s (%sx the target cell type), so",
-                "tissue-level data cannot validate a target-cell-specific mechanism"),
-          comp$highest_other[i], r)
-      }
-    }
+    m <- match(genes, comp$gene)
+    ratio <- comp$ratio_other_over_target[m]
+    flag <- comp$compartment_flag[m]
   }
-  rows
+  dist <- rep(NA_real_, length(genes))
+  if (!is.null(peaks) && nrow(peaks)) dist <- peaks$distance_bp[match(genes, peaks$gene)]
+
+  interp <- vapply(seq_along(genes), function(i) {
+    bits <- c(
+      if (status[[i]] == "known") "on a locus already known for this outcome"
+      else if (status[[i]] == "novel") "on a locus not previously reported for this outcome"
+      else NULL,
+      if (!is.na(flag[i]) && flag[i] != "comparable across compartments") flag[i] else NULL,
+      if (grepl("^lost", stability[[i]])) "not retained under the second outcome GWAS" else NULL)
+    if (!length(bits)) "" else paste(bits, collapse = "; ")
+  }, character(1))
+
+  data.frame(gene = genes, known_locus_status = unname(status),
+             outcome_stability = unname(stability),
+             compartment_ratio = unname(ratio), compartment_flag = unname(flag),
+             peak_distance_bp = unname(dist),
+             manual_diagnostics_completed = FALSE,
+             overall_interpretation = interp,
+             stringsAsFactors = FALSE, row.names = NULL)
+}
+
+#' @keywords internal
+#' @noRd
+cq_status <- function(x, configured) {
+  if (!configured) "not run - no input supplied"
+  else if (is.null(x)) "configured but empty"
+  else if (is.data.frame(x) && !nrow(x)) "configured but empty"
+  else if (is.list(x) && !is.data.frame(x) && !length(x)) "configured but empty"
+  else "run"
 }
 
 #' Run the audit
 #'
-#' Runs modules A-G on a candidate list and returns one object carrying the
-#' results, the evidence tiers, and the three diagnostics that were not run.
+#' Runs modules A-G and returns one object carrying the results, the per-gene
+#' evidence fields, a run status for every module, and the three diagnostics
+#' that were not run.
 #'
 #' @param mr MR results: a data frame, or a `cqtna_mr` from [as_cqtna_mr()].
 #' @param known known loci for **this outcome**, or a `cqtna_known`.
 #' @param mismatch a different disease's known-locus list, as the negative
-#'   control. Omitting it is allowed and warns: without it you cannot tell
-#'   outcome-specific attribution from loci dense in every disease.
+#'   control. Omitting it is allowed and warns. Used for module A and, when
+#'   supplied, for a mismatched window sweep reported as `G_nc`.
 #' @param mr_alt MR results from a second outcome GWAS, for module C.
 #' @param instruments,expression,peaks optional inputs for modules D, E and F.
 #' @param target_cell_type the cell type the exposure was measured in, for module E.
 #' @param build genome build; required unless `mr` is already a `cqtna_mr`.
-#' @param locus_kb,known_kb,fdr the three conventions. Module G sweeps the first two.
+#' @param locus_kb,known_kb,fdr the three conventions. If `mr` arrives pre-built
+#'   with a different `locus_kb` it is re-clustered, so the window named in the
+#'   report is always the window actually used.
 #' @return an object of class `cqtna_audit`.
 #' @export
 #' @examples
@@ -93,7 +127,23 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
                         instruments = NULL, expression = NULL, peaks = NULL,
                         target_cell_type = NULL, build = NULL,
                         locus_kb = 1000, known_kb = 1000, fdr = 0.05) {
-  if (!inherits(mr, "cqtna_mr")) mr <- as_cqtna_mr(mr, locus_kb, build)
+  cq_validate_window(locus_kb, "locus_kb")
+  cq_validate_window(known_kb, "known_kb")
+  cq_validate_fdr(fdr)
+
+  reclustered <- FALSE
+  if (!inherits(mr, "cqtna_mr")) {
+    mr <- as_cqtna_mr(mr, locus_kb, build)
+  } else if (!identical(as.numeric(attr(mr, "locus_kb")), as.numeric(locus_kb))) {
+    ## The window named in the report has to be the window actually used. An
+    ## earlier version took an object clustered at 100 kb, never re-clustered,
+    ## and printed 1000 kb in the settings line.
+    message("mr was built with locus_kb = ", attr(mr, "locus_kb"),
+            " but the audit was asked for ", locus_kb,
+            "; re-clustering so the reported window is the one used.")
+    mr <- as_cqtna_mr(as.data.frame(mr), locus_kb, attr(mr, "build"))
+    reclustered <- TRUE
+  }
   if (!inherits(known, "cqtna_known")) known <- as_cqtna_known(known, build)
 
   res <- list()
@@ -111,7 +161,7 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
   if (!is.null(mr_alt)) {
     if (!inherits(mr_alt, "cqtna_mr"))
       mr_alt <- as_cqtna_mr(mr_alt, locus_kb, attr(mr, "build"))
-    res$C <- cqtna_stability(mr, mr_alt, fdr)
+    res$C <- cqtna_stability(mr, mr_alt, fdr, locus_kb)
   }
   if (!is.null(instruments)) res$D <- cqtna_ladder(instruments)
   sig_genes <- sort(unique(mr$gene[mr$fdr < fdr]))
@@ -119,10 +169,22 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
     res$E <- cqtna_compartment(expression, sig_genes, target_cell_type)
   if (!is.null(peaks)) res$F <- cqtna_peak_distance(peaks)
   res$G <- cqtna_window_sweep(mr, known, known_kb, locus_kb, fdr)
+  if (!is.null(mismatch))
+    res$G_nc <- cqtna_window_sweep(mr, mismatch, known_kb, locus_kb, fdr)
 
-  res$tiers <- cq_tiers(res$A, res$C, res$E)
+  res$evidence <- cq_evidence(res$A, res$C, res$E, res$F)
   res$not_automated <- cqtna_not_automated()
+  res$module_status <- c(
+    A = cq_status(res$A, TRUE),
+    A_nc = cq_status(res$A_nc, !is.null(mismatch)),
+    B = cq_status(res$B, TRUE),
+    C = cq_status(res$C, !is.null(mr_alt)),
+    D = cq_status(res$D, !is.null(instruments)),
+    E = cq_status(res$E, !is.null(expression)),
+    F = cq_status(res$F, !is.null(peaks)),
+    G = cq_status(res$G, TRUE),
+    G_nc = cq_status(res$G_nc, !is.null(mismatch)))
   res$settings <- list(fdr = fdr, locus_kb = locus_kb, known_kb = known_kb,
-                       build = attr(mr, "build"))
+                       build = attr(mr, "build"), reclustered = reclustered)
   structure(res, class = "cqtna_audit")
 }

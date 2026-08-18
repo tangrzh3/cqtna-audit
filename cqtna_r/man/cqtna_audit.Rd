@@ -25,8 +25,8 @@ cqtna_audit(
 \item{known}{known loci for **this outcome**, or a `cqtna_known`.}
 
 \item{mismatch}{a different disease's known-locus list, as the negative
-control. Omitting it is allowed and warns: without it you cannot tell
-outcome-specific attribution from loci dense in every disease.}
+control. Omitting it is allowed and warns. Used for module A and, when
+supplied, for a mismatched window sweep reported as `G_nc`.}
 
 \item{mr_alt}{MR results from a second outcome GWAS, for module C.}
 
@@ -36,14 +36,17 @@ outcome-specific attribution from loci dense in every disease.}
 
 \item{build}{genome build; required unless `mr` is already a `cqtna_mr`.}
 
-\item{locus_kb, known_kb, fdr}{the three conventions. Module G sweeps the first two.}
+\item{locus_kb, known_kb, fdr}{the three conventions. If `mr` arrives pre-built
+with a different `locus_kb` it is re-clustered, so the window named in the
+report is always the window actually used.}
 }
 \value{
 an object of class `cqtna_audit`.
 }
 \description{
-Runs modules A-G on a candidate list and returns one object carrying the
-results, the evidence tiers, and the three diagnostics that were not run.
+Runs modules A-G and returns one object carrying the results, the per-gene
+evidence fields, a run status for every module, and the three diagnostics
+that were not run.
 }
 \examples{
 au <- cqtna_audit(cqtna_demo("mr"), cqtna_demo("known"),

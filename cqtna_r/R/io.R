@@ -31,14 +31,17 @@ as_cqtna_mr <- function(mr, locus_kb = 1000, build = NULL) {
   if (length(missing))
     stop("mr is missing required column(s): ", paste(missing, collapse = ", "),
          ".\n  Required: ", paste(CQ_REQUIRED_MR, collapse = ", "), call. = FALSE)
+  cq_validate_window(locus_kb, "locus_kb")
   d <- d[!is.na(d$p), , drop = FALSE]
   if (!nrow(d)) stop("mr has no rows with a non-missing p-value.", call. = FALSE)
   if (anyDuplicated(d$record_id))
     warning("record_id is not unique; rows are audited as supplied.", call. = FALSE)
   d$chr <- as.character(d$chr)
-  d$pos <- as.numeric(d$pos)
-  d$p <- as.numeric(d$p)
+  d$pos <- suppressWarnings(as.numeric(d$pos))
+  d$p <- suppressWarnings(as.numeric(d$p))
   d$gene <- as.character(d$gene)
+  d$record_id <- as.character(d$record_id)
+  cq_validate_mr(d)
   d$locus <- cq_assign_loci(d$chr, d$pos, locus_kb)
   d$fdr <- cq_bh(d$p)          # recomputed, never read from the input
   attr(d, "build") <- build
@@ -66,7 +69,8 @@ as_cqtna_known <- function(known, build = NULL) {
     stop("known is missing required column(s): ", paste(missing, collapse = ", "),
          call. = FALSE)
   k$chr <- as.character(k$chr)
-  k$pos <- as.numeric(k$pos)
+  k$pos <- suppressWarnings(as.numeric(k$pos))
+  cq_validate_known(k)
   if (!"source" %in% names(k))
     warning("known has no `source` column. Keep the provenance of each lead SNP: ",
             "if any of it comes from the outcome GWAS's own publication, asking ",
@@ -96,6 +100,7 @@ cq_check_build <- function(mr, known) {
     stop("genome build mismatch: mr is ", a, ", known-locus list is ", b, ".\n",
          "  Lift one over before auditing. A mismatch here does not error ",
          "downstream; it just moves every locus.", call. = FALSE)
+  cq_check_chr_style(mr$chr, known$chr)
   invisible(TRUE)
 }
 

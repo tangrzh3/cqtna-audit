@@ -15,6 +15,6 @@ cqtna_report(x, file = NULL)
 the report text, invisibly when written to a file.
 }
 \description{
-Same sections as the Python reference implementation, so the two can be
-diffed.
+Every module gets a section, including the ones that did not run, so nothing
+is silently skipped.
 }

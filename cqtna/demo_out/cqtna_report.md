@@ -55,9 +55,9 @@ Settings: FDR < 0.05, locus window 1000 kb, known-locus window 1000 kb.
 | 500 | 728 | 7 | 4.59 | 0.0208 |
 | 1000 | 554 | 7 | 4.09 | 0.0281 |
 
-- distances of significant loci to the nearest known lead SNP (kb): 5, 11, 74, 2,167, 7,275, 20,136, 38,494
+- distances of significant loci to the nearest known lead SNP (kb): 5, 11, 42, 2,167, 4,808, 20,121, 36,448
 - median 2,167 kb, against 10,728 kb for all testable loci
-- the 1,000 kb threshold falls between 74 kb and 2,167 kb — **a gap, so the cut is not near your data**
+- the 1,000 kb threshold falls between 42 kb and 2,167 kb — **a gap, so the cut is not near your data**
 
 ⚠ A window chosen to flatter a result weakens when tightened. If the fold *rises* as the window narrows, the reported value is the conservative one.
 

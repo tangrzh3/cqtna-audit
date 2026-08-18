@@ -158,15 +158,26 @@ def load_known(path):
 
 # ----------------------------------------------------------------- modules
 def module_a(d, known, cfg, label="known-locus list"):
-    """locus attribution, by independent locus"""
+    """locus attribution, by independent locus
+
+    ⚠ "known" is a property of the LOCUS, computed once over every record and
+    inherited by the significant loci and by the gene labels. The first version
+    took the denominator over all records, the numerator over significant
+    records only, and labelled genes from per-record flags -- three conventions
+    that can disagree, so a gene could be listed as novel while its locus was
+    counted as known. They happen to agree on the demo data, which is why this
+    needed a test rather than an inspection.
+    """
     f = known_flagger(known, cfg["known_window_kb"])
     d = d.copy()
-    d["known"] = [f(c, p) for c, p in zip(d.chr, d.pos)]
-    bg = d.groupby("locus").agg(known=("known", "any"))
-    BT, BK = len(bg), int(bg.known.sum())
+    rec = pd.Series([f(c, p) for c, p in zip(d.chr, d.pos)], index=d.index)
+    locus_known = rec.groupby(d.locus).any()          # 唯一口径
+    d["known"] = d.locus.map(locus_known)             # 广播回记录
+
+    BT, BK = len(locus_known), int(locus_known.sum())
     sig = d[d.fdr < cfg["fdr_threshold"]]
-    sg = sig.groupby("locus").agg(known=("known", "any"))
-    ST, SK = len(sg), int(sg.known.sum())
+    sig_loci = sig.locus.unique()
+    ST, SK = len(sig_loci), int(locus_known[sig_loci].sum())
     fold = ((SK / ST) / (BK / BT)) if ST and BK else float("nan")
     p = fisher_greater(SK, ST - SK, BK - SK, (BT - BK) - (ST - SK)) if ST else float("nan")
     return dict(reference=label, background_known=BK, background_loci=BT,
@@ -200,18 +211,51 @@ def module_b(d, cfg):
 
 
 def module_c(d, d2, cfg):
-    """list stability against a second outcome GWAS"""
+    """list stability against a second outcome GWAS
+
+    ⚠ Locus identity must be recomputed on the UNION of both tables' coordinates.
+    Each table's own `locus` column is an integer counter assigned within that
+    table, so the counters are not comparable: on the demo data both tables carry
+    an id 206, one at 16:87.7 Mb and one at 16:89.7 Mb, and a naive set
+    intersection called them the same locus. Clustering the union gives both
+    tables one shared partition, and the key carries the chromosome so two
+    chromosomes can never match.
+    """
     t = cfg["fdr_threshold"]
-    a = set(d.gene[d.fdr < t])
-    b = set(d2.gene[d2.fdr < t])
-    la = set(d.locus[d.fdr < t])
-    lb = set(d2.locus[d2.fdr < t])
+    n1 = len(d)
+    chrs = d.chr.tolist() + d2.chr.tolist()
+    poss = d.pos.tolist() + d2.pos.tolist()
+    uni = assign_loci(chrs, poss, cfg["locus_window_kb"])
+    # 位点键写成 chr:start-end，既可比又能看出簇的跨度
+    ext = {}
+    for c, p, g in zip(chrs, poss, uni):
+        lo, hi = ext.get(g, (p, p))
+        ext[g] = (min(lo, p), max(hi, p))
+    key = [f"{c}:{ext[g][0]}-{ext[g][1]}" for c, g in zip(chrs, uni)]
+    k1, k2 = key[:n1], key[n1:]
+
+    s1 = (d.fdr < t).values
+    s2 = (d2.fdr < t).values
+    a = set(d.gene[s1])
+    b = set(d2.gene[s2])
+    la = {k for k, keep in zip(k1, s1) if keep}
+    lb = {k for k, keep in zip(k2, s2) if keep}
+    v1 = set(zip(d.chr, d.pos, d.gene))
+    v2 = set(zip(d2.chr, d2.pos, d2.gene))
     return dict(genes_outcome1=len(a), genes_outcome2=len(b),
                 genes_shared=len(a & b),
                 jaccard_gene=round(len(a & b) / len(a | b), 3) if (a | b) else None,
                 loci_outcome1=len(la), loci_outcome2=len(lb),
+                loci_shared=len(la & lb),
                 jaccard_locus=round(len(la & lb) / len(la | lb), 3) if (la | lb) else None,
-                lost=sorted(a - b), gained=sorted(b - a))
+                lost=sorted(a - b), gained=sorted(b - a),
+                shared_locus_keys=sorted(la & lb),
+                coverage=dict(records_outcome1=n1, records_outcome2=len(d2),
+                              gene_variant_pairs_shared=len(v1 & v2),
+                              gene_variant_pairs_only1=len(v1 - v2),
+                              gene_variant_pairs_only2=len(v2 - v1),
+                              genes_never_tested_in_2=sorted(a - set(d2.gene)),
+                              genes_never_tested_in_1=sorted(b - set(d.gene))))
 
 
 def module_d(path):
@@ -304,11 +348,17 @@ def module_g(d, known, cfg):
                                 known_window_kb=cfg["known_window_kb"],
                                 **enrich(loci, cfg["known_window_kb"])))
 
+    # ⚠ 距离必须与二分类同源。位点的 known 状态由**该位点全部记录**决定，
+    # 所以主报的距离也取全部记录的最小值；另报只用显著记录算的那一列，
+    # 两者不同时说明该位点是靠一条不显著的记录才贴近已知 lead SNP。
     sig = d[d.fdr < t]
-    sig_d = (sig.groupby("locus").dist_bp.min()
-                .replace(float("inf"), np.nan).dropna().sort_values())
-    bg_d = (d.groupby("locus").dist_bp.min()
-              .replace(float("inf"), np.nan).dropna())
+    bg_all = (d.groupby("locus").dist_bp.min()
+                .replace(float("inf"), np.nan).dropna())
+    sig_keys = sig.locus.unique()
+    sig_d = bg_all[bg_all.index.isin(sig_keys)].sort_values()
+    sig_rec = (sig.groupby("locus").dist_bp.min()
+                  .replace(float("inf"), np.nan).dropna().sort_values())
+    bg_d = bg_all
     # 阈值落在数据的空隙里，还是正踩在数据上？后者说明结论依赖这个阈值
     gap = None
     if len(sig_d) > 1:
@@ -321,6 +371,7 @@ def module_g(d, known, cfg):
                        threshold_bp=cfg["known_window_kb"] * 1000)
     return dict(known_sweep=known_sweep, locus_sweep=locus_sweep,
                 significant_distances_bp=[int(v) for v in sig_d.values],
+                significant_distances_sig_records_bp=[int(v) for v in sig_rec.values],
                 significant_median_bp=int(sig_d.median()) if len(sig_d) else None,
                 background_median_bp=int(bg_d.median()) if len(bg_d) else None,
                 threshold_gap=gap)

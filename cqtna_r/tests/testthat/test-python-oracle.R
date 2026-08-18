@@ -59,6 +59,13 @@ test_that("module C matches the Python reference", {
   expect_equal(s$genes_shared, as.integer(refv[["C.genes_shared"]]))
   expect_equal(r3(s$jaccard_gene), refv[["C.jaccard_gene"]])
   expect_equal(r3(s$jaccard_locus), refv[["C.jaccard_locus"]])
+  expect_equal(s$loci_shared, as.integer(refv[["C.loci_shared"]]))
+  expect_equal(s$loci_outcome1, as.integer(refv[["C.loci_outcome1"]]))
+  expect_equal(s$loci_outcome2, as.integer(refv[["C.loci_outcome2"]]))
+  for (k in c("gene_variant_pairs_shared", "gene_variant_pairs_only1",
+              "gene_variant_pairs_only2"))
+    expect_equal(as.numeric(s$coverage[[k]]), refv[[paste0("C.coverage.", k)]],
+                 info = k)
 })
 
 test_that("module D matches the Python reference", {

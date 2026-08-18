@@ -85,6 +85,7 @@
   "jaccard_gene": 0.455,
   "loci_outcome1": 7,
   "loci_outcome2": 2,
+  "loci_shared": 2,
   "jaccard_locus": 0.286,
   "lost": [
    "KANSL1",
@@ -95,7 +96,20 @@
   ],
   "gained": [
    "CTU2"
-  ]
+  ],
+  "shared_locus_keys": [
+   "16:87724673-89871237",
+   "1:226349687-226357732"
+  ],
+  "coverage": {
+   "records_outcome1": 3556,
+   "records_outcome2": 3579,
+   "gene_variant_pairs_shared": 2171,
+   "gene_variant_pairs_only1": 0,
+   "gene_variant_pairs_only2": 17,
+   "genes_never_tested_in_2": [],
+   "genes_never_tested_in_1": []
+  }
  },
  "D": {
   "pathway_genes": 28,
@@ -194,6 +208,15 @@
   "significant_distances_bp": [
    5491,
    11067,
+   42021,
+   2166836,
+   4807792,
+   20121429,
+   36448384
+  ],
+  "significant_distances_sig_records_bp": [
+   5491,
+   11067,
    73995,
    2166836,
    7275442,
@@ -203,7 +226,7 @@
   "significant_median_bp": 2166836,
   "background_median_bp": 10728257,
   "threshold_gap": {
-   "nearest_below_bp": 73995,
+   "nearest_below_bp": 42021,
    "nearest_above_bp": 2166836,
    "threshold_bp": 1000000
   }
