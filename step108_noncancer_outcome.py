@@ -138,6 +138,13 @@ def scan(path, want_pos, rs_sets):
     return got, out
 
 
+# 2026-08-18: this used to scan the sumstats and keep only summary rows, so
+# a different locus partition could not be recomputed and nothing could be
+# re-checked. The standardised per-record table is now persisted; columns
+# match cqtna::as_cqtna_mr. 108a is left untouched.
+RECORDS = []
+
+
 def cell(inst, got, is_known, label, allele_aware, drop_mhc=False):
     keep, z = [], []
     for i, r in enumerate(inst.itertuples()):
@@ -167,6 +174,13 @@ def cell(inst, got, is_known, label, allele_aware, drop_mhc=False):
     kn = [is_known(c, pp) for c, pp in zip(sub.chr, sub.pos)]
     d = pd.DataFrame(dict(locus=loci, known=kn, fdr=f, p=p,
                           chr=sub.chr.values, pos=sub.pos.values))
+
+    gene = (sub.SYMBOL if "SYMBOL" in sub.columns
+            else sub.symbol if "symbol" in sub.columns
+            else sub.gene_id).astype(str).values
+    RECORDS.append(pd.DataFrame(dict(
+        cell=label, record_id=[label + "|" + str(i) for i in range(len(d))],
+        gene=gene, chr=d.chr.values, pos=d.pos.values, p=d.p.values)))
     bg = d.groupby("locus").agg(known=("known", "any"))
     BT, BK = len(bg), int(bg.known.sum())
     sig = d[d.fdr < FDR]
@@ -227,6 +241,13 @@ def main():
     mel_pos = {c: np.sort(s.pos.values)
                for c, s in landi.astype({"chr": str}).groupby("chr")}
     n_ok = sum(len(v) for v in ok_pos.values())
+    # 把解析出的 Okada GRCh38 坐标落盘：此前它只活在内存里，
+    # 导致 RA 两格换分区就无法重算（决策记录 §5）。
+    _kp = pd.DataFrame([(c, int(p_)) for c, arr in ok_pos.items()
+                        for p_ in arr], columns=['chr', 'pos'])
+    _kp.to_csv(f"{MR}/123b_ra_known_positions.tsv", sep="\t",
+               index=False)
+    print(f"  wrote 123b_ra_known_positions.tsv: {len(_kp)} placed positions")
     print(f"  Okada RA loci placed on GRCh38: {n_ok} of {len(okada)} rsIDs")
 
     rows = []
@@ -241,6 +262,12 @@ def main():
                      False, drop_mhc=True))
     out = pd.DataFrame(rows)
     out.to_csv(f"{MR}/108a_ra_attribution.tsv", sep="\t", index=False)
+
+    rec = pd.concat(RECORDS, ignore_index=True)
+    rec.to_csv(f"{MR}/123b_ra_records.tsv.gz", sep="\t",
+               index=False, compression="gzip")
+    print("\nwrote 123b_ra_records.tsv.gz: " + format(len(rec), ",") +
+          " records across " + str(rec.cell.nunique()) + " cells")
 
     print("\n" + "=" * 88)
     print("VERDICT (S33 section 6)")

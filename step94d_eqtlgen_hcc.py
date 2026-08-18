@@ -87,6 +87,12 @@ def scan(path, cols, label):
     return got
 
 
+# 2026-08-18: only summary rows used to survive this script, so the cell
+# could not be recomputed under a different locus partition. The
+# standardised per-record table is now persisted; 94f is left untouched.
+RECORDS = []
+
+
 def cell(got, label):
     rows = []
     for r in inst.itertuples():
@@ -101,6 +107,10 @@ def cell(got, label):
                          p_mr=2 * norm.sf(abs(z))))
     d = pd.DataFrame(rows)
     d["fdr"] = bh(d.p_mr.values)
+    RECORDS.append(pd.DataFrame(dict(
+        cell=label, record_id=[label + "|" + str(i) for i in range(len(d))],
+        gene=d.gene_id.astype(str).values, chr=d.chr.values,
+        pos=d.pos.values, p=d.p_mr.values)))
 
     def is_known(ch, pos):
         arr = KN.get(str(ch))
@@ -140,4 +150,9 @@ g = scan(f"{MR}/hcc/GCST90809296.h.tsv.gz",
               se="standard_error"), "HCC_high")
 out.append(cell(g, "HCC_high"))
 pd.DataFrame(out).to_csv(f"{MR}/94f_eqtlgen_hcc.tsv", sep="\t", index=False)
+rec = pd.concat(RECORDS, ignore_index=True)
+rec.to_csv(f"{MR}/123c_eqtlgen_hcc_records.tsv.gz", sep="\t",
+           index=False, compression="gzip")
+print("wrote 123c_eqtlgen_hcc_records.tsv.gz: " + format(len(rec), ",") +
+      " records across " + str(rec.cell.nunique()) + " cells")
 print("\nwrote 94f")
