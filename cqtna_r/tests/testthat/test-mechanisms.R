@@ -8,11 +8,12 @@
 # Each block names the mechanism, then constructs the smallest table that makes
 # the wrong answer differ from the right one.
 
-mk_mr <- function(chr, pos, gene, p, build = "GRCh38", locus_kb = 1000) {
+mk_mr <- function(chr, pos, gene, p, build = "GRCh38", locus_kb = 1000,
+                  locus_method = "single_linkage") {
   as_cqtna_mr(data.frame(record_id = paste0("r", seq_along(pos)), gene = gene,
                          chr = as.character(chr), pos = pos, p = p,
                          stringsAsFactors = FALSE),
-              locus_kb = locus_kb, build = build)
+              locus_kb = locus_kb, build = build, locus_method = locus_method)
 }
 mk_known <- function(chr, pos, build = "GRCh38") {
   suppressWarnings(as_cqtna_known(
@@ -235,7 +236,8 @@ test_that("a peak distance of zero is kept, not dropped", {
 # --------------------------------------------------------------------------
 # Mechanism 9: a pre-built object whose window disagrees with the audit call.
 test_that("a pre-built object is re-clustered rather than reported wrongly", {
-  mr100 <- as_cqtna_mr(cqtna_demo("mr"), locus_kb = 100, build = "GRCh38")
+  mr100 <- as_cqtna_mr(cqtna_demo("mr"), locus_kb = 100, build = "GRCh38",
+                       locus_method = "single_linkage")
   expect_message(
     au <- suppressWarnings(cqtna_audit(mr100, cqtna_demo("known"),
                                        locus_kb = 1000, build = "GRCh38")),
@@ -329,7 +331,8 @@ test_that("single-linkage chaining is detected and reported", {
 # Mechanism 14: the density-matched permutation. Everything about this test is a
 # choice, so the tests are about what it refuses to do, not about a p-value.
 test_that("the permutation refuses a convention it cannot build a null for", {
-  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38",
+                    locus_method = "single_linkage")
   kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
   # significant_records scores the observation on significant records; a
   # background locus has none, so the null would be a different quantity
@@ -339,7 +342,8 @@ test_that("the permutation refuses a convention it cannot build a null for", {
 })
 
 test_that("an incomplete match returns NA and says why, not a p-value", {
-  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38",
+                    locus_method = "single_linkage")
   kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
   tight <- cqtna_permutation_control(mr, kn, tolerance = 0.1, n_perm = 100, seed = 1)
   expect_lt(tight$matched_fraction, 1)
@@ -353,7 +357,8 @@ test_that("an incomplete match returns NA and says why, not a p-value", {
 })
 
 test_that("the specification is carried on the result and the seed reproduces it", {
-  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38",
+                    locus_method = "single_linkage")
   kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
   a <- cqtna_permutation_control(mr, kn, tolerance = 1, n_perm = 300, seed = 42)
   b <- cqtna_permutation_control(mr, kn, tolerance = 1, n_perm = 300, seed = 42)
@@ -365,7 +370,8 @@ test_that("the specification is carried on the result and the seed reproduces it
 })
 
 test_that("draws that exhaust their pool are discarded, not filled by reuse", {
-  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38",
+                    locus_method = "single_linkage")
   kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
   r <- cqtna_permutation_control(mr, kn, tolerance = 1, n_perm = 200, seed = 7)
   expect_equal(r$n_draws_used + r$n_draws_exhausted, 200L)
@@ -373,11 +379,69 @@ test_that("draws that exhaust their pool are discarded, not filled by reuse", {
 })
 
 test_that("the tolerance sweep warns when the verdict moves across it", {
-  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38",
+                    locus_method = "single_linkage")
   kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
   s <- cqtna_permutation_sensitivity(mr, kn, n_perm = 300, seed = 1)
   expect_true(all(c("tolerance", "matched_fraction", "empirical_p", "ok") %in% names(s)))
   # tolerances too tight to match everything must be marked, not silently used
   expect_true(any(!s$ok))
   expect_true(all(is.na(s$empirical_p[!s$ok])))
+})
+
+
+# --------------------------------------------------------------------------
+# Mechanism 15: the fixed-centre partition. Non-recursive by construction, so a
+# locus cannot grow past the window however dense the data. This is the answer
+# to chaining, and the reason it is the default.
+test_that("fixed-centre loci are bounded by the window, single-linkage are not", {
+  pos <- seq(1e6, 21e6, by = 5e5)          # 500 kb apart across 20 Mb
+  d <- data.frame(record_id = seq_along(pos), gene = paste0("G", seq_along(pos)),
+                  chr = "1", pos = pos, p = c(1e-9, rep(0.9, length(pos) - 1)),
+                  stringsAsFactors = FALSE)
+
+  sl <- as_cqtna_mr(d, locus_kb = 1000, build = "GRCh38",
+                    locus_method = "single_linkage")
+  expect_equal(length(unique(sl$locus)), 1L)              # everything chains
+  expect_gt(max(suppressWarnings(cqtna_locus_spans(sl))$span_quantiles_kb), 19000)
+
+  fc <- as_cqtna_mr(d, locus_kb = 1000, build = "GRCh38")  # default
+  sp <- cqtna_locus_spans(fc)
+  expect_gt(length(unique(fc$locus)), 1L)
+  expect_lte(max(sp$span_quantiles_kb), 1000)             # bounded by the window
+  expect_equal(sp$n_wider_than_5x_window, 0L)
+})
+
+test_that("the partition rule does not depend on the outcome statistics", {
+  pos <- c(1e6, 1.2e6, 1.4e6, 3e6)
+  base <- data.frame(record_id = 1:4, gene = paste0("G", 1:4), chr = "1",
+                     pos = pos, stringsAsFactors = FALSE)
+  a <- as_cqtna_mr(cbind(base, p = c(1e-9, 0.9, 0.9, 0.9)), locus_kb = 1000,
+                   build = "GRCh38")
+  b <- as_cqtna_mr(cbind(base, p = c(0.9, 0.9, 0.9, 1e-9)), locus_kb = 1000,
+                   build = "GRCh38")
+  # moving which variant is significant must not move the partition, because the
+  # same partition supplies the denominator
+  expect_equal(a$locus, b$locus)
+})
+
+test_that("block assignment uses the supplied intervals", {
+  d <- data.frame(record_id = 1:4, gene = paste0("G", 1:4), chr = c("1","1","2","2"),
+                  pos = c(1e6, 2e6, 1e6, 9e6), p = rep(1e-9, 4),
+                  stringsAsFactors = FALSE)
+  blk <- data.frame(chr = c("1", "2"), start = c(5e5, 5e5), end = c(2.5e6, 2e6))
+  mr <- as_cqtna_mr(d, build = "GRCh38", locus_method = "blocks", blocks = blk)
+  expect_equal(length(unique(mr$locus)), 3L)   # two in block 1, one in block 2, one outside
+  # the variant outside every block becomes its own single-position locus
+  expect_true("2:9e+06-9e+06" %in% mr$locus || "2:9000000-9000000" %in% mr$locus)
+  expect_error(as_cqtna_mr(d, build = "GRCh38", locus_method = "blocks"),
+               "needs a `blocks` table")
+})
+
+test_that("two tables partitioned by different rules refuse to be compared", {
+  d <- data.frame(record_id = 1:2, gene = c("A", "B"), chr = "1",
+                  pos = c(1e6, 2e6), p = c(1e-9, 1e-9), stringsAsFactors = FALSE)
+  a <- as_cqtna_mr(d, build = "GRCh38", locus_method = "fixed_centre")
+  b <- as_cqtna_mr(d, build = "GRCh38", locus_method = "single_linkage")
+  expect_error(cqtna_stability(a, b), "different rules")
 })

@@ -11,13 +11,25 @@ CQ_REQUIRED_KNOWN <- c("chr", "pos")
 #'
 #' @param mr data frame with `record_id`, `gene`, `chr`, `pos`, `p`. An
 #'   `exposure_profile` column is kept if present.
-#' @param locus_kb single-linkage window, in kb, defining an independent locus.
+#' @param locus_kb the locus window in kb. Under `"fixed_centre"` it is the
+#'   radius claimed from each centre, bounding a locus at that span; under
+#'   `"single_linkage"` it is the joining distance and the span is unbounded.
+#' @param locus_method how variants are partitioned into loci. `"fixed_centre"`
+#'   is non-recursive and cannot chain, and is the default because a partition
+#'   whose blocks can reach tens of megabases is not a partition into loci.
+#'   `"single_linkage"` reproduces the source study's published numbers.
+#'   `"blocks"` assigns by supplied intervals, e.g. LD blocks.
+#' @param blocks for `locus_method = "blocks"`, a data frame with `chr`,
+#'   `start`, `end`.
 #' @param build genome build label, e.g. `"GRCh38"`. Carried on the object and
 #'   checked against the known-locus list. There is no default: a silent build
 #'   mismatch produces numbers that look entirely normal.
 #' @return a `cqtna_mr` data frame with `locus` and `fdr` added.
 #' @export
-as_cqtna_mr <- function(mr, locus_kb = 1000, build = NULL) {
+as_cqtna_mr <- function(mr, locus_kb = 1000, build = NULL,
+                        locus_method = c("fixed_centre", "single_linkage", "blocks"),
+                        blocks = NULL) {
+  locus_method <- match.arg(locus_method)
   if (is.null(build) || !nzchar(build))
     stop("`build` is required. State the genome build of `mr` (e.g. \"GRCh38\").\n",
          "  A known-locus list on a different build gives a plausible-looking ",
@@ -42,10 +54,12 @@ as_cqtna_mr <- function(mr, locus_kb = 1000, build = NULL) {
   d$gene <- as.character(d$gene)
   d$record_id <- as.character(d$record_id)
   cq_validate_mr(d)
-  d$locus <- cq_assign_loci(d$chr, d$pos, locus_kb)
+  d$locus <- cq_assign_loci(d$chr, d$pos, locus_kb, locus_method, blocks)
   d$fdr <- cq_bh(d$p)          # recomputed, never read from the input
   attr(d, "build") <- build
   attr(d, "locus_kb") <- locus_kb
+  attr(d, "locus_method") <- locus_method
+  attr(d, "blocks") <- blocks
   class(d) <- c("cqtna_mr", "data.frame")
   d
 }

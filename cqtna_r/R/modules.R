@@ -142,6 +142,10 @@ cqtna_stability <- function(mr, mr2, fdr = 0.05, locus_kb = NULL) {
     stop("the two MR tables are on different genome builds (", ba, " and ", bb,
          "); loci cannot be compared.", call. = FALSE)
   cq_check_chr_style(mr$chr, mr2$chr, "mr", "mr2")
+  ma <- attr(mr, "locus_method"); mb <- attr(mr2, "locus_method")
+  if (!identical(ma, mb))
+    stop("the two MR tables were partitioned by different rules (", ma, " and ",
+         mb, "); loci cannot be compared.", call. = FALSE)
   ka <- attr(mr, "locus_kb"); kb2 <- attr(mr2, "locus_kb")
   if (is.null(locus_kb)) {
     if (!identical(ka, kb2))
@@ -158,7 +162,8 @@ cqtna_stability <- function(mr, mr2, fdr = 0.05, locus_kb = NULL) {
   # 而 intersect() 会把它们当成同一个位点。
   n1 <- nrow(mr); n2 <- nrow(mr2)
   chr <- c(mr$chr, mr2$chr); pos <- c(mr$pos, mr2$pos)
-  uni <- cq_assign_loci(chr, pos, locus_kb)
+  uni <- cq_assign_loci(chr, pos, locus_kb, attr(mr, "locus_method"),
+                        attr(mr, "blocks"))
   l1 <- uni[seq_len(n1)]; l2 <- uni[n1 + seq_len(n2)]
 
   s1 <- mr$fdr < fdr; s2 <- mr2$fdr < fdr
@@ -413,7 +418,9 @@ cqtna_window_sweep <- function(mr, known, known_kb = 1000, locus_kb = 1000,
           enrich(mr$locus, kb))))
   locus_sweep <- do.call(rbind, lapply(sweep_kb, function(kb)
     cbind(locus_window_kb = kb, known_window_kb = known_kb,
-          enrich(cq_assign_loci(mr$chr, mr$pos, kb), known_kb))))
+          enrich(cq_assign_loci(mr$chr, mr$pos, kb,
+                                attr(mr, "locus_method"),
+                                attr(mr, "blocks")), known_kb))))
 
   # ⚠ 距离必须与二分类同源。位点的 known 状态由**该位点的全部记录**决定
   # （见 cq_locus_known），所以主报的距离也取全部记录的最小值。

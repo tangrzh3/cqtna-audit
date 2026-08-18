@@ -22,8 +22,10 @@ refv <- stats::setNames(as.numeric(ref$value), ref$key)
 r2 <- function(v) as.numeric(sprintf("%.2f", v))
 r3 <- function(v) as.numeric(sprintf("%.3f", v))
 
-mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
-alt <- as_cqtna_mr(cqtna_demo("mr_alt"), build = "GRCh38")
+mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38",
+                  locus_method = "single_linkage")
+alt <- as_cqtna_mr(cqtna_demo("mr_alt"), build = "GRCh38",
+                   locus_method = "single_linkage")
 kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
 mm <- suppressWarnings(as_cqtna_known(cqtna_demo("mismatch"), build = "GRCh38"))
 

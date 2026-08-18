@@ -1,5 +1,10 @@
 # The regression suite for this package is a published paper's results.
 #
+# These numbers were produced under single-linkage clustering, which is no longer
+# the default: it can chain a chromosome arm into one block. Every call here pins
+# locus_method = "single_linkage" explicitly, because that is what these numbers
+# ARE -- a legacy reproduction, not the recommended analysis.
+#
 # Every number below is reported in the manuscript this tool came out of, and is
 # reproduced by the Python reference implementation in demo_out/. If a change to
 # the R code moves any of them, the change is wrong until argued otherwise.
@@ -7,7 +12,8 @@
 # Values come back at full precision; round them the way the report does.
 r2 <- function(v) as.numeric(sprintf("%.2f", v))
 
-mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38",
+                  locus_method = "single_linkage")
 kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
 mm <- suppressWarnings(as_cqtna_known(cqtna_demo("mismatch"), build = "GRCh38"))
 
@@ -40,7 +46,8 @@ test_that("B: the same list spans 10 genes by record and 28 by locus", {
 })
 
 test_that("C: the two outcome rounds share 5 of 11 genes", {
-  alt <- as_cqtna_mr(cqtna_demo("mr_alt"), build = "GRCh38")
+  alt <- as_cqtna_mr(cqtna_demo("mr_alt"), build = "GRCh38",
+                     locus_method = "single_linkage")
   s <- cqtna_stability(mr, alt)
   expect_equal(s$genes_outcome1, 10L)
   expect_equal(s$genes_outcome2, 6L)
@@ -102,7 +109,8 @@ test_that("no gene reaches target-supported, and the evidence fields hold", {
                     mr_alt = cqtna_demo("mr_alt"),
                     instruments = cqtna_demo("instruments"),
                     expression = cqtna_demo("expression"),
-                    target_cell_type = "CD4_T", build = "GRCh38")
+                    target_cell_type = "CD4_T", build = "GRCh38",
+                    locus_method = "single_linkage")
   expect_false(any(grepl("target-supported", au$evidence$overall_interpretation)))
   # CTU2 is significant only under the second outcome, so it carries a status of
   # its own rather than being forced into known/novel here

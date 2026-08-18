@@ -1,0 +1,13 @@
+cell	partition	locus_kb	known_from	max_sig_span_kb	n_loci_over_window	sig_loci	sig_known	bg_loci	bg_known	fold	fisher_p	mismatch_fold	mismatch_p	mismatch_control
+melanoma x Soskic_CD4	single_linkage	1000	significant_records	3196	3	7	3	554	58	4.0935960591133	0.028123181205592	0	1	clean
+melanoma x Soskic_CD4	fixed_centre	500	any_record	277	0	7	3	800	76	4.51127819548872	0.0218108150842911	0	1	clean
+melanoma x Soskic_CD4	fixed_centre	1000	any_record	870	0	8	4	655	66	4.96212121212121	0.00484067292102242	0	1	clean
+melanoma x eQTLGen_blood	single_linkage	1000	significant_records	30778	28	30	20	559	84	4.43650793650794	3.72405680276898e-11	1.3	0.410932708380598	clean
+melanoma x eQTLGen_blood	fixed_centre	500	any_record	499	0	36	25	2643	253	7.25461133069829	2.52943430936062e-18	1.61948529411765	0.281946290589158	clean
+melanoma x eQTLGen_blood	fixed_centre	1000	any_record	999	0	34	23	1678	180	6.3062091503268	1.34733811096808e-15	1.59203036053131	0.290590161170249	clean
+HCC_high x Soskic_CD4	single_linkage	1000	significant_records	2770	2	2	1	549	31	8.85483870967742	0.109841383803332	0	1	clean
+HCC_high x Soskic_CD4	fixed_centre	500	any_record	214	0	2	1	785	49	8.01020408163265	0.121019108280255	0	1	clean
+HCC_high x Soskic_CD4	fixed_centre	1000	any_record	214	0	2	1	646	41	7.87804878048781	0.122999016007872	0	1	clean
+HCC_low x Soskic_CD4	single_linkage	1000	significant_records	2770	1	2	2	564	32	17.625	0.00312409457944396	0	1	clean
+HCC_low x Soskic_CD4	fixed_centre	500	any_record	214	0	2	2	815	51	15.9803921568627	0.00384377684991182	0	1	clean
+HCC_low x Soskic_CD4	fixed_centre	1000	any_record	214	0	2	2	666	43	15.4883720930233	0.00407776197249882	0	1	clean

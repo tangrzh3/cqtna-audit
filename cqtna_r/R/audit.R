@@ -117,6 +117,10 @@ cq_status <- function(x, configured) {
 #' @param locus_kb,known_kb,fdr the three conventions. If `mr` arrives pre-built
 #'   with a different `locus_kb` it is re-clustered, so the window named in the
 #'   report is always the window actually used.
+#' @param locus_method,blocks how variants are partitioned into loci; passed to
+#'   [as_cqtna_mr()]. The default `"fixed_centre"` is non-recursive and bounds a
+#'   locus at `locus_kb`; `"single_linkage"` reproduces published numbers but can
+#'   chain a chromosome arm into one block.
 #' @param known_from how a significant locus inherits its known/novel status;
 #'   passed to [cqtna_attribution()] and [cqtna_window_sweep()] so every module
 #'   uses one convention. The mismatched-list control is run under the same
@@ -133,15 +137,18 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
                         target_cell_type = NULL, build = NULL,
                         locus_kb = 1000, known_kb = 1000, fdr = 0.05,
                         known_from = c("significant_records", "any_record",
-                                       "lead_variant")) {
+                                       "lead_variant"),
+                        locus_method = c("fixed_centre", "single_linkage", "blocks"),
+                        blocks = NULL) {
   known_from <- match.arg(known_from)
+  locus_method <- match.arg(locus_method)
   cq_validate_window(locus_kb, "locus_kb")
   cq_validate_window(known_kb, "known_kb")
   cq_validate_fdr(fdr)
 
   reclustered <- FALSE
   if (!inherits(mr, "cqtna_mr")) {
-    mr <- as_cqtna_mr(mr, locus_kb, build)
+    mr <- as_cqtna_mr(mr, locus_kb, build, locus_method, blocks)
   } else if (!identical(as.numeric(attr(mr, "locus_kb")), as.numeric(locus_kb))) {
     ## The window named in the report has to be the window actually used. An
     ## earlier version took an object clustered at 100 kb, never re-clustered,
@@ -149,7 +156,8 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
     message("mr was built with locus_kb = ", attr(mr, "locus_kb"),
             " but the audit was asked for ", locus_kb,
             "; re-clustering so the reported window is the one used.")
-    mr <- as_cqtna_mr(as.data.frame(mr), locus_kb, attr(mr, "build"))
+    mr <- as_cqtna_mr(as.data.frame(mr), locus_kb, attr(mr, "build"),
+                      attr(mr, "locus_method"), attr(mr, "blocks"))
     reclustered <- TRUE
   }
   if (!inherits(known, "cqtna_known")) known <- as_cqtna_known(known, build)
@@ -170,7 +178,8 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
   res$B <- cqtna_unit_sweep(mr, fdr)
   if (!is.null(mr_alt)) {
     if (!inherits(mr_alt, "cqtna_mr"))
-      mr_alt <- as_cqtna_mr(mr_alt, locus_kb, attr(mr, "build"))
+      mr_alt <- as_cqtna_mr(mr_alt, locus_kb, attr(mr, "build"),
+                            attr(mr, "locus_method"), attr(mr, "blocks"))
     res$C <- cqtna_stability(mr, mr_alt, fdr, locus_kb)
   }
   if (!is.null(instruments)) res$D <- cqtna_ladder(instruments)
@@ -215,6 +224,7 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
             "and compare known_from = \"lead_variant\".", call. = FALSE)
   res$settings <- list(fdr = fdr, locus_kb = locus_kb, known_kb = known_kb,
                        build = attr(mr, "build"), reclustered = reclustered,
-                       known_from = known_from)
+                       known_from = known_from,
+                       locus_method = attr(mr, "locus_method"))
   structure(res, class = "cqtna_audit")
 }
