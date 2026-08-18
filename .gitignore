@@ -8,6 +8,11 @@
 
 # --- third-party GWAS / eQTL summary statistics (obtain from source) ---
 *.gz
+# ...but our own derived per-record tables ARE the audit trail and must be tracked.
+# They exist because step108/step94d used to keep only summary rows, which is why a
+# change of locus partition could not be recomputed. Small (<1 MB each).
+!123b_ra_records.tsv.gz
+!123c_eqtlgen_hcc_records.tsv.gz
 *.ma
 !landi2020_known_loci_grch38.csv
 eqtlgen/

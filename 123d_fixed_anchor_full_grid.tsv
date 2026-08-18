@@ -1,0 +1,31 @@
+cell	role	analysis	partition	locus_kb	known_from	n_records	bg_loci	bg_known	sig_loci	sig_known	pct_known	fold	fisher_p	mismatch_fold	mismatch_p	control	max_sig_span_kb	n_sig_over_window
+melanoma x Soskic_CD4	main	main	fixed_centre	1000	any_record	3556	655	66	8	4	50	4.96	0.00484067292102242	0	1	clean	870	0
+melanoma x Soskic_CD4	main	sensitivity	fixed_centre	500	any_record	3556	800	76	7	3	42.9	4.51	0.0218108150842911	0	1	clean	277	0
+melanoma x Soskic_CD4	main	legacy	single_linkage	1000	significant_records	3556	554	58	7	3	42.9	4.09	0.028123181205592	0	1	clean	3196	3
+melanoma x eQTLGen_blood	main	main	fixed_centre	1000	any_record	12835	1678	180	34	23	67.6	6.31	1.34733811096808e-15	1.59	0.290590161170249	clean	999	0
+melanoma x eQTLGen_blood	main	sensitivity	fixed_centre	500	any_record	12835	2643	253	36	25	69.4	7.25	2.52943430936062e-18	1.62	0.281946290589158	clean	499	0
+melanoma x eQTLGen_blood	main	legacy	single_linkage	1000	significant_records	12835	559	84	30	20	66.7	4.44	3.72405680276898e-11	1.3	0.410932708380598	clean	30778	28
+HCC_high x Soskic_CD4	main	main	fixed_centre	1000	any_record	3398	646	41	2	1	50	7.88	0.122999016007872	0	1	clean	214	0
+HCC_high x Soskic_CD4	main	sensitivity	fixed_centre	500	any_record	3398	785	49	2	1	50	8.01	0.121019108280255	0	1	clean	214	0
+HCC_high x Soskic_CD4	main	legacy	single_linkage	1000	significant_records	3398	549	31	2	1	50	8.85	0.109841383803332	0	1	clean	2770	2
+HCC_high x eQTLGen_blood	main	main	fixed_centre	1000	any_record	12224	1666	92	5	3	60	10.87	0.00150414083167835	0	1	clean	953	0
+HCC_high x eQTLGen_blood	main	sensitivity	fixed_centre	500	any_record	12224	2606	136	6	4	66.7	12.77	9.81891288291233e-05	0	1	clean	450	0
+HCC_high x eQTLGen_blood	main	legacy	single_linkage	1000	significant_records	12224	562	44	5	2	40	5.11	0.0514939993405355	0	1	clean	21766	5
+RA x Soskic_CD4	main	main	fixed_centre	1000	any_record	3340	636	61	30	10	33.3	3.48	0.000206897099815982	1.03	0.575452632649283	clean	992	0
+RA x Soskic_CD4	main	sensitivity	fixed_centre	500	any_record	3340	773	74	30	10	33.3	3.48	0.000221589162466004	1.1	0.521943722618601	clean	496	0
+RA x Soskic_CD4	main	legacy	single_linkage	1000	significant_records	3340	546	56	29	9	31	3.03	0.00130662487356474	1.01	0.588678643479414	clean	4645	13
+RA x eQTLGen_blood	main	main	fixed_centre	1000	any_record	12752	1672	162	98	37	37.8	3.9	5.96373021655878e-15	1.83	0.00524241872542391	FAILED	1000	0
+RA x eQTLGen_blood	main	sensitivity	fixed_centre	500	any_record	12752	2631	235	107	40	37.4	4.19	1.0198777920874e-16	1.48	0.0754566984856447	clean	499	0
+RA x eQTLGen_blood	main	legacy	single_linkage	1000	significant_records	12752	559	66	74	29	39.2	3.32	2.07002524450277e-11	1.18	0.290386307534443	clean	30778	67
+RA x Soskic_CD4 (MHC included)	MHC sensitivity	main	fixed_centre	1000	any_record	3434	641	64	41	16	39	3.91	2.33226619689043e-07	1.71	0.10241284647765	clean	992	0
+RA x Soskic_CD4 (MHC included)	MHC sensitivity	sensitivity	fixed_centre	500	any_record	3434	781	78	43	17	39.5	3.96	9.4961667338275e-08	1.99	0.0389551637510545	FAILED	496	0
+RA x Soskic_CD4 (MHC included)	MHC sensitivity	legacy	single_linkage	1000	significant_records	3434	546	57	36	13	36.1	3.46	1.64994377113448e-05	1.6	0.161069245092308	clean	4654	18
+RA x eQTLGen_blood (MHC included)	MHC sensitivity	main	fixed_centre	1000	any_record	12835	1678	164	109	42	38.5	3.94	3.25522920094405e-17	2.05	0.000289447282199804	FAILED	1000	0
+RA x eQTLGen_blood (MHC included)	MHC sensitivity	sensitivity	fixed_centre	500	any_record	12835	2643	239	123	48	39	4.32	1.03272935435198e-20	1.87	0.00241559024320088	FAILED	499	0
+RA x eQTLGen_blood (MHC included)	MHC sensitivity	legacy	single_linkage	1000	significant_records	12835	559	66	76	32	42.1	3.57	7.69536547605725e-14	1.4	0.0829124511614903	clean	30778	70
+HCC_low x Soskic_CD4	power sensitivity	main	fixed_centre	1000	any_record	3686	666	43	2	2	100	15.49	0.00407776197249882	0	1	clean	214	0
+HCC_low x Soskic_CD4	power sensitivity	sensitivity	fixed_centre	500	any_record	3686	815	51	2	2	100	15.98	0.00384377684991182	0	1	clean	214	0
+HCC_low x Soskic_CD4	power sensitivity	legacy	single_linkage	1000	significant_records	3686	564	32	2	2	100	17.62	0.00312409457944396	0	1	clean	2770	1
+HCC_low x eQTLGen_blood	power sensitivity	main	fixed_centre	1000	any_record	12835	1678	93	4	3	75	13.53	0.000633737339612804	2.33	0.36511867117564	clean	928	0
+HCC_low x eQTLGen_blood	power sensitivity	sensitivity	fixed_centre	500	any_record	12835	2643	136	5	4	80	15.55	3.22597644535219e-05	2.09	0.395592928649845	clean	495	0
+HCC_low x eQTLGen_blood	power sensitivity	legacy	single_linkage	1000	significant_records	12835	559	43	3	2	66.7	8.67	0.0165173526498597	0	1	clean	21766	3

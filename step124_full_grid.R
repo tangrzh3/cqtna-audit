@@ -63,10 +63,23 @@ cells <- list(
        d = std(hh$gene_id, hh$chr, hh$pos, hh$p_mr), m = K_hcc, x = K_mel),
   list(name = "HCC_high x eQTLGen_blood", role = "main",
        d = with(pick(eh_rec, "HCC_high"), std(gene, chr, pos, p)), m = K_hcc, x = K_mel),
+  ## RA is scored MHC-excluded as the primary. That exclusion was pre-registered
+  ## (S33), and it is what the mismatched-list control requires here: RA and
+  ## melanoma share immune loci across the MHC, and with the MHC in, the wrong
+  ## disease's list enriches -- 1.71-fold at P = 0.102 on CD4 at 1 Mb and
+  ## 1.99-fold at P = 0.039 at 500 kb. Excluding it takes the control to
+  ## 1.03-fold (P = 0.58) while the attribution survives at 3.48-fold. Both
+  ## whole-MHC versions are carried below as "MHC included" for the record.
   list(name = "RA x Soskic_CD4", role = "main",
-       d = with(pick(ra_rec, "N1 Soskic x RA"), std(gene, chr, pos, p)),
+       d = with(pick(ra_rec, "N1 Soskic x RA, MHC excluded"), std(gene, chr, pos, p)),
        m = K_ra, x = K_mel),
   list(name = "RA x eQTLGen_blood", role = "main",
+       d = with(pick(ra_rec, "N2 eQTLGen x RA, MHC excluded"), std(gene, chr, pos, p)),
+       m = K_ra, x = K_mel),
+  list(name = "RA x Soskic_CD4 (MHC included)", role = "MHC sensitivity",
+       d = with(pick(ra_rec, "N1 Soskic x RA"), std(gene, chr, pos, p)),
+       m = K_ra, x = K_mel),
+  list(name = "RA x eQTLGen_blood (MHC included)", role = "MHC sensitivity",
        d = with(pick(ra_rec, "N2 eQTLGen x RA"), std(gene, chr, pos, p)),
        m = K_ra, x = K_mel),
   list(name = "HCC_low x Soskic_CD4", role = "power sensitivity",
@@ -112,17 +125,25 @@ show <- function(lbl) {
   s <- out[out$analysis == lbl, ]
   cat("\n", strrep("=", 118), "\n", toupper(lbl), " -- ", s$partition[1], " ",
       s$locus_kb[1], " kb, ", s$known_from[1], "\n", sep = "")
-  cat(sprintf("%-28s %-18s %9s %9s %8s %9s   %8s %10s %8s\n", "cell", "role",
+  cat(sprintf("%-34s %-18s %9s %9s %8s %9s   %8s %10s %8s\n", "cell", "role",
               "bg known", "sig known", "fold", "P", "mism.", "mism. P", "control"))
   for (i in seq_len(nrow(s))) with(s[i, ], cat(sprintf(
-    "%-28s %-18s %4d/%-4d %4d/%-4d %8.2f %9.3g   %8.2f %10.3g %8s\n",
+    "%-34s %-18s %4d/%-4d %4d/%-4d %8.2f %9.3g   %8.2f %10.3g %8s\n",
     cell, role, bg_known, bg_loci, sig_known, sig_loci, fold, fisher_p,
     mismatch_fold, mismatch_p, control)))
   m <- s[s$role == "main", ]
-  cat(sprintf("  -> %d/%d main cells with fold > 1; %d reach P < 0.05; controls: %s\n",
-              sum(m$fold > 1, na.rm = TRUE), nrow(m),
-              sum(m$fisher_p < 0.05, na.rm = TRUE),
-              paste(names(table(m$control)), table(m$control), collapse = ", ")))
+  ok <- m[m$control == "clean", ]
+  cat(sprintf("  -> %d main cells; %d VOID on the mismatched control
+",
+              nrow(m), sum(m$control == "FAILED")))
+  if (any(m$control == "FAILED"))
+    cat(sprintf("     void: %s
+",
+                paste(m$cell[m$control == "FAILED"], collapse = ", ")))
+  cat(sprintf("  -> of the %d usable cells: %d with fold > 1, %d reach P < 0.05
+",
+              nrow(ok), sum(ok$fold > 1, na.rm = TRUE),
+              sum(ok$fisher_p < 0.05, na.rm = TRUE)))
   cat(sprintf("  -> widest significant locus %s kb; loci over the window: %d\n",
               format(max(s$max_sig_span_kb), big.mark = ","),
               sum(s$n_sig_over_window)))
