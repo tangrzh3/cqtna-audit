@@ -19,52 +19,69 @@
 #'   known locus.
 #' @param fdr FDR threshold.
 #' @param label what this reference list is, used in the report.
-#' @return a list with the counts, `fold`, `fisher_p_one_sided`, and the
-#'   significant genes split by whether their locus was already known.
+#' @param known_from how a SIGNIFICANT locus inherits its known/novel status.
+#'   The background is always taken over every record at a locus.
+#'   \describe{
+#'     \item{`"significant_records"`}{(default, and what the source study
+#'       published) a significant locus is known if one of ITS significant
+#'       records is near a known lead SNP. Numerator and denominator therefore
+#'       use different record sets, which is a real inconsistency -- but it is
+#'       the conservative direction, and it is the only one of the three that
+#'       keeps the mismatched-list control clean on a dense exposure resource.}
+#'     \item{`"any_record"`}{consistent with the background, but on a dense
+#'       resource single-linkage chains distinct regions into blocks of tens of
+#'       megabases, and a block that wide contains a known lead SNP for almost
+#'       any disease. In the source study this raised the whole-blood cell from
+#'       4.44- to 4.88-fold AND raised its mismatched control from 1.30-fold
+#'       (P = 0.41) to 3.90-fold (P = 1.7e-4) -- a negative control that fails,
+#'       which voids the cell under that study's own criterion.}
+#'     \item{`"lead_variant"`}{consistent and immune to chaining, since each
+#'       locus is represented by its most significant record. Raises the folds
+#'       and leaves the mismatched control borderline (P = 0.096 on the same
+#'       cell).}
+#'   }
+#'   Run all three and read the mismatched control before choosing. See
+#'   [cqtna_locus_spans()] for whether chaining is in play at all.
+#' @return a list with the counts, `fold`, `fisher_p_one_sided`, the convention
+#'   used, and the significant genes split by whether their locus was known.
 #' @export
 #' @examples
 #' mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
 #' kn <- as_cqtna_known(cqtna_demo("known"), build = "GRCh38")
 #' cqtna_attribution(mr, kn)$fold
 cqtna_attribution <- function(mr, known, known_kb = 1000, fdr = 0.05,
-                              label = "known-locus list") {
+                              label = "known-locus list",
+                              known_from = c("significant_records", "any_record",
+                                             "lead_variant")) {
+  known_from <- match.arg(known_from)
   cq_check_build(mr, known)
   cq_validate_window(known_kb, "known_kb")
   cq_validate_fdr(fdr)
   idx <- cq_known_index(known)
-
-  # 位点级状态算一次，分子、分母、基因标签全部继承它。
-  # 早先版本分母走全部记录、分子只走显著记录、基因标签又走单条记录，
-  # 三种口径可以互相矛盾——见 cq_locus_known 的注释。
-  lk <- cq_locus_known(mr$locus, mr$chr, mr$pos, idx, known_kb)
+  lk <- cq_locus_known(mr$locus, mr$chr, mr$pos, mr$fdr, idx, known_kb,
+                       known_from, fdr)
   sel <- mr$fdr < fdr
 
   bg <- lk$by_locus
-  sig_loci <- unique(as.character(mr$locus[sel]))
-  sg <- bg[sig_loci]
+  sg <- lk$sig_status
   BT <- length(bg); BK <- sum(bg)
   ST <- length(sg); SK <- sum(sg)
   fold <- if (ST > 0 && BK > 0) (SK / ST) / (BK / BT) else NA_real_
   p <- if (ST > 0) cq_fisher_greater(SK, ST - SK, BK - SK, (BT - BK) - (ST - SK))
        else NA_real_
 
-  # 基因标签由**位点**状态给出，因此同一位点内所有基因必然一致
-  known_rec <- sel & lk$by_record
-  novel_rec <- sel & !lk$by_record
+  # 基因标签由**位点**状态给出，同一位点内所有基因必然一致
+  st <- lk$sig_by_record
   structure(list(
-    reference = label,
+    reference = label, known_from = known_from,
     background_known = as.integer(BK), background_loci = as.integer(BT),
     background_pct = if (BT) 100 * BK / BT else NA_real_,
     significant_loci = as.integer(ST), significant_known = as.integer(SK),
     pct_known = if (ST) 100 * SK / ST else NA_real_,
-    fold = fold,
-    fisher_p_one_sided = p,
-    known_genes = sort(unique(mr$gene[known_rec])),
-    novel_genes = sort(unique(mr$gene[novel_rec])),
-    locus_known = bg,
-    gene_locus_status = if (any(sel))
-      stats::setNames(ifelse(lk$by_record[sel], "known", "novel"),
-                      mr$gene[sel])[!duplicated(mr$gene[sel])] else character(0)),
+    fold = fold, fisher_p_one_sided = p,
+    known_genes = sort(unique(mr$gene[sel & !is.na(st) & st])),
+    novel_genes = sort(unique(mr$gene[sel & !is.na(st) & !st])),
+    locus_known = bg),
     class = "cqtna_attribution")
 }
 
@@ -278,6 +295,53 @@ cqtna_peak_distance <- function(peaks) {
   x[, c("gene", "eqtl_pos", "gwas_pos", "distance_bp")]
 }
 
+#' Locus span diagnostic -- is single-linkage chaining doing the work?
+#'
+#' Single-linkage clustering joins two variants within `locus_kb` and then keeps
+#' going, so in a dense resource a whole chromosome arm can chain into one
+#' "locus". When that happens, asking whether ANY record at the locus is near a
+#' known lead SNP stops being a question about the signal and becomes a question
+#' about how wide the block grew.
+#'
+#' This was not hypothetical. In the study this tool came from, the CD4 time
+#' course gave loci with a median span of 62 kb and none above 5 Mb, while the
+#' whole-blood resource on the same outcome gave a median of 1,400 kb, thirty
+#' loci above 10 Mb, and one significant locus spanning 30.8 Mb across 588
+#' records. Locus-level counting means something very different in those two
+#' cells, and nothing in the fold enrichment says so.
+#'
+#' @inheritParams cqtna_attribution
+#' @return a list with the span quantiles, the number of loci far wider than the
+#'   clustering window, and the spans of the significant loci.
+#' @export
+#' @examples
+#' mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+#' cqtna_locus_spans(mr)$span_quantiles_kb
+cqtna_locus_spans <- function(mr, fdr = 0.05) {
+  cq_validate_fdr(fdr)
+  kb <- as.numeric(attr(mr, "locus_kb"))
+  span <- tapply(mr$pos, mr$locus, function(v) (max(v) - min(v)) / 1000)
+  n_rec <- tapply(mr$pos, mr$locus, length)
+  sig <- unique(as.character(mr$locus[mr$fdr < fdr]))
+  wide <- span > 5 * kb
+  out <- list(
+    locus_kb = kb, n_loci = length(span),
+    span_quantiles_kb = stats::quantile(span, c(.5, .9, .99, 1)),
+    n_wider_than_5x_window = sum(wide),
+    n_wider_than_10x_window = sum(span > 10 * kb),
+    significant_span_kb = sort(span[sig]),
+    significant_records = sort(n_rec[sig]),
+    widest_locus = names(span)[which.max(span)])
+  if (any(wide[sig]))
+    warning(sum(wide[sig]), " significant locus/loci span more than ", 5 * kb,
+            " kb, up to ", formatC(max(span[sig]), format = "d", big.mark = ","),
+            " kb. Single-linkage chaining has merged distinct regions, so ",
+            "locus-level counts on this resource are counting blocks, not loci. ",
+            "Read cqtna_window_sweep()'s locus sweep before quoting a fold.",
+            call. = FALSE)
+  out
+}
+
 CQ_SWEEP_KB <- c(100, 250, 500, 1000)
 
 #' G. Window sensitivity, and the distances behind the binary flag
@@ -310,7 +374,10 @@ CQ_SWEEP_KB <- c(100, 250, 500, 1000)
 #'   on one dataset. Read the two neighbours and decide.
 #' @export
 cqtna_window_sweep <- function(mr, known, known_kb = 1000, locus_kb = 1000,
-                               fdr = 0.05, sweep_kb = CQ_SWEEP_KB) {
+                               fdr = 0.05, sweep_kb = CQ_SWEEP_KB,
+                               known_from = c("significant_records", "any_record",
+                                              "lead_variant")) {
+  known_from <- match.arg(known_from)
   cq_check_build(mr, known)
   cq_validate_window(known_kb, "known_kb")
   cq_validate_window(locus_kb, "locus_kb")
@@ -324,8 +391,13 @@ cqtna_window_sweep <- function(mr, known, known_kb = 1000, locus_kb = 1000,
   enrich <- function(loci, kb) {
     rec <- dist_bp <= kb * 1000
     bg <- tapply(rec, loci, any)
-    sig_loci <- unique(as.character(loci[sel]))
-    sg <- bg[sig_loci]
+    sg <- if (known_from == "any_record") bg[unique(as.character(loci[sel]))]
+          else if (known_from == "lead_variant") {
+            ord <- order(mr$fdr); keep <- !duplicated(loci[ord])
+            r <- stats::setNames(rec[ord][keep], as.character(loci[ord][keep]))
+            bg <- r[sort(names(r))]
+            r[unique(as.character(loci[sel]))]
+          } else tapply(rec[sel], loci[sel], any)
     BT <- length(bg); BK <- sum(bg); ST <- length(sg); SK <- sum(sg)
     fold <- if (ST > 0 && BK > 0) (SK / ST) / (BK / BT) else NA_real_
     data.frame(background_loci = BT, background_known = BK,

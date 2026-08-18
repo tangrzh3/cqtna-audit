@@ -16,7 +16,8 @@ cqtna_audit(
   build = NULL,
   locus_kb = 1000,
   known_kb = 1000,
-  fdr = 0.05
+  fdr = 0.05,
+  known_from = c("significant_records", "any_record", "lead_variant")
 )
 }
 \arguments{
@@ -39,6 +40,12 @@ supplied, for a mismatched window sweep reported as `G_nc`.}
 \item{locus_kb, known_kb, fdr}{the three conventions. If `mr` arrives pre-built
 with a different `locus_kb` it is re-clustered, so the window named in the
 report is always the window actually used.}
+
+\item{known_from}{how a significant locus inherits its known/novel status;
+passed to [cqtna_attribution()] and [cqtna_window_sweep()] so every module
+uses one convention. The mismatched-list control is run under the same
+convention and the audit warns if it is itself significant, which is the
+check that exposes a convention inflated by single-linkage chaining.}
 }
 \value{
 an object of class `cqtna_audit`.

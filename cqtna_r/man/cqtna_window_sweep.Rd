@@ -10,7 +10,8 @@ cqtna_window_sweep(
   known_kb = 1000,
   locus_kb = 1000,
   fdr = 0.05,
-  sweep_kb = CQ_SWEEP_KB
+  sweep_kb = CQ_SWEEP_KB,
+  known_from = c("significant_records", "any_record", "lead_variant")
 )
 }
 \arguments{
@@ -27,6 +28,30 @@ swept.}
 \item{fdr}{FDR threshold.}
 
 \item{sweep_kb}{windows to sweep, in kb.}
+
+\item{known_from}{how a SIGNIFICANT locus inherits its known/novel status.
+The background is always taken over every record at a locus.
+\describe{
+  \item{`"significant_records"`}{(default, and what the source study
+    published) a significant locus is known if one of ITS significant
+    records is near a known lead SNP. Numerator and denominator therefore
+    use different record sets, which is a real inconsistency -- but it is
+    the conservative direction, and it is the only one of the three that
+    keeps the mismatched-list control clean on a dense exposure resource.}
+  \item{`"any_record"`}{consistent with the background, but on a dense
+    resource single-linkage chains distinct regions into blocks of tens of
+    megabases, and a block that wide contains a known lead SNP for almost
+    any disease. In the source study this raised the whole-blood cell from
+    4.44- to 4.88-fold AND raised its mismatched control from 1.30-fold
+    (P = 0.41) to 3.90-fold (P = 1.7e-4) -- a negative control that fails,
+    which voids the cell under that study's own criterion.}
+  \item{`"lead_variant"`}{consistent and immune to chaining, since each
+    locus is represented by its most significant record. Raises the folds
+    and leaves the mismatched control borderline (P = 0.096 on the same
+    cell).}
+}
+Run all three and read the mismatched control before choosing. See
+[cqtna_locus_spans()] for whether chaining is in play at all.}
 }
 \value{
 a list with `known_sweep`, `locus_sweep`, the significant-locus

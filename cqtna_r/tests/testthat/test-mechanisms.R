@@ -48,18 +48,26 @@ test_that("a locus is known even when only a non-significant record is near", {
               gene = c("SIG", "NONSIG", "OTHER1", "OTHER2"),
               p = c(1e-9, 0.9, 0.9, 0.9))
   kn <- mk_known(1, 1.35e6)          # within 1 Mb of NONSIG, 350 kb from SIG
-  a <- cqtna_attribution(mr, kn)
+  a <- cqtna_attribution(mr, kn, known_from = "any_record")
 
   expect_equal(a$significant_loci, 1L)
   expect_equal(a$significant_known, 1L)      # inherited from the locus
   expect_setequal(a$known_genes, "SIG")
 
-  # The sweep must use the same convention: the locus is inside 100 kb because
-  # of NONSIG, so it counts as known at every window here.
+  # This is the case that separates the conventions, so assert all three.
+  # Under "any_record" the locus is known at every window, because NONSIG is
+  # 50 kb away. Under the published "significant_records" convention only the
+  # 1 Mb window reaches SIG, which is 350 kb away.
+  sw <- function(k) cqtna_window_sweep(mr, kn, sweep_kb = c(100, 500, 1000),
+                                       known_from = k)$known_sweep$significant_known
+  # SIG is 350 kb from the known SNP, NONSIG is 50 kb from it.
+  expect_equal(sw("any_record"), c(1L, 1L, 1L))          # NONSIG carries it at 100 kb
+  expect_equal(sw("significant_records"), c(0L, 1L, 1L)) # SIG only reaches at 500 kb
+  expect_equal(sw("lead_variant"), c(0L, 1L, 1L))        # lead here IS SIG
+
+  # both distance series are always reported, so neither convention can hide
+  # which record supplied the proximity
   g <- cqtna_window_sweep(mr, kn, sweep_kb = c(100, 500, 1000))
-  expect_equal(g$known_sweep$significant_known, c(1L, 1L, 1L))
-  # and the two distance series must show WHY they agree: 50 kb over all
-  # records at the locus, 350 kb over the significant record alone
   expect_equal(round(g$significant_distances_bp / 1000), 50)
   expect_equal(round(g$significant_distances_sig_records_bp / 1000), 350)
 })
@@ -248,7 +256,7 @@ test_that("every module reports a status and E/F appear in the report", {
     peaks = pk, target_cell_type = "CD4_T", build = "GRCh38"))
 
   expect_setequal(names(au$module_status),
-                  c("A", "A_nc", "B", "C", "D", "E", "F", "G", "G_nc"))
+                  c("A", "A_nc", "B", "C", "D", "E", "F", "G", "G_nc", "spans"))
   expect_equal(au$module_status[["C"]], "not run - no input supplied")
   expect_equal(au$module_status[["F"]], "run")
   expect_equal(au$module_status[["G_nc"]], "run")
@@ -279,4 +287,40 @@ test_that("a compartment ratio does not overwrite known-locus status", {
   expect_true(all(e$known_locus_status %in%
                     c("known", "novel", "not significant here")))
   expect_true(all(!is.na(e$known_locus_status)))
+})
+
+# --------------------------------------------------------------------------
+# Mechanism 12: the negative control is the referee. If the wrong disease's
+# known-locus list also enriches, the cell is void -- and the audit must say so
+# rather than reporting the matched fold as if it stood.
+test_that("a failing mismatched control is flagged, not quietly reported", {
+  # 20 background loci across 20 chromosomes; the 5 significant ones sit near
+  # BOTH lists, so the wrong disease's list enriches just as much as the right one
+  sig_chr <- 1:5
+  chr <- rep(1:20, each = 1)
+  mr <- mk_mr(chr = chr, pos = rep(1e6, 20), gene = paste0("G", 1:20),
+              p = ifelse(chr %in% sig_chr, 1e-9, 0.9))
+  right <- mk_known(sig_chr, rep(1e6, 5))
+  wrong <- mk_known(sig_chr, rep(1.05e6, 5))
+  expect_warning(
+    au <- cqtna_audit(as.data.frame(mr), as.data.frame(right),
+                      mismatch = as.data.frame(wrong), build = "GRCh38"),
+    "mismatched-list control is itself significant")
+  expect_true(au$negative_control_failed)
+})
+
+# --------------------------------------------------------------------------
+# Mechanism 13: chaining. Single-linkage joins neighbours and keeps going, so a
+# dense table collapses a whole region into one "locus"; locus-level counting
+# then measures the block's width.
+test_that("single-linkage chaining is detected and reported", {
+  pos <- seq(1e6, 21e6, by = 5e5)          # 500 kb apart -> all one 20 Mb locus
+  mr <- mk_mr(chr = rep(1, length(pos)), pos = pos,
+              gene = paste0("G", seq_along(pos)),
+              p = c(1e-9, rep(0.9, length(pos) - 1)))
+  sp <- suppressWarnings(cqtna_locus_spans(mr))
+  expect_equal(sp$n_loci, 1L)
+  expect_gt(sp$span_quantiles_kb[[4]], 19000)
+  expect_equal(sp$n_wider_than_5x_window, 1L)
+  expect_warning(cqtna_locus_spans(mr), "chaining has merged distinct regions")
 })

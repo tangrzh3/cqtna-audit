@@ -133,11 +133,33 @@ cq_is_known <- function(idx, chr, pos, window_kb) {
 #'   `by_record` (logical, one entry per record, the locus status broadcast back)
 #' @keywords internal
 #' @noRd
-cq_locus_known <- function(locus, chr, pos, idx, window_kb) {
-  rec <- cq_is_known(idx, chr, pos, window_kb)
-  by_locus <- tapply(rec, locus, any)
-  list(by_locus = by_locus, by_record = unname(by_locus[as.character(locus)]))
+cq_locus_known <- function(locus, chr, pos, fdr, idx, window_kb,
+                           known_from = "significant_records", fdr_threshold = 0.05) {
+  near <- cq_is_known(idx, chr, pos, window_kb)
+  sel <- fdr < fdr_threshold
+  if (known_from == "lead_variant") {
+    # 每个位点用它最显著的那条记录代表 —— 分子分母同一规则，且不受串联影响
+    keep <- !duplicated(locus[order(fdr)])
+    ord <- order(fdr)
+    rep_near <- stats::setNames(near[ord][keep], as.character(locus[ord][keep]))
+    by_locus <- rep_near[sort(names(rep_near))]
+    sig_status <- by_locus[unique(as.character(locus[sel]))]
+  } else {
+    by_locus <- tapply(near, locus, any)          # 背景一律按全部记录
+    sig_status <- if (known_from == "any_record")
+      by_locus[unique(as.character(locus[sel]))]
+    else tapply(near[sel], locus[sel], any)       # 已发表口径：分子只看显著记录
+  }
+  list(by_locus = by_locus, sig_status = sig_status,
+       by_record = unname(by_locus[as.character(locus)]),
+       sig_by_record = unname(sig_status[as.character(locus)]),
+       known_from = known_from)
 }
+
+#' Valid values for `known_from`
+#' @keywords internal
+#' @noRd
+CQ_KNOWN_FROM <- c("significant_records", "any_record", "lead_variant")
 
 #' Format base pairs as kb for display
 #'

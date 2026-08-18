@@ -257,7 +257,27 @@ cqtna_report <- function(x, file = NULL) {
                       "make the wider inference conservative."), "")
   }
 
-  L <- c(L, "## Per-gene evidence", "")
+  sp <- x$spans
+  L <- c(L, "## Locus spans -- is single-linkage chaining doing the work?", "",
+         sprintf("- %d loci at a %s kb clustering window; span median %s kb, 90th percentile %s kb, widest %s kb",
+                 sp$n_loci, sp$locus_kb,
+                 formatC(sp$span_quantiles_kb[[1]], format = "d", big.mark = ","),
+                 formatC(sp$span_quantiles_kb[[2]], format = "d", big.mark = ","),
+                 formatC(sp$span_quantiles_kb[[4]], format = "d", big.mark = ",")),
+         sprintf("- %d loci span more than 5x the window, %d more than 10x",
+                 sp$n_wider_than_5x_window, sp$n_wider_than_10x_window),
+         sprintf("- significant loci span (kb): %s",
+                 paste(formatC(sp$significant_span_kb, format = "d", big.mark = ","),
+                       collapse = ", ")))
+  if (isTRUE(x$chaining_warning))
+    L <- c(L, "", paste("**Chaining warning.** Single-linkage joins two variants",
+                        "within the window and then keeps going, so in a dense",
+                        "resource distinct regions merge into one block. Where a",
+                        "significant \"locus\" spans many megabases, asking whether",
+                        "any record on it lies near a known lead SNP is a question",
+                        "about the block's width, not about the signal. Read the",
+                        "locus sweep in module G before quoting a fold."))
+  L <- c(L, "", "## Per-gene evidence", "")
   if (nrow(x$evidence)) {
     e <- x$evidence
     e$compartment_ratio <- cq_num(e$compartment_ratio)

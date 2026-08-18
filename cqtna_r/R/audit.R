@@ -117,6 +117,11 @@ cq_status <- function(x, configured) {
 #' @param locus_kb,known_kb,fdr the three conventions. If `mr` arrives pre-built
 #'   with a different `locus_kb` it is re-clustered, so the window named in the
 #'   report is always the window actually used.
+#' @param known_from how a significant locus inherits its known/novel status;
+#'   passed to [cqtna_attribution()] and [cqtna_window_sweep()] so every module
+#'   uses one convention. The mismatched-list control is run under the same
+#'   convention and the audit warns if it is itself significant, which is the
+#'   check that exposes a convention inflated by single-linkage chaining.
 #' @return an object of class `cqtna_audit`.
 #' @export
 #' @examples
@@ -126,7 +131,10 @@ cq_status <- function(x, configured) {
 cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
                         instruments = NULL, expression = NULL, peaks = NULL,
                         target_cell_type = NULL, build = NULL,
-                        locus_kb = 1000, known_kb = 1000, fdr = 0.05) {
+                        locus_kb = 1000, known_kb = 1000, fdr = 0.05,
+                        known_from = c("significant_records", "any_record",
+                                       "lead_variant")) {
+  known_from <- match.arg(known_from)
   cq_validate_window(locus_kb, "locus_kb")
   cq_validate_window(known_kb, "known_kb")
   cq_validate_fdr(fdr)
@@ -147,12 +155,14 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
   if (!inherits(known, "cqtna_known")) known <- as_cqtna_known(known, build)
 
   res <- list()
-  res$A <- cqtna_attribution(mr, known, known_kb, fdr)
+  res$A <- cqtna_attribution(mr, known, known_kb, fdr,
+                             known_from = known_from)
   if (!is.null(mismatch)) {
     if (!inherits(mismatch, "cqtna_known"))
       mismatch <- suppressWarnings(as_cqtna_known(mismatch, attr(known, "build")))
     res$A_nc <- cqtna_attribution(mr, mismatch, known_kb, fdr,
-                                  label = "mismatched (negative control)")
+                                  label = "mismatched (negative control)",
+                                  known_from = known_from)
   } else {
     warning("no mismatched-list control supplied; enrichment specific to this ",
             "outcome's genetics is not established.", call. = FALSE)
@@ -168,9 +178,15 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
   if (!is.null(expression))
     res$E <- cqtna_compartment(expression, sig_genes, target_cell_type)
   if (!is.null(peaks)) res$F <- cqtna_peak_distance(peaks)
-  res$G <- cqtna_window_sweep(mr, known, known_kb, locus_kb, fdr)
+  res$G <- cqtna_window_sweep(mr, known, known_kb, locus_kb, fdr,
+                              known_from = known_from)
+  # 位点跨度诊断：单连锁串联会让"位点级"计数变成"区块级"计数
+  res$spans <- withCallingHandlers(cqtna_locus_spans(mr, fdr),
+                                   warning = function(w) invokeRestart("muffleWarning"))
+  res$chaining_warning <- any(res$spans$significant_span_kb > 5 * locus_kb)
   if (!is.null(mismatch))
-    res$G_nc <- cqtna_window_sweep(mr, mismatch, known_kb, locus_kb, fdr)
+    res$G_nc <- cqtna_window_sweep(mr, mismatch, known_kb, locus_kb, fdr,
+                                   known_from = known_from)
 
   res$evidence <- cq_evidence(res$A, res$C, res$E, res$F)
   res$not_automated <- cqtna_not_automated()
@@ -183,8 +199,22 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
     E = cq_status(res$E, !is.null(expression)),
     F = cq_status(res$F, !is.null(peaks)),
     G = cq_status(res$G, TRUE),
-    G_nc = cq_status(res$G_nc, !is.null(mismatch)))
+    G_nc = cq_status(res$G_nc, !is.null(mismatch)),
+    spans = cq_status(res$spans, TRUE))
+  # ★ 阴性对照是裁判。错配名单若也显著，该格作废——这是本工具来源研究
+  #   预注册里的原话，也是唯一发现 "any_record" 口径在密集资源上失效的检验。
+  res$negative_control_failed <- !is.null(res$A_nc) &&
+    is.finite(res$A_nc$fisher_p_one_sided) &&
+    res$A_nc$fisher_p_one_sided < 0.05 && isTRUE(res$A_nc$fold > 1)
+  if (isTRUE(res$negative_control_failed))
+    warning("the mismatched-list control is itself significant (",
+            sprintf("%.2fx, P = %.3g", res$A_nc$fold, res$A_nc$fisher_p_one_sided),
+            "). Under the criterion this tool's source study pre-registered, ",
+            "that voids the cell: the enrichment cannot be attributed to this ",
+            "outcome's own genetics. Check cqtna_locus_spans() for chaining, ",
+            "and compare known_from = \"lead_variant\".", call. = FALSE)
   res$settings <- list(fdr = fdr, locus_kb = locus_kb, known_kb = known_kb,
-                       build = attr(mr, "build"), reclustered = reclustered)
+                       build = attr(mr, "build"), reclustered = reclustered,
+                       known_from = known_from)
   structure(res, class = "cqtna_audit")
 }
