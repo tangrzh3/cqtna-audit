@@ -326,35 +326,58 @@ test_that("single-linkage chaining is detected and reported", {
 })
 
 # --------------------------------------------------------------------------
-# Mechanism 14: the density-matched permutation. The mismatched list cannot
-# distinguish outcome-specific attribution from loci that are simply bigger and
-# denser; a null drawn from size-matched background loci can.
-test_that("the permutation null is matched and reproducible", {
+# Mechanism 14: the density-matched permutation. Everything about this test is a
+# choice, so the tests are about what it refuses to do, not about a p-value.
+test_that("the permutation refuses a convention it cannot build a null for", {
   mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
   kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
-  a <- cqtna_permutation_control(mr, kn, n_perm = 300, seed = 42)
-  b <- cqtna_permutation_control(mr, kn, n_perm = 300, seed = 42)
-  expect_equal(a$empirical_p, b$empirical_p)          # seed makes it reproducible
-  expect_equal(a$observed_known, 3L)
-  expect_equal(a$n_significant_loci, 7L)
-  expect_length(a$null_distribution, 300L)
-  expect_true(a$empirical_p > 0 && a$empirical_p <= 1)
-  # matching on size absorbs part of what Fisher counts as enrichment
-  expect_lt(a$fold_vs_null, cqtna_attribution(mr, kn)$fold)
-  expect_equal(a$loci_without_a_match, 0L)
+  # significant_records scores the observation on significant records; a
+  # background locus has none, so the null would be a different quantity
+  expect_error(
+    cqtna_permutation_control(mr, kn, known_from = "significant_records"),
+    "should be one of")
 })
 
-test_that("loci with no size-matched partner are counted, not silently dropped", {
-  # one locus far larger than anything else in the background
-  pos <- c(seq(1e6, 1.4e6, by = 1e5), seq(50e6, 80e6, by = 5e5))
-  chr <- c(rep("1", 5), rep("2", length(pos) - 5))
-  p <- c(rep(0.9, 5), 1e-12, rep(0.9, length(pos) - 6))
-  mr <- as_cqtna_mr(data.frame(record_id = seq_along(pos),
-                               gene = paste0("G", seq_along(pos)),
-                               chr = chr, pos = pos, p = p,
-                               stringsAsFactors = FALSE), build = "GRCh38")
-  kn <- suppressWarnings(as_cqtna_known(
-    data.frame(chr = "2", pos = 50e6), build = "GRCh38"))
-  r <- cqtna_permutation_control(mr, kn, n_perm = 50, seed = 1, tolerance = 0.05)
-  expect_equal(r$loci_without_a_match, 1L)
+test_that("an incomplete match returns NA and says why, not a p-value", {
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
+  tight <- cqtna_permutation_control(mr, kn, tolerance = 0.1, n_perm = 100, seed = 1)
+  expect_lt(tight$matched_fraction, 1)
+  expect_true(is.na(tight$empirical_p))
+  expect_match(tight$failed_because, "matched background pool")
+  expect_gt(length(tight$unmatched_loci), 0)
+
+  loose <- cqtna_permutation_control(mr, kn, tolerance = 1, n_perm = 100, seed = 1)
+  expect_equal(loose$matched_fraction, 1)
+  expect_false(is.na(loose$empirical_p))
+})
+
+test_that("the specification is carried on the result and the seed reproduces it", {
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
+  a <- cqtna_permutation_control(mr, kn, tolerance = 1, n_perm = 300, seed = 42)
+  b <- cqtna_permutation_control(mr, kn, tolerance = 1, n_perm = 300, seed = 42)
+  expect_equal(a$empirical_p, b$empirical_p)
+  for (k in c("known_from", "match_on", "tolerance", "n_perm", "seed",
+              "fdr", "known_kb", "replace", "min_matched_fraction"))
+    expect_false(is.null(a[[k]]), info = k)
+  expect_true("n_genes" %in% a$match_on)      # gene density is matched by default
+})
+
+test_that("draws that exhaust their pool are discarded, not filled by reuse", {
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
+  r <- cqtna_permutation_control(mr, kn, tolerance = 1, n_perm = 200, seed = 7)
+  expect_equal(r$n_draws_used + r$n_draws_exhausted, 200L)
+  expect_length(r$null_distribution, r$n_draws_used)
+})
+
+test_that("the tolerance sweep warns when the verdict moves across it", {
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
+  s <- cqtna_permutation_sensitivity(mr, kn, n_perm = 300, seed = 1)
+  expect_true(all(c("tolerance", "matched_fraction", "empirical_p", "ok") %in% names(s)))
+  # tolerances too tight to match everything must be marked, not silently used
+  expect_true(any(!s$ok))
+  expect_true(all(is.na(s$empirical_p[!s$ok])))
 })

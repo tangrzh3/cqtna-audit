@@ -96,10 +96,18 @@ controlled under this correlation structure, and module B says so on its face.
 
 **The mismatched-disease list is a weak negative control.** It rules out
 enrichment on loci that are dense in every disease. It does not rule out a density
-that is itself disease-specific. `cqtna_permutation_control()` addresses that
-directly by matching on locus size and instrument count; on the study's own CD4
-cell it takes a 4.09-fold Fisher enrichment at P = 0.028 down to 2.32-fold at an
-empirical P = 0.111. Run both.
+that is itself disease-specific. `cqtna_permutation_control()` addresses that by
+matching null loci on size, instrument count and gene count.
+
+⚠ **Do not quote a single p-value from it.** The verdict moves with the matching
+tolerance, which nobody has argued for in advance. On the source study's CD4 cell,
+same seed and same number of permutations, tolerances that achieve complete
+matching give empirical P between 0.022 and 0.042, while tighter tolerances cannot
+match every locus and correctly return `NA`. An earlier version of this README
+quoted "2.32-fold, P = 0.111" here; that figure was computed while one of seven
+loci had no matched pool, and **is withdrawn**. Run
+`cqtna_permutation_sensitivity()` and report the sweep, and fix the specification
+before you look at it.
 
 **"The fold rises as the window narrows" means the reported fold is the
 conservative one for that fold.** It does not make the wider inference
@@ -109,9 +117,13 @@ conservative, and it is not evidence that the attribution is real.
 1 Mb single-linkage can chain a chromosome arm into one block: in the source study
 the whole-blood resource produced thirty loci wider than 10 Mb and one significant
 "locus" spanning 30.8 Mb across 588 records. Locus-level counts there are counting
-blocks. `cqtna_locus_spans()` warns when this is happening, and it matters — the
-three `known_from` conventions agree exactly on a partition that does not chain
-and diverge on one that does.
+blocks. `cqtna_locus_spans()` warns when this is happening.
+
+There is no window at which the problem disappears. Tightening to 100 kb still
+leaves five significant loci wider than five times the window; what changes is
+whether the residual chaining crosses a classification boundary. Where the three
+`known_from` conventions agree, that is evidence the chaining did not bite on
+those data -- not evidence that the partition is clean.
 
 ## Reading module G
 

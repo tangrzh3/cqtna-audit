@@ -9,11 +9,13 @@ cqtna_permutation_control(
   known,
   known_kb = 1000,
   fdr = 0.05,
-  known_from = c("significant_records", "any_record", "lead_variant"),
-  match_on = c("n_records", "span"),
+  known_from = c("any_record", "lead_variant"),
+  match_on = c("n_records", "span", "n_genes"),
+  tolerance = 0.25,
   n_perm = 1000,
   seed = NULL,
-  tolerance = 0.25
+  min_matched_fraction = 1,
+  replace = FALSE
 )
 }
 \arguments{
@@ -23,36 +25,55 @@ cqtna_permutation_control(
 
 \item{known_kb, fdr}{as in [cqtna_attribution()].}
 
-\item{known_from}{which convention to test; the null is built under the same
-one.}
+\item{known_from}{`"any_record"` or `"lead_variant"`; see the section above.}
 
-\item{match_on}{properties to match null loci on. `"n_records"` is the number
-of instruments at the locus, `"span"` its width in bp, `"chr"` its
-chromosome. Matching on span is what distinguishes this from the
-mismatched-list control.}
+\item{match_on}{properties null loci must resemble the observed ones on. Any
+of `"n_records"`, `"span"`, `"n_genes"`, `"chr"`. Matching on span is what
+separates this from the mismatched-list control; matching on `n_genes` is
+what makes "controls for gene density" true rather than aspirational.}
+
+\item{tolerance}{how close a match must be on the continuous properties, on
+the log scale. This parameter can flip significance -- see the note at the
+top of this file, and [cqtna_permutation_sensitivity()].}
 
 \item{n_perm}{number of null sets.}
 
-\item{seed}{passed to [set.seed()] so a reported empirical p-value can be
-reproduced exactly.}
+\item{seed}{passed to [set.seed()] so an empirical p-value is reproducible.}
 
-\item{tolerance}{how closely a null locus must match on the continuous
-properties, as a proportion. Loci are matched within `tolerance` on the log
-scale, which is the scale spans actually vary on.}
+\item{min_matched_fraction}{the run fails, returning `NA` for the p-value, if
+fewer than this fraction of significant loci have a matched pool. A p-value
+computed while some loci could not be matched is not the test specified.}
+
+\item{replace}{whether a locus may be drawn twice within one null set. The
+default `FALSE` discards a draw that exhausts its pool rather than reusing a
+locus, because reuse quietly narrows the null.}
 }
 \value{
-a list with the observed count, the null distribution, the empirical
-  one-sided p-value, and how many of the requested matches could be made.
+a list carrying the full matching specification, the observed count,
+  the null distribution, and either an empirical p-value or `NA` together with
+  `failed_because`.
 }
 \description{
-Draws `n_perm` null sets of loci from the background, each matched to the
-observed significant set on the properties that could manufacture an
-enrichment on their own, and reports where the observed count falls in that
-null.
+Draws null sets of loci matched to the observed significant set on the
+properties that could manufacture an enrichment by themselves, and reports
+where the observed count falls in that null.
 }
+\section{Why significant_records is refused}{
+
+Under that convention a locus counts as known when one of ITS SIGNIFICANT
+records is near a known lead SNP. A background locus has no significant
+records, so a null locus cannot be scored the way the observed ones were: the
+null would be built on "any record" while the observation is built on
+"significant records", and the comparison would be between two different
+quantities. An earlier version of this function did exactly that. The
+convention remains available in [cqtna_attribution()] for reproducing
+published numbers, but it has no valid density-matched null. Use
+`"any_record"` or `"lead_variant"`.
+}
+
 \examples{
 mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
 kn <- as_cqtna_known(cqtna_demo("known"), build = "GRCh38")
-p <- cqtna_permutation_control(mr, kn, n_perm = 200, seed = 1)
-p$empirical_p
+r <- cqtna_permutation_control(mr, kn, n_perm = 200, seed = 1)
+r$empirical_p
 }
