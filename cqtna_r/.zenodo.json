@@ -1,8 +1,19 @@
 {
   "title": "cqtna: Context-Specific QTL Target Nomination Audit",
-  "description": "An audit for candidate lists produced by cis-eQTL-instrumented Mendelian randomization. Runs the automatable part of eight diagnostics on a candidate list and reports what kind of evidence each nominated gene carries: locus attribution against the outcome's own known loci with a mismatched-list negative control, the same list recomputed over four inference units, stability against a second outcome GWAS, instrument attrition at three separate levels, compartment attribution, eQTL-to-GWAS peak distance, and a sweep of the two window conventions a fold enrichment depends on. Three of the eight diagnostics cannot be automated from a candidate list and are named in every report rather than omitted. No gene reaches target-supported from this tool, by design.",
+  "description": "An audit for candidate lists produced by cis-eQTL-instrumented Mendelian randomization. Runs the automatable part of eight diagnostics on a candidate list and reports what kind of evidence each nominated gene carries: locus attribution against the outcome's own known loci with a mismatched-list negative control, the same list recomputed over four inference units, stability against a second outcome GWAS, instrument attrition at three separate levels, compartment attribution, eQTL-to-GWAS peak distance, and a sweep of the two window conventions a fold enrichment depends on. Three of the eight diagnostics cannot be automated from a candidate list and are named in every report rather than omitted. Also reports whether single-linkage clustering has chained distinct regions into one block, and provides a density-matched permutation control. No gene reaches target-supported from this tool, by design. This is a research companion to one study, not a validated general-purpose platform.",
   "license": "MIT",
   "upload_type": "software",
-  "keywords": ["Mendelian randomization", "eQTL", "target nomination", "colocalisation", "reproducibility"],
-  "creators": [{"name": "MR audit project"}]
+  "keywords": [
+    "Mendelian randomization",
+    "eQTL",
+    "target nomination",
+    "colocalisation",
+    "reproducibility"
+  ],
+  "creators": [
+    {
+      "name": "MR audit project"
+    }
+  ],
+  "version": "0.3.0"
 }

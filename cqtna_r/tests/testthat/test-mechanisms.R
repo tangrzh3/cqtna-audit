@@ -324,3 +324,37 @@ test_that("single-linkage chaining is detected and reported", {
   expect_equal(sp$n_wider_than_5x_window, 1L)
   expect_warning(cqtna_locus_spans(mr), "chaining has merged distinct regions")
 })
+
+# --------------------------------------------------------------------------
+# Mechanism 14: the density-matched permutation. The mismatched list cannot
+# distinguish outcome-specific attribution from loci that are simply bigger and
+# denser; a null drawn from size-matched background loci can.
+test_that("the permutation null is matched and reproducible", {
+  mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+  kn <- suppressWarnings(as_cqtna_known(cqtna_demo("known"), build = "GRCh38"))
+  a <- cqtna_permutation_control(mr, kn, n_perm = 300, seed = 42)
+  b <- cqtna_permutation_control(mr, kn, n_perm = 300, seed = 42)
+  expect_equal(a$empirical_p, b$empirical_p)          # seed makes it reproducible
+  expect_equal(a$observed_known, 3L)
+  expect_equal(a$n_significant_loci, 7L)
+  expect_length(a$null_distribution, 300L)
+  expect_true(a$empirical_p > 0 && a$empirical_p <= 1)
+  # matching on size absorbs part of what Fisher counts as enrichment
+  expect_lt(a$fold_vs_null, cqtna_attribution(mr, kn)$fold)
+  expect_equal(a$loci_without_a_match, 0L)
+})
+
+test_that("loci with no size-matched partner are counted, not silently dropped", {
+  # one locus far larger than anything else in the background
+  pos <- c(seq(1e6, 1.4e6, by = 1e5), seq(50e6, 80e6, by = 5e5))
+  chr <- c(rep("1", 5), rep("2", length(pos) - 5))
+  p <- c(rep(0.9, 5), 1e-12, rep(0.9, length(pos) - 6))
+  mr <- as_cqtna_mr(data.frame(record_id = seq_along(pos),
+                               gene = paste0("G", seq_along(pos)),
+                               chr = chr, pos = pos, p = p,
+                               stringsAsFactors = FALSE), build = "GRCh38")
+  kn <- suppressWarnings(as_cqtna_known(
+    data.frame(chr = "2", pos = 50e6), build = "GRCh38"))
+  r <- cqtna_permutation_control(mr, kn, n_perm = 50, seed = 1, tolerance = 0.05)
+  expect_equal(r$loci_without_a_match, 1L)
+})

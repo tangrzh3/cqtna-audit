@@ -1,6 +1,6 @@
 Package: cqtna
 Title: Context-Specific QTL Target Nomination Audit
-Version: 0.2.0
+Version: 0.3.0
 Authors@R:
     person("MR audit project", role = c("aut", "cre"),
            email = "noreply@example.com")
