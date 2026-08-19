@@ -1,0 +1,110 @@
+cell	region_filter	analysis_status	locus_kb	locus	chr	start_mb	end_mb	span_kb	n_records	n_sig	n_near	n_sig_near	min_dist_sig_kb	evidence	top_gene	top_p
+HCC_low x eQTLGen_blood	all_genome	prereg_sensitivity	500	22:43960600-44455578	22	43.961	44.456	495	4	1	1	0	1266	C1_spread_only	ENSG00000100347	2.38043945875759e-05
+melanoma x eQTLGen_blood	all_genome	prereg_sensitivity	500	1:154966186-155309691	1	154.966	155.31	344	13	1	13	1	164	significant_record	ZBTB7B	1.68533960249598e-08
+melanoma x eQTLGen_blood	all_genome	prereg_sensitivity	500	10:103850568-104339650	10	103.851	104.34	489	11	2	11	2	3	significant_record	OBFC1	4.974880744455e-06
+melanoma x eQTLGen_blood	all_genome	prereg_sensitivity	500	6:32621994-33067154	6	32.622	33.067	445	7	2	7	2	10	significant_record	HLA-DQA2	0.000219101757417439
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	21:42299819-42738295	21	42.3	42.738	438	7	1	2	0	1063	C1_spread_only	UBASH3A	0.00064659922670314
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	1:25065113-25564344	1	25.065	25.564	499	7	3	6	3	774	significant_record	RHD	5.21296318368601e-08
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	1:151487785-151958528	1	151.488	151.959	471	14	2	14	2	806	significant_record	OAZ3	0.00019172648575017
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	1:154463719-154943501	1	154.464	154.944	480	7	1	7	1	559	significant_record	SHE	0.000459926077134866
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	10:6110655-6584252	10	6.111	6.584	474	8	3	8	3	859	significant_record	PRKCQ-AS1	0.000193806551581952
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	11:197557-696437	11	0.198	0.696	499	29	1	29	1	16	significant_record	SIGIRR	0.000960242878704223
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	11:9303713-9737655	11	9.304	9.738	434	5	1	4	1	572	significant_record	SWAP70	2.99179328349234e-05
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	11:61432192-61911460	11	61.432	61.911	479	11	2	10	2	608	significant_record	FADS1	0.000556011403608783
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	11:107840938-108228647	11	107.841	108.229	388	5	2	5	2	97	significant_record	NPAT	0.000532585499603319
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	16:69316966-69730509	16	69.317	69.731	414	10	1	10	1	574	significant_record	TERF2	0.000665890648509885
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	16:89097899-89522488	16	89.098	89.522	425	8	1	8	1	210	significant_record	AC137932.6	0.000409104383985241
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	16:89624734-90077319	16	89.625	90.077	453	15	2	15	2	19	significant_record	AFG3L1P	0.000140480577046241
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	2:134921318-135350207	2	134.921	135.35	429	4	1	4	1	677	significant_record	R3HDM1	0.000923346795023138
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	2:202034208-202406544	2	202.034	202.407	372	4	1	2	1	755	significant_record	FZD7	0.000814466123884309
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	20:63864109-64269826	20	63.864	64.27	406	11	1	11	1	403	significant_record	TCEA2	6.1045583862485e-05
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	22:38642785-39128126	22	38.643	39.128	485	15	2	15	2	458	significant_record	TOMM22	0.000182879050917208
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	22:50168982-50625049	22	50.169	50.625	456	22	1	22	1	161	significant_record	SBF1	1.94205506117325e-06
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	5:56148856-56148856	5	56.149	56.149	0	2	2	2	2	567	significant_record	ANKRD55	6.80602826420407e-18
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	6:31704935-32108722	6	31.705	32.109	404	14	7	9	5	679	significant_record	NELFE	2.87254115472946e-51
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	6:32621994-33067154	6	32.622	33.067	445	7	7	7	7	38	significant_record	HLA-DQA2	5.7705180908278e-215
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	6:33185088-33682844	6	33.185	33.683	498	5	4	5	4	404	significant_record	MNF1	3.05637869530097e-29
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	6:33764212-33764212	6	33.764	33.764	0	1	1	1	1	983	significant_record	LEMD2	3.84239350348847e-15
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	21:42299819-42738295	21	42.3	42.738	438	7	1	2	0	1063	C1_spread_only	UBASH3A	0.00064659922670314
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	1:25065113-25564344	1	25.065	25.564	499	7	3	6	3	774	significant_record	RHD	5.21296318368601e-08
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	1:151487785-151958528	1	151.488	151.959	471	14	2	14	2	806	significant_record	OAZ3	0.00019172648575017
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	1:154463719-154943501	1	154.464	154.944	480	7	1	7	1	559	significant_record	SHE	0.000459926077134866
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	10:6110655-6584252	10	6.111	6.584	474	8	3	8	3	859	significant_record	PRKCQ-AS1	0.000193806551581952
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	11:9303713-9737655	11	9.304	9.738	434	5	1	4	1	572	significant_record	SWAP70	2.99179328349234e-05
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	11:61432192-61911460	11	61.432	61.911	479	11	2	10	2	608	significant_record	FADS1	0.000556011403608783
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	11:107840938-108228647	11	107.841	108.229	388	5	2	5	2	97	significant_record	NPAT	0.000532585499603319
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	16:69316966-69730509	16	69.317	69.731	414	10	1	10	1	574	significant_record	TERF2	0.000665890648509885
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	16:89097899-89522488	16	89.098	89.522	425	8	1	8	1	210	significant_record	AC137932.6	0.000409104383985241
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	16:89624734-90077319	16	89.625	90.077	453	15	2	15	2	19	significant_record	AFG3L1P	0.000140480577046241
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	20:63864109-64269826	20	63.864	64.27	406	11	1	11	1	403	significant_record	TCEA2	6.1045583862485e-05
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	22:38642785-39128126	22	38.643	39.128	485	15	2	15	2	458	significant_record	TOMM22	0.000182879050917208
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	22:50168982-50625049	22	50.169	50.625	456	22	1	22	1	161	significant_record	SBF1	1.94205506117325e-06
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	5:56148856-56148856	5	56.149	56.149	0	2	2	2	2	567	significant_record	ANKRD55	6.80602826420407e-18
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	10:5775664-5813440	10	5.776	5.813	38	5	1	5	1	88	significant_record	GDI2	0.00220017184262522
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	11:61779596-62275661	11	61.78	62.276	496	12	6	12	6	608	significant_record	FADS2	0.000556011403608783
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	16:89594103-89871237	16	89.594	89.871	277	8	2	8	2	11	significant_record	SPATA33	0.000507785914945781
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	17:6989493-7330793	17	6.989	7.331	341	21	1	21	1	395	significant_record	ELP5	0.00177757014196078
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	4:105365790-105468140	4	105.366	105.468	102	2	1	2	1	129	significant_record	PPA2	0.0012121914624693
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	6:32179919-32659415	6	32.18	32.659	479	14	14	14	14	122	significant_record	HLA-DRB1	7.4625649915266e-207
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	6:32829016-33300960	6	32.829	33.301	472	17	12	17	12	48	significant_record	PSMB9	9.36257935089758e-53
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	6:33406104-33737289	6	33.406	33.737	331	11	11	11	11	625	significant_record	UQCC2	7.80325308979182e-49
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	11:61779596-62275661	11	61.78	62.276	496	12	6	12	6	608	significant_record	FADS2	0.000556011403608783
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	16:89594103-89871237	16	89.594	89.871	277	8	2	8	2	11	significant_record	SPATA33	0.000507785914945781
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	4:105365790-105468140	4	105.366	105.468	102	2	1	2	1	129	significant_record	PPA2	0.0012121914624693
+HCC_low x eQTLGen_blood	all_genome	prereg_sensitivity	1000	22:43960600-44718968	22	43.961	44.719	758	5	1	2	0	1266	C1_spread_only	ENSG00000100347	2.38043945875759e-05
+melanoma x eQTLGen_blood	all_genome	prereg_primary	1000	1:154463719-155309691	1	154.464	155.31	846	20	1	20	1	164	significant_record	ZBTB7B	1.68533960249598e-08
+melanoma x eQTLGen_blood	all_genome	prereg_primary	1000	10:103850568-104355789	10	103.851	104.356	505	12	2	12	2	3	significant_record	OBFC1	4.974880744455e-06
+melanoma x eQTLGen_blood	all_genome	prereg_primary	1000	6:32621994-33579153	6	32.622	33.579	957	10	2	10	2	10	significant_record	HLA-DQA2	0.000219101757417439
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	20:34563741-35562378	20	34.564	35.562	999	17	5	6	0	1287	C1_spread_only	RP3-477O4.14	8.20541887747026e-06
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	21:42215328-42915222	21	42.215	42.915	700	11	1	3	0	1063	C1_spread_only	UBASH3A	0.00064659922670314
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	22:21457702-22420139	22	21.458	22.42	962	28	2	9	0	1680	C1_spread_only	CCDC116	1.9064231419173e-05
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	5:34743503-35640640	5	34.744	35.641	897	5	1	3	0	1677	C1_spread_only	SPEF2	0.000302378103433773
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	1:24911495-25884300	1	24.911	25.884	973	13	3	8	3	774	significant_record	RHD	5.21296318368601e-08
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	1:150827614-151805451	1	150.828	151.805	978	25	2	25	2	806	significant_record	OAZ3	0.00019172648575017
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	1:154463719-155309691	1	154.464	155.31	846	20	1	20	1	559	significant_record	SHE	0.000459926077134866
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	10:5882645-6584252	10	5.883	6.584	702	12	3	12	3	859	significant_record	PRKCQ-AS1	0.000193806551581952
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	11:197557-1010649	11	0.198	1.011	813	43	1	43	1	16	significant_record	SIGIRR	0.000960242878704223
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	11:9737655-10613793	11	9.738	10.614	876	8	1	8	1	572	significant_record	SWAP70	2.99179328349234e-05
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	11:60836174-61828092	11	60.836	61.828	992	18	4	8	2	608	significant_record	CD6	0.000328199029148978
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	11:107269351-108228647	11	107.269	108.229	959	8	2	7	2	97	significant_record	NPAT	0.000532585499603319
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	16:68528195-69464650	16	68.528	69.465	936	13	1	13	1	574	significant_record	TERF2	0.000665890648509885
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	16:88555877-89522488	16	88.556	89.522	967	22	1	22	1	210	significant_record	AC137932.6	0.000409104383985241
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	16:89624734-90077319	16	89.625	90.077	453	15	2	15	2	19	significant_record	AFG3L1P	0.000140480577046241
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	2:134360746-135350207	2	134.361	135.35	989	6	1	6	1	677	significant_record	R3HDM1	0.000923346795023138
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	2:202034208-202896851	2	202.034	202.897	863	7	2	2	1	755	significant_record	FAM117B	0.000276102568912511
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	20:63864109-64269826	20	63.864	64.27	406	11	1	11	1	403	significant_record	TCEA2	6.1045583862485e-05
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	22:38488770-39449893	22	38.489	39.45	961	23	4	18	2	458	significant_record	SYNGR1	2.2250363047456e-05
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	22:49604470-50586408	22	49.604	50.586	982	29	1	29	1	161	significant_record	SBF1	1.94205506117325e-06
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	5:55371708-56148856	5	55.372	56.149	777	6	2	3	2	567	significant_record	ANKRD55	6.80602826420407e-18
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	6:31160828-32108722	6	31.161	32.109	948	21	11	9	5	679	significant_record	NELFE	2.87254115472946e-51
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	6:32621994-33579153	6	32.622	33.579	957	10	10	10	10	38	significant_record	HLA-DQA2	5.7705180908278e-215
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	6:33633355-34465733	6	33.633	34.466	832	8	3	3	2	902	significant_record	MNF1	3.05637869530097e-29
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	2:202034208-202896851	2	202.034	202.897	863	7	1	2	0	1351	C1_spread_only	FAM117B	0.000276102568912511
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	20:34563741-35562378	20	34.564	35.562	999	17	5	6	0	1287	C1_spread_only	RP3-477O4.14	8.20541887747026e-06
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	21:42215328-42915222	21	42.215	42.915	700	11	1	3	0	1063	C1_spread_only	UBASH3A	0.00064659922670314
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	22:21457702-22420139	22	21.458	22.42	962	28	2	9	0	1680	C1_spread_only	CCDC116	1.9064231419173e-05
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	5:34743503-35640640	5	34.744	35.641	897	5	1	3	0	1677	C1_spread_only	SPEF2	0.000302378103433773
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	1:24911495-25884300	1	24.911	25.884	973	13	3	8	3	774	significant_record	RHD	5.21296318368601e-08
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	1:150827614-151805451	1	150.828	151.805	978	25	2	25	2	806	significant_record	OAZ3	0.00019172648575017
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	1:154463719-155309691	1	154.464	155.31	846	20	1	20	1	559	significant_record	SHE	0.000459926077134866
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	10:5882645-6584252	10	5.883	6.584	702	12	3	12	3	859	significant_record	PRKCQ-AS1	0.000193806551581952
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	11:9737655-10613793	11	9.738	10.614	876	8	1	8	1	572	significant_record	SWAP70	2.99179328349234e-05
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	11:60836174-61828092	11	60.836	61.828	992	18	4	8	2	608	significant_record	CD6	0.000328199029148978
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	11:107269351-108228647	11	107.269	108.229	959	8	2	7	2	97	significant_record	NPAT	0.000532585499603319
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	16:68528195-69464650	16	68.528	69.465	936	13	1	13	1	574	significant_record	TERF2	0.000665890648509885
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	16:88555877-89522488	16	88.556	89.522	967	22	1	22	1	210	significant_record	AC137932.6	0.000409104383985241
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	16:89624734-90077319	16	89.625	90.077	453	15	2	15	2	19	significant_record	AFG3L1P	0.000140480577046241
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	20:63864109-64269826	20	63.864	64.27	406	11	1	11	1	403	significant_record	TCEA2	6.1045583862485e-05
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	22:38488770-39449893	22	38.489	39.45	961	23	4	18	2	458	significant_record	SYNGR1	2.2250363047456e-05
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	22:49604470-50586408	22	49.604	50.586	982	29	1	29	1	161	significant_record	SBF1	1.94205506117325e-06
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	5:55371708-56148856	5	55.372	56.149	777	6	2	3	2	567	significant_record	ANKRD55	6.80602826420407e-18
+RA x Soskic_CD4	all_genome	prereg_primary	1000	10:5212841-5813440	10	5.213	5.813	601	7	1	7	1	88	significant_record	GDI2	0.00220017184262522
+RA x Soskic_CD4	all_genome	prereg_primary	1000	11:61779596-62610749	11	61.78	62.611	831	16	6	16	6	608	significant_record	FADS2	0.000556011403608783
+RA x Soskic_CD4	all_genome	prereg_primary	1000	16:88860636-89730161	16	88.861	89.73	870	10	2	10	2	11	significant_record	SPATA33	0.000507785914945781
+RA x Soskic_CD4	all_genome	prereg_primary	1000	17:6989493-7554035	17	6.989	7.554	565	22	1	22	1	395	significant_record	ELP5	0.00177757014196078
+RA x Soskic_CD4	all_genome	prereg_primary	1000	4:105365790-105468140	4	105.366	105.468	102	2	1	2	1	129	significant_record	PPA2	0.0012121914624693
+RA x Soskic_CD4	all_genome	prereg_primary	1000	6:32179919-33073411	6	32.18	33.073	893	26	26	26	26	48	significant_record	HLA-DRB1	7.4625649915266e-207
+RA x Soskic_CD4	all_genome	prereg_primary	1000	6:33217117-33737289	6	33.217	33.737	520	16	11	16	11	625	significant_record	UQCC2	7.80325308979182e-49
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	11:61779596-62610749	11	61.78	62.611	831	16	6	16	6	608	significant_record	FADS2	0.000556011403608783
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	16:88860636-89730161	16	88.861	89.73	870	10	2	10	2	11	significant_record	SPATA33	0.000507785914945781
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	4:105365790-105468140	4	105.366	105.468	102	2	1	2	1	129	significant_record	PPA2	0.0012121914624693

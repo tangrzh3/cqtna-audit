@@ -1,0 +1,41 @@
+cell	role	list_name	relation	bg_loci	bg_known	sig_loci	sig_known	fold	fisher_p
+melanoma x Soskic_CD4	main	melanoma	own outcome	655	66	8	4	4.96	0.00484067292102242
+melanoma x Soskic_CD4	main	HCC	unrelated control	655	43	8	0	0	1
+melanoma x Soskic_CD4	main	colorectal	unrelated control	655	164	8	1	0.5	0.901720098894847
+melanoma x Soskic_CD4	main	prostate	unrelated control	655	30	8	1	2.73	0.314177737027235
+melanoma x Soskic_CD4	main	RA	unrelated control	655	66	8	0	0	1
+melanoma x eQTLGen_blood	main	melanoma	own outcome	1678	180	34	23	6.31	1.34733811096808e-15
+melanoma x eQTLGen_blood	main	HCC	unrelated control	1678	93	34	3	1.59	0.290590161170249
+melanoma x eQTLGen_blood	main	colorectal	unrelated control	1678	394	34	12	1.5	0.0793491268295471
+melanoma x eQTLGen_blood	main	prostate	unrelated control	1678	66	34	3	2.24	0.146658591705885
+melanoma x eQTLGen_blood	main	RA	unrelated control	1678	164	34	7	2.11	0.0416555910827965
+HCC_high x Soskic_CD4	main	melanoma	unrelated control	646	65	2	0	0	1
+HCC_high x Soskic_CD4	main	HCC	own outcome	646	41	2	1	7.88	0.122999016007872
+HCC_high x Soskic_CD4	main	colorectal	unrelated control	646	155	2	1	2.08	0.422588619291046
+HCC_high x Soskic_CD4	main	prostate	unrelated control	646	30	2	0	0	1
+HCC_high x Soskic_CD4	main	RA	unrelated control	646	66	2	0	0	1
+HCC_high x eQTLGen_blood	main	melanoma	unrelated control	1666	180	5	0	0	1
+HCC_high x eQTLGen_blood	main	HCC	own outcome	1666	92	5	3	10.87	0.00150414083167835
+HCC_high x eQTLGen_blood	main	colorectal	unrelated control	1666	391	5	3	2.56	0.0877266571123268
+HCC_high x eQTLGen_blood	main	prostate	unrelated control	1666	64	5	1	5.21	0.178073014352696
+HCC_high x eQTLGen_blood	main	RA	unrelated control	1666	163	5	1	2.04	0.40277679767851
+RA x Soskic_CD4	main	melanoma	unrelated control	641	64	41	7	1.71	0.10241284647765
+RA x Soskic_CD4	main	HCC	unrelated control	641	41	41	8	3.05	0.00276618147944775
+RA x Soskic_CD4	main	colorectal	unrelated control	641	159	41	18	1.77	0.00447350305414285
+RA x Soskic_CD4	main	prostate	unrelated control	641	30	41	2	1.04	0.586122303458849
+RA x Soskic_CD4	main	RA	own outcome	641	64	41	16	3.91	2.33226619689043e-07
+RA x eQTLGen_blood	main	melanoma	unrelated control	1678	180	109	24	2.05	0.000289447282199804
+RA x eQTLGen_blood	main	HCC	unrelated control	1678	93	109	18	2.98	1.32097612678212e-05
+RA x eQTLGen_blood	main	colorectal	unrelated control	1678	394	109	41	1.6	0.00043249833374288
+RA x eQTLGen_blood	main	prostate	unrelated control	1678	66	109	6	1.4	0.254416915680706
+RA x eQTLGen_blood	main	RA	own outcome	1678	164	109	42	3.94	3.25522920094405e-17
+HCC_low x Soskic_CD4	power sensitivity	melanoma	unrelated control	666	67	2	0	0	1
+HCC_low x Soskic_CD4	power sensitivity	HCC	own outcome	666	43	2	2	15.49	0.00407776197249882
+HCC_low x Soskic_CD4	power sensitivity	colorectal	unrelated control	666	164	2	1	2.03	0.432134390029127
+HCC_low x Soskic_CD4	power sensitivity	prostate	unrelated control	666	30	2	0	0	1
+HCC_low x Soskic_CD4	power sensitivity	RA	unrelated control	666	67	2	0	0	1
+HCC_low x eQTLGen_blood	power sensitivity	melanoma	unrelated control	1678	180	4	1	2.33	0.36511867117564
+HCC_low x eQTLGen_blood	power sensitivity	HCC	own outcome	1678	93	4	3	13.53	0.000633737339612804
+HCC_low x eQTLGen_blood	power sensitivity	colorectal	unrelated control	1678	394	4	3	3.19	0.0424668901757573
+HCC_low x eQTLGen_blood	power sensitivity	prostate	unrelated control	1678	66	4	0	0	1
+HCC_low x eQTLGen_blood	power sensitivity	RA	unrelated control	1678	164	4	0	0	1
