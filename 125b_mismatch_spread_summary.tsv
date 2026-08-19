@@ -1,0 +1,21 @@
+cell	region_filter	analysis_status	locus_kb	mismatch_fold	mismatch_p	control	sig_loci	mismatch_known	spread_only	pct_spread
+melanoma x Soskic_CD4	all_genome	prereg_primary	1000	0	1	clean	8	0	0	NA
+melanoma x Soskic_CD4	all_genome	prereg_sensitivity	500	0	1	clean	7	0	0	NA
+melanoma x eQTLGen_blood	all_genome	prereg_primary	1000	1.59	0.290590161170249	clean	34	3	0	0
+melanoma x eQTLGen_blood	all_genome	prereg_sensitivity	500	1.62	0.281946290589158	clean	36	3	0	0
+HCC_high x Soskic_CD4	all_genome	prereg_primary	1000	0	1	clean	2	0	0	NA
+HCC_high x Soskic_CD4	all_genome	prereg_sensitivity	500	0	1	clean	2	0	0	NA
+HCC_high x eQTLGen_blood	all_genome	prereg_primary	1000	0	1	clean	5	0	0	NA
+HCC_high x eQTLGen_blood	all_genome	prereg_sensitivity	500	0	1	clean	6	0	0	NA
+RA x Soskic_CD4	all_genome	prereg_primary	1000	1.71	0.10241284647765	clean	41	7	0	0
+RA x Soskic_CD4	all_genome	prereg_sensitivity	500	1.99	0.0389551637510545	FAILED	43	8	0	0
+RA x eQTLGen_blood	all_genome	prereg_primary	1000	2.05	0.000289447282199804	FAILED	109	24	4	16.7
+RA x eQTLGen_blood	all_genome	prereg_sensitivity	500	1.87	0.00241559024320088	FAILED	123	22	1	4.5
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	1.03	0.575452632649283	clean	30	3	0	0
+RA x Soskic_CD4 (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	1.1	0.521943722618601	clean	30	3	0	0
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	1000	1.83	0.00524241872542391	FAILED	98	19	5	26.3
+RA x eQTLGen_blood (MHC excluded)	MHC_excluded	posthoc_sensitivity	500	1.48	0.0754566984856447	clean	107	15	1	6.7
+HCC_low x Soskic_CD4	all_genome	prereg_sensitivity	1000	0	1	clean	2	0	0	NA
+HCC_low x Soskic_CD4	all_genome	prereg_sensitivity	500	0	1	clean	2	0	0	NA
+HCC_low x eQTLGen_blood	all_genome	prereg_sensitivity	1000	2.33	0.36511867117564	clean	4	1	1	100
+HCC_low x eQTLGen_blood	all_genome	prereg_sensitivity	500	2.09	0.395592928649845	clean	5	1	1	100
