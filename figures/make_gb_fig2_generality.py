@@ -16,9 +16,12 @@
 
 数据源（全部来自 step119 重建的权威表，**不要读 94d/94e**——
 94d 里混着预注册判为作废的 lung/colorectal 两行，94e 汇总的是含那两行的旧网格）：
-  119a_grid_main.tsv · 119c_mismatch_controls.tsv
-  59a_release_trajectory.tsv · 58a_finngen_reference_predictions.tsv
-  99a_r13_trajectory.tsv · 99c_r13_attribution.tsv · 108a_ra_attribution.tsv
+  123d_fixed_anchor_full_grid.tsv（全网格 + 错配对照，冻结分区）
+  126a_offgrid_attribution.tsv（迁移检验等非网格格子，同一分区）
+  59a_release_trajectory.tsv · 58a_finngen_reference_predictions.tsv · 99a_r13_trajectory.tsv
+
+⚠ 不要再读 119a/119c/108a/99c —— 它们是单连锁分区上的数，
+与本图其余部分不同单位。
 """
 import os
 
@@ -39,15 +42,22 @@ C_KNOWN, C_NOVEL, C_HITS = "#C4453C", "#3B7DD8", "#333333"
 C_TRANSFER = "#8A6BBE"
 C_MATCH, C_MISMATCH = "#C4453C", "#9A9A9A"
 
-grid = pd.read_csv(f"{MR}/119a_grid_main.tsv", sep="\t")
-mism = pd.read_csv(f"{MR}/119c_mismatch_controls.tsv", sep="\t")
+# One table for the whole grid and its mismatched controls: 123d is every
+# cell recomputed on the frozen partition (S36). The figure used to read
+# 119a/119c for the grid and 108a/99c for the RA and transfer cells, which
+# meant three panels drawn on two different statistical units.
+grid = pd.read_csv(f"{MR}/123d_fixed_anchor_full_grid.tsv", sep="\t")
+grid = grid[grid.analysis == "main"].copy()
+grid = grid[~grid.cell.str.contains("MHC")]        # post-hoc rows are not the grid
+grid["disease"] = grid.cell.str.split(" x ").str[0]
+grid["exposure"] = grid.cell.str.split(" x ").str[1]
+grid["void"] = grid.control.eq("FAILED")
+offgrid = pd.read_csv(f"{MR}/126a_offgrid_attribution.tsv", sep="\t")
 rel = pd.read_csv(f"{MR}/59a_release_trajectory.tsv", sep="\t")
 rel = rel[rel["mode"] == "own"].sort_values("cases").reset_index(drop=True)
 pred = pd.read_csv(f"{MR}/58a_finngen_reference_predictions.tsv", sep="\t")
 r13 = pd.read_csv(f"{MR}/99a_r13_trajectory.tsv", sep="\t")
 r13 = r13[(r13["mode"] == "own") & (r13.release == "R13")].iloc[0]
-r13a = pd.read_csv(f"{MR}/99c_r13_attribution.tsv", sep="\t")
-ra = pd.read_csv(f"{MR}/108a_ra_attribution.tsv", sep="\t")
 
 DIS_LAB = {"melanoma": "Melanoma", "HCC_high": "HCC\n(3,748 cases)",
            "RA": "Rheumatoid\narthritis", "HCC_low": "HCC\n(947 cases)"}
@@ -108,13 +118,35 @@ def panel_b(ax):
     for j, d in enumerate(diseases):
         for i, e in enumerate(resources):
             r = cell(e, d)
-            sig = r.fisher_p < 0.05
+            void = bool(r.void)
+            sig = (r.fisher_p < 0.05) and not void
+            # A void cell is not a weak cell. It is drawn grey and hatched, with
+            # its own fold withheld, because its mismatched-list control also
+            # enriched and the pre-registration voids it on that alone.
             ax.add_patch(plt.Rectangle((j - .44, i - .38), .88, .76,
-                                       facecolor=C_KNOWN,
-                                       alpha=.06 + .16 * min(r.fold / 9, 1),
-                                       edgecolor=C_KNOWN if sig else "#CCC",
-                                       lw=1.6 if sig else .9,
-                                       ls="-" if sig else "--", zorder=2))
+                                       facecolor="#EDEDED" if void else C_KNOWN,
+                                       alpha=1 if void else .06 + .16 * min(r.fold / 11, 1),
+                                       edgecolor="#999" if void else (C_KNOWN if sig else "#CCC"),
+                                       hatch="////" if void else None,
+                                       lw=1.2 if void else (1.6 if sig else .9),
+                                       ls="-" if (sig or void) else "--", zorder=2))
+            if void:
+                # The hatching says "excluded"; the labels have to stay readable
+                # over it, so they sit on their own opaque strip.
+                ax.text(j, i + .15, "VOID", ha="center", va="center",
+                        fontsize=12.5, fontweight="bold", color="#5A5A5A",
+                        zorder=5,
+                        bbox=dict(boxstyle="square,pad=0.16", fc="#EDEDED",
+                                  ec="none"))
+                ax.text(j, i - .16,
+                        "mismatched control also\n"
+                        f"enriches: {r.mismatch_fold:.2f}×, P = "
+                        + f"{r.mismatch_p:.0e}".replace("e-", "×10⁻"),
+                        ha="center", va="center", fontsize=6.8, color="#5A5A5A",
+                        linespacing=1.4, zorder=5,
+                        bbox=dict(boxstyle="square,pad=0.22", fc="#EDEDED",
+                                  ec="none"))
+                continue
             ax.text(j, i + .13, f"{r.fold:.2f}×", ha="center", va="center",
                     fontsize=13.5, fontweight="bold",
                     color=C_KNOWN if sig else "#8A8A8A", zorder=4)
@@ -149,9 +181,9 @@ def panel_b(ax):
     ax.tick_params(length=0)
     for sp in ax.spines.values():
         sp.set_visible(False)
-    ax.text(1, 1.44, "All six enrich; four reach P < 0.05.  The two that do not "
-                     "are the same cell —\nHCC at its higher power — on numerators "
-                     "as small as one of two loci.",
+    ax.text(1, 1.44, "One cell is void on its own mismatched-list control; the "
+                     "other five all enrich, four\nreaching P < 0.05. The one that "
+                     "does not is on a numerator of one of two loci.",
             ha="center", va="bottom", fontsize=7.3, color="#444", linespacing=1.4)
     ax.set_title("b  Both axes crossed: three diseases × two exposure resources",
                  fontsize=9.5, loc="left", pad=8)
@@ -159,42 +191,56 @@ def panel_b(ax):
 
 # ------------------------------------------------------------------ panel c
 def panel_c(ax):
-    nc1 = mism[mism.control == "NC1"].iloc[0]
-    nc2 = mism[mism.control == "NC2"].iloc[0]
-    ra_m = ra[ra.cell == "N1 Soskic x RA"].iloc[0]
-    ra_nc = ra[ra.cell == "NC Soskic x RA scored with melanoma list"].iloc[0]
-    r13_m = r13a[r13a.cell == "C1 Soskic x melanoma R13"].iloc[0]
-    r13_nc = r13a[r13a.cell == "NC C1 R13 scored with HCC list"].iloc[0]
+    # Every row comes from the one grid table, so the matched and mismatched
+    # bars of a row are two scorings of the same loci under one partition.
+    def g(cell):
+        return grid[grid.cell == cell].iloc[0]
+
+    eq_mel = g("melanoma x eQTLGen_blood")
+    hcc_lo = g("HCC_low x Soskic_CD4")
+    ra_cd4 = g("RA x Soskic_CD4")
+    ra_eq = g("RA x eQTLGen_blood")
+    r13_m = offgrid[offgrid.cell == "C1 Soskic x melanoma R13"].iloc[0]
 
     items = [
-        ("eQTLGen ×\nmelanoma", nc1.matched_fold, nc1.matched_p,
-         nc1.fold, nc1.fisher_p, "HCC list"),
+        ("eQTLGen ×\nmelanoma", eq_mel.fold, eq_mel.fisher_p,
+         eq_mel.mismatch_fold, eq_mel.mismatch_p, "HCC list", False),
         ("CD4⁺ ×\nmelanoma (R13)", r13_m.fold, r13_m.fisher_p,
-         r13_nc.fold, r13_nc.fisher_p, "HCC list"),
-        ("CD4⁺ ×\nHCC-low", nc2.matched_fold, nc2.matched_p,
-         nc2.fold, nc2.fisher_p, "melanoma list"),
-        ("CD4⁺ ×\nRA", ra_m.fold, ra_m.fisher_p,
-         ra_nc.fold, ra_nc.fisher_p, "melanoma list"),
+         r13_m.mismatch_fold, r13_m.mismatch_p, "HCC list", False),
+        ("CD4⁺ ×\nHCC-low", hcc_lo.fold, hcc_lo.fisher_p,
+         hcc_lo.mismatch_fold, hcc_lo.mismatch_p, "melanoma list", False),
+        ("CD4⁺ ×\nRA", ra_cd4.fold, ra_cd4.fisher_p,
+         ra_cd4.mismatch_fold, ra_cd4.mismatch_p, "melanoma list", False),
+        ("eQTLGen ×\nRA  (VOID)", ra_eq.fold, ra_eq.fisher_p,
+         ra_eq.mismatch_fold, ra_eq.mismatch_p, "melanoma list", True),
     ]
     y = np.arange(len(items))[::-1]
     h = .34
-    for k, (lab, mf, mp, xf, xp, which) in enumerate(items):
+    for k, (lab, mf, mp, xf, xp, which, void) in enumerate(items):
         yy = y[k]
-        ax.barh(yy + h / 2 + .02, mf, height=h, color=C_MATCH, alpha=.85, zorder=3)
-        ax.barh(yy - h / 2 - .02, xf, height=h, color=C_MISMATCH, alpha=.65, zorder=3)
+        ax.barh(yy + h / 2 + .02, mf, height=h,
+                color="#BFBFBF" if void else C_MATCH, alpha=.85,
+                hatch="////" if void else None, zorder=3)
+        ax.barh(yy - h / 2 - .02, xf, height=h, color=C_MISMATCH,
+                alpha=.9 if void else .65,
+                edgecolor="#C4453C" if void else "none",
+                lw=1.2 if void else 0, zorder=3)
         ax.text(mf + .3, yy + h / 2 + .02,
                 f"{mf:.2f}×  " + (f"P = {mp:.3f}" if mp >= 1e-3
-                                  else f"P = {mp:.0e}".replace("e-", "×10⁻")),
-                va="center", fontsize=7.3, color=C_MATCH)
+                                  else f"P = {mp:.0e}".replace("e-", "×10⁻"))
+                + ("   — not reportable" if void else ""),
+                va="center", fontsize=7.3, color="#8A8A8A" if void else C_MATCH)
         ax.text(max(xf, 0) + .3, yy - h / 2 - .02,
-                f"{xf:.2f}×  P = {xp:.2f}   ({which})",
-                va="center", fontsize=7.3, color="#777")
+                f"{xf:.2f}×  " + (f"P = {xp:.4f}" if xp < .01
+                                   else f"P = {xp:.2f}") + f"   ({which})",
+                va="center", fontsize=7.3,
+                color="#C4453C" if void else "#777")
 
     ax.axvline(1, ls=":", lw=1, color="#888", zorder=2)
     ax.text(1.15, -.66, "1× = no enrichment", fontsize=6.8, color="#888")
     ax.set_yticks(y)
     ax.set_yticklabels([i[0] for i in items], fontsize=7.8)
-    ax.set_xlim(0, 26); ax.set_ylim(-.85, 3.62)
+    ax.set_xlim(0, 26); ax.set_ylim(-.85, 4.62)
     ax.set_xlabel("Fold enrichment on known outcome loci")
     ax.tick_params(axis="y", length=0)
     ax.legend(handles=[plt.Rectangle((0, 0), 1, 1, fc=C_MATCH, alpha=.85),
@@ -206,8 +252,9 @@ def panel_c(ax):
             "A mismatched list is a narrower control than it looks:\n"
             "it rules out enrichment on loci indiscriminately dense\n"
             "across diseases, not a density that is itself\n"
-            "disease-specific. RA is the least clean of the four —\n"
-            "RA and melanoma share immune loci across the MHC.",
+            "disease-specific. In RA it is not orthogonal at all —\n"
+            "RA and melanoma share immune loci, and on whole blood\n"
+            "the wrong list enriches outright, voiding that cell.",
             transform=ax.transAxes, ha="right", va="top", fontsize=6.7,
             color="#666", linespacing=1.45,
             bbox=dict(boxstyle="round,pad=0.35", fc="#F7F7F7", ec="#DDD", lw=.6))
@@ -229,11 +276,13 @@ def main():
         fig.savefig(os.path.join(OUT, "Fig2_generality" + ext), **kw)
     plt.close(fig)
 
-    mc = grid[grid.status == "main"]
-    print(f"Fig2_generality ok  |  main grid {len(mc)} cells, "
-          f"fold>1 {int((mc.fold>1).sum())}, P<0.05 {int((mc.fisher_p<0.05).sum())}  |  "
-          f"mismatch NC1 {mism[mism.control=='NC1'].iloc[0].fold}x, "
-          f"NC2 {mism[mism.control=='NC2'].iloc[0].fold}x")
+    mc = grid[grid.role == "main"]
+    ok = mc[~mc.void]
+    print(f"Fig2_generality ok  |  {len(mc)} registered cells, "
+          f"{int(mc.void.sum())} void on the mismatched control  |  "
+          f"of the {len(ok)} usable: fold>1 {int((ok.fold>1).sum())}, "
+          f"P<0.05 {int((ok.fisher_p<0.05).sum())}  |  "
+          f"void: {', '.join(mc.cell[mc.void]) or 'none'}")
 
 
 if __name__ == "__main__":

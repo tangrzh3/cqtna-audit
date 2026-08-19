@@ -2,7 +2,8 @@
 
 图注要求三件事，缺一不可：
   · **两个**结局（FinnGen R12 轮 与 meta 轮），不是只画 meta；
-  · **按独立位点**计数，不是按基因记录——正文报的 4.09× 是位点级的数
+  · **按独立位点**计数，不是按基因记录——正文报的 4.96× 是位点级的数
+  · 位点划分 = 非递归固定锚定窗口 1000 kb（S36 冻结），不再是单连锁
     （记录级为 5.26×，Step 30 的自设纪律是正文一律用位点级，见 FIGURES_plan.md §2）；
   · 端到端对照：MC1R 区给出全研究最强关联 P = 4×10⁻³⁷，PARP1 方向复现。
 
@@ -67,15 +68,22 @@ def fisher_greater(a, b, c, d):
 
 def assign_loci(df):
     """1 Mb single-linkage clustering of instrument positions within a chromosome."""
+    # Non-recursive fixed-anchor partition, the frozen main analysis
+    # (manuscript/PREREG_locus_partition.md, S36). The first unassigned variant
+    # on a chromosome becomes an anchor and claims everything within LOCUS_KB of
+    # it; the next unassigned variant becomes the next anchor. The span is
+    # bounded by the window whatever the density, unlike the single-linkage rule
+    # this figure used to draw, which chains a dense resource into blocks of tens
+    # of megabases. Identical to cqtna:::cq_assign_loci, ">" boundary included.
     out = {}
     for ch, sub in df.groupby("chr"):
         sub = sub.sort_values("pos")
-        lid, prev = 0, None
+        lid, anchor = 0, None
         for _, r in sub.iterrows():
-            if prev is not None and r.pos - prev > LOCUS_KB * 1000:
+            if anchor is None or r.pos - anchor > LOCUS_KB * 1000:
                 lid += 1
+                anchor = r.pos
             out[(ch, r.pos)] = f"{ch}_{lid}"
-            prev = r.pos
     return out
 
 
