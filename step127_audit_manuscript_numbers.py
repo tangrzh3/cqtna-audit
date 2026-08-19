@@ -31,6 +31,7 @@ main = grid[grid.analysis == "main"]
 off = pd.read_csv(f"{MR}/126a_offgrid_attribution.tsv", sep=TAB)
 perm = pd.read_csv(f"{MR}/126c_permutation_primary.tsv", sep=TAB)
 mb = pd.read_csv(f"{MR}/85e_matched_background_fixed_anchor.tsv", sep=TAB)
+ml = pd.read_csv(f"{MR}/130c_multilist_verdict.tsv", sep=TAB)
 
 print("=" * 74)
 print("1. numbers the manuscript must contain")
@@ -49,6 +50,17 @@ want += [
      f"{perm[perm.cell == 'RA x Soskic_CD4'].fold_vs_null.iloc[0]:.2f}"),
     ("matched bg melanoma",
      f"{mb[(mb.dataset == 'melanoma_meta')].fold.iloc[0]:.2f}"),
+]
+
+# The multi-list control (S39). The margin ratios are what the manuscript leans
+# on, so they are checked as rendered rather than recomputed by eye.
+_ra = ml[ml.cell == "RA x Soskic_CD4"].iloc[0]
+_raq = ml[ml.cell == "RA x eQTLGen_blood"].iloc[0]
+want += [
+    ("S39 RA x CD4 own fold", f"{_ra.F_own:.2f}"),
+    ("S39 RA x CD4 best competing", f"{_ra.F_max:.2f}"),
+    ("S39 RA x CD4 margin", f"{_ra.F_own / _ra.F_max:.2f}"),
+    ("S39 RA x blood margin", f"{_raq.F_own / _raq.F_max:.2f}"),
 ]
 bad = 0
 for label, v in want:

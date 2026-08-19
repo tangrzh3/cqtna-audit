@@ -18,9 +18,12 @@ and when the exposure is replaced by a whole-blood eQTL dataset 300-fold larger
 is void on its pre-registered mismatched-locus control; the remaining five all
 enrich, four significantly. Outside cancer the picture is weaker and we report it
 as such: rheumatoid arthritis enriches 3.91-fold (P = 2.3×10⁻⁷) on CD4⁺ T cells,
-but its mismatched-list control is clean only at the registered window and fails
-at every tighter one, so the non-cancer cell is descriptive rather than a
-demonstration of generality. Naming the
+but its mismatched-list control is clean only at the registered window, and
+against four unrelated disease lists its margin is the narrowest in the grid
+(1.28-fold versus the best competing list). Replacing the single mismatched list
+with all four also shows that the list this design happened to pick was the most
+favourable one available — a property of single-list controls generally, not of
+this outcome. Naming the
 gene at a significant locus then fails separately. Of 291 records that colocalisation assigned to distinct causal variants, SMR/HEIDI
 failed to reject homogeneity for 253, so tiers accepting MR plus SMR alone would
 have reported MC1R linkage spillover as CD4-mediated targets. At ten melanoma loci
@@ -293,15 +296,39 @@ hit distances are spread across the intermediate range rather than bimodal — 6
 precisely in the band that a narrowing window removes.
 
 **A mismatched list is therefore not an orthogonal negative control for this
-outcome pair, and we do not read it as one.** By the frozen reading table
-(Supplementary S37 §4) the wording is downgraded accordingly. The enrichment
-itself is not the fragile part: it is flat across locus widths (3.70- to
-3.96-fold) and rises as the known-locus window narrows (3.91- to 7.30-fold),
-which is the direction every other cell moves in. It is the control that is
-scale-bound, not the estimate. **We therefore report the non-cancer cell as
-descriptive attribution rather than as a demonstration that the phenomenon
-generalises beyond cancer**, and give the full sweep in Supplementary S36 rather
-than the single setting that passes.
+outcome pair.** The enrichment itself is not the fragile part: it is flat across
+locus widths (3.70- to 3.96-fold) and rises as the known-locus window narrows
+(3.91- to 7.30-fold), the direction every other cell moves in. It is the control
+that is scale-bound, not the estimate.
+
+**One list is not a control; it is a choice.** A single mismatched list cannot
+separate specific attribution from a fortunate pick, so we pre-registered a
+replacement (Supplementary S39): score every cell against **every** reference
+list in the study with at least 30 placeable lead SNPs and belonging to a
+different disease — four per cell — and report how many of them also enrich,
+rather than the verdict of the one list we chose. The result vindicates the
+worry. On RA nominations, melanoma's list gives 1.71-fold (P = 0.10) and looks
+clean, but **hepatocellular carcinoma's list gives 3.05-fold (P = 0.0028)** and
+colorectal's 1.77-fold (P = 0.0045). **The list this study happened to designate
+as RA's mismatched control was the most favourable of the four; had we designated
+HCC's, this cell would have been void at the registered setting.** We report that
+against ourselves because it is a property of the design, not of RA: a
+single-list negative control returns a verdict about the list as much as about
+the attribution.
+
+What survives the stronger test is a ranking rather than a specificity claim. In
+every one of the eight cells the outcome's own list enriches more than any
+unrelated list, so no cell fails outright; but the margin separates cancer from
+RA sharply. Four cancer cells have no unrelated list enriching at all, and the
+widest margin among the rest is 4.2-fold; **the two RA cells sit at 1.28- and
+1.32-fold, the narrowest in the grid**, and RA on CD4⁺ T cells inverts at the
+narrowest locus width, the only cell at any of 64 settings that does. By the
+frozen reading tables (Supplementary S37 §4, S39 §5) we therefore state the
+non-cancer result as **enrichment on the outcome's own loci that is stronger
+than on any of four unrelated disease lists, but not specific to it**, and we do
+not present it as a demonstration that the phenomenon generalises beyond cancer.
+The full sweeps are in Supplementary S36 and S39 rather than the single settings
+that pass.
 
 Two further limits. Okada 2014 predates a decade of later RA loci, which count as
 novel here and bias the 3.91-fold downward; for the same reason enrichment
@@ -740,7 +767,12 @@ we swept; a fourth, melanoma on whole blood, fails at the tightest window only;
 rheumatoid arthritis on CD4⁺ T cells is clean at the registered window and fails
 at every tighter one. Where a negative control is scale-dependent, so is the
 claim it licenses, and the control is most scale-dependent exactly where the
-outcome pair shares biology. What did not depend on the outcome
+outcome pair shares biology. Scoring every cell against four unrelated lists
+instead of one sharpens the same point into a design lesson we would apply to any
+study using this control: which disease is nominated as the mismatch determines
+the verdict. On our own non-cancer cell the nominated list was the most
+permissive of the four available, and a different nomination would have voided
+the cell. A control with one arbitrary comparator measures the comparator. What did not depend on the outcome
 was a smaller and more durable statement: in which cell state a pathway's
 regulation can be measured precisely enough to yield an instrument at all.
 
@@ -837,7 +869,7 @@ separable: the strongest enzyme in the functional data carries no instrument, an
 the gene that does carry one is principally expressed by tumour. The complete
 record of which claims about it were raised, tested and withdrawn, together with
 the selection denominators at gene, pathway and mechanism level and the twelve
-pre-registration documents, is Supplementary S12 and S18–S38.
+pre-registration documents, is Supplementary S12 and S18–S39.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -864,10 +896,12 @@ its own mismatched-list control, one of the remaining five does not reach
 P < 0.05, and that same cell does not clear the density-matched null either. The
 one non-cancer cell that survives does so only at the registered window: across
 seven window settings its mismatched-list control fails at six, and fails harder
-as the window narrows. We therefore claim generality across tumours, and only
-descriptive attribution outside them. A stronger non-cancer claim would need a
-disease that does not share immune architecture with the comparator, or several
-pre-selected unrelated reference lists in place of a single mismatched one. Three diseases is also not a sample from which generality can be
+as the window narrows. We therefore claim generality across tumours, and outside them only enrichment
+that exceeds four unrelated disease lists without being specific to the outcome.
+The four available comparator lists are all cancers, which are genuinely
+unrelated to rheumatoid arthritis but are not a random sample of diseases; a
+stronger non-cancer claim would need comparators outside oncology and immunology,
+which we did not obtain rather than obtained and set aside. Three diseases is also not a sample from which generality can be
 estimated: they were chosen for the contrasts they provide, not at random. The
 power-recovery curves rest on reference lists of four and six genes and compare
 against a full-power list that is itself unstable, so they measure agreement
@@ -1061,7 +1095,15 @@ background proportion over all instrument loci. Every reference list was built
 and written to disk before the MR step it scores was run.
 
 Three controls bound this test. A **mismatched-list** control scores each
-disease's significant loci against another disease's reference. A **strength-and-
+disease's significant loci against another disease's reference. Because the
+verdict of that control depends on which disease is nominated, it is superseded
+by a **multi-list** version pre-registered before it was run (Supplementary S39):
+every cell is scored against every reference list in the study that has at least
+30 placeable lead SNPs and belongs to a different disease, four per cell, and we
+report how many also enrich together with the ratio of the outcome's own fold to
+the largest competing fold. The 30-lead floor is the one already used in
+Supplementary S34 and no new lists were obtained, so a disappointing result could
+not be followed by adding comparators. A **strength-and-
 frequency** permutation matches significant to background loci on eQTL-p decile
 crossed with outcome allele-frequency quintile, with 10,000 stratified resamples
 and a one-sided empirical P. A **density** permutation follows the estimand
@@ -1262,7 +1304,7 @@ Discussion, is included in the deposit.
 
 ## Supplementary information
 
-S9–S38, including the fourteen pre-registration documents with their reading tables
+S9–S39, including the fourteen pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the
