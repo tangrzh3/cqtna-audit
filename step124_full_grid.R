@@ -12,6 +12,17 @@
 ## -- RA on both resources, and whole blood against HCC -- were re-derived by
 ## step108 and step94d, which now persist 123b and 123c.
 ##
+## Two columns state each row's standing outright, so that no later reader has
+## to reconstruct it from a cell name:
+##   region_filter    all_genome | MHC_excluded
+##   analysis_status  prereg_primary      registered cell, registered region,
+##                                        registered partition
+##                    prereg_sensitivity  variation fixed in writing before the
+##                                        result was seen (500 kb; HCC-low)
+##                    posthoc_sensitivity  chosen after seeing a result
+##                                        (the MHC-excluded RA rows)
+##                    legacy_reproduction  old algorithm, reproduction only
+##
 ##   Rscript step124_full_grid.R
 ## Output: 123d_fixed_anchor_full_grid.tsv
 
@@ -19,80 +30,7 @@ suppressMessages(library(cqtna))
 MR <- "D:/R_ex/MR"
 setwd(MR)
 
-fix_gene <- function(g) {
-  g <- as.character(g)
-  bad <- is.na(g) | !nzchar(trimws(g))
-  g[bad] <- paste0("unnamed_", which(bad))
-  g
-}
-std <- function(gene, chr, pos, p) {
-  d <- data.frame(record_id = seq_along(pos), gene = fix_gene(gene),
-                  chr = as.character(chr), pos = as.numeric(pos),
-                  p = as.numeric(p), stringsAsFactors = FALSE)
-  d[is.finite(d$p) & is.finite(d$pos) & d$pos > 0, , drop = FALSE]
-}
-
-mel <- read.csv("landi2020_known_loci_grch38.csv"); mel$source <- "Landi2020"
-hcc <- read.csv("84a_hcc_known_loci_grch38.csv");   hcc$source <- "step84"
-K_mel <- as_cqtna_known(mel, build = "GRCh38")
-K_hcc <- as_cqtna_known(hcc, build = "GRCh38")
-
-## Okada RA lead SNPs carry no GRCh38 coordinates of their own; step108 places
-## them while streaming the RA sumstats. The placed positions come back inside
-## the per-record table's `known` marking, so RA is scored here against the
-## positions step108 resolved, read from its own output.
-ra_rec <- read.delim(gzfile("123b_ra_records.tsv.gz"), stringsAsFactors = FALSE)
-eh_rec <- read.delim(gzfile("123c_eqtlgen_hcc_records.tsv.gz"), stringsAsFactors = FALSE)
-ra_known <- read.delim("123b_ra_known_positions.tsv", stringsAsFactors = FALSE)
-K_ra <- as_cqtna_known(within(ra_known, source <- "Okada2014"), build = "GRCh38")
-
-cd4 <- read.delim("13_meta_locus_annotation.tsv")
-cd4$chr <- sub(":.*", "", cd4$SNP); cd4$pos <- as.numeric(sub(".*:", "", cd4$SNP))
-eq  <- read.delim("92c_locus_annotated.tsv")
-hh  <- read.delim("85a_HCC_high_annotated.tsv")
-hl  <- read.delim("85a_HCC_low_annotated.tsv")
-
-pick <- function(d, cell) d[d$cell == cell, , drop = FALSE]
-
-cells <- list(
-  list(name = "melanoma x Soskic_CD4", role = "main",
-       d = std(cd4$SYMBOL, cd4$chr, cd4$pos, cd4$pval), m = K_mel, x = K_hcc),
-  list(name = "melanoma x eQTLGen_blood", role = "main",
-       d = std(eq$symbol, eq$chr, eq$pos, eq$p_mr), m = K_mel, x = K_hcc),
-  list(name = "HCC_high x Soskic_CD4", role = "main",
-       d = std(hh$gene_id, hh$chr, hh$pos, hh$p_mr), m = K_hcc, x = K_mel),
-  list(name = "HCC_high x eQTLGen_blood", role = "main",
-       d = with(pick(eh_rec, "HCC_high"), std(gene, chr, pos, p)), m = K_hcc, x = K_mel),
-  ## RA is scored MHC-excluded as the primary. That exclusion was pre-registered
-  ## (S33), and it is what the mismatched-list control requires here: RA and
-  ## melanoma share immune loci across the MHC, and with the MHC in, the wrong
-  ## disease's list enriches -- 1.71-fold at P = 0.102 on CD4 at 1 Mb and
-  ## 1.99-fold at P = 0.039 at 500 kb. Excluding it takes the control to
-  ## 1.03-fold (P = 0.58) while the attribution survives at 3.48-fold. Both
-  ## whole-MHC versions are carried below as "MHC included" for the record.
-  list(name = "RA x Soskic_CD4", role = "main",
-       d = with(pick(ra_rec, "N1 Soskic x RA, MHC excluded"), std(gene, chr, pos, p)),
-       m = K_ra, x = K_mel),
-  list(name = "RA x eQTLGen_blood", role = "main",
-       d = with(pick(ra_rec, "N2 eQTLGen x RA, MHC excluded"), std(gene, chr, pos, p)),
-       m = K_ra, x = K_mel),
-  list(name = "RA x Soskic_CD4 (MHC included)", role = "MHC sensitivity",
-       d = with(pick(ra_rec, "N1 Soskic x RA"), std(gene, chr, pos, p)),
-       m = K_ra, x = K_mel),
-  list(name = "RA x eQTLGen_blood (MHC included)", role = "MHC sensitivity",
-       d = with(pick(ra_rec, "N2 eQTLGen x RA"), std(gene, chr, pos, p)),
-       m = K_ra, x = K_mel),
-  list(name = "HCC_low x Soskic_CD4", role = "power sensitivity",
-       d = std(hl$gene_id, hl$chr, hl$pos, hl$p_mr), m = K_hcc, x = K_mel),
-  list(name = "HCC_low x eQTLGen_blood", role = "power sensitivity",
-       d = with(pick(eh_rec, "HCC_low"), std(gene, chr, pos, p)), m = K_hcc, x = K_mel))
-
-runs <- list(list(method = "fixed_centre",   kb = 1000, conv = "any_record",
-                  label = "main"),
-             list(method = "fixed_centre",   kb = 500,  conv = "any_record",
-                  label = "sensitivity"),
-             list(method = "single_linkage", kb = 1000, conv = "significant_records",
-                  label = "legacy"))
+source("step124_cells.R")   # cells, runs, status_of()
 
 rows <- list()
 for (cl in cells) for (rn in runs) {
@@ -104,6 +42,7 @@ for (cl in cells) for (rn in runs) {
   x <- cqtna_attribution(mr, cl$x, known_from = rn$conv)
   rows[[length(rows) + 1L]] <- data.frame(
     cell = cl$name, role = cl$role, analysis = rn$label,
+    region_filter = cl$region, analysis_status = status_of(cl, rn),
     partition = rn$method, locus_kb = rn$kb, known_from = rn$conv,
     n_records = nrow(cl$d),
     bg_loci = a$background_loci, bg_known = a$background_known,
@@ -125,23 +64,21 @@ show <- function(lbl) {
   s <- out[out$analysis == lbl, ]
   cat("\n", strrep("=", 118), "\n", toupper(lbl), " -- ", s$partition[1], " ",
       s$locus_kb[1], " kb, ", s$known_from[1], "\n", sep = "")
-  cat(sprintf("%-34s %-18s %9s %9s %8s %9s   %8s %10s %8s\n", "cell", "role",
-              "bg known", "sig known", "fold", "P", "mism.", "mism. P", "control"))
+  cat(sprintf("%-36s %-14s %-19s %9s %9s %8s %9s   %8s %10s %8s\n",
+              "cell", "region", "status", "bg known", "sig known", "fold", "P",
+              "mism.", "mism. P", "control"))
   for (i in seq_len(nrow(s))) with(s[i, ], cat(sprintf(
-    "%-34s %-18s %4d/%-4d %4d/%-4d %8.2f %9.3g   %8.2f %10.3g %8s\n",
-    cell, role, bg_known, bg_loci, sig_known, sig_loci, fold, fisher_p,
-    mismatch_fold, mismatch_p, control)))
+    "%-36s %-14s %-19s %4d/%-4d %4d/%-4d %8.2f %9.3g   %8.2f %10.3g %8s\n",
+    cell, region_filter, analysis_status, bg_known, bg_loci, sig_known,
+    sig_loci, fold, fisher_p, mismatch_fold, mismatch_p, control)))
   m <- s[s$role == "main", ]
   ok <- m[m$control == "clean", ]
-  cat(sprintf("  -> %d main cells; %d VOID on the mismatched control
-",
+  cat(sprintf("  -> %d registered cells; %d VOID on the mismatched control\n",
               nrow(m), sum(m$control == "FAILED")))
   if (any(m$control == "FAILED"))
-    cat(sprintf("     void: %s
-",
+    cat(sprintf("     void: %s\n",
                 paste(m$cell[m$control == "FAILED"], collapse = ", ")))
-  cat(sprintf("  -> of the %d usable cells: %d with fold > 1, %d reach P < 0.05
-",
+  cat(sprintf("  -> of the %d usable cells: %d with fold > 1, %d reach P < 0.05\n",
               nrow(ok), sum(ok$fold > 1, na.rm = TRUE),
               sum(ok$fisher_p < 0.05, na.rm = TRUE)))
   cat(sprintf("  -> widest significant locus %s kb; loci over the window: %d\n",
