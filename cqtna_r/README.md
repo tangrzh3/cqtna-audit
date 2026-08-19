@@ -86,9 +86,9 @@ loci on size and instrument count.
 Read these before quoting anything from a report.
 
 **The Fisher p-value is descriptive.** It treats independent loci as exchangeable
-units, but loci here are produced by single-linkage clustering and are not
-independent tests in that sense. Report it as an enrichment with its sensitivity
-analysis, not as a calibrated p-value.
+units, and loci are not independent tests in that sense whichever partition
+produces them. Report it as an enrichment with its sensitivity analysis, not as a
+calibrated p-value.
 
 **Simes-then-BH across inference units is a sensitivity analysis.** It shows how
 much the list depends on the unit you chose. It is not a proof that FDR is
@@ -100,24 +100,38 @@ that is itself disease-specific. `cqtna_permutation_control()` addresses that by
 matching null loci on size, instrument count and gene count.
 
 ⚠ **Do not quote a single p-value from it.** The verdict moves with the matching
-tolerance, which nobody has argued for in advance. On the source study's CD4 cell,
-same seed and same number of permutations, tolerances that achieve complete
-matching give empirical P between 0.022 and 0.042, while tighter tolerances cannot
-match every locus and correctly return `NA`. An earlier version of this README
-quoted "2.32-fold, P = 0.111" here; that figure was computed while one of seven
-loci had no matched pool, and **is withdrawn**. Run
-`cqtna_permutation_sensitivity()` and report the sweep, and fix the specification
-before you look at it.
+tolerance, so the tolerance has to be argued for before you look. On the shipped
+demo, same seed and 10,000 permutations, the four tolerances that achieve complete
+matching give empirical P between 0.0019 and 0.0096, while the tightest matches
+only 75% of loci and correctly returns `NA`. Run
+`cqtna_permutation_sensitivity()` and report the whole sweep.
+
+⚠ Two withdrawn figures, kept here so neither reappears. An earlier README quoted
+"2.32-fold, P = 0.111", computed while one of seven loci had no matched pool.
+An earlier one quoted a 0.022-0.042 range, computed on the single-linkage
+partition before the default changed. **Both are withdrawn.** A permutation
+p-value is only interpretable together with the partition and the convention it
+was computed under, so quote all three or none.
 
 **"The fold rises as the window narrows" means the reported fold is the
 conservative one for that fold.** It does not make the wider inference
 conservative, and it is not evidence that the attribution is real.
 
 **Locus-level counting assumes loci are loci.** In a dense exposure resource,
-1 Mb single-linkage can chain a chromosome arm into one block: in the source study
+1 Mb single-linkage chains a chromosome arm into one block: in the source study
 the whole-blood resource produced thirty loci wider than 10 Mb and one significant
 "locus" spanning 30.8 Mb across 588 records. Locus-level counts there are counting
-blocks. `cqtna_locus_spans()` warns when this is happening.
+blocks. This is why `locus_method` defaults to `"fixed_centre"`, which bounds a
+locus at `locus_kb` by construction; `"single_linkage"` remains available and is
+what you want only when reproducing a published number computed that way.
+`cqtna_locus_spans()` warns when chaining is happening.
+
+A useful diagnostic falls out of this. The three `known_from` conventions
+disagree only when the partition chains: on the demo's bounded partition
+`"any_record"` and `"significant_records"` return the same 4 of 8 and the same
+4.96-fold, whereas on the same data under single linkage they differ. **If your
+choice of convention changes the answer, suspect the partition before you argue
+about the convention.**
 
 There is no window at which the problem disappears. Tightening to 100 kb still
 leaves five significant loci wider than five times the window; what changes is
@@ -141,11 +155,20 @@ on one dataset.
 
 ## Demo
 
-`cqtna_demo()` ships the audit's own published melanoma data. It reproduces the
-paper: 3 of 7 significant loci on known melanoma loci against a 10.5% background,
-4.09-fold, one-sided P = 0.028, with the mismatched HCC list at 0.00-fold. Module
-B shows the same list spanning 10 genes at record level and 28 at locus level,
-because a significant locus does not name a gene.
+`cqtna_demo()` ships the audit's own published melanoma data.
+
+Under the package defaults (`fixed_centre`, 1 Mb) it gives **4 of 8 significant
+loci on known melanoma loci against a 10.1% background, 4.96-fold, one-sided
+P = 0.0048**, with the mismatched HCC list at 0.00-fold.
+
+Setting `locus_method = "single_linkage"` reproduces the number the source study
+published, **3 of 7 against 10.5%, 4.09-fold, P = 0.028** — kept reproducible on
+purpose, and carrying no inference. The two differ because the partition differs,
+not because the data does; quoting either without saying which partition produced
+it is the mistake this package exists to make visible.
+
+Module B shows the same list spanning 10 genes at record level and 28 at locus
+level, because a significant locus does not name a gene.
 
 ## Testing
 

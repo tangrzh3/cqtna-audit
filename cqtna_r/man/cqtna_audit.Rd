@@ -17,7 +17,9 @@ cqtna_audit(
   locus_kb = 1000,
   known_kb = 1000,
   fdr = 0.05,
-  known_from = c("significant_records", "any_record", "lead_variant")
+  known_from = c("significant_records", "any_record", "lead_variant"),
+  locus_method = c("fixed_centre", "single_linkage", "blocks"),
+  blocks = NULL
 )
 }
 \arguments{
@@ -46,6 +48,11 @@ passed to [cqtna_attribution()] and [cqtna_window_sweep()] so every module
 uses one convention. The mismatched-list control is run under the same
 convention and the audit warns if it is itself significant, which is the
 check that exposes a convention inflated by single-linkage chaining.}
+
+\item{locus_method, blocks}{how variants are partitioned into loci; passed to
+[as_cqtna_mr()]. The default `"fixed_centre"` is non-recursive and bounds a
+locus at `locus_kb`; `"single_linkage"` reproduces published numbers but can
+chain a chromosome arm into one block.}
 }
 \value{
 an object of class `cqtna_audit`.

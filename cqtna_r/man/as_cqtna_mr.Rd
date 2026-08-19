@@ -4,17 +4,34 @@
 \alias{as_cqtna_mr}
 \title{Coerce MR results into the form CQTNA audits}
 \usage{
-as_cqtna_mr(mr, locus_kb = 1000, build = NULL)
+as_cqtna_mr(
+  mr,
+  locus_kb = 1000,
+  build = NULL,
+  locus_method = c("fixed_centre", "single_linkage", "blocks"),
+  blocks = NULL
+)
 }
 \arguments{
 \item{mr}{data frame with `record_id`, `gene`, `chr`, `pos`, `p`. An
 `exposure_profile` column is kept if present.}
 
-\item{locus_kb}{single-linkage window, in kb, defining an independent locus.}
+\item{locus_kb}{the locus window in kb. Under `"fixed_centre"` it is the
+radius claimed from each centre, bounding a locus at that span; under
+`"single_linkage"` it is the joining distance and the span is unbounded.}
 
 \item{build}{genome build label, e.g. `"GRCh38"`. Carried on the object and
 checked against the known-locus list. There is no default: a silent build
 mismatch produces numbers that look entirely normal.}
+
+\item{locus_method}{how variants are partitioned into loci. `"fixed_centre"`
+is non-recursive and cannot chain, and is the default because a partition
+whose blocks can reach tens of megabases is not a partition into loci.
+`"single_linkage"` reproduces the source study's published numbers.
+`"blocks"` assigns by supplied intervals, e.g. LD blocks.}
+
+\item{blocks}{for `locus_method = "blocks"`, a data frame with `chr`,
+`start`, `end`.}
 }
 \value{
 a `cqtna_mr` data frame with `locus` and `fdr` added.
