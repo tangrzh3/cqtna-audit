@@ -78,3 +78,7 @@ backup_*
 
 # --- keep: every step*.py / step*.R, every numbered result table (*.tsv, *.csv),
 #     figures/*.py, manuscript/*.md, FINDINGS, HANDOFF ---
+
+# build artefacts: regenerate with R CMD build / check, not tracked
+*.Rcheck/
+review_packet_v9.zip
