@@ -279,7 +279,12 @@ resource: melanoma and RA are scored on the same Soskic instruments, the same
 partition and the same convention, and the melanoma cell's mismatch enrichment
 is 0.00-fold at all eight settings while the RA cell's fails at six. The
 difference is the disease pair, not the machinery — RA and melanoma share immune
-loci, melanoma and hepatocellular carcinoma do not. Second, a per-locus breakdown
+loci, melanoma and hepatocellular carcinoma do not. We note against ourselves
+that the fragility is not confined to RA: melanoma on whole blood traces almost
+the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
+also fails at the tightest setting, so a narrow window on a dense resource
+strains this control generally. What is specific to RA is how far the failure
+extends — six settings against one. Second, a per-locus breakdown
 rules out the convention: of the eight loci the wrong list claims at 500 kb, none
 is claimed through a non-significant record; every one has a significant
 nomination genuinely within 1 Mb of a melanoma lead. Consistent with that, RA's
@@ -289,11 +294,14 @@ precisely in the band that a narrowing window removes.
 
 **A mismatched list is therefore not an orthogonal negative control for this
 outcome pair, and we do not read it as one.** By the frozen reading table
-(Supplementary S37 §4) the wording is downgraded accordingly: the enrichment
-itself is stable across every setting (3.70- to 3.96-fold), but **we report the
-non-cancer cell as descriptive attribution rather than as a demonstration that
-the phenomenon generalises beyond cancer**, and give the full sweep in
-Supplementary S36 rather than the single setting that passes.
+(Supplementary S37 §4) the wording is downgraded accordingly. The enrichment
+itself is not the fragile part: it is flat across locus widths (3.70- to
+3.96-fold) and rises as the known-locus window narrows (3.91- to 7.30-fold),
+which is the direction every other cell moves in. It is the control that is
+scale-bound, not the estimate. **We therefore report the non-cancer cell as
+descriptive attribution rather than as a demonstration that the phenomenon
+generalises beyond cancer**, and give the full sweep in Supplementary S36 rather
+than the single setting that passes.
 
 Two further limits. Okada 2014 predates a decade of later RA loci, which count as
 novel here and bias the 3.91-fold downward; for the same reason enrichment
@@ -727,10 +735,12 @@ diseases by two resources, four of them individually significant. In the sixth,
 rheumatoid arthritis on whole blood, the mismatched-locus control itself
 enriched, and we report the cell as void rather than as a result. The control is
 the load-bearing part of that sentence, and it does not carry equal weight
-everywhere: in the four cancer cells it is clean at every window we swept, while
-in rheumatoid arthritis on CD4⁺ T cells it is clean only at the registered
-window and fails at every tighter one. Where a negative control is scale-
-dependent, so is the claim it licenses. What did not depend on the outcome
+everywhere. Three of the cancer cells show no mismatch enrichment at any window
+we swept; a fourth, melanoma on whole blood, fails at the tightest window only;
+rheumatoid arthritis on CD4⁺ T cells is clean at the registered window and fails
+at every tighter one. Where a negative control is scale-dependent, so is the
+claim it licenses, and the control is most scale-dependent exactly where the
+outcome pair shares biology. What did not depend on the outcome
 was a smaller and more durable statement: in which cell state a pathway's
 regulation can be measured precisely enough to yield an instrument at all.
 

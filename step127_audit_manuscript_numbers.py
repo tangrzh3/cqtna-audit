@@ -63,6 +63,15 @@ print("=" * 74)
 print("2. legacy-partition numbers that must NOT appear")
 print("=" * 74)
 # each entry: value, and the substrings whose presence makes an occurrence legitimate
+# Each entry: the legacy value, and the substrings whose presence near an
+# occurrence make it legitimate.
+#
+# 3.44 has two unrelated lives. It is the legacy quantile-stratified density
+# fold, which the text may cite only while flagging it as a different test; and
+# it is also, by coincidence, one of melanoma-on-blood's mismatch folds in the
+# S36 window sweep. Matching on value alone cannot separate them, so the
+# mismatch-curve context is allowed too. The check still catches a bare
+# "3.44-fold" density claim, which is the thing worth catching.
 legacy = {
     "4.09": ["quantile-stratified"],
     "4.44": [],
@@ -72,7 +81,7 @@ legacy = {
     "5.11": [],
     "8.67": [],
     "4.36": [],
-    "3.44": ["quantile-stratified"],
+    "3.44": ["quantile-stratified", "mismatch curve"],
     "11.98": [],
     "6.58": [],
     "9.6-fold": [],
