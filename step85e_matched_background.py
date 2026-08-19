@@ -25,28 +25,59 @@ Design fixed before looking at the output:
   * statistic = number of drawn loci that are known; one-sided empirical
     p = (1 + #{null >= observed}) / (N + 1)
 
-Output: 85e_matched_background.tsv
+Output: 85e_matched_background_fixed_anchor.tsv  (the frozen main partition)
+        85e_matched_background.tsv  with LOCUS_METHOD=single_linkage, which
+        reproduces the originally published rows and carries no inference
 """
+import os
+
 import numpy as np
 import pandas as pd
 
 MR = r"D:/R_ex/MR"
 LOCUS_KB = 1000
+# The partition this run uses. "fixed_centre" is the frozen main analysis;
+# "single_linkage" reproduces the originally published rows and carries no
+# inference. Set by the LOCUS_METHOD environment variable so both can be
+# produced without editing the file.
+LOCUS_METHOD = os.environ.get("LOCUS_METHOD", "fixed_centre")
 N_REP = 10000
 NOVEL_MEL = "潜在新位点"
 rng = np.random.default_rng(85)
 
 
-def assign_loci(df, chrom="chr", pos="pos"):
+def assign_loci(df, chrom="chr", pos="pos", method=None):
+    """Partition variants into independent loci.
+
+    "fixed_centre" is the frozen main analysis (PREREG_locus_partition.md): the
+    first unassigned variant on a chromosome becomes a centre and claims every
+    variant within LOCUS_KB of it, then the next unassigned variant becomes the
+    next centre. Non-recursive, so a locus spans at most LOCUS_KB whatever the
+    density, and centres are chosen by position rather than by significance --
+    which matters because this same partition supplies the denominator.
+
+    "single_linkage" is the rule this script originally used and the one the
+    published numbers were computed on. It is kept so those numbers stay
+    reproducible; on a dense resource it chains, and it carries no inference.
+
+    Identical to cqtna:::cq_assign_loci, including the ">" boundary.
+    """
+    method = method or LOCUS_METHOD
     out = {}
     for ch, sub in df.groupby(chrom):
         sub = sub.sort_values(pos)
-        lid, prev = 0, None
+        lid = 0
+        anchor = None
         for _, r in sub.iterrows():
-            if prev is not None and r[pos] - prev > LOCUS_KB * 1000:
-                lid += 1
+            if method == "single_linkage":
+                if anchor is not None and r[pos] - anchor > LOCUS_KB * 1000:
+                    lid += 1
+                anchor = r[pos]                     # chains: anchor is the previous variant
+            else:
+                if anchor is None or r[pos] - anchor > LOCUS_KB * 1000:
+                    lid += 1
+                    anchor = r[pos]                 # bounded: anchor is the centre
             out[(ch, r[pos])] = f"{ch}_{lid}"
-            prev = r[pos]
     return out
 
 
@@ -117,6 +148,12 @@ for tag, fn in (("HCC_high", "85a_HCC_high_annotated.tsv"),
                 ("HCC_low", "85a_HCC_low_annotated.tsv")):
     d = pd.read_csv(f"{MR}/{fn}", sep="\t")
     d["chr"] = d["chr"].astype(str)
+    # 85a carries a `locus` column, but it was written with the single-linkage
+    # rule, so it cannot be reused when this script is asked for another
+    # partition. Reassign from coordinates every time.
+    snp = d.groupby(["chr", "pos"], as_index=False).size()
+    loc_of = assign_loci(snp)
+    d["locus"] = [loc_of[(c, p)] for c, p in zip(d.chr, d.pos)]
     d = d.sort_values("pval")
     lead = (d.groupby("locus")
               .agg(known=("known", "any"), is_sig=("fdr", lambda s: (s < .05).any()),
@@ -148,8 +185,32 @@ print(f"[melanoma_meta] loci {len(lead)}, known {int(lead.known.sum())}, "
       f"significant {int(lead.is_sig.sum())}")
 rows.append(run("melanoma_meta", lead, False))
 
+# ---------------------------------------------------------------- eQTLGen
+# The manuscript quotes a matched-background version of the whole-blood cell
+# (92e). No script in the tree produced 92e, so it is computed here instead, by
+# the same machinery as the other datasets rather than by a second
+# implementation -- 92c carries everything the matching needs.
+eq = pd.read_csv(f"{MR}/92c_locus_annotated.tsv", sep="\t")
+eq["chr"] = eq["chr"].astype(str)
+snp = eq.groupby(["chr", "pos"], as_index=False).size()
+loc_of = assign_loci(snp)
+eq["locus"] = [loc_of[(c, p)] for c, p in zip(eq.chr, eq.pos)]
+eq = eq.sort_values("pval_exp")
+lead = (eq.groupby("locus")
+          .agg(known=("known", "any"), is_sig=("fdr", lambda s: (s < .05).any()),
+               pval=("pval_exp", "min"), eaf=("eaf", "first"))
+          .reset_index())
+lead["pdec"] = qbin(lead.pval, 10)
+lead["eafq"] = qbin(lead.eaf.where(lead.eaf <= .5, 1 - lead.eaf), 5)
+print(f"[eQTLGen_blood] loci {len(lead)}, known {int(lead.known.sum())}, "
+      f"significant {int(lead.is_sig.sum())}")
+for use_eaf in (True, False):
+    rows.append(run("eQTLGen_blood", lead, use_eaf))
+
 res = pd.DataFrame(rows)
-res.to_csv(f"{MR}/85e_matched_background.tsv", sep="\t", index=False)
+res.insert(0, "partition", LOCUS_METHOD)
+suffix = "" if LOCUS_METHOD == "single_linkage" else "_fixed_anchor"
+res.to_csv(f"{MR}/85e_matched_background{suffix}.tsv", sep="\t", index=False)
 print()
 print(res.to_string(index=False))
-print("\nwrote 85e_matched_background.tsv")
+print(f"\nwrote 85e_matched_background{suffix}.tsv  [{LOCUS_METHOD}]")

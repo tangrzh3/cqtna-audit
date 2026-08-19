@@ -1,6 +1,8 @@
-dataset	matching	n_sig_loci	obs_known	exp_known	fold	emp_p	relaxed
-HCC_high	decile+quintile	2	1	0.183	5.45	0.18358	0
-HCC_high	decile	2	1	0.186	5.385	0.17838	0
-HCC_low	decile+quintile	2	2	0.0		0.0001	0
-HCC_low	decile	2	2	0.145	13.746	0.0037	0
-melanoma_meta	decile	7	3	0.688	4.361	0.023	0
+partition	dataset	matching	n_sig_loci	obs_known	exp_known	fold	emp_p	relaxed
+single_linkage	HCC_high	decile+quintile	2	1	0.183	5.45	0.18358	0
+single_linkage	HCC_high	decile	2	1	0.186	5.385	0.17838	0
+single_linkage	HCC_low	decile+quintile	2	2	0.0		0.0001	0
+single_linkage	HCC_low	decile	2	2	0.145	13.746	0.0037	0
+single_linkage	melanoma_meta	decile	7	3	0.688	4.361	0.023	0
+single_linkage	eQTLGen_blood	decile+quintile	30	22	4.868	4.519	0.0001	0
+single_linkage	eQTLGen_blood	decile	30	22	4.503	4.885	0.0001	0
