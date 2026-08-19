@@ -148,7 +148,7 @@ grid were all computed on it. Records are not independent — 3,556 of them carr
 cis-eQTL for a gene in several activation profiles and for more than one gene —
 so the list was recomputed under every other unit the paper uses as a sensitivity
 analysis rather than as an alternative primary. Variant, gene and independent
-locus (1 Mb single-linkage) were each collapsed twice, once by taking the minimum
+locus (1 Mb fixed-anchor partition) were each collapsed twice, once by taking the minimum
 p-value in the group and once by Simes combination, the latter because a minimum
 over correlated tests is anticonservative when treated as a single test; a
 two-stage hierarchical procedure selecting genes by Simes and then records within
@@ -353,8 +353,11 @@ with the lead variants tabulated in the outcome publication: 83 rsIDs, of which
 was built and written to disk before the MR step was run. A locus counts as
 known if any of its instruments lies within 1 Mb of one of these leads.
 
-*Attribution test.* Independent loci were defined exactly as in §7 — 1 Mb
-single-linkage clustering of instrument positions within a chromosome — and the
+*Attribution test.* Independent loci were defined exactly as in §7 — a
+non-recursive fixed-anchor partition of instrument positions within a chromosome,
+in which the first unassigned variant becomes an anchor and claims every variant
+within 1 Mb of it, so that a locus spans at most 1 Mb whatever the variant
+density (Supplementary S37) — and the
 enrichment of known loci among FDR-significant loci was tested one-sided against
 the background proportion over all instrument loci in the strict set. This
 matches the melanoma analysis in §7 and makes the two tumours comparable, but it
@@ -735,3 +738,17 @@ intermediate outputs of analyses we withdrew, and the outputs of tests that
 failed their own positive controls. Both are labelled as such in the deposit, so
 that the tally of attempts in Supplementary S12 can be checked against the
 files rather than taken on trust.
+
+
+---
+
+## ⚠ 分区规则变更记录（2026-08-19）
+
+本文件原先写的是 **1 Mb 单连锁**。已改为 **非递归固定锚定分区**（S37 冻结）。
+
+两者不可互换：单连锁下位点跨度无上限，在密集资源上曾串成 30.8 Mb，
+而那个分区上预注册的错配名单对照会失效。
+
+⚠ 本文件只供 `MANUSCRIPT_assembled.md` 组装用，而那份已废弃；
+**投稿母稿 `MANUSCRIPT_GB.md` 自带 Methods**，不从本文件组装。
+若日后重启组装流程，本文件剩余的位点级描述须逐句对照 `MANUSCRIPT_GB.md` 的 Methods。

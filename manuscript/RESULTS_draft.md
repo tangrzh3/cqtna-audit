@@ -1,4 +1,4 @@
-**⚠ 已被 `MANUSCRIPT_v2_dual_thread.md` 的 Part I/II 取代。勿引用本文件的数字。**
+**⚠ 已被 `MANUSCRIPT_GB.md` 取代。勿引用本文件的数字。**
 
 # Results — draft v1 (2026-08-11)
 

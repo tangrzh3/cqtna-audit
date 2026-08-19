@@ -1,4 +1,4 @@
-**⚠ 已被 `MANUSCRIPT_v2_dual_thread.md` 取代（2026-08-11 双主线重构）。勿引用本文件的数字。**
+**⚠ 已被 `MANUSCRIPT_GB.md` 取代（2026-08-11 双主线重构）。勿引用本文件的数字。**
 
 # Dynamic eQTL Mendelian randomization for immune target discovery: an audit in melanoma
 

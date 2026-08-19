@@ -1,3 +1,12 @@
+**⚠ 已废弃（2026-08-19）。投稿母稿是 `MANUSCRIPT_GB.md`。勿引用本文件的任何位点级数字。**
+
+> 本文件的归属、富集与置换数字全部建在 **1 Mb 单连锁分区** 上。
+> 主分析已按 **S37** 换成非递归固定锚定分区（最大跨度 1000 kb、归属口径 C1），
+> 全部位点级数字随之变动，且 **RA × eQTLGen 一格按预注册判据作废**。
+> 逐项对照见 `NUMBER_MIGRATION_fixed_anchor.md`。
+> 若日后要启用本版本，**必须先按那张表整体迁移**，不得逐句挑着改——
+> 混用两种统计单位正是本轮重做全网格的原因。
+
 # Outcome GWAS architecture shapes target nomination from context-specific eQTLs
 
 ## Abstract

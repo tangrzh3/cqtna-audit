@@ -1,4 +1,4 @@
-**⚠ 已被 `MANUSCRIPT_v2_dual_thread.md` §1 取代。**
+**⚠ 已被 `MANUSCRIPT_GB.md` 取代。**
 
 # Introduction — draft v1 (2026-08-11)
 
