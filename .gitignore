@@ -13,6 +13,7 @@
 # change of locus partition could not be recomputed. Small (<1 MB each).
 !123b_ra_records.tsv.gz
 !123c_eqtlgen_hcc_records.tsv.gz
+!99d_r13_records.tsv.gz
 *.ma
 !landi2020_known_loci_grch38.csv
 eqtlgen/

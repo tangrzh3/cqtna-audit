@@ -23,7 +23,9 @@ Everything else is held fixed: instruments, allele matching, Wald ratio, the
 BH-FDR testing family, the known-locus reference lists, the 1 Mb single-linkage
 locus rule. Only the outcome file moves.
 
-Outputs: 99a_r13_trajectory.tsv, 99b_r13_lists.tsv, 99c_r13_attribution.tsv
+Outputs: 99a_r13_trajectory.tsv, 99b_r13_lists.tsv, 99c_r13_attribution.tsv,
+         99d_r13_records.tsv.gz -- per-record, so a later partition
+         change can be recomputed without rescanning the sumstats
 """
 import csv
 import gzip
@@ -255,6 +257,29 @@ def load_eqtlgen():
     return d
 
 
+# ------------------------------------------------------- per-record persistence
+# step99 used to keep only the summary row for each cell. When the locus
+# partition changed (PREREG_locus_partition.md) there was then no way to
+# recompute these cells short of rescanning 1.5 GB of sumstats, and no way for a
+# third party to check them at all. The standardised per-record table now goes to
+# 99d_r13_records.tsv.gz with the columns that record fixes in its section 5:
+#   cell, record_id, gene, chr, pos, p
+RECORDS = []
+
+
+def genes_of(sub):
+    for col in ("SYMBOL", "symbol", "gene_id", "gene"):
+        if col in sub.columns:
+            return [str(x) for x in sub[col]]
+    return ["unnamed_%d" % (i + 1) for i in range(len(sub))]
+
+
+def stash(label, sub, pvals):
+    for i, (g, c, po, pv) in enumerate(
+            zip(genes_of(sub), sub.chr, sub.pos, pvals), 1):
+        RECORDS.append((label, i, g, str(c), int(po), float(pv)))
+
+
 # ----------------------------------------------------------------- cells
 def soskic_melanoma_cells(d, got13, hcc_known_fn):
     """C1 and its R12 comparator: the trajectory-style list analysis + attribution.
@@ -306,6 +331,7 @@ def soskic_melanoma_cells(d, got13, hcc_known_fn):
                                   genes_FDR05=",".join(sorted(set(sub.SYMBOL[hit]))),
                                   novel_genes_FDR05=",".join(
                                       sorted(set(sub.SYMBOL[hit & sub.novel.values]))) or "-"))
+                stash(f"C1 Soskic x melanoma {rel}", sub, p)
                 attrib.append(attribution(sub.chr.tolist(), sub.pos.tolist(), f,
                                           (~sub.novel).tolist(),
                                           f"C1 Soskic x melanoma {rel}"))
@@ -336,7 +362,9 @@ def scanned_cell(inst, got, known_flags, label, allele_aware):
         keep.append(i)
         z.append(hit[0] / hit[1])
     sub = inst.iloc[keep].reset_index(drop=True)
-    f = bh(two_sided(np.array(z)))
+    pv = two_sided(np.array(z))
+    f = bh(pv)
+    stash(label, sub, pv)
     res = attribution(sub.chr.tolist(), sub.pos.tolist(), f,
                       [known_flags[i] for i in keep], label)
     res["n_records"] = len(sub)
@@ -346,7 +374,9 @@ def scanned_cell(inst, got, known_flags, label, allele_aware):
 
 def precomputed_cell(inst, bcol, scol, known_flags, label):
     """a cell whose outcome columns are already in the table (the S22 meta row)"""
-    f = bh(two_sided(inst[bcol].values / inst[scol].values))
+    pv = two_sided(inst[bcol].values / inst[scol].values)
+    f = bh(pv)
+    stash(label, inst, pv)
     res = attribution(inst.chr.tolist(), inst.pos.tolist(), f, known_flags, label)
     res["n_records"] = len(inst)
     res["coverage_pct"] = 100.0
@@ -411,6 +441,9 @@ def main():
     traj.to_csv(f"{MR}/99a_r13_trajectory.tsv", sep="\t", index=False)
     pd.DataFrame(lists).to_csv(f"{MR}/99b_r13_lists.tsv", sep="\t", index=False)
     pd.DataFrame(attrib).to_csv(f"{MR}/99c_r13_attribution.tsv", sep="\t", index=False)
+    pd.DataFrame(RECORDS, columns=["cell", "record_id", "gene", "chr", "pos", "p"]) \
+      .to_csv(f"{MR}/99d_r13_records.tsv.gz", sep="\t", index=False,
+              compression="gzip")
 
     pd.set_option("display.width", 220)
     print("\n" + "=" * 92)
@@ -477,7 +510,7 @@ def main():
     print(pd.DataFrame(attrib)[["cell", "bg_known", "bg_loci", "sig_known",
                                 "sig_loci", "pct_known", "fold", "fisher_p",
                                 "coverage_pct"]].to_string(index=False))
-    print("\nwrote 99a / 99b / 99c")
+    print("\nwrote 99a / 99b / 99c / 99d")
 
 
 if __name__ == "__main__":
