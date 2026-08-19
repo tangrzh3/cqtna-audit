@@ -180,3 +180,23 @@ python step122_locus_convention_recheck.py     # 旧→新逐格对照，落 122
 - `cqtna_locus_spans()`：位点跨度诊断，显著位点跨度超过窗口 5 倍即**报警**；
 - `cqtna_audit()` 在错配对照自身显著时**报警并置 `negative_control_failed`**；
 - 合成测试 12、13 分别锁住"阴性对照失效必须报警"与"串联必须被检出"。
+
+---
+
+## ⚠ 更正记录（2026-08-18，第三方复核指出）
+
+**我把一个事后稳健性分析升成了"预注册主口径"。**
+
+`step124_full_grid.R` 曾在**看到 RA×eQTLGen 作废之后**，把 RA 的输入换成 MHC 排除版
+作为主格，并把它注释为 "pre-registered (S33)"。核对 `PREREG_noncancer_outcome.md`：
+
+- §4 只规定 **N1 = Soskic CD4 × RA 为主格**，N2 = eQTLGen 为次；
+- §5 的主检验定义里**没有任何 MHC 排除**；
+- MHC 排除行只出现在**结果登记表**，即看过 RA 结果之后加的稳健性分析。
+
+**这与本文用来批评他人的失败模式是同一种。** 处置见 `HANDOFF_v8.md` §三-A1：
+主格改回 MHC 包含，MHC 排除标为 post-hoc sensitivity，
+legacy 复现改用 MHC 包含输入恢复 3.46 / 3.57。
+
+⚠ 同时记下：**RA×eQTLGen 在 1000 kb 下作废，不得用 500 kb 挽救**——
+冻结记录 §4 明写主分析失败即作废。
