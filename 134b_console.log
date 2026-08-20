@@ -1,0 +1,16 @@
+self-calibration g=1: ST 8 SK 4 fold 4.962 P 0.0048407
+f 0.50 | MVP PheCode 172.1 (dx or hx)           R  3.29 g 0.907 | loci   6 known  3 fold  4.962 P    0.0157 | fail
+f 0.50 | discovery meta (FinnGen R12 + Rashkin) R  1.00 g 0.500 | loci   2 known  2 fold  9.924 P      0.01 | fail
+f 0.50 | MVP PheCode 172.11                     R  0.83 g 0.455 | loci   2 known  2 fold  9.924 P      0.01 | fail
+f 0.50 | MVP histologically confirmed invasive  R  0.43 g 0.328 | loci   2 known  2 fold  9.924 P      0.01 | fail
+f 0.75 | MVP PheCode 172.1 (dx or hx)           R  3.29 g 1.360 | loci  96 known 22 fold  2.274 P  4.02e-05 | PASS
+f 0.75 | discovery meta (FinnGen R12 + Rashkin) R  1.00 g 0.750 | loci   3 known  3 fold  9.924 P  0.000982 | fail
+f 0.75 | MVP PheCode 172.11                     R  0.83 g 0.683 | loci   3 known  3 fold  9.924 P  0.000982 | fail
+f 0.75 | MVP histologically confirmed invasive  R  0.43 g 0.492 | loci   2 known  2 fold  9.924 P      0.01 | fail
+f 1.00 | MVP PheCode 172.1 (dx or hx)           R  3.29 g 1.813 | loci 275 known 36 fold  1.299 P    0.0208 | PASS
+f 1.00 | discovery meta (FinnGen R12 + Rashkin) R  1.00 g 1.000 | loci   8 known  4 fold  4.962 P   0.00484 | PASS
+f 1.00 | MVP PheCode 172.11                     R  0.83 g 0.910 | loci   6 known  3 fold  4.962 P    0.0157 | fail
+f 1.00 | MVP histologically confirmed invasive  R  0.43 g 0.655 | loci   2 known  2 fold  9.924 P      0.01 | fail
+cases needed for R=4 with 436283 controls: 55627  (MVP has 5,364 -> 10.4x)
+cases needed for R=4 with 1000000000 controls: 49339  (MVP has 5,364 -> 9.2x)
+wrote 134a_candidate_evaluation.tsv (12 rows)
