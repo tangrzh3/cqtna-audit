@@ -9,11 +9,24 @@
 
 ```r
 install.packages("../cqtna_0.3.0.tar.gz", repos = NULL, type = "source")
-setwd("<解压目录>/reproduce")
 ```
 
-脚本里的 `MR <- "D:/R_ex/MR"` 与 `setwd(MR)` 需改成你的解压路径，
-或直接把本目录内容放到一个工作目录里再跑。
+**不需要改脚本。** 脚本会解析自身所在目录，所以在本目录里直接跑即可：
+
+```bash
+cd <解压目录>/reproduce
+Rscript step124_full_grid.R
+```
+
+要指到别处，两种方式任选：
+
+```bash
+Rscript step124_full_grid.R /path/to/dir     # 位置参数
+CQTNA_DIR=/path/to/dir Rscript step124_full_grid.R
+```
+
+⚠ 早前的版本要求手改脚本里的 `MR <- "D:/R_ex/MR"`。**那一行已经不存在了**，
+本说明也已更正（复核者指出）。
 
 | 跑什么 | 得到 | 大约耗时 |
 |---|---|---|
@@ -22,10 +35,27 @@ setwd("<解压目录>/reproduce")
 | `Rscript step128_window_sensitivity_fixed_anchor.R` | `128a/b/c` 窗口扫描与距离分布 | 约 2 分钟 |
 | `Rscript step130_multilist_control.R` | `130a/b/c` 多名单对照 | 约 3 分钟 |
 | `Rscript step126_recompute_on_fixed_anchor.R` | `126a/b/c` 非网格格子 + 置换（10,000 次 × 8 格 × 5 容差）| **约 10 分钟** |
-| `python step127_audit_manuscript_numbers.py` | 正文 ↔ 表格对账（需 `../MANUSCRIPT_GB.md`）| 秒级 |
+| `python step127_audit_manuscript_numbers.py` | 正文 ↔ 表格对账 | 秒级 |
 
-`step129_selfcheck_on_fixed_anchor.R` 需要 `96a`/`92c` 之外的历史表，**未附**；
+⚠ `step127` 需要**同时**看到结果表（在包根）与正文（也在包根）。
+它会在 `<dir>/`、`<dir>/../`、`<dir>/reproduce/` 三处各找一遍，
+所以**在本目录或包根直接跑都可以**，两者都应输出 `audit: CLEAN`：
+
+```bash
+cd reproduce && python step127_audit_manuscript_numbers.py
+cd ..        && python reproduce/step127_audit_manuscript_numbers.py
+```
+
+（早前的版本要求显式传入包根目录才能跑通，已修。）
+
+`step129_selfcheck_on_fixed_anchor.R` **现在可以跑**——`96a` 与 `92c` 都已随包附上
+（早前的版本称它跑不了，那是打包时漏了 `96a`，已更正）。
 它只回答"自检表是否随分区变"，不产生正文数字。
+
+⚠ 它会打印 `identical named-gene SETS: FALSE`，**这不是失败**。
+比的是"每个位点各命名了哪些基因"这一组字符串；换分区后同一批基因被重新分组，
+所以组合不同。**独立基因的集合是相同的 56 个**——
+紧随其后的两行 `genes only under ...` 都是空的，那才是要看的。
 
 ---
 

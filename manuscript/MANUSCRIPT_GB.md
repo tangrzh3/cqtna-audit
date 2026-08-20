@@ -389,8 +389,13 @@ partially matched one (Supplementary S38 §1.7). These values follow a
 correction: an external reviewer found the sampler's result moved with the order
 of the input rows, an artefact with no statistical content, and the repaired
 version is order-invariant by construction and by test (Supplementary S38-A1).
-Every cell's verdict is unchanged by the repair; the values themselves moved by
-up to 0.08-fold.
+Every cell's verdict is unchanged by the repair. The values themselves moved by
+up to 0.37-fold (hepatocellular carcinoma at its lower power on whole blood,
+12.46 to 12.09), six of the eight downwards, with the melanoma CD4⁺ cell moving
+0.08-fold. We report the sampler as randomized-greedy matching: it fills a
+matched set greedily in a random order redrawn for each replicate, which is a
+well-defined randomised null but is not uniform sampling from the set of all
+feasible complete matchings.
 
 Two readings follow. First, on bounded loci density matching barely
 attenuates: melanoma on CD4⁺ T cells is 4.96-fold unmatched and 4.87-fold

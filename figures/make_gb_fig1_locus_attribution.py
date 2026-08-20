@@ -176,11 +176,20 @@ def panel_a(ax):
                         textcoords="offset points", xytext=(9, 3 * sign),
                         fontsize=6.8, style="italic", color="#555")
 
-    ax.text(CUM * .006, CAP + 3.6, "FinnGen R12 round — 10 significant records, "
+    # Counted from the data rather than typed in. The hardcoded version said
+    # "7 independent loci", which was both the wrong word and the single-linkage
+    # count -- the fixed-anchor partition this figure now draws gives 8.
+    fg_n = int((FG.FDR < 0.05).sum())
+    mt_sig = MT[MT.FDR < 0.05]
+    mt_n, mt_loci = int(len(mt_sig)), mt_sig.locus.nunique()
+    mt_novel = int((~mt_sig.known).sum())
+    ax.text(CUM * .006, CAP + 3.6,
+            f"FinnGen R12 round — {fg_n} significant records, "
             "every one on a known pigmentation or naevus locus",
             fontsize=7.8, color="#333")
-    ax.text(CUM * .006, -CAP - 3.6, "Meta outcome — 21 significant records "
-            "across 7 independent loci, 9 records on novel loci",
+    ax.text(CUM * .006, -CAP - 3.6,
+            f"Meta outcome — {mt_n} significant records across {mt_loci} "
+            f"bounded loci, {mt_novel} records on novel loci",
             fontsize=7.8, color="#333", va="top")
 
     ax.set_xticks([OFF[c] + CHRLEN[c] / 2 for c in map(str, range(1, 23))])

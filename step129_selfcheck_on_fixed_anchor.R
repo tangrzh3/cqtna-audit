@@ -101,7 +101,12 @@ cat(sprintf("  single linkage : %d known significant loci, %d named genes\n",
             length(set_old), length(genes_old)))
 cat(sprintf("  fixed anchor   : %d known significant loci, %d named genes\n",
             length(set_new), length(genes_new)))
-cat(sprintf("  identical named-gene SETS: %s\n", same_sets))
+## "FALSE" here means the per-locus groupings differ, not that any gene
+## appeared or vanished. A reviewer read the bare boolean as a failure, so
+## name which of the two questions each line answers.
+cat(sprintf("  same gene-to-locus GROUPINGS: %s\n", same_sets))
+cat(sprintf("  same SET of named genes:      %s   <- the one that matters\n",
+            identical(genes_old, genes_new)))
 cat(sprintf("  genes only under single linkage: %s\n",
             paste(setdiff(genes_old, genes_new), collapse = ", ")))
 cat(sprintf("  genes only under fixed anchor  : %s\n",

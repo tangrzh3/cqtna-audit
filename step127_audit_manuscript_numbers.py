@@ -30,18 +30,27 @@ MR = (sys.argv[1] if len(sys.argv) > 1
       or os.path.dirname(os.path.abspath(__file__)))
 TAB = chr(9)
 
-_cand = [os.path.join(MR, "manuscript", "MANUSCRIPT_GB.md"),
-         os.path.join(MR, "MANUSCRIPT_GB.md"),
-         os.path.join(MR, "..", "MANUSCRIPT_GB.md")]
-_ms = next((c for c in _cand if os.path.exists(c)), _cand[0])
+def _find(*parts):
+    """Locate a file whether we were pointed at the project root, the review
+    packet root, or the packet's reproduce/ subdirectory."""
+    for base in (MR, os.path.join(MR, ".."), os.path.join(MR, "reproduce")):
+        c = os.path.join(base, *parts)
+        if os.path.exists(c):
+            return c
+    return os.path.join(MR, *parts)
+
+
+_ms = _find("manuscript", "MANUSCRIPT_GB.md")
+if not os.path.exists(_ms):
+    _ms = _find("MANUSCRIPT_GB.md")
 txt = io.open(_ms, encoding="utf-8").read()
 
-grid = pd.read_csv(f"{MR}/123d_fixed_anchor_full_grid.tsv", sep=TAB)
+grid = pd.read_csv(_find("123d_fixed_anchor_full_grid.tsv"), sep=TAB)
 main = grid[grid.analysis == "main"]
-off = pd.read_csv(f"{MR}/126a_offgrid_attribution.tsv", sep=TAB)
-perm = pd.read_csv(f"{MR}/126c_permutation_primary.tsv", sep=TAB)
-mb = pd.read_csv(f"{MR}/85e_matched_background_fixed_anchor.tsv", sep=TAB)
-ml = pd.read_csv(f"{MR}/130c_multilist_verdict.tsv", sep=TAB)
+off = pd.read_csv(_find("126a_offgrid_attribution.tsv"), sep=TAB)
+perm = pd.read_csv(_find("126c_permutation_primary.tsv"), sep=TAB)
+mb = pd.read_csv(_find("85e_matched_background_fixed_anchor.tsv"), sep=TAB)
+ml = pd.read_csv(_find("130c_multilist_verdict.tsv"), sep=TAB)
 
 print("=" * 74)
 print("1. numbers the manuscript must contain")

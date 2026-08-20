@@ -14,11 +14,16 @@
 ## mixing of two statistical units that PREREG_locus_partition.md section 4
 ## forbids, so they are recomputed here from the per-record tables.
 ##
-## The permutations follow manuscript/PREREG_permutation_estimand.md, frozen
-## 2026-08-19: convention any_record, matching on n_records + span + n_genes,
-## no chromosome stratification, significant loci excluded from the pool,
-## sampling without replacement, 100% matched coverage required, tolerance 1.00
-## with the whole tolerance scan reported alongside.
+## The permutations follow manuscript/PREREG_permutation_estimand.md: convention
+## any_record, matching on n_records + span + n_genes, no chromosome
+## stratification, significant loci excluded from the pool, sampling without
+## replacement, 100% matched coverage required. Those rules were committed
+## before this run; the reported tolerance of 1.00 was chosen alongside the
+## results and is an analysis choice, not an independently timestamped one.
+## The sampler is randomized-greedy matching, repaired for order dependence in
+## S38-A1 -- it draws a matched set greedily in a per-replicate random order,
+## which is not the same as sampling uniformly from all feasible complete
+## matchings.
 ##
 ##   Rscript step126_recompute_on_fixed_anchor.R
 ## Output: 126a_offgrid_attribution.tsv   the non-grid attribution cells
@@ -178,11 +183,18 @@ for (cl in perm_cells) {
     q <- cqtna_permutation_control(mr, cl$m, known_from = CONV, tolerance = tl,
                                    n_perm = NPERM, seed = SEED)
     g <- function(f) if (is.null(q[[f]])) NA else q[[f]]
+    ## S38-A1 §6.4 claims the scan carries the same diagnostics as the primary
+    ## row. It said so while omitting max_pool_size and the environment fields,
+    ## which a reviewer checked and found missing. Carry all of them.
     data.frame(tolerance = tl, n_draws_used = g("n_draws_used"),
                n_draws_exhausted = g("n_draws_exhausted"),
                effective_draw_fraction = g("effective_draw_fraction"),
                min_pool_size = g("min_pool_size"),
                median_pool_size = g("median_pool_size"),
+               max_pool_size = g("max_pool_size"),
+               rng_kind = if (is.null(q$rng_kind)) "" else q$rng_kind,
+               r_version = if (is.null(q$r_version)) "" else q$r_version,
+               collate = if (is.null(q$collate)) "" else q$collate,
                stringsAsFactors = FALSE)
   }))
   s <- merge(s, diag, by = "tolerance", all.x = TRUE)
