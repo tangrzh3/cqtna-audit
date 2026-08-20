@@ -85,20 +85,30 @@ out <- list()
 for (cov in c(1.00, 0.95)) for (f in F_GRID) for (R in R_GRID) {
   g <- f * sqrt(R)
   nrep <- if (cov >= 1) 1 else N_REP_COV
-  ST <- integer(nrep); PASS <- logical(nrep)
+  ST <- integer(nrep); SK <- integer(nrep)
+  FOLD <- numeric(nrep); PP <- numeric(nrep); PASS <- logical(nrep)
   for (r in seq_len(nrep)) {
     kv <- if (cov >= 1) rep(TRUE, NV) else runif(NV) < cov
     v <- run_once(g * ZV, kv)
-    ST[r] <- v[["ST"]]; PASS[r] <- passes(v)
+    ST[r] <- v[["ST"]]; SK[r] <- v[["SK"]]
+    FOLD[r] <- v[["fold"]]; PP[r] <- v[["p"]]; PASS[r] <- passes(v)
   }
+  pr <- mean(PASS)
   out[[length(out) + 1]] <- data.frame(
     reading = "B_deterministic", coverage = cov, n_rep = nrep,
     retention = f, R = R, g = g, n_eff_ext = round(N_EFF_DISC * R),
     cases_if_large_control = round(N_EFF_DISC * R / 4),
-    median_sig_loci = median(ST), pct_ge8 = 100 * mean(ST >= 8),
-    pct_pass = 100 * mean(PASS), qualifies = 100 * mean(PASS) >= 80)
-  cat(sprintf("cov %.2f  f %.2f  R %5.1f  g %.3f  N_eff %8.0f  med_loci %5.1f  pass %5.1f%%\n",
-              cov, f, R, g, N_EFF_DISC * R, median(ST), 100 * mean(PASS)))
+    median_sig_loci = median(ST), median_sig_known = median(SK),
+    median_fold = median(FOLD, na.rm = TRUE),
+    median_fisher_p = median(PP, na.rm = TRUE),
+    pct_ge8 = 100 * mean(ST >= 8), pct_pass = 100 * pr,
+    ## 蒙特卡洛标准误。R = 4 那一格落在 80% 线上，不报这一列就会被当成"通过"。
+    pct_pass_mcse = 100 * sqrt(pr * (1 - pr) / nrep),
+    qualifies = 100 * pr >= 80)
+  cat(sprintf("cov %.2f  f %.2f  R %5.1f  g %.3f  med_loci %5.1f  med_fold %6.3f  med_P %9.3g  pass %5.1f%% +- %.1f\n",
+              cov, f, R, g, median(ST), median(FOLD, na.rm = TRUE),
+              median(PP, na.rm = TRUE), 100 * pr,
+              100 * sqrt(pr * (1 - pr) / nrep)))
 }
 res <- do.call(rbind, out)
 write.table(res, "133a_projection_reading_b.tsv", sep = "\t",
