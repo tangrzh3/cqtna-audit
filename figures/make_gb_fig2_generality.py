@@ -191,18 +191,18 @@ def panel_b(ax):
     ax.set_xticklabels([DIS_LAB[d] for d in diseases], fontsize=8.4)
     ax.set_yticks(range(2))
     ax.set_yticklabels([EXP_LAB[e] for e in resources], fontsize=8.4)
-    ax.set_xlim(-.62, 2.62); ax.set_ylim(-1.52, 1.86)
+    ax.set_xlim(-.62, 2.62); ax.set_ylim(-1.52, 2.05)
     ax.tick_params(length=0)
     for sp in ax.spines.values():
         sp.set_visible(False)
-    ax.text(1, 1.40, "One cell is void on its own mismatched-list control; four of "
+    ax.text(1, 1.46, "One cell is void on its own mismatched-list control; four of "
                      "the other five reach nominal P < 0.05.\nThe RA cell clears "
                      "that control at one of seven window settings (S36) and is "
                      "reported as exploratory,\nso the confirmatory claim covers "
                      "melanoma and hepatocellular carcinoma only.",
             ha="center", va="bottom", fontsize=7.1, color="#444", linespacing=1.45)
     ax.set_title("b  Both axes crossed: three diseases × two exposure resources",
-                 fontsize=9.5, loc="left", pad=30)
+                 fontsize=9.5, loc="left", pad=40)
 
 
 # ------------------------------------------------------------------ panel c
@@ -280,14 +280,16 @@ def panel_c(ax):
 
 def main():
     fig = plt.figure(figsize=(15.2, 9.0))
-    gs = fig.add_gridspec(2, 2, height_ratios=[1, 1.02], hspace=.34, wspace=.24,
-                          left=.075, right=.975, top=.895, bottom=.065)
+    gs = fig.add_gridspec(2, 2, height_ratios=[1, 1.02], hspace=.40, wspace=.24,
+                          left=.075, right=.975, top=.865, bottom=.065)
     panel_a(fig.add_subplot(gs[0, 0]))
     panel_b(fig.add_subplot(gs[0, 1]))
     panel_c(fig.add_subplot(gs[1, :]))
+    # Left-aligned and given its own band: centred at the old height it ran
+    # into panel b's title, which sits at the top right.
     fig.suptitle("Changing one thing at a time: outcome power, disease, "
                  "and exposure resource",
-                 fontsize=11.5, y=.955)
+                 fontsize=11.5, y=.982, x=.055, ha="left")
     for ext, kw in ((".pdf", {}), (".png", {"dpi": 300})):
         fig.savefig(os.path.join(OUT, "Fig2_generality" + ext), **kw)
     plt.close(fig)

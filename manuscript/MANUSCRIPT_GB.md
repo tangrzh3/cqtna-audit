@@ -375,19 +375,25 @@ looks — it rules out enrichment on loci indiscriminately dense across diseases
 not a density that is itself disease-specific — so two permutations close the gap
 from different sides. Matching on eQTL-p decile and allele-frequency quintile
 controls instrument strength and frequency (6.66-fold, empirical P = 0.0016 for
-melanoma on CD4⁺ T cells). Matching on **density** — the estimand frozen in
-Supplementary S38 before it was run, drawing background loci matched on record
+melanoma on CD4⁺ T cells). Matching on **density** — background loci matched on record
 count, span and gene count, requiring 100% matched coverage and reporting the
-whole tolerance scan — gives **4.95-fold (empirical P = 0.0042)** for melanoma on
-CD4⁺ T cells, 6.16-fold (P ≤ 1×10⁻⁴) on whole blood, 8.47-fold (P = 0.0041) for
-HCC-high on whole blood, 12.95- and 12.46-fold (P = 0.0049 and 0.0010) for
-HCC-low, and **4.50-fold (P ≤ 1×10⁻⁴) for RA on CD4⁺ T cells**. Values given as ≤ 1×10⁻⁴ are at the resolution floor of 10,000 permutations, not point estimates. Every one of those
+whole tolerance scan; the matching rules were fixed in Supplementary S38 before
+the run, the tolerance reported was chosen alongside the results (S38 §2) —
+gives **4.87-fold (empirical P = 0.0050)** for melanoma on
+CD4⁺ T cells, 6.14-fold (P ≤ 1×10⁻⁴) on whole blood, 8.24-fold (P = 0.0045) for
+HCC-high on whole blood, 12.85- and 12.09-fold (P = 0.0065 and 0.0012) for
+HCC-low, and **4.52-fold (P ≤ 1×10⁻⁴) for RA on CD4⁺ T cells**. Values given as ≤ 1×10⁻⁴ are at the resolution floor of 10,000 permutations, not point estimates. Every one of those
 holds across all tolerances that reach full matched coverage; the tightest
 tolerance fails coverage on four cells and returns no P value rather than a
-partially matched one (Supplementary S38 §1.7).
+partially matched one (Supplementary S38 §1.7). These values follow a
+correction: an external reviewer found the sampler's result moved with the order
+of the input rows, an artefact with no statistical content, and the repaired
+version is order-invariant by construction and by test (Supplementary S38-A1).
+Every cell's verdict is unchanged by the repair; the values themselves moved by
+up to 0.08-fold.
 
-Two readings follow. First, on bounded loci density matching no longer
-attenuates: melanoma on CD4⁺ T cells is 4.96-fold unmatched and 4.95-fold
+Two readings follow. First, on bounded loci density matching barely
+attenuates: melanoma on CD4⁺ T cells is 4.96-fold unmatched and 4.87-fold
 density-matched. This is not evidence that the attenuation reported earlier was
 spurious — the earlier 3.44-fold came from quantile-stratified matching, a
 different test that we do not treat as the same quantity (Supplementary S38 §4) —
@@ -395,13 +401,15 @@ but under this matching rule — record count, span and gene count, at the
 tolerances that achieve complete matching — the enrichment persists against the
 density-matched null. That is a statement about one specified null, not a
 demonstration that density plays no part. Second, **HCC-high on CD4⁺ T cells does not clear the
-density-matched null** (P = 0.105, and P ≥ 0.05 at every usable tolerance), so by
+density-matched null** (P = 0.107, and P ≥ 0.05 at every usable tolerance), so by
 S38's reading table its attribution claim is descriptive only; that is the same
 cell and the same power limit that leaves it at P = 0.123 on the Fisher test, so
-the two controls agree rather than conflict. The density-matched control now
-covers all eight cells including RA, so the RA cell no longer rests on the
-mismatched-list control alone — which matters, because that control is the less
-clean one precisely in RA.
+the two controls agree rather than conflict. The density-matched control
+covers all eight cells including RA, but **it does not relieve the RA cell of its
+dependence on the mismatched-list control**: the two ask different questions —
+whether the enrichment follows from locus density, and whether it is specific to
+this outcome's own genetics — and passing the first says nothing about the
+second. RA's difficulty is entirely with the second.
 
 One observation from the grid places this work against the complementary
 literature. Swapping in the eQTLGen resource multiplied significant loci in
@@ -1084,8 +1092,9 @@ liver cancer at P < 5×10⁻⁸ together with those tabulated in the outcome
 publication — 83 rsIDs, 73 placeable on GRCh38. The rheumatoid arthritis
 reference was the 87 lead rsIDs of Okada et al. 2014 [47] (GCST002318), published
 before FinnGen existed and from cohorts that exclude it; 83 were placeable.
-Independent loci are a **non-recursive fixed-anchor partition** of instrument
-positions within a chromosome: the first unassigned variant becomes an anchor and
+Loci are a **non-recursive fixed-anchor partition** of instrument
+positions within a chromosome — bounded rather than independent, since the
+partition guarantees only that two loci share no variant: the first unassigned variant becomes an anchor and
 claims every variant within 1 Mb of it, then the next unassigned variant becomes
 the next anchor. Anchors are taken by position and never by significance, because
 the same partition supplies the numerator and the denominator, and a locus

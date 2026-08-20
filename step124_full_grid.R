@@ -27,7 +27,16 @@
 ## Output: 123d_fixed_anchor_full_grid.tsv
 
 suppressMessages(library(cqtna))
-MR <- "D:/R_ex/MR"
+## Work from wherever this script lives, so the packet runs after extraction.
+## Override with:  Rscript <script> /path/to/dir     or  CQTNA_DIR=/path/to/dir
+MR <- local({
+  a <- commandArgs(trailingOnly = TRUE)
+  if (length(a) && nzchar(a[1])) return(a[1])
+  if (nzchar(Sys.getenv("CQTNA_DIR"))) return(Sys.getenv("CQTNA_DIR"))
+  f <- commandArgs(trailingOnly = FALSE)
+  f <- sub("^--file=", "", f[grepl("^--file=", f)])
+  if (length(f)) normalizePath(dirname(f[1])) else getwd()
+})
 setwd(MR)
 
 source("step124_cells.R")   # cells, runs, status_of()

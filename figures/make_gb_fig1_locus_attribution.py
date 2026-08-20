@@ -1,14 +1,14 @@
-"""GB Fig 1 — locus attribution under both outcomes, by independent locus.
+"""GB Fig 1 — locus attribution under both outcomes, by bounded locus.
 
 图注要求三件事，缺一不可：
   · **两个**结局（FinnGen R12 轮 与 meta 轮），不是只画 meta；
-  · **按独立位点**计数，不是按基因记录——正文报的 4.96× 是位点级的数
+  · **按有界位点**计数，不是按基因记录——正文报的 4.96× 是位点级的数
   · 位点划分 = 非递归固定锚定窗口 1000 kb（S36 冻结），不再是单连锁
     （记录级为 5.26×，Step 30 的自设纪律是正文一律用位点级，见 FIGURES_plan.md §2）；
   · 端到端对照：MC1R 区给出全研究最强关联 P = 4×10⁻³⁷，PARP1 方向复现。
 
 面板：
-  a  镜像 Manhattan，**每个独立位点一个点**（取该位点内最强记录）。
+  a  镜像 Manhattan，**每个有界位点一个点**（取该位点内最强记录）。
      上 = FinnGen R12 轮，下 = meta 轮。颜色 = 位点类别。
   b  位点级归属：两个结局各自的"显著位点中已知的比例"对上各自的背景比例。
 
@@ -111,7 +111,7 @@ for c in map(str, range(1, 23)):
 
 
 def per_locus(d):
-    """每个独立位点取最强记录，Manhattan 按位点画而不是按记录。"""
+    """每个有界位点取最强记录，Manhattan 按位点画而不是按记录。"""
     d = d.copy()
     d["y"] = -np.log10(d.pval.clip(lower=1e-320))
     idx = d.groupby("locus").y.idxmax()
@@ -198,7 +198,7 @@ def panel_a(ax):
                               markeredgecolor="black", label="beyond the axis limit")],
               frameon=False, fontsize=7.2, loc="upper left", ncol=5,
               bbox_to_anchor=(0, -.105), columnspacing=1.4, handletextpad=.4)
-    ax.set_title("a  One point per independent locus, both outcomes",
+    ax.set_title("a  One point per bounded locus, both outcomes",
                  fontsize=9.5, loc="left", pad=16)
 
 

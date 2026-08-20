@@ -17,14 +17,24 @@ Run it after any edit to MANUSCRIPT_GB.md or to any of the tables below.
 Exits non-zero if anything is stale or missing.
 """
 import io
+import os
 import re
 
 import pandas as pd
 
-MR = "D:/R_ex/MR"
+import sys
+# Resolve from this file, or from argv[1] / CQTNA_DIR, so the packet runs
+# wherever it is extracted rather than only on the author's machine.
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR")
+      or os.path.dirname(os.path.abspath(__file__)))
 TAB = chr(9)
 
-txt = io.open(f"{MR}/manuscript/MANUSCRIPT_GB.md", encoding="utf-8").read()
+_cand = [os.path.join(MR, "manuscript", "MANUSCRIPT_GB.md"),
+         os.path.join(MR, "MANUSCRIPT_GB.md"),
+         os.path.join(MR, "..", "MANUSCRIPT_GB.md")]
+_ms = next((c for c in _cand if os.path.exists(c)), _cand[0])
+txt = io.open(_ms, encoding="utf-8").read()
 
 grid = pd.read_csv(f"{MR}/123d_fixed_anchor_full_grid.tsv", sep=TAB)
 main = grid[grid.analysis == "main"]

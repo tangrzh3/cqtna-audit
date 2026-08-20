@@ -158,12 +158,16 @@ cqtna_report <- function(x, file = NULL) {
     L <- c(L, paste("- no mismatched-list control supplied; enrichment specific",
                     "to this outcome's genetics is not established"))
   }
+  ## Name the partition that actually produced this object. Saying
+  ## "single-linkage" unconditionally was wrong for every run using the default.
+  meth <- x$settings$locus_method
+  if (is.null(meth)) meth <- "an unrecorded rule"
   L <- c(L, "",
-         paste("The Fisher test treats loci as exchangeable units.",
-               "Loci are defined by single-linkage clustering, so they are not",
-               "independent tests in the strict sense; read this as a descriptive",
-               "enrichment with a sensitivity analysis (module G), not as a",
-               "calibrated p-value."), "")
+         paste("The Fisher test treats loci as exchangeable units. Loci here come",
+               sprintf("from %s partitioning, which guarantees that two loci", meth),
+               "share no variant but not that they are independent tests; read",
+               "this as a descriptive enrichment with a sensitivity analysis",
+               "(module G), not as a calibrated p-value."), "")
 
   L <- c(L, "## B. Inference unit", "", cq_md_table(x$B), "",
          paste("A shortest list is not evidence that FDR is controlled under",
@@ -258,7 +262,13 @@ cqtna_report <- function(x, file = NULL) {
   }
 
   sp <- x$spans
-  L <- c(L, "## Locus spans -- is single-linkage chaining doing the work?", "",
+  ## Chaining is a property of single linkage; under a bounded rule the span is
+  ## capped by construction and the heading should not imply otherwise.
+  span_head <- if (identical(meth, "single_linkage"))
+    "## Locus spans -- is single-linkage chaining doing the work?"
+  else
+    sprintf("## Locus spans (partition: %s)", meth)
+  L <- c(L, span_head, "",
          sprintf("- %d loci at a %s kb clustering window; span median %s kb, 90th percentile %s kb, widest %s kb",
                  sp$n_loci, sp$locus_kb,
                  formatC(sp$span_quantiles_kb[[1]], format = "d", big.mark = ","),

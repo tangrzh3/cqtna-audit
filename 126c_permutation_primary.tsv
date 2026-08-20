@@ -1,9 +1,9 @@
-cell	tolerance	n_perm	seed	known_from	match_on	matched_fraction	observed_known	fold_vs_null	empirical_p	failed_because
-melanoma x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	4	4.95110781037257	0.0041995800419958	
-melanoma x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	23	6.15845984951937	9.99900009999e-05	
-HCC_high x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	1	9.38086303939962	0.104589541045895	
-HCC_high x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	3	8.46501128668172	0.0040995900409959	
-HCC_low x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	2	12.9533678756477	0.0048995100489951	
-HCC_low x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	3	12.4584717607973	0.000999900009999	
-RA x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	16	4.50412408861864	9.99900009999e-05	
-RA x eQTLGen_blood (VOID on mismatch)	1	10000	1	any_record	n_records+span+n_genes	1	42	4.10641480655853	9.99900009999e-05	
+cell	tolerance	n_perm	seed	known_from	match_on	matched_fraction	observed_known	fold_vs_null	empirical_p	n_draws_used	n_draws_exhausted	effective_draw_fraction	min_pool_size	median_pool_size	max_pool_size	null_mean	null_sd	rng_kind	r_version	collate	failed_because
+melanoma x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	4	4.8721071863581	0.004999500049995	10000	0	1	42	151	213	0.821	0.855354992512654	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	
+melanoma x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	23	6.13955474881213	9.99900009999e-05	10000	0	1	84	818.5	1173	3.7462	1.79708333442027	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	
+HCC_high x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	1	9.18273645546373	0.107089291070893	10000	0	1	120	133.5	147	0.1089	0.317570267952636	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	
+HCC_high x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	3	8.24175824175824	0.0044995500449955	10000	0	1	486	1037	1152	0.364	0.587655114717285	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	
+HCC_low x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	2	12.853470437018	0.0064993500649935	10000	0	1	56	106.5	157	0.1556	0.379740780409519	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	
+HCC_low x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	3	12.0870265914585	0.0011998800119988	10000	0	1	522	1026	1112	0.2482	0.481892085428055	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	
+RA x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	16	4.51505488613596	9.99900009999e-05	10000	0	1	16	132	192	3.5437	1.6810035357752	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	
+RA x eQTLGen_blood (VOID on mismatch)	1	10000	1	any_record	n_records+span+n_genes	1	42	4.13593437650789	9.99900009999e-05	10000	0	1	116	859	1137	10.1549	2.85165200926028	Mersenne-Twister/Inversion/Rejection	R version 4.4.1 (2024-06-14 ucrt)	Chinese (Simplified)_China.utf8	

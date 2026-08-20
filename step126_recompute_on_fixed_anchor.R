@@ -25,7 +25,16 @@
 ##         126b_permutation_scan.tsv      the full tolerance scan, per cell
 ##         126c_permutation_primary.tsv   tolerance 1.00, the quotable row
 
-MR <- "D:/R_ex/MR"
+## Work from wherever this script lives, so the packet runs after extraction.
+## Override with:  Rscript <script> /path/to/dir     or  CQTNA_DIR=/path/to/dir
+MR <- local({
+  a <- commandArgs(trailingOnly = TRUE)
+  if (length(a) && nzchar(a[1])) return(a[1])
+  if (nzchar(Sys.getenv("CQTNA_DIR"))) return(Sys.getenv("CQTNA_DIR"))
+  f <- commandArgs(trailingOnly = FALSE)
+  f <- sub("^--file=", "", f[grepl("^--file=", f)])
+  if (length(f)) normalizePath(dirname(f[1])) else getwd()
+})
 setwd(MR)
 suppressMessages(library(cqtna))
 
@@ -159,13 +168,32 @@ perm_cells <- list(
 scan <- list(); prim <- list()
 for (cl in perm_cells) {
   mr <- as_mr(cl$d)
+  ## sensitivity() returns the sweep; re-derive the per-tolerance diagnostics
+  ## from control() so the scan table is judgeable on the same terms.
   s <- cqtna_permutation_sensitivity(mr, cl$m, known_from = CONV,
                                      tolerances = TOLS, n_perm = NPERM,
                                      seed = SEED)
   s$cell <- cl$name
+  diag <- do.call(rbind, lapply(TOLS, function(tl) {
+    q <- cqtna_permutation_control(mr, cl$m, known_from = CONV, tolerance = tl,
+                                   n_perm = NPERM, seed = SEED)
+    g <- function(f) if (is.null(q[[f]])) NA else q[[f]]
+    data.frame(tolerance = tl, n_draws_used = g("n_draws_used"),
+               n_draws_exhausted = g("n_draws_exhausted"),
+               effective_draw_fraction = g("effective_draw_fraction"),
+               min_pool_size = g("min_pool_size"),
+               median_pool_size = g("median_pool_size"),
+               stringsAsFactors = FALSE)
+  }))
+  s <- merge(s, diag, by = "tolerance", all.x = TRUE)
   scan[[length(scan) + 1L]] <- s[, c("cell", setdiff(names(s), "cell"))]
   r <- cqtna_permutation_control(mr, cl$m, known_from = CONV, tolerance = 1,
                                  n_perm = NPERM, seed = SEED)
+  ## The matching diagnostics travel with the p-value. A permutation result
+  ## without them cannot be judged: the reader cannot tell a null built from
+  ## 10,000 clean draws out of pools of 200 from one built from 300 survivors
+  ## out of pools of 2 (S38-A1 section 2.3).
+  gv <- function(f, d = NA) if (is.null(r[[f]])) d else r[[f]]
   prim[[length(prim) + 1L]] <- data.frame(
     cell = cl$name, tolerance = 1, n_perm = NPERM, seed = SEED,
     known_from = r$known_from, match_on = paste(r$match_on, collapse = "+"),
@@ -173,6 +201,15 @@ for (cl in perm_cells) {
     observed_known = r$observed_known,
     fold_vs_null = if (is.null(r$fold_vs_null)) NA_real_ else r$fold_vs_null,
     empirical_p = r$empirical_p,
+    n_draws_used = gv("n_draws_used"),
+    n_draws_exhausted = gv("n_draws_exhausted"),
+    effective_draw_fraction = gv("effective_draw_fraction"),
+    min_pool_size = gv("min_pool_size"),
+    median_pool_size = gv("median_pool_size"),
+    max_pool_size = gv("max_pool_size"),
+    null_mean = gv("null_mean"), null_sd = gv("null_sd"),
+    rng_kind = gv("rng_kind", ""), r_version = gv("r_version", ""),
+    collate = gv("collate", ""),
     failed_because = if (is.na(r$failed_because)) "" else r$failed_because,
     stringsAsFactors = FALSE)
 }

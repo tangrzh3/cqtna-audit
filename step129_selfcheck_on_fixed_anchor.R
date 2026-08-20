@@ -18,7 +18,16 @@
 ##   Rscript step129_selfcheck_on_fixed_anchor.R
 ## Output: 129a_selfcheck_partition_comparison.tsv
 
-MR <- "D:/R_ex/MR"
+## Work from wherever this script lives, so the packet runs after extraction.
+## Override with:  Rscript <script> /path/to/dir     or  CQTNA_DIR=/path/to/dir
+MR <- local({
+  a <- commandArgs(trailingOnly = TRUE)
+  if (length(a) && nzchar(a[1])) return(a[1])
+  if (nzchar(Sys.getenv("CQTNA_DIR"))) return(Sys.getenv("CQTNA_DIR"))
+  f <- commandArgs(trailingOnly = FALSE)
+  f <- sub("^--file=", "", f[grepl("^--file=", f)])
+  if (length(f)) normalizePath(dirname(f[1])) else getwd()
+})
 setwd(MR)
 suppressMessages(library(cqtna))
 
