@@ -17,7 +17,9 @@ Base R only — no Bioconductor, no tidyverse, no Seurat.
 
 ```r
 # install.packages("remotes")
-remotes::install_github("OWNER/cqtna", subdir = "cqtna_r")
+# from the built tarball that ships with the review packet
+install.packages("cqtna_0.3.0.tar.gz", repos = NULL, type = "source")
+# (no public repository yet; see RELEASE.md before publishing one)
 ```
 
 ```r
@@ -40,8 +42,8 @@ cqtna_report(au, "audit.md")
 
 | | module | needs |
 |---|---|---|
-| A | locus attribution against the outcome's own known loci, by independent locus, with a mismatched-list negative control | MR results + known loci |
-| B | the significant list recomputed over record, variant, gene and independent locus | MR results |
+| A | locus attribution against the outcome's own known loci, by bounded locus, with a mismatched-list negative control | MR results + known loci |
+| B | the significant list recomputed over record, variant, gene and bounded locus | MR results |
 | C | list stability against a second outcome GWAS | a second MR table |
 | D | instrument attrition: instrumentable → analysable → associated | pathway gene table |
 | E | compartment attribution: per-cell-type expression ratio | expression table |
@@ -85,10 +87,13 @@ loci on size and instrument count.
 
 Read these before quoting anything from a report.
 
-**The Fisher p-value is descriptive.** It treats independent loci as exchangeable
-units, and loci are not independent tests in that sense whichever partition
-produces them. Report it as an enrichment with its sensitivity analysis, not as a
-calibrated p-value.
+**The Fisher p-value is descriptive.** It treats loci as exchangeable units, and
+they are not independent tests in that sense whichever partition produces them.
+The package calls them *bounded* loci rather than *independent* loci for exactly
+this reason: `"fixed_centre"` guarantees that two loci share no variant, which is
+not the same as statistical independence, and nothing here establishes the
+latter. Report the result as an enrichment with its sensitivity analysis, not as
+a calibrated p-value.
 
 **Simes-then-BH across inference units is a sensitivity analysis.** It shows how
 much the list depends on the unit you chose. It is not a proof that FDR is

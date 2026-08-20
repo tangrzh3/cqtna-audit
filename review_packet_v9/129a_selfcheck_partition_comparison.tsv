@@ -1,9 +1,0 @@
-partition	unit	n_tests	n_significant	n_genes	n_loci
-single_linkage	record	3556	21	10	7
-single_linkage	variant	2126	15	11	7
-single_linkage	gene	1340	9	9	5
-single_linkage	locus	554	8	28	8
-fixed_centre	record	3556	21	10	8
-fixed_centre	variant	2126	15	11	8
-fixed_centre	gene	1340	9	9	6
-fixed_centre	locus	655	9	20	9

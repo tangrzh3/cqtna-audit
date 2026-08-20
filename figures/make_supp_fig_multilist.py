@@ -1,14 +1,21 @@
 """Supplementary figure for S39 — every cell against every reference list.
 
-The table this replaces is read row by row, and row by row it says "the outcome's
-own list wins". What it does not show is by how much, and that is the whole
-result: the cancer cells win by an unbounded margin because no unrelated list
-enriches at all, while the two rheumatoid arthritis cells win by about a quarter.
+The table this accompanies is read row by row, and row by row it says the
+outcome's own list wins. What it cannot show is by how much, and the margin is
+the whole point: the six cancer cells span 1.82- to 7.63-fold over their best
+comparator, and the two rheumatoid arthritis cells sit at 1.28 and 1.32.
 
-One row per cell. The filled marker is the outcome's own list; open markers are
-the four unrelated lists, filled-with-ring where that unrelated list also
-enriches at P < 0.05. The bracket spans own-fold to best-competing-fold, so the
-margin is the thing the eye measures.
+One row per cell. The filled diamond is the outcome's own list; open circles are
+the four unrelated lists, filled where that list also enriches at P < 0.05. The
+bracket spans own fold to the largest comparator fold, so the margin is what the
+eye measures.
+
+An earlier version of this figure drew that bracket to the largest *significant*
+comparator, which made it infinite for cells where no comparator reached
+P < 0.05, and the caption called that "an unbounded margin". That was wrong: a
+comparator that misses significance still has a point estimate -- prostate is
+2.73-fold on melanoma x CD4. The bracket now runs to the largest comparator fold
+whether or not it is significant, and every margin is finite.
 
 Data: 130a_multilist_main.tsv, 130c_multilist_verdict.tsv (step130).
 Output: figures/FigS_multilist_control.pdf / .png
@@ -67,17 +74,18 @@ def main_fig():
 
         ax.axhline(y, color="#EEE", lw=8, zorder=0)
 
-        # the margin the argument rests on
-        if v.F_max > 0:
-            ax.plot([v.F_max, v.F_own], [y, y], color="#666", lw=1.6, zorder=2)
-            ax.text((v.F_max * v.F_own) ** .5, y + .26,
-                    f"×{v.F_own / v.F_max:.2f}", ha="center", va="bottom",
+        # The margin the argument rests on, measured to the largest comparator
+        # whether or not it reached significance. Restricting it to significant
+        # comparators is what produced the "unbounded margin" this figure used
+        # to claim.
+        fmax = float(v.F_max_all)
+        if fmax > 0:
+            ax.plot([fmax, v.F_own], [y, y], color="#666", lw=1.6, zorder=2)
+            ax.text((fmax * v.F_own) ** .5, y + .26,
+                    f"×{v.F_own / fmax:.2f}", ha="center", va="bottom",
                     fontsize=7.6, color="#222", fontweight="bold",
                     bbox=dict(boxstyle="square,pad=0.12", fc="white",
                               ec="none"))
-        else:
-            ax.text(own.fold * .72, y + .30, "no competitor", ha="right",
-                    va="bottom", fontsize=7.1, color="#777", style="italic")
 
         placed = []          # x positions of labels already drawn on this row
         for _, r in ctl.sort_values("fold").iterrows():
@@ -119,25 +127,27 @@ def main_fig():
         Line2D([], [], lw=0, marker="o", ms=8, mfc=C_HIT, mec=C_HIT,
                label="an unrelated list that also enriches (P < 0.05)"),
         Line2D([], [], color="#666", lw=1.6,
-               label="margin: own fold ÷ best competing fold"),
+               label="margin: own fold ÷ largest comparator fold"),
     ]
     ax.legend(handles=handles, frameon=False, fontsize=7.7, ncol=2,
               loc="upper center", bbox_to_anchor=(.5, -.115),
               handletextpad=.7, columnspacing=2.6)
 
-    fig.suptitle("Scored against four unrelated diseases, the cancer cells win by "
-                 "an unbounded\nmargin and rheumatoid arthritis by a quarter",
+    fig.suptitle("Every cell beats its comparators, but rheumatoid arthritis beats "
+                 "them by the\nnarrowest margin in the grid",
                  fontsize=11.4, x=.145, ha="left", y=.985, va="top",
                  linespacing=1.35)
     fig.text(.145, .885,
-             "Each row is one cell of the grid, scored against every reference "
-             "list in the study with \u226530 placeable lead SNPs (S39). Four cancer "
-             "cells have no unrelated\nlist enriching at all. On RA the list this "
-             "study designated as its mismatched control (melanoma, 1.71\u00d7, "
-             "P = 0.10) is the most favourable of the four; HCC's gives\n"
-             "3.05\u00d7 (P = 0.0028) and would have voided the cell. A single-list "
-             "negative control returns a verdict about the list as much as about "
-             "the attribution.",
+             "Each row is one cell, scored against every reference list in the "
+             "study with \u226530 placeable lead SNPs. A post-hoc diagnostic (S39), "
+             "not a registered test, and\nnot used to upgrade any cell. Cancer "
+             "cells span 1.82\u2013 to 7.63-fold over their largest comparator; the "
+             "two RA cells sit at 1.28 and 1.32. Of the four comparators\n"
+             "available for RA, two leave the cell standing \u2014 prostate (1.04\u00d7, "
+             "P = 0.59) and melanoma (1.71\u00d7, P = 0.10), the one this study "
+             "designated \u2014 while HCC (3.05\u00d7,\nP = 0.0028) and colorectal "
+             "(1.77\u00d7, P = 0.0045) would each have voided it. Whether the cell "
+             "survives depends on which comparator was named.",
              fontsize=7.35, color="#444", va="top", linespacing=1.65)
 
     for ext, kw in ((".pdf", {}), (".png", {"dpi": 300})):
@@ -146,9 +156,9 @@ def main_fig():
 
     for c in ORDER:
         v = vd[vd.cell == c].iloc[0]
-        m = "inf" if v.F_max == 0 else f"{v.F_own / v.F_max:.2f}"
         print(f"  {c:<26} k={v.k_enriching}  own {v.F_own:5.2f}  "
-              f"best rival {v.F_max:5.2f}  margin {m}")
+              f"largest comparator {v.F_max_all:5.2f} ({v.best_rival_any})  "
+              f"margin {v.F_own / v.F_max_all:.2f}")
 
 
 if __name__ == "__main__":

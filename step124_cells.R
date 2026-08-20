@@ -108,7 +108,13 @@ runs <- list(list(method = "fixed_centre",   kb = 1000, conv = "any_record",
 ## A row is prereg_primary only if the cell is one of the six registered cells,
 ## scored over the region the registration named, at the registered partition.
 status_of <- function(cl, rn) {
-  if (rn$label == "legacy") return("legacy_reproduction")
+  ## A post-hoc cell run through the legacy algorithm is both things at once,
+  ## and "legacy_reproduction" alone reads as though it reproduces something
+  ## published. The MHC-excluded rows do appear in S33's results table, so they
+  ## are reproducible, but they were never a registered analysis.
+  if (rn$label == "legacy")
+    return(if (isTRUE(cl$prereg)) "legacy_reproduction"
+           else "legacy_posthoc_sensitivity")
   if (!isTRUE(cl$prereg)) return("posthoc_sensitivity")
   if (cl$role == "main" && rn$label == "main") return("prereg_primary")
   "prereg_sensitivity"

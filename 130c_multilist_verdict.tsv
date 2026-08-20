@@ -1,9 +1,9 @@
-cell	role	own_list	n_controls	k_enriching	F_own	F_max	which_enrich	verdict
-melanoma x Soskic_CD4	main	melanoma	4	0	4.96	0	-	A control clean
-melanoma x eQTLGen_blood	main	melanoma	4	1	6.31	2.11	RA(2.11,P=0.0417)	B not orthogonal, direction separates
-HCC_high x Soskic_CD4	main	HCC	4	0	7.88	0	-	A control clean
-HCC_high x eQTLGen_blood	main	HCC	4	0	10.87	0	-	A control clean
-RA x Soskic_CD4	main	RA	4	2	3.91	3.05	HCC(3.05,P=0.00277); colorectal(1.77,P=0.00447)	B not orthogonal, direction separates
-RA x eQTLGen_blood	main	RA	4	3	3.94	2.98	melanoma(2.05,P=0.000289); HCC(2.98,P=1.32e-05); colorectal(1.60,P=0.000432)	B not orthogonal, direction separates
-HCC_low x Soskic_CD4	power sensitivity	HCC	4	0	15.49	0	-	A control clean
-HCC_low x eQTLGen_blood	power sensitivity	HCC	4	1	13.53	3.19	colorectal(3.19,P=0.0425)	B not orthogonal, direction separates
+cell	role	own_list	n_controls	k_enriching	F_own	F_max_sig	F_max_all	margin_all	best_rival_any	most_favourable	which_enrich	verdict
+melanoma x Soskic_CD4	main	melanoma	4	0	4.96	0	2.73	1.82	prostate	HCC	-	A control clean
+melanoma x eQTLGen_blood	main	melanoma	4	1	6.31	2.11	2.24	2.82	prostate	colorectal	RA(2.11,P=0.0417)	B not orthogonal, direction separates
+HCC_high x Soskic_CD4	main	HCC	4	0	7.88	0	2.08	3.79	colorectal	melanoma	-	A control clean
+HCC_high x eQTLGen_blood	main	HCC	4	0	10.87	0	5.21	2.09	prostate	melanoma	-	A control clean
+RA x Soskic_CD4	main	RA	4	2	3.91	3.05	3.05	1.28	HCC	prostate	HCC(3.05,P=0.00277); colorectal(1.77,P=0.00447)	B not orthogonal, direction separates
+RA x eQTLGen_blood	main	RA	4	3	3.94	2.98	2.98	1.32	HCC	prostate	melanoma(2.05,P=0.000289); HCC(2.98,P=1.32e-05); colorectal(1.60,P=0.000432)	B not orthogonal, direction separates
+HCC_low x Soskic_CD4	power sensitivity	HCC	4	0	15.49	0	2.03	7.63	colorectal	melanoma	-	A control clean
+HCC_low x eQTLGen_blood	power sensitivity	HCC	4	1	13.53	3.19	3.19	4.24	colorectal	prostate	colorectal(3.19,P=0.0425)	B not orthogonal, direction separates

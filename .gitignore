@@ -82,3 +82,12 @@ backup_*
 # build artefacts: regenerate with R CMD build / check, not tracked
 *.Rcheck/
 review_packet_v9.zip
+
+# The review packet is assembled from tracked sources by make_review_packet.sh.
+# Tracking the copies as well as the originals means two of everything, drifting
+# apart as soon as one is regenerated. The two hand-written READMEs are kept.
+review_packet_v9/*
+!review_packet_v9/README_审核要点.md
+!review_packet_v9/reproduce/
+review_packet_v9/reproduce/*
+!review_packet_v9/reproduce/README.md

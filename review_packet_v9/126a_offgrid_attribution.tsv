@@ -1,9 +1,0 @@
-cell	note	partition	locus_kb	known_from	n_records	bg_loci	bg_known	sig_loci	sig_known	pct_known	fold	fisher_p	mismatch_fold	mismatch_p	control
-C1 Soskic x melanoma R12	R13 transfer comparator	fixed_centre	1000	any_record	3434	641	64	4	4	100	10.02	9.11764140661435e-05	0	1	clean
-C1 Soskic x melanoma R13	R13 transfer, main cell	fixed_centre	1000	any_record	3434	641	64	4	4	100	10.02	9.11764140661435e-05	0	1	clean
-C2 eQTLGen x melanoma R13	R13 transfer	fixed_centre	1000	any_record	12835	1678	180	18	11	61.1	5.7	2.63391331549599e-07	0	1	clean
-C3 Soskic x HCC R13	R13 transfer	fixed_centre	1000	any_record	3686	666	43	2	2	100	15.49	0.00407776197249882	0	1	clean
-C4 eQTLGen x HCC R13	R13 transfer	fixed_centre	1000	any_record	12835	1678	93	6	4	66.7	12.03	0.000121984895127913	3.11	0.128571931804938	clean
-Nathan_2022 x melanoma	extra CD4 resource (S35)	fixed_centre	1000	any_record	112	102	6	0	0	NA	NA	NA	NA	NA	clean
-Randolph_2021 x melanoma	extra CD4 resource (S35)	fixed_centre	1000	any_record	327	250	27	2	0	0	0	1	0	1	clean
-Schmiedel_2018 x melanoma	extra CD4 resource (S35)	fixed_centre	1000	any_record	860	521	51	6	2	33.3	3.41	0.109169044802988	5.79	0.0416348460938079	FAILED

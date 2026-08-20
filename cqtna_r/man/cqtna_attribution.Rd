@@ -55,7 +55,7 @@ a list with the counts, `fold`, `fisher_p_one_sided`, the convention
 }
 \description{
 Fold enrichment of FDR-significant loci on previously reported loci for this
-outcome, counted by independent locus, with a one-sided Fisher exact test.
+outcome, counted by bounded locus, with a one-sided Fisher exact test.
 }
 \details{
 Run it a second time with a different disease's list as `known` to get the

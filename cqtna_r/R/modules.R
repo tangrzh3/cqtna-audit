@@ -1,12 +1,12 @@
 ## Modules A-G. Each is usable on its own; cqtna_audit() runs them together.
 ##
-## Everything is computed by independent locus wherever a count carries an
+## Everything is computed by bounded locus wherever a count carries an
 ## argument, because a significant locus does not name a gene.
 
 #' A. Locus attribution against the outcome's own known loci
 #'
 #' Fold enrichment of FDR-significant loci on previously reported loci for this
-#' outcome, counted by independent locus, with a one-sided Fisher exact test.
+#' outcome, counted by bounded locus, with a one-sided Fisher exact test.
 #'
 #' Run it a second time with a different disease's list as `known` to get the
 #' mismatched negative control. Without that control you cannot distinguish
@@ -354,7 +354,7 @@ CQ_SWEEP_KB <- c(100, 250, 500, 1000)
 #' Two different conventions get called "the 1 Mb window" and they carry
 #' different weight, so they are swept separately: `known_kb` decides what counts
 #' as landing on a known locus and moves the fold directly; `locus_kb` decides
-#' how independent loci are defined and moves the denominator.
+#' how loci are bounded and moves the denominator.
 #'
 #' A threshold chosen to flatter a result weakens when tightened. If the fold
 #' *rises* as the window narrows, the value you reported is the conservative one.

@@ -7,7 +7,8 @@ Authors@R:
 Description: Runs the automatable part of eight diagnostics on a candidate list
     produced by any cis-eQTL-instrumented Mendelian randomization pipeline, and
     reports what kind of evidence each gene actually carries. Checks locus
-    attribution against the outcome's own known loci by independent locus, with a
+    attribution against the outcome's own known loci by bounded genomic locus,
+    with a
     mismatched-list negative control; recomputes the significant list over four
     inference units; measures list stability against a second outcome GWAS;
     reports instrument availability at three separate levels; computes
@@ -21,6 +22,4 @@ Depends: R (>= 4.1)
 Imports: stats, utils, graphics
 Suggests: testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/OWNER/cqtna
-BugReports: https://github.com/OWNER/cqtna/issues
 Config/roxygen2/version: 8.0.0

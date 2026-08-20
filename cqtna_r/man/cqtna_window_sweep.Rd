@@ -65,7 +65,7 @@ a list with `known_sweep`, `locus_sweep`, the significant-locus
 Two different conventions get called "the 1 Mb window" and they carry
 different weight, so they are swept separately: `known_kb` decides what counts
 as landing on a known locus and moves the fold directly; `locus_kb` decides
-how independent loci are defined and moves the denominator.
+how loci are bounded and moves the denominator.
 }
 \details{
 A threshold chosen to flatter a result weakens when tightened. If the fold

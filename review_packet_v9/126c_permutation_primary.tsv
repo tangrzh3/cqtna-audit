@@ -1,9 +1,0 @@
-cell	tolerance	n_perm	seed	known_from	match_on	matched_fraction	observed_known	fold_vs_null	empirical_p	failed_because
-melanoma x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	4	4.95110781037257	0.0041995800419958	
-melanoma x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	23	6.15845984951937	9.99900009999e-05	
-HCC_high x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	1	9.38086303939962	0.104589541045895	
-HCC_high x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	3	8.46501128668172	0.0040995900409959	
-HCC_low x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	2	12.9533678756477	0.0048995100489951	
-HCC_low x eQTLGen_blood	1	10000	1	any_record	n_records+span+n_genes	1	3	12.4584717607973	0.000999900009999	
-RA x Soskic_CD4	1	10000	1	any_record	n_records+span+n_genes	1	16	4.50412408861864	9.99900009999e-05	
-RA x eQTLGen_blood (VOID on mismatch)	1	10000	1	any_record	n_records+span+n_genes	1	42	4.10641480655853	9.99900009999e-05	

@@ -119,6 +119,11 @@ def panel_b(ax):
         for i, e in enumerate(resources):
             r = cell(e, d)
             void = bool(r.void)
+            # RA on CD4+ clears its registered negative control at one of seven
+            # window settings and is reported as exploratory. Drawing it in the
+            # same style as the tumour cells put a confirmatory badge on a cell
+            # the text does not treat as confirmatory.
+            exploratory = (not void) and r.cell.startswith("RA")
             sig = (r.fisher_p < 0.05) and not void
             # A void cell is not a weak cell. It is drawn grey and hatched, with
             # its own fold withheld, because its mismatched-list control also
@@ -126,10 +131,14 @@ def panel_b(ax):
             ax.add_patch(plt.Rectangle((j - .44, i - .38), .88, .76,
                                        facecolor="#EDEDED" if void else C_KNOWN,
                                        alpha=1 if void else .06 + .16 * min(r.fold / 11, 1),
-                                       edgecolor="#999" if void else (C_KNOWN if sig else "#CCC"),
+                                       edgecolor="#999" if void else
+                                       ("#B08A3E" if exploratory else
+                                        (C_KNOWN if sig else "#CCC")),
                                        hatch="////" if void else None,
                                        lw=1.2 if void else (1.6 if sig else .9),
-                                       ls="-" if (sig or void) else "--", zorder=2))
+                                       ls="-" if (sig or void) else
+                                       ((0, (4, 2)) if exploratory else "--"),
+                                       zorder=2))
             if void:
                 # The hatching says "excluded"; the labels have to stay readable
                 # over it, so they sit on their own opaque strip.
@@ -147,9 +156,14 @@ def panel_b(ax):
                         bbox=dict(boxstyle="square,pad=0.22", fc="#EDEDED",
                                   ec="none"))
                 continue
-            ax.text(j, i + .13, f"{r.fold:.2f}×", ha="center", va="center",
+            ax.text(j, i + .155, f"{r.fold:.2f}×", ha="center", va="center",
                     fontsize=13.5, fontweight="bold",
-                    color=C_KNOWN if sig else "#8A8A8A", zorder=4)
+                    color="#B08A3E" if exploratory else
+                    (C_KNOWN if sig else "#8A8A8A"), zorder=4)
+            if exploratory:
+                ax.text(j, i + .335, "EXPLORATORY — window-sensitive",
+                        ha="center", va="center", fontsize=6.1,
+                        color="#8A6A20", fontweight="bold", zorder=4)
             pf = (f"P = {r.fisher_p:.3f}" if r.fisher_p >= 1e-3
                   else f"P = {r.fisher_p:.0e}".replace("e-", "×10⁻"))
             ax.text(j, i - .10, pf, ha="center", va="center", fontsize=7.6,
@@ -177,16 +191,18 @@ def panel_b(ax):
     ax.set_xticklabels([DIS_LAB[d] for d in diseases], fontsize=8.4)
     ax.set_yticks(range(2))
     ax.set_yticklabels([EXP_LAB[e] for e in resources], fontsize=8.4)
-    ax.set_xlim(-.62, 2.62); ax.set_ylim(-1.52, 1.72)
+    ax.set_xlim(-.62, 2.62); ax.set_ylim(-1.52, 1.86)
     ax.tick_params(length=0)
     for sp in ax.spines.values():
         sp.set_visible(False)
-    ax.text(1, 1.44, "One cell is void on its own mismatched-list control; the "
-                     "other five all enrich, four\nreaching P < 0.05. The one that "
-                     "does not is on a numerator of one of two loci.",
-            ha="center", va="bottom", fontsize=7.3, color="#444", linespacing=1.4)
+    ax.text(1, 1.40, "One cell is void on its own mismatched-list control; four of "
+                     "the other five reach nominal P < 0.05.\nThe RA cell clears "
+                     "that control at one of seven window settings (S36) and is "
+                     "reported as exploratory,\nso the confirmatory claim covers "
+                     "melanoma and hepatocellular carcinoma only.",
+            ha="center", va="bottom", fontsize=7.1, color="#444", linespacing=1.45)
     ax.set_title("b  Both axes crossed: three diseases × two exposure resources",
-                 fontsize=9.5, loc="left", pad=8)
+                 fontsize=9.5, loc="left", pad=30)
 
 
 # ------------------------------------------------------------------ panel c

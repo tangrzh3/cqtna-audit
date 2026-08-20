@@ -119,7 +119,19 @@ for (cl in use) {
              is.finite(ctl$fold) & ctl$fold > 1, , drop = FALSE]
   k <- nrow(hit)
   f_own <- o$fold[1]
+  ## Two margins, because they answer different questions and only one of them
+  ## is safe to quote as a ratio.
+  ##   F_max_sig  largest fold among controls that reach P < 0.05. This is what
+  ##              the S39 section 5 verdict rule uses. It is 0 when no control
+  ##              is significant, so the ratio against it is undefined -- NOT
+  ##              "an unbounded margin", which is how an earlier version of the
+  ##              figure and text described it. A control with no significant
+  ##              enrichment still has a point estimate.
+  ##   F_max_all  largest fold among ALL controls, significant or not. Always
+  ##              finite, so margin_all is the ratio to report.
   f_max <- if (k) max(hit$fold) else 0
+  f_max_all <- suppressWarnings(max(ctl$fold[is.finite(ctl$fold)]))
+  if (!is.finite(f_max_all)) f_max_all <- NA_real_
   v <- if (!is.finite(o$sig_loci[1]) || o$sig_loci[1] < 2) "D no power"
        else if (k == 0) "A control clean"
        else if (is.finite(f_own) && f_own > f_max) "B not orthogonal, direction separates"
@@ -127,7 +139,10 @@ for (cl in use) {
   verdict[[length(verdict) + 1L]] <- data.frame(
     cell = cl$name, role = cl$role, own_list = own,
     n_controls = nrow(ctl), k_enriching = k,
-    F_own = f_own, F_max = f_max,
+    F_own = f_own, F_max_sig = f_max, F_max_all = f_max_all,
+    margin_all = round(f_own / f_max_all, 2),
+    best_rival_any = ctl$list_name[which.max(ctl$fold)][1],
+    most_favourable = ctl$list_name[which.min(ctl$fold)][1],
     which_enrich = if (k) paste(sprintf("%s(%.2f,P=%.3g)", hit$list_name,
                                         hit$fold, hit$fisher_p),
                                 collapse = "; ") else "-",
@@ -170,12 +185,13 @@ for (nm in unique(main$cell)) {
 }
 
 cat("\n", strrep("=", 116), "\n", "B. verdict per cell (S39 §5)\n", sep = "")
-cat(sprintf("%-28s %11s %8s %8s   %-38s %s\n", "cell", "k enriching",
-            "F_own", "F_max", "which", "verdict"))
+cat(sprintf("%-28s %5s %7s %9s %8s  %-11s %-11s %s\n", "cell", "k",
+            "F_own", "F_max_all", "margin", "best rival", "most fav.", "verdict"))
 for (i in seq_len(nrow(vd))) with(vd[i, ], cat(sprintf(
-  "%-28s %11d %8s %8s   %-38s %s\n", cell, k_enriching,
+  "%-28s %5d %7s %9s %8s  %-11s %-11s %s\n", cell, k_enriching,
   ifelse(is.na(F_own), "-", sprintf("%.2f", F_own)),
-  ifelse(F_max == 0, "-", sprintf("%.2f", F_max)),
-  substr(which_enrich, 1, 38), verdict)))
+  ifelse(is.na(F_max_all), "-", sprintf("%.2f", F_max_all)),
+  ifelse(is.na(margin_all), "-", sprintf("%.2f", margin_all)),
+  best_rival_any, most_favourable, verdict)))
 
 cat("\nwrote 130a / 130b / 130c\n")

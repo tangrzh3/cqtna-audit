@@ -54,13 +54,20 @@ want += [
 
 # The multi-list control (S39). The margin ratios are what the manuscript leans
 # on, so they are checked as rendered rather than recomputed by eye.
+# The margin is taken over ALL comparators, not only significant ones: the
+# significance-restricted version is 0 when nothing reaches P<0.05, which is
+# what produced the withdrawn "unbounded margin" claim.
 _ra = ml[ml.cell == "RA x Soskic_CD4"].iloc[0]
 _raq = ml[ml.cell == "RA x eQTLGen_blood"].iloc[0]
+_mel = ml[ml.cell == "melanoma x Soskic_CD4"].iloc[0]
+_hcl = ml[ml.cell == "HCC_low x Soskic_CD4"].iloc[0]
 want += [
     ("S39 RA x CD4 own fold", f"{_ra.F_own:.2f}"),
-    ("S39 RA x CD4 best competing", f"{_ra.F_max:.2f}"),
-    ("S39 RA x CD4 margin", f"{_ra.F_own / _ra.F_max:.2f}"),
-    ("S39 RA x blood margin", f"{_raq.F_own / _raq.F_max:.2f}"),
+    ("S39 RA x CD4 largest comparator", f"{_ra.F_max_all:.2f}"),
+    ("S39 RA x CD4 margin", f"{_ra.margin_all:.2f}"),
+    ("S39 RA x blood margin", f"{_raq.margin_all:.2f}"),
+    ("S39 narrowest cancer margin", f"{_mel.margin_all:.2f}"),
+    ("S39 widest cancer margin", f"{_hcl.margin_all:.2f}"),
 ]
 bad = 0
 for label, v in want:
@@ -98,6 +105,11 @@ legacy = {
     "6.58": [],
     "9.6-fold": [],
     "4.14": [],
+    # Withdrawn claims. These are not numbers, but the same check applies:
+    # they must not reappear in the manuscript.
+    "unbounded margin": [],
+    "most favourable of the four": [],
+    "stronger test": [],
 }
 for v, allowed in legacy.items():
     for m in re.finditer(re.escape(v), txt):

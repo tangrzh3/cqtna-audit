@@ -10,7 +10,6 @@ abstract: >-
 type: software
 version: 0.3.0
 license: MIT
-repository-code: "https://github.com/OWNER/cqtna"
 keywords:
   - Mendelian randomization
   - expression quantitative trait loci

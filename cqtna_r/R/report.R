@@ -159,7 +159,7 @@ cqtna_report <- function(x, file = NULL) {
                     "to this outcome's genetics is not established"))
   }
   L <- c(L, "",
-         paste("The Fisher test treats independent loci as exchangeable units.",
+         paste("The Fisher test treats loci as exchangeable units.",
                "Loci are defined by single-linkage clustering, so they are not",
                "independent tests in the strict sense; read this as a descriptive",
                "enrichment with a sensitivity analysis (module G), not as a",
