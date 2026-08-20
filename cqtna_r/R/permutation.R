@@ -21,6 +21,28 @@
 #' @keywords internal
 #' @noRd
 CQ_MATCHABLE <- c("n_records", "span", "n_genes", "chr")
+## Canonical locus order: chromosome numerically, then start, then end.
+##
+## Exists because two different things used to depend on the order rows happened
+## to arrive in. The loop over significant loci consumed the RNG stream in that
+## order, so reversing the input rows re-cut the same random stream into
+## different pieces; and sampling without replacement gave whichever locus came
+## first the widest pool. Neither is a property of the data. Sorting here, and
+## shuffling the draw order inside each replicate (below), removes both.
+##
+## String sorting would reintroduce the problem through the collation locale, so
+## the key is parsed to numbers.
+cq_locus_order <- function(loci) {
+  chr <- sub(":.*", "", loci)
+  rng <- sub(".*:", "", loci)
+  start <- suppressWarnings(as.numeric(sub("-.*", "", rng)))
+  end <- suppressWarnings(as.numeric(sub(".*-", "", rng)))
+  chr_num <- suppressWarnings(as.numeric(chr))
+  chr_num[is.na(chr_num)] <- 1000 + rank(chr[is.na(chr_num)],
+                                         ties.method = "min")
+  order(chr_num, start, end, loci, method = "radix")
+}
+
 
 #' Density-matched permutation control for locus attribution
 #'
@@ -55,6 +77,11 @@ CQ_MATCHABLE <- c("n_records", "span", "n_genes", "chr")
 #' @param min_matched_fraction the run fails, returning `NA` for the p-value, if
 #'   fewer than this fraction of significant loci have a matched pool. A p-value
 #'   computed while some loci could not be matched is not the test specified.
+#' @param min_draw_fraction the run fails, returning `NA` for the p-value, if
+#'   fewer than this fraction of draws complete without exhausting a matched
+#'   pool. Draws that exhaust are discarded, so a p-value computed from the
+#'   survivors of heavy attrition is conditioned on surviving, which is not the
+#'   test specified either. Default 0.95.
 #' @param replace whether a locus may be drawn twice within one null set. The
 #'   default `FALSE` discards a draw that exhausts its pool rather than reusing a
 #'   locus, because reuse quietly narrows the null.
@@ -73,6 +100,7 @@ cqtna_permutation_control <- function(mr, known, known_kb = 1000, fdr = 0.05,
                                       tolerance = 0.25,
                                       n_perm = 1000, seed = NULL,
                                       min_matched_fraction = 1,
+                                      min_draw_fraction = 0.95,
                                       replace = FALSE) {
   known_from <- match.arg(known_from)
   match_on <- match.arg(match_on, CQ_MATCHABLE, several.ok = TRUE)
@@ -84,6 +112,9 @@ cqtna_permutation_control <- function(mr, known, known_kb = 1000, fdr = 0.05,
   if (!is.numeric(min_matched_fraction) || min_matched_fraction < 0 ||
       min_matched_fraction > 1)
     stop("`min_matched_fraction` must be between 0 and 1.", call. = FALSE)
+  if (!is.numeric(min_draw_fraction) || min_draw_fraction < 0 ||
+      min_draw_fraction > 1)
+    stop("`min_draw_fraction` must be between 0 and 1.", call. = FALSE)
   if (!is.null(seed)) set.seed(seed)
 
   idx <- cq_known_index(known)
@@ -92,6 +123,7 @@ cqtna_permutation_control <- function(mr, known, known_kb = 1000, fdr = 0.05,
   loci <- names(lk$by_locus)
   sig <- unique(as.character(mr$locus[mr$fdr < fdr]))
   if (!length(sig)) stop("no significant loci at this threshold.", call. = FALSE)
+  sig <- sig[cq_locus_order(sig)]      # never the order the rows arrived in
 
   ## Observed and null are scored by the same rule -- lk$by_locus, which under
   ## both permitted conventions is defined for every locus, significant or not.
@@ -114,16 +146,23 @@ cqtna_permutation_control <- function(mr, known, known_kb = 1000, fdr = 0.05,
     if ("chr" %in% match_on) ok <- ok & prop$chr == tgt$chr
     for (v in intersect(match_on, c("n_records", "span", "n_genes")))
       ok <- ok & abs(log(prop[[v]]) - log(tgt[[v]])) <= tolerance
-    prop$locus[ok]
+    cand <- prop$locus[ok]
+    cand[cq_locus_order(cand)]         # not the collation locale's order
   })
   names(pool) <- sig
   matched <- vapply(pool, length, integer(1)) > 0L
   matched_fraction <- mean(matched)
 
+  ## Recorded with the result because a permutation p-value is only
+  ## reproducible together with the stream that generated it.
   spec <- list(known_from = known_from, match_on = match_on,
                tolerance = tolerance, n_perm = n_perm, seed = seed,
                fdr = fdr, known_kb = known_kb, replace = replace,
-               min_matched_fraction = min_matched_fraction)
+               min_matched_fraction = min_matched_fraction,
+               min_draw_fraction = min_draw_fraction,
+               rng_kind = paste(RNGkind(), collapse = "/"),
+               r_version = R.version.string,
+               collate = Sys.getlocale("LC_COLLATE"))
   base <- list(observed_known = obs, n_significant_loci = length(sig),
                n_matched_loci = sum(matched),
                matched_fraction = matched_fraction)
@@ -141,9 +180,17 @@ cqtna_permutation_control <- function(mr, known, known_kb = 1000, fdr = 0.05,
         sum(matched), length(sig), 100 * matched_fraction,
         100 * min_matched_fraction))))
 
+  ## Sampling without replacement inside a draw means the locus handled first
+  ## picks from the widest pool. Fixing that order -- by input, or by any
+  ## canonical rule -- hands one locus a systematic advantage. Shuffling it per
+  ## replicate makes the order part of the randomisation, so no locus is
+  ## privileged and the result does not depend on any data-independent ordering.
+  ## Everything else is unchanged: still without replacement, still discarding a
+  ## draw whose pool is exhausted (S38 sections 1.5 and 1.6).
+  n_sig <- length(sig)
   draws <- vapply(seq_len(n_perm), function(i) {
     drawn <- character(0)
-    for (L in sig) {
+    for (L in sig[sample.int(n_sig)]) {
       p <- pool[[L]]
       avail <- if (replace) p else setdiff(p, drawn)
       if (!length(avail)) return(NA_real_)   # pool exhausted: discard this draw
@@ -153,10 +200,39 @@ cqtna_permutation_control <- function(mr, known, known_kb = 1000, fdr = 0.05,
   }, numeric(1))
   n_exhausted <- sum(is.na(draws))
   null <- draws[!is.na(draws)]
+  pool_sizes <- vapply(pool, length, integer(1))
+  effective_draw_fraction <- length(null) / n_perm
 
+  ## A p-value from the surviving draws is only the stated test if most draws
+  ## survived. Below the floor, say so rather than quoting one.
+  if (length(null) && effective_draw_fraction < min_draw_fraction)
+    return(c(spec, base, list(
+      unmatched_loci = character(0),
+      n_draws_used = length(null), n_draws_exhausted = n_exhausted,
+      effective_draw_fraction = effective_draw_fraction,
+      min_pool_size = as.integer(min(pool_sizes)),
+      median_pool_size = as.numeric(stats::median(pool_sizes)),
+      max_pool_size = as.integer(max(pool_sizes)),
+      empirical_p = NA_real_, fold_vs_null = NA_real_,
+      null_distribution = numeric(0),
+      failed_because = sprintf(
+        paste("only %d of %d draws (%.1f%%) completed without exhausting a",
+              "matched pool; the required minimum is %.0f%%. The pools overlap",
+              "too much for sampling without replacement at this tolerance."),
+        length(null), n_perm, 100 * effective_draw_fraction,
+        100 * min_draw_fraction))))
+
+  ## Total exhaustion used to return without the diagnostics, so the one case
+  ## where a reader most needs the pool sizes was the case that withheld them.
   if (!length(null))
     return(c(spec, base, list(
-      unmatched_loci = character(0), empirical_p = NA_real_,
+      unmatched_loci = character(0),
+      n_draws_used = 0L, n_draws_exhausted = n_exhausted,
+      effective_draw_fraction = 0,
+      min_pool_size = as.integer(min(pool_sizes)),
+      median_pool_size = as.numeric(stats::median(pool_sizes)),
+      max_pool_size = as.integer(max(pool_sizes)),
+      empirical_p = NA_real_,
       fold_vs_null = NA_real_, null_distribution = numeric(0),
       failed_because = paste("every draw exhausted its matched pool before a",
                              "full null set could be formed; the pools overlap",
@@ -165,6 +241,10 @@ cqtna_permutation_control <- function(mr, known, known_kb = 1000, fdr = 0.05,
   c(spec, base, list(
     unmatched_loci = character(0),
     n_draws_used = length(null), n_draws_exhausted = n_exhausted,
+    effective_draw_fraction = effective_draw_fraction,
+    min_pool_size = as.integer(min(pool_sizes)),
+    median_pool_size = as.numeric(stats::median(pool_sizes)),
+    max_pool_size = as.integer(max(pool_sizes)),
     null_mean = mean(null), null_sd = stats::sd(null),
     null_quantiles = stats::quantile(null, c(.5, .95, .99)),
     empirical_p = (1 + sum(null >= obs)) / (1 + length(null)),

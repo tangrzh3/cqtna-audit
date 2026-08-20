@@ -15,6 +15,7 @@ cqtna_permutation_control(
   n_perm = 1000,
   seed = NULL,
   min_matched_fraction = 1,
+  min_draw_fraction = 0.95,
   replace = FALSE
 )
 }
@@ -43,6 +44,12 @@ top of this file, and [cqtna_permutation_sensitivity()].}
 \item{min_matched_fraction}{the run fails, returning `NA` for the p-value, if
 fewer than this fraction of significant loci have a matched pool. A p-value
 computed while some loci could not be matched is not the test specified.}
+
+\item{min_draw_fraction}{the run fails, returning `NA` for the p-value, if
+fewer than this fraction of draws complete without exhausting a matched
+pool. Draws that exhaust are discarded, so a p-value computed from the
+survivors of heavy attrition is conditioned on surviving, which is not the
+test specified either. Default 0.95.}
 
 \item{replace}{whether a locus may be drawn twice within one null set. The
 default `FALSE` discards a draw that exhausts its pool rather than reusing a
