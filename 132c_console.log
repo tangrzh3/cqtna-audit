@@ -1,0 +1,46 @@
+equivalence test: OK (25 replicates, full coverage)
+row-order invariance: OK
+cov 1.00  f 0.50  R   0.5  N_eff    24668  med_loci  3.0  ge8   0.6%  pass   0.4%
+cov 1.00  f 0.50  R   1.0  N_eff    49337  med_loci  5.0  ge8  19.9%  pass  13.6%
+cov 1.00  f 0.50  R   1.5  N_eff    74006  med_loci 10.0  ge8  76.0%  pass  57.9%
+cov 1.00  f 0.50  R   2.0  N_eff    98674  med_loci 21.0  ge8  98.6%  pass  80.2%
+cov 1.00  f 0.50  R   3.0  N_eff   148011  med_loci 57.0  ge8 100.0%  pass  90.8%
+cov 1.00  f 0.50  R   4.0  N_eff   197348  med_loci 102.0  ge8 100.0%  pass  94.2%
+cov 1.00  f 0.50  R   5.0  N_eff   246685  med_loci 146.0  ge8 100.0%  pass  94.2%
+cov 1.00  f 0.50  R   6.0  N_eff   296022  med_loci 186.0  ge8 100.0%  pass  93.4%
+cov 1.00  f 0.50  R   8.0  N_eff   394696  med_loci 251.0  ge8 100.0%  pass  88.1%
+cov 1.00  f 0.50  R  10.0  N_eff   493370  med_loci 300.0  ge8 100.0%  pass  82.1%
+cov 1.00  f 0.50  R  12.0  N_eff   592044  med_loci 338.0  ge8 100.0%  pass  75.7%
+cov 1.00  f 0.50  R  16.0  N_eff   789392  med_loci 392.0  ge8 100.0%  pass  63.9%
+cov 1.00  f 0.75  R   0.5  N_eff    24668  med_loci  6.0  ge8  32.9%  pass  23.2%
+cov 1.00  f 0.75  R   1.0  N_eff    49337  med_loci 28.0  ge8  99.9%  pass  83.9%
+cov 1.00  f 0.75  R   1.5  N_eff    74006  med_loci 73.0  ge8 100.0%  pass  93.1%
+cov 1.00  f 0.75  R   2.0  N_eff    98674  med_loci 124.0  ge8 100.0%  pass  94.5%
+cov 1.00  f 0.75  R   3.0  N_eff   148011  med_loci 213.0  ge8 100.0%  pass  91.6%
+cov 1.00  f 0.75  R   4.0  N_eff   197348  med_loci 278.0  ge8 100.0%  pass  84.6%
+cov 1.00  f 0.75  R   5.0  N_eff   246685  med_loci 325.0  ge8 100.0%  pass  78.1%
+cov 1.00  f 0.75  R   6.0  N_eff   296022  med_loci 361.0  ge8 100.0%  pass  71.0%
+cov 1.00  f 0.75  R   8.0  N_eff   394696  med_loci 412.0  ge8 100.0%  pass  59.8%
+cov 1.00  f 0.75  R  10.0  N_eff   493370  med_loci 446.0  ge8 100.0%  pass  51.3%
+cov 1.00  f 0.75  R  12.0  N_eff   592044  med_loci 471.0  ge8 100.0%  pass  44.2%
+cov 1.00  f 0.75  R  16.0  N_eff   789392  med_loci 505.0  ge8 100.0%  pass  33.1%
+cov 1.00  f 1.00  R   0.5  N_eff    24668  med_loci 21.0  ge8  98.7%  pass  80.5%
+cov 1.00  f 1.00  R   1.0  N_eff    49337  med_loci 102.0  ge8 100.0%  pass  94.5%
+cov 1.00  f 1.00  R   1.5  N_eff    74006  med_loci 186.0  ge8 100.0%  pass  93.0%
+cov 1.00  f 1.00  R   2.0  N_eff    98674  med_loci 252.0  ge8 100.0%  pass  88.0%
+cov 1.00  f 1.00  R   3.0  N_eff   148011  med_loci 338.0  ge8 100.0%  pass  75.6%
+cov 1.00  f 1.00  R   4.0  N_eff   197348  med_loci 391.0  ge8 100.0%  pass  64.1%
+cov 1.00  f 1.00  R   5.0  N_eff   246685  med_loci 429.0  ge8 100.0%  pass  56.0%
+cov 1.00  f 1.00  R   6.0  N_eff   296022  med_loci 455.0  ge8 100.0%  pass  49.4%
+cov 1.00  f 1.00  R   8.0  N_eff   394696  med_loci 491.0  ge8 100.0%  pass  38.2%
+cov 1.00  f 1.00  R  10.0  N_eff   493370  med_loci 515.0  ge8 100.0%  pass  30.0%
+cov 1.00  f 1.00  R  12.0  N_eff   592044  med_loci 532.5  ge8 100.0%  pass  24.5%
+cov 1.00  f 1.00  R  16.0  N_eff   789392  med_loci 555.0  ge8 100.0%  pass  18.5%
+cov 0.95  f 0.50  R   4.0  N_eff   197348  med_loci 98.0  ge8 100.0%  pass  93.5%
+cov 0.95  f 0.50  R   6.0  N_eff   296022  med_loci 179.0  ge8 100.0%  pass  92.8%
+cov 0.95  f 0.50  R   8.0  N_eff   394696  med_loci 244.0  ge8 100.0%  pass  88.3%
+cov 0.95  f 0.50  R  10.0  N_eff   493370  med_loci 291.0  ge8 100.0%  pass  82.2%
+cov 0.95  f 0.50  R  12.0  N_eff   592044  med_loci 328.0  ge8 100.0%  pass  76.5%
+cov 0.95  f 0.50  R  16.0  N_eff   789392  med_loci 381.0  ge8 100.0%  pass  63.3%
+
+wrote 132a_power_gate_curve.tsv (42 rows)

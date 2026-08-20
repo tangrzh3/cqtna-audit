@@ -1,0 +1,27 @@
+cohort	excluded_by	role_in_that_source	cases	controls	evidence
+FinnGen R12 / R13	primary outcome	C3_MELANOMA_SKIN_EXALLC is half the discovery meta	5753	378749	manuscript Methods; HANDOFF_v10
+UK Biobank (confirmed)	Landi 2020	confirmed set	3499	13996	Landi 2020 Supplementary Table 1
+UK Biobank (self-report)	Landi 2020	self-report set	1802	7208	Landi 2020 Supplementary Table 1
+UK Biobank	Rashkin GCST90011809	cohort tag UKB	NA	NA	GWAS Catalog study record: cohort = UKB|GERA
+GERA (Kaiser Permanente NorCal)	Rashkin GCST90011809	cohort tag GERA	NA	NA	GWAS Catalog study record: cohort = UKB|GERA
+23andMe	Landi 2020	self-report set	4824	286565	Landi 2020 Supplementary Table 1
+GenoMEL Phase 1	Landi 2020	confirmed set	1075	2163	Landi 2020 Supplementary Table 1
+GenoMEL Phase 2	Landi 2020	confirmed set	925	1128	Landi 2020 Supplementary Table 1
+MDACC	Landi 2020	confirmed set	1924	1018	Landi 2020 Supplementary Table 1
+AMFS	Landi 2020	confirmed set	535	427	Landi 2020 Supplementary Table 1
+Q-MEGA_610k	Landi 2020	confirmed set	912	3777	Landi 2020 Supplementary Table 1
+Q-MEGA_omni	Landi 2020	confirmed set	656	538	Landi 2020 Supplementary Table 1
+GSEdinCIDRulcer (Leeds / Edinburgh)	Landi 2020	confirmed set	4328	5780	Landi 2020 Supplementary Table 1
+WAMHS	Landi 2020	confirmed set	1237	1977	Landi 2020 Supplementary Table 1
+Essen-Heidelberg	Landi 2020	confirmed set	1189	1215	Landi 2020 Supplementary Table 1
+MELARISK (France)	Landi 2020	confirmed set	511	815	Landi 2020 Supplementary Table 1
+Harvard (NHS / HPFS)	Landi 2020	confirmed set	410	2920	Landi 2020 Supplementary Table 1
+NCI CPS-II + PLCO + Rose	Landi 2020	confirmed set	171	2684	Landi 2020 Supplementary Table 1
+MIA_PAH	Landi 2020	confirmed set	1933	2841	Landi 2020 Supplementary Table 1
+EPIGENE	Landi 2020	confirmed set	773	910	Landi 2020 Supplementary Table 1
+QSKIN	Landi 2020	confirmed set	1285	2493	Landi 2020 Supplementary Table 1
+Greek	Landi 2020	confirmed set	1194	1279	Landi 2020 Supplementary Table 1
+Italy	Landi 2020	confirmed set	1726	3142	Landi 2020 Supplementary Table 1
+Spain	Landi 2020	confirmed set	3523	3400	Landi 2020 Supplementary Table 1
+Michigan (Michigan Genomics Initiative)	Landi 2020	confirmed set	1198	26211	Landi 2020 Supplementary Table 1
+BNMS (Brisbane Nevus Morphology Study)	Landi 2020	confirmed set	1130	2701	Landi 2020 Supplementary Table 1
