@@ -896,7 +896,7 @@ separable: the strongest enzyme in the functional data carries no instrument, an
 the gene that does carry one is principally expressed by tumour. The complete
 record of which claims about it were raised, tested and withdrawn, together with
 the selection denominators at gene, pathway and mechanism level and the twelve
-pre-registration documents, is Supplementary S12 and S18–S39.
+pre-registration documents, is Supplementary S12 and S18–S40.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -925,7 +925,13 @@ one non-cancer cell that survives does so only at the registered window: across
 seven window settings its mismatched-list control fails at six, and fails harder
 as the window narrows. We therefore claim the attribution as observed in melanoma and in hepatocellular
 carcinoma — two tumours, not tumours in general — and treat the autoimmune cell
-as exploratory. The four available comparator lists are all cancers, which are
+as exploratory. An external validation protocol has been adopted and its design
+frozen (Supplementary S40), restricting the confirmatory question to the melanoma
+outcome-side claim in a cohort with no participant overlap with any dataset used
+here, and excluding cell-type specificity, patient stratification and causal-gene
+assignment from that endpoint. It is not yet registered and no qualifying cohort
+has been secured, so it carries no realised statistical power and is stated as a
+commitment rather than as evidence. The four available comparator lists are all cancers, which are
 genuinely unrelated to rheumatoid arthritis but are not a random sample of
 diseases; a stronger non-cancer claim would need comparators outside oncology and
 immunology, and a negative control specified in advance of the cell it judges,
@@ -1340,7 +1346,7 @@ Discussion, is included in the deposit.
 
 ## Supplementary information
 
-S9–S39, including the fourteen pre-registration documents with their reading tables
+S9–S40, including the fourteen pre-registration documents with their reading tables
 and results registers; the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the

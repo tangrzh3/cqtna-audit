@@ -25,6 +25,7 @@ cp manuscript/MANUSCRIPT_GB.md \
    manuscript/SUPP_window_sensitivity.md \
    manuscript/NUMBER_MIGRATION_fixed_anchor.md \
    manuscript/AMENDMENT_S38_permutation_order.md \
+   manuscript/PREREG_external_validation.md \
    CONVENTION_REVIEW.md \
    EXTERNAL_VALIDATION_PROTOCOL_v9_3.md "$OUT/"
 
