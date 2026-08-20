@@ -230,7 +230,9 @@ write.table(sc, "126b_permutation_scan.tsv", sep = "\t", row.names = FALSE, quot
 write.table(pr, "126c_permutation_primary.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 cat("\n", strrep("=", 112), "\n",
-    "B. density-matched permutation, frozen estimand, ", NPERM, " permutations\n",
+    "B. density-matched permutation -- prespecified matching rules; ",
+    "tolerance selected as an analysis choice (S38 section 2). ",
+    NPERM, " permutations, randomized-greedy matching\n",
     "   tolerance scan -- a row is quotable only where matched coverage is 100%\n",
     sep = "")
 for (nm in unique(sc$cell)) {

@@ -18,6 +18,10 @@ cd <解压目录>/reproduce
 Rscript step124_full_grid.R
 ```
 
+⚠ `step126` 是其中最慢的一个：它跑 8 格 × 5 容差 × 10,000 次置换，
+而且为了把诊断字段写进扫描表，每个容差又单独算了一遍。
+本机约 25 分钟，复核者环境约 54 分钟——**请按自己机器预留时间**。
+
 要指到别处，两种方式任选：
 
 ```bash
@@ -34,7 +38,7 @@ CQTNA_DIR=/path/to/dir Rscript step124_full_grid.R
 | `Rscript step125_mismatch_loci.R` | `125a/b` 逐位点错配诊断 | < 1 分钟 |
 | `Rscript step128_window_sensitivity_fixed_anchor.R` | `128a/b/c` 窗口扫描与距离分布 | 约 2 分钟 |
 | `Rscript step130_multilist_control.R` | `130a/b/c` 多名单对照 | 约 3 分钟 |
-| `Rscript step126_recompute_on_fixed_anchor.R` | `126a/b/c` 非网格格子 + 置换（10,000 次 × 8 格 × 5 容差）| **约 10 分钟** |
+| `Rscript step126_recompute_on_fixed_anchor.R` | `126a/b/c` 非网格格子 + 置换（10,000 次 × 8 格 × 5 容差，每档再算一遍诊断）| **25–55 分钟**，视机器 |
 | `python step127_audit_manuscript_numbers.py` | 正文 ↔ 表格对账 | 秒级 |
 
 ⚠ `step127` 需要**同时**看到结果表（在包根）与正文（也在包根）。
@@ -52,10 +56,19 @@ cd ..        && python reproduce/step127_audit_manuscript_numbers.py
 （早前的版本称它跑不了，那是打包时漏了 `96a`，已更正）。
 它只回答"自检表是否随分区变"，不产生正文数字。
 
-⚠ 它会打印 `identical named-gene SETS: FALSE`，**这不是失败**。
-比的是"每个位点各命名了哪些基因"这一组字符串；换分区后同一批基因被重新分组，
-所以组合不同。**独立基因的集合是相同的 56 个**——
-紧随其后的两行 `genes only under ...` 都是空的，那才是要看的。
+它会分两行打印两个不同的问题：
+
+```
+same gene-to-locus GROUPINGS: FALSE
+same SET of named genes:      TRUE   <- the one that matters
+```
+
+第一行为 `FALSE` **是预期的**：换分区后同一批基因被重新分组，
+所以"每个位点各命名了哪些基因"的组合不同。
+第二行才是判据：**独立基因的集合相同（同一批 56 个）**。
+
+⚠ 早前的版本只打印 `identical named-gene SETS: FALSE` 一行，本说明也按那个旧输出写。
+**两者都已更正**（复核者指出）。
 
 ---
 

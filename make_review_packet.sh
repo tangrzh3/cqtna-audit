@@ -25,7 +25,8 @@ cp manuscript/MANUSCRIPT_GB.md \
    manuscript/SUPP_window_sensitivity.md \
    manuscript/NUMBER_MIGRATION_fixed_anchor.md \
    manuscript/AMENDMENT_S38_permutation_order.md \
-   CONVENTION_REVIEW.md "$OUT/"
+   CONVENTION_REVIEW.md \
+   EXTERNAL_VALIDATION_PROTOCOL_v9_3.md "$OUT/"
 
 # --- every table computed on the frozen partition
 cp 123d_fixed_anchor_full_grid.tsv \
@@ -98,4 +99,26 @@ if [ "$missing" -eq 0 ]; then
 else
   echo "reproduce/: INCOMPLETE -- the README promises a rebuild that will fail"
   exit 1
+fi
+
+# --- placeholder gate: these must be real before anything is submitted.
+# --- Not a build failure, because the packet is for review and the deposit does
+# --- not exist yet -- but the build must never let them pass unremarked, which
+# --- is how a placeholder address reaches a journal.
+echo
+placeholders=0
+if grep -q "noreply@example.com" cqtna_r/DESCRIPTION 2>/dev/null; then
+  echo "  TODO before submission: cqtna_r/DESCRIPTION maintainer is still"
+  echo "                          'MR audit project <noreply@example.com>'"
+  placeholders=$((placeholders + 1))
+fi
+if grep -q "repository DOI" manuscript/MANUSCRIPT_GB.md 2>/dev/null; then
+  echo "  TODO before submission: MANUSCRIPT_GB.md still cites the deposit as"
+  echo "                          <repository DOI> (deposit not yet created)"
+  placeholders=$((placeholders + 1))
+fi
+if [ "$placeholders" -eq 0 ]; then
+  echo "placeholders: none left"
+else
+  echo "placeholders: $placeholders outstanding -- both need the author, not the code"
 fi
