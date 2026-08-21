@@ -1,0 +1,25 @@
+z-from-p check on melanoma: OK (max diff 4.09e-10 )
+
+melanoma x Soskic_CD4  N_eff 49337  |  g=1 reproduces: loci 8 known 4 fold 4.962 P 0.0048407
+  g 1.00 | loci    8 known   4 fold   4.962 P   0.00484 | N_eff needed at f=0.50:     197346 | PASS
+  g 1.25 | loci   57 known  15 fold   2.612 P  0.000184 | N_eff needed at f=0.50:     308354 | PASS
+  g 1.50 | loci  169 known  31 fold   1.820 P  7.16e-05 | N_eff needed at f=0.50:     444029 | PASS
+  g 1.75 | loci  260 known  35 fold   1.336 P    0.0145 | N_eff needed at f=0.50:     604373 | PASS
+  g 2.00 | loci  326 known  41 fold   1.248 P    0.0232 | N_eff needed at f=0.50:     789385 | PASS
+  g 2.50 | loci  416 known  50 fold   1.193 P    0.0185 | N_eff needed at f=0.50:    1233415 | PASS
+  g 3.00 | loci  477 known  54 fold   1.123 P    0.0527 | N_eff needed at f=0.50:    1776117 | fail
+  g 3.50 | loci  519 known  56 fold   1.071 P     0.152 | N_eff needed at f=0.50:    2417493 | fail
+  g 4.00 | loci  538 known  57 fold   1.051 P     0.223 | N_eff needed at f=0.50:    3157542 | fail
+
+HCC_high x Soskic_CD4  N_eff 14962  |  g=1 reproduces: loci 2 known 1 fold 7.878 P 0.123
+  g 1.00 | loci    2 known   1 fold   7.878 P     0.123 | N_eff needed at f=0.50:      59848 | fail
+  g 1.25 | loci   14 known   2 fold   2.251 P     0.221 | N_eff needed at f=0.50:      93512 | fail
+  g 1.50 | loci   96 known   9 fold   1.477 P     0.138 | N_eff needed at f=0.50:     134657 | fail
+  g 1.75 | loci  198 known  15 fold   1.194 P     0.246 | N_eff needed at f=0.50:     183283 | fail
+  g 2.00 | loci  272 known  21 fold   1.216 P     0.145 | N_eff needed at f=0.50:     239390 | fail
+  g 2.50 | loci  391 known  25 fold   1.007 P     0.545 | N_eff needed at f=0.50:     374047 | fail
+  g 3.00 | loci  456 known  30 fold   1.037 P      0.43 | N_eff needed at f=0.50:     538628 | fail
+  g 3.50 | loci  506 known  35 fold   1.090 P     0.176 | N_eff needed at f=0.50:     733132 | fail
+  g 4.00 | loci  534 known  36 fold   1.062 P     0.254 | N_eff needed at f=0.50:     957560 | fail
+
+wrote 135a_hcc_gate_distance.tsv (18 rows)
