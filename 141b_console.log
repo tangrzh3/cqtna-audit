@@ -1,0 +1,11 @@
+background: 66/655 known (10.1%)
+
+excluding loci with outcome P < 0       : 8 loci, 4 known, fold 4.96, Fisher P 0.004841
+excluding loci with outcome P < 5e-08   : 5 loci, 1 known, fold 1.98, Fisher P 0.413
+excluding loci with outcome P < 1e-06   : 5 loci, 1 known, fold 1.98, Fisher P 0.413
+excluding loci with outcome P < 1e-05   : 4 loci, 1 known, fold 2.48, Fisher P 0.3468
+excluding loci with outcome P < 0.0001  : 2 loci, 1 known, fold 4.96, Fisher P 0.1915
+
+reference: all loci                 : 8 loci, 4 known, fold 4.96, Fisher P 0.004841
+
+wrote 141a

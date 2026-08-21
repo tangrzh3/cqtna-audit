@@ -1,0 +1,33 @@
+1. is |z_Wald| the |outcome z|, in every cell that carries both sides?
+   the sign follows beta_exposure; the magnitude, which sets the P value, does not
+   melanoma x Soskic_CD4 (meta)           n= 3556  se 0.0e+00  ||z|-|z_out|| 1.8e-15  p 3.3e-16  sign flips 51%  IDENTICAL
+   melanoma x Soskic_CD4 (R12 single)     n= 3579  se 5.0e-16  ||z|-|z_out|| 1.4e-14  p 6.7e-16  sign flips 51%  IDENTICAL
+   melanoma x eQTLGen_blood               columns absent: beta.outcome,se.outcome,beta.exposure,b,se,pval
+   HCC_high x Soskic_CD4                  columns absent: beta.outcome,se.outcome,beta.exposure,b
+   HCC_low x Soskic_CD4                   columns absent: beta.outcome,se.outcome,beta.exposure,b
+
+2. what outcome P does the BH threshold correspond to, and
+3. how many significant loci are already genome-wide significant outcome signals?
+
+   BH threshold in outcome-P terms: P <= 0.000212  (21 significant records)
+
+   locus                       n  gene                 outcome P   GWS?  known?
+   16:88860636-89730161        5  CDK10,CHMP1A,SPATA          0  yes   yes
+   16:89871237-89871237        2  CDK10                       0  yes   yes
+   1:226349687-226357732       2  PARP1                1.32e-08  yes   yes
+   15:40103800-40832560        3  ZFYVE19              5.46e-06  no    no
+   9:104125300-104125300       1  SMC2                 1.46e-05  no    no
+   17:45592652-46256057        2  KANSL1               3.61e-05  no    no
+   1:203769637-204620916       3  MDM4                 0.000181  no    yes
+   1:175143931-175166312       3  KIAA0040             0.000189  no    no
+
+   3 of 8 significant loci reach genome-wide significance on their own
+   4 of 8 are on a previously reported locus
+
+   cross-tabulation (genome-wide significant x previously reported):
+       known
+gws     FALSE TRUE
+  FALSE     4    1
+  TRUE      0    3
+
+wrote 140a / 140b

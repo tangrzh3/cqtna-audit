@@ -1,0 +1,3 @@
+cell	n	max_abs_diff_se	max_abs_diff_absz	max_abs_diff_p	frac_sign_flipped	identity_holds
+melanoma x Soskic_CD4 (meta)	3556	0	1.77635683940025e-15	3.33066907387547e-16	0.508436445444319	TRUE
+melanoma x Soskic_CD4 (R12 single)	3579	4.9960036108132e-16	1.4210854715202e-14	6.66133814775094e-16	0.509080748812517	TRUE

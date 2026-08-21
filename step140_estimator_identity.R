@@ -44,7 +44,8 @@ cands <- list(
        b = "b", se = "se", p = "pval"))
 
 ident <- list()
-cat("1. is the Wald z the outcome z, in every cell that carries both sides?\n")
+cat("1. is |z_Wald| the |outcome z|, in every cell that carries both sides?\n")
+cat("   the sign follows beta_exposure; the magnitude, which sets the P value, does not\n")
 for (cd in cands) {
   if (!file.exists(cd$f)) {
     cat(sprintf("   %-38s FILE MISSING\n", cd$nm)); next
@@ -65,14 +66,19 @@ for (cd in cands) {
   ## p 在极小处会下溢，只在可表示范围内比较
   cmp <- ok & p > 1e-290
   d_p <- max(abs(p[cmp] - 2 * pnorm(-abs(z_out[cmp]))))
-  d_z <- max(abs((b[ok] / se[ok]) - z_out[ok]))
+  ## b/se = (bo/bx)/(so/|bx|) = sign(bx) * z_out。符号跟着暴露的方向走，
+  ## 量值恒等 —— 而决定显著性的是量值。比较有符号的 z 会在 bx<0 处报出巨大差异，
+  ## 那是我第一版写错的地方，不是恒等式不成立。
+  d_z <- max(abs(abs(b[ok] / se[ok]) - abs(z_out[ok])))
+  d_sign <- mean(sign(b[ok] / se[ok]) != sign(z_out[ok]))
   ident[[length(ident) + 1]] <- data.frame(
     cell = cd$nm, n = sum(ok),
-    max_abs_diff_se = d_se, max_abs_diff_z = d_z, max_abs_diff_p = d_p,
+    max_abs_diff_se = d_se, max_abs_diff_absz = d_z, max_abs_diff_p = d_p,
+    frac_sign_flipped = d_sign,
     identity_holds = (d_se < 1e-12 && d_z < 1e-9 && d_p < 1e-12),
     stringsAsFactors = FALSE)
-  cat(sprintf("   %-38s n=%5d  |se-se_out/|bx|| %.2e  |z_MR-z_out| %.2e  |p-2F(-|z|)| %.2e  %s\n",
-              cd$nm, sum(ok), d_se, d_z, d_p,
+  cat(sprintf("   %-38s n=%5d  se %.1e  ||z|-|z_out|| %.1e  p %.1e  sign flips %.0f%%  %s\n",
+              cd$nm, sum(ok), d_se, d_z, d_p, 100 * d_sign,
               if (d_se < 1e-12 && d_z < 1e-9 && d_p < 1e-12) "IDENTICAL" else "differs"))
 }
 ID <- do.call(rbind, ident)
