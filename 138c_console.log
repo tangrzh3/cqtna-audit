@@ -1,0 +1,84 @@
+known-locus lists (S41 section 5 gates):
+  melanoma      157  usable
+  HCC            73  usable
+  colorectal    828  usable
+  prostate     1160  usable
+  breast        740  usable
+  lung          271  usable
+  pancreas        0  inconclusive (list): 0 below 30
+
+  Melanoma  (3556 records, 21 significant records)
+    list         relation           bg known    sig known     fold        P
+    melanoma     own outcome         66/655      4/8          4.96  0.00484
+    HCC          unrelated control   43/655      0/8          0.00        1
+    colorectal   unrelated control  208/655      1/8          0.39    0.954
+    prostate     unrelated control  264/655      4/8          1.24    0.413
+    breast       unrelated control  190/655      5/8          2.15   0.0495
+    lung         unrelated control   68/655      0/8          0.00        1
+    permutation: empirical P 0.005, fold vs null 4.87, effective draws 100.0%
+    VERDICT: supportive
+
+  Lung  (3556 records, 26 significant records)
+    list         relation           bg known    sig known     fold        P
+    melanoma     unrelated control   66/655      3/10         2.98     0.07
+    HCC          unrelated control   43/655      1/10         1.52    0.495
+    colorectal   unrelated control  208/655      4/10         1.26    0.397
+    prostate     unrelated control  264/655      3/10         0.74     0.84
+    breast       unrelated control  190/655      3/10         1.03    0.592
+    lung         own outcome         68/655      4/10         3.85   0.0138
+    permutation: empirical P 0.0107, fold vs null 4.02, effective draws 100.0%
+    VERDICT: supportive
+
+  Colorectal  (3556 records, 19 significant records)
+    list         relation           bg known    sig known     fold        P
+    melanoma     unrelated control   66/655      1/6          1.65    0.473
+    HCC          unrelated control   43/655      0/6          0.00        1
+    colorectal   own outcome        208/655      6/6          3.15 0.000976
+    prostate     unrelated control  264/655      2/6          0.83    0.773
+    breast       unrelated control  190/655      3/6          1.72    0.237
+    lung         unrelated control   68/655      2/6          3.21    0.121
+    VERDICT: inconclusive (power): 6 below 8 significant loci
+
+  Breast  (3556 records, 58 significant records)
+    list         relation           bg known    sig known     fold        P
+    melanoma     unrelated control   66/655      4/23         1.73    0.193
+    HCC          unrelated control   43/655      4/23         2.65   0.0571
+    colorectal   unrelated control  208/655     14/23         1.92  0.00324
+    prostate     unrelated control  264/655     10/23         1.08    0.455
+    breast       own outcome        190/655     15/23         2.25 0.000265
+    lung         unrelated control   68/655      5/23         2.09   0.0795
+    permutation: empirical P 0.0008999, fold vs null 2.02, effective draws 100.0%
+    VERDICT: void
+
+  Prostate  (3556 records, 93 significant records)
+    list         relation           bg known    sig known     fold        P
+    melanoma     unrelated control   66/655      6/28         2.13   0.0527
+    HCC          unrelated control   43/655      4/28         2.18    0.104
+    colorectal   unrelated control  208/655     15/28         1.69   0.0119
+    prostate     own outcome        264/655     23/28         2.04 4.66e-06
+    breast       unrelated control  190/655     14/28         1.72   0.0135
+    lung         unrelated control   68/655      8/28         2.75   0.0051
+    permutation: empirical P 9.999e-05, fold vs null 2.01, effective draws 100.0%
+    VERDICT: void
+
+  Pancreas  (3556 records, 0 significant records)
+    list         relation           bg known    sig known     fold        P
+    melanoma     unrelated control   66/655      0/0            NA       NA
+    HCC          unrelated control   43/655      0/0            NA       NA
+    colorectal   unrelated control  208/655      0/0            NA       NA
+    prostate     unrelated control  264/655      0/0            NA       NA
+    breast       unrelated control  190/655      0/0            NA       NA
+    lung         unrelated control   68/655      0/0            NA       NA
+    VERDICT: inconclusive (list): own list pancreas failed its gate
+
+========================================================================================================
+S41 transport grid -- own-list result per disease
+outcome      sig loci  own fold         P   P (Holm)     perm P  verdict
+Melanoma            8      4.96   0.00484    0.00968      0.005  supportive
+Lung               10      3.85    0.0138     0.0138     0.0107  supportive
+Colorectal          6      3.15  0.000976    0.00293          -  inconclusive (power): 6 below 8 significant loci
+Breast             23      2.25  0.000265    0.00106  0.0008999  void
+Prostate           28      2.04  4.66e-06   2.33e-05  9.999e-05  void
+Pancreas            -         -         -          -          -  inconclusive (list): own list pancreas failed its gate
+
+wrote 138a / 138b
