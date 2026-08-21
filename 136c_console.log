@@ -1,0 +1,8 @@
+files hashed          : 49
+missing               : 0
+manifest SHA-256      : 692b90cca50a07cd17a5616149f01ee3159a065675c9a66cdc34fc2f4fd49461
+git commit            : 0f2b4157cafbbff865bcc87e22fc5585543aa8f0
+tracked files modified: 0
+
+⚠ 这份清单锁的是**输入与代码**，不是一个可执行容器。
+⚠ 容器镜像与 renv.lock 仍然缺席 —— 见 S40_LOCK.md §2。
