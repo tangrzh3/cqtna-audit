@@ -1,0 +1,6 @@
+disease	n_source	n_pass_p	n_placed	build_rate	verdict
+lung	316	316	271	0.8576	usable
+breast	766	766	740	0.9661	usable
+prostate	1175	1175	1160	0.9872	usable
+colorectal	833	833	828	0.994	usable
+pancreas	0	0	0		inconclusive (list)

@@ -1,0 +1,11 @@
+  [lung] 190/316  placed 152  unresolved 38  [lung] 316/316  placed 271  unresolved 45
+[lung] 271 of 316 placed (85.8%) -- usable
+  [breast] 190/766  placed 184  unresolved 6  [breast] 380/766  placed 371  unresolved 9  [breast] 570/766  placed 553  unresolved 17  [breast] 760/766  placed 735  unresolved 25  [breast] 766/766  placed 740  unresolved 26
+[breast] 740 of 766 placed (96.6%) -- usable
+  [prostate] 190/1175  placed 189  unresolved 1  [prostate] 380/1175  placed 376  unresolved 4  [prostate] 570/1175  placed 565  unresolved 5  [prostate] 760/1175  placed 755  unresolved 5  [prostate] 950/1175  placed 941  unresolved 9  [prostate] 1140/1175  placed 1127  unresolved 13  [prostate] 1175/1175  placed 1160  unresolved 15
+[prostate] 1160 of 1175 placed (98.7%) -- usable
+  [colorectal] 190/833  placed 190  unresolved 0  [colorectal] 380/833  placed 380  unresolved 0  [colorectal] 570/833  placed 569  unresolved 1  [colorectal] 760/833  placed 757  unresolved 3  [colorectal] 833/833  placed 828  unresolved 5
+[colorectal] 828 of 833 placed (99.4%) -- usable
+[pancreas] source empty after P filter
+
+wrote 137a (5 rows) and 137b (91 rows)
