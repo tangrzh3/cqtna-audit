@@ -130,11 +130,24 @@ are the non-recursive fixed-anchor partition fixed in Supplementary S37 — a
 1 Mb window claimed from each anchor, so a locus spans at most 1 Mb whatever the
 variant density; the single-linkage rule used in the source literature chains a
 dense resource into blocks of tens of megabases and is reported only where we
-reproduce published numbers (Methods). Applied
-unchanged to five other cancers, melanoma showed the largest enrichment and the
-two cancers with no expected relationship to pigmentation sat near background,
-though the comparison does not deliver clean specificity and no outcome survives
-correction across six tests.
+reproduce published numbers (Methods). Applied unchanged to five other cancers,
+each scored against its own known-locus list rather than against melanoma's
+(Supplementary S41), the attribution recurs: own-list enrichment survives Holm
+correction across all six outcomes that have a usable list — melanoma 4.96-fold
+(P = 0.0097 corrected), lung 3.85-fold (0.0138), colorectal 3.15-fold (0.0029),
+breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵) — and the six
+outcomes share almost no significant loci with one another (melanoma and lung
+share none; 5 of 69 distinct loci are significant in more than one outcome). Two
+qualifications bound this. The folds are not comparable across diseases, because
+fold is capped by the reference list's own density and that cap runs from 9.92
+for melanoma to 2.48 for prostate; normalised by the cap the ordering inverts.
+And only melanoma exceeds every mismatched list by a margin (2.30-fold against
+the best rival, against 1.29 for lung and below 1 for the rest), while lung's
+result does not survive dropping its single strongest locus (P = 0.0138 to
+0.0569 without the chr11 FADS1/TMEM258 cluster, the same cluster identified as
+the driver of lung's enrichment in our earlier melanoma-list comparison). We
+therefore report transport as recurring but read it as confirmatory only for
+melanoma.
 
 We then tested the same attribution three further ways, changing one thing at a
 time (Fig. 2).
@@ -305,22 +318,23 @@ that is scale-bound, not the estimate.
 **Which disease is nominated as the mismatch changes the verdict.** A single
 mismatched list cannot separate specific attribution from a fortunate pick, so we
 scored every cell against every reference list in the study with at least 30
-placeable lead SNPs belonging to a different disease — four per cell
+placeable lead SNPs belonging to a different disease — six per cell
 (Supplementary S39). **This analysis was designed after the results it comments
 on and its criterion is weaker than the registered one, so we report it as a
 post-hoc diagnostic and draw no confirmatory conclusion from it.** Its one
-informative result is about the design rather than about RA: of the four
-unrelated lists, two leave the RA CD4⁺ cell standing — prostate at 1.04-fold
-(P = 0.59) and melanoma, the list this study designated, at 1.71-fold (P = 0.10)
-— while **hepatocellular carcinoma's at 3.05-fold (P = 0.0028) and colorectal's
-at 1.77-fold (P = 0.0045) would each have voided it.** Whether this cell survives
+informative result is about the design rather than about RA: of the six
+unrelated lists, only one leaves the RA CD4⁺ cell standing — melanoma, the list
+this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
+carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
+colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
+prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
 its negative control therefore depends on which comparator was nominated, which
 is a property of single-list controls in general and one we would apply to any
 study using them.
 
 The ranking that falls out is descriptive. Taking each cell's own fold against
-the largest fold from any of its four comparators, the six cancer cells span
-1.82- to 7.63-fold while **the two RA cells sit at 1.28- and 1.32-fold, the
+the largest fold from any of its six comparators, the six cancer cells span
+2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
 narrowest in the grid**; RA on CD4⁺ T cells also inverts at the narrowest locus
 width, the only cell at any of 64 settings that does.
 
@@ -931,12 +945,23 @@ outcome-side claim in a cohort with no participant overlap with any dataset used
 here, and excluding cell-type specificity, patient stratification and causal-gene
 assignment from that endpoint. It is not yet registered and no qualifying cohort
 has been secured, so it carries no realised statistical power and is stated as a
-commitment rather than as evidence. The four available comparator lists are all cancers, which are
+commitment rather than as evidence. The six available comparator lists are all cancers, which are
 genuinely unrelated to rheumatoid arthritis but are not a random sample of
 diseases; a stronger non-cancer claim would need comparators outside oncology and
 immunology, and a negative control specified in advance of the cell it judges,
 neither of which this study has. Three diseases is also not a sample from which generality can be
 estimated: they were chosen for the contrasts they provide, not at random. The
+mismatched-list control is itself informative only inside a bounded power range:
+as the significant set grows towards the background the fold necessarily
+approaches 1 and unrelated lists begin to enrich as well. Across the six
+outcomes scored against their own lists the own-list fold falls monotonically
+from 4.96 at eight significant loci to 2.04 at twenty-eight, and at the upper
+end the comparators enrich together — for prostate and breast, whose reference
+lists share 43% of their flagged loci with each other, own-versus-mismatch
+cannot discriminate by construction. A clean mismatched control at low power and
+a failed one at high power are therefore not directly comparable, and the
+melanoma cell's clean controls are in part a property of its having only eight
+significant loci. The
 power-recovery curves rest on reference lists of four and six genes and compare
 against a full-power list that is itself unstable, so they measure agreement
 between two imperfect lists rather than recovery of truth, and are not
@@ -1134,14 +1159,24 @@ disease's significant loci against another disease's reference. Because the
 verdict of that control depends on which disease is nominated, it is accompanied
 by a **multi-list** diagnostic (Supplementary S39): every cell is scored against
 every reference list in the study that has at least 30 placeable lead SNPs and
-belongs to a different disease, four per cell, and we report how many also enrich
+belongs to a different disease, six per cell, and we report how many also enrich
 together with the ratio of the outcome's own fold to the largest fold from any
 comparator. **This diagnostic was specified after the results it comments on, and
 its criterion — that the outcome's own list exceed every comparator — is weaker
 than the registered rule that voids a cell whose mismatched list enriches at all.
 It is reported as exploratory and is not used to upgrade any cell.** The 30-lead
 floor is the one already used in Supplementary S34 and no new lists were
-obtained. A **strength-and-
+obtained; the breast and lung lists were, however, rebuilt from the same
+GWAS Catalog rsIDs after we found that the original coordinate lookup had
+silently dropped whole request batches, leaving 6 and 0 placeable leads where
+740 and 271 were available (Supplementary S41). Under the repaired panel the
+melanoma CD4⁺ cell acquires one nominally enriching comparator, breast at
+2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
+comparator to one; the cell's margin over its best rival widens from 1.82- to
+2.31-fold, because the published prostate comparator had been computed from
+35 of its 1,160 leads. Under Holm correction across the six comparators the
+breast result does not reach significance, so this verdict depends on which
+multiplicity rule is applied and we report both. A **strength-and-
 frequency** permutation matches significant to background loci on eQTL-p decile
 crossed with outcome allele-frequency quintile, with 10,000 stratified resamples
 and a one-sided empirical P. A **density** permutation follows the estimand

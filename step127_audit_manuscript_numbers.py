@@ -79,19 +79,31 @@ want += [
 _ra = ml[ml.cell == "RA x Soskic_CD4"].iloc[0]
 _raq = ml[ml.cell == "RA x eQTLGen_blood"].iloc[0]
 _mel = ml[ml.cell == "melanoma x Soskic_CD4"].iloc[0]
-_hcl = ml[ml.cell == "HCC_low x Soskic_CD4"].iloc[0]
+# The narrowest and widest cancer margins are COMPUTED, not named. They used to
+# be hardcoded as melanoma x CD4 and HCC_low x CD4, which was right when it was
+# written and stopped being right the moment the comparator lists were repaired:
+# the widest moved to HCC_low x eQTLGen. An audit that names the cell it expects
+# cannot notice that the ranking changed.
+_cancer = ml[~ml.cell.str.startswith("RA ")]
+_narrow = _cancer.margin_all.min()
+_wide = _cancer.margin_all.max()
 want += [
     ("S39 RA x CD4 own fold", f"{_ra.F_own:.2f}"),
     ("S39 RA x CD4 largest comparator", f"{_ra.F_max_all:.2f}"),
     ("S39 RA x CD4 margin", f"{_ra.margin_all:.2f}"),
     ("S39 RA x blood margin", f"{_raq.margin_all:.2f}"),
-    ("S39 narrowest cancer margin", f"{_mel.margin_all:.2f}"),
-    ("S39 widest cancer margin", f"{_hcl.margin_all:.2f}"),
+    ("S39 narrowest cancer margin", f"{_narrow:.2f}"),
+    ("S39 widest cancer margin", f"{_wide:.2f}"),
 ]
 bad = 0
 for label, v in want:
-    # the manuscript rounds some folds to one decimal; accept either rendering
-    hit = v in txt or f"{float(v):.1f}" in txt
+    # The manuscript rounds some folds to one decimal, so either rendering
+    # counts -- but the match must not run into a longer number. Plain
+    # substring matching passed "4.84" because the text contained 4.87, and the
+    # one-decimal fallback made that collision easy to hit. Require that the
+    # matched digits are not followed by another digit.
+    hit = any(re.search(re.escape(c) + r"(?!\d)", txt)
+              for c in (v, f"{float(v):.1f}"))
     if not hit:
         bad += 1
     print(f"  {'OK ' if hit else 'MISSING'}  {v:>8}   {label}")
