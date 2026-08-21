@@ -1,0 +1,46 @@
+1. significant-locus overlap between rows (Jaccard, and raw intersection)
+      row_a      row_b n_a n_b n_shared jaccard
+   Melanoma       Lung   8  10        0   0.000
+   Melanoma Colorectal   8   6        0   0.000
+   Melanoma     Breast   8  23        1   0.033
+   Melanoma   Prostate   8  28        1   0.029
+       Lung Colorectal  10   6        1   0.067
+       Lung     Breast  10  23        1   0.031
+       Lung   Prostate  10  28        1   0.027
+ Colorectal     Breast   6  23        0   0.000
+ Colorectal   Prostate   6  28        0   0.000
+     Breast   Prostate  23  28        2   0.041
+
+  loci significant in >1 row: 5 of 69 distinct
+    locus 1:203769637-204620916 in Melanoma+Prostate  (MDM4)
+    locus 11:61779596-62610749 in Lung+Colorectal  (TMEM258,FADS1)
+    locus 11:65296082-66258208 in Breast+Prostate  (CTSW,FIBP,RNASEH2C)
+    locus 6:32179919-33073411 in Lung+Breast+Prostate  (HLA-DPA1,HLA-DRB1,HLA-DQB1)
+    locus 9:104125300-104125300 in Melanoma+Breast  (SMC2)
+
+2. known-list overlap, measured as background loci flagged by both
+     list_a     list_b n_a n_b n_shared jaccard frac_of_a
+   melanoma        HCC  66  43       12   0.124     0.182
+   melanoma colorectal  66 208       34   0.142     0.515
+   melanoma   prostate  66 264       45   0.158     0.682
+   melanoma     breast  66 190       38   0.174     0.576
+   melanoma       lung  66  68       13   0.107     0.197
+        HCC colorectal  43 208       34   0.157     0.791
+        HCC   prostate  43 264       34   0.125     0.791
+        HCC     breast  43 190       32   0.159     0.744
+        HCC       lung  43  68       14   0.144     0.326
+ colorectal   prostate 208 264      103   0.279     0.495
+ colorectal     breast 208 190       92   0.301     0.442
+ colorectal       lung 208  68       45   0.195     0.216
+   prostate     breast 264 190      114   0.335     0.432
+   prostate       lung 264  68       44   0.153     0.167
+     breast       lung 190  68       35   0.157     0.184
+
+3. leave-one-significant-locus-out, own list
+  Melanoma     8 loci  P   0.00484 -> worst single drop    0.0255  (16:88860636-89730161: CHMP1A,CDK10,SPATA33)  still P<0.05
+  Lung        10 loci  P    0.0138 -> worst single drop    0.0569  (11:61779596-62610749: TMEM258,FADS1)  LOSES P<0.05
+  Colorectal   6 loci  P  0.000976 -> worst single drop   0.00312  (11:61779596-62610749: FADS1)  still P<0.05
+  Breast      23 loci  P  0.000265 -> worst single drop  0.000631  (11:306884-855318: IFITM3,EPS8L2)  still P<0.05
+  Prostate    28 loci  P  4.66e-06 -> worst single drop     1e-05  (10:102424324-102852007: WBP1L,BORCS7)  still P<0.05
+
+wrote 139a / 139b / 139c

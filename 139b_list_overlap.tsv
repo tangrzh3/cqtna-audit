@@ -1,0 +1,16 @@
+list_a	list_b	n_a	n_b	n_shared	jaccard	frac_of_a
+melanoma	HCC	66	43	12	0.124	0.182
+melanoma	colorectal	66	208	34	0.142	0.515
+melanoma	prostate	66	264	45	0.158	0.682
+melanoma	breast	66	190	38	0.174	0.576
+melanoma	lung	66	68	13	0.107	0.197
+HCC	colorectal	43	208	34	0.157	0.791
+HCC	prostate	43	264	34	0.125	0.791
+HCC	breast	43	190	32	0.159	0.744
+HCC	lung	43	68	14	0.144	0.326
+colorectal	prostate	208	264	103	0.279	0.495
+colorectal	breast	208	190	92	0.301	0.442
+colorectal	lung	208	68	45	0.195	0.216
+prostate	breast	264	190	114	0.335	0.432
+prostate	lung	264	68	44	0.153	0.167
+breast	lung	190	68	35	0.157	0.184
