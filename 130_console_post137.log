@@ -1,0 +1,105 @@
+known-locus lists (floor = 30 lead SNPs):
+  melanoma      157  included
+  HCC            73  included
+  colorectal    828  included
+  prostate     1160  included
+  breast        740  included
+  lung          271  included
+  RA             83  included (own list for the RA cells)
+
+====================================================================================================================
+A. every cell against every list -- fixed anchor 1000 kb, C1
+
+  melanoma x Soskic_CD4
+    list         relation             bg known  sig known     fold           P
+    melanoma     own outcome          66/655      4/8         4.96     0.00484
+    HCC          unrelated control    43/655      0/8         0.00           1
+    colorectal   unrelated control   208/655      1/8         0.39       0.954
+    prostate     unrelated control   264/655      4/8         1.24       0.413
+    breast       unrelated control   190/655      5/8         2.15      0.0495  <-- enriches
+    lung         unrelated control    68/655      0/8         0.00           1
+    RA           unrelated control    66/655      0/8         0.00           1
+
+  melanoma x eQTLGen_blood
+    list         relation             bg known  sig known     fold           P
+    melanoma     own outcome         180/1678    23/34        6.31    1.35e-15
+    HCC          unrelated control    93/1678     3/34        1.59       0.291
+    colorectal   unrelated control   513/1678    13/34        1.25       0.212
+    prostate     unrelated control   640/1678    24/34        1.85    0.000109  <-- enriches
+    breast       unrelated control   496/1678    22/34        2.19    1.92e-05  <-- enriches
+    lung         unrelated control   155/1678     7/34        2.23      0.0318  <-- enriches
+    RA           unrelated control   164/1678     7/34        2.11      0.0417  <-- enriches
+
+  HCC_high x Soskic_CD4
+    list         relation             bg known  sig known     fold           P
+    melanoma     unrelated control    65/646      0/2         0.00           1
+    HCC          own outcome          41/646      1/2         7.88       0.123
+    colorectal   unrelated control   195/646      1/2         1.66       0.513
+    prostate     unrelated control   261/646      1/2         1.24       0.645
+    breast       unrelated control   185/646      1/2         1.75       0.491
+    lung         unrelated control    68/646      0/2         0.00           1
+    RA           unrelated control    66/646      0/2         0.00           1
+
+  HCC_high x eQTLGen_blood
+    list         relation             bg known  sig known     fold           P
+    melanoma     unrelated control   180/1666     0/5         0.00           1
+    HCC          own outcome          92/1666     3/5        10.87      0.0015
+    colorectal   unrelated control   510/1666     3/5         1.96       0.171
+    prostate     unrelated control   634/1666     3/5         1.58       0.284
+    breast       unrelated control   493/1666     4/5         2.70      0.0291  <-- enriches
+    lung         unrelated control   155/1666     1/5         2.15       0.387
+    RA           unrelated control   163/1666     1/5         2.04       0.403
+
+  RA x Soskic_CD4
+    list         relation             bg known  sig known     fold           P
+    melanoma     unrelated control    64/641      7/41        1.71       0.102
+    HCC          unrelated control    41/641      8/41        3.05     0.00277  <-- enriches
+    colorectal   unrelated control   201/641     22/41        1.71     0.00181  <-- enriches
+    prostate     unrelated control   259/641     23/41        1.39      0.0264  <-- enriches
+    breast       unrelated control   185/641     20/41        1.69     0.00423  <-- enriches
+    lung         unrelated control    66/641     14/41        3.32    1.53e-05  <-- enriches
+    RA           own outcome          64/641     16/41        3.91    2.33e-07
+
+  RA x eQTLGen_blood
+    list         relation             bg known  sig known     fold           P
+    melanoma     unrelated control   180/1678    24/109       2.05    0.000289  <-- enriches
+    HCC          unrelated control    93/1678    18/109       2.98    1.32e-05  <-- enriches
+    colorectal   unrelated control   513/1678    45/109       1.35     0.00923  <-- enriches
+    prostate     unrelated control   640/1678    62/109       1.49    3.17e-05  <-- enriches
+    breast       unrelated control   496/1678    55/109       1.71    1.72e-06  <-- enriches
+    lung         unrelated control   155/1678    24/109       2.38    2.36e-05  <-- enriches
+    RA           own outcome         164/1678    42/109       3.94    3.26e-17
+
+  HCC_low x Soskic_CD4
+    list         relation             bg known  sig known     fold           P
+    melanoma     unrelated control    67/666      0/2         0.00           1
+    HCC          own outcome          43/666      2/2        15.49     0.00408
+    colorectal   unrelated control   208/666      2/2         3.20      0.0972
+    prostate     unrelated control   269/666      2/2         2.48       0.163
+    breast       unrelated control   192/666      1/2         1.73       0.494
+    lung         unrelated control    69/666      0/2         0.00           1
+    RA           unrelated control    67/666      0/2         0.00           1
+
+  HCC_low x eQTLGen_blood
+    list         relation             bg known  sig known     fold           P
+    melanoma     unrelated control   180/1678     1/4         2.33       0.365
+    HCC          own outcome          93/1678     3/4        13.53    0.000634
+    colorectal   unrelated control   513/1678     3/4         2.45      0.0878
+    prostate     unrelated control   640/1678     3/4         1.97       0.158
+    breast       unrelated control   496/1678     2/4         1.69        0.34
+    lung         unrelated control   155/1678     0/4         0.00           1
+    RA           unrelated control   164/1678     0/4         0.00           1
+
+====================================================================================================================
+B. verdict per cell (S39 §5)
+cell                             k   F_own F_max_all   margin  best rival  most fav.   verdict
+melanoma x Soskic_CD4            1    4.96      2.15     2.31  breast      HCC         B not orthogonal, direction separates
+melanoma x eQTLGen_blood         4    6.31      2.23     2.83  lung        colorectal  B not orthogonal, direction separates
+HCC_high x Soskic_CD4            0    7.88      1.75     4.50  breast      melanoma    A control clean
+HCC_high x eQTLGen_blood         1   10.87      2.70     4.03  breast      melanoma    B not orthogonal, direction separates
+RA x Soskic_CD4                  5    3.91      3.32     1.18  lung        prostate    B not orthogonal, direction separates
+RA x eQTLGen_blood               6    3.94      2.98     1.32  HCC         colorectal  B not orthogonal, direction separates
+HCC_low x Soskic_CD4             0   15.49      3.20     4.84  colorectal  melanoma    A control clean
+HCC_low x eQTLGen_blood          0   13.53      2.45     5.52  colorectal  lung        A control clean
+
+wrote 130a / 130b / 130c
