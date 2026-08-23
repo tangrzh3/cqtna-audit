@@ -1,0 +1,14 @@
+  SMC2      finngen    7917 variants
+  KANSL1    finngen    7599 variants
+  MDM4      finngen    7227 variants
+  KIAA0040  finngen    7029 variants
+  SMC2      meta       7917 variants
+  KANSL1    meta       7599 variants
+  MDM4      meta       7227 variants
+  KIAA0040  meta       7029 variants
+  [LD built] SMC2
+  [LD built] KANSL1
+  [LD built] MDM4
+  [LD built] KIAA0040
+
+wrote 146a_new_regions.tsv

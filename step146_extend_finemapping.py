@@ -85,24 +85,38 @@ if not os.path.exists(keep):
             f = line.split()
             fo.write("%s\t%s\n" % (f[0], f[1]))
 
+def run(cmd, name):
+    p = subprocess.run(cmd, capture_output=True, text=True)
+    if p.returncode != 0:
+        print("  [plink2 failed] %s: %s" % (name, " ".join(cmd[-4:])), flush=True)
+        print(p.stdout[-1000:], flush=True)
+        print(p.stderr[-1000:], flush=True)
+        return False
+    return True
+
+
 rows = []
 for name, (c, pos) in NEW.items():
     out = os.path.join(REG, "%s_ld" % name)
     if os.path.exists(out + ".unphased.vcor1"):
         print("  [have LD] %s" % name, flush=True)
     else:
-        cmd = [PLINK, "--pfile", PFILE, "--keep", keep,
-               "--chr", c, "--from-bp", str(pos - HALF), "--to-bp", str(pos + HALF),
-               "--maf", "0.01", "--max-alleles", "2",
-               "--r-unphased", "square", "ref-based",
-               "--out", out]
-        p = subprocess.run(cmd, capture_output=True, text=True)
-        if p.returncode != 0:
-            print("  [plink2 failed] %s" % name, flush=True)
-            print(p.stdout[-1200:], flush=True)
-            print(p.stderr[-1200:], flush=True)
-        else:
-            print("  [LD built] %s" % name, flush=True)
+        # Two stages, exactly as step60b: the panel's .pvar is zst-compressed, so
+        # `vzs` is required, and the variant IDs must be set to chr:pos:ref:alt
+        # because that is the key step60c aligns the summary statistics on.
+        tmp = os.path.join(REG, "%s_tmp" % name)
+        ok = run([PLINK, "--pfile", PFILE, "vzs", "--keep", keep,
+                  "--chr", c, "--from-bp", str(pos - HALF),
+                  "--to-bp", str(pos + HALF),
+                  "--snps-only", "--max-alleles", "2", "--maf", "0.01",
+                  "--set-all-var-ids", "@:#:$r:$a",
+                  "--new-id-max-allele-len", "60", "missing",
+                  "--rm-dup", "exclude-all",
+                  "--make-pgen", "--out", tmp], name)
+        if ok:
+            ok = run([PLINK, "--pfile", tmp, "--r-unphased", "square",
+                      "ref-based", "--out", out], name)
+        print("  [%s] %s" % ("LD built" if ok else "LD FAILED", name), flush=True)
     nvar = 0
     vf = out + ".unphased.vcor1.vars"
     if os.path.exists(vf):
