@@ -129,7 +129,8 @@ out[[length(out) + 1]] <- score(
 
 ## ---- 6. SMR / HEIDI（条件于 MR p < 0.05） ------------------------------------
 sm <- read.delim("15_SMR_meta_results.tsv", stringsAsFactors = FALSE)
-i <- match(sm$profile, mel$exposure)
+## 15 表的 profile 列只是 cell/timepoint，完整键是 gene|profile
+i <- match(paste0(sm$gene, "|", sm$profile), mel$exposure)
 sm$chr <- mel$chr[i]; sm$pos <- mel$pos[i]; sm$p_out <- mel$pval[i]
 oks <- !is.na(sm$pos) & is.finite(as.numeric(sm$p_SMR))
 fdr_smr <- rep(NA_real_, nrow(sm))
