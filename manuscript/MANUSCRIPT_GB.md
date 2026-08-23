@@ -158,10 +158,18 @@ correction across all six outcomes that have a usable list — melanoma 4.96-fol
 breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵) — and the six
 outcomes share almost no significant loci with one another (melanoma and lung
 share none; 5 of 69 distinct loci are significant in more than one outcome). Two
-qualifications bound this. The folds are not comparable across diseases, because
-fold is capped by the reference list's own density and that cap runs from 9.92
-for melanoma to 2.48 for prostate; normalised by the cap the ordering inverts.
-And only melanoma exceeds every mismatched list by a margin (2.30-fold against
+qualifications bound this. The first is that folds are not comparable across
+diseases at all. Fold divides by the background known share, so its ceiling is
+the reciprocal of that share, and across our lists the share runs from 0.101 for
+melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
+diseases on power by scaling each until it yields the same number of significant
+loci, and scoring them with the chance-corrected share
+A = (p_sig − p_bg)/(1 − p_bg), the two statistics rank them almost in reverse: at
+ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10 and colorectal 2.52,
+while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
+(Supplementary S43). **Melanoma's apparent lead is a property of its reference
+list being sparse, not of melanoma.** The second is that only melanoma exceeds
+every mismatched list by a margin (2.30-fold against
 the best rival, against 1.29 for lung and below 1 for the rest), while lung's
 result does not survive dropping its single strongest locus (P = 0.0138 to
 0.0569 without the chr11 FADS1/TMEM258 cluster, the same cluster identified as
@@ -1425,10 +1433,12 @@ Discussion, is included in the deposit.
 
 ## Supplementary information
 
-S9–S42, including the fourteen pre-registration documents with their reading tables
+S9–S43, including the fourteen pre-registration documents with their reading tables
 and results registers; **S41**, the transport grid scoring six diseases against
 their own reference lists; **S42**, the estimator identity, its numerical
 verification and the decomposition of the attribution by outcome significance;
+**S43**, the power-matched cross-disease comparison and the chance-corrected
+attribution statistic;
 the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the
