@@ -649,13 +649,26 @@ locus count almost unchanged but inflates the gene list from 10 to 53, of which 
 are in the MHC and 7 in the chr17q21.31 inversion, because a significant locus
 does not name a gene.
 
-### Part 3 — What survives the audit
+### Part 3 — One nomination, followed as far as it goes
 
-What is left once nomination is set aside is a narrower statement about where a
-pathway can be interrogated at all, and it is reported as a ladder rather than a
-verdict.
+The identity says a nomination list is the outcome GWAS at a lower threshold. It
+does not say what happens when someone takes a single entry from such a list and
+tries to substantiate it, which is what the field actually does. We did that
+once, for the one glycolytic gene this pipeline nominates, and report it as a
+worked example subordinate to the audit rather than as a second finding.
 
-### What can be interrogated, stated at the level it applies to
+**It fails at every tier, and it fails in the way the identity predicts.** The
+gene is nominal, not resolved genetically; its apparent time specificity is a
+statement about precision rather than amplitude; the axis it marks is not
+specific to it; the tissue in which the signal is largest is not the tissue the
+instrument came from; the functional contrasts dissolve into lineage composition
+once that is matched; and the patient-level result appears in each cohort and
+replicates in none twice. None of this makes TPI1 a target and we do not present
+it as one. Its value here is that it puts a cost on each rung of a ladder the
+identity predicts will not be climbable, and every one of those costs was paid
+before we understood why.
+
+#### What can be interrogated, stated at the level it applies to
 
 Across 22 glycolytic enzymes measurable in CD4⁺ T cells, 20 are higher in
 non-responders post-treatment and 18 of 22 pre-treatment, with PGAM1 strongest at
@@ -675,7 +688,7 @@ biology of the pathway. The exposure-side constraint alone — 3 of 28 — is th
 single most restrictive step in the framework, and functionally the strongest
 baseline enzyme, PGAM1, is among the 25 that carry no instrument at all.
 
-### Time-specific significance is not a dynamic genetic effect
+#### Time specificity is precision, not amplitude
 
 For the one instrumented gene, TPI1, a usable instrument exists at 16 h and at no
 other timepoint. The effect estimate is largest at rest and simply far noisier
@@ -692,7 +705,7 @@ genetic effect (no evidence, in any of three tests). The design consequence hold
 regardless: a study using a resting-state resource would find nothing here and
 could not distinguish that from a true null.
 
-### What the instrumented gene marks
+#### What the instrumented gene marks
 
 Because MR names one gene of a pathway, we asked what that gene marks. In
 purified CD4⁺ T cell multiome data, residualising expression on activation
@@ -725,7 +738,7 @@ co-varies with, not that its variant causes the state; a direct test of the
 latter, whether the instrument disrupts an AP-1 motif, returned an empirical
 P = 1.0.
 
-### Where the effect is, when MR cannot say
+#### Where the effect is, when MR cannot say
 
 In melanoma single-cell data with all cell types annotated, TPI1 is far higher in
 malignant cells than in CD4⁺ T cells: +2.75 log₂ units (≈6.7-fold) in 16 of 16
@@ -747,7 +760,7 @@ purity or a metabolic state shared across compartments. What the ratio
 establishes is that such an association cannot be *attributed* to CD4⁺ T cells,
 not that it is spurious — and the check costs minutes.
 
-### The functional layer has its own failure modes
+#### The functional layer has its own failure modes
 
 Splitting cells by a score also splits them by lineage purity. When cells were
 divided by glycolytic score, apparent differences in helper and regulatory
@@ -768,7 +781,7 @@ could add here, not evidence for the nomination. PGAM1, the strongest enzyme in
 the functional data and the one MR cannot see, has the same profile, so the
 property belongs to the pathway rather than to the named gene.
 
-### In patients: present in each cohort, confirmed in none twice
+#### In patients: present in each cohort, confirmed in none twice
 
 Inference throughout is a composite signature score with a permutation of the
 response label, fixed as primary in advance and applied identically in all three
@@ -784,7 +797,7 @@ same-disease cohort and reproduces at full magnitude in the cross-disease one
 repeated patients and the sign dependence on regulatory T cells are Supplementary
 S19 and S21.
 
-### These checks are rarely reported
+### Part 4 — These checks are rarely reported
 
 From 469 screened records, 209 were eligible and 154 had an open-access full
 text, of which 152 were scorable. In that sample, **not one paper in a random 30%
