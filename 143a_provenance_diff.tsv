@@ -1,10 +1,10 @@
 list	traits	refetch_date	n_in_repo	n_refetched	n_shared	n_only_repo	n_only_refetch	reproduces	fetch_error
-lung	lung carcinoma	2026-08-23	316	176	176	140	0	superset-in-repo	
-lung	lung adenocarcinoma	2026-08-23	316	126	126	190	0	superset-in-repo	
-lung	lung carcinoma | lung adenocarcinoma	2026-08-23	316	260	260	56	0	superset-in-repo	
-lung	squamous cell lung carcinoma	2026-08-23	316	94	94	222	0	superset-in-repo	
-lung	lung carcinoma | squamous cell lung carcinoma	2026-08-23	316	233	233	83	0	superset-in-repo	
-lung	lung adenocarcinoma | squamous cell lung carcinoma	2026-08-23	316	199	199	117	0	superset-in-repo	
+lung	lung carcinoma	2026-08-23	316	176	176	140	0	incomplete: repo has entries not re-fetched	
+lung	lung adenocarcinoma	2026-08-23	316	126	126	190	0	incomplete: repo has entries not re-fetched	
+lung	lung carcinoma | lung adenocarcinoma	2026-08-23	316	260	260	56	0	incomplete: repo has entries not re-fetched	
+lung	squamous cell lung carcinoma	2026-08-23	316	94	94	222	0	incomplete: repo has entries not re-fetched	
+lung	lung carcinoma | squamous cell lung carcinoma	2026-08-23	316	233	233	83	0	incomplete: repo has entries not re-fetched	
+lung	lung adenocarcinoma | squamous cell lung carcinoma	2026-08-23	316	199	199	117	0	incomplete: repo has entries not re-fetched	
 lung	lung carcinoma | lung adenocarcinoma | squamous cell lung carcinoma	2026-08-23	316	316	316	0	0	exact	
 lung	small cell lung carcinoma	2026-08-23	316	7	3	313	4	no	
 lung	lung carcinoma | small cell lung carcinoma	2026-08-23	316	181	177	139	4	no	
@@ -13,7 +13,7 @@ lung	lung carcinoma | lung adenocarcinoma | small cell lung carcinoma	2026-08-23
 lung	squamous cell lung carcinoma | small cell lung carcinoma	2026-08-23	316	99	95	221	4	no	
 lung	lung carcinoma | squamous cell lung carcinoma | small cell lung carcinoma	2026-08-23	316	237	233	83	4	no	
 lung	lung adenocarcinoma | squamous cell lung carcinoma | small cell lung carcinoma	2026-08-23	316	204	200	116	4	no	
-lung	lung carcinoma | lung adenocarcinoma | squamous cell lung carcinoma | small cell lung carcinoma	2026-08-23	316	320	316	0	4	no	
+lung	lung carcinoma | lung adenocarcinoma | squamous cell lung carcinoma | small cell lung carcinoma	2026-08-23	316	320	316	0	4	reproduced + catalog growth	
 lung	non-small cell lung carcinoma	2026-08-23	316	30	18	298	12	no	
 lung	lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	199	187	129	12	no	
 lung	lung adenocarcinoma | non-small cell lung carcinoma	2026-08-23	316	139	127	189	12	no	
@@ -21,7 +21,7 @@ lung	lung carcinoma | lung adenocarcinoma | non-small cell lung carcinoma	2026-0
 lung	squamous cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	120	108	208	12	no	
 lung	lung carcinoma | squamous cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	254	242	74	12	no	
 lung	lung adenocarcinoma | squamous cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	211	199	117	12	no	
-lung	lung carcinoma | lung adenocarcinoma | squamous cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	328	316	0	12	no	
+lung	lung carcinoma | lung adenocarcinoma | squamous cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	328	316	0	12	reproduced + catalog growth	
 lung	small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	37	21	295	16	no	
 lung	lung carcinoma | small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	204	188	128	16	no	
 lung	lung adenocarcinoma | small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	145	129	187	16	no	
@@ -29,7 +29,7 @@ lung	lung carcinoma | lung adenocarcinoma | small cell lung carcinoma | non-smal
 lung	squamous cell lung carcinoma | small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	125	109	207	16	no	
 lung	lung carcinoma | squamous cell lung carcinoma | small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	258	242	74	16	no	
 lung	lung adenocarcinoma | squamous cell lung carcinoma | small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	216	200	116	16	no	
-lung	lung carcinoma | lung adenocarcinoma | squamous cell lung carcinoma | small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	332	316	0	16	no	
-colorectal	colorectal carcinoma	2026-08-23	833	11	11	822	0	superset-in-repo	
-colorectal	colorectal cancer	2026-08-23	833	830	830	3	0	superset-in-repo	
+lung	lung carcinoma | lung adenocarcinoma | squamous cell lung carcinoma | small cell lung carcinoma | non-small cell lung carcinoma	2026-08-23	316	332	316	0	16	reproduced + catalog growth	
+colorectal	colorectal carcinoma	2026-08-23	833	11	11	822	0	incomplete: repo has entries not re-fetched	
+colorectal	colorectal cancer	2026-08-23	833	830	830	3	0	incomplete: repo has entries not re-fetched	
 colorectal	colorectal carcinoma | colorectal cancer	2026-08-23	833	833	833	0	0	exact	

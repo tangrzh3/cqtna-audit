@@ -1,3 +1,23 @@
   lung / lung carcinoma: 176 lead rsIDs
   lung / lung adenocarcinoma: 126 lead rsIDs
   lung / squamous cell lung carcinoma: 94 lead rsIDs
+  lung / small cell lung carcinoma: 7 lead rsIDs
+  lung / non-small cell lung carcinoma: 30 lead rsIDs
+  lung         lung carcinoma                               repo  316  refetch  176  shared  176  only-repo 140  only-new   0  incomplete: repo has entries not re-fetched
+  lung         lung adenocarcinoma                          repo  316  refetch  126  shared  126  only-repo 190  only-new   0  incomplete: repo has entries not re-fetched
+  lung         squamous cell lung carcinoma                 repo  316  refetch   94  shared   94  only-repo 222  only-new   0  incomplete: repo has entries not re-fetched
+  lung         lung carcinoma | lung adenocarcinoma | squam repo  316  refetch  316  shared  316  only-repo   0  only-new   0  exact
+  lung         small cell lung carcinoma                    repo  316  refetch    7  shared    3  only-repo 313  only-new   4  no
+  lung         lung carcinoma | lung adenocarcinoma | squam repo  316  refetch  320  shared  316  only-repo   0  only-new   4  reproduced + catalog growth
+  lung         non-small cell lung carcinoma                repo  316  refetch   30  shared   18  only-repo 298  only-new  12  no
+  lung         lung carcinoma | lung adenocarcinoma | squam repo  316  refetch  328  shared  316  only-repo   0  only-new  12  reproduced + catalog growth
+  lung         lung carcinoma | lung adenocarcinoma | squam repo  316  refetch  332  shared  316  only-repo   0  only-new  16  reproduced + catalog growth
+  colorectal / colorectal carcinoma: 11 lead rsIDs
+  colorectal / colorectal cancer: 830 lead rsIDs
+  colorectal   colorectal carcinoma                         repo  833  refetch   11  shared   11  only-repo 822  only-new   0  incomplete: repo has entries not re-fetched
+  colorectal   colorectal cancer                            repo  833  refetch  830  shared  830  only-repo   3  only-new   0  incomplete: repo has entries not re-fetched
+  colorectal   colorectal carcinoma | colorectal cancer     repo  833  refetch  833  shared  833  only-repo   0  only-new   0  exact
+
+wrote 143a_provenance_diff.tsv
+NOTE: the re-query is written to its own file. Nothing was overwritten;
+      the analysis lists in the repository are unchanged.
