@@ -1,0 +1,15 @@
+region	genome_wide_sig	source	n_var	min_pval	n_cs_L10	n_cs_highpurity_L10	largest_cs_size	largest_cs_span_kb	converged_L10	converged_L20	n_cs_across_seeds	seed_stable	n_cs_L20	stable_in_L	estimate_s	verdict	note
+MC1R	TRUE	finngen	2757	2.4649e-59	10	10	3	343.393	1	1	10,10,10,10,10	TRUE	19	FALSE	0.216203444629451	not admissible - proxy LD may split spuriously	16q24.3; two module-H loci fall here
+MC1R	TRUE	meta	2757	1e-300	9	9	25	253.035	0	1	9,9,9,9,9	TRUE	12	FALSE	0.332827075622714	not admissible - proxy LD may split spuriously	16q24.3; two module-H loci fall here
+PARP1	TRUE	finngen	2270	1.47764e-06	1	1	42	55.753	1	1	1,1,1,1,1	TRUE	1	TRUE	0.0400042166809043	1 - admissible (conservative)	
+PARP1	TRUE	meta	2270	1.23108e-11	1	1	35	67.713	1	1	1,1,1,1,1	TRUE	1	TRUE	0.0737904574508604	1 - admissible (conservative)	
+ZFYVE19	FALSE	finngen	2214	3.47608e-05	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0248380096461265	0 - no distinguishable signal at this power	
+ZFYVE19	FALSE	meta	2214	5.46172e-06	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0819072572267837	0 - no distinguishable signal at this power	
+SMC2	FALSE	finngen	3449	3.422e-05	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0123557477906081	0 - no distinguishable signal at this power	
+SMC2	FALSE	meta	3449	4.72188e-06	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0381138028052072	0 - no distinguishable signal at this power	
+KANSL1	FALSE	finngen	3508	3.15137e-06	0	0	NA	NA	1	1	0,0,1,1,1	FALSE	0	TRUE	0.0318828113370417	0 - no distinguishable signal at this power; NOT STABLE ACROSS SEEDS (0/0/1/1/1)	17q21.31 inversion; LD is unusual here
+KANSL1	FALSE	meta	3508	1.02011e-05	1	1	1851	649.651	1	1	1,1,1,1,1	TRUE	1	TRUE	0.0489052904933592	1 - admissible (conservative)	17q21.31 inversion; LD is unusual here
+MDM4	FALSE	finngen	2884	0.00159805	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0637335836382592	0 - no distinguishable signal at this power	
+MDM4	FALSE	meta	2884	0.000894022	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0892528776562527	0 - no distinguishable signal at this power	
+KIAA0040	FALSE	finngen	2854	0.00177668	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0137316288706292	0 - no distinguishable signal at this power	
+KIAA0040	FALSE	meta	2854	0.000141717	0	0	NA	NA	1	1	0,0,0,0,0	TRUE	0	TRUE	0.0403785219357033	0 - no distinguishable signal at this power	

@@ -1,0 +1,183 @@
+Warning message:
+package 'susieR' was built under R version 4.4.3 
+
+===== MC1R (genome-wide significant) : LD 3202 x 3202 =====
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  finngen  n=2757 | minP=2.46e-59 | cs L=10: 10 (largest 3 var / 343 kb, conv TRUE), L=20: 19 | s=0.216 | not admissible - proxy LD may split spuriously
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  meta     n=2757 | minP=1.00e-300 | cs L=10: 9 (largest 25 var / 253 kb, conv FALSE), L=20: 12 | s=0.333 | not admissible - proxy LD may split spuriously
+
+===== PARP1 (genome-wide significant) : LD 2429 x 2429 =====
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  finngen  n=2270 | minP=1.48e-06 | cs L=10: 1 (largest 42 var / 56 kb, conv TRUE), L=20: 1 | s=0.040 | 1 - admissible (conservative)
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  meta     n=2270 | minP=1.23e-11 | cs L=10: 1 (largest 35 var / 68 kb, conv TRUE), L=20: 1 | s=0.074 | 1 - admissible (conservative)
+
+===== ZFYVE19 (below genome-wide) : LD 2401 x 2401 =====
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  finngen  n=2214 | minP=3.48e-05 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.025 | 0 - no distinguishable signal at this power
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  meta     n=2214 | minP=5.46e-06 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.082 | 0 - no distinguishable signal at this power
+
+===== SMC2 (below genome-wide) : LD 3612 x 3612 =====
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  finngen  n=3449 | minP=3.42e-05 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.012 | 0 - no distinguishable signal at this power
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  meta     n=3449 | minP=4.72e-06 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.038 | 0 - no distinguishable signal at this power
+
+===== KANSL1 (below genome-wide) : LD 3940 x 3940 =====
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  finngen  n=3508 | minP=3.15e-06 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.032 | 0 - no distinguishable signal at this power; NOT STABLE ACROSS SEEDS (0/0/1/1/1)
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  meta     n=3508 | minP=1.02e-05 | cs L=10: 1 (largest 1851 var / 650 kb, conv TRUE), L=20: 1 | s=0.049 | 1 - admissible (conservative)
+
+===== MDM4 (below genome-wide) : LD 3103 x 3103 =====
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  finngen  n=2884 | minP=1.60e-03 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.064 | 0 - no distinguishable signal at this power
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  meta     n=2884 | minP=8.94e-04 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.089 | 0 - no distinguishable signal at this power
+
+===== KIAA0040 (below genome-wide) : LD 3022 x 3022 =====
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  finngen  n=2854 | minP=1.78e-03 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.014 | 0 - no distinguishable signal at this power
+WARNING: The matrix R is not positive semidefinite. Negative eigenvalues are set to zero
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+HINT: For large R or large XtX, consider installing the Rfast package for better performance.
+  meta     n=2854 | minP=1.42e-04 | cs L=10: 0 (largest - var / - kb, conv TRUE), L=20: 0 | s=0.040 | 0 - no distinguishable signal at this power
+Warning messages:
+1: In susie_suff_stat(XtX = XtX, Xty = Xty, n = n, yty = (n - 1) *  :
+  IBSS algorithm did not converge in 100 iterations!
+                  Please check consistency between summary statistics and LD matrix.
+                  See https://stephenslab.github.io/susieR/articles/susierss_diagnostic.html
+2: In susie_suff_stat(XtX = XtX, Xty = Xty, n = n, yty = (n - 1) *  :
+  IBSS algorithm did not converge in 100 iterations!
+                  Please check consistency between summary statistics and LD matrix.
+                  See https://stephenslab.github.io/susieR/articles/susierss_diagnostic.html
+3: In susie_suff_stat(XtX = XtX, Xty = Xty, n = n, yty = (n - 1) *  :
+  IBSS algorithm did not converge in 100 iterations!
+                  Please check consistency between summary statistics and LD matrix.
+                  See https://stephenslab.github.io/susieR/articles/susierss_diagnostic.html
+4: In susie_suff_stat(XtX = XtX, Xty = Xty, n = n, yty = (n - 1) *  :
+  IBSS algorithm did not converge in 100 iterations!
+                  Please check consistency between summary statistics and LD matrix.
+                  See https://stephenslab.github.io/susieR/articles/susierss_diagnostic.html
+5: In susie_suff_stat(XtX = XtX, Xty = Xty, n = n, yty = (n - 1) *  :
+  IBSS algorithm did not converge in 100 iterations!
+                  Please check consistency between summary statistics and LD matrix.
+                  See https://stephenslab.github.io/susieR/articles/susierss_diagnostic.html
+6: In susie_suff_stat(XtX = XtX, Xty = Xty, n = n, yty = (n - 1) *  :
+  IBSS algorithm did not converge in 100 iterations!
+                  Please check consistency between summary statistics and LD matrix.
+                  See https://stephenslab.github.io/susieR/articles/susierss_diagnostic.html
+
+============================================================================================
+outcome-side signals, split by whether the outcome GWAS already reached 5e-8
+
+genome-wide significant loci:
+  MC1R      minP 1.00e-300  cs  9 (largest    25 var /  253 kb, conv FALSE)  s 0.333  not admissible - proxy LD may split spuriously
+  PARP1     minP  1.23e-11  cs  1 (largest    35 var /   68 kb, conv TRUE )  s 0.074  1 - admissible (conservative)
+
+below genome-wide significance:
+  ZFYVE19   minP  5.46e-06  cs  0 (largest     - var /    - kb, conv TRUE )  s 0.082  0 - no distinguishable signal at this power
+  SMC2      minP  4.72e-06  cs  0 (largest     - var /    - kb, conv TRUE )  s 0.038  0 - no distinguishable signal at this power
+  KANSL1    minP  1.02e-05  cs  1 (largest  1851 var /  650 kb, conv TRUE )  s 0.049  1 - admissible (conservative)
+  MDM4      minP  8.94e-04  cs  0 (largest     - var /    - kb, conv TRUE )  s 0.089  0 - no distinguishable signal at this power
+  KIAA0040  minP  1.42e-04  cs  0 (largest     - var /    - kb, conv TRUE )  s 0.040  0 - no distinguishable signal at this power
+
+wrote 147a
