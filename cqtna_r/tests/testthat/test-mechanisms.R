@@ -258,7 +258,7 @@ test_that("every module reports a status and E/F appear in the report", {
     peaks = pk, target_cell_type = "CD4_T", build = "GRCh38"))
 
   expect_setequal(names(au$module_status),
-                  c("A", "A_nc", "B", "C", "D", "E", "F", "G", "G_nc", "spans"))
+                  c("A", "H", "A_nc", "B", "C", "D", "E", "F", "G", "G_nc", "spans"))
   expect_equal(au$module_status[["C"]], "not run - no input supplied")
   expect_equal(au$module_status[["F"]], "run")
   expect_equal(au$module_status[["G_nc"]], "run")

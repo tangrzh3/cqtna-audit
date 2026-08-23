@@ -13,6 +13,7 @@ cqtna_audit(
   expression = NULL,
   peaks = NULL,
   target_cell_type = NULL,
+  outcome_p = NULL,
   build = NULL,
   locus_kb = 1000,
   known_kb = 1000,
@@ -36,6 +37,10 @@ supplied, for a mismatched window sweep reported as `G_nc`.}
 \item{instruments, expression, peaks}{optional inputs for modules D, E and F.}
 
 \item{target_cell_type}{the cell type the exposure was measured in, for module E.}
+
+\item{outcome_p}{outcome-GWAS p-values, one per row of `mr`, for module H.
+Omitted, module H is skipped with a warning rather than guessed at; see
+[cqtna_decomposition()] for why they cannot be taken from `mr` in general.}
 
 \item{build}{genome build; required unless `mr` is already a `cqtna_mr`.}
 

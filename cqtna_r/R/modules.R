@@ -458,3 +458,113 @@ cqtna_window_sweep <- function(mr, known, known_kb = 1000, locus_kb = 1000,
        background_median_bp = if (length(bg_d)) stats::median(bg_d) else NA_real_,
        threshold_neighbourhood = neighbourhood)
 }
+
+#' H. What the nomination adds beyond the outcome GWAS
+#'
+#' Splits the significant list by whether the outcome GWAS already reaches
+#' genome-wide significance at that locus, and re-runs the attribution on the
+#' part that it does not.
+#'
+#' The check exists because of an algebraic fact about the usual estimator.
+#' With one instrument per exposure and first-order standard errors,
+#' `b = beta_out/beta_exp` and `SE = se_out/|beta_exp|`, so
+#' `|z| = |beta_out|/se_out`: the exposure fixes the sign, the scale, and which
+#' variants are eligible, but does not enter the test statistic. The
+#' significant list is then the outcome GWAS restricted to the tested variants
+#' and thresholded by the multiple-testing burden rather than by 5e-8.
+#'
+#' A list built that way will contain the outcome's strongest signals, and those
+#' are the ones already published. Reporting the attribution over the whole list
+#' therefore mixes two things: loci the outcome GWAS found unaided, where
+#' landing on a previously reported locus is close to a tautology, and loci
+#' below genome-wide significance, which is the part that would be a discovery.
+#' This separates them.
+#'
+#' @param mr a `cqtna_mr` object from [as_cqtna_mr()].
+#' @param known a `cqtna_known` object from [as_cqtna_known()].
+#' @param outcome_p outcome-GWAS p-values, one per row of `mr`, in the same
+#'   order. **Supply these explicitly even when they equal `mr$p`.** For a
+#'   single-variant Wald ratio with first-order standard errors they are
+#'   identical, and passing `mr$p` is then correct; for IVW, weighted median or
+#'   any multi-instrument estimator they are not, and passing `mr$p` would
+#'   silently ask a different question.
+#' @param known_kb window, in kb, within which a variant counts as landing on a
+#'   known locus.
+#' @param fdr FDR threshold for the nomination.
+#' @param gws genome-wide significance threshold for the outcome.
+#' @param known_from how a significant locus inherits its known/novel status;
+#'   see [cqtna_attribution()].
+#' @return a data frame with one row for the whole significant list and one for
+#'   the list with genome-wide-significant loci removed, carrying the counts,
+#'   `fold`, the one-sided Fisher p-value, and `A`, the chance-corrected share
+#'   `(p_sig - p_bg)/(1 - p_bg)`. `A` is reported because `fold` is bounded
+#'   above by `1/p_bg`, so folds from reference lists of different density are
+#'   not comparable; `A` is 0 when the significant loci are no more often known
+#'   than the background and 1 when all of them are known, whatever the density.
+#' @export
+#' @examples
+#' mr <- as_cqtna_mr(cqtna_demo("mr"), build = "GRCh38")
+#' kn <- as_cqtna_known(cqtna_demo("known"), build = "GRCh38")
+#' cqtna_decomposition(mr, kn, outcome_p = mr$p)
+cqtna_decomposition <- function(mr, known, outcome_p, known_kb = 1000,
+                                fdr = 0.05, gws = 5e-8,
+                                known_from = c("any_record", "lead_variant",
+                                               "significant_records")) {
+  known_from <- match.arg(known_from)
+  cq_check_build(mr, known)
+  cq_validate_window(known_kb, "known_kb")
+  cq_validate_fdr(fdr)
+  if (!is.numeric(gws) || length(gws) != 1L || !is.finite(gws) ||
+      gws <= 0 || gws >= 1)
+    stop("`gws` must be a single p-value strictly between 0 and 1.",
+         call. = FALSE)
+  outcome_p <- as.numeric(outcome_p)
+  if (length(outcome_p) != nrow(mr))
+    stop("`outcome_p` has ", length(outcome_p), " values but `mr` has ",
+         nrow(mr), " rows.\n  They must be one-to-one and in the same order; ",
+         "a recycled or reordered vector gives a plausible-looking answer ",
+         "that is wrong throughout.", call. = FALSE)
+
+  a <- cqtna_attribution(mr, known, known_kb = known_kb, fdr = fdr,
+                         known_from = known_from)
+  kv <- as.logical(a$locus_known); names(kv) <- names(a$locus_known)
+  loc <- as.character(mr$locus)
+  sel <- mr$fdr < fdr
+  BT <- a$background_loci; BK <- a$background_known
+  p_bg <- if (BT) BK / BT else NA_real_
+  sig <- unique(loc[sel])
+
+  # A locus counts as already found if any of its significant records reaches
+  # gws in the outcome. Records with a missing outcome p contribute nothing
+  # rather than being treated as non-significant.
+  min_p <- vapply(sig, function(L) {
+    v <- outcome_p[sel & loc == L]
+    v <- v[is.finite(v)]
+    if (length(v)) min(v) else NA_real_
+  }, numeric(1))
+  already <- is.finite(min_p) & min_p < gws
+
+  row_for <- function(label, keep) {
+    ST <- sum(keep); SK <- sum(kv[sig][keep])
+    p_sig <- if (ST) SK / ST else NA_real_
+    data.frame(
+      subset = label, n_loci = ST, n_known = SK,
+      background_loci = BT, background_known = BK,
+      background_share = p_bg,
+      fold = if (ST && is.finite(p_bg) && p_bg > 0) p_sig / p_bg else NA_real_,
+      fisher_p = if (ST) cq_fisher_greater(SK, ST - SK, BK - SK,
+                                           (BT - BK) - (ST - SK)) else NA_real_,
+      A = if (ST && is.finite(p_bg) && p_bg < 1) (p_sig - p_bg) / (1 - p_bg)
+          else NA_real_,
+      n_outcome_p_missing = sum(!is.finite(min_p) & keep),
+      stringsAsFactors = FALSE)
+  }
+
+  out <- rbind(row_for("all significant loci", rep(TRUE, length(sig))),
+               row_for(sprintf("outcome P >= %g (below genome-wide)", gws),
+                       !already))
+  attr(out, "gws") <- gws
+  attr(out, "n_already_genome_wide") <- sum(already)
+  attr(out, "known_from") <- known_from
+  out
+}

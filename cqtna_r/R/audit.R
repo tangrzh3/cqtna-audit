@@ -113,6 +113,9 @@ cq_status <- function(x, configured) {
 #' @param mr_alt MR results from a second outcome GWAS, for module C.
 #' @param instruments,expression,peaks optional inputs for modules D, E and F.
 #' @param target_cell_type the cell type the exposure was measured in, for module E.
+#' @param outcome_p outcome-GWAS p-values, one per row of `mr`, for module H.
+#'   Omitted, module H is skipped with a warning rather than guessed at; see
+#'   [cqtna_decomposition()] for why they cannot be taken from `mr` in general.
 #' @param build genome build; required unless `mr` is already a `cqtna_mr`.
 #' @param locus_kb,known_kb,fdr the three conventions. If `mr` arrives pre-built
 #'   with a different `locus_kb` it is re-clustered, so the window named in the
@@ -134,7 +137,7 @@ cq_status <- function(x, configured) {
 #' au$A$fold
 cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
                         instruments = NULL, expression = NULL, peaks = NULL,
-                        target_cell_type = NULL, build = NULL,
+                        target_cell_type = NULL, outcome_p = NULL, build = NULL,
                         locus_kb = 1000, known_kb = 1000, fdr = 0.05,
                         known_from = c("significant_records", "any_record",
                                        "lead_variant"),
@@ -189,6 +192,19 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
   if (!is.null(peaks)) res$F <- cqtna_peak_distance(peaks)
   res$G <- cqtna_window_sweep(mr, known, known_kb, locus_kb, fdr,
                               known_from = known_from)
+  ## H needs the outcome's own p-values. They are not recoverable from `mr`:
+  ## for a single-variant Wald ratio they equal mr$p, for anything else they do
+  ## not, and guessing which case applies would answer a different question
+  ## without saying so. So it runs only when they are supplied.
+  if (!is.null(outcome_p)) {
+    res$H <- cqtna_decomposition(mr, known, outcome_p, known_kb, fdr,
+                                 known_from = if (known_from == "significant_records")
+                                   "significant_records" else known_from)
+  } else {
+    warning("no `outcome_p` supplied; cannot separate the part of the list ",
+            "the outcome GWAS had already found at genome-wide significance ",
+            "from the part that would be a discovery.", call. = FALSE)
+  }
   # 位点跨度诊断：单连锁串联会让"位点级"计数变成"区块级"计数
   res$spans <- withCallingHandlers(cqtna_locus_spans(mr, fdr),
                                    warning = function(w) invokeRestart("muffleWarning"))
@@ -201,6 +217,7 @@ cqtna_audit <- function(mr, known, mismatch = NULL, mr_alt = NULL,
   res$not_automated <- cqtna_not_automated()
   res$module_status <- c(
     A = cq_status(res$A, TRUE),
+    H = cq_status(res$H, !is.null(outcome_p)),
     A_nc = cq_status(res$A_nc, !is.null(mismatch)),
     B = cq_status(res$B, TRUE),
     C = cq_status(res$C, !is.null(mr_alt)),
