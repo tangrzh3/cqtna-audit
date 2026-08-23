@@ -24,9 +24,9 @@ records reach PP.H4 > 0.8. Naming the gene fails separately — at ten melanoma
 loci with an accepted causal gene the pipeline names six, and at MC1R spans
 sixteen genes without naming MC1R.
 Replacing the outcome with a higher-powered meta-analysis replaced the candidate
-list entirely: two lists from identical exposure data share no genes. In a
-two-coder subsample of 152 comparable studies, no paper reported the
-locus-attribution check.
+list entirely: two lists from identical exposure data share no genes. Across 152
+comparable studies the locus-attribution check appeared in 2, and in a 46-paper
+two-coder subsample in none.
 
 **Conclusions.** The reproducible part of a list produced by this design is the
 part that is not a discovery, and the part that would be a discovery carries no
