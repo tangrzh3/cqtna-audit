@@ -1105,9 +1105,11 @@ arthritis.
 
 Instruments were the top cis-eQTL per gene × profile at P < 5×10⁻⁸, matched to
 the outcome by chr:pos with allele consistency; 26 variants were discarded for
-ambiguous indel representation. The strict set is 3,556 records over 2,141 unique
-variants for the meta round. The minimum F statistic was 22.2, so the F > 10
-filter was never binding. Each exposure carries one instrument, so the primary
+ambiguous indel representation. The strict set is 3,556 records over 2,126 unique
+variants for the meta round, and 3,579 over 2,142 for the single-outcome round.
+The minimum F statistic was 36.1 in either strict set and 22.2 across the
+harmonised set before instrument selection, so the F > 10 filter was never
+binding at any stage. Each exposure carries one instrument, so the primary
 estimator is the Wald ratio with first-order delta-method standard errors. The
 analytic consequence is stated because it constrains interpretation: with
 b = β_out/β_exp and SE = se_out/|β_exp|, the statistic z = β_out/se_out does not
