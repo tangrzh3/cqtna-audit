@@ -137,4 +137,12 @@ cat("\n   cross-tabulation (genome-wide significant x previously reported):\n")
 print(tb)
 
 write.table(R, "140b_threshold_and_gws.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+## 阈值单独落盘：正文引用它，审计就必须能读到它，而不是从控制台日志里翻。
+write.table(data.frame(bh_fdr = FDR, n_records = nrow(mr),
+                       n_significant_records = sum(sel),
+                       outcome_p_threshold = thr,
+                       n_sig_loci = nrow(R),
+                       n_genome_wide_sig = sum(R$genome_wide_sig),
+                       n_known = sum(R$on_known_locus)),
+            "140d_threshold.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 cat("\nwrote 140a / 140b\n")

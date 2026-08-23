@@ -95,6 +95,20 @@ want += [
     ("S39 narrowest cancer margin", f"{_narrow:.2f}"),
     ("S39 widest cancer margin", f"{_wide:.2f}"),
 ]
+
+# --- S42: the identity and the decomposition. These now carry the central
+# claim, so they are reconciled against their tables like everything else.
+# Without this block the paper's new headline would sit outside the audit.
+_dec = pd.read_csv(f"{MR}/141a_enrichment_decomposition.tsv", sep="\t")
+_full = _dec[_dec.excluded_below_outcome_p == 0].iloc[0]
+_gws = _dec[_dec.excluded_below_outcome_p == 5e-8].iloc[0]
+_thr = pd.read_csv(f"{MR}/140d_threshold.tsv", sep="\t").iloc[0]
+want += [
+    ("S42 fold, all significant loci", f"{_full.fold:.2f}"),
+    ("S42 fold, genome-wide-significant loci removed", f"{_gws.fold:.2f}"),
+    ("S42 loci remaining after removal", f"{int(_gws.n_loci)}"),
+    ("S42 genome-wide-significant loci", f"{int(_thr.n_genome_wide_sig)}"),
+]
 bad = 0
 for label, v in want:
     # The manuscript rounds some folds to one decimal, so either rendering

@@ -1,53 +1,41 @@
-# Outcome GWAS architecture shapes target nomination from context-specific eQTLs: an audit across three diseases and two exposure resources
+# Target nomination from single-variant cis-eQTL Mendelian randomization re-reads the outcome GWAS: an audit across six diseases and two exposure resources
 
 ## Abstract
 
-**Background.** Context-specific expression quantitative trait loci (eQTLs) with
-Mendelian randomization (MR) are widely used to nominate immune targets in
-cancer. The instrument is usually a single variant, so the Wald statistic reduces
-to z = β_out/se_out and the outcome GWAS supplies the significance claim. We audited
-this, instrumenting CD4⁺ T cell cis-eQTLs from eight activation profiles against
-a 12,530-case melanoma meta-analysis, then varying outcome and exposure resource
-independently.
+**Background.** Context-specific eQTLs with Mendelian randomization are widely
+used to nominate immune targets in cancer. The instrument is usually a single
+variant, so with first-order standard errors the Wald statistic reduces to
+|z| = |β_out|/se_out: the exposure sets the sign, the scale and which variants
+are eligible, and the outcome GWAS supplies the entire significance claim. We
+asked what a candidate list built this way actually contains.
 
-**Results.** Significant signal concentrates on loci already known for the
-outcome: 4.96-fold counted by bounded genomic locus. It recurs across five nested power levels, where no
-novel-locus gene reaches significance at any case number; in a second disease;
-and when the exposure is replaced by a whole-blood eQTL dataset 300-fold larger
-(6.31-fold, P = 1.3×10⁻¹⁵). Of six cells of three diseases by two resources, one
-is void on its pre-registered mismatched-locus control and four of the remaining
-five reach **nominal** one-sided Fisher P < 0.05; the cells share exposure data
-and reference lists and are not independent replications. **The confirmatory
-claim is confined to the two tumours.** The one non-cancer cell, rheumatoid
-arthritis on CD4⁺ T cells, enriches 3.91-fold (P = 2.3×10⁻⁷) but clears its
-mismatched-list control at only one of seven window settings, and we therefore
-report it as an exploratory observation rather than as evidence that the
-phenomenon extends beyond cancer. Naming the
-gene at a significant locus then fails separately. Of 291 records that colocalisation assigned to distinct causal variants, SMR/HEIDI
-failed to reject homogeneity for 253, so tiers accepting MR plus SMR alone would
-have reported MC1R linkage spillover as CD4-mediated targets. At ten melanoma loci
-with a generally accepted causal gene, our pipeline names it at six and fails at
-four; at MC1R it spans sixteen genes without naming MC1R. Replacing the
-outcome with a higher-powered, compositionally different meta-analysis increased
-MR discoveries, lowered colocalisation support and replaced the candidate list
-entirely: two lists from identical exposure data share no genes. Recovery under
-down-sampling falls by effect size and hence by locus class — at half power
-known-locus genes recover 85.8% against 22.8%, 68–80% of that gap following from
-|z| alone. Of 28 glycolytic genes, 3 are instrumentable, 2 analysable and 1
-nominally associated. In a two-coder subsample of 152 comparable studies, no
-paper reported the locus-attribution check.
+**Results.** Instrumenting CD4⁺ T-cell cis-eQTLs from eight activation profiles
+against a 12,530-case melanoma meta-analysis, we confirmed the identity
+numerically and traced its consequences. Benjamini–Hochberg at 0.05 corresponds
+to an outcome P of 2.1 × 10⁻⁴. Significant signal concentrates
+on loci already reported for the outcome, 4.96-fold by bounded locus
+(P = 0.0048) — but that enrichment is carried entirely by the three loci the
+outcome GWAS had already found unaided at 5 × 10⁻⁸, two over MC1R and one at
+PARP1. Remove them and five loci remain, one of them known: 1.98-fold,
+P = 0.41. The attribution recurs in five further diseases scored against their
+own lists, as the identity requires, though folds are not comparable across them
+because each is capped by its list's density. Colocalisation agrees: 2 of 284
+records reach PP.H4 > 0.8. Naming the gene fails separately — at ten melanoma
+loci with an accepted causal gene the pipeline names six, and at MC1R spans
+sixteen genes without naming MC1R.
+Replacing the outcome with a higher-powered meta-analysis replaced the candidate
+list entirely: two lists from identical exposure data share no genes. In a
+two-coder subsample of 152 comparable studies, no paper reported the
+locus-attribution check.
 
-**Conclusions.** Within the power range we could observe, the reproducible part
-of a candidate list produced by this framework was the part that did not
-constitute a discovery. **Which loci a nomination lands on tracks the outcome
-GWAS; how many instruments exist tracks the exposure resource** — the second
-naming a resource, not a sample size. What survives is a statement about the
-state in which a pathway's regulation can be measured precisely enough to
-instrument at all. Eight inexpensive checks follow.
+**Conclusions.** The reproducible part of a list produced by this design is the
+part that is not a discovery, and the part that would be a discovery carries no
+locus-level evidence we could detect. Which loci a nomination lands on tracks
+the outcome GWAS; how many instruments exist tracks the exposure resource. Eight
+inexpensive checks follow, with an R implementation.
 
 **Keywords** Mendelian randomization · context-specific eQTL · target nomination ·
-colocalisation · statistical power · reproducibility · compartment attribution ·
-melanoma
+colocalisation · statistical power · reproducibility · melanoma
 
 ---
 
@@ -118,14 +106,46 @@ and disease R² differ by orders of magnitude and the test passes almost by
 construction. We therefore state at the outset what the design can and cannot
 decide, and test the consequences empirically rather than asserting them.
 
-### Significant signal sits on loci already known for the outcome
+### The nomination is the outcome GWAS, read at a lower threshold
 
-In the FinnGen round, all ten FDR-significant records fell within 1 Mb of a known
+With one instrument per exposure the Wald statistic is b = β_out/β_exp with
+SE = se_out/|β_exp|, so |z| = |β_out|/se_out. The exposure sets the sign and the
+scale of the effect estimate and the set of variants eligible to be tested; it
+does not enter the test statistic. We verified this on the two tables that store
+both sides: `se` matches se_out/|β_exp| to within 0, and the reported P matches
+2Φ(−|z_out|) to within 3 × 10⁻¹⁶, while the sign differs on 51% of records
+(Supplementary S42). **A candidate list from this design is therefore the outcome
+GWAS restricted to variants that happen to be lead cis-eQTLs, thresholded by the
+multiple-testing burden rather than by 5 × 10⁻⁸.** Everything below follows from
+that, and we report it as the mechanism rather than as a caveat.
+
+The threshold is the first consequence. Benjamini–Hochberg at 0.05 over the 3,556
+records corresponds to an outcome P of 2.1 × 10⁻⁴ — three and a half orders of
+magnitude more permissive than genome-wide significance.
+
+The second is what the resulting list contains. In the FinnGen round, all ten
+FDR-significant records fell within 1 Mb of a known
 pigmentation or naevus locus — VPS9D1-AS1 50 kb from MC1R, CDK10 48 kb from the
 MC1R R151C variant, PARP1 5–14 kb from PARP1 — with no immune signal at
 FDR < 0.05 at all. Under the meta outcome, counting bounded loci rather than
 gene records, 4 of 8 significant loci were known-locus loci: a 4.96-fold
-enrichment over the 10.1% background (one-sided P = 0.0048; Fig. 1). Loci here
+enrichment over the 10.1% background (one-sided P = 0.0048; Fig. 1).
+
+**That enrichment is carried entirely by loci the outcome GWAS had already found
+without any exposure data.** Three of the eight reach 5 × 10⁻⁸ unaided — two at
+16q24.3 over MC1R and one at PARP1 — and all three are on the published list,
+which is how they came to be published. The cross-tabulation is completely
+separated: every genome-wide significant locus is a known locus and no
+genome-wide significant locus is novel. Removing those three leaves five loci,
+one of them known: 1.98-fold, one-sided P = 0.41 (Supplementary S42). **What
+this design adds beyond genome-wide significance shows no locus-level attribution
+signal at all** — though at five loci it is also underpowered to show one, so this
+is an absence of evidence and we do not read it as evidence of absence. The same
+decomposition explains the colocalisation result reported below, where 2 of 284
+records reach PP.H4 > 0.8: signals that are the outcome's own do not colocalise
+with an exposure that did not generate them.
+
+Loci here
 are the non-recursive fixed-anchor partition fixed in Supplementary S37 — a
 1 Mb window claimed from each anchor, so a locus spans at most 1 Mb whatever the
 variant density; the single-linkage rule used in the source literature chains a
@@ -790,6 +810,30 @@ audit measures reporting, not practice.
 
 ## Discussion
 
+The results have a single mechanism, and it is algebraic rather than empirical.
+With one instrument and first-order standard errors the Wald statistic is
+|β_out|/se_out, so a candidate list from this design is the outcome GWAS
+restricted to lead cis-eQTLs and thresholded at whatever the multiple-testing
+burden allows — here 2.1 × 10⁻⁴. Once that is stated, most of what follows stops
+being surprising and starts being obligatory. Signal must land where the outcome
+GWAS has signal, and the outcome's strongest signals are, by construction, the
+ones already published: three of our eight significant loci reach 5 × 10⁻⁸
+unaided and all three are on the reference list, and removing them removes the
+enrichment (1.98-fold, P = 0.41). The attribution must recur in other diseases,
+and it does, in all five we could test. Colocalisation must be poor, because the
+signal was never the exposure's, and it is: 2 of 284. Profile specificity cannot
+appear in a P value, because the P value has no exposure in it.
+
+We think this reframing is the useful contribution, and we state plainly what it
+is not. The reduction itself is elementary and not new. It does not apply to
+multi-instrument estimators, where combining instruments breaks the identity —
+our relaxed IVW and weighted-median analyses are outside it. It does not make MR
+effect estimates wrong; the sign and the scale genuinely come from the exposure,
+and only the significance claim does not. And it does not show that the
+sub-threshold part of a nomination list is spurious: at five loci we are
+underpowered to say anything about it, which is a different statement from
+showing there is nothing there.
+
 Everything in this framework that depends on the outcome GWAS proved unstable, and
 the instability has a specific shape: signal lands on loci the outcome already
 knows about, the novel part of the list turns over completely between outcomes,
@@ -807,7 +851,7 @@ we swept; a fourth, melanoma on whole blood, fails at the tightest window only;
 rheumatoid arthritis on CD4⁺ T cells is clean at the registered window and fails
 at every tighter one. Where a negative control is scale-dependent, so is the
 claim it licenses, and the control is most scale-dependent exactly where the
-outcome pair shares biology. Scoring every cell against four unrelated lists
+outcome pair shares biology. Scoring every cell against six unrelated lists
 instead of one — a post-hoc diagnostic, not a registered test — sharpens the same
 point into a design lesson we would apply to any study using this control: which
 disease is nominated as the mismatch determines the verdict. On our own
@@ -1381,8 +1425,11 @@ Discussion, is included in the deposit.
 
 ## Supplementary information
 
-S9–S40, including the fourteen pre-registration documents with their reading tables
-and results registers; the multiple-testing unit sensitivity analysis; the
+S9–S42, including the fourteen pre-registration documents with their reading tables
+and results registers; **S41**, the transport grid scoring six diseases against
+their own reference lists; **S42**, the estimator identity, its numerical
+verification and the decomposition of the attribution by outcome significance;
+the multiple-testing unit sensitivity analysis; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the
 technical account of the two processing errors; the replication-cohort search;
