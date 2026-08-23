@@ -1,0 +1,13 @@
+relaxed instrument positions: 1158 unique
+  found in 13_meta: 213
+  to read from meta sumstats: 945
+    5000000 lines, 375 of 1158 found
+    10000000 lines, 622 of 1158 found
+    15000000 lines, 833 of 1158 found
+    20000000 lines, 1123 of 1158 found
+  read 20435541 lines; still unresolved: 0
+
+wrote 144a_relaxed_outcome_lookup.tsv (1158 rows)
+source
+meta_sumstats    945
+13_meta          213
