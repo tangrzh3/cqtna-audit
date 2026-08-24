@@ -51,6 +51,9 @@ add scripts \
   step130_multilist_control.R step131_render_s38_scan.py \
   step132_external_power_gate.R step133_projection_reading_b.R \
   step134_candidate_cohorts.R step135_hcc_gate_distance.R \
+  step140_estimator_identity.R step141_enrichment_decomposition.R \
+  step145_method_benchmark.R step148_publish_litaudit.py \
+  step149_typeI_calibration.R step150_environment_lock.R \
   make_review_packet.sh step136_lock_manifest.sh
 
 # --- R 包源码 tarball
@@ -86,7 +89,7 @@ Rscript -e '
   out <- rbind(out, data.frame(component = "platform", version = R.version$platform))
   write.table(out, "136b_environment.tsv", sep="\t", row.names=FALSE, quote=FALSE)
 ' > /dev/null
-add environment 136b_environment.tsv
+add environment 136b_environment.tsv 150a_environment.lock 150b_session.txt
 
 # --- 清单自身的散列，以及 git 状态
 SELF=$(sha256sum "$MAN" | cut -d' ' -f1)
