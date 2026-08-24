@@ -1,0 +1,14 @@
+S1  corpus: 152 papers, 93 journals, 2023-2026
+      C1_known_locus         automated   2  strict   2  wide  12
+      C2_coloc               automated  90  strict  90  wide  91
+      C3_power_stability     automated   1  strict   1  wide  54
+      C4_instrument_count    automated  25  strict  69  wide  72
+      C5_smr_heidi           automated   0  strict  72  wide  74
+
+S2  double-coded: 92 judgements over 46 papers
+      C1_known_locus         coder1 1, coder2 0, final 0, disagreements 1
+      C3_power_stability     coder1 2, coder2 3, final 3, disagreements 1
+
+S3  coding rules copied verbatim (1405 characters)
+
+wrote 148a / 148b / 148c
