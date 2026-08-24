@@ -1,0 +1,35 @@
+null (circular shift)  melanoma    bg 0.101 | loci   10 | fold  0.99 | A -0.001 | reject 0.0357 +- 0.0019  calibrated
+null (circular shift)  lung        bg 0.104 | loci   10 | fold  0.88 | A -0.014 | reject 0.0048 +- 0.0007  conservative
+null (circular shift)  breast      bg 0.290 | loci   10 | fold  0.94 | A -0.024 | reject 0.0272 +- 0.0016  conservative
+null (circular shift)  colorectal  bg 0.318 | loci   10 | fold  0.79 | A -0.099 | reject 0.0105 +- 0.0010  conservative
+null (circular shift)  prostate    bg 0.403 | loci   10 | fold  1.10 | A  0.069 | reject 0.0394 +- 0.0019  calibrated
+null (circular shift)  HCC         bg 0.066 | loci   10 | fold  0.00 | A -0.070 | reject 0.0177 +- 0.0013  conservative
+alt g=1.25             melanoma    bg 0.101 | loci   15 | fold  2.76 | A  0.197 | reject 0.5285 +- 0.0050  -
+alt g=1.25             lung        bg 0.104 | loci   18 | fold  3.21 | A  0.256 | reject 0.7536 +- 0.0043  -
+alt g=1.25             breast      bg 0.290 | loci   25 | fold  2.05 | A  0.428 | reject 0.9194 +- 0.0027  -
+alt g=1.25             colorectal  bg 0.318 | loci   28 | fold  1.98 | A  0.457 | reject 0.9473 +- 0.0022  -
+alt g=1.25             prostate    bg 0.403 | loci   29 | fold  1.82 | A  0.557 | reject 0.9697 +- 0.0017  -
+alt g=1.25             HCC         bg 0.066 | loci   14 | fold  3.05 | A  0.144 | reject 0.4518 +- 0.0050  -
+alt g=1.50             melanoma    bg 0.101 | loci   25 | fold  4.96 | A  0.444 | reject 0.9950 +- 0.0007  -
+alt g=1.50             lung        bg 0.104 | loci   29 | fold  4.98 | A  0.461 | reject 0.9999 +- 0.0001  -
+alt g=1.50             breast      bg 0.290 | loci   60 | fold  2.60 | A  0.654 | reject 1.0000 +- 0.0000  -
+alt g=1.50             colorectal  bg 0.318 | loci   66 | fold  2.46 | A  0.681 | reject 1.0000 +- 0.0000  -
+alt g=1.50             prostate    bg 0.403 | loci   81 | fold  2.08 | A  0.732 | reject 1.0000 +- 0.0000  -
+alt g=1.50             HCC         bg 0.066 | loci   22 | fold  5.86 | A  0.341 | reject 0.9738 +- 0.0016  -
+alt g=2.00             melanoma    bg 0.101 | loci   51 | fold  6.11 | A  0.572 | reject 1.0000 +- 0.0000  -
+alt g=2.00             lung        bg 0.104 | loci   54 | fold  6.13 | A  0.594 | reject 1.0000 +- 0.0000  -
+alt g=2.00             breast      bg 0.290 | loci  129 | fold  2.74 | A  0.710 | reject 1.0000 +- 0.0000  -
+alt g=2.00             colorectal  bg 0.318 | loci  136 | fold  2.55 | A  0.719 | reject 1.0000 +- 0.0000  -
+alt g=2.00             prostate    bg 0.403 | loci  168 | fold  2.10 | A  0.746 | reject 1.0000 +- 0.0000  -
+alt g=2.00             HCC         bg 0.066 | loci   42 | fold  8.06 | A  0.496 | reject 1.0000 +- 0.0000  -
+
+====================================================================================
+type I error under the null, by reference-list density
+  HCC         background   6.6%  rejection 0.0177 +- 0.0013  conservative
+  melanoma    background  10.1%  rejection 0.0357 +- 0.0019  calibrated
+  lung        background  10.4%  rejection 0.0048 +- 0.0007  conservative
+  breast      background  29.0%  rejection 0.0272 +- 0.0016  conservative
+  colorectal  background  31.8%  rejection 0.0105 +- 0.0010  conservative
+  prostate    background  40.3%  rejection 0.0394 +- 0.0019  calibrated
+
+wrote 149a
