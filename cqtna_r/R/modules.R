@@ -494,8 +494,13 @@ cqtna_window_sweep <- function(mr, known, known_kb = 1000, locus_kb = 1000,
 #' @param gws genome-wide significance threshold for the outcome.
 #' @param known_from how a significant locus inherits its known/novel status;
 #'   see [cqtna_attribution()].
-#' @return a data frame with one row for the whole significant list and one for
-#'   the list with genome-wide-significant loci removed, carrying the counts,
+#' @return a data frame with three rows: the whole significant list; the list
+#'   with genome-wide-significant loci removed but scored against the full
+#'   background; and the same list scored against a background also restricted
+#'   to loci below genome-wide significance. The third is the conditional
+#'   comparison the second row's name implies, and is the one to read; the
+#'   second is kept because earlier versions reported only that. Each carries
+#'   the counts,
 #'   `fold`, the one-sided Fisher p-value, and `A`, the chance-corrected share
 #'   `(p_sig - p_bg)/(1 - p_bg)`. `A` is reported because `fold` is bounded
 #'   above by `1/p_bg`, so folds from reference lists of different density are
@@ -544,27 +549,45 @@ cqtna_decomposition <- function(mr, known, outcome_p, known_kb = 1000,
   }, numeric(1))
   already <- is.finite(min_p) & min_p < gws
 
-  row_for <- function(label, keep) {
+  # Removing the already-found loci from the numerator and leaving them in the
+  # denominator asks a mixed question. The conditional version restricts both
+  # sides to loci the outcome GWAS had not already found, which is the question
+  # the row is named after. Both are returned rather than one silently replacing
+  # the other, because the unconditional row is what earlier versions reported.
+  bg_min_p <- vapply(names(kv), function(L) {
+    v <- outcome_p[loc == L]
+    v <- v[is.finite(v)]
+    if (length(v)) min(v) else NA_real_
+  }, numeric(1))
+  bg_already <- is.finite(bg_min_p) & bg_min_p < gws
+
+  row_for <- function(label, keep, bg_keep = NULL) {
     ST <- sum(keep); SK <- sum(kv[sig][keep])
+    bT <- if (is.null(bg_keep)) BT else sum(bg_keep)
+    bK <- if (is.null(bg_keep)) BK else sum(kv[bg_keep])
+    pb <- if (bT) bK / bT else NA_real_
     p_sig <- if (ST) SK / ST else NA_real_
     data.frame(
       subset = label, n_loci = ST, n_known = SK,
-      background_loci = BT, background_known = BK,
-      background_share = p_bg,
-      fold = if (ST && is.finite(p_bg) && p_bg > 0) p_sig / p_bg else NA_real_,
-      fisher_p = if (ST) cq_fisher_greater(SK, ST - SK, BK - SK,
-                                           (BT - BK) - (ST - SK)) else NA_real_,
-      A = if (ST && is.finite(p_bg) && p_bg < 1) (p_sig - p_bg) / (1 - p_bg)
+      background_loci = bT, background_known = bK,
+      background_share = pb,
+      fold = if (ST && is.finite(pb) && pb > 0) p_sig / pb else NA_real_,
+      fisher_p = if (ST) cq_fisher_greater(SK, ST - SK, bK - SK,
+                                           (bT - bK) - (ST - SK)) else NA_real_,
+      A = if (ST && is.finite(pb) && pb < 1) (p_sig - pb) / (1 - pb)
           else NA_real_,
       n_outcome_p_missing = sum(!is.finite(min_p) & keep),
       stringsAsFactors = FALSE)
   }
 
-  out <- rbind(row_for("all significant loci", rep(TRUE, length(sig))),
-               row_for(sprintf("outcome P >= %g (below genome-wide)", gws),
-                       !already))
+  out <- rbind(
+    row_for("all significant loci", rep(TRUE, length(sig))),
+    row_for(sprintf("outcome P >= %g, full background", gws), !already),
+    row_for(sprintf("outcome P >= %g, background also restricted", gws),
+            !already, !bg_already))
   attr(out, "gws") <- gws
   attr(out, "n_already_genome_wide") <- sum(already)
+  attr(out, "n_background_genome_wide") <- sum(bg_already)
   attr(out, "known_from") <- known_from
   out
 }

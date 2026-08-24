@@ -52,3 +52,72 @@ write.table(do.call(rbind, out), "141a_enrichment_decomposition.tsv",
 cat(sprintf("\nreference: all loci                 : %d loci, %d known, fold %.2f, Fisher P %.4g\n",
             a$significant_loci, a$significant_known, a$fold, a$fisher_p_one_sided))
 cat("\nwrote 141a\n")
+
+## ---------------------------------------------------------------------------
+## 评审第三方 2026-08-23 提出的两条，加算于此。两条都不放松任何判据。
+##
+## R1.3 背景须与显著集同步条件化：只从显著集剔除已达 5e-8 的位点、
+##      却把它们留在背景里，问的是一个混合问题。
+## R1.4 相邻 bounded locus 未必是两个独立的已发表风险区：
+##      16:88860636-89730161 与 16:89871237 落在**完全相同的七个 Landi lead SNP**
+##      的 1 Mb 内，即在重复计同一个区域。
+## ---------------------------------------------------------------------------
+cat("\n", strrep("-", 72), "\n", sep = "")
+kn_raw <- read.csv("landi2020_known_loci_grch38.csv", stringsAsFactors = FALSE)
+loc <- as.character(mr$locus)
+lv <- names(kv)
+bg_minp <- tapply(mr$p, loc, min)[lv]
+bg_gws  <- is.finite(bg_minp) & bg_minp < 5e-8
+
+fis2 <- function(SK, ST, BK2, BT2)
+  stats::fisher.test(matrix(c(SK, ST - SK, BK2 - SK, (BT2 - BK2) - (ST - SK)), 2),
+                     alternative = "greater")$p.value
+
+sub <- R[R$minp >= 5e-8, ]
+ST <- nrow(sub); SK <- sum(sub$known)
+BT2 <- sum(!bg_gws); BK2 <- sum(kv[!bg_gws])
+cat(sprintf("R1.3 background also restricted : %d loci, %d known, bg %d/%d, fold %.2f, P %.4g\n",
+            ST, SK, BK2, BT2, (SK / ST) / (BK2 / BT2), fis2(SK, ST, BK2, BT2)))
+
+## R1.4：共享任一 Landi lead SNP 的 bounded locus 合并成一个区域，同一规则施于两侧
+attr_of <- lapply(lv, function(L) {
+  ch <- sub(":.*", "", L); rng <- sub(".*:", "", L)
+  lo <- as.numeric(sub("-.*", "", rng)); hi <- as.numeric(sub(".*-", "", rng))
+  if (is.na(hi)) hi <- lo
+  kn_raw$rsid[kn_raw$chr == ch & kn_raw$pos >= lo - 1e6 & kn_raw$pos <= hi + 1e6]
+})
+names(attr_of) <- lv
+par <- seq_along(lv); names(par) <- lv
+find <- function(x) { while (par[[x]] != which(lv == x)) x <- lv[par[[x]]]; x }
+for (s in unique(unlist(attr_of))) {
+  g <- lv[vapply(attr_of, function(v) s %in% v, logical(1))]
+  if (length(g) > 1) for (i in 2:length(g)) {
+    a <- find(g[1]); b <- find(g[i])
+    if (a != b) par[[a]] <- which(lv == b)
+  }
+}
+reg <- vapply(lv, find, character(1)); names(reg) <- lv
+reg_known <- tapply(kv, reg, any)
+sig_reg <- unique(reg[unique(loc[mr$fdr < 0.05])])
+STm <- length(sig_reg); SKm <- sum(reg_known[sig_reg])
+BTm <- length(reg_known); BKm <- sum(reg_known)
+cat(sprintf("R1.4 merge loci sharing a lead SNP: %d regions, %d known, bg %d/%d, fold %.2f, P %.4g\n",
+            STm, SKm, BKm, BTm, (SKm / STm) / (BKm / BTm), fis2(SKm, STm, BKm, BTm)))
+gws_reg <- unique(reg[lv[bg_gws]])
+cat(sprintf("     the %d genome-wide-significant bounded loci are %d distinct published regions\n",
+            sum(bg_gws), length(gws_reg)))
+
+write.table(data.frame(
+  analysis = c("gws-removed, full background", "gws-removed, background restricted",
+               "merge loci sharing a lead SNP"),
+  n_loci = c(nrow(sub), ST, STm), n_known = c(sum(sub$known), SK, SKm),
+  bg_loci = c(BT, BT2, BTm), bg_known = c(BK, BK2, BKm),
+  fold = c((sum(sub$known) / nrow(sub)) / (BK / BT), (SK / ST) / (BK2 / BT2),
+           (SKm / STm) / (BKm / BTm)),
+  fisher_p = c(fg(sum(sub$known), nrow(sub)), fis2(SK, ST, BK2, BT2),
+               fis2(SKm, STm, BKm, BTm)),
+  n_gws_bounded_loci = c(sum(bg_gws), sum(bg_gws), sum(bg_gws)),
+  n_gws_distinct_regions = c(NA, NA, length(gws_reg)),
+  stringsAsFactors = FALSE),
+  "141b_reviewer_conditioning.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+cat("\nwrote 141b_reviewer_conditioning.tsv\n")

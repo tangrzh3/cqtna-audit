@@ -3,36 +3,37 @@
 ## Abstract
 
 **Background.** Context-specific eQTLs with Mendelian randomization are widely
-used to nominate immune targets in cancer. The instrument is usually a single
-variant, so with first-order standard errors the Wald statistic reduces to
-|z| = |β_out|/se_out: the exposure sets the sign, the scale and which variants
-are eligible, and the outcome GWAS supplies the entire significance claim. We
-asked what a candidate list built this way actually contains.
+used to nominate immune targets in cancer. With one instrument and first-order
+standard errors the Wald statistic reduces to |z| = |β_out|/se_out: the exposure
+sets the sign, the scale and which variants are eligible, and the outcome GWAS
+supplies the whole significance claim. We asked what such a list contains.
 
 **Results.** Instrumenting CD4⁺ T-cell cis-eQTLs from eight activation profiles
 against a 12,530-case melanoma meta-analysis, we confirmed the identity
-numerically and traced its consequences. Benjamini–Hochberg at 0.05 corresponds
-to an outcome P of 2.1 × 10⁻⁴. Significant signal concentrates
-on loci already reported for the outcome, 4.96-fold by bounded locus
-(P = 0.0048) — but that enrichment is carried entirely by the three loci the
-outcome GWAS had already found unaided at 5 × 10⁻⁸, two over MC1R and one at
-PARP1. Remove them and five loci remain, one of them known: 1.98-fold,
-P = 0.41. The attribution recurs in five further diseases scored against their
-own lists, as the identity requires, though folds are not comparable across them
-because each is capped by its list's density. Colocalisation agrees: 2 of 284
-records reach PP.H4 > 0.8. Naming the gene fails separately — at ten melanoma
-loci with an accepted causal gene the pipeline names six, and at MC1R spans
-sixteen genes without naming MC1R.
-Replacing the outcome with a higher-powered meta-analysis replaced the candidate
-list entirely: two lists from identical exposure data share no genes. Across 152
-comparable studies the locus-attribution check appeared in 2, and in a 46-paper
-two-coder subsample in none.
+numerically. Benjamini–Hochberg at 0.05 corresponds to an outcome P of
+2.1 × 10⁻⁴. Significant signal concentrates on loci already reported for the
+outcome, 4.96-fold by bounded locus (P = 0.0048) — but that enrichment is carried
+entirely by the three loci the outcome GWAS had already found unaided at
+5 × 10⁻⁸, two over MC1R and one at PARP1. Remove them and five remain, one
+known: 1.98-fold,
+P = 0.41 (2.07-fold with the background restricted the same way), and the two
+MC1R loci are one published region, not two. Scored against their own reference
+lists, all five diseases with a usable list show own-list enrichment surviving
+Holm correction, but only melanoma and lung meet the full pre-specified
+criterion: colorectal is inconclusive on locus count, breast and prostate void on
+their mismatched controls. Colocalisation was poor here, 2 of 284 records above
+PP.H4 0.8 — which the identity makes likely but does not require. Naming the gene
+fails separately: at ten melanoma loci with an accepted causal gene the pipeline
+names six, and at MC1R spans sixteen genes without naming MC1R. Replacing the
+outcome with a higher-powered meta-analysis replaced the list entirely, two lists
+from identical exposure data sharing no genes. Across 152 comparable studies the
+locus-attribution check appeared in 2, and in a 46-paper two-coder subsample in
+none.
 
-**Conclusions.** The reproducible part of a list produced by this design is the
-part that is not a discovery, and the part that would be a discovery carries no
-locus-level evidence we could detect. Which loci a nomination lands on tracks
-the outcome GWAS; how many instruments exist tracks the exposure resource. Eight
-inexpensive checks follow, with an R implementation.
+**Conclusions.** The reproducible part of such a list is the part that is not a
+discovery, and the part that would be a discovery carries no locus-level evidence
+we could detect — an absence of evidence, at five loci, rather than evidence of
+absence. Nine inexpensive checks follow, with an R implementation.
 
 **Keywords** Mendelian randomization · context-specific eQTL · target nomination ·
 colocalisation · statistical power · reproducibility · melanoma
@@ -137,10 +138,23 @@ without any exposure data.** Three of the eight reach 5 × 10⁻⁸ unaided — 
 which is how they came to be published. The cross-tabulation is completely
 separated: every genome-wide significant locus is a known locus and no
 genome-wide significant locus is novel. Removing those three leaves five loci,
-one of them known: 1.98-fold, one-sided P = 0.41 (Supplementary S42). **What
-this design adds beyond genome-wide significance shows no locus-level attribution
+one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
+the background is restricted to sub-threshold loci as well, which is the
+conditional comparison the question implies (Supplementary S42). **What this
+design adds beyond genome-wide significance shows no locus-level attribution
 signal at all** — though at five loci it is also underpowered to show one, so this
-is an absence of evidence and we do not read it as evidence of absence. The same
+is an absence of evidence and we do not read it as evidence of absence.
+
+Two of the eight bounded loci are not two published regions. The windows at
+16:88.86–89.73 Mb and 16:89.87 Mb fall within 1 Mb of an identical set of seven
+Landi lead variants, so the fixed-anchor partition counts the MC1R region twice;
+the three genome-wide-significant loci are two distinct published regions, not
+three. Merging bounded loci that share an attributed lead variant, and applying
+the same rule to the background, gives seven regions of which three are known
+against a background of 52 of 641: 5.28-fold, P = 0.014 (Supplementary S42).
+The direction is unchanged and the evidence is weaker than the unmerged count
+suggests, which is the honest reading of a partition that bounds window width
+without guaranteeing that adjacent windows are independent. The same
 decomposition explains the colocalisation result reported below, where 2 of 284
 records reach PP.H4 > 0.8: signals that are the outcome's own do not colocalise
 with an exposure that did not generate them.
@@ -835,15 +849,20 @@ The results have a single mechanism, and it is algebraic rather than empirical.
 With one instrument and first-order standard errors the Wald statistic is
 |β_out|/se_out, so a candidate list from this design is the outcome GWAS
 restricted to lead cis-eQTLs and thresholded at whatever the multiple-testing
-burden allows — here 2.1 × 10⁻⁴. Once that is stated, most of what follows stops
-being surprising and starts being obligatory. Signal must land where the outcome
-GWAS has signal, and the outcome's strongest signals are, by construction, the
-ones already published: three of our eight significant loci reach 5 × 10⁻⁸
-unaided and all three are on the reference list, and removing them removes the
-enrichment (1.98-fold, P = 0.41). The attribution must recur in other diseases,
-and it does, in all five we could test. Colocalisation must be poor, because the
-signal was never the exposure's, and it is: 2 of 284. Profile specificity cannot
-appear in a P value, because the P value has no exposure in it.
+burden allows — here 2.1 × 10⁻⁴. One consequence is algebraic and the rest are not, and the
+distinction matters. What follows algebraically is narrow: signal must land where
+the outcome GWAS has signal, and profile specificity cannot appear in a P value,
+because the P value contains no exposure term. Everything else below is an
+empirical observation that the identity makes likely rather than necessary.
+Whether the outcome's strongest signals among lead cis-eQTLs sit on previously
+published loci depends on where cis-eQTLs are and on the disease's genetic
+architecture, not on the algebra — here three of our eight significant loci reach
+5 × 10⁻⁸ unaided, all three are on the reference list, and removing them leaves
+1.98-fold, P = 0.41 (2.07-fold, P = 0.40 with the background restricted to
+sub-threshold loci as well). The attribution recurred in every further disease we
+could test, which the identity did not require. Colocalisation was poor in this
+application, 2 of 284 above PP.H4 0.8; the identity does not require that either,
+since a variant that drives both expression and disease can colocalise well.
 
 We think this reframing is the useful contribution, and we state plainly what it
 is not. The reduction itself is elementary and not new. It does not apply to

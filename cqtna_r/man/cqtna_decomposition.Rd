@@ -37,8 +37,13 @@ known locus.}
 see [cqtna_attribution()].}
 }
 \value{
-a data frame with one row for the whole significant list and one for
-  the list with genome-wide-significant loci removed, carrying the counts,
+a data frame with three rows: the whole significant list; the list
+  with genome-wide-significant loci removed but scored against the full
+  background; and the same list scored against a background also restricted
+  to loci below genome-wide significance. The third is the conditional
+  comparison the second row's name implies, and is the one to read; the
+  second is kept because earlier versions reported only that. Each carries
+  the counts,
   `fold`, the one-sided Fisher p-value, and `A`, the chance-corrected share
   `(p_sig - p_bg)/(1 - p_bg)`. `A` is reported because `fold` is bounded
   above by `1/p_bg`, so folds from reference lists of different density are

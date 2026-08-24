@@ -16,11 +16,15 @@ test_that("the decomposition reproduces the paper's melanoma split", {
   kn$source <- "Landi2020"
   kn <- as_cqtna_known(kn, build = "GRCh38")
   out <- cqtna_decomposition(mr, kn, outcome_p = mr$p, known_from = "any_record")
-  expect_equal(out$n_loci, c(8L, 5L))
-  expect_equal(out$n_known, c(4L, 1L))
-  expect_equal(round(out$fold, 2), c(4.96, 1.98))
-  expect_equal(round(out$fisher_p, 3), c(0.005, 0.413))
+  expect_equal(out$n_loci, c(8L, 5L, 5L))
+  expect_equal(out$n_known, c(4L, 1L, 1L))
+  expect_equal(round(out$fold, 2), c(4.96, 1.98, 2.07))
+  expect_equal(round(out$fisher_p, 3), c(0.005, 0.413, 0.399))
   expect_equal(attr(out, "n_already_genome_wide"), 3L)
+  # 背景里达 5e-8 的位点数；条件化把背景从 66/655 变成 63/652
+  expect_equal(attr(out, "n_background_genome_wide"), 3L)
+  expect_equal(out$background_loci, c(655L, 655L, 652L))
+  expect_equal(out$background_known, c(66L, 66L, 63L))
 })
 
 test_that("A has a fixed ceiling where fold's ceiling moves with list density", {

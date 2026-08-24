@@ -9,3 +9,10 @@ excluding loci with outcome P < 0.0001  : 2 loci, 1 known, fold 4.96, Fisher P 0
 reference: all loci                 : 8 loci, 4 known, fold 4.96, Fisher P 0.004841
 
 wrote 141a
+
+------------------------------------------------------------------------
+R1.3 background also restricted : 5 loci, 1 known, bg 63/652, fold 2.07, P 0.3993
+R1.4 merge loci sharing a lead SNP: 7 regions, 3 known, bg 52/641, fold 5.28, P 0.01398
+     the 3 genome-wide-significant bounded loci are 2 distinct published regions
+
+wrote 141b_reviewer_conditioning.tsv

@@ -109,6 +109,18 @@ want += [
     ("S42 loci remaining after removal", f"{int(_gws.n_loci)}"),
     ("S42 genome-wide-significant loci", f"{int(_thr.n_genome_wide_sig)}"),
 ]
+
+# --- The two conditionings a third-party review asked for. Both now appear in
+# the Results and in S42, so both are reconciled here.
+_cond = pd.read_csv(f"{MR}/141b_reviewer_conditioning.tsv", sep="	")
+_bg = _cond[_cond.analysis == "gws-removed, background restricted"].iloc[0]
+_mg = _cond[_cond.analysis == "merge loci sharing a lead SNP"].iloc[0]
+want += [
+    ("S42 fold, background also restricted", f"{_bg.fold:.2f}"),
+    ("S42 fold, loci merged by shared lead SNP", f"{_mg.fold:.2f}"),
+    ("S42 regions after merging", f"{int(_mg.n_loci)}"),
+    ("S42 background after merging", f"{int(_mg.bg_loci)}"),
+]
 bad = 0
 for label, v in want:
     # The manuscript rounds some folds to one decimal, so either rendering
