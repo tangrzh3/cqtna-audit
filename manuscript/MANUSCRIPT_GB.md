@@ -22,7 +22,8 @@ lists, all five diseases with a usable list show own-list enrichment surviving
 Holm correction, but only melanoma and lung meet the full pre-specified
 criterion: colorectal is inconclusive on locus count, breast and prostate void on
 their mismatched controls. Colocalisation was poor here, 2 of 284 records above
-PP.H4 0.8 — which the identity makes likely but does not require. Naming the gene
+PP.H4 0.8, which is consistent with outcome-dominated selection without being
+implied by it. Naming the gene
 fails separately: at ten melanoma loci with an accepted causal gene the pipeline
 names six, and at MC1R spans sixteen genes without naming MC1R. Replacing the
 outcome with a higher-powered meta-analysis replaced the list entirely, two lists
@@ -155,9 +156,11 @@ against a background of 52 of 641: 5.28-fold, P = 0.014 (Supplementary S42).
 The direction is unchanged and the evidence is weaker than the unmerged count
 suggests, which is the honest reading of a partition that bounds window width
 without guaranteeing that adjacent windows are independent. The same
-decomposition explains the colocalisation result reported below, where 2 of 284
-records reach PP.H4 > 0.8: signals that are the outcome's own do not colocalise
-with an exposure that did not generate them.
+decomposition is consistent with the colocalisation result reported below, where
+2 of 284 records reach PP.H4 > 0.8. It does not imply it: a variant that drives
+both expression and disease can colocalise well however the significance arose,
+so the low rate is an empirical finding compatible with outcome-dominated
+selection rather than a consequence of it.
 
 Loci here
 are the non-recursive fixed-anchor partition fixed in Supplementary S37 — a
@@ -167,9 +170,10 @@ dense resource into blocks of tens of megabases and is reported only where we
 reproduce published numbers (Methods). Applied unchanged to five other cancers,
 each scored against its own known-locus list rather than against melanoma's
 (Supplementary S41), the attribution recurs: own-list enrichment survives Holm
-correction across all six outcomes that have a usable list — melanoma 4.96-fold
+correction across all five outcomes that have a usable list — melanoma 4.96-fold
 (P = 0.0097 corrected), lung 3.85-fold (0.0138), colorectal 3.15-fold (0.0029),
-breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵) — and the six
+breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
+list that clears the size and build-rate gates and is not scored. The five
 outcomes share almost no significant loci with one another (melanoma and lung
 share none; 5 of 69 distinct loci are significant in more than one outcome). Two
 qualifications bound this. The first is that folds are not comparable across
