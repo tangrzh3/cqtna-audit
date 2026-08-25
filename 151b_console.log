@@ -1,0 +1,23 @@
+cached full texts scanned: 154
+  mention cis-eQTL/cis-QTL: 85
+
+estimator named anywhere in the paper:
+  Wald ratio          68 / 154  (44%)
+  IVW                129 / 154  (84%)
+  weighted median    104 / 154  (68%)
+  MR-Egger           111 / 154  (72%)
+  mode-based          73 / 154  (47%)
+
+  names Wald and no multi-instrument estimator :   3  (2%)
+  names any multi-instrument estimator         : 130  (84%)
+  states a single-variant cis instrument       :  71  (46%)
+  names no estimator this scan recognises      :  21  (14%)
+
+  of the papers naming a multi-instrument estimator,
+  65 also state a single-variant cis instrument.
+
+wrote 151a_estimator_usage.tsv
+
+NOTE: phrase matching cannot say which estimator produced the candidate
+      list when several are named. The single-instrument count is a lower
+      bound on the identity's reach, not a rate.
