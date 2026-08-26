@@ -17,13 +17,18 @@ Everything upstream is held identical to step55, including its column subset, ro
 filters, seed and replicate count, because PC requires reproducing 85.8% / 22.8%
 before anything else is interpreted.
 
-Outputs: 101a_zdist.tsv, 101b_matched.tsv, 101c_stratified.tsv
+Outputs: 101a_zdist.tsv, 101b_matched.tsv, 101c_stratified.tsv, 101d_zonly_model.tsv
 """
+import os
+import sys
+
 import numpy as np
 import pandas as pd
 from scipy import stats
 
-MR = r"D:/R_ex/MR"
+# Resolvable outside the author's machine, like the other packet scripts.
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 rng = np.random.default_rng(1)          # identical to step55
 N_REP = 400                             # identical to step55
 FDR_THR = 0.05
@@ -159,7 +164,7 @@ if not pc_pass:
     raise SystemExit("\n  PC failed: nothing below is interpreted (S28 section 6, D).")
 
 # ---------------------------------------------------------------- per unit
-out_z, out_m, out_s = [], [], []
+out_z, out_m, out_s, out_2 = [], [], [], []
 for unit in ("gene", "locus"):
     key, fk, fn, zmap = UNITS[unit]
     freq = FREQ[unit]
@@ -243,6 +248,12 @@ for unit in ("gene", "locus"):
           f"{100*gap_obs:+.1f} pp observed -> |z| accounts for {100*expl:.0f}%")
     print(f"      logit coefficients: log|z| {coef[1]:+.2f}, is_novel {coef[2]:+.2f} "
           f"(point estimates only, n={len(units)}; no significance claimed)")
+    # M2 is the number the manuscript quotes ("a model using |z| with no
+    # class label reproduces 68-80% of the gap"). It was printed and never
+    # written, so no figure could draw it and no audit could reconcile it.
+    out_2.append(dict(unit=unit, n_units=len(units), gap_observed=gap_obs,
+                      gap_predicted_zonly=gap_pred, frac_explained=expl,
+                      coef_log_z=coef[1], coef_is_novel=coef[2]))
 
     # ---- M3 tertile-stratified
     t1, t2 = np.percentile(np.array([zmap[u] for u in units]), [33.3, 66.7])
@@ -280,4 +291,5 @@ for unit in ("gene", "locus"):
 pd.DataFrame(out_z).to_csv(f"{MR}/101a_zdist.tsv", sep="\t", index=False)
 pd.DataFrame(out_m).to_csv(f"{MR}/101b_matched.tsv", sep="\t", index=False)
 pd.DataFrame(out_s).to_csv(f"{MR}/101c_stratified.tsv", sep="\t", index=False)
-print("\nwrote 101a / 101b / 101c")
+pd.DataFrame(out_2).to_csv(f"{MR}/101d_zonly_model.tsv", sep="\t", index=False)
+print("\nwrote 101a / 101b / 101c / 101d")

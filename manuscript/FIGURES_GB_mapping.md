@@ -152,6 +152,10 @@ Soskic×{melanoma, HCC-high, HCC-low} + eQTLGen×{melanoma, **lung**, **colorect
 
 ### 1. ★ "十一个生物学模块无一超过组成匹配零模型"——**这句话是错的**
 
+> **已处理**（2026-08-25 核实）：`MANUSCRIPT_GB.md` 里已无这句话（压缩时连同整节移入 S47），
+> `SUPP_worked_example.md` 第 56 行与图注均已改成下面建议的写法，**与 `43c` 逐行一致**。
+> `Fig7_axis_chromatin` panel b 与正文**不再冲突**。以下原文保留作记录。
+
 出现在：`MANUSCRIPT_GB.md` 第 517 行正文 ·
 `MANUSCRIPT_v2_dual_thread.md` 第 1756 行 Fig9 图注（`MANUSCRIPT_assembled.md` 同源）。
 
@@ -187,6 +191,9 @@ biological modules only the Proliferation positive control and OXPHOS exceed it"
 
 ### 2. 同病种复制队列的 +0.56 与发现队列的 +0.74 **不是同一个 signature**
 
+> **已处理**（2026-08-25 核实）：`MANUSCRIPT_GB.md` 不引这对数；`MANUSCRIPT_NC.md`
+> 与 `MANUSCRIPT_assembled.md` 已统一为 **+0.55 对 +0.74**（均 `locked16`）。
+
 正文："pre-treatment matches in magnitude in the same-disease cohort
 (Δ = +0.56 versus +0.74)"。
 
@@ -200,6 +207,12 @@ biological modules only the Proliferation positive control and OXPHOS exceed it"
 与 `79a` 的主定义"CD4_Tcells（作者注释，主）"口径一致。）
 
 ### 3. "仅用 \|z\| 的模型重现 68–80% 的差距"没有落盘的表
+
+> **已处理**（2026-08-25）：`step101` 其实**算了**这个量（M2 块），只是只 `print`
+> 不落盘。已改为写出 **`101d_zonly_model.tsv`**（`unit` / `gap_observed` /
+> `gap_predicted_zonly` / `frac_explained` / 两个 logit 系数），重跑后
+> **PC 逐位通过，101a–101c 字节不变**，M2 为 locus 68% / gene 80%，与正文逐字吻合。
+> `step127` 新增 §1c 把这对数与 `101d` 对账。图上仍不画，但**现在是选择，不是缺表**。
 
 `step101_effect_size_matching.py` 不输出这个量，`101a`–`101c` 里也没有。
 `Fig3_power_stability` 因此不画它，只画 `101a`/`101b` 里有的量
