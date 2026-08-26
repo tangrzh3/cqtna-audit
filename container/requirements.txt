@@ -1,0 +1,9 @@
+# Pinned to the versions recorded in the manuscript's Software section.
+# statsmodels is deliberately absent: OLS and Benjamini-Hochberg are implemented
+# directly in numpy because the installed statsmodels was incompatible with the
+# installed scipy, and switching one of them changes numbers.
+numpy==2.0.0
+pandas==2.2.2
+scipy==1.18.0
+pyarrow==25.0.0
+matplotlib==3.11.1
