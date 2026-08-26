@@ -578,11 +578,7 @@ statement about precision rather than amplitude; the axis it marks is not
 specific to it; the tissue in which the signal is largest is not the tissue the
 instrument came from; the functional contrasts dissolve into lineage composition
 once that is matched; and the patient-level result appears in each cohort and
-replicates in none twice. None of this makes TPI1 a target and we do not present
-it as one. Its value here is that it puts a cost on each rung of a ladder the
-identity predicts will not be climbable, and every one of those costs was paid
-before we understood why.
-
+replicates in none twice.
 
 The six rungs are recorded in full in Supplementary S47 and summarised here.
 Of 28 glycolytic genes, 3 are instrumentable in this exposure resource, 2 remain
@@ -634,6 +630,19 @@ Recall was estimated by probing negatives for near-miss wording rather than by
 reading all 152 in full, so it bounds sensitivity from above; and a full-text
 audit measures reporting, not practice.
 
+How far the identity reaches into this literature is also measurable on the same
+corpus, and we measured it rather than assuming it. Of the 154 full texts, **71
+(46%) state somewhere that their cis instrument is a single variant and 130 (84%)
+name a multi-instrument estimator**; among the 85 that discuss cis-eQTLs at all,
+48 (56%) state a single-variant cis instrument. **The two counts are not
+complements: 65 of the 130 papers naming a multi-instrument estimator also state
+a single-variant cis instrument**, because running IVW on trans or on a relaxed
+instrument set while the cis nomination rests on one variant per gene is a common
+combination. Phrase matching cannot say which estimator produced a given
+candidate list, so 46% is a lower bound on the identity's reach and 84% an upper
+bound on the literature that escapes it, and **neither is a rate**
+(Supplementary S51).
+
 ---
 
 ## Discussion
@@ -660,8 +669,11 @@ since a variant that drives both expression and disease can colocalise well.
 We think this reframing is the useful contribution, and we state plainly what it
 is not. The reduction itself is elementary and not new. It does not apply to
 multi-instrument estimators, where combining instruments breaks the identity —
-our relaxed IVW and weighted-median analyses are outside it. It does not make MR
-effect estimates wrong; the sign and the scale genuinely come from the exposure,
+our relaxed IVW and weighted-median analyses are outside it. How much of the
+literature that exempts is a quantity we can bound but not settle: 46% of our
+154-paper corpus states a single-variant cis instrument and 84% names a
+multi-instrument estimator, and 65 papers do both (Supplementary S51). It does
+not make MR effect estimates wrong; the sign and the scale genuinely come from the exposure,
 and only the significance claim does not. And it does not show that the
 sub-threshold part of a nomination list is spurious: at five loci we are
 underpowered to say anything about it, which is a different statement from
@@ -746,8 +758,9 @@ demonstration that instrument availability and biological importance are
 separable: the strongest enzyme in the functional data carries no instrument, and
 the gene that does carry one is principally expressed by tumour. The complete
 record of which claims about it were raised, tested and withdrawn, together with
-the selection denominators at gene, pathway and mechanism level and the twelve
-pre-registration documents, is Supplementary S12 and S18–S40.
+the selection denominators at gene, pathway and mechanism level, is
+Supplementary S12; the fourteen pre-registration documents are enumerated in
+Methods.
 
 **Relation to existing guidance.** These eight are additions to, not a
 replacement for, current cis-MR practice. Existing guidance already stresses that
@@ -1180,6 +1193,14 @@ probing negatives for near-miss wording rather than by reading all 152 in full,
 so it bounds sensitivity from above; and a full-text audit measures reporting,
 not practice.
 
+On the same corpus we counted, by phrase matching, whether each paper names a
+Wald ratio, IVW, weighted median, MR-Egger or mode-based estimator and whether
+it states anywhere that its cis instrument is a single variant. A paper can
+name several, and phrase matching cannot identify which one produced its
+candidate list; the single-instrument count is therefore reported as a lower
+bound on the identity's reach and the multi-instrument count as an upper bound
+on the literature outside it (Supplementary S51).
+
 ### Pre-specification and stopping rules
 
 The following were fixed before the analyses they govern and are reported because
@@ -1190,10 +1211,18 @@ pre-specified immune-module analysis were discarded under this rule. Kill
 criteria, test direction and window sizes were written into each script before it
 ran. A negative result was not followed by a search for a positive one in the
 same data. Simulations require calibration against a quantity not used to build
-them. Twelve pre-registration documents (Supplementary S9, S18, S20, S21, S22,
-S24, S25, S28, S29, S30, S32, S33) each carry a reading table written before the
-run, and only their results register was completed afterwards; deviations are
-logged in the document they belong to.
+them. Fourteen pre-registration documents (Supplementary S9, S18, S20, S21, S22,
+S24, S25, S28, S29, S30, S32, S33, S34, S35) each carry a reading table written
+before the run, and only their results register was completed afterwards;
+deviations are logged in the document they belong to. Five further documents
+sit beside that series and are not pre-registrations, which each of them says
+in its own header: a frozen decision record on the locus partition (S37); an
+estimand frozen except for one tolerance that remained an analysis choice
+(S38); a post-hoc exploratory control (S39); an external-validation protocol
+adopted but not registered, on three counts of its own — no qualifying cohort
+exists, no registry DOI was obtained, and no environment was locked beforehand
+(S40); and a transport test whose primary endpoint was fixed in advance but
+which we do not call pre-registered, because it carries no registry DOI (S41).
 
 ### Software
 
@@ -1214,11 +1243,15 @@ intermediate result tables and the fourteen pre-registration documents will be
 deposited at ⟨repository DOI⟩, comprising every numbered analysis and figure
 script together with the tables needed to reproduce each figure and every number
 reported in the text. CQTNA, a runnable implementation of the diagnostics in the
-Discussion, is included in the deposit.
+Discussion, is included in the deposit, as is a container definition pinning
+R, Python and the two external binaries to the versions used here. The
+analyses were run on Windows and the container is Linux, so it fixes the
+software versions and not the machine; the deposit states which numbers were
+checked across the two and which were not.
 
 ## Supplementary information
 
-S9–S47, including the fourteen pre-registration documents with their reading tables
+S9–S51, including the fourteen pre-registration documents with their reading tables
 and results registers; **S41**, the transport grid scoring six diseases against
 their own reference lists; **S42**, the estimator identity, its numerical
 verification and the decomposition of the attribution by outcome significance;
@@ -1226,9 +1259,12 @@ verification and the decomposition of the attribution by outcome significance;
 attribution statistic; **S44**, the seven-way method benchmark; **S45**, the
 fine-mapped decomposition and two failure modes of proxy-LD fine-mapping;
 **S46**, the diagnostic's own type I error, power and void rate; **S47**, the
-worked example in full; and the literature-audit corpus with every PMID, both
-scoring passes, the two-coder subsample and the coding rules;
-the multiple-testing unit sensitivity analysis; the
+worked example in full; **S48**, the crossed grid cell by cell with its
+registration history; **S49**, the eight checks in full; **S50**, the
+multiple-testing unit sensitivity analysis; **S51**, how far the identity
+reaches into the audited literature, with the bounds that measurement admits;
+and the literature-audit corpus with every PMID, both
+scoring passes, the two-coder subsample and the coding rules; the
 self-administered attribution check; the complete record of target-substantiation
 attempts with the selection denominators and every stopping-rule instance; the
 technical account of the two processing errors; the replication-cohort search;

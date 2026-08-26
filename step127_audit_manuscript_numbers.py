@@ -136,6 +136,69 @@ for label, v in want:
 
 print()
 print("=" * 74)
+print("1b. the identity's literature reach (S51), checked as rendered")
+print("=" * 74)
+# These are counts out of 154, so a bare "71" would match anything. They are
+# checked in the rendered form the manuscript actually prints, with the
+# percentage recomputed from the table rather than trusted from the text.
+_eu = pd.read_csv(_find("151a_estimator_usage.tsv"), sep=TAB)
+_n = len(_eu)
+# NB: _eu.mode is DataFrame.mode, the method -- these columns must be reached
+# by name, not by attribute.
+_multi_mask = (_eu["ivw"] | _eu["wmedian"] | _eu["egger"] | _eu["mode"]).astype(bool)
+_single = int(_eu["single"].sum())
+_multi = int(_multi_mask.sum())
+_both = int((_multi_mask & _eu["single"].astype(bool)).sum())
+_cis = _eu[_eu["cis"] == 1]
+_cis_single = int(_cis["single"].sum())
+
+
+def _pc(k, d):
+    return "%.0f" % (100.0 * k / d)
+
+
+reach = [
+    ("corpus size", "%d full texts" % _n),
+    ("states a single-variant cis instrument",
+     "%d (%s%%)" % (_single, _pc(_single, _n))),
+    ("names a multi-instrument estimator",
+     "%d (%s%%)" % (_multi, _pc(_multi, _n))),
+    ("cis-eQTL papers stating a single variant",
+     "%d (%s%%)" % (_cis_single, _pc(_cis_single, len(_cis)))),
+    ("the overlap, which is the point",
+     "%d of the %d" % (_both, _multi)),
+]
+for label, s in reach:
+    # Line wrapping is arbitrary in the source markdown, so a space in the
+    # expected phrase matches any run of whitespace including a newline.
+    # A plain substring test fails when the count and its percentage are
+    # split across a line break, which is the same text.
+    hit = re.search(r"\s+".join(re.escape(w) for w in s.split(" ")), txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-16s   %s" % ("OK " if hit else "MISSING", s, label))
+
+print()
+print("=" * 74)
+print("1c. the |z|-only model share (S28), against 101d")
+print("=" * 74)
+# The manuscript says a |z|-only model reproduces "68-80% of the gap". Until
+# now that pair of numbers existed only in the pre-registration's prose table:
+# step101 printed it and wrote nothing, so no audit could reach it and the
+# figure script refused to draw it. 101d carries it now.
+_zo = pd.read_csv(_find("101d_zonly_model.tsv"), sep=TAB)
+_lo = int(round(100 * _zo.frac_explained.min()))
+_hi = int(round(100 * _zo.frac_explained.max()))
+for label, s in [("|z|-only model share", "%d–%d%% of the gap" % (_lo, _hi)),
+                 ("the unattributed remainder",
+                  "remaining %d–%d%%" % (100 - _hi, 100 - _lo))]:
+    hit = re.search(r"\s+".join(re.escape(w) for w in s.split(" ")), txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-22s   %s" % ("OK " if hit else "MISSING", s, label))
+
+print()
+print("=" * 74)
 print("2. legacy-partition numbers that must NOT appear")
 print("=" * 74)
 # each entry: value, and the substrings whose presence makes an occurrence legitimate
