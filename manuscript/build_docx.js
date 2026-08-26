@@ -37,10 +37,29 @@ const DOUBLE = { line: 480, after: 0 };          // 240 = single
 const H = [null, D.HeadingLevel.HEADING_1, D.HeadingLevel.HEADING_1,
            D.HeadingLevel.HEADING_2, D.HeadingLevel.HEADING_3];
 
+// The manuscript now carries a full legend per figure in its own Figures
+// section. Emit those with the images at the end rather than twice: once as
+// running text and once as a hardcoded one-liner under the plate.
+const figStart = blocks.findIndex(x => x.t === "h" && /^Figures$/.test(x.text || ""));
+const figEnd = blocks.findIndex((x, i) => i > figStart && x.t === "h" && /^Methods$/.test(x.text || ""));
+const LEGEND = {};
+const FIGNOTE = [];
+if (figStart >= 0 && figEnd > figStart) {
+  for (let i = figStart + 1; i < figEnd; i++) {
+    const x = blocks[i];
+    if (x.t !== "p") continue;
+    const m = /^\*\*Fig\.\s*(\d+)\s*\|/.exec(x.text);
+    if (m) LEGEND[Number(m[1])] = x.text;
+    else FIGNOTE.push(x.text);
+  }
+}
+
 const children = [];
 let title = null;
 
-for (const b of blocks) {
+for (let bi = 0; bi < blocks.length; bi++) {
+  const b = blocks[bi];
+  if (figStart >= 0 && bi >= figStart && bi < figEnd) continue;
   if (b.t === "h" && b.level === 1 && title === null) { title = b.text; continue; }
 
   if (b.t === "h") {
@@ -112,10 +131,10 @@ FIGS.forEach(([stem, caption], idx) => {
     alignment: D.AlignmentType.CENTER,
     spacing: { before: 120, after: 80 },
   }));
+  const legend = LEGEND[idx + 1] || ("**Fig. " + (idx + 1) + " | " + caption + "**");
   children.push(new D.Paragraph({
     children: [
-      new D.TextRun({ text: "Figure " + (idx + 1) + ". ", bold: true }),
-      ...runs(caption),
+      ...runs(legend),
       new D.TextRun({ text: "  [" + stem + ".pdf / .png]", italics: true, size: 18 }),
     ],
     spacing: { line: 240, after: 240 },
@@ -123,6 +142,9 @@ FIGS.forEach(([stem, caption], idx) => {
   if (idx < FIGS.length - 1)
     children.push(new D.Paragraph({ children: [new D.PageBreak()] }));
 });
+for (const t of FIGNOTE) {
+  children.push(new D.Paragraph({ children: runs(t), spacing: { line: 240, after: 160 } }));
+}
 
 const doc = new D.Document({
   creator: "cqtna audit project",
