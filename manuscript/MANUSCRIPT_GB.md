@@ -591,19 +591,23 @@ replicates in none twice.
 The six rungs are recorded in full in Supplementary S47 and summarised here.
 Of 28 glycolytic genes, 3 are instrumentable in this exposure resource, 2 remain
 analysable against this outcome after harmonisation, and 1 yields a nominal
-association; the full gene-by-profile availability matrix is Supplementary S13. For that gene, TPI1, a usable instrument exists at 16 h and at no
+association; the full gene-by-profile availability matrix is Supplementary S13
+(Fig. 5). For that gene, TPI1, a usable instrument exists at 16 h and at no
 other timepoint, but the effect estimate is largest at rest and merely noisier
-there, so the window is a statement about precision rather than amplitude. The
+there, so the window is a statement about precision rather than amplitude (Fig. 6). The
 axis the gene marks is enriched 21.3-fold for glycolysis and is not specific to
 TPI1, which is what a leave-one-out reconstruction with the gene removed from
-both the defining score and the enrichment family shows (Supplementary S31). In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
-cells than in the CD4+ T cells the instrument came from, in 16 of 16 patients.
+both the defining score and the enrichment family shows (Supplementary S31;
+Fig. 7). In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
+cells than in the CD4+ T cells the instrument came from, in 16 of 16 patients; the
+compartment attribution across cell-type, within-patient paired, spatial and
+bulk data is Fig. 8.
 Splitting cells by glycolytic score splits them by lineage purity, and the
 helper and regulatory differences collapse once lineage composition is matched
 at cell level. In patients, both arms are significant in the discovery cohort
 and the result appears in each of the three cohorts without replicating in any
 two of them; the locked signature is Supplementary S17 and the inference,
-including all three treatments of repeated patients, Supplementary S19.
+including all three treatments of repeated patients, Supplementary S19 (Fig. 9).
 
 **Nothing on that ladder makes TPI1 a target, and we do not present it as one.**
 Its value here is the price it puts on each rung of a ladder the identity
