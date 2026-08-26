@@ -143,6 +143,8 @@ def main(argv):
     # substitutions: an ORCID has nowhere to go in a plain name string.
     if name or given or family:
         _fix_person(name, given, family, changed)
+    if name or email:
+        _fill_title_page(name, email, changed)
     if orcid:
         _add_orcid(orcid, changed)
     if github:
@@ -172,8 +174,19 @@ def main(argv):
         print("  it authoritative. Re-run R CMD check before tagging.")
         print("[!] cqtna.Rcheck/ was deliberately not touched; it is a build product.")
 
+    left2 = _brackets(["manuscript/MANUSCRIPT_GB.md", "DEPOSIT.md",
+                       "cqtna_r/RELEASE.md"])
+    if left2:
+        print()
+        print("=" * 74)
+        print("other placeholders still bracketed")
+        print("=" * 74)
+        for path, what in left2:
+            print("  %-40s  %s" % (path, what))
+        bad += len(left2)
+
     print("\n%s" % ("all sites filled" if bad == 0
-                    else "%d file(s) still carry a placeholder" % bad))
+                    else "%d placeholder(s) still outstanding" % bad))
     return 0 if bad == 0 else 1
 
 
@@ -199,6 +212,34 @@ def _fix_person(name, given, family, changed):
         write(p, t2)
         changed.append(p)
 
+
+def _fill_title_page(name, email, changed):
+    """The manuscript has no author block until someone writes one. What these
+    two flags can fill is filled; the rest stays visibly bracketed."""
+    p = "manuscript/MANUSCRIPT_GB.md"
+    t0 = t = read(p)
+    if name:
+        t = t.replace("⟨author list⟩", name)
+        t = t.replace("⟨corresponding author⟩", name)
+    if email:
+        t = t.replace("⟨corresponding email⟩", email)
+    if t != t0:
+        write(p, t)
+        changed.append(p)
+
+
+def _brackets(paths):
+    """Every remaining angle-bracket placeholder, wherever it is. The DOI and the
+    identity are not the only blanks -- funding, contributions, competing
+    interests and the affiliations are too, and a submission that reaches a
+    journal with one of them still bracketed is a desk reject."""
+    out = []
+    for path in paths:
+        if not os.path.exists(os.path.join(MR, path)):
+            continue
+        for m in re.finditer("⟨([^⟩]{1,120})⟩", read(path)):
+            out.append((path, m.group(1).split(chr(10))[0][:70]))
+    return out
 
 def _add_orcid(orcid, changed):
     """ORCID has a field of its own in three of the four metadata files."""

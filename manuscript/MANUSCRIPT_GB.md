@@ -1,5 +1,11 @@
 # Target nomination from single-variant cis-eQTL Mendelian randomization re-reads the outcome GWAS: an audit across six diseases and two exposure resources
 
+⟨author list⟩
+
+⟨affiliations⟩
+
+**Correspondence**: ⟨corresponding author⟩, ⟨corresponding email⟩
+
 ## Abstract
 
 **Background.** Context-specific eQTLs with Mendelian randomization are widely
@@ -27,9 +33,9 @@ implied by it. Naming the gene
 fails separately: at ten melanoma loci with an accepted causal gene the pipeline
 names six, and at MC1R spans sixteen genes without naming MC1R. Replacing the
 outcome with a higher-powered meta-analysis replaced the list entirely, two lists
-from identical exposure data sharing no genes. Across 152 comparable studies the
-locus-attribution check appeared in 2, and in a 46-paper two-coder subsample in
-none.
+from identical exposure data sharing no genes. In a 46-paper two-coder subsample of 152 comparable
+studies, no paper performed the locus-attribution check (0% [0–3.4]);
+automated matching for it had a measured precision of 0.00.
 
 **Conclusions.** The reproducible part of such a list is the part that is not a
 discovery, and the part that would be a discovery carries no locus-level evidence
@@ -131,7 +137,9 @@ pigmentation or naevus locus — VPS9D1-AS1 50 kb from MC1R, CDK10 48 kb from th
 MC1R R151C variant, PARP1 5–14 kb from PARP1 — with no immune signal at
 FDR < 0.05 at all. Under the meta outcome, counting bounded loci rather than
 gene records, 4 of 8 significant loci were known-locus loci: a 4.96-fold
-enrichment over the 10.1% background (one-sided P = 0.0048; Fig. 1).
+enrichment over the 10.1% background (one-sided P = 0.0048; Fig. 1). The same
+enrichment counted at the record level, which is the unit the source literature
+reports, is Supplementary S10.
 
 **That enrichment is carried entirely by loci the outcome GWAS had already found
 without any exposure data.** Three of the eight reach 5 × 10⁻⁸ unaided — two at
@@ -210,7 +218,7 @@ each release — fell inside the registered intervals. The known-locus part of t
 list is recovered early and then does not move: the same five genes constitute the
 significant list at three consecutive releases without change, four already
 present at 47% of reference power. And **no novel-locus gene reaches FDR < 0.05 in
-any release**. Because releases are nested, agreement between them exceeds that
+any release**; the per-release lists are in Supplementary S11. Because releases are nested, agreement between them exceeds that
 between independent studies of equal size, so this is an upper bound on stability.
 
 That series stops where it does for a reason. The release after it, R13, retired
@@ -583,17 +591,19 @@ replicates in none twice.
 The six rungs are recorded in full in Supplementary S47 and summarised here.
 Of 28 glycolytic genes, 3 are instrumentable in this exposure resource, 2 remain
 analysable against this outcome after harmonisation, and 1 yields a nominal
-association. For that gene, TPI1, a usable instrument exists at 16 h and at no
+association; the full gene-by-profile availability matrix is Supplementary S13. For that gene, TPI1, a usable instrument exists at 16 h and at no
 other timepoint, but the effect estimate is largest at rest and merely noisier
 there, so the window is a statement about precision rather than amplitude. The
 axis the gene marks is enriched 21.3-fold for glycolysis and is not specific to
-TPI1. In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
+TPI1, which is what a leave-one-out reconstruction with the gene removed from
+both the defining score and the enrichment family shows (Supplementary S31). In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
 cells than in the CD4+ T cells the instrument came from, in 16 of 16 patients.
 Splitting cells by glycolytic score splits them by lineage purity, and the
 helper and regulatory differences collapse once lineage composition is matched
 at cell level. In patients, both arms are significant in the discovery cohort
 and the result appears in each of the three cohorts without replicating in any
-two of them.
+two of them; the locked signature is Supplementary S17 and the inference,
+including all three treatments of repeated patients, Supplementary S19.
 
 **Nothing on that ladder makes TPI1 a target, and we do not present it as one.**
 Its value here is the price it puts on each rung of a ladder the identity
@@ -607,7 +617,9 @@ text, of which 152 were scorable. In that sample, **not one paper in a random 30
 subsample compared its significant signal against previously reported loci for
 its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 the candidate list depends on the outcome GWAS used**. About 59% performed
-colocalisation and 47% used SMR or HEIDI.
+colocalisation and 47% used SMR or HEIDI. Three studies using this framework
+closely enough to compare item by item are set beside ours in Supplementary
+S16.
 
 Those are corrected figures. Automated matching returned 7.9% and 35.5%; **two
 coders independently scored a random 30% subsample (46 papers, 92 judgements),
@@ -626,9 +638,8 @@ Agreement was 97.8% on each criterion with one disagreement each; Cohen's κ was
 since with one positive in 46 the expected agreement equals the observed**, which
 is why the raw agreement is given beside it. Both disagreements were adjudicated
 jointly and both resolved against the first coder; κ is computed before that.
-Recall was estimated by probing negatives for near-miss wording rather than by
-reading all 152 in full, so it bounds sensitivity from above; and a full-text
-audit measures reporting, not practice.
+Recall was bounded from above rather than measured, and a full-text audit
+measures reporting, not practice (Methods).
 
 How far the identity reaches into this literature is also measurable on the same
 corpus, and we measured it rather than assuming it. Of the 154 full texts, **71
@@ -1249,6 +1260,46 @@ analyses were run on Windows and the container is Linux, so it fixes the
 software versions and not the machine; the deposit states which numbers were
 checked across the two and which were not.
 
+## Declarations
+
+### Ethics approval and consent to participate
+
+This study analysed only publicly available data: published or consortium-released
+genome-wide association summary statistics, published cis-eQTL summary statistics,
+and de-identified single-cell, spatial and chromatin datasets deposited in public
+repositories. No new human data were collected and no individual-level
+participant data were accessed. Ethical approval and informed consent were
+obtained by the original studies and are described in their primary publications
+and repository records, which are cited by accession in the Methods.
+
+### Consent for publication
+
+Not applicable.
+
+### Availability of data and materials
+
+All datasets are public and identified by accession in the Methods. Analysis
+code, intermediate result tables, the pre-registration documents and the
+container definition are in the deposit described under Data and code
+availability.
+
+### Competing interests
+
+⟨competing interests statement⟩
+
+### Funding
+
+⟨funding statement, including grant numbers and the role of each funder in
+design, analysis, interpretation and writing⟩
+
+### Authors' contributions
+
+⟨author contributions, by initials⟩
+
+### Acknowledgements
+
+⟨acknowledgements⟩
+
 ## Supplementary information
 
 S9–S51, including the fourteen pre-registration documents with their reading tables
@@ -1260,16 +1311,17 @@ attribution statistic; **S44**, the seven-way method benchmark; **S45**, the
 fine-mapped decomposition and two failure modes of proxy-LD fine-mapping;
 **S46**, the diagnostic's own type I error, power and void rate; **S47**, the
 worked example in full; **S48**, the crossed grid cell by cell with its
-registration history; **S49**, the eight checks in full; **S50**, the
-multiple-testing unit sensitivity analysis; **S51**, how far the identity
-reaches into the audited literature, with the bounds that measurement admits;
-and the literature-audit corpus with every PMID, both
-scoring passes, the two-coder subsample and the coding rules; the
-self-administered attribution check; the complete record of target-substantiation
-attempts with the selection denominators and every stopping-rule instance; the
-technical account of the two processing errors; the replication-cohort search;
-the colocalisation window-and-prior sensitivity analysis; and the literature
-audit.
+registration history; **S49**, the eight checks in full; **S50**, which
+inference unit the significance belongs to; and **S51**, how far the identity
+reaches into the audited literature, with the bounds that measurement admits.
+Earlier items include the literature-audit corpus with every PMID, both scoring
+passes, the two-coder subsample and the coding rules (S23); the multiple-testing
+unit sensitivity analysis, in which the significant list is recomputed over four
+units by minimum-p and by Simes (S26); the self-administered attribution check
+(S27); the complete record of target-substantiation attempts with the selection
+denominators and every stopping-rule instance, and the technical account of the
+two processing errors (S12); the replication-cohort search (S14); and the
+colocalisation window-and-prior sensitivity analysis (S15).
 
 ## References
 
