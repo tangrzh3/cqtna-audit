@@ -394,3 +394,10 @@ JASPAR、chromVAR、GWAS Catalog、Open Targets、TISCH、Xena、TCGA-CDR、DepM
 来做文献对位，NC 的 Discussion 是纯自证结构、没有对应句子。
 **要不要在 NC 补这几句对位讨论，是取舍问题，留给作者定**——
 NC 正文有字数上限，加了就得减别的。
+
+- Randolph HE, Fiege JK, Thielen BK, Mickelson CK, Shiratori M, Barroso-Batista J,
+  Langlois RA, Barreiro LB. Genetic ancestry effects on the response to viral
+  infection are pervasive but cell type specific. *Science* 2021;374:1127–1133.
+  doi:10.1126/science.abg0928 · PMID 34822289 · PMC8957271
+  （核实：2026-08-26，NCBI E-utilities esummary；用于正文“three further exposure
+  resources”中的 eQTL Catalogue QTD000588）
