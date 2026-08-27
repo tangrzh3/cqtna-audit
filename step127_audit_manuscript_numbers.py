@@ -157,16 +157,19 @@ def _pc(k, d):
     return "%.0f" % (100.0 * k / d)
 
 
+# The manuscript no longer reports these as bounds -- the phrase count fell
+# from 71 to 10 under a same-sentence requirement, so what it now reports is
+# the collapse itself. These are the numbers that collapse.
+_nocis = int((_eu["single"].astype(bool) & ~_eu["cis"].astype(bool)).sum())
+_near = int(_eu["single_near_cis"].sum())
+_sent = int(_eu["single_same_sentence"].sum())
 reach = [
-    ("corpus size", "%d full texts" % _n),
-    ("states a single-variant cis instrument",
-     "%d (%s%%)" % (_single, _pc(_single, _n))),
-    ("names a multi-instrument estimator",
-     "%d (%s%%)" % (_multi, _pc(_multi, _n))),
-    ("cis-eQTL papers stating a single variant",
-     "%d (%s%%)" % (_cis_single, _pc(_cis_single, len(_cis)))),
-    ("the overlap, which is the point",
-     "%d of the %d" % (_both, _multi)),
+    ("corpus size", "%d cached full texts" % _n),
+    ("single-variant phrase anywhere", "%d contain a phrase" % _single),
+    ("names a multi-instrument estimator", "%d name a multi-instrument" % _multi),
+    ("of those, no cis-eQTL mention at all", "%d of the 71" % _nocis),
+    ("within 500 characters of a cis mention", "leaves %d" % _near),
+    ("same sentence", "sentence, %d" % _sent),
 ]
 for label, s in reach:
     # Line wrapping is arbitrary in the source markdown, so a space in the

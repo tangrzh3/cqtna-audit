@@ -647,18 +647,25 @@ jointly and both resolved against the first coder; κ is computed before that.
 Recall was bounded from above rather than measured, and a full-text audit
 measures reporting, not practice (Methods).
 
-How far the identity reaches into this literature is also measurable on the same
-corpus, and we measured it rather than assuming it. Of the 154 full texts, **71
-(46%) state somewhere that their cis instrument is a single variant and 130 (84%)
-name a multi-instrument estimator**; among the 85 that discuss cis-eQTLs at all,
-48 (56%) state a single-variant cis instrument. **The two counts are not
-complements: 65 of the 130 papers naming a multi-instrument estimator also state
-a single-variant cis instrument**, because running IVW on trans or on a relaxed
-instrument set while the cis nomination rests on one variant per gene is a common
-combination. Phrase matching cannot say which estimator produced a given
-candidate list, so 46% is a lower bound on the identity's reach and 84% an upper
-bound on the literature that escapes it, and **neither is a rate**
-(Supplementary S51).
+How far the identity reaches into this literature is a question about the
+literature rather than about the algebra, and our first attempt to answer it
+failed. Scanning the 154 cached full texts — two more than the 152 scorable ones,
+because scorability required the five pre-fixed criteria to be assessable and the
+scan needs only the text — 71 contain a phrase asserting a single-variant
+instrument and 130 name a multi-instrument estimator. **Neither count survives
+inspection.** 23 of the 71 never mention a cis-eQTL anywhere; requiring
+the phrase to fall within 500 characters of one leaves 13, and within the same
+sentence, 10. **A count that falls from 71 to 10 under a minimal proximity
+requirement is a phrase-hit tally of unknown direction, not a bound in either
+direction, and we withdraw it as one.** The quantity the question needs is the
+estimator that produced each paper's primary cis nomination list, which phrase
+matching cannot see at all: naming IVW does not establish that the cis list came
+from IVW, and saying "single variant" somewhere does not establish that it came
+from a Wald ratio. We are coding that provenance by hand, as a sixth criterion on
+the same 46-paper two-coder subsample, under rules fixed before any paper was
+read (Supplementary S51). Until it returns, **how much of this literature the
+identity reaches is unmeasured**, and the scan is reported as a corpus-discovery
+tool rather than as a result.
 
 ---
 
@@ -687,9 +694,11 @@ We think this reframing is the useful contribution, and we state plainly what it
 is not. The reduction itself is elementary and not new. It does not apply to
 multi-instrument estimators, where combining instruments breaks the identity —
 our relaxed IVW and weighted-median analyses are outside it. How much of the
-literature that exempts is a quantity we can bound but not settle: 46% of our
-154-paper corpus states a single-variant cis instrument and 84% names a
-multi-instrument estimator, and 65 papers do both (Supplementary S51). It does
+literature that exempts is unmeasured. We tried to bound it by phrase matching
+and the attempt failed, for reasons we give in full in Supplementary S51; a
+hand-coded estimate of which estimator produced each paper's primary cis
+nomination list is registered on a 46-paper subsample and has not yet
+returned. It does
 not make MR effect estimates wrong; the sign and the scale genuinely come from the exposure,
 and only the significance claim does not. And it does not show that the
 sub-threshold part of a nomination list is spurious: at five loci we are
@@ -948,11 +957,9 @@ which asks a different question and is negative at all three lead variants [4].
 composition at the top of the residualised axis, glycolysis enriched 21.3-fold.
 **b**, Eleven biological modules against a composition-matched null, the
 threshold being the 95th percentile of |SMD| across fifty random modules. The
-activation module itself sits at the null, which is the point: the axis is not a
-restatement of activation strength. Two modules exceed the threshold — OXPHOS,
-which is concordant with an anabolic state, and the proliferation module, which
-is the pre-specified positive control and **must** exceed it or the null is
-uninformative. **c**, A concordant chromatin signature: motif enrichment in
+activation module remained within the matched-null distribution. Two modules
+exceeded the threshold: OXPHOS, and the proliferation module, which was
+specified in advance as a sensitivity control (Methods). **c**, A concordant chromatin signature: motif enrichment in
 axis-high versus background peaks. **d**, AP-1 enrichment persists when peaks
 are restricted to those that do not change with activation. Panels **c** and
 **d** characterise the axis, and are not the withdrawn claim that the instrument
@@ -1321,11 +1328,18 @@ not practice.
 
 On the same corpus we counted, by phrase matching, whether each paper names a
 Wald ratio, IVW, weighted median, MR-Egger or mode-based estimator and whether
-it states anywhere that its cis instrument is a single variant. A paper can
-name several, and phrase matching cannot identify which one produced its
-candidate list; the single-instrument count is therefore reported as a lower
-bound on the identity's reach and the multi-instrument count as an upper bound
-on the literature outside it (Supplementary S51).
+it states anywhere that its cis instrument is a single variant. Those counts are
+reported as corpus description and not as an estimate of anything: the
+single-variant phrase is matched anywhere in the text, so it is not tied to the
+cis analysis, to the primary candidate list or to the estimator used, and the
+count collapses from 71 to 10 when the phrase is required to appear in the same
+sentence as a cis-eQTL mention. The interpretable quantity is which estimator
+produced each paper's primary cis nomination list. It is being coded by hand as
+a sixth criterion, C6, on the fixed-seed 46-paper subsample already used for the
+other criteria, by two coders independently, each blind to the other and to the
+automated scan, under rules fixed before any paper was read, with the evidence
+passage recorded for every judgement; agreement, Cohen's κ, the adjudicated
+values and an interval will be reported with it (Supplementary S51).
 
 ### Pre-specification and stopping rules
 
@@ -1422,7 +1436,8 @@ and results registers; **S41**, the transport grid scoring six diseases against
 their own reference lists; **S42**, the estimator identity, its numerical
 verification and the decomposition of the attribution by outcome significance;
 **S43**, the power-matched cross-disease comparison and the chance-corrected
-attribution statistic; **S44**, the seven-way method benchmark; **S45**, the
+attribution statistic; **S44**, the seven-way method benchmark, run as a boundary check on the
+identity rather than as seven independent tests; **S45**, the
 fine-mapped decomposition and two failure modes of proxy-LD fine-mapping;
 **S46**, the diagnostic's own type I error, power and void rate; **S47**, the
 worked example in full; **S48**, the crossed grid cell by cell with its

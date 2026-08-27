@@ -17,12 +17,24 @@ matter here are the ones whose *cis-eQTL* nomination rests on one variant per
 gene, and papers frequently run IVW on trans or on a relaxed set while the cis
 nomination is a Wald ratio.
 
-WHAT IT CANNOT DO
-Phrase matching cannot tell which estimator produced the candidate list when a
-paper names several, and cannot see instrument counts reported only in a
-supplementary table. So the single-instrument count is a LOWER bound on the
-identity's reach and the multi-instrument count is an UPPER bound on the
-literature that escapes it. Both are reported as such; neither is a rate.
+WHAT IT CANNOT DO -- REVISED 2026-08-26, AND THIS IS THE POINT OF THE SCRIPT NOW
+The first version of this header claimed the single-instrument count was a LOWER
+bound on the identity's reach and the multi-instrument count an UPPER bound on
+what escapes it. Both claims were wrong and are withdrawn.
+
+The `single` pattern matches ANYWHERE in the full text. It is not required to
+occur near a cis-eQTL mention, to describe the primary candidate list, or to
+describe a Wald estimate. Twenty-three of the seventy-one papers it hits never
+mention a cis-eQTL at all. Requiring the phrase to fall within 500 characters of
+a cis mention leaves 13; requiring the same sentence leaves 10. A count that
+falls sevenfold under a minimal proximity requirement is a phrase-hit tally of
+unknown direction -- it can be inflated by irrelevant "single-cell" adjacent
+prose and deflated by papers whose per-gene instrument count appears only in a
+supplementary table.
+
+So this script is a CORPUS DISCOVERY TOOL and nothing else. The interpretable
+quantity -- which estimator produced each paper's primary cis nomination list --
+is coded by hand as criterion C6 (step156).
 
 Outputs: 151a_estimator_usage.tsv, 151b_console.log
 """
@@ -67,7 +79,24 @@ for d in DIRS:
             continue
         low = t.lower()
         hit = {k: bool(re.search(p, low, re.I)) for k, p in PAT.items()}
-        rows.append(dict(pmc=pmc, chars=len(t), **{k: int(v) for k, v in hit.items()}))
+        # How close is the single-variant phrase to a cis mention? A phrase
+        # matched anywhere in a full text says nothing about the cis analysis,
+        # and the distance between "anywhere" and "same sentence" turned out to
+        # be a factor of seven.
+        near = sent = False
+        for m in re.finditer(PAT["single"], low, re.I):
+            w = low[max(0, m.start() - 500):m.end() + 500]
+            if re.search(PAT["cis"], w, re.I):
+                near = True
+            a0 = low.rfind(".", 0, m.start())
+            a0 = 0 if a0 < 0 else a0 + 1
+            b0 = low.find(".", m.end())
+            b0 = len(low) if b0 < 0 else b0
+            if re.search(PAT["cis"], low[a0:b0], re.I):
+                sent = True
+        rows.append(dict(pmc=pmc, chars=len(t),
+                         single_near_cis=int(near), single_same_sentence=int(sent),
+                         **{k: int(v) for k, v in hit.items()}))
 
 n = len(rows)
 print("cached full texts scanned: %d" % n, flush=True)
@@ -100,25 +129,40 @@ print("  names Wald and no multi-instrument estimator : %3d  (%.0f%%)"
       % (len(onlyw), 100 * len(onlyw) / n), flush=True)
 print("  names any multi-instrument estimator         : %3d  (%.0f%%)"
       % (len(multi), 100 * len(multi) / n), flush=True)
-print("  states a single-variant cis instrument       : %3d  (%.0f%%)"
+print("  carries a single-variant phrase anywhere    : %3d  (%.0f%%)"
       % (len(single), 100 * len(single) / n), flush=True)
 print("  names no estimator this scan recognises      : %3d  (%.0f%%)"
       % (len(neither), 100 * len(neither) / n), flush=True)
 print(flush=True)
 print("  of the papers naming a multi-instrument estimator,", flush=True)
-print("  %d also state a single-variant cis instrument."
+print("  %d also carry the single-variant phrase somewhere."
       % sum(1 for r in multi if r["single"]), flush=True)
+
+print(flush=True)
+print("HOW FAST THE SINGLE-VARIANT COUNT COLLAPSES", flush=True)
+print("  phrase anywhere in the full text             : %3d" % len(single),
+      flush=True)
+print("  ... of which never mention a cis-eQTL        : %3d"
+      % sum(1 for r in single if not r["cis"]), flush=True)
+print("  phrase within 500 characters of a cis mention: %3d"
+      % sum(r["single_near_cis"] for r in rows), flush=True)
+print("  phrase in the same sentence as a cis mention : %3d"
+      % sum(r["single_same_sentence"] for r in rows), flush=True)
+print("  -> sevenfold. This is not a bound in either direction.", flush=True)
 
 with io.open(os.path.join(MR, "151a_estimator_usage.tsv"), "w",
              encoding="utf-8", newline="\n") as f:
     cols = ["pmc", "chars", "cis", "wald", "ivw", "wmedian", "egger", "mode",
-            "single"]
+            "single", "single_near_cis", "single_same_sentence"]
     f.write("\t".join(cols) + "\n")
     for r in sorted(rows, key=lambda x: x["pmc"]):
         f.write("\t".join(str(r[c_]) for c_ in cols) + "\n")
 print("\nwrote 151a_estimator_usage.tsv", flush=True)
-print("\nNOTE: phrase matching cannot say which estimator produced the candidate",
+print("", flush=True)
+print("NOTE: this is a corpus discovery tool, not an estimate. Phrase matching",
       flush=True)
-print("      list when several are named. The single-instrument count is a lower",
+print("      cannot say which estimator produced a primary cis nomination list,",
       flush=True)
-print("      bound on the identity's reach, not a rate.", flush=True)
+print("      and these counts are description only. The interpretable quantity",
+      flush=True)
+print("      is coded by hand as criterion C6 -- see step156.", flush=True)

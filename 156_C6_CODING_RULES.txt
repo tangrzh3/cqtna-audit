@@ -1,0 +1,91 @@
+C6 CODING RULES -- estimator provenance of the primary cis nomination list
+Written 2026-08-26, BEFORE any paper was read for this criterion.
+Not to be edited after coding starts. Deviations go in the results register.
+
+WHY THIS CRITERION EXISTS
+The paper's central claim is an identity that holds for a single-variant Wald
+cis-MR. Its importance depends on how much of this literature runs that design.
+We first tried to answer that by phrase matching (step151) and the attempt
+failed: the count fell from 71 papers to 10 when the phrase was required to
+appear in the same sentence as a cis-eQTL mention, so it measured proximity of
+wording, not design. C6 replaces it with a judgement a person can make and
+another person can check.
+
+THE QUESTION
+  Which estimator produced THIS paper's primary cis-eQTL target-nomination list?
+
+"Primary" means the list the paper carries forward as its findings -- the genes
+it names in the abstract or the results as its candidates. Not a sensitivity
+analysis, not a trans analysis, not a replication panel.
+
+CATEGORIES -- enter exactly one code in the `coder` column.
+
+  W   single-variant Wald. The primary cis list rests on one instrument per
+      gene, and significance therefore comes from a Wald ratio (or an IVW/median
+      call that is arithmetically a Wald ratio because there is one instrument).
+      Code W when the paper says one variant per gene, or reports exactly one
+      SNP per exposure in its instrument table, or states that the top/lead
+      cis-eQTL was used as the instrument.
+
+  M   multi-instrument estimator. The primary cis list rests on two or more
+      instruments per gene combined by IVW, weighted median, MR-Egger or a
+      mode-based estimator. Code M when instrument counts per gene are plainly
+      greater than one for the genes that are nominated.
+
+  X   mixed. The primary list is produced by a pipeline in which some genes
+      carry one instrument and others carry several, or the paper reports both a
+      Wald and a multi-instrument result for the same list without designating
+      one as primary.
+
+  U   not ascertainable. The paper does not say, and the instrument count per
+      gene cannot be recovered from the text, tables or supplement available.
+
+DECISION ORDER -- apply in this order and stop at the first that resolves.
+  1. An explicit statement of instruments per gene for the primary cis analysis.
+  2. An instrument table or supplementary table from which the count per
+     nominated gene can be read.
+  3. An explicit statement that the estimator used for the primary cis analysis
+     was the Wald ratio, with no indication of multiple instruments -> W.
+  4. An explicit statement that IVW (or median/Egger/mode) produced the primary
+     cis list, with an indication that instruments were multiple -> M.
+  5. Otherwise -> U.
+
+WHAT DOES NOT COUNT
+  * Naming IVW anywhere in the paper. Running IVW on trans, on a relaxed set, or
+    on a non-primary sensitivity analysis does not make the primary cis list M.
+  * The phrase "single-variant", "single SNP" or "single-cell" anywhere in the
+    text. Proximity to the cis analysis is what matters and the phrase alone
+    does not establish it.
+  * A methods sentence describing the general MR framework rather than what this
+    paper did.
+  * The number of instruments before clumping or filtering. What matters is the
+    number carried into the estimate for the nominated genes.
+
+U IS A REAL ANSWER, NOT A FAILURE
+If the paper does not say and the count cannot be recovered, code U. A U rate is
+itself a finding about the literature's reporting. Do not guess from the journal,
+the year, the authors or how sophisticated the paper seems.
+
+EVIDENCE IS MANDATORY
+For every judgement other than U, paste into `evidence_quote` the sentence or
+table caption you relied on, and put its location (section name, table number,
+or "supplementary table N") in `evidence_where`. A judgement with no quote is
+treated as U at adjudication.
+
+BLINDING
+The two coders work independently. Neither sees the other's file, and neither
+file carries the step151 automated scan result. Rows are shuffled under
+different seeds so that any ordering in the corpus is not shared.
+
+ADJUDICATION
+Disagreements are resolved jointly, never by one coder alone, and Cohen's kappa
+is computed BEFORE adjudication. Both the pre-adjudication kappa and the raw
+agreement are reported, because with four categories and a likely dominant one,
+kappa can collapse for prevalence reasons while agreement is high -- the same
+artefact already documented for C1.
+
+WHAT WILL BE REPORTED
+  n coded, raw agreement, Cohen's kappa (pre-adjudication), the adjudicated
+  distribution over W / M / X / U, and a Wilson interval for the W share among
+  the ascertainable papers (W + M + X). The U papers are reported separately and
+  are not redistributed.
