@@ -156,7 +156,7 @@ FTP 上 summary stats 文件是否存在。
 
 ## 8. Nathan_2022 的双重使用（登记）
 
-Nathan_2022 已被本文用于 **TPI1 的 genotype × pseudotime 交互检验**（参考文献 [8]）。
+Nathan_2022 已被本文用于 **TPI1 的 genotype × pseudotime 交互检验**（Nathan et al. 2022）。
 本次再用作**暴露资源**。两者不构成循环：
 前者检验单基因的动态遗传效应，后者检验全基因组提名的落点，
 **共用的只是数据集，不是被检验的量**。

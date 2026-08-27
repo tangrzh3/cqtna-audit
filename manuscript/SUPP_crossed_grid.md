@@ -91,7 +91,7 @@ hardly at all, and the outcome is the only thing differing between those arms �
 so the outcome-side half of that statement is supported while the exposure-side
 half names a resource rather than a sample size. Rosen et al. have shown that raising *eQTL* sample
 size uncovers additional independent regulatory signals and closes part of the
-gap between eQTL and GWAS colocalisation [43]. Our design asks the mirror
+gap between eQTL and GWAS colocalisation (Rosen et al. 2026). Our design asks the mirror
 question — with the exposure held fixed, does a *higher-powered outcome* make
 target nomination more reliable? — and the answer here is that it does not: the
 meta-analysis produced more MR discoveries, lower colocalisation support, and a

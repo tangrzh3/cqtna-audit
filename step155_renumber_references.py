@@ -73,6 +73,25 @@ def render(nums):
     return "[" + ",".join(parts) + "]"
 
 
+def supplement_brackets():
+    """Renumbering the main list silently rewrites what every bracketed number
+    in the SUPPLEMENTS points at, because nothing links the two. That already
+    happened once: S47 cited the pseudotime test as [8] under the old numbering,
+    and [8] became a different paper. Supplements should cite by author name;
+    this reports anything that still does not. Numeric intervals like
+    "8.3 [7,11]" are indistinguishable from a citation and are listed too --
+    saying so is better than guessing."""
+    import glob
+    out = []
+    for pat in ("manuscript/SUPP_*.md", "manuscript/PREREG_*.md", "SUPP_*.md"):
+        for f in sorted(glob.glob(os.path.join(MR, pat))):
+            txt = io.open(f, encoding="utf-8", errors="replace").read()
+            for i, line in enumerate(txt.split(chr(10)), 1):
+                for m in re.finditer(r"\[\d{1,2}(?:,\d{1,2})*\]", line):
+                    out.append((os.path.relpath(f, MR), i, m.group(0)))
+    return out
+
+
 def main():
     t = io.open(MS, encoding="utf-8").read()
     cut = t.index("## References")
@@ -129,6 +148,17 @@ def main():
     if check_order != list(range(1, len(order) + 1)):
         print("\nrefusing: the rewritten text does not number 1..N in order")
         return 1
+
+    sb = supplement_brackets()
+    if sb:
+        print("")
+        print("[!] bracketed numerals in supplements. Renumbering the main list")
+        print("    does not touch them, so any that are citations now point")
+        print("    elsewhere. Cite by author name in supplements instead.")
+        for f, i2, w in sb[:20]:
+            print("      %-46s line %-5d %s" % (f, i2, w))
+        if len(sb) > 20:
+            print("      ... and %d more" % (len(sb) - 20))
 
     if not APPLY:
         print("\nreport only; re-run with --apply to write")

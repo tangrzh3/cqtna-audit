@@ -35,7 +35,7 @@ baseline enzyme, PGAM1, is among the 25 that carry no instrument at all.
 For the one instrumented gene, TPI1, a usable instrument exists at 16 h and at no
 other timepoint. The effect estimate is largest at rest and simply far noisier
 there, so the window is a statement about precision, not about amplitude
-(Fig. 6a,b). The published genotype × pseudotime interaction test [8] settles what
+(Fig. 6a,b). The published genotype × pseudotime interaction test (Nathan et al. 2022) settles what
 that window is not: **none of the three TPI1 lead variants shows an
 interaction** — memory cells, linear P = 0.974 and quadratic P = 0.992; naive
 cells, 0.707 and 0.891 for the variant 1,063 bp from our instrument, 0.378 and
@@ -114,7 +114,7 @@ our own, detected by these controls, are described in Supplementary S12; they ar
 instances of the same failure mode.
 
 The perturbation layer is bounded in the same way. TPI1 is a hit in 628 of the
-**1,471 human CRISPR screens** in BioGRID ORCS [40] that measured it (**42.7%**), a
+**1,471 human CRISPR screens** in BioGRID ORCS (Oughtred et al. 2021) that measured it (**42.7%**), a
 core-essential profile alongside GAPDH and PGAM1 (46.6% and 47.2%) and an order
 of magnitude above lineage-defining genes in the same screens (IRF4 3.9%, FOXP3
 1.5%, MC1R 1.1%). Since the knockout is lethal in almost any cell type, **a
@@ -138,3 +138,41 @@ same-disease cohort and reproduces at full magnitude in the cross-disease one
 (Δ = +0.874, P = 0.043) (Fig. 9). The per-arm estimates, the three treatments of
 repeated patients and the sign dependence on regulatory T cells are Supplementary
 S19 and S21.
+
+---
+
+## 逐层判定表（2026-08-26 由正文 Discussion 移入）
+
+**来源**：正文 Discussion 的 TPI1 状态表与其后一段。
+**内容逐字保留，未作删改。** 正文保留两句读法与指针。
+
+---
+
+The worked example should be read in that light, and is best stated as a ladder
+rather than a verdict — the same layered reporting Howe et al. use when a cellular
+model proves only partly transportable (Howe et al. 2022):
+
+| Claim about TPI1 | Status here |
+|---|---|
+| Causal target for melanoma | **Not supported** — FDR = 0.119, prior-dependent colocalisation, region not fine-mappable |
+| Dynamic *genetic* effect across activation | **Not supported** — no genotype × pseudotime interaction at any of three lead variants |
+| Dynamic *expression* across activation | **Supported** — Moran's I = 0.664 |
+| Membership of a definable CD4⁺ metabolic state | **Supported** — ranks 19th of 7,653 on an axis built without it, and 18th and 28th in a second dataset with protein-based lineage calling; axis enrichment 21.0–27.4-fold |
+| Predicts checkpoint-blockade response | **Unstable** — significant on discovery, no arm confirmed twice |
+| Functional consequence isolable by perturbation | **No** — a hit in 628 of 1,471 human CRISPR screens (42.7%), a core-essential profile that cannot isolate a CD4-specific role |
+| Recognised as a target for this disease elsewhere | **No** — in Open Targets (Ochoa et al. 2023), TPI1's strongest disease associations are triosephosphate isomerase deficiency and neurodegenerative disease; melanoma is not among its leading associations |
+
+Stated flatly: TPI1 is a nominal, prior-sensitive candidate selected by a
+multi-layer conjunction — MR P = 1.4×10⁻³ but FDR = 0.119, PP.H4 = 0.51 passing
+in 8 of 16 window-and-prior combinations, in a region the outcome GWAS cannot
+fine-map, with gene attribution at chr12p13 unresolved by genetics. **What MR
+supplies here is a genetically tractable entry point into a pathway, and the
+audit establishes that the gene marks an expression state — not that the state is
+genetically driven, and not that the gene is a target.** Its value is as a
+demonstration that instrument availability and biological importance are
+separable: the strongest enzyme in the functional data carries no instrument, and
+the gene that does carry one is principally expressed by tumour. The complete
+record of which claims about it were raised, tested and withdrawn, together with
+the selection denominators at gene, pathway and mechanism level, is
+Supplementary S12; the fourteen pre-registration documents are enumerated in
+Methods.
