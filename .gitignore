@@ -91,3 +91,8 @@ review_packet_v9/*
 !review_packet_v9/reproduce/
 review_packet_v9/reproduce/*
 !review_packet_v9/reproduce/README.md
+
+# build product of manuscript/parse_md.py + build_docx.js
+manuscript/MANUSCRIPT_GB.docx
+manuscript/blocks.json
+manuscript/node_modules/
