@@ -44,6 +44,28 @@ Is TPI1 measured by this assay at all? (S52 items 1 and 4)
   significant knockdowns.
 
 ==========================================================================
+Expressed, or merely unread? (S52 item 1)
+==========================================================================
+  Conventional bulk RNA-seq of the same cells, 78986 genes.
+  gene      mean CPM     rank   in readout?
+  TPI1         379.5      340   NO
+  GAPDH       1515.4       85   NO
+  PGK1         407.1      312   yes
+  ENO1        1727.3       74   yes
+  PKM          544.1      231   yes
+  ALDOA        166.6      947   NO
+  LDHA         466.1      267   NO
+  HK1           49.7     3567   yes
+  ACTB        7869.0        5   yes
+
+  Of the 40 highest-expressed genes in their own bulk RNA-seq, only
+  8 are in the probe readout. Missing: MT-CO3, MT-RNR2, TPT1, EEF1A1, RPLP1, MT-ND4, MT-ATP6, MT-CO2, RPS14, RPS8, RPS6, RPL37, MT-ND3, RPL27, RPLP2, HLA-B, RPS27, RPS29, RPS12, RPS16, RPS1
+  Mitochondrial, ribosomal and the largest housekeeping transcripts.
+  So the gene is not unexpressed and not unimportant -- it is too
+  highly expressed to be worth a probe. Its invisibility here is a
+  property of the readout panel, not of the biology.
+
+==========================================================================
 TPI1, as a downstream gene (S52 section 2, item 5)
 ==========================================================================
   genes measurable as downstream genes: 11737

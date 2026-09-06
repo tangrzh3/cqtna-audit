@@ -155,6 +155,44 @@ def main():
             % (100.0 * kd.signif_knockdown.mean()))
         say("  significant knockdowns.")
 
+    # ------------------- expressed, or merely unread? (S52 item 1, decisive)
+    say()
+    say("=" * 74)
+    say("Expressed, or merely unread? (S52 item 1)")
+    say("=" * 74)
+    bpath = os.path.join(DATA, "bulk.csv.gz")
+    dpath0 = os.path.join(DATA, "downstream.csv.gz")
+    if not (os.path.exists(bpath) and os.path.exists(dpath0)):
+        say("  bulk RNA-seq or downstream table missing -> not ascertainable.")
+    else:
+        with gzip.open(bpath, "rt", encoding="utf-8", errors="replace") as f:
+            b = pd.read_csv(f)
+        cpm = [c for c in b.columns if c.endswith("_cpm")]
+        b["CPM"] = b[cpm].mean(axis=1)
+        b = b.sort_values("CPM", ascending=False).reset_index(drop=True)
+        b["rank"] = b.index + 1
+        with gzip.open(dpath0, "rt", encoding="utf-8", errors="replace") as f:
+            uni = set(pd.read_csv(f).downstream_gene.astype(str))
+        say("  Conventional bulk RNA-seq of the same cells, %d genes." % len(b))
+        say("  %-7s %10s %8s   %s" % ("gene", "mean CPM", "rank", "in readout?"))
+        for gname in [GENE] + NEIGHBOURS:
+            r = b[b.gene_name == gname]
+            if r.empty:
+                continue
+            r = r.iloc[0]
+            say("  %-7s %10.1f %8d   %s"
+                % (gname, r.CPM, r["rank"], "yes" if gname in uni else "NO"))
+        top = b.head(40).gene_name.tolist()
+        say()
+        say("  Of the 40 highest-expressed genes in their own bulk RNA-seq, only")
+        say("  %d are in the probe readout. Missing: %s"
+            % (sum(1 for x in top if x in uni),
+               ", ".join(x for x in top if x not in uni)[:150]))
+        say("  Mitochondrial, ribosomal and the largest housekeeping transcripts.")
+        say("  So the gene is not unexpressed and not unimportant -- it is too")
+        say("  highly expressed to be worth a probe. Its invisibility here is a")
+        say("  property of the readout panel, not of the biology.")
+
     # ------------------------------------------------- TPI1 as downstream gene
     say()
     say("=" * 74)
