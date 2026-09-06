@@ -1,0 +1,12 @@
+target_contrast_gene_name	culture_condition	n_cells_target	n_up_genes	n_down_genes	n_total_de_genes	ontarget_effect_size	ontarget_significant	n_guides	low_target_gex
+BATF	Rest	115.0	270	107	377	-5.45893467031413	True	2.0	False
+BATF	Stim48hr	129.0	353	234	587	-11.062747177024624	True	2.0	False
+BATF	Stim8hr	135.0	373	287	660	-15.805025015383393	True	2.0	False
+IRF4	Rest	803.0	248	77	325	-2.452291295136324	False	1.0	False
+IRF4	Stim48hr	758.0	320	178	498	-1.5147976991650245	False	2.0	False
+IRF4	Stim8hr	764.0	322	245	567	-11.380474220031711	True	2.0	False
+STAT3	Rest	239.0	420	505	925	-10.349113203097811	True	2.0	False
+STAT3	Stim48hr	241.0	988	605	1593	-14.569750579234713	True	2.0	False
+STAT3	Stim8hr	255.0	786	584	1370	-17.634071718623293	True	2.0	False
+TPI1	Rest	92.0	31	51	82	0.0	False	1.0	True
+TPI1	Stim8hr	91.0	118	80	198	0.0	False	1.0	True

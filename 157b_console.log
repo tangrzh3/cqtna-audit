@@ -1,0 +1,66 @@
+DE table: 33983 rows, 11526 perturbed genes, conditions ['Rest', 'Stim48hr', 'Stim8hr']
+
+==========================================================================
+POSITIVE CONTROL (S52 section 2) -- runs before anything about TPI1
+==========================================================================
+  BATF   Rest       cells    115   DE genes   377   on-target effect  -5.46  sig=True
+  BATF   Stim48hr   cells    129   DE genes   587   on-target effect -11.06  sig=True
+  BATF   Stim8hr    cells    135   DE genes   660   on-target effect -15.81  sig=True
+  IRF4   Rest       cells    803   DE genes   325   on-target effect  -2.45  sig=False
+  IRF4   Stim48hr   cells    758   DE genes   498   on-target effect  -1.51  sig=False
+  IRF4   Stim8hr    cells    764   DE genes   567   on-target effect -11.38  sig=True
+  STAT3  Rest       cells    239   DE genes   925   on-target effect -10.35  sig=True
+  STAT3  Stim48hr   cells    241   DE genes  1593   on-target effect -14.57  sig=True
+  STAT3  Stim8hr    cells    255   DE genes  1370   on-target effect -17.63  sig=True
+
+  control passes: strongest named regulator reaches 1593 DE genes.
+
+==========================================================================
+TPI1, as a perturbed gene (S52 section 2, items 1-4)
+==========================================================================
+  Rest      cells     92 (condition median    543)   DE genes    82   up   31  down   51
+            on-target knockdown effect  0.000   significant=False   guides=1.0   low_target_gex=True
+  Stim8hr   cells     91 (condition median    526)   DE genes   198   up  118  down   80
+            on-target knockdown effect  0.000   significant=False   guides=1.0   low_target_gex=True
+
+  Rest      TPI1 sits at the 90th percentile of DE-gene count and the 3th of cell recovery
+  Stim8hr   TPI1 sits at the 94th percentile of DE-gene count and the 3th of cell recovery
+
+==========================================================================
+Is TPI1 measured by this assay at all? (S52 items 1 and 4)
+==========================================================================
+  guide: target expr 0.000 in 91 cells | NTC expr 0.000 in 313989 cells | t 0.00 | signif_knockdown=False
+  guide: target expr 0.000 in 1 cells | NTC expr 0.000 in 313989 cells | t 0.00 | signif_knockdown=False
+  guide: target expr 0.000 in 91 cells | NTC expr 0.000 in 303457 cells | t 0.00 | signif_knockdown=False
+  guide: target expr 0.000 in 45 cells | NTC expr 0.000 in 322089 cells | t 0.00 | signif_knockdown=False
+
+  The control arm matters more than the perturbed arm here: the
+  target's expression is zero in the non-targeting controls too,
+  so this is not a knockdown that failed -- the assay does not
+  capture the gene, and on-target verification is impossible.
+  Genes whose every guide has zero control expression: 601 of 12604 (4.8%)
+
+  Knockdown efficiency overall, for scale: 73.3% of guide rows are
+  significant knockdowns.
+
+==========================================================================
+TPI1, as a downstream gene (S52 section 2, item 5)
+==========================================================================
+  genes measurable as downstream genes: 11737
+  TPI1   ABSENT
+  GAPDH  ABSENT
+  PGK1   present
+  ENO1   present
+  PKM    present
+  ALDOA  ABSENT
+  LDHA   ABSENT
+  HK1    present
+  ACTB   present
+
+  TPI1 is not a condition-specific downstream gene of any cluster.
+
+wrote 157a_perturbseq_tpi1.tsv
+
+Read the result against the table in S52 section 3, which was fixed
+before this ran. No outcome there changes an S47 label, and S52
+section 5 forbids the sentence this result will tempt someone to write.
