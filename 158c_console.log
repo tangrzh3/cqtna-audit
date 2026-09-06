@@ -1,0 +1,33 @@
+expression: 6 donor files, 78990 genes with a CPM
+universe: 12605 genes in the perturbation library
+readable set: 11737 gene ids appear as measurable downstream genes
+instrumented set: 2675 genes with a genome-wide significant top cis-eQTL
+analysed: 12604 genes with both a CPM and library membership
+
+==========================================================================
+1. marginal, shown for contrast only -- NOT the endpoint
+==========================================================================
+  readable: instrumentable&yes 2156, instrumentable&no 172, not-instrumentable&yes 8793, not&no 1483
+    OR 2.114   Fisher P 7.26e-22
+  verifiable_kd: instrumentable&yes 2110, instrumentable&no 218, not-instrumentable&yes 8638, not&no 1638
+    OR 1.835   Fisher P 3.58e-17
+
+==========================================================================
+2. calibration BEFORE the conditional result (S53 section 4)
+==========================================================================
+  expression deciles carrying both labels: 10 of 10
+  permuted log OR: median +0.0023, sd 0.0948, n = 1000
+  calibration passes: the permuted statistic centres on zero.
+
+==========================================================================
+3. PRIMARY ENDPOINT -- conditional on expression (S53 section 3.2)
+==========================================================================
+  readable       CMH OR 1.037   chi2 0.12   P 0.727   permutation P 0.712
+  verifiable_kd  CMH OR 1.127   chi2 2.04   P 0.153
+
+Read against S53 section 5, written before this ran: a negative
+marginal association that largely disappears under conditioning IS
+the predicted result, and a null conditional association is a finding
+and not a failure -- it would mean the two platforms are not
+independently biased but reading the same axis. S53 section 7 caps
+what this may be used for.
