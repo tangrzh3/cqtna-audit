@@ -1,0 +1,40 @@
+# Line endings. The authoring machine has core.autocrlf=true, so without this
+# file every fresh clone converts scripts to CRLF -- and the deposited
+# container runs them on Linux, where a trailing \r breaks an R script, breaks
+# a shell script outright, and corrupts a shebang. The analysis is meant to be
+# rerun by strangers on Linux; that makes this a correctness file, not style.
+* text=auto eol=lf
+
+*.py   text eol=lf
+*.R    text eol=lf
+*.r    text eol=lf
+*.sh   text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.tsv  text eol=lf
+*.csv  text eol=lf
+*.json text eol=lf
+*.lock text eol=lf
+Dockerfile text eol=lf
+
+# Never touched: converting these corrupts them.
+*.rds    binary
+*.h5     binary
+*.h5ad   binary
+*.gz     binary
+*.zip    binary
+*.tar    binary
+*.pdf    binary
+*.png    binary
+*.docx   binary
+*.xlsx   binary
+*.parquet binary
+*.bed    binary
+*.bim    binary
+*.fam    binary
+*.pgen   binary
+*.pvar   binary
+*.psam   binary
+*.vcor   binary
+*.exe    binary
+*.chain  binary
