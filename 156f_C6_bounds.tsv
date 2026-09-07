@@ -1,0 +1,7 @@
+scenario	W	M	X	U
+all unresolved -> W	21	21	4	0
+all unresolved -> M	8	34	4	0
+all unresolved -> X	8	21	17	0
+all unresolved -> U	8	21	4	13
+each to coder A	11	28	6	1
+each to coder B	12	23	9	2

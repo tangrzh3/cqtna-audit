@@ -257,6 +257,45 @@ def score():
     print("  %d disagreement(s) written to 156d_C6_disagreements.tsv"
           % len(dis))
 
+    # ---- sensitivity over the unresolved cells. NOT in the registered
+    # reporting list; added deliberately BEFORE adjudication rather than after.
+    # Putting both extremes on the record first is what stops an adjudication
+    # from being steered by knowing which way the headline needs to move. The
+    # coders are not shown this until they have finished.
+    agreed = dict((x, A[x]["code"]) for x in keys if A[x]["code"] == B[x]["code"])
+    base = dict((c, sum(1 for v in agreed.values() if v == c)) for c in CODES)
+    print()
+    print("=" * 74)
+    print("sensitivity over the unresolved %d (unregistered; see the note in code)"
+        % len(dis))
+    print("=" * 74)
+    print("  agreed %d: %s" % (len(agreed),
+                             ", ".join("%s %d" % (c, base[c]) for c in CODES)))
+    print("  %-26s %5s %5s %5s %5s  %8s  %s"
+        % ("scenario", "W", "M", "X", "U", "W share", "95% CI"))
+    scen = [("all unresolved -> %s" % c, {c: len(dis)}) for c in CODES]
+    scen.append(("each to coder A",
+                 dict((c, sum(1 for x in dis if A[x]["code"] == c)) for c in CODES)))
+    scen.append(("each to coder B",
+                 dict((c, sum(1 for x in dis if B[x]["code"] == c)) for c in CODES)))
+    brows = []
+    for name, add in scen:
+        cc = dict((c, base[c] + add.get(c, 0)) for c in CODES)
+        asc2 = cc["W"] + cc["M"] + cc["X"]
+        lo2, hi2 = wilson(cc["W"], asc2)
+        print("  %-26s %5d %5d %5d %5d  %7.1f%%  [%.1f, %.1f]"
+            % (name, cc["W"], cc["M"], cc["X"], cc["U"],
+               100.0 * cc["W"] / asc2 if asc2 else float("nan"),
+               100 * lo2, 100 * hi2))
+        brows.append(dict(scenario=name, **cc))
+    with io.open(os.path.join(MR, "156f_C6_bounds.tsv"), "w",
+                 encoding="utf-8", newline="\n") as f:
+        f.write("scenario\tW\tM\tX\tU\n")
+        for r in brows:
+            f.write("%s\t%d\t%d\t%d\t%d\n"
+                    % (r["scenario"], r["W"], r["M"], r["X"], r["U"]))
+    print("  wrote 156f_C6_bounds.tsv")
+
     unresolved = [x for x in dis if x not in prior]
     if unresolved:
         print("  %d still unadjudicated. Resolve them JOINTLY -- never by one"
