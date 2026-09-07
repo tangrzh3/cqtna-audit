@@ -653,10 +653,11 @@ each paper's primary cis nomination list — by hand, as a sixth criterion on th
 same fixed-seed 46-paper subsample used for the others, by two coders
 independently under rules fixed before any paper was read. Agreement was 71.7%
 and Cohen's κ 0.534, both before adjudication; the thirteen disagreements were
-resolved jointly. **The written justifications for those thirteen were
-destroyed by a defect in our own scoring script and are being recorded
-again; the codes themselves were preserved and the distribution below is
-unaffected**. **Of 45
+resolved jointly, each with a written justification citing the evidence.
+**Those justifications were destroyed by a defect in our own scoring script
+and rewritten by the two coders afterwards; the codes were preserved
+throughout and none changed, so the distribution is unaffected, but the
+justifications are reconstructions and we report them as such.** **Of 45
 ascertainable papers, 10 rest on a single-variant Wald ratio, 28 on a
 multi-instrument estimator and 7 on mixed pipelines; one could not be
 ascertained and is not redistributed.** The identity therefore governs
