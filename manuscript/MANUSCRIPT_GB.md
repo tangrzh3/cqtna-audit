@@ -941,8 +941,9 @@ composition at the top of the residualised axis, glycolysis enriched 21.3-fold.
 threshold being the 95th percentile of |SMD| across fifty random modules. The
 activation module remained within the matched-null distribution. Two modules
 exceeded the threshold: OXPHOS, and the proliferation module, which was
-specified in advance as a sensitivity control (Methods). **c**, A concordant chromatin signature: motif enrichment in
-axis-high versus background peaks. **d**, AP-1 enrichment persists when peaks
+specified in advance as a sensitivity control (Methods; Supplementary S47).
+**c**, A concordant chromatin signature: motif enrichment in axis-high versus
+background peaks. **d**, AP-1 enrichment persists when peaks
 are restricted to those that do not change with activation. Panels **c** and
 **d** characterise the axis, and are not the withdrawn claim that the instrument
 acts by disrupting an AP-1 motif, which was tested separately and failed.

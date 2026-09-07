@@ -54,7 +54,13 @@ purified CD4⁺ T cell multiome data, residualising expression on activation
 intensity leaves an axis enriched 21.3-fold for glycolysis and 10.3-fold for
 ribosomal proteins, while **the activation module itself sits at a
 composition-matched null (SMD = −0.003), and of the eleven biological modules
-tested only OXPHOS and the proliferation positive control exceed that null** —
+tested only OXPHOS and the proliferation positive control exceed that null**
+
+> ⚠ **读法**（按第三方意见自图注移入此处）：增殖模块是
+> `step43_glyco_vs_activation.py` 里**预先写死的敏感性对照**，脚本明写
+> “若阳性对照不超过零模型，则该检验功效不足、其零模型无信息”。
+> 故它超过阈值是**检验成立的必要条件，不是反例**。
+> 图注不再写这句，因为在那里它读起来像辞辩；在这里它是设计说明。 —
 a definable anabolic state rather than a restatement of activation strength,
 with a concordant chromatin signature whose AP-1 motif enrichment persists in
 activation-invariant peaks (Fig. 7).
