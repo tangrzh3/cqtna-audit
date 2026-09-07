@@ -71,6 +71,19 @@ RUN pip install --no-cache-dir --upgrade pip \
 # --- R: only what S54's must-run list actually imports --------------------
 # Versions taken from 150a_environment.lock. remotes::install_version pins
 # exactly; a bare install.packages() would take whatever the snapshot holds.
+#
+# rocker/r-ver:4.4.1 bakes in a Posit Package Manager repo DATED to R 4.4.1's
+# release (2024-10-30). irlba 2.3.7 -- the version 150a actually locked, and
+# CRAN's current release, confirmed by querying CRAN directly -- postdates
+# that snapshot, so remotes cannot find it there and calls it "invalid"
+# (discovered building this image; 150a's version string was not the bug).
+# container/install_r_packages.R already points at the rolling ".../latest"
+# snapshot rather than a dated one, which is why the full image does not hit
+# this. Each `Rscript -e` here is its own process, so an option set in one
+# does not carry to the next -- it has to go in Rprofile.site to apply to
+# all of them.
+RUN echo 'options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))' \
+      >> /usr/local/lib/R/etc/Rprofile.site
 RUN Rscript -e 'install.packages("remotes")' \
  && Rscript -e 'remotes::install_version("data.table", version = "1.16.0", upgrade = "never")' \
  && Rscript -e 'remotes::install_version("Matrix", version = "1.7-0", upgrade = "never")' \
