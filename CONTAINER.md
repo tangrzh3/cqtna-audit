@@ -107,7 +107,7 @@ There are two, and for the acceptance run you want the small one.
 |---|---|---|
 | Restores | all 226 packages from the lock | the 4 R packages S54's list actually imports, at their locked versions |
 | Carries | Seurat, Bioconductor, BSgenome, TFBSTools, chromVAR | none of them |
-| Size / time | tens of GB, hours | roughly 2 GB, minutes |
+| Size / time | tens of GB, hours. Budget **40 GB peak** — build layers and the package cache roughly double the final size | roughly 2 GB, minutes |
 | Can run | everything whose inputs are in the deposit | S54's must-run list; group 7 partially |
 
 Every R script on S54's must-run list imports, between them, only `cqtna`
@@ -159,7 +159,7 @@ are most likely to break, in this order:
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| `manifest unknown` on the FROM line | the tag `bioconductor/bioconductor_docker:RELEASE_3_19` moved or was retired | pick the nearest surviving RELEASE_3_1x tag that still carries R 4.4; record which, because it changes the package closure |
+| `manifest unknown` on the FROM line | the base tag moved or was retired | **checked 2026-09-07 against the Docker Hub tag API: `bioconductor/bioconductor_docker:RELEASE_3_19` and `rocker/r-ver:4.4.1` both exist**, so this is now the least likely failure. If it happens anyway, pick the nearest surviving tag carrying R 4.4 and record which, because it changes the package closure |
 | `renv::restore` cannot find packages | the Posit snapshot URL in `container/install_r_packages.R` names `jammy`; the base may be `noble` or another codename | `cat /etc/os-release` inside the image and set the codename to match |
 | `wget` 404 on SMR or PLINK | upstream moved the file | find the current URL for **the same version** (SMR 1.3.1, PLINK 2.0.0-a.7.2). Do not silently take a newer one: the Methods name these versions |
 
