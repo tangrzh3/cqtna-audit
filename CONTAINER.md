@@ -97,6 +97,73 @@ Fill this table in and keep it in the deposit. **A container with an unrun
 acceptance test is a claim, not evidence** — and this project's own discipline
 rules say a claim of that shape is what an audit is for.
 
+## 4b. Building it, in practice, from Windows
+
+### Before you start
+
+1. **Docker Desktop with the WSL2 backend.** In *Settings -> Resources -> File
+   sharing*, make sure the drive holding this repository is shared, or the bind
+   mount below silently gives you an empty directory.
+2. **Disk.** The Bioconductor base is several GB and the 226-package restore
+   adds several more. Budget **20 GB free** and expect the first build to take
+   **one to three hours**, most of it compiling R packages.
+3. **Commit everything first.** Phase 2 of the acceptance run *overwrites the
+   result tables in place*. That is intended -- phase 0 snapshots them and git
+   holds the authoring versions -- but `git status` must be clean beforehand or
+   you will not be able to tell the container's changes from your own.
+
+```bash
+git status --short          # must be empty
+docker --version            # must print a version
+```
+
+### Build
+
+From the repository root:
+
+```bash
+docker build -f container/Dockerfile -t cqtna-audit:0.3.0 .
+```
+
+**Expect the first build to fail.** The image has never been built; the
+Dockerfile was written from `150b_session.txt` and the Methods. Three things
+are most likely to break, in this order:
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| `manifest unknown` on the FROM line | the tag `bioconductor/bioconductor_docker:RELEASE_3_19` moved or was retired | pick the nearest surviving RELEASE_3_1x tag that still carries R 4.4; record which, because it changes the package closure |
+| `renv::restore` cannot find packages | the Posit snapshot URL in `container/install_r_packages.R` names `jammy`; the base may be `noble` or another codename | `cat /etc/os-release` inside the image and set the codename to match |
+| `wget` 404 on SMR or PLINK | upstream moved the file | find the current URL for **the same version** (SMR 1.3.1, PLINK 2.0.0-a.7.2). Do not silently take a newer one: the Methods name these versions |
+
+⚠ **Fix the image, do not work around it.** S54 section 8 says a build that
+does not resolve to `150a_environment.lock` is not a build to rerun on.
+
+### Run the acceptance test
+
+```bash
+docker run --rm -v "D:/R_ex/MR:/repo" -w /repo cqtna-audit:0.3.0     python3 step159_container_acceptance.py /repo
+```
+
+In PowerShell use `-v "${PWD}:/repo"`; in cmd.exe, `-v "%cd%:/repo"`.
+
+It runs S54's five phases and stops at S54's gate. When it finishes, read
+`159b_console.log` and `159e_table_diff.tsv`, then fill S54 section 9 -- and
+remember that the run reports, it does not decide. S54 section 4 is
+all-or-nothing.
+
+### If you want to see whether it will work before committing hours to it
+
+```bash
+docker build -f container/Dockerfile -t cqtna-audit:0.3.0 --target 0 . 2>&1 | head -40
+```
+
+or simply pull the base first, which is the slowest single step and the most
+likely to fail outright:
+
+```bash
+docker pull bioconductor/bioconductor_docker:RELEASE_3_19
+```
+
 ## 5. The decision this leaves to the authors
 
 Two coherent positions, and they should not be mixed:
