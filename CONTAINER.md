@@ -161,6 +161,7 @@ are most likely to break, in this order:
 |---|---|---|
 | `manifest unknown` on the FROM line | the base tag moved or was retired | **checked 2026-09-07 against the Docker Hub tag API: `bioconductor/bioconductor_docker:RELEASE_3_19` and `rocker/r-ver:4.4.1` both exist**, so this is now the least likely failure. If it happens anyway, pick the nearest surviving tag carrying R 4.4 and record which, because it changes the package closure |
 | `renv::restore` cannot find packages | the Posit snapshot URL in `container/install_r_packages.R` names `jammy`; the base may be `noble` or another codename | `cat /etc/os-release` inside the image and set the codename to match |
+| `pip install` fails on `scipy==1.18.0` | **confirmed 2026-09-08 by building both images**: both `rocker/r-ver:4.4.1` and `bioconductor/bioconductor_docker:RELEASE_3_19` are Ubuntu 22.04 (jammy), whose own repos top out at Python 3.10, and scipy 1.18.0 requires >=3.12 | **fixed in both Dockerfiles**: install `python3.12` via the deadsnakes PPA rather than the distro's `python3` |
 | `wget` 404 on SMR or PLINK | upstream moved the file | find the current URL for **the same version** (SMR 1.3.1, PLINK 2.0.0-a.7.2). Do not silently take a newer one: the Methods name these versions |
 
 ⚠ **Fix the image, do not work around it.** S54 section 8 says a build that

@@ -22,19 +22,28 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # hdf5 for hdf5r, libxml2 for XML-dependent Bioc packages, libglpk for igraph
 # (Seurat), unzip/wget for the two external binaries below.
+#
+# bioconductor_docker:RELEASE_3_19 is Ubuntu 22.04 (jammy), confirmed by
+# running the image rather than assumed -- jammy's own repos top out at
+# Python 3.10, and requirements.txt pins scipy==1.18.0, which needs >=3.12.
+# The deadsnakes PPA is the fix; see container/Dockerfile.acceptance for the
+# same fix applied to the slim image, where it was first discovered.
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libhdf5-dev libxml2-dev libglpk-dev libgsl-dev \
         libcurl4-openssl-dev libssl-dev libfontconfig1-dev \
         libharfbuzz-dev libfribidi-dev libtiff5-dev \
-        python3 python3-pip python3-venv \
+        software-properties-common \
         wget unzip ca-certificates \
+    && add-apt-repository -y ppa:deadsnakes/ppa \
+    && apt-get update && apt-get install -y --no-install-recommends \
+        python3.12 python3.12-venv python3.12-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # --- Python -------------------------------------------------------------
 # The analyses ran on CPython 3.12.4. This installs the distribution's 3.12.x,
 # which is the same minor version but not necessarily the same patch. See
 # CONTAINER.md section 3 for why that is recorded rather than hidden.
-RUN python3 -m venv /opt/venv
+RUN python3.12 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:${PATH}"
 COPY container/requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip \
