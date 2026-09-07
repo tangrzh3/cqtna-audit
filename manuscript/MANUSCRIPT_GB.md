@@ -835,11 +835,15 @@ a commitment. The analyses ran on one machine; the deposited container fixes the
 software versions and not the machine, and which numbers survive that change is
 recorded there rather than assumed. Two questions cannot be settled here at all:
 whether the patient stratification is real, which needs a same-disease,
-same-regimen, CD4-resolved cohort that does not exist publicly, and whether the
-state has immunological consequences, which needs perturbation.
+same-regimen, CD4-resolved cohort that does not exist publicly, and whether
+the state has immunological consequences, which needs perturbation. A
+genome-scale CD4⁺ T perturbation map has since been published, and we
+pre-registered a lookup of the nominated gene in it: the gene is not
+ascertainable there, because its expression is outside the assay's probe
+panel, so the question stands open rather than answered (Supplementary S52).
 
-**Conclusions.** A candidate list produced by this framework at current outcome
-power should be reported as the set of genes that passed screening under these
+**Conclusions.** A candidate list produced by a single-variant cis-eQTL MR
+design at current outcome power should be reported as the set of genes that passed screening under these
 conditions, not as targets — and because the fragile part of such a list is
 precisely its novel-locus part, the headline of a study of this kind is the part
 least likely to replicate. The eight checks above cost little and would have
