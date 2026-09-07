@@ -8,8 +8,8 @@
 
 ## Abstract
 
-**Background.** Context-specific eQTLs with Mendelian randomization are widely
-used to nominate immune targets in cancer. With one instrument and first-order
+**Background.** Context-specific eQTLs with Mendelian randomization are a
+recurring design for nominating immune targets in cancer. With one instrument and first-order
 standard errors the Wald statistic reduces to |z| = |β_out|/se_out: the exposure
 sets the sign, the scale and which variants are eligible, and the outcome GWAS
 supplies the whole significance claim. We asked what such a list contains.
@@ -25,13 +25,13 @@ and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 Naming the gene fails separately: at ten melanoma loci with an accepted causal
 gene the pipeline names six, alone at two, and at MC1R it spans sixteen genes
 without naming MC1R. Replacing the outcome with a higher-powered meta-analysis
-replaced the list entirely. Hand-coding which estimator produced each paper's primary cis list, in a
-46-paper two-coder subsample, puts the design the identity governs at
-22.2% [12.5, 36.3] of ascertainable papers: a minority of current practice.
+replaced the list entirely. Among 45 ascertainable papers in a two-coder subsample of 46, 10 (22.2%;
+Wilson 95% CI 12.5–36.3%) used the exact single-variant Wald design.
 
 **Conclusions.** The reproducible part of such a list is the part that is not a
 discovery, and the part that would be a discovery carries no locus-level evidence
-we could detect — an absence of evidence, at five loci, not evidence of absence. Nine inexpensive checks follow, with an R implementation.
+we could detect — an absence of evidence, at five loci, not evidence of absence. Eight inexpensive checks follow, nine with the decomposition of the
+identity, with an R implementation.
 
 **Keywords** Mendelian randomization · context-specific eQTL · target nomination ·
 colocalisation · statistical power · reproducibility · melanoma
@@ -653,16 +653,20 @@ each paper's primary cis nomination list — by hand, as a sixth criterion on th
 same fixed-seed 46-paper subsample used for the others, by two coders
 independently under rules fixed before any paper was read. Agreement was 71.7%
 and Cohen's κ 0.534, both before adjudication; the thirteen disagreements were
-resolved jointly with the evidence passage recorded for each. **Of 45
+resolved jointly. **The written justifications for those thirteen were
+destroyed by a defect in our own scoring script and are being recorded
+again; the codes themselves were preserved and the distribution below is
+unaffected**. **Of 45
 ascertainable papers, 10 rest on a single-variant Wald ratio, 28 on a
 multi-instrument estimator and 7 on mixed pipelines; one could not be
-ascertained and is not redistributed.** The identity therefore governs exactly
-**22.2% [12.5, 36.3]** of this sample, or at most 37.8% if every mixed pipeline
-is counted as partly governed. **The design we analyse is a minority of current
-practice, and we state that as the limit on the claim rather than leaving the
-scope open** (Supplementary S51). Until it returns, **how much of this literature the
-identity reaches is unmeasured**, and the scan is reported as a corpus-discovery
-tool rather than as a result.
+ascertained and is not redistributed.** The identity therefore governs
+**10 of the 45 ascertainable papers in this subsample (22.2%; Wilson 95% CI
+12.5–36.3%)**, or at most 37.8% if every mixed pipeline is counted as partly
+governed. **This is a statement about these 45 papers and the sampling frame
+that produced them, not about current practice as a whole**; within that
+frame the design we analyse is a minority, and we state it as the limit on
+the claim rather than leaving the scope open (Supplementary S51). The scan itself is reported as a corpus-discovery tool
+rather than as a result.
 
 ---
 
@@ -683,7 +687,9 @@ architecture, not on the algebra — here three of our eight significant loci re
 5 × 10⁻⁸ unaided, all three are on the reference list, and removing them leaves
 1.98-fold, P = 0.41 (2.07-fold, P = 0.40 with the background restricted to
 sub-threshold loci as well). The attribution recurred in every further disease we
-could test, which the identity did not require. Colocalisation was poor in this
+could test, which the identity did not require; we nonetheless claim it as
+observed in two tumours rather than in tumours generally, for the reasons in
+the limitations. Colocalisation was poor in this
 application, 2 of 284 above PP.H4 0.8; the identity does not require that either,
 since a variant that drives both expression and disease can colocalise well.
 
@@ -691,11 +697,11 @@ We think this reframing is the useful contribution, and we state plainly what it
 is not. The reduction itself is elementary and not new. It does not apply to
 multi-instrument estimators, where combining instruments breaks the identity —
 our relaxed IVW and weighted-median analyses are outside it. How much of the
-literature that exempts is now measured rather than assumed: in a 46-paper
-two-coder subsample, only 22.2% [12.5, 36.3] of ascertainable papers produce
+literature that exempts is now measured rather than assumed: of 45 ascertainable
+papers in a two-coder subsample, 10 (22.2%; Wilson 95% CI 12.5–36.3%) produce
 their primary cis nomination list from a single-variant Wald ratio
-(Supplementary S51). **The design this paper analyses is a minority of
-current practice.** Whether the argument weakens gracefully as instruments
+(Supplementary S51). **Within that sample the design this paper analyses is a
+minority**, and we do not extrapolate the fraction beyond it. Whether the argument weakens gracefully as instruments
 are added is not something we tested, and we do not assert it. It does
 not make MR effect estimates wrong; the sign and the scale genuinely come from the exposure,
 and only the significance claim does not. And it does not show that the
@@ -731,9 +737,6 @@ not an estimate of how often the framework fails, and the itemised record — ev
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
 seventeen pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
-
-Eight checks follow directly, each cheap and each capable of changing what a study
-of this kind reports.
 
 Eight checks follow from the failures above. Each is stated in full, with the
 numbers behind it, in Supplementary S49, and all nine — these eight plus the
@@ -812,8 +815,8 @@ at a non-lead variant is not excluded.
 and nothing else. Our relaxed IVW and weighted-median analyses lie outside it and
 are reported as concordance rather than discovery, and the seven-way benchmark is
 a boundary check rather than seven independent tests. How much of this literature
-runs the design the identity governs is unmeasured, and the hand-coded estimate
-that would measure it has not yet returned (Supplementary S51).
+runs the design the identity governs is measured, not assumed, and it is a
+minority (Supplementary S51).
 
 *Limitations — diagnostic.* The mismatched-list control is informative only
 inside a bounded power range: as the significant set grows towards the background

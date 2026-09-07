@@ -72,17 +72,20 @@ Consequences worth naming rather than hoping about:
 Building the image is not the deliverable; measuring the gap is. Run these
 inside the container and record what agrees:
 
-| Group | Check | Result |
+| Phase | Check | Result |
 |---|---|---|
-| 1 (gate) | the four audits: `step127`, `step153`, `step154`, `step155` | not yet run |
-| 2 (gate) | `testthat::test_local("cqtna_r")`, 271 assertions | not yet run |
-| 3 | `step140` and `step141` — the identity and its decomposition | not yet run |
-| 4 | `step101` — carries its own bitwise positive control | not yet run |
-| 5 | `step147` — the one S54 expects to move | not yet run |
-| 6 | `step151`, `step156 score`, `step158` — should not move at all | not yet run |
+| 0 | snapshot the mounted tables as an immutable baseline | not yet run |
+| 1 (gate) | package suite + the four audits — **mount check only** | not yet run |
+| 2 | rerun every analysis that can run here | not yet run |
+| 3 (**acceptance**) | the same four audits, now against container tables | not yet run |
+| 4 | container tables against the phase-0 baseline, cell by cell | not yet run |
 
-Groups 1 and 2 are a gate: if they fail, the environment is not ready and
-nothing about individual numbers is interpretable (S54 section 8).
+⚠ Phase 1 is not the acceptance test and must not be reported as one. It
+audits the tables that arrived with the repository, so it shows the mount is
+intact and nothing more. Phase 3 is the tier-one criterion, because by then
+the tables are the container's own. The first version of this run had only
+the phase-1 audits and would have claimed agreement it never tested; the
+correction is logged in S54 section 10.1.
 
 `step127` is the cheapest and the most informative: it re-derives every quoted
 number from its table, so a clean run inside the container means the numbers in

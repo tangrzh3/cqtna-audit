@@ -44,14 +44,21 @@ v13 向各位报告：71 篇（46%）是恒等式覆盖面的**下界**，130 �
 "什么不算数"、以及"U 是真答案"都事先写死。
 
 **两位与本项目无关的编码者独立完成。** 核查：两份各 46 行填满，
-**非 U 判断无一缺引文或出处**；独立性成立（引文重合 3/46 = 7%，**出处字符串零重合**）。
+**非 U 判断无一缺引文或出处**。
+⚠ **独立性按程序事实报告**（各拿一份、行序种子不同、互不可见、均不含自动扫描）；
+引文重合 3/46 与出处零重合只是**与之一致**，不是证明。
 
 | | 裁定前 |
 |---|---:|
 | 原始一致率 | **71.7%** |
 | Cohen's κ | **0.534** |
 
-13 篇分歧**由两人共同裁定**，逐篇留理由（多数援引带每基因 SNP 数的补充工具表）。
+13 篇分歧**由两人共同裁定**。
+
+⚠⚠ **更正（2026-09-07）**：那 13 条裁定理由**已被我们自己的脚本销毁**。
+`step156 score` 旧版每次重算都重写 `156d` 并把 `reason` 写回空串，
+而我们在编码者填完后又跑了两次。**码未丢，22.2% 不受影响；丢的是证据链。**
+脚本已修且现在拒绝任何会抹除非空内容的写入；13 条理由**需两位编码者重写**。
 
 **最终分布（可判定 45 篇）**
 
@@ -127,9 +134,11 @@ Conclusions 那句最易被引用的话也限定为 "a single-variant cis-eQTL M
 ## 5. 明确仍未完成
 
 1. **作者本人**：姓名/邮箱/ORCID/GitHub、Zenodo DOI、四条声明
-   （`step152_set_identity.py` 报 **21 处**占位符；ethics 与 availability 已按事实写全）。
-2. **容器从未构建过**。`CONTAINER.md` §4 五行验收表全是 `not yet run`。
-   ⚠ 上一轮 cross-review 建议选 (b)"容器为准绳"，**尚未决策**。
+   （`step152_set_identity.py` 报 **20 处**占位符；ethics 与 availability 已按事实写全）。
+2. **容器从未构建过**。⚠ **作者已于 2026-09-07 选定 (b)“容器为准绳”**，
+   规则写在 **S54**（`manuscript/PREREG_container_canonical.md`，镜像构建前提交），
+   执行器为 `step159`。`CONTAINER.md` §4 五个阶段仍全是 `not yet run`。
+3. **预注册现为十七份**（S52/S53/S54 入列），正文已同步。
 3. **DOCX/PDF 逐页视觉检查未做**（Reviewer 3 硬门槛）。
 4. **正文 8,752 词 / 摘要 293**，仍高于 8,000 / 250。保住 B1/B2 的前提下 ~8,600 是地板。
 
@@ -147,7 +156,7 @@ Conclusions 那句最易被引用的话也限定为 "a single-variant cis-eQTL M
 
 ```bash
 python step127_audit_manuscript_numbers.py .   # 数字 ↔ 表（含 §1d 对账 C6 七个数）
-python step153_prereg_inventory.py .           # 预注册计数（现为十六份）
+python step153_prereg_inventory.py .           # 预注册计数（现为十七份）
 python step154_crossref_audit.py .             # 交叉引用/图注/面板/文献/重复句
 python step155_renumber_references.py .        # 文献顺序（只报告）
 python step156_estimator_provenance_coding.py . score   # 重算 C6
@@ -155,4 +164,4 @@ python step152_set_identity.py                 # 残留占位符
 ```
 
 前四个当前全绿。`step153` 本轮抓到 S52/S53 入列后正文"fourteen"须改"sixteen"——
-**五处**加枚举表加补充材料范围，这是第三次"某个错误之后写的审计抓到了同一错误的下一个实例"。
+**五处**加枚举表加补充材料范围；S54 入列后又抓到一次"sixteen→seventeen"。这是同一个审计第三、第四次抓到同类错误。

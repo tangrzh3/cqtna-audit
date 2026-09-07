@@ -221,7 +221,7 @@ c6 = [
     ("multi-instrument", "%d on a multi-instrument" % _c6i("n_M")),
     ("mixed", "%d on mixed pipelines" % _c6i("n_X")),
     ("the share, which is the claim",
-     "%.1f%% [%.1f, %.1f]" % (_share, 100 * float(_c6["W_lo"]),
+     "%.1f%%; Wilson 95%% CI %.1f–%.1f%%" % (_share, 100 * float(_c6["W_lo"]),
                               100 * float(_c6["W_hi"]))),
     ("raw agreement", "%.1f%%" % (100 * float(_c6["raw_agreement"]))),
     ("kappa, pre-adjudication", "%.3f" % float(_c6["kappa_preadjudication"])),

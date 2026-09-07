@@ -235,24 +235,73 @@ def score():
     print("  and one likely dominant, kappa can collapse for prevalence reasons")
     print("  while agreement is high -- the artefact already documented for C1.")
 
+    # Per-paper agreement table. The file header has always listed this as an
+    # output and the code never produced it -- caught on review.
+    cpath = os.path.join(MR, "156c_C6_agreement.tsv")
+    with io.open(cpath, "w", encoding="utf-8", newline=chr(10)) as f:
+        f.write(chr(9).join(["pmc", "coderA", "coderB", "agree"]) + chr(10))
+        for x in keys:
+            f.write(chr(9).join([x, A[x]["code"], B[x]["code"],
+                                 "1" if A[x]["code"] == B[x]["code"] else "0"])
+                    + chr(10))
+    print()
+    print("  wrote 156c_C6_agreement.tsv (%d papers, per-paper agreement)"
+          % len(keys))
+
     dis = [x for x in keys if A[x]["code"] != B[x]["code"]]
     dpath = os.path.join(MR, "156d_C6_disagreements.tsv")
-    prior = {}
+
+    # Read BOTH adjudicated and reason back. An earlier version of this block
+    # carried the code forward and rewrote the reason as an empty string, so
+    # every rerun silently destroyed the adjudicators' written justification --
+    # and it did, once, after the coders had filled it in. Nothing in the file
+    # is regenerable, so the rule now is: never write a blank over data.
+    prior, prior_reason = {}, {}
     if os.path.exists(dpath):
-        rows = [l.split("\t") for l in read(dpath).rstrip("\n").split("\n")]
+        rows = [l.split(chr(9)) for l in read(dpath).rstrip(chr(10)).split(chr(10))]
         ix = dict((c, i) for i, c in enumerate(rows[0]))
         for r in rows[1:]:
-            if len(r) > ix["adjudicated"]:
-                v = (r[ix["adjudicated"]] or "").strip().upper()
-                if v in CODES:
-                    prior[r[ix["pmc"]]] = v
-    with io.open(dpath, "w", encoding="utf-8", newline="\n") as f:
-        f.write("pmc\tcoderA\tA_quote\tA_where\tcoderB\tB_quote\tB_where"
-                "\tadjudicated\treason\n")
+            if len(r) <= ix["adjudicated"]:
+                continue
+            pmc = r[ix["pmc"]]
+            v = (r[ix["adjudicated"]] or "").strip().upper()
+            if v in CODES:
+                prior[pmc] = v
+            if "reason" in ix and len(r) > ix["reason"]:
+                rs = (r[ix["reason"]] or "").strip()
+                if rs:
+                    prior_reason[pmc] = rs
+
+    would_lose = [x for x in prior_reason if x not in dis]
+    if would_lose:
+        print()
+        print("  REFUSING to rewrite 156d: %d row(s) carry a reason but are no"
+              % len(would_lose))
+        print("  longer in the disagreement set (%s)." % ", ".join(would_lose[:5]))
+        print("  Rewriting would destroy adjudication text that cannot be",
+              "regenerated.")
+        return 1
+
+    with io.open(dpath, "w", encoding="utf-8", newline=chr(10)) as f:
+        f.write(chr(9).join(["pmc", "coderA", "A_quote", "A_where", "coderB",
+                             "B_quote", "B_where", "adjudicated",
+                             "reason"]) + chr(10))
         for x in dis:
-            f.write("\t".join([x, A[x]["code"], A[x]["quote"], A[x]["where"],
-                               B[x]["code"], B[x]["quote"], B[x]["where"],
-                               prior.get(x, ""), ""]) + "\n")
+            f.write(chr(9).join([x, A[x]["code"], A[x]["quote"], A[x]["where"],
+                                 B[x]["code"], B[x]["quote"], B[x]["where"],
+                                 prior.get(x, ""),
+                                 prior_reason.get(x, "")]) + chr(10))
+
+    # A judgement without a recorded reason is not adjudicated, whatever the
+    # code column says. 156_C6_CODING_RULES.txt requires the reason.
+    no_reason = [x for x in dis if x in prior and x not in prior_reason]
+    if no_reason:
+        print()
+        print("  [!] %d adjudicated row(s) carry NO reason: %s"
+              % (len(no_reason), ", ".join(no_reason)))
+        print("      The rules require one. These are not usable as adjudicated")
+        print("      until a reason is written, and the paper may not claim that")
+        print("      every disagreement carries a recorded justification.")
     print()
     print("  %d disagreement(s) written to 156d_C6_disagreements.tsv"
           % len(dis))
