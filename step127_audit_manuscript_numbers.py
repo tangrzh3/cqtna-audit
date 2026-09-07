@@ -202,6 +202,39 @@ for label, s in [("|z|-only model share", "%d–%d%% of the gap" % (_lo, _hi)),
 
 print()
 print("=" * 74)
+print("1d. C6, the hand-coded estimator provenance (S51), against 156e")
+print("=" * 74)
+# This is the paper's answer to its sharpest objection and it is now a number,
+# so it is reconciled against the table like everything else.
+_c6 = dict((r.quantity, r.value) for _, r in
+           pd.read_csv(_find("156e_C6_result.tsv"), sep=TAB).iterrows())
+
+
+def _c6i(k):
+    return int(round(float(_c6[k])))
+
+
+_share = 100.0 * float(_c6["W_share"])
+c6 = [
+    ("papers ascertainable", "%d ascertainable" % _c6i("n_ascertainable")),
+    ("single-variant Wald", "%d rest on a single-variant Wald" % _c6i("n_W")),
+    ("multi-instrument", "%d on a multi-instrument" % _c6i("n_M")),
+    ("mixed", "%d on mixed pipelines" % _c6i("n_X")),
+    ("the share, which is the claim",
+     "%.1f%% [%.1f, %.1f]" % (_share, 100 * float(_c6["W_lo"]),
+                              100 * float(_c6["W_hi"]))),
+    ("raw agreement", "%.1f%%" % (100 * float(_c6["raw_agreement"]))),
+    ("kappa, pre-adjudication", "%.3f" % float(_c6["kappa_preadjudication"])),
+]
+for label, s_ in c6:
+    hit = re.search(r"\s+".join(re.escape(w) for w in s_.split()), txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
+                                label))
+
+print()
+print("=" * 74)
 print("2. legacy-partition numbers that must NOT appear")
 print("=" * 74)
 # each entry: value, and the substrings whose presence makes an occurrence legitimate

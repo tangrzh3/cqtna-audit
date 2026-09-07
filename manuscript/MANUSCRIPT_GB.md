@@ -25,9 +25,9 @@ and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 Naming the gene fails separately: at ten melanoma loci with an accepted causal
 gene the pipeline names six, alone at two, and at MC1R it spans sixteen genes
 without naming MC1R. Replacing the outcome with a higher-powered meta-analysis
-replaced the list entirely. How much of this literature runs the design the identity governs is not
-yet measured: an automated scan of 154 full texts cannot say which estimator
-produced a paper's candidate list, and a hand-coded estimate is pending.
+replaced the list entirely. Hand-coding which estimator produced each paper's primary cis list, in a
+46-paper two-coder subsample, puts the design the identity governs at
+22.2% [12.5, 36.3] of ascertainable papers: a minority of current practice.
 
 **Conclusions.** The reproducible part of such a list is the part that is not a
 discovery, and the part that would be a discovery carries no locus-level evidence
@@ -642,17 +642,25 @@ failed. Scanning the 154 cached full texts — two more than the 152 scorable on
 because scorability required the five pre-fixed criteria to be assessable and the
 scan needs only the text — 71 contain a phrase asserting a single-variant
 instrument and 130 name a multi-instrument estimator. **Neither count survives
-inspection.** 23 of the 71 never mention a cis-eQTL anywhere; requiring
-the phrase to fall within 500 characters of one leaves 13, and within the same
+inspection.** 23 of the 71 never mention a cis-eQTL anywhere; requiring the
+phrase to fall within 500 characters of one leaves 13, and within the same
 sentence, 10. **A count that falls from 71 to 10 under a minimal proximity
 requirement is a phrase-hit tally of unknown direction, not a bound in either
-direction, and we withdraw it as one.** The quantity the question needs is the
-estimator that produced each paper's primary cis nomination list, which phrase
-matching cannot see at all: naming IVW does not establish that the cis list came
-from IVW, and saying "single variant" somewhere does not establish that it came
-from a Wald ratio. We are coding that provenance by hand, as a sixth criterion on
-the same 46-paper two-coder subsample, under rules fixed before any paper was
-read (Supplementary S51). Until it returns, **how much of this literature the
+direction, and we withdraw it as one.**
+
+We therefore coded the quantity the question needs — the estimator that produced
+each paper's primary cis nomination list — by hand, as a sixth criterion on the
+same fixed-seed 46-paper subsample used for the others, by two coders
+independently under rules fixed before any paper was read. Agreement was 71.7%
+and Cohen's κ 0.534, both before adjudication; the thirteen disagreements were
+resolved jointly with the evidence passage recorded for each. **Of 45
+ascertainable papers, 10 rest on a single-variant Wald ratio, 28 on a
+multi-instrument estimator and 7 on mixed pipelines; one could not be
+ascertained and is not redistributed.** The identity therefore governs exactly
+**22.2% [12.5, 36.3]** of this sample, or at most 37.8% if every mixed pipeline
+is counted as partly governed. **The design we analyse is a minority of current
+practice, and we state that as the limit on the claim rather than leaving the
+scope open** (Supplementary S51). Until it returns, **how much of this literature the
 identity reaches is unmeasured**, and the scan is reported as a corpus-discovery
 tool rather than as a result.
 
@@ -683,11 +691,12 @@ We think this reframing is the useful contribution, and we state plainly what it
 is not. The reduction itself is elementary and not new. It does not apply to
 multi-instrument estimators, where combining instruments breaks the identity —
 our relaxed IVW and weighted-median analyses are outside it. How much of the
-literature that exempts is unmeasured. We tried to bound it by phrase matching
-and the attempt failed, for reasons we give in full in Supplementary S51; a
-hand-coded estimate of which estimator produced each paper's primary cis
-nomination list is registered on a 46-paper subsample and has not yet
-returned. It does
+literature that exempts is now measured rather than assumed: in a 46-paper
+two-coder subsample, only 22.2% [12.5, 36.3] of ascertainable papers produce
+their primary cis nomination list from a single-variant Wald ratio
+(Supplementary S51). **The design this paper analyses is a minority of
+current practice.** Whether the argument weakens gracefully as instruments
+are added is not something we tested, and we do not assert it. It does
 not make MR effect estimates wrong; the sign and the scale genuinely come from the exposure,
 and only the significance claim does not. And it does not show that the
 sub-threshold part of a nomination list is spurious: at five loci we are
@@ -720,7 +729,7 @@ candidate under a ranking criterion that was never fixed in advance, and the
 first four designations were overturned. That is this project's own history and
 not an estimate of how often the framework fails, and the itemised record — every
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
-fourteen pre-registrations and the technical account of two processing errors of
+sixteen pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
 
 Eight checks follow directly, each cheap and each capable of changing what a study
@@ -754,7 +763,7 @@ data carries no instrument, and the gene that does carry one is principally
 expressed by tumour. The claim-by-claim table with its numbers is
 Supplementary S47; the complete record of which claims were raised, tested and
 withdrawn, with the selection denominators, is Supplementary S12, and the
-fourteen pre-registration documents are enumerated in Methods.
+sixteen pre-registration documents are enumerated in Methods.
 
 **Relation to existing guidance.** These eight add to, and do not replace,
 current cis-MR practice, which already stresses that cis analyses must be
@@ -1303,12 +1312,20 @@ single-variant phrase is matched anywhere in the text, so it is not tied to the
 cis analysis, to the primary candidate list or to the estimator used, and the
 count collapses from 71 to 10 when the phrase is required to appear in the same
 sentence as a cis-eQTL mention. The interpretable quantity is which estimator
-produced each paper's primary cis nomination list. It is being coded by hand as
-a sixth criterion, C6, on the fixed-seed 46-paper subsample already used for the
-other criteria, by two coders independently, each blind to the other and to the
-automated scan, under rules fixed before any paper was read, with the evidence
-passage recorded for every judgement; agreement, Cohen's κ, the adjudicated
-values and an interval will be reported with it (Supplementary S51).
+produced each paper's primary cis nomination list, and it was coded by hand as a
+sixth criterion, C6, on the fixed-seed 46-paper subsample already used for the
+other criteria. Two coders scored it independently, each blind to the other and
+to the automated scan, under rules fixed before any paper was read, recording the
+evidence passage and its location for every judgement; a judgement without a
+recorded quote was to be treated as not ascertainable. Four codes were fixed in
+advance — single-variant Wald, multi-instrument, mixed, and not ascertainable —
+with a decision order placing an explicit per-gene instrument count above any
+estimator named elsewhere in the paper, because naming IVW does not establish
+that the cis list came from it. Cohen's κ is reported before adjudication and
+beside the raw agreement, for the prevalence reason already given for C1;
+disagreements were then resolved jointly, never by one coder alone. Papers coded
+not ascertainable are reported as such and never redistributed (Supplementary
+S51).
 
 ### Pre-specification and stopping rules
 
@@ -1320,8 +1337,9 @@ pre-specified immune-module analysis were discarded under this rule. Kill
 criteria, test direction and window sizes were written into each script before it
 ran. A negative result was not followed by a search for a positive one in the
 same data. Simulations require calibration against a quantity not used to build
-them. Fourteen pre-registration documents (Supplementary S9, S18, S20, S21, S22,
-S24, S25, S28, S29, S30, S32, S33, S34, S35) each carry a reading table written
+them. Sixteen pre-registration documents (Supplementary S9, S18, S20, S21, S22,
+S24, S25, S28, S29, S30, S32, S33, S34, S35, S52, S53) each carry a reading
+table written
 before the run, and only their results register was completed afterwards;
 deviations are logged in the document they belong to. Five further documents
 sit beside that series and are not pre-registrations, which each of them says
@@ -1348,7 +1366,7 @@ the installed scipy.
 ### Data and code availability
 
 All datasets are public and identified by accession above. Analysis code,
-intermediate result tables and the fourteen pre-registration documents will be
+intermediate result tables and the sixteen pre-registration documents will be
 deposited at ⟨repository DOI⟩, comprising every numbered analysis and figure
 script together with the tables needed to reproduce each figure and every number
 reported in the text. CQTNA, a runnable implementation of the diagnostics in the
@@ -1400,7 +1418,7 @@ design, analysis, interpretation and writing⟩
 
 ## Supplementary information
 
-S9–S51, including the fourteen pre-registration documents with their reading tables
+S9–S53, including the sixteen pre-registration documents with their reading tables
 and results registers; **S41**, the transport grid scoring six diseases against
 their own reference lists; **S42**, the estimator identity, its numerical
 verification and the decomposition of the attribution by outcome significance;
@@ -1411,8 +1429,11 @@ fine-mapped decomposition and two failure modes of proxy-LD fine-mapping;
 **S46**, the diagnostic's own type I error, power and void rate; **S47**, the
 worked example in full; **S48**, the crossed grid cell by cell with its
 registration history; **S49**, the eight checks in full; **S50**, which
-inference unit the significance belongs to; and **S51**, how far the identity
-reaches into the audited literature, with the bounds that measurement admits.
+inference unit the significance belongs to; **S51**, how far the identity reaches into the audited
+literature, the phrase-matching attempt we withdrew and the hand coding that
+replaced it; **S52**, the pre-registered lookup of the nominated gene in a
+genome-scale CD4⁺ T perturbation map; and **S53**, whether
+cis-eQTL-instrumentable and perturbation-readable genes are the same genes.
 Earlier items include the literature-audit corpus with every PMID, both scoring
 passes, the two-coder subsample and the coding rules (S23); the multiple-testing
 unit sensitivity analysis, in which the significant list is recomputed over four
