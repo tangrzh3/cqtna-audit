@@ -21,6 +21,17 @@ order now is
 
 Phase 3 is the tier-one criterion in S54 section 2. Phase 1 is not.
 
+A failed step cannot leave tracked files worse than it found them, either:
+`run()` diffs tracked files immediately before and after each step and, on
+failure, reverts exactly what that step touched (needs `git` in the image;
+the acceptance Dockerfile installs it after the expensive R layer so this
+does not invalidate that cache). Found necessary the first time this ran:
+step158 failed for a legitimate, documented reason -- its external inputs are
+not part of the deposit -- and in doing so overwrote a prior run's console
+log with a one-line failure message. Nothing was lost from git history, but a
+tool meant for strangers to rerun should not depend on someone noticing that
+by hand every time.
+
   docker build -f container/Dockerfile -t cqtna-audit:0.3.0 .
   docker run --rm -v "$PWD:/repo" -w /repo cqtna-audit:0.3.0 \
       python3 step159_container_acceptance.py /repo
@@ -76,6 +87,14 @@ GROUP7_SKIP = {  # already run above, or not analyses
     "step156_estimator_provenance_coding.py", "step157_perturbseq_tpi1_lookup.py",
     "step158_visibility_overlap.py", "step159_container_acceptance.py",
     "step127_audit_manuscript_numbers.py",
+    # Queries a LIVE external database (GWAS Catalog) by design -- its own
+    # docstring says "the Catalog grows, so some drift is expected". A rerun
+    # two weeks later legitimately returns different counts on the SAME
+    # machine; that is not a container finding and running it here only
+    # produces noise S54 is not asking about. Confirmed by inspection after
+    # the first acceptance run showed 68 changed lines here with nothing
+    # else to explain them but the calendar.
+    "step143_list_provenance.py",
 }
 
 # Tier-two tables (S54 section 2) plus the ones the manuscript quotes from.
@@ -96,7 +115,29 @@ def say(s=""):
     LOG.append(s)
 
 
+def _git(args):
+    try:
+        p = subprocess.run(["git"] + args, cwd=MR, capture_output=True,
+                           text=True, timeout=60)
+        return p.returncode, (p.stdout or "")
+    except Exception:
+        return 1, ""
+
+
 def run(label, cmd, timeout=7200):
+    # A step that cannot succeed here should not be able to leave tracked
+    # files worse off than it found them. Discovered the hard way: step158
+    # failed for a documented, legitimate reason (its external inputs are not
+    # part of the deposit) and, in doing so, overwrote 158c_console.log --
+    # 33 lines of a prior successful run's evidence -- with one line saying
+    # it could not run this time. Nothing was lost from git history, but a
+    # tool meant to be rerun by strangers should not depend on a human
+    # noticing that in every future run. `git diff --name-only` before and
+    # after brackets exactly what THIS step touched; on failure, revert only
+    # that set, never anything a different step is responsible for.
+    rc_git, before = _git(["diff", "--name-only"])
+    before = set(before.split()) if rc_git == 0 else None
+
     t0 = time.time()
     try:
         p = subprocess.run(cmd, cwd=MR, capture_output=True, text=True,
@@ -111,6 +152,13 @@ def run(label, cmd, timeout=7200):
     if rc != 0:
         for line in [x for x in out.splitlines() if x.strip()][-8:]:
             say("      | " + line[:108])
+        if before is not None:
+            rc_git, after = _git(["diff", "--name-only"])
+            touched = (set(after.split()) - before) if rc_git == 0 else set()
+            if touched:
+                _git(["checkout", "--"] + sorted(touched))
+                say("      reverted (failed step touched tracked files): %s"
+                    % ", ".join(sorted(touched)))
     return rc, out
 
 

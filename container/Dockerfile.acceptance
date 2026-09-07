@@ -96,6 +96,17 @@ RUN Rscript -e 'install.packages("remotes")' \
 COPY cqtna_r /tmp/cqtna_r
 RUN R CMD INSTALL /tmp/cqtna_r
 
+# git for step159's own use: the bind-mounted /repo carries its .git directory
+# at runtime regardless of .dockerignore (that only governs the build
+# context), so the CLI is the only missing piece. step159 uses it to revert
+# any tracked file a failed rerun clobbered, discovered necessary when
+# step158 overwrote a prior successful run's console log with a one-line
+# failure message after finding its external inputs absent here. Placed
+# after the expensive R install layer so adding it does not invalidate that
+# cache.
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
+
 # Fail loudly here rather than three phases into the acceptance run.
 RUN python3 -c "import numpy, pandas, scipy; print('python deps ok')" \
  && Rscript -e 'for (p in c("cqtna","data.table","susieR","testthat")) \
