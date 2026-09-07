@@ -1,0 +1,7 @@
+unit	stratum	n_known	n_novel	known_rec	novel_rec	gap
+gene	low	1	2	0.2925	0.22375	0.06874999999999998
+gene	mid	2	2	0.92875	0.23249999999999998	0.69625
+gene	high	3	0	1.0		
+locus	low	1	1	0.2925	0.1725	0.12
+locus	mid	0	3		0.26333333333333336	
+locus	high	2	0	0.92875		

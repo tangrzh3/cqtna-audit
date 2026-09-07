@@ -1,0 +1,26 @@
+phase	step	status	rc
+1	cqtna testthat	ok	0
+1	step127 numbers (pre)	ok	0
+1	step153 pre-registrations (pre)	ok	0
+1	step154 cross-references (pre)	ok	0
+1	step155 reference order (pre)	ok	0
+2	step140 identity	ok	0
+2	step141 decomposition	ok	0
+2	step101 effect-size matching	ok	0
+2	step147 fine-mapping	ok	0
+2	step151 corpus scan	ok	0
+2	step156 C6 score	ok	0
+2	step158 visibility	not rerunnable	2
+2	step120_tpi1_window.py	not rerunnable	1
+2	step121_window_sensitivity.py	not rerunnable	1
+2	step122_locus_convention_recheck.py	not rerunnable	1
+2	step131_render_s38_scan.py	ok	0
+2	step137_rebuild_known_lists.py	ok	0
+2	step143_list_provenance.py	ok	0
+2	step144_relaxed_outcome_lookup.py	ok	0
+2	step146_extend_finemapping.py	ok	0
+2	step148_publish_litaudit.py	ok	0
+3	step127 numbers (post)	ok	0
+3	step153 pre-registrations (post)	ok	0
+3	step154 cross-references (post)	ok	0
+3	step155 reference order (post)	ok	0

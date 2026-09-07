@@ -1,4 +1,4 @@
 analysis	n_loci	n_known	bg_loci	bg_known	fold	fisher_p	n_gws_bounded_loci	n_gws_distinct_regions
-gws-removed, full background	5	1	655	66	1.98484848484849	0.413019883209857	3	NA
+gws-removed, full background	5	1	655	66	1.98484848484849	0.413019883209858	3	NA
 gws-removed, background restricted	5	1	652	63	2.06984126984127	0.39934850743055	3	NA
 merge loci sharing a lead SNP	7	3	641	52	5.28296703296703	0.0139788501675509	3	2

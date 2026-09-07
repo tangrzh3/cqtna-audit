@@ -1,0 +1,98 @@
+container acceptance run (S54, as amended in section 10.1)
+  when     : 2026-09-07 17:59:34
+  platform : Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+  python   : 3.12.13
+
+==========================================================================
+phase 0 -- immutable baseline of the tables mounted in
+==========================================================================
+  copied 18 of 18 watched tables into 159d_baseline/
+
+==========================================================================
+phase 1 -- GATE. Mount check only, NOT the acceptance test
+==========================================================================
+  These audits run against the tables that arrived with the repository.
+  Passing here says the mount is intact. It says nothing yet about
+  whether the container reproduces them (S54 section 10.1).
+  cqtna testthat                     ok             13.7 s
+  step127 numbers (pre)              ok              0.8 s
+  step153 pre-registrations (pre)    ok              0.2 s
+  step154 cross-references (pre)     ok              0.1 s
+  step155 reference order (pre)      ok              0.2 s
+
+==========================================================================
+phase 2 -- rerun the analyses; these produce the container's tables
+==========================================================================
+  step140 identity                   ok              2.0 s
+  step141 decomposition              ok              0.8 s
+  step101 effect-size matching       ok              5.3 s
+  step147 fine-mapping               ok            549.1 s
+  step151 corpus scan                ok              3.2 s
+  step156 C6 score                   ok              0.1 s
+  step158 visibility                 FAIL rc=2       1.6 s
+      | no bulk RNA-seq files -> cannot build the conditioning variable.
+
+  group 7 -- every other numbered step whose inputs are present
+  step120_tpi1_window.py             FAIL rc=1       0.7 s
+      |   File "/opt/venv/lib/python3.12/site-packages/pyarrow/fs.py", line 174, in _resolve_filesystem_and_path
+      |     filesystem, path = FileSystem.from_uri(path)
+      |                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "pyarrow/_fs.pyx", line 503, in pyarrow._fs.FileSystem.from_uri
+      |   File "pyarrow/_fs.pyx", line 457, in pyarrow._fs.FileSystem._native_from_uri
+      |   File "pyarrow/error.pxi", line 155, in pyarrow.lib.pyarrow_internal_check_status
+      |   File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
+      | pyarrow.lib.ArrowInvalid: Unrecognized filesystem type in URI: D:/Downloads/CD4_eqtl_step1_clean/CD4_Naive_u
+  step121_window_sensitivity.py      FAIL rc=1       0.7 s
+      |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "/opt/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+      |     self.handles = get_handle(
+      |                    ^^^^^^^^^^^
+      |   File "/opt/venv/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+      |     handle = open(
+      |              ^^^^^
+      | FileNotFoundError: [Errno 2] No such file or directory: 'D:/R_ex/MR/landi2020_known_loci_grch38.csv'
+  step122_locus_convention_recheck.py FAIL rc=1       0.7 s
+      |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "/opt/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+      |     self.handles = get_handle(
+      |                    ^^^^^^^^^^^
+      |   File "/opt/venv/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+      |     handle = open(
+      |              ^^^^^
+      | FileNotFoundError: [Errno 2] No such file or directory: 'D:/R_ex/MR/landi2020_known_loci_grch38.csv'
+  step131_render_s38_scan.py         ok              0.1 s
+  step137_rebuild_known_lists.py     ok            837.3 s
+  step143_list_provenance.py         ok            612.1 s
+  step144_relaxed_outcome_lookup.py  ok             53.8 s
+  step146_extend_finemapping.py      ok            167.1 s
+  step148_publish_litaudit.py        ok              0.7 s
+
+==========================================================================
+phase 3 -- ACCEPTANCE. The same audits, now against container tables
+==========================================================================
+  step127 numbers (post)             ok              0.7 s
+  step153 pre-registrations (post)   ok              0.2 s
+  step154 cross-references (post)    ok              0.1 s
+  step155 reference order (post)     ok              0.2 s
+
+==========================================================================
+phase 4 -- container tables against the phase-0 baseline
+==========================================================================
+  9 table(s) differ:
+    140a_identity_check.tsv                      0 changed cell(s)
+    140d_threshold.tsv                           0 changed cell(s)
+    141a_enrichment_decomposition.tsv            2 changed cell(s)
+    141b_reviewer_conditioning.tsv               1 changed cell(s)
+    101a_zdist.tsv                               0 changed cell(s)
+    101b_matched.tsv                             0 changed cell(s)
+    101c_stratified.tsv                          0 changed cell(s)
+    101d_zonly_model.tsv                         0 changed cell(s)
+    147a_finemap_decomposition.tsv               14 changed cell(s)
+  wrote 159e_table_diff.tsv
+
+==========================================================================
+VERDICT: phase 3 audits all pass against container-produced tables,
+and 9 watched table(s) differ from the baseline.
+
+This is still NOT a decision. Read 159e_table_diff.tsv, fill S54
+section 9, and choose canonical or fall back to (a) with reasons.
