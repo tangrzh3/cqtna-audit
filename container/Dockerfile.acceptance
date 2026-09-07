@@ -44,11 +44,21 @@ ARG DEBIAN_FRONTEND=noninteractive
 # switching the base changes the whole apt closure, and pinning what jammy
 # already resolved everything else against is the smaller, auditable change.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        software-properties-common ca-certificates \
-    && add-apt-repository -y ppa:deadsnakes/ppa \
-    && apt-get update && apt-get install -y --no-install-recommends \
-        python3.12 python3.12-venv python3.12-dev \
+        ca-certificates curl gnupg \
         libcurl4-openssl-dev libssl-dev libxml2-dev \
+    && rm -rf /var/lib/apt/lists/*
+# add-apt-repository's own key fetch uses the keyserver protocol, which this
+# network could not reach (gpg exit status 2, discovered building this
+# image). Fetching the same key over plain HTTPS from keyserver.ubuntu.com
+# and dearmoring it manually is a more reliable transport for the same key.
+# Fingerprint taken from the failed add-apt-repository run's own log rather
+# than re-derived.
+RUN curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBA6932366A755776" \
+      | gpg --dearmor -o /etc/apt/trusted.gpg.d/deadsnakes.gpg \
+ && echo "deb https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu jammy main" \
+      > /etc/apt/sources.list.d/deadsnakes.list \
+ && apt-get update && apt-get install -y --no-install-recommends \
+        python3.12 python3.12-venv python3.12-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # --- Python: the same five pins as the full image ------------------------

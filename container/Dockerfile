@@ -26,16 +26,24 @@ ARG DEBIAN_FRONTEND=noninteractive
 # bioconductor_docker:RELEASE_3_19 is Ubuntu 22.04 (jammy), confirmed by
 # running the image rather than assumed -- jammy's own repos top out at
 # Python 3.10, and requirements.txt pins scipy==1.18.0, which needs >=3.12.
-# The deadsnakes PPA is the fix; see container/Dockerfile.acceptance for the
-# same fix applied to the slim image, where it was first discovered.
+# The deadsnakes PPA supplies it.
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libhdf5-dev libxml2-dev libglpk-dev libgsl-dev \
         libcurl4-openssl-dev libssl-dev libfontconfig1-dev \
         libharfbuzz-dev libfribidi-dev libtiff5-dev \
-        software-properties-common \
-        wget unzip ca-certificates \
-    && add-apt-repository -y ppa:deadsnakes/ppa \
-    && apt-get update && apt-get install -y --no-install-recommends \
+        wget unzip ca-certificates curl gnupg \
+    && rm -rf /var/lib/apt/lists/*
+# add-apt-repository's own key fetch uses the keyserver protocol, which this
+# network could not reach (gpg exit status 2, discovered building
+# container/Dockerfile.acceptance, the slim image, first). Fetching the same
+# key over plain HTTPS from keyserver.ubuntu.com and dearmoring it manually
+# is a more reliable transport for the same key. Fingerprint taken from that
+# failed run's own log rather than re-derived.
+RUN curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBA6932366A755776" \
+      | gpg --dearmor -o /etc/apt/trusted.gpg.d/deadsnakes.gpg \
+ && echo "deb https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu jammy main" \
+      > /etc/apt/sources.list.d/deadsnakes.list \
+ && apt-get update && apt-get install -y --no-install-recommends \
         python3.12 python3.12-venv python3.12-dev \
     && rm -rf /var/lib/apt/lists/*
 
