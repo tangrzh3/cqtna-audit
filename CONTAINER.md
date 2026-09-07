@@ -99,6 +99,34 @@ rules say a claim of that shape is what an audit is for.
 
 ## 4b. Building it, in practice, from Windows
 
+### Which image
+
+There are two, and for the acceptance run you want the small one.
+
+| | `container/Dockerfile` | `container/Dockerfile.acceptance` |
+|---|---|---|
+| Restores | all 226 packages from the lock | the 4 R packages S54's list actually imports, at their locked versions |
+| Carries | Seurat, Bioconductor, BSgenome, TFBSTools, chromVAR | none of them |
+| Size / time | tens of GB, hours | roughly 2 GB, minutes |
+| Can run | everything whose inputs are in the deposit | S54's must-run list; group 7 partially |
+
+Every R script on S54's must-run list imports, between them, only `cqtna`
+(which itself imports nothing outside base R), `data.table`, `susieR` and
+`testthat`. The rest of the closure exists for the single-cell, spatial and
+chromatin analyses, whose inputs are the large objects the deposit excludes
+anyway.
+
+⚠ The slim image is **smaller, not looser**: the versions are the locked ones,
+pinned with `remotes::install_version`. What it costs is coverage. Anything in
+group 7 that needs an omitted package fails there, and those failures are
+recorded in S54 section 9.4 as *not rerunnable*, never as discrepancies. S54
+section 8 still binds: if rerunnable coverage falls below half the numbers the
+manuscript quotes, the container cannot be canonical and we fall back to (a).
+
+```bash
+docker build -f container/Dockerfile.acceptance -t cqtna-acceptance:0.3.0 .
+```
+
 ### Before you start
 
 1. **Docker Desktop with the WSL2 backend.** In *Settings -> Resources -> File

@@ -1,0 +1,74 @@
+# Slim image for the S54 acceptance run only.
+#
+# WHY THIS EXISTS
+# The full image (container/Dockerfile) restores the whole 226-package closure
+# from 150a_environment.lock, because a reader who wants to rerun the
+# single-cell, spatial and chromatin analyses needs Seurat, Bioconductor
+# annotation, BSgenome, TFBSTools, motifmatchr and chromVAR. That is tens of
+# gigabytes and hours of compilation.
+#
+# S54's must-run list needs none of it. Every R script on that list imports,
+# between them, exactly four packages:
+#
+#     cqtna        0.3.0      (Imports: stats, utils, graphics -- base R only)
+#     data.table   1.16.0
+#     susieR       0.14.2
+#     testthat                (not in 150a; a test-time dependency)
+#
+# plus the five pinned Python libraries. So the acceptance test can run in an
+# image of a couple of gigabytes that builds in minutes.
+#
+# WHAT THIS DOES NOT CHANGE
+# The versions are the locked ones. This is a smaller image, not a looser one.
+# What it does change is COVERAGE: group 7 of S54 section 3 -- "every other
+# step whose inputs are present" -- will fail here for anything needing the
+# omitted packages, and those failures must be recorded in S54 section 9.4 as
+# not rerunnable rather than as discrepancies. S54 section 8 still applies: if
+# rerunnable coverage falls below half the quoted numbers, the container
+# cannot be canonical and we fall back to (a).
+#
+#   docker build -f container/Dockerfile.acceptance -t cqtna-acceptance:0.3.0 .
+#   docker run --rm -v "D:/R_ex/MR:/repo" -w /repo cqtna-acceptance:0.3.0 \
+#       python3 step159_container_acceptance.py /repo
+#
+# rocker/r-ver pins both R and a dated CRAN snapshot, which is what makes the
+# package versions reproducible without carrying Bioconductor.
+FROM rocker/r-ver:4.4.1
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pip python3-venv \
+        libcurl4-openssl-dev libssl-dev libxml2-dev \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# --- Python: the same five pins as the full image ------------------------
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:${PATH}"
+COPY container/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r /tmp/requirements.txt
+
+# --- R: only what S54's must-run list actually imports --------------------
+# Versions taken from 150a_environment.lock. remotes::install_version pins
+# exactly; a bare install.packages() would take whatever the snapshot holds.
+RUN Rscript -e 'install.packages("remotes")' \
+ && Rscript -e 'remotes::install_version("data.table", version = "1.16.0", upgrade = "never")' \
+ && Rscript -e 'remotes::install_version("Matrix", version = "1.7-0", upgrade = "never")' \
+ && Rscript -e 'remotes::install_version("irlba", version = "2.3.7", upgrade = "never")' \
+ && Rscript -e 'remotes::install_version("mixsqp", version = "0.3-54", upgrade = "never")' \
+ && Rscript -e 'remotes::install_version("susieR", version = "0.14.2", upgrade = "never")' \
+ && Rscript -e 'install.packages("testthat")'
+
+# The package under test, built from source in the repository.
+COPY cqtna_r /tmp/cqtna_r
+RUN R CMD INSTALL /tmp/cqtna_r
+
+# Fail loudly here rather than three phases into the acceptance run.
+RUN python3 -c "import numpy, pandas, scipy; print('python deps ok')" \
+ && Rscript -e 'for (p in c("cqtna","data.table","susieR","testthat")) \
+      cat(p, as.character(packageVersion(p)), "\n")'
+
+WORKDIR /repo
+CMD ["bash"]
