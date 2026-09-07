@@ -72,13 +72,17 @@ Consequences worth naming rather than hoping about:
 Building the image is not the deliverable; measuring the gap is. Run these
 inside the container and record what agrees:
 
-| Check | Command | Result |
+| Group | Check | Result |
 |---|---|---|
-| Manuscript numbers reconcile against their tables | `python3 step127_audit_manuscript_numbers.py /repo` | not yet run |
-| Package regression suite | `Rscript -e 'testthat::test_local("cqtna_r")'` | not yet run |
-| The identity and its decomposition | `Rscript step140_estimator_identity.R /repo && Rscript step141_enrichment_decomposition.R /repo` | not yet run |
-| Fine-mapping, the known-unstable one | `Rscript step147_finemap_decomposition.R /repo` | not yet run |
-| Literature reach | `python3 step151_instrument_count_in_literature.py /repo` | not yet run |
+| 1 (gate) | the four audits: `step127`, `step153`, `step154`, `step155` | not yet run |
+| 2 (gate) | `testthat::test_local("cqtna_r")`, 271 assertions | not yet run |
+| 3 | `step140` and `step141` — the identity and its decomposition | not yet run |
+| 4 | `step101` — carries its own bitwise positive control | not yet run |
+| 5 | `step147` — the one S54 expects to move | not yet run |
+| 6 | `step151`, `step156 score`, `step158` — should not move at all | not yet run |
+
+Groups 1 and 2 are a gate: if they fail, the environment is not ready and
+nothing about individual numbers is interpretable (S54 section 8).
 
 `step127` is the cheapest and the most informative: it re-derives every quoted
 number from its table, so a clean run inside the container means the numbers in
@@ -108,9 +112,14 @@ free: any digit that moves has to be traced through
 against the new tables, and a verdict that flips has to be reported as having
 flipped rather than quietly adopted.
 
-We have prepared (a). (b) is a re-run of the full pipeline and a decision about
-what to do if a number moves; it is not something to start without deciding in
-advance what a moved number means.
+**The author chose (b) on 2026-09-07.** What a moved number means was decided
+in advance and is fixed in `manuscript/PREREG_container_canonical.md` (S54),
+committed before this image was built: two tiers of acceptance criterion, an
+all-or-nothing clause forbidding a mixture of container and authoring-machine
+numbers, a migration rule for numbers that move, and a requirement that a
+flipped verdict be reported as a flip rather than adopted silently. Run
+`step159_container_acceptance.py` inside the image; it executes S54's must-run
+list in S54's order and stops at S54's gate.
 
 ## 6. What the container still cannot fix
 

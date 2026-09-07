@@ -729,7 +729,7 @@ candidate under a ranking criterion that was never fixed in advance, and the
 first four designations were overturned. That is this project's own history and
 not an estimate of how often the framework fails, and the itemised record — every
 attempt, stopping rule and withdrawal, the candidate-selection timeline, the
-sixteen pre-registrations and the technical account of two processing errors of
+seventeen pre-registrations and the technical account of two processing errors of
 ours — is Supplementary S12.
 
 Eight checks follow directly, each cheap and each capable of changing what a study
@@ -763,7 +763,7 @@ data carries no instrument, and the gene that does carry one is principally
 expressed by tumour. The claim-by-claim table with its numbers is
 Supplementary S47; the complete record of which claims were raised, tested and
 withdrawn, with the selection denominators, is Supplementary S12, and the
-sixteen pre-registration documents are enumerated in Methods.
+seventeen pre-registration documents are enumerated in Methods.
 
 **Relation to existing guidance.** These eight add to, and do not replace,
 current cis-MR practice, which already stresses that cis analyses must be
@@ -1342,8 +1342,9 @@ pre-specified immune-module analysis were discarded under this rule. Kill
 criteria, test direction and window sizes were written into each script before it
 ran. A negative result was not followed by a search for a positive one in the
 same data. Simulations require calibration against a quantity not used to build
-them. Sixteen pre-registration documents (Supplementary S9, S18, S20, S21, S22,
-S24, S25, S28, S29, S30, S32, S33, S34, S35, S52, S53) each carry a reading
+them. Seventeen pre-registration documents (Supplementary S9, S18, S20, S21, S22,
+S24, S25, S28, S29, S30, S32, S33, S34, S35, S52, S53, S54) each carry a
+reading
 table written
 before the run, and only their results register was completed afterwards;
 deviations are logged in the document they belong to. Five further documents
@@ -1371,7 +1372,7 @@ the installed scipy.
 ### Data and code availability
 
 All datasets are public and identified by accession above. Analysis code,
-intermediate result tables and the sixteen pre-registration documents will be
+intermediate result tables and the seventeen pre-registration documents will be
 deposited at ⟨repository DOI⟩, comprising every numbered analysis and figure
 script together with the tables needed to reproduce each figure and every number
 reported in the text. CQTNA, a runnable implementation of the diagnostics in the
@@ -1423,7 +1424,7 @@ design, analysis, interpretation and writing⟩
 
 ## Supplementary information
 
-S9–S53, including the sixteen pre-registration documents with their reading tables
+S9–S54, including the seventeen pre-registration documents with their reading tables
 and results registers; **S41**, the transport grid scoring six diseases against
 their own reference lists; **S42**, the estimator identity, its numerical
 verification and the decomposition of the attribution by outcome significance;
@@ -1437,8 +1438,10 @@ registration history; **S49**, the eight checks in full; **S50**, which
 inference unit the significance belongs to; **S51**, how far the identity reaches into the audited
 literature, the phrase-matching attempt we withdrew and the hand coding that
 replaced it; **S52**, the pre-registered lookup of the nominated gene in a
-genome-scale CD4⁺ T perturbation map; and **S53**, whether
-cis-eQTL-instrumentable and perturbation-readable genes are the same genes.
+genome-scale CD4⁺ T perturbation map; **S53**, whether cis-eQTL-instrumentable and
+perturbation-readable genes are the same genes; and **S54**, the rules under
+which the deposited container becomes the canonical environment, fixed before
+the image was built.
 Earlier items include the literature-audit corpus with every PMID, both scoring
 passes, the two-coder subsample and the coding rules (S23); the multiple-testing
 unit sensitivity analysis, in which the significant list is recomputed over four
