@@ -1,0 +1,26 @@
+# Build context allowlist.
+#
+# Without this file `docker build .` tars and ships the entire repository to
+# the daemon before the first instruction runs. That is 34 GB here, almost all
+# of it result tables, genotype files and cached single-cell objects that no
+# Dockerfile copies. The two Dockerfiles between them need about 880 KB.
+#
+# The analysis data is not baked into the image on purpose: it is bind-mounted
+# at run time, so the image stays small and the tables it reads are the ones on
+# the host, which is what makes the acceptance run a comparison rather than a
+# replay of something frozen inside the image.
+
+# Exclude everything, then allow back only what a COPY line names.
+*
+
+!container/
+!cqtna_r/
+!150a_environment.lock
+
+# ...but never these, even inside the allowed directories.
+cqtna_r/**/*.Rcheck
+cqtna_r/**/*.tar.gz
+**/.Rhistory
+**/.RData
+**/__pycache__
+**/*.pyc
