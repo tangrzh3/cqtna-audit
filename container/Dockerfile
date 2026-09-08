@@ -32,6 +32,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libcurl4-openssl-dev libssl-dev libfontconfig1-dev \
         libharfbuzz-dev libfribidi-dev libtiff5-dev \
         wget unzip ca-certificates curl gnupg \
+        git \
     && rm -rf /var/lib/apt/lists/*
 # add-apt-repository's own key fetch uses the keyserver protocol, which this
 # network could not reach (gpg exit status 2, discovered building
@@ -77,9 +78,20 @@ RUN mkdir -p /opt/bin \
  && rm -f /tmp/smr.zip /tmp/plink2.zip
 ENV PATH="/opt/bin:${PATH}"
 
+# The package under test, built from source in the repository. Sixteen R
+# scripts call library(cqtna), including step140 and step141 on S54's must-run
+# list, so without this the acceptance dies at the start of phase 2 -- hours
+# into a build that looked like it was succeeding. The slim acceptance image
+# had it from the start; this one never did, and nothing caught that because
+# this image had never actually been built.
+COPY cqtna_r /tmp/cqtna_r
+RUN R CMD INSTALL /tmp/cqtna_r
+
 # Fail fast and loudly rather than half-working.
 RUN python3 -c "import numpy, pandas, scipy, pyarrow, matplotlib; print('python deps ok')" \
- && Rscript -e "stopifnot(getRversion() >= '4.4.0'); cat('R', as.character(getRversion()), '\n')"
+ && Rscript -e "stopifnot(getRversion() >= '4.4.0'); cat('R', as.character(getRversion()), '\n')" \
+ && Rscript -e "library(cqtna); cat('cqtna', as.character(packageVersion('cqtna')), '\n')" \
+ && git --version
 
 WORKDIR /repo
 CMD ["bash"]
