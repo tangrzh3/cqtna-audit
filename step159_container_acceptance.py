@@ -314,6 +314,49 @@ def main():
     say("  Passing here says the mount is intact. It says nothing yet about")
     say("  whether the container reproduces them (S54 section 10.1).")
     gate_bad = False
+
+    # S54 section 8's FIRST stop condition: dependency resolution not matching
+    # 150a means record the difference, fix the image, and do not rerun
+    # damaged. Both 2026-09-07/08 runs violated it without anyone noticing,
+    # because nothing checked -- the slim image had 42 of the lock's 226
+    # packages at the right version and 11 at outright wrong ones, and it took
+    # the author asking whether the full closure had been used to surface it
+    # (S54 section 9.9). The full image now writes this report at build time;
+    # the gate reads it so the rule is enforced by the run rather than by
+    # someone remembering to look.
+    rep = "/opt/150a_closure_report.tsv"
+    if os.path.exists(rep):
+        mis = ab = ok = 0
+        bad = []
+        for ln in io.open(rep, encoding="utf-8").read().splitlines()[1:]:
+            f = ln.split("	")
+            if len(f) < 4:
+                continue
+            if f[3] == "match":
+                ok += 1
+            elif f[3] == "absent":
+                ab += 1
+            else:
+                mis += 1
+                bad.append("%s %s -> %s" % (f[0], f[1], f[2]))
+        say("  150a closure: %d match, %d MISMATCH, %d absent" % (ok, mis, ab))
+        rows.append(dict(phase=1, step="150a closure",
+                         status="ok" if mis == 0 else "MISMATCH", rc=mis))
+        if mis:
+            for b in bad[:20]:
+                say("      %s" % b)
+            say("  ⚠ S54 section 8: dependency resolution does not match 150a.")
+            say("  Fix the image before rerunning. Not a run to interpret.")
+            gate_bad = True
+    else:
+        say("  ⚠ no /opt/150a_closure_report.tsv in this image, so whether its")
+        say("  closure matches 150a is UNVERIFIED. S54 section 8 requires that")
+        say("  to be known, not assumed -- this is what section 9.9 records")
+        say("  going wrong. Build container/Dockerfile, which writes it.")
+        rows.append(dict(phase=1, step="150a closure",
+                         status="unverified", rc=-1))
+        gate_bad = True
+
     rc, _ = run("cqtna testthat", ["Rscript", "-e",
                                    'testthat::test_local("cqtna_r")'])
     rows.append(dict(phase=1, step="cqtna testthat",
