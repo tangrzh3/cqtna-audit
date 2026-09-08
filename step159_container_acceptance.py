@@ -49,6 +49,7 @@ import glob
 import io
 import os
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -143,12 +144,48 @@ WATCH = [
     "158a_visibility_2x2.tsv", "158b_visibility_by_decile.tsv",
     "123d_fixed_anchor_full_grid.tsv", "130c_multilist_verdict.tsv",
     "126a_offgrid_attribution.tsv", "85e_matched_background_fixed_anchor.tsv",
+    # Added 2026-09-08. step127 reads this for the two permutation calibration
+    # figures and it was the one audited table absent from WATCH, so phase 4
+    # never compared it -- found by hand, which is exactly the failure mode
+    # WATCH_GUARD below now makes mechanical.
+    "126c_permutation_primary.tsv",
 ]
 
 
 def say(s=""):
     print(s, flush=True)
     LOG.append(s)
+
+
+def watch_guard():
+    """Every table step127 reconciles the manuscript against must be watched.
+
+    S54 section 2's tier-one criterion is "every number the text cites", and
+    phase 4 is what reports a number that moved. A table step127 reads but
+    WATCH omits is therefore invisible to phase 4 -- the acceptance still
+    passes, and the moved value is simply never mentioned. That happened:
+    126c_permutation_primary.tsv, the permutation calibration, was audited by
+    step127 and absent from WATCH, and it took a hand comparison to notice.
+    Rather than add the one name and move on, this derives the set from
+    step127's own source so the next table added there cannot slip through.
+    """
+    src_path = os.path.join(MR, "step127_audit_manuscript_numbers.py")
+    try:
+        src = io.open(src_path, encoding="utf-8").read()
+    except Exception as e:
+        say("  WATCH guard: cannot read step127 (%s); guard skipped." % e)
+        return
+    reads = set(re.findall(r'["\']([0-9]{2,3}[a-z]_[A-Za-z0-9_]+\.tsv)["\']', src))
+    missing = sorted(reads - set(WATCH))
+    if missing:
+        say("  ⚠ WATCH guard: step127 audits %d table(s) phase 4 does not"
+            " compare:" % len(missing))
+        for m in missing:
+            say("      %s" % m)
+        say("    A number that moved in these would pass unreported. Add them")
+        say("    to WATCH.")
+    else:
+        say("  WATCH guard: all %d table(s) step127 audits are watched." % len(reads))
 
 
 def _git(args):
@@ -339,6 +376,8 @@ def main():
     say("=" * 74)
     say("phase 4 -- container tables against the phase-0 baseline")
     say("=" * 74)
+    watch_guard()
+    say()
     moved, diffs = [], []
     for f in WATCH:
         a, b = os.path.join(BASE, f), os.path.join(MR, f)
