@@ -4,7 +4,26 @@
 ## the library that produced the result tables, written in renv.lock's JSON
 ## structure precisely so that renv::restore() can read it (step150 header).
 ## Restoring it therefore reproduces the package VERSIONS, not the machine.
+## Point CRAN at the Posit binary mirror for speed, then let BiocManager
+## reinstate the Bioconductor repositories ON TOP of it.
+##
+## The single line that used to be here set repos to CRAN and nothing else,
+## which silently discarded the Bioconductor repos the base image configures.
+## 207 of the lock's 226 entries carry Source "Repository" with no repository
+## named and the lockfile has no Bioconductor field, so renv finds a package
+## only by searching whatever repos are configured -- and every Bioconductor
+## package therefore became "failed to find source": S4Vectors, IRanges,
+## GenomicRanges, GO.db, TFBSTools, JASPAR2020 and the rest, which then took
+## restfulr and the whole restore down with them. BiocManager::repositories()
+## returns the Bioc repos for this image's release plus the CRAN already set,
+## so both survive. The base is RELEASE_3_19 and the locked versions
+## (S4Vectors 0.42.1, GO.db 3.19.1, GenomicRanges 1.56.2) are Bioc 3.19, so
+## the release repos carry exactly what the lock asks for.
 options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
+if (requireNamespace("BiocManager", quietly = TRUE)) {
+  options(repos = BiocManager::repositories())
+}
+cat("repos in use:\n"); print(getOption("repos"))
 if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
 
 lock <- Sys.getenv("CQTNA_LOCK", "/repo/150a_environment.lock")
