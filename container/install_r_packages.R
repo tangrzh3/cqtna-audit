@@ -56,6 +56,27 @@ lk$R$Repositories <- lapply(names(rp), function(n) list(Name = n, URL = unname(r
 if (requireNamespace("BiocManager", quietly = TRUE)) {
   lk$Bioconductor <- list(Version = as.character(BiocManager::version()))
 }
+## Drop what no repository can supply, letting R itself say which those are
+## rather than hardcoding a list. Base-priority packages (compiler, graphics,
+## grDevices, grid, methods, parallel, splines, stats, stats4, tools, utils)
+## ship inside R and cannot be installed; renv tried and failed the restore on
+## them. The recommended ones in the lock -- MASS, Matrix, survival, lattice,
+## nlme, cluster, codetools, KernSmooth -- are NOT dropped: they are on CRAN,
+## so renv installs the locked versions rather than whatever R shipped with,
+## which is what keeps the closure honest.
+##
+## cqtna is dropped too. The lock records it as Source "Repository", but it is
+## the local package built from cqtna_r/ in this repository and exists in no
+## repository at all -- a second thing step150 recorded inaccurately. It is
+## installed from source in a later layer, and the build-time check there does
+## library(cqtna), so nothing goes unverified.
+base_pkgs <- rownames(installed.packages(priority = "base"))
+drop <- intersect(names(lk$Packages), c(base_pkgs, "cqtna"))
+lk$Packages <- lk$Packages[setdiff(names(lk$Packages), drop)]
+cat("dropped from derived lock (unavailable from any repository): ",
+    paste(sort(drop), collapse = ", "), "
+", sep = "")
+
 derived <- "/tmp/150a_derived.lock"
 writeLines(jsonlite::toJSON(lk, auto_unbox = TRUE, pretty = TRUE), derived)
 cat("derived lockfile: ", length(lk$Packages), " packages, ",
@@ -103,12 +124,17 @@ rows <- do.call(rbind, lapply(names(lock_pkgs), function(nm) {
   got <- inst$Version[match(nm, inst$Package)]
   data.frame(package = nm, locked = want,
              installed = if (is.na(got)) "<absent>" else got,
-             status = if (is.na(got)) "absent"
+             status = if (identical(nm, "cqtna") && is.na(got)) "later-layer"
+                      else if (is.na(got)) "absent"
                       else if (identical(got, want)) "match" else "MISMATCH",
              stringsAsFactors = FALSE)
 }))
 write.table(rows, "/opt/150a_closure_report.tsv", sep = "\t",
             row.names = FALSE, quote = FALSE)
+## cqtna is installed from source in a later Docker layer, so it is absent
+## when this runs and is reported as "later-layer" rather than counted as a
+## failure -- the build-time check there loads it. Miscounting it would train
+## the reader to ignore this report, which is the one thing it must not be.
 cat("\n150a closure:", sum(rows$status == "match"), "match,",
     sum(rows$status == "MISMATCH"), "mismatch,",
     sum(rows$status == "absent"), "absent, of", nrow(rows), "\n")
