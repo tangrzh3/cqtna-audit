@@ -69,13 +69,38 @@ RUN CQTNA_LOCK=/opt/150a_environment.lock Rscript /tmp/install_r_packages.R
 # The upstream URLs are not content-addressed, so verify the checksums against
 # the ones you record at build time -- do not assume a URL still serves the
 # same bytes it served for us.
+#
+# > THE PLINK URL IS DEAD. s3://plink2-assets/alpha7 now holds only 2026 dated
+# builds; plink2_linux_x86_64_20241206.zip -- the 2.0.0-a.7.2 the Methods
+# names -- has been deleted upstream. Verified by listing the bucket, not
+# inferred from the 404. Substituting a current build would put a different
+# binary behind a version number the paper states, so nothing is substituted.
+#
+# The build no longer dies on it. What is obtained is recorded with a checksum
+# in /opt/binaries_provenance.txt, and what is not is stated in the same file,
+# so the image can say what it holds instead of merely looking complete. No
+# analysis on S54's must-run list calls either binary -- step145 names SMR and
+# HEIDI in comments but computes in R, and it ran green in the slim acceptance
+# image, which carries neither -- so this does not affect the acceptance. It
+# does affect a reader trying to rerun everything, which is why it is recorded
+# rather than quietly worked around.
 RUN mkdir -p /opt/bin \
- && wget -q -O /tmp/smr.zip https://yanglab.westlake.edu.cn/software/smr/download/smr-1.3.1-linux-x86_64.zip \
- && unzip -q -j /tmp/smr.zip -d /opt/bin \
- && wget -q -O /tmp/plink2.zip https://s3.amazonaws.com/plink2-assets/alpha7/plink2_linux_x86_64_20241206.zip \
- && unzip -q -j /tmp/plink2.zip -d /opt/bin \
- && chmod +x /opt/bin/* \
- && rm -f /tmp/smr.zip /tmp/plink2.zip
+ && : > /opt/binaries_provenance.txt \
+ && if wget -q -O /tmp/smr.zip https://yanglab.westlake.edu.cn/software/smr/download/smr-1.3.1-linux-x86_64.zip; then \
+      unzip -q -j /tmp/smr.zip -d /opt/bin \
+      && echo "smr-1.3.1 OK sha256=$(sha256sum /tmp/smr.zip | cut -c1-64)" >> /opt/binaries_provenance.txt; \
+    else \
+      echo 'smr-1.3.1 UNOBTAINABLE' >> /opt/binaries_provenance.txt; \
+    fi \
+ && if wget -q -O /tmp/plink2.zip https://s3.amazonaws.com/plink2-assets/alpha7/plink2_linux_x86_64_20241206.zip; then \
+      unzip -q -j /tmp/plink2.zip -d /opt/bin \
+      && echo "plink2-20241206 OK sha256=$(sha256sum /tmp/plink2.zip | cut -c1-64)" >> /opt/binaries_provenance.txt; \
+    else \
+      echo 'plink2-20241206 UNOBTAINABLE (404; upstream deleted this dated build)' >> /opt/binaries_provenance.txt; \
+    fi \
+ && chmod +x /opt/bin/* 2>/dev/null || true \
+ && rm -f /tmp/smr.zip /tmp/plink2.zip \
+ && cat /opt/binaries_provenance.txt
 ENV PATH="/opt/bin:${PATH}"
 
 # The package under test, built from source in the repository. Sixteen R
