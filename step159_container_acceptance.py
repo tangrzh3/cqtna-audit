@@ -197,6 +197,18 @@ def _git(args):
         return 1, ""
 
 
+def _git_free_version(pkg):
+    """Installed version of an R package, or ("", None) if it is not there."""
+    try:
+        p = subprocess.run(
+            ["Rscript", "-e",
+             'cat(as.character(packageVersion("%s")))' % pkg],
+            cwd=MR, capture_output=True, text=True, timeout=120)
+        return p.returncode, (p.stdout or "").strip()
+    except Exception:
+        return 1, ""
+
+
 def run(label, cmd, timeout=7200):
     # A step that cannot succeed here should not be able to leave tracked
     # files worse off than it found them. Discovered the hard way: step158
@@ -326,7 +338,7 @@ def main():
     # someone remembering to look.
     rep = "/opt/150a_closure_report.tsv"
     if os.path.exists(rep):
-        mis = ab = ok = 0
+        mis = ab = ok = late = 0
         bad = []
         for ln in io.open(rep, encoding="utf-8").read().splitlines()[1:]:
             f = ln.split("	")
@@ -334,12 +346,27 @@ def main():
                 continue
             if f[3] == "match":
                 ok += 1
+            elif f[3] == "later-layer":
+                # The build wrote this report before installing cqtna from
+                # source, so "later-layer" means "not installed YET, verify
+                # now" -- not "ignore me". Counting it as a mismatch failed
+                # the gate on a correct image; waving it through would let a
+                # genuinely missing package pass. So actually go and look.
+                rc_v, out_v = _git_free_version(f[0])
+                if rc_v == 0 and out_v == f[1]:
+                    ok += 1
+                    late += 1
+                else:
+                    mis += 1
+                    bad.append("%s %s -> %s (later-layer, checked at run time)"
+                               % (f[0], f[1], out_v or "<absent>"))
             elif f[3] == "absent":
                 ab += 1
             else:
                 mis += 1
                 bad.append("%s %s -> %s" % (f[0], f[1], f[2]))
-        say("  150a closure: %d match, %d MISMATCH, %d absent" % (ok, mis, ab))
+        say("  150a closure: %d match, %d MISMATCH, %d absent%s" % (ok, mis, ab,
+            " (%d verified at run time)" % late if late else ""))
         rows.append(dict(phase=1, step="150a closure",
                          status="ok" if mis == 0 else "MISMATCH", rc=mis))
         if mis:
