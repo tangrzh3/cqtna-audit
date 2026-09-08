@@ -29,7 +29,39 @@ if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
 lock <- Sys.getenv("CQTNA_LOCK", "/repo/150a_environment.lock")
 if (!file.exists(lock)) stop("lockfile not found: ", lock)
 
-renv::restore(lockfile = lock, prompt = FALSE)
+## ---------------------------------------------------------------------------
+## Restore from a DERIVED lockfile, not the deposited one.
+##
+## 150a_environment.lock records exactly one repository:
+##     "Repositories": [ { "Name": "CRAN", "URL": "https://cloud.r-project.org" } ]
+## and renv::restore() uses the lockfile's own repository list in preference to
+## whatever options(repos=) says. Over forty of the lock's packages are
+## Bioconductor, so renv searched CRAN alone and reported "failed to find
+## source" for every one of them -- S4Vectors, IRanges, GenomicRanges, GO.db,
+## TFBSTools and the rest -- then failed the whole restore. Confirmed against
+## the live repositories that this is not a missing-version problem: every
+## locked Bioconductor version is still served by the 3.19 repos today
+## (S4Vectors 0.42.1, GO.db 3.19.1, GenomicRanges 1.56.2 all match exactly).
+## The lock simply never recorded where to look.
+##
+## ⚠ The deposited lockfile is NOT edited: it is the record of the authoring
+## machine and altering it would destroy the thing being compared against.
+## What is derived here adds ONLY the repository list and the Bioconductor
+## release; every package version comes through untouched, which the closure
+## check at the end of this file then verifies against the original.
+if (!requireNamespace("jsonlite", quietly = TRUE)) install.packages("jsonlite")
+lk <- jsonlite::fromJSON(lock, simplifyVector = FALSE)
+rp <- getOption("repos")
+lk$R$Repositories <- lapply(names(rp), function(n) list(Name = n, URL = unname(rp[[n]])))
+if (requireNamespace("BiocManager", quietly = TRUE)) {
+  lk$Bioconductor <- list(Version = as.character(BiocManager::version()))
+}
+derived <- "/tmp/150a_derived.lock"
+writeLines(jsonlite::toJSON(lk, auto_unbox = TRUE, pretty = TRUE), derived)
+cat("derived lockfile: ", length(lk$Packages), " packages, ",
+    length(lk$R$Repositories), " repositories, Bioc ",
+    if (is.null(lk$Bioconductor)) "unset" else lk$Bioconductor$Version, "\n", sep = "")
+renv::restore(lockfile = derived, prompt = FALSE)
 
 ## The lock records only what was installed on the authoring machine. Anything
 ## it misses fails loudly here rather than silently at analysis time.
