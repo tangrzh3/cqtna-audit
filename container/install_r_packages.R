@@ -23,6 +23,18 @@ options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/l
 if (requireNamespace("BiocManager", quietly = TRUE)) {
   options(repos = BiocManager::repositories())
 }
+## Posit's binary mirror serves the CURRENT build of each package and does not
+## expose CRAN's Archive at the path renv looks for, so an older locked version
+## is unreachable through it. cluster 2.1.6 is the case that surfaced: the lock
+## wants 2.1.6, CRAN now ships 2.1.8.3, and 2.1.6 exists only in the Archive
+## (verified reachable, HTTP 200). Appending the canonical CRAN mirror keeps
+## the fast binaries as first choice while making archived sources findable at
+## all. renv searches every configured repository, so this adds reach without
+## changing which version any package resolves to -- the lock still decides.
+r <- getOption("repos")
+if (!"CRANsrc" %in% names(r)) {
+  options(repos = c(r, CRANsrc = "https://cloud.r-project.org"))
+}
 cat("repos in use:\n"); print(getOption("repos"))
 if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
 
