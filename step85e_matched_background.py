@@ -30,11 +30,21 @@ Output: 85e_matched_background_fixed_anchor.tsv  (the frozen main partition)
         reproduces the originally published rows and carries no inference
 """
 import os
+import sys
 
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+# Was hardcoded to the authoring machine's path, which made this the only
+# producer of a step127-audited table that could not run inside the container
+# (S54 section 9.7: 40 of 41 numbers, this one the exception). The data was
+# never missing -- it sits in the mounted repository -- so this was a
+# portability defect, not an unrunnable analysis. Same argv/env/self-location
+# order the other steps use. Nothing about the computation changes: the
+# permutation is seeded (default_rng(85)) and every path below is relative to
+# this one.
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or os.path.dirname(os.path.abspath(__file__)))
 LOCUS_KB = 1000
 # The partition this run uses. "fixed_centre" is the frozen main analysis;
 # "single_linkage" reproduces the originally published rows and carries no
