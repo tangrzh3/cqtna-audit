@@ -68,7 +68,12 @@ def _num_in_text(v, decimals=(2, 3, 4), sci_below=5e-5):
     if 0 < abs(v) < sci_below:
         cands = ["%.1f" % (v / 10 ** math.floor(math.log10(abs(v))))]
     else:
-        cands = [c for c in ("%.*f" % (d, v) for d in decimals) if float(c) != 0]
+        # Most precise FIRST. Trying 2 decimals first let 0.0495 pass on a
+        # coincidental "0.05" elsewhere in the text while the sentence actually
+        # prints 0.0495 -- a pass for the wrong reason, and the reported match
+        # then hides which rendering was found.
+        cands = [c for c in ("%.*f" % (d, v) for d in sorted(decimals, reverse=True))
+                 if float(c) != 0]
     for c in cands:
         if re.search(re.escape(c) + r"(?!\d)", txt):
             return c
@@ -278,6 +283,53 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("1t. the Steiger R-squared bounds (Methods), against 09")
+print("=" * 74)
+# "TwoSampleMR's R2 formula for SD units is unbounded and produced values above
+# 1 (maximum 1.027), so the bounded form R2 = F/(F + N - 2) (range
+# 0.185-0.933)". The whole point of the sentence is that one formula breaks its
+# own bound, so the number that demonstrates it had better be the real maximum.
+_st = pd.read_csv(_find("09_steiger_filtering.tsv"), sep=TAB)
+for label, v in (("unbounded maximum", _st["rsq.exposure"].max()),
+                 ("bounded minimum", _st["rsq.exposure.bounded"].min()),
+                 ("bounded maximum", _st["rsq.exposure.bounded"].max())):
+    s = "%.3f" % v
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, label))
+
+print()
+print("=" * 74)
+print("1u. the melanoma cell's multi-list margin (S39), against 130a and 130c")
+print("=" * 74)
+# "breast at 2.15-fold (P = 0.0495), so its multi-list verdict moves from no
+# enriching comparator to one; the cell's margin over its best rival widens from
+# 1.82- to 2.31-fold". This is the paper reporting a verdict CHANGE against
+# itself, so the numbers behind the change are the ones worth pinning.
+_mlm = pd.read_csv(_find("130a_multilist_main.tsv"), sep=TAB)
+_mel = _mlm[(_mlm.cell == "melanoma x Soskic_CD4") & (_mlm.role == "main")
+            & (_mlm.list_name == "breast")]
+if not _mel.empty:
+    r = _mel.iloc[0]
+    for label, s in (("breast fold", "%.2f" % r.fold),
+                     ("breast P", _num_in_text(r.fisher_p) or "%.4f" % r.fisher_p)):
+        hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, label))
+_mlv = pd.read_csv(_find("130c_multilist_verdict.tsv"), sep=TAB)
+_mv = _mlv[_mlv.cell == "melanoma x Soskic_CD4"]
+if not _mv.empty:
+    s = "%.2f" % _mv.iloc[0].margin_all
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   melanoma margin over best rival"
+          % ("OK " if hit else "MISSING", s))
 
 print()
 print("=" * 74)
