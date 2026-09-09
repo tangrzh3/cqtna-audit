@@ -53,7 +53,7 @@ off = pd.read_csv(_find("126a_offgrid_attribution.tsv"), sep=TAB)
 perm = pd.read_csv(_find("126c_permutation_primary.tsv"), sep=TAB)
 mb = pd.read_csv(_find("85e_matched_background_fixed_anchor.tsv"), sep=TAB)
 ml = pd.read_csv(_find("130c_multilist_verdict.tsv"), sep=TAB)
-def _num_in_text(v, decimals=(2, 3, 4), sci_below=5e-5):
+def _num_in_text(v, decimals=(2, 3, 4), sci_below=0.01):
     """Is v printed in the manuscript, at any precision the paper uses?
 
     The text renders the same quantity as 0.10, 0.026 or 1.5 x 10-5 depending
@@ -66,7 +66,16 @@ def _num_in_text(v, decimals=(2, 3, 4), sci_below=5e-5):
     if v is None or (isinstance(v, float) and math.isnan(v)):
         return None
     if 0 < abs(v) < sci_below:
-        cands = ["%.1f" % (v / 10 ** math.floor(math.log10(abs(v))))]
+        # The paper mixes conventions below a percent: 2.9 x 10-4 in one
+        # sentence, 0.0028 in another. Offer the scientific mantissa AND the
+        # decimal renderings rather than guessing which the author reached for.
+        # Decimals FIRST, mantissa last. Offering "5.2" ahead of "0.0052" let a
+        # P value match "+5.2 percentage points" in an unrelated sentence -- the
+        # fifth time in this file that a check passed on a looser rendering than
+        # the text actually prints. Most precise wins, always.
+        cands = [c for c in ("%.*f" % (d, v) for d in sorted(decimals, reverse=True))
+                 if float(c) != 0]
+        cands.append("%.1f" % (v / 10 ** math.floor(math.log10(abs(v)))))
     else:
         # Most precise FIRST. Trying 2 decimals first let 0.0495 pass on a
         # coincidental "0.05" elsewhere in the text while the sentence actually
@@ -283,6 +292,60 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("1v. the voided RA whole-blood cell (S33), against 123d")
+print("=" * 74)
+# "3.94-fold (P = 3.3e-17), but its pre-registered mismatched-list control also
+# enriches -- melanoma's known loci give 2.05-fold on the RA nominations,
+# P = 2.9e-4 -- ... excluding the MHC does not clean it (1.83-fold, P = 0.0052)".
+# Six numbers explaining why a cell is VOID. A paper is least likely to be
+# reread where it rules against itself, which is why these get pinned.
+# The MHC-excluded rows are a separate CELL, suffixed, not a filter on
+# the same one -- "RA x eQTLGen_blood (MHC excluded)". Matching on the
+# bare name silently found nothing and printed four items instead of six.
+_g = grid[grid.cell.str.startswith("RA x eQTLGen_blood")
+          & (grid.analysis == "main")]
+_ag = _g[_g.region_filter == "all_genome"]
+_mh = _g[_g.region_filter == "MHC_excluded"]
+_items = []
+if not _ag.empty:
+    r = _ag.iloc[0]
+    _items += [("own fold", "%.2f" % r.fold), ("own P", _num_in_text(r.fisher_p)),
+               ("mismatch fold", "%.2f" % r.mismatch_fold),
+               ("mismatch P", _num_in_text(r.mismatch_p))]
+if not _mh.empty:
+    r = _mh.iloc[0]
+    _items += [("MHC-excluded mismatch fold", "%.2f" % r.mismatch_fold),
+               ("MHC-excluded mismatch P", _num_in_text(r.mismatch_p))]
+for label, s in _items:
+    ok = s is not None and re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not ok:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if ok else "MISSING", s or "?", label))
+
+print()
+print("=" * 74)
+print("1w. the attribution ceilings (S43), against 142a")
+print("=" * 74)
+# "the share runs from 0.101 for melanoma to 0.403 for prostate -- ceilings of
+# 9.92 and 2.48". The ceiling is the reciprocal of the background share, so it
+# is fully determined by a number already in the table; quoting it is a place
+# an arithmetic slip would never be recomputed.
+_pmb = pd.read_csv(_find("142a_power_matched.tsv"), sep=TAB)
+_base = _pmb[_pmb.matched_k.isna() | (_pmb.matched_k.astype(str) == "NA")]
+for _out in ("Melanoma", "Prostate"):
+    _r = _base[_base.outcome == _out]
+    if _r.empty:
+        continue
+    _pb = float(_r.iloc[0].p_bg)
+    for label, s in ((_out + " share", "%.3f" % _pb),
+                     (_out + " ceiling", "%.2f" % (1.0 / _pb))):
+        ok = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not ok:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if ok else "MISSING", s, label))
 
 print()
 print("=" * 74)
