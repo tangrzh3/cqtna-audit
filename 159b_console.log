@@ -1,5 +1,5 @@
 container acceptance run (S54, as amended in section 10.1)
-  when     : 2026-09-08 17:32:36
+  when     : 2026-09-09 05:21:49
   platform : Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
   python   : 3.12.13
 
@@ -20,27 +20,27 @@ phase 1 -- GATE. Mount check only, NOT the acceptance test
   Passing here says the mount is intact. It says nothing yet about
   whether the container reproduces them (S54 section 10.1).
   150a closure: 226 match, 0 MISMATCH, 0 absent (1 verified at run time)
-  cqtna testthat                     ok             14.1 s
-  step127 numbers (pre)              ok              0.7 s
-  step153 pre-registrations (pre)    ok              0.2 s
+  cqtna testthat                     ok             13.5 s
+  step127 numbers (pre)              ok              6.1 s
+  step153 pre-registrations (pre)    ok              0.1 s
   step154 cross-references (pre)     ok              0.1 s
   step155 reference order (pre)      ok              0.2 s
 
 ==========================================================================
 phase 2 -- rerun the analyses; these produce the container's tables
 ==========================================================================
-  step140 identity                   ok              1.8 s
-  step141 decomposition              ok              0.9 s
-  step101 effect-size matching       ok              5.5 s
-  step147 fine-mapping               ok            872.4 s
-  step151 corpus scan                ok              3.3 s
+  step140 identity                   ok              1.6 s
+  step141 decomposition              ok              0.7 s
+  step101 effect-size matching       ok              7.8 s
+  step147 fine-mapping               ok            518.7 s
+  step151 corpus scan                ok              3.1 s
   step156 C6 score                   ok              0.1 s
-  step158 visibility                 FAIL rc=2       1.7 s
+  step158 visibility                 FAIL rc=2       1.6 s
       | no bulk RNA-seq files -> cannot build the conditioning variable.
       reverted (failed step touched tracked files): 158c_console.log
 
   group 7 -- every other numbered step whose inputs are present
-  step120_tpi1_window.py             FAIL rc=1       0.7 s
+  step120_tpi1_window.py             FAIL rc=1       0.8 s
       |   File "/opt/venv/lib/python3.12/site-packages/pyarrow/fs.py", line 174, in _resolve_filesystem_and_path
       |     filesystem, path = FileSystem.from_uri(path)
       |                        ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -49,7 +49,7 @@ phase 2 -- rerun the analyses; these produce the container's tables
       |   File "pyarrow/error.pxi", line 155, in pyarrow.lib.pyarrow_internal_check_status
       |   File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
       | pyarrow.lib.ArrowInvalid: Unrecognized filesystem type in URI: D:/Downloads/CD4_eqtl_step1_clean/CD4_Naive_u
-  step121_window_sensitivity.py      FAIL rc=1       0.8 s
+  step121_window_sensitivity.py      FAIL rc=1       0.6 s
       |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       |   File "/opt/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
       |     self.handles = get_handle(
@@ -58,7 +58,7 @@ phase 2 -- rerun the analyses; these produce the container's tables
       |     handle = open(
       |              ^^^^^
       | FileNotFoundError: [Errno 2] No such file or directory: 'D:/R_ex/MR/landi2020_known_loci_grch38.csv'
-  step122_locus_convention_recheck.py FAIL rc=1       0.7 s
+  step122_locus_convention_recheck.py FAIL rc=1       0.6 s
       |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       |   File "/opt/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
       |     self.handles = get_handle(
@@ -67,37 +67,35 @@ phase 2 -- rerun the analyses; these produce the container's tables
       |     handle = open(
       |              ^^^^^
       | FileNotFoundError: [Errno 2] No such file or directory: 'D:/R_ex/MR/landi2020_known_loci_grch38.csv'
-  step123_fixed_centre_grid.R        ok              2.7 s
-  step124_cells.R                    ok              1.7 s
-  step124_full_grid.R                ok              5.1 s
-  step125_mismatch_loci.R            ok              4.0 s
-  step126_recompute_on_fixed_anchor.R ok           1005.2 s
-  step128_window_sensitivity_fixed_anchor.R ok              8.9 s
-  step129_selfcheck_on_fixed_anchor.R ok              1.7 s
-  step130_multilist_control.R        ok             16.2 s
+  step123_fixed_centre_grid.R        ok              2.1 s
+  step124_cells.R                    ok              1.5 s
+  step124_full_grid.R                ok              4.9 s
+  step125_mismatch_loci.R            ok              3.9 s
+  step126_recompute_on_fixed_anchor.R ok           1009.5 s
+  step128_window_sensitivity_fixed_anchor.R ok              8.2 s
+  step129_selfcheck_on_fixed_anchor.R ok              1.6 s
+  step130_multilist_control.R        ok             15.9 s
   step131_render_s38_scan.py         ok              0.1 s
-  step132_external_power_gate.R      ok            769.0 s
-  step133_projection_reading_b.R     ok           1867.0 s
+  step132_external_power_gate.R      ok            768.3 s
+  step133_projection_reading_b.R     ok           1843.1 s
   step134_candidate_cohorts.R        ok              0.9 s
   step135_hcc_gate_distance.R        ok              1.3 s
-  step137_rebuild_known_lists.py     FAIL rc=124  3599.9 s
-      | timed out
-      reverted (failed step touched tracked files): known_loci_breast_grch38.csv
-  step138_transport_grid.R           ok             25.7 s
+  step137_rebuild_known_lists.py     ok            634.0 s
+  step138_transport_grid.R           ok             25.3 s
   step139_transport_independence.R   ok              1.5 s
-  step142_power_matched_transport.R  ok             32.1 s
-  step144_relaxed_outcome_lookup.py  ok             56.1 s
+  step142_power_matched_transport.R  ok             32.0 s
+  step144_relaxed_outcome_lookup.py  ok             54.4 s
   step145_method_benchmark.R         ok              0.8 s
-  step146_extend_finemapping.py      ok            166.9 s
-  step148_publish_litaudit.py        ok              1.5 s
-  step149_typeI_calibration.R        ok            293.2 s
-  step85e_matched_background.py      ok             28.7 s
+  step146_extend_finemapping.py      ok            167.1 s
+  step148_publish_litaudit.py        ok              1.4 s
+  step149_typeI_calibration.R        ok            300.5 s
+  step85e_matched_background.py      ok             27.8 s
 
 ==========================================================================
 phase 3 -- ACCEPTANCE. The same audits, now against container tables
 ==========================================================================
   step127 numbers (post)             ok              0.7 s
-  step153 pre-registrations (post)   ok              0.2 s
+  step153 pre-registrations (post)   ok              0.1 s
   step154 cross-references (post)    ok              0.1 s
   step155 reference order (post)     ok              0.2 s
 
