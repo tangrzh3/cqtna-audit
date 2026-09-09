@@ -259,6 +259,23 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("1o. the |z|-matched residual (S28), against 101b")
+print("=" * 74)
+# "+5.2 percentage points [-1.6, +12.0] by bounded locus and +6.4 [+0.9, +12.0]
+# by gene, against raw gaps of 47.6 and 63.0". Eight numbers, none audited, and
+# they are the ones that decide whether the class gap survives conditioning on
+# effect size -- the residual IS the claim in that paragraph.
+_mt = pd.read_csv(_find("101b_matched.tsv"), sep=TAB)
+for _, r in _mt.iterrows():
+    for s in ("%.1f" % (100 * r.gap_observed), "%.1f" % (100 * r.delta_matched),
+              "%.1f" % (100 * r.ci_lo), "%.1f" % (100 * r.ci_hi)):
+        hit = re.search(re.escape(s.lstrip("-")) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, r.unit))
+
+print()
+print("=" * 74)
 print("1n. the Software section, against 150a and requirements.txt")
 print("=" * 74)
 # The Methods name twenty package versions. None was audited, and a version
