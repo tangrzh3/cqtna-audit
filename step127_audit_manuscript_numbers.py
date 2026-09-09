@@ -257,6 +257,73 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("1g. the eQTLGen attribution sentence (S42), against 123d")
+print("=" * 74)
+# The sentence carrying the second exposure resource: "23 of 34 significant loci
+# (67.6%) ... 6.31-fold over this resource's own 10.7% background". Only 6.31 was
+# audited; the counts, the percentage and the background it is a fold OVER were
+# not, so the fold could have stayed correct while its own denominator drifted.
+_eq = main[main.cell == "melanoma x eQTLGen_blood"].iloc[0]
+eqs = [
+    ("significant loci", "%d" % int(_eq.sig_loci)),
+    ("of them known", "%d" % int(_eq.sig_known)),
+    ("share known", "%.1f%%" % float(_eq.pct_known)),
+    ("resource background", "%.1f%%" % (100.0 * _eq.bg_known / _eq.bg_loci)),
+]
+for label, s in eqs:
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, label))
+
+print()
+print("=" * 74)
+print("1h. the |z| distribution behind the class gap (S28), against 101a")
+print("=" * 74)
+# "their full-power |z| all lie between 3.73 and 4.55, while known-locus
+# candidates reach 15.99 (medians 4.23 and 11.07)". These five numbers carry the
+# argument that the known-vs-novel gap is an effect-size statement rather than a
+# class one, and none of them was audited.
+_zd = pd.read_csv(_find("101a_zdist.tsv"), sep=TAB)
+_zg = _zd[_zd.unit == "gene"]
+_zk = _zg[_zg.cls == "known"].iloc[0]
+_zn = _zg[_zg.cls == "novel"].iloc[0]
+zs = [
+    ("novel |z| lower", "%.2f" % _zn.lo),
+    ("novel |z| upper", "%.2f" % _zn.hi),
+    ("known |z| upper", "%.2f" % _zk.hi),
+    # .median is DataFrame.median, the method -- reach it by name.
+    ("novel median", "%.2f" % _zn["median"]),
+    ("known median", "%.2f" % _zk["median"]),
+]
+for label, s in zs:
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, label))
+
+print()
+print("=" * 74)
+print("1i. two-coder agreement (S23), recomputed from 148b")
+print("=" * 74)
+# "Agreement was 97.8% on each criterion with one disagreement each". This is not
+# stored anywhere -- it is derived from the two coders' columns -- so it was
+# unreachable by any audit that only compares text against table cells. Deriving
+# it here means the claim is checked against the coding itself rather than
+# against a number someone once wrote down.
+_dc = pd.read_csv(_find("148b_litaudit_doublecoded.tsv"), sep=TAB)
+for crit, g in _dc.groupby("criterion"):
+    agree = (g["manual"] == g["coder2"])
+    s = "%.1f%%" % (100.0 * agree.mean())
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s, %d of %d, %d disagreement(s)"
+          % ("OK " if hit else "MISSING", s, crit, int(agree.sum()), len(g),
+             int((~agree).sum())))
+
+print()
+print("=" * 74)
 print("1f. the density-matched permutation sentence (S38), against 126c")
 print("=" * 74)
 # The Results sentence beginning "Matching on density" quotes six folds. Two
