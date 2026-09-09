@@ -64,8 +64,8 @@ value	coverage	in_any_table	first_line	context
 4.52	step127	yes	421	12.09-fold for the two HCC-low cells, and **4.52-fold for RA on CD4⁺ T cells**.
 4.4	NOT AUDITED	yes	1366	R 4.4.1 with Seurat 5.5.1, Matrix 1.7.0, data.table 1.16.0, coloc 5.2.3,
 4.23	step127	yes	481	3.73 and 4.55, while known-locus candidates reach 15.99 (medians 4.23 and 11.07) —
-4.17	NOT AUDITED	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
-4.11	NOT AUDITED	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
+4.17	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
+4.11	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
 3.96	NOT AUDITED	yes	339	locus widths (3.70- to 3.96-fold) and rises as the known-locus window narrows
 3.94	NOT AUDITED	yes	300	3.94-fold (P = 3.3×10⁻¹⁷), but its pre-registered mismatched-list control also
 3.91	step127	yes	340	(3.91- to 7.30-fold), the direction every other cell moves in. It is the control
@@ -74,7 +74,7 @@ value	coverage	in_any_table	first_line	context
 3.73	step127	yes	481	3.73 and 4.55, while known-locus candidates reach 15.99 (medians 4.23 and 11.07) —
 3.70	NOT AUDITED	yes	339	locus widths (3.70- to 3.96-fold) and rises as the known-locus window narrows
 3.5	NOT AUDITED	yes	475	known-locus genes and 8,771 for novel-locus genes — 3.5-fold. Studies using this
-3.44	NOT AUDITED	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
+3.44	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
 3.4	NOT AUDITED	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 3.32	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
 3.3	NOT AUDITED	yes	300	3.94-fold (P = 3.3×10⁻¹⁷), but its pre-registered mismatched-list control also
@@ -83,18 +83,18 @@ value	coverage	in_any_table	first_line	context
 3.12	NOT AUDITED	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 3.11	step127	yes	1371	matplotlib 3.11.1. External binaries: SMR v1.3.1 and PLINK v2.0.0-a.7.2. Ordinary
 3.10	step127	yes	185	ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10 and colorectal 2.52,
-3.05	NOT AUDITED	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
-3.03	NOT AUDITED	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
+3.05	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
+3.03	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 2.9	NOT AUDITED	yes	302	P = 2.9×10⁻⁴ — and S33 §5 voids a cell whose mismatched list enriches. It stays
 2.75	NOT AUDITED	yes	592	Fig. 7). In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
-2.55	NOT AUDITED	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
+2.55	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
 2.52	step127	yes	185	ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10 and colorectal 2.52,
 2.5	NOT AUDITED	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 2.48	NOT AUDITED	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
-2.38	NOT AUDITED	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
+2.38	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 2.31	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
-2.30	NOT AUDITED	yes	189	every mismatched list by a margin (2.30-fold against
 2.3	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
+2.30	NOT AUDITED	yes	189	every mismatched list by a margin (2.30-fold against
 2.25	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.2	step127	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 2.15	NOT AUDITED	yes	1144	2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
@@ -106,15 +106,15 @@ value	coverage	in_any_table	first_line	context
 1.98	step127	yes	24	and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 1.83	NOT AUDITED	yes	303	void: excluding the MHC does not clean it (1.83-fold, P = 0.0052), and the
 1.82	NOT AUDITED	yes	1145	comparator to one; the cell's margin over its best rival widens from 1.82- to
-1.71	NOT AUDITED	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
+1.71	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 1.7	step127	yes	1366	R 4.4.1 with Seurat 5.5.1, Matrix 1.7.0, data.table 1.16.0, coloc 5.2.3,
-1.69	NOT AUDITED	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
+1.69	step127	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
 1.6	NOT AUDITED	yes	484	residual is **+5.2 percentage points [−1.6, +12.0] by bounded locus** and
-1.59	NOT AUDITED	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
-1.5	NOT AUDITED	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
+1.59	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
+1.5	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
 1.42	step127	yes	1367	TwoSampleMR 0.7.5, susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
 1.4	step127	yes	1369	BSgenome.Hsapiens.UCSC.hg38 1.4.5, survival 3.8.9 and org.Hs.eg.db 3.19.1.
-1.39	NOT AUDITED	yes	357	prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
+1.39	step127	yes	357	prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
 1.32	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
 1.3	step127	yes	278	10.7% background (P = 1.3×10⁻¹⁵)**, against 4.96-fold in CD4⁺ T cells. A
 1.29	NOT AUDITED	yes	190	the best rival, against 1.29 for lung and below 1 for the rest), while lung's
@@ -135,8 +135,8 @@ value	coverage	in_any_table	first_line	context
 0.79	NOT AUDITED	yes	632	0.79 for list stability and **0.00 for locus attribution — a prevalence artefact,
 0.73	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.707	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
-0.70	NOT AUDITED	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
 0.7	step127	yes	627	0.7% for the second criterion was too strict and falls below the corrected
+0.70	NOT AUDITED	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
 0.649	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.647	NOT AUDITED	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
 0.555	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
@@ -163,15 +163,15 @@ value	coverage	in_any_table	first_line	context
 0.123	NOT AUDITED	yes	241	it does not reach significance (P = 0.123). The single novel nomination, SUPV3L1,
 0.11	NOT AUDITED	yes	457	from 9.3×10⁻⁴ to 0.11 — and six different genes took their place. **The two lists
 0.101	NOT AUDITED	yes	180	the reciprocal of that share, and across our lists the share runs from 0.101 for
+0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.1	NOT AUDITED	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
-0.10	NOT AUDITED	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.095	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.086	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.081	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.0569	NOT AUDITED	yes	192	0.0569 without the chr11 FADS1/TMEM258 cluster, the same cluster identified as
 0.05	NOT AUDITED	yes	19	numerically; Benjamini–Hochberg at 0.05 corresponds to an outcome P of
 0.0495	NOT AUDITED	yes	1144	2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
-0.026	NOT AUDITED	yes	357	prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
+0.026	step127	yes	357	prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
 0.024	NOT AUDITED	yes	1264	separable from activation and the analysis stops. Observed R² = 0.024. Cells were
 0.015631	NOT AUDITED	NO TABLE	1004	controls (N = 801,629, case fraction 0.015631). Rashkin reports odds ratios and P
 0.014962	NOT AUDITED	NO TABLE	1047	sizes, SD exposure units, log-odds outcome units and outcome prevalence 0.014962;
@@ -181,11 +181,11 @@ value	coverage	in_any_table	first_line	context
 0.0052	NOT AUDITED	yes	303	void: excluding the MHC does not clean it (1.83-fold, P = 0.0052), and the
 0.0050	NOT AUDITED	yes	419	Supplementary S38 before the run — gives **4.87-fold (P = 0.0050)** there,
 0.0048	NOT AUDITED	yes	21	reported for the outcome, 4.96-fold by bounded locus (P = 0.0048) — but that
-0.0042	NOT AUDITED	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
+0.0042	step127	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
 0.0041	NOT AUDITED	yes	240	lower-powered outcome (P = 0.0041) and 7.9-fold in the higher-powered one, where
 0.0029	step127	yes	173	(P = 0.0097 corrected), lung 3.85-fold (0.0138), colorectal 3.15-fold (0.0029),
-0.0028	NOT AUDITED	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
-0.0018	NOT AUDITED	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
+0.0028	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
+0.0018	step127	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
 0.0016	NOT AUDITED	yes	416	gives 6.66-fold (empirical P = 0.0016) for melanoma on CD4⁺ T cells. Matching on
 0.0015	NOT AUDITED	yes	401	| HCC-high × whole blood | 10.87 | 0.0015 |
 0.0011	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no

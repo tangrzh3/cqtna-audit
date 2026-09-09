@@ -259,6 +259,67 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("1p. the mismatched-list window sweep (S33/S37), against 128a")
+print("=" * 74)
+# "1.71-, 2.38-, 3.03- and 4.17-fold at 1000, 500, 250 and 100 kb" for RA, and
+# "4.11-, 3.44-, 2.55-, 1.59-fold as the window widens" for melanoma on whole
+# blood. Eight numbers arguing AGAINST the paper's own control, which is the
+# last place a quiet transposition should be allowed to sit.
+_sw = pd.read_csv(_find("128a_known_kb_sweep.tsv"), sep=TAB)
+for _cell in ("RA x Soskic_CD4", "melanoma x eQTLGen_blood"):
+    _c = _sw[(_sw.cell == _cell) & (_sw.role == "main")]
+    for _, r in _c.sort_values("known_kb").iterrows():
+        if pd.isna(r.mismatch_fold) or r.mismatch_fold <= 0:
+            continue
+        s = "%.2f" % r.mismatch_fold
+        hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   %s at %d kb"
+              % ("OK " if hit else "MISSING", s, _cell, int(r.known_kb)))
+
+print()
+print("=" * 74)
+print("1q. the RA multi-list control (S39), against 130a")
+print("=" * 74)
+# "melanoma ... at 1.71-fold (P = 0.10) ... HCC 3.05 (0.0028), lung 3.32
+# (1.5e-5), colorectal 1.71 (0.0018), breast 1.69 (0.0042), prostate 1.39
+# (0.026) would each have voided it". Twelve numbers deciding whether the RA
+# cell survives its negative control, and the decision turns on which
+# comparator was nominated -- so every comparator's pair is checked, not the
+# nominated one alone.
+_ml = pd.read_csv(_find("130a_multilist_main.tsv"), sep=TAB)
+_ra = _ml[(_ml.cell == "RA x Soskic_CD4") & (_ml.role == "main")]
+for _, r in _ra.iterrows():
+    if r.fold <= 0:
+        continue
+    # The text renders P at whichever precision suits it -- 0.10 here, 0.026
+    # there, 1.5e-5 elsewhere -- so a single format string reports MISSING on
+    # numbers that are perfectly correct. Any of the precisions the paper
+    # actually uses counts; the digits still have to be right.
+    if r.fisher_p >= 5e-5:
+        # A candidate that rounds to all zeros carries no information and
+        # would match "0.00" anywhere in the text -- kappa 0.00, for one -- so
+        # every P below 0.005 would pass on nothing. Dropped.
+        _cands = [c for c in ("%.*f" % (d, r.fisher_p) for d in (2, 3, 4))
+                  if float(c) > 0]
+    else:
+        _cands = ["%.1f" % (r.fisher_p / 10 ** math.floor(math.log10(r.fisher_p)))]
+    _match = next((c for c in _cands
+                   if re.search(re.escape(c) + r"(?!\d)", txt)), None)
+    if _match is None:
+        bad += 1
+    print("  %s  %-8s   RA vs %s (P)"
+          % ("OK " if _match else "MISSING", _match or _cands[-1], r.list_name))
+    _fs = "%.2f" % r.fold
+    _fok = re.search(re.escape(_fs) + r"(?!\d)", txt) is not None
+    if not _fok:
+        bad += 1
+    print("  %s  %-8s   RA vs %s (fold)"
+          % ("OK " if _fok else "MISSING", _fs, r.list_name))
+
+print()
+print("=" * 74)
 print("1o. the |z|-matched residual (S28), against 101b")
 print("=" * 74)
 # "+5.2 percentage points [-1.6, +12.0] by bounded locus and +6.4 [+0.9, +12.0]
