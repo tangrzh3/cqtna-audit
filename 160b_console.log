@@ -2,11 +2,11 @@
 audit coverage of the manuscript's arithmetic
 ==========================================================================
   decimal values in the body : 278 occurrences, 191 distinct
-  reconciled by step127      : 130 distinct
+  reconciled by step127      : 133 distinct
   numeric forms in 360 result files: 636828 (coincidence is cheap here,
     which is why presence is not treated as evidence)
 
-  COVERAGE: 130 of 191 distinct values reconciled (68%)
+  COVERAGE: 133 of 191 distinct values reconciled (70%)
 
   2 value(s) appear in NO result table -- derived, quoted, or unbacked:
     0.015631     line 1004  controls (N = 801,629, case fraction 0.015631). Rashkin reports odds ratios and P

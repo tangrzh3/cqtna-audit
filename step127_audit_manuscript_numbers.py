@@ -295,6 +295,50 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2a. the automated matcher's own rates (S23), against 148a")
+print("=" * 74)
+# "Automated matching returned 7.9% and 35.5%" -- the figures the paper reports
+# in order to say they were WRONG, against corrected values of 0% and 7.1%.
+# Numbers quoted to be disowned still have to be the numbers that were
+# produced, and these had never been checked. Also "about 59% performed",
+# which is the automated C2 rate.
+_cp = pd.read_csv(_find("148a_litaudit_corpus.tsv"), sep=TAB)
+_n = len(_cp)
+for _col, _lab in (("wide_C1_known_locus", "wide matcher, locus attribution"),
+                   ("wide_C3_power_stability", "wide matcher, power stability"),
+                   ("automated_C2_coloc", "automated, colocalisation")):
+    if _col not in _cp.columns:
+        continue
+    _k = int((pd.to_numeric(_cp[_col], errors="coerce").fillna(0) > 0).sum())
+    _pcv = 100.0 * _k / _n
+    s = next((c for c in ("%.1f%%" % _pcv, "%.0f%%" % _pcv)
+              if re.search(re.escape(c) + r"(?!\d)", txt)), None)
+    if s is None:
+        bad += 1
+    print("  %s  %-8s   %s (%d/%d)"
+          % ("OK " if s else "MISSING", s or "%.1f%%" % _pcv, _lab, _k, _n))
+
+print()
+print("=" * 74)
+print("2b. the HCC power ratio (S44), against 135a")
+print("=" * 74)
+# "The higher-powered HCC study carries 30.3% of melanoma's effective sample
+# size, so we down-sampled melanoma to match". The ratio decides the whole
+# down-sampling comparison that follows, and it is a quotient of two numbers
+# in one table, so nothing would have recomputed it.
+_gd = pd.read_csv(_find("135a_hcc_gate_distance.tsv"), sep=TAB)
+_mel = _gd[_gd.cell.str.startswith("melanoma")].n_eff_disc.iloc[0]
+_hcc = _gd[_gd.cell.str.startswith("HCC_high")].n_eff_disc.iloc[0]
+_r = 100.0 * _hcc / _mel
+s2 = "%.1f%%" % _r
+hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+if not hit:
+    bad += 1
+print("  %s  %-8s   HCC effective N as share of melanoma (%d/%d)"
+      % ("OK " if hit else "MISSING", s2, _hcc, _mel))
+
+print()
+print("=" * 74)
 print("1y. the list that did not survive the meta round, against 04 and 12")
 print("=" * 74)
 # "IMPA1's MR P moved from 9.3e-4 to 0.11" -- the single example given for why
