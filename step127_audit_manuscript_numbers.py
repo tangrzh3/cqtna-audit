@@ -257,6 +257,62 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("1j. the down-sampling calibration (S28), against 53b")
+print("=" * 74)
+# "10.2 simulated versus 10 real discoveries; simulated Jaccard 0.52
+# [0.36, 0.73] containing the observed 0.455". The calibration is what licenses
+# every recovery curve in Fig. 3, and none of its six numbers was audited.
+_cal = pd.read_csv(_find("53b_calibration.tsv"), sep=TAB).iloc[0]
+cals = [
+    ("real discoveries", "%d" % int(_cal.real_hits)),
+    ("simulated discoveries", "%.1f" % _cal.sim_hits),
+    ("simulated Jaccard", "%.2f" % _cal.sim_jaccard),
+    ("Jaccard lower", "%.2f" % _cal.sim_lo),
+    ("Jaccard upper", "%.2f" % _cal.sim_hi),
+    ("observed Jaccard", "%.3f" % _cal.real_jaccard),
+]
+for label, s in cals:
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, label))
+
+print()
+print("=" * 74)
+print("1k. the meta-round colocalisation comparison, recomputed from 07 vs 14")
+print("=" * 74)
+# "across the 127 exposures run in both rounds, median PP.H3+H4 fell from 0.249
+# to 0.207 and median PP.H4 from 0.124 to 0.095, with only 44.1% improving".
+# Stored nowhere -- it is a join between the single-round and meta-round coloc
+# tables -- so no audit comparing text against cells could reach it. Recomputing
+# checks the claim against the coloc output itself.
+#
+# "Improving" means PP.H3+H4, not PP.H4: on H4 the figure is 40.2%. Established
+# by testing both against the text rather than assuming which was meant, and
+# recorded here so the next reader does not have to redo it.
+_c1 = pd.read_csv(_find("07_coloc_results.tsv"), sep=TAB)
+_c2 = pd.read_csv(_find("14_coloc_meta_results.tsv"), sep=TAB)
+_keys = [k for k in ("gene_id", "exposure", "cell_type", "timepoint")
+         if k in _c1.columns and k in _c2.columns]
+_mg = _c1.merge(_c2, on=_keys, suffixes=("_1", "_2"))
+_h1 = _mg["PP.H3_1"] + _mg["PP.H4_1"]
+_h2 = _mg["PP.H3_2"] + _mg["PP.H4_2"]
+cocs = [
+    ("exposures in both rounds", "%d" % len(_mg)),
+    ("median H3+H4 before", "%.3f" % _h1.median()),
+    ("median H3+H4 after", "%.3f" % _h2.median()),
+    ("median H4 before", "%.3f" % _mg["PP.H4_1"].median()),
+    ("median H4 after", "%.3f" % _mg["PP.H4_2"].median()),
+    ("share improving on H3+H4", "%.1f%%" % (100.0 * (_h2 > _h1).mean())),
+]
+for label, s in cocs:
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, label))
+
+print()
+print("=" * 74)
 print("1g. the eQTLGen attribution sentence (S42), against 123d")
 print("=" * 74)
 # The sentence carrying the second exposure resource: "23 of 34 significant loci

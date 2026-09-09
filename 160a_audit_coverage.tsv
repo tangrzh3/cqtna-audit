@@ -11,7 +11,7 @@ value	coverage	in_any_table	first_line	context
 47.6	NOT AUDITED	yes	485	+6.4 [+0.9, +12.0] by gene, against raw gaps of 47.6 and 63.0. Only one known
 46.0	step127	yes	472	apparent stability: at 10% of observed power, 46.0% of known pigmentation and
 45.6	NOT AUDITED	yes	508	sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
-44.1	NOT AUDITED	yes	436	44.1% improving. Three explanations were tested and rejected, including
+44.1	step127	yes	436	44.1% improving. Three explanations were tested and rejected, including
 37.8	NOT AUDITED	yes	665	12.5–36.3%)**, or at most 37.8% if every mixed pipeline is counted as partly
 36.6	NOT AUDITED	yes	508	sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
 36.3	step127	yes	29	Wilson 95% CI 12.5–36.3%) used the exact single-variant Wald design.
@@ -34,7 +34,7 @@ value	coverage	in_any_table	first_line	context
 11.07	step127	yes	481	3.73 and 4.55, while known-locus candidates reach 15.99 (medians 4.23 and 11.07) —
 10.87	step127	yes	401	| HCC-high × whole blood | 10.87 | 0.0015 |
 10.7	step127	yes	278	10.7% background (P = 1.3×10⁻¹⁵)**, against 4.96-fold in CD4⁺ T cells. A
-10.2	NOT AUDITED	yes	466	observed lower-power round, which it reproduces (10.2 simulated versus 10 real
+10.2	step127	yes	466	observed lower-power round, which it reproduces (10.2 simulated versus 10 real
 10.1	NOT AUDITED	yes	131	enrichment over the 10.1% background (one-sided P = 0.0048; Fig. 1). The same
 10.0	NOT AUDITED	yes	223	locus attribution is 10.0-fold (P = 9.1×10⁻⁵), all four significant loci known. The stability is not an artefact of
 9.92	NOT AUDITED	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
@@ -93,8 +93,8 @@ value	coverage	in_any_table	first_line	context
 2.48	NOT AUDITED	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
 2.38	NOT AUDITED	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 2.31	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
-2.3	NOT AUDITED	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.30	NOT AUDITED	yes	189	every mismatched list by a margin (2.30-fold against
+2.3	NOT AUDITED	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.25	NOT AUDITED	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.2	NOT AUDITED	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 2.15	NOT AUDITED	yes	1144	2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
@@ -133,39 +133,39 @@ value	coverage	in_any_table	first_line	context
 0.859	NOT AUDITED	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
 0.8	NOT AUDITED	yes	159	2 of 284 records reach PP.H4 > 0.8. It does not imply it: a variant that drives
 0.79	NOT AUDITED	yes	632	0.79 for list stability and **0.00 for locus attribution — a prevalence artefact,
-0.73	NOT AUDITED	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
+0.73	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.707	NOT AUDITED	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
-0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.70	NOT AUDITED	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
+0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.649	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.647	NOT AUDITED	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
 0.555	NOT AUDITED	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
 0.534	step127	yes	655	and Cohen's κ 0.534, both before adjudication; the thirteen disagreements were
-0.52	NOT AUDITED	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
+0.52	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.5	NOT AUDITED	yes	1070	posteriors, so PP.H3+PP.H4 > 0.5 was additionally required. Every result carries
-0.455	NOT AUDITED	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
+0.455	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.45	NOT AUDITED	yes	1087	multi-allelic sites. The `--diff-freq` QC removed 0.45% of variants at the
 0.41	NOT AUDITED	yes	24	and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 0.403	NOT AUDITED	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
-0.4	step127	yes	473	naevus-locus genes are recovered against **0.4%** of novel-locus genes; at 50%
 0.40	NOT AUDITED	yes	141	one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
-0.36	NOT AUDITED	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
+0.4	step127	yes	473	naevus-locus genes are recovered against **0.4%** of novel-locus genes; at 50%
+0.36	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.330	NOT AUDITED	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
-0.249	NOT AUDITED	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
+0.249	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.23	NOT AUDITED	yes	1344	interpreted — the within-lymphoid-subset spatial test (HLA-C P = 0.23) and the
-0.207	NOT AUDITED	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
+0.207	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.202	NOT AUDITED	yes	438	PP.H3+H4 (0.125 versus 0.202).
 0.20	NOT AUDITED	yes	622	0.00 and 0.20. Most hits were spurious — three of five on the first criterion lay
 0.185	NOT AUDITED	yes	1050	R² = F/(F + N − 2) (range 0.185–0.933) is additionally reported.
 0.14	NOT AUDITED	yes	1367	TwoSampleMR 0.7.5, susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
 0.125	NOT AUDITED	yes	438	PP.H3+H4 (0.125 versus 0.202).
-0.124	NOT AUDITED	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
+0.124	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.123	NOT AUDITED	yes	241	it does not reach significance (P = 0.123). The single novel nomination, SUPV3L1,
 0.11	NOT AUDITED	yes	457	from 9.3×10⁻⁴ to 0.11 — and six different genes took their place. **The two lists
 0.101	NOT AUDITED	yes	180	the reciprocal of that share, and across our lists the share runs from 0.101 for
-0.1	NOT AUDITED	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
 0.10	NOT AUDITED	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
-0.095	NOT AUDITED	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
+0.1	NOT AUDITED	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
+0.095	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.086	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.081	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.0569	NOT AUDITED	yes	192	0.0569 without the chr11 FADS1/TMEM258 cluster, the same cluster identified as
