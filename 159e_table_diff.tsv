@@ -16,3 +16,5 @@ table	where	baseline	container
 147a_finemap_decomposition.tsv	row 12 col 16	0.0892528776562527	0.0892528776601279
 147a_finemap_decomposition.tsv	row 13 col 16	0.0137316288706292	0.0137316288684284
 147a_finemap_decomposition.tsv	row 14 col 16	0.0403785219357033	0.0403785219356818
+85e_matched_background_fixed_anchor.tsv	row 6 col 6	3.545	3.348
+85e_matched_background_fixed_anchor.tsv	row 6 col 7	6.489	6.87

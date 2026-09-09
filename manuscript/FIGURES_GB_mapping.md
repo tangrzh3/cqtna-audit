@@ -56,7 +56,7 @@ HANDOFF_v6 的判断（"不是编号问题，是图件本身没按九图口径�
 | 迁移检验 R13 | 6,226 例，同六基因同两位点；归属 **10.02×，P=9.1e-5**（4/4 已知）| `126a_offgrid_attribution.tsv` |
 | 第二疾病 HCC | high **7.88×/P=0.123** · low **15.49×/P=0.0041** | `123d_fixed_anchor_full_grid.tsv` |
 | 非癌结局 RA | Soskic **3.91×/P=2.3e-7**（主格，全基因组）· eQTLGen 3.94× 但**错配对照失效，作废**；去 MHC 版 3.48/3.90 为**事后**稳健性 | `123d_fixed_anchor_full_grid.tsv` |
-| 第二暴露资源 eQTLGen | melanoma **6.31×/P=1.3e-15**（vs Soskic **4.96×**）| `123d`；匹配背景 **6.49×/5.66×，emp P=1e-4**，见 `85e_matched_background_fixed_anchor.tsv`（`92e` 的 4.14–4.48 是 C2 口径 + 单连锁，**不是同一检验**）|
+| 第二暴露资源 eQTLGen | melanoma **6.31×/P=1.3e-15**（vs Soskic **4.96×**）| `123d`；匹配背景 **6.55×/5.66×，emp P=1e-4**，见 `85e_matched_background_fixed_anchor.tsv`（`92e` 的 4.14–4.48 是 C2 口径 + 单连锁，**不是同一检验**）|
 | 交叉网格 + 错配对照 | 见下 | ⚠ **无单一权威表**，见 §三 |
 
 ### 主网格（三疾病 × 二资源 = 六格，四格 P<0.05）

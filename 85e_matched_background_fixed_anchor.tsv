@@ -4,5 +4,5 @@ fixed_centre	HCC_high	decile	2	1	0.127	7.868	0.12549	0
 fixed_centre	HCC_low	decile+quintile	2	2	0.138	14.545	0.0001	0
 fixed_centre	HCC_low	decile	2	2	0.168	11.933	0.0053	0
 fixed_centre	melanoma_meta	decile	8	4	0.601	6.658	0.0016	0
-fixed_centre	eQTLGen_blood	decile+quintile	34	23	3.545	6.489	0.0001	0
+fixed_centre	eQTLGen_blood	decile+quintile	34	23	3.514	6.546	0.0001	0
 fixed_centre	eQTLGen_blood	decile	34	23	4.062	5.662	0.0001	0

@@ -151,6 +151,31 @@ def run(name, lead, use_eaf):
                 emp_p=round(p, 5), relaxed=relaxed)
 
 
+
+def lead_sort(df, pkey, valcol=None):
+    """Deterministic ordering for lead-record selection.
+
+    PRESPEC_lead_record_tiebreak.md, written and committed before this was
+    implemented. The primary key stays the exposure p-value -- the original
+    rule is unchanged. What is added is what happens when it cannot
+    discriminate, which for 92c is 18.3% of rows: pval_exp bottoms out at the
+    subnormal 3.2717e-310 where the true p-values underflowed to a shared
+    floor, 2,349 rows sit on it, and 426 of those tie-groups disagree on eaf.
+    A default quicksort then picked the locus lead, so the answer moved with
+    the numpy version -- three different values from one input.
+
+    Ties break on identifiers that carry no information about the outcome,
+    then on the selected value itself so the result is unique even when every
+    identifier ties. Stable sort, so nothing depends on the input row order
+    either. Arbitrary but fixed, and fixed in writing before it was run.
+    """
+    keys = [pkey] + [c for c in ("chr", "pos", "gene_id", "cell_type",
+                                 "timepoint", "rsid", "symbol")
+                     if c in df.columns and c != pkey]
+    if valcol and valcol in df.columns and valcol not in keys:
+        keys.append(valcol)
+    return df.sort_values(keys, kind="stable")
+
 rows = []
 
 # ---------------------------------------------------------------- HCC
@@ -164,7 +189,7 @@ for tag, fn in (("HCC_high", "85a_HCC_high_annotated.tsv"),
     snp = d.groupby(["chr", "pos"], as_index=False).size()
     loc_of = assign_loci(snp)
     d["locus"] = [loc_of[(c, p)] for c, p in zip(d.chr, d.pos)]
-    d = d.sort_values("pval")
+    d = lead_sort(d, "pval", "eaf_out")
     lead = (d.groupby("locus")
               .agg(known=("known", "any"), is_sig=("fdr", lambda s: (s < .05).any()),
                    pval=("pval", "min"), eaf=("eaf_out", "first"))
@@ -183,7 +208,7 @@ mel["pos"] = mel.pos.astype(int)
 snp = mel.groupby(["chr", "pos"], as_index=False).size()
 loc_of = assign_loci(snp)
 mel["locus"] = [loc_of[(c, p)] for c, p in zip(mel.chr, mel.pos)]
-mel = mel.sort_values("pval_exposure")
+mel = lead_sort(mel, "pval_exposure")
 lead = (mel.groupby("locus")
            .agg(known=("category", lambda s: (s != NOVEL_MEL).any()),
                 is_sig=("FDR", lambda s: (s < .05).any()),
@@ -205,7 +230,7 @@ eq["chr"] = eq["chr"].astype(str)
 snp = eq.groupby(["chr", "pos"], as_index=False).size()
 loc_of = assign_loci(snp)
 eq["locus"] = [loc_of[(c, p)] for c, p in zip(eq.chr, eq.pos)]
-eq = eq.sort_values("pval_exp")
+eq = lead_sort(eq, "pval_exp", "eaf")
 lead = (eq.groupby("locus")
           .agg(known=("known", "any"), is_sig=("fdr", lambda s: (s < .05).any()),
                pval=("pval_exp", "min"), eaf=("eaf", "first"))

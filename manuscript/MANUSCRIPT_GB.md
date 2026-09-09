@@ -277,7 +277,7 @@ attribution does not move: **23 of 34 significant loci (67.6%) carry a known
 melanoma, naevus or pigmentation lead SNP, 6.31-fold over this resource's own
 10.7% background (P = 1.3×10⁻¹⁵)**, against 4.96-fold in CD4⁺ T cells. A
 matched-background version agrees, drawing each significant locus a background
-locus of the same eQTL-p decile and allele-frequency quintile (6.49-fold,
+locus of the same eQTL-p decile and allele-frequency quintile (6.55-fold,
 empirical P ≤ 1×10⁻⁴, the floor at 10,000 permutations; 5.66-fold on the decile alone). The two
 resources' novel nominations intersect in exactly one gene, ZFYVE19, so the
 stronger claim that novel nominations never reproduce is not supported.

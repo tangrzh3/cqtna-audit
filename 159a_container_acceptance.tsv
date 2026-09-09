@@ -1,4 +1,5 @@
 phase	step	status	rc
+1	150a closure	ok	0
 1	cqtna testthat	ok	0
 1	step127 numbers (pre)	ok	0
 1	step153 pre-registrations (pre)	ok	0
@@ -27,7 +28,7 @@ phase	step	status	rc
 2	step133_projection_reading_b.R	ok	0
 2	step134_candidate_cohorts.R	ok	0
 2	step135_hcc_gate_distance.R	ok	0
-2	step137_rebuild_known_lists.py	ok	0
+2	step137_rebuild_known_lists.py	not rerunnable	124
 2	step138_transport_grid.R	ok	0
 2	step139_transport_independence.R	ok	0
 2	step142_power_matched_transport.R	ok	0
@@ -36,7 +37,7 @@ phase	step	status	rc
 2	step146_extend_finemapping.py	ok	0
 2	step148_publish_litaudit.py	ok	0
 2	step149_typeI_calibration.R	ok	0
-2	step85e_matched_background.py	not rerunnable	1
+2	step85e_matched_background.py	ok	0
 3	step127 numbers (post)	ok	0
 3	step153 pre-registrations (post)	ok	0
 3	step154 cross-references (post)	ok	0
