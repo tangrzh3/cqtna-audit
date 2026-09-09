@@ -53,6 +53,28 @@ off = pd.read_csv(_find("126a_offgrid_attribution.tsv"), sep=TAB)
 perm = pd.read_csv(_find("126c_permutation_primary.tsv"), sep=TAB)
 mb = pd.read_csv(_find("85e_matched_background_fixed_anchor.tsv"), sep=TAB)
 ml = pd.read_csv(_find("130c_multilist_verdict.tsv"), sep=TAB)
+def _num_in_text(v, decimals=(2, 3, 4), sci_below=5e-5):
+    """Is v printed in the manuscript, at any precision the paper uses?
+
+    The text renders the same quantity as 0.10, 0.026 or 1.5 x 10-5 depending
+    on the sentence, so one format string reports MISSING on correct numbers.
+    Candidates that round to all zeros are dropped: "0.00" matches somewhere in
+    almost any manuscript -- kappa 0.00 here -- so keeping it would pass every
+    P below 0.005 on nothing. Returns the rendering that matched, so the output
+    shows what was actually found rather than what was tried first.
+    """
+    if v is None or (isinstance(v, float) and math.isnan(v)):
+        return None
+    if 0 < abs(v) < sci_below:
+        cands = ["%.1f" % (v / 10 ** math.floor(math.log10(abs(v))))]
+    else:
+        cands = [c for c in ("%.*f" % (d, v) for d in decimals) if float(c) != 0]
+    for c in cands:
+        if re.search(re.escape(c) + r"(?!\d)", txt):
+            return c
+    return None
+
+
 
 print("=" * 74)
 print("1. numbers the manuscript must contain")
@@ -256,6 +278,49 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("1r. every main-grid P value (S42), against 123d")
+print("=" * 74)
+# Section 1 checks the grid FOLDS. Their P values -- 0.0041 for HCC-low,
+# 0.123 for HCC-high, 0.0015 on whole blood -- were never checked, so a fold
+# could stay right while the significance attached to it drifted. Cells the
+# manuscript does not quote are listed, not demanded, as in section 1.
+_unq_p = []
+for _, r in main.iterrows():
+    if "MHC" in r.cell or r.control == "FAILED" or pd.isna(r.fisher_p):
+        continue
+    m = _num_in_text(r.fisher_p)
+    if m:
+        print("  OK   %-10s   P for %s" % (m, r.cell))
+    else:
+        _unq_p.append((r.cell, "%.4g" % r.fisher_p))
+if _unq_p:
+    print("  not quoted (not a failure):")
+    for _c, _v in _unq_p:
+        print("      %-32s %s" % (_c, _v))
+
+print()
+print("=" * 74)
+print("1s. the RA sweeps quoted as ranges (S37), against 128a and 128b")
+print("=" * 74)
+# "flat across locus widths (3.70- to 3.96-fold)" and "rises as the known-locus
+# window narrows (3.91- to 7.30-fold)". A range is quoted by its endpoints, so
+# the endpoints are what get checked -- and a range is the easy place to widen
+# a claim by a digit without anyone recomputing it.
+for _f, _col, _lab in ((("128b_locus_kb_sweep.tsv"), "locus_kb", "locus width"),
+                       (("128a_known_kb_sweep.tsv"), "known_kb", "known window")):
+    _t = pd.read_csv(_find(_f), sep=TAB)
+    _t = _t[_t.cell == "RA x Soskic_CD4"]
+    if "role" in _t.columns:
+        _t = _t[_t.role == "main"]
+    for _v, _end in ((_t.fold.min(), "min"), (_t.fold.max(), "max")):
+        s = "%.2f" % _v
+        hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   RA %s %s" % ("OK " if hit else "MISSING", s, _lab, _end))
 
 print()
 print("=" * 74)
