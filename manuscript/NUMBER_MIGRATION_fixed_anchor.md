@@ -295,3 +295,39 @@ HCC_low × eQTLGen_blood 的值。已核实这不是容差档之一：
 - **§1 改为**：正文未引用的主网格 cell **列出但不计失败**。
   刻意省略是作者的判断，数值漂移不是。当前列出 1 个：
   `HCC_low × eQTLGen_blood 13.53`。
+
+## 更正（2026-09-09，两项，作者已批准）
+
+### 1. Steiger 有界 R² 的下界：0.185 → 0.184
+
+Methods：「the bounded form R² = F/(F + N − 2) (range 0.185–0.933)」。
+`09_steiger_filtering.tsv` 全部 6,943 条记录的实际范围是
+**0.184479 – 0.933324**。上界相符，下界不符——`0.184479` 四舍五入到
+三位小数为 `0.184`，任何舍入约定都不会得到 `0.185`。
+
+排除了「取错行集」：`mr_keep` 子集同为 0.184479；`palindromic` 子集下界
+0.185788 但上界仅 0.919963。**无任何取法能同时给出 0.185 与 0.933。**
+
+**已改为 0.184–0.933。** 由 `step127` §1t 持续对账。
+
+### 2. Software 清单移除 TwoSampleMR 0.7.5
+
+⚠ **这不是数字更正，是一处不准确的声明。**
+
+证据（逐项核实）：仓库中无任何 `library(TwoSampleMR)` 或 `TwoSampleMR::`；
+不在 `cqtna` 的 `DESCRIPTION` 依赖中；**`git log -S` 全史从未出现于任何版本的代码**；
+不在 `150a_environment.lock` 的 226 个包中；容器中未安装。
+`cqtna` 内三处引用均为文档措辞（「列名沿用 TwoSampleMR 的约定」）。
+
+**但论文确实用到了它的东西**——Methods 第 1048 行：
+「TwoSampleMR's R² formula for SD units is unbounded and produced values above 1
+(maximum 1.027), so the bounded form … is additionally reported」。
+**用的是它的公式（且为自行实现），不是这个软件包。**
+
+把它列在已安装软件清单里并标注版本号，等于声称它属于产出结果的软件栈。
+**已从 Software 清单移除；第 1048 行的公式引用原样保留**，那才是它真实的角色。
+
+⚠ 另有 `chromVAR`、`org.Hs.eg.db` 同样不在 `150a` 中，但**确实被使用且容器内
+版本正确**。这属于锁文件不完整，不是声明错误，且**不可通过重跑 `step150` 修复**
+（那会用已漂移的当前机器覆盖作者机记录）。记于 `DEPOSIT_GAPS.md` §1，
+由 `step127` §1n 每次运行报告为 `GAP`。

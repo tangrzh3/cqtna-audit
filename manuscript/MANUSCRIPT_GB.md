@@ -1047,7 +1047,7 @@ before the analysis ran. Steiger filtering used the recovered per-profile sample
 sizes, SD exposure units, log-odds outcome units and outcome prevalence 0.014962;
 all records had the correct direction. TwoSampleMR's R² formula for SD units is
 unbounded and produced values above 1 (maximum 1.027), so the bounded form
-R² = F/(F + N − 2) (range 0.185–0.933) is additionally reported.
+R² = F/(F + N − 2) (range 0.184–0.933) is additionally reported.
 
 **Unit of inference.** The testing family is gene × profile records, and the
 record level is primary throughout, because it reproduces the pipeline under
@@ -1364,7 +1364,7 @@ which we do not call pre-registered, because it carries no registry DOI (S41).
 ### Software
 
 R 4.4.1 with Seurat 5.5.1, Matrix 1.7.0, data.table 1.16.0, coloc 5.2.3,
-TwoSampleMR 0.7.5, susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
+susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
 JASPAR2020 0.99.10, motifmatchr 1.26.0, chromVAR 1.26.0,
 BSgenome.Hsapiens.UCSC.hg38 1.4.5, survival 3.8.9 and org.Hs.eg.db 3.19.1.
 Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and

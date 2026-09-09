@@ -19,7 +19,7 @@ value	coverage	in_any_table	first_line	context
 35.5	NOT AUDITED	yes	619	Those are corrected figures. Automated matching returned 7.9% and 35.5%; **two
 30.8	NOT AUDITED	yes	1117	whole-blood resource it chains a chromosome arm into a single 30.8 Mb "locus" of
 30.3	NOT AUDITED	yes	260	HCC study carries 30.3% of melanoma's effective sample size, so we down-sampled
-25.0	step127	yes	1367	TwoSampleMR 0.7.5, susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
+25.0	step127	yes	1367	susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
 22.8	step127	yes	474	power, 85.8% versus 22.8%. Reaching 50% recovery requires 2,506 cases for
 22.2	step127	yes	28	replaced the list entirely. Among 45 ascertainable papers in a two-coder subsample of 46, 10 (22.2%;
 21.3	NOT AUDITED	yes	589	axis the gene marks is enriched 21.3-fold for glycolysis and is not specific to
@@ -78,7 +78,7 @@ value	coverage	in_any_table	first_line	context
 3.4	NOT AUDITED	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 3.32	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
 3.3	NOT AUDITED	yes	300	3.94-fold (P = 3.3×10⁻¹⁷), but its pre-registered mismatched-list control also
-3.19	step127	yes	1369	BSgenome.Hsapiens.UCSC.hg38 1.4.5, survival 3.8.9 and org.Hs.eg.db 3.19.1.
+3.19	NOT AUDITED	yes	1369	BSgenome.Hsapiens.UCSC.hg38 1.4.5, survival 3.8.9 and org.Hs.eg.db 3.19.1.
 3.15	step127	yes	173	(P = 0.0097 corrected), lung 3.85-fold (0.0138), colorectal 3.15-fold (0.0029),
 3.12	NOT AUDITED	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 3.11	step127	yes	1371	matplotlib 3.11.1. External binaries: SMR v1.3.1 and PLINK v2.0.0-a.7.2. Ordinary
@@ -112,7 +112,7 @@ value	coverage	in_any_table	first_line	context
 1.6	NOT AUDITED	yes	484	residual is **+5.2 percentage points [−1.6, +12.0] by bounded locus** and
 1.59	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
 1.5	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
-1.42	step127	yes	1367	TwoSampleMR 0.7.5, susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
+1.42	step127	yes	1367	susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
 1.4	step127	yes	1369	BSgenome.Hsapiens.UCSC.hg38 1.4.5, survival 3.8.9 and org.Hs.eg.db 3.19.1.
 1.39	step127	yes	357	prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
 1.32	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
@@ -127,7 +127,7 @@ value	coverage	in_any_table	first_line	context
 0.98	NOT AUDITED	yes	242	appears only at high power and has FDR = 0.98 at low power.
 0.96	NOT AUDITED	yes	506	zero (CHMP1A 0.99; VPS9D1-AS1 0.96; SPATA33 0.92–1.00). FinnGen's own in-sample
 0.937	NOT AUDITED	yes	224	reusing data: the two releases' statistics correlate at |z| r = 0.937 rather than
-0.933	step127	yes	1050	R² = F/(F + N − 2) (range 0.185–0.933) is additionally reported.
+0.933	step127	yes	1050	R² = F/(F + N − 2) (range 0.184–0.933) is additionally reported.
 0.92	NOT AUDITED	yes	446	the peak and moved it 25 kb, to 54 kb from the eQTL peak, and PP.H4 fell from 0.92
 0.9	step127	yes	485	+6.4 [+0.9, +12.0] by gene, against raw gaps of 47.6 and 63.0. Only one known
 0.859	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
@@ -135,7 +135,7 @@ value	coverage	in_any_table	first_line	context
 0.79	NOT AUDITED	yes	632	0.79 for list stability and **0.00 for locus attribution — a prevalence artefact,
 0.73	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.707	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
-0.7	step127	yes	627	0.7% for the second criterion was too strict and falls below the corrected
+0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.70	NOT AUDITED	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
 0.649	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.647	NOT AUDITED	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
@@ -156,15 +156,15 @@ value	coverage	in_any_table	first_line	context
 0.207	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.202	NOT AUDITED	yes	438	PP.H3+H4 (0.125 versus 0.202).
 0.20	NOT AUDITED	yes	622	0.00 and 0.20. Most hits were spurious — three of five on the first criterion lay
-0.185	NOT AUDITED	yes	1050	R² = F/(F + N − 2) (range 0.185–0.933) is additionally reported.
-0.14	step127	yes	1367	TwoSampleMR 0.7.5, susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
+0.184	step127	yes	1050	R² = F/(F + N − 2) (range 0.184–0.933) is additionally reported.
+0.14	step127	yes	1367	susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
 0.125	NOT AUDITED	yes	438	PP.H3+H4 (0.125 versus 0.202).
 0.124	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.123	step127	yes	241	it does not reach significance (P = 0.123). The single novel nomination, SUPV3L1,
 0.11	NOT AUDITED	yes	457	from 9.3×10⁻⁴ to 0.11 — and six different genes took their place. **The two lists
 0.101	NOT AUDITED	yes	180	the reciprocal of that share, and across our lists the share runs from 0.101 for
-0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.1	NOT AUDITED	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
+0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.095	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.086	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.081	NOT AUDITED	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
