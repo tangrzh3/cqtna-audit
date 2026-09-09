@@ -295,6 +295,29 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("1y. the list that did not survive the meta round, against 04 and 12")
+print("=" * 74)
+# "IMPA1's MR P moved from 9.3e-4 to 0.11" -- the single example given for why
+# the two lists share no genes, which is one of the paper's sharpest findings
+# about its own pipeline. One gene, two tables, and neither number was checked.
+_IMPA1 = "ENSG00000133731"
+for _f, _lab in (("04_MR_results_strict_all.tsv", "single round"),
+                 ("12_MR_meta_strict.tsv", "meta round")):
+    _d = pd.read_csv(_find(_f), sep=TAB)
+    _col = next((c for c in ("SYMBOL", "gene_id", "exposure") if c in _d.columns), None)
+    _m = _d[_d[_col].astype(str).str.contains(_IMPA1 if _col != "SYMBOL" else "IMPA1",
+                                              na=False)]
+    if _m.empty:
+        continue
+    _v = float(_m.iloc[0]["pval"])
+    s = _num_in_text(_v)
+    ok = s is not None
+    if not ok:
+        bad += 1
+    print("  %s  %-8s   IMPA1 P, %s" % ("OK " if ok else "MISSING", s or "?", _lab))
+
+print()
+print("=" * 74)
 print("1x. the MC1R-region colocalisation and HEIDI (S46), against 07 and 08")
 print("=" * 74)
 # "PP.H3 dominant and PP.H4 at or near zero (CHMP1A 0.99; VPS9D1-AS1 0.96;

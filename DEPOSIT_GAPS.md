@@ -89,3 +89,20 @@ written carelessly.
 **Needs the author to say which set of tests the 291 denominator counts.**
 Until then it stays in `160a_audit_coverage.tsv` as NOT AUDITED rather than
 being wrapped in a check that guesses a filter and then passes.
+
+## 6. A second pair I could not reconstruct: the winner's-curse medians
+
+Main text: "newly entering candidates had *lower* PP.H3+H4 (0.125 versus
+0.202)" — the paper naming an explanation it tested and rejected.
+
+Reconstructing "newly entering" as the meta-round records whose
+gene/profile key is absent from the single round gives **0.126 versus 0.207**.
+Both are one digit off, and the comparison group's 0.207 is exactly the
+median over *all* 127 exposures (`§1k`), which says my second group is the
+wrong set rather than that the text is wrong.
+
+⚠ **Almost certainly my definition, not an error in the paper.** A check
+written against a guessed definition would go green the moment the guess was
+tuned to match, which is the failure this file already records five times over.
+Left uncovered and listed here until the author states how "newly entering" was
+defined.
