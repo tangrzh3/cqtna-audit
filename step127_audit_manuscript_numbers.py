@@ -17,6 +17,7 @@ Run it after any edit to MANUSCRIPT_GB.md or to any of the tables below.
 Exits non-zero if anything is stale or missing.
 """
 import io
+import math
 import os
 import re
 
@@ -254,6 +255,53 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("1l. the five-outcome transport result (S41), against 138b")
+print("=" * 74)
+# "melanoma 4.96-fold (P = 0.0097 corrected), lung 3.85-fold (0.0138),
+# colorectal 3.15-fold (0.0029), breast 2.25-fold (0.0011) and prostate
+# 2.04-fold (2.3e-5)". Ten numbers carrying the claim that the attribution
+# recurs across outcomes, of which one was audited. Driven off the table, so an
+# outcome cannot be added or dropped without this following.
+_tr = pd.read_csv(_find("138b_transport_verdict.tsv"), sep=TAB)
+for _, r in _tr.iterrows():
+    if pd.isna(r.fold):
+        continue
+    _ps = "%.4f" % r.fisher_p_holm
+    if _ps.startswith("0.0000"):
+        # Too small for four decimals; the text writes it as "2.3 x 10-5", so
+        # check the mantissa it actually prints rather than skipping the row.
+        _ps = "%.1f" % (r.fisher_p_holm / 10 ** math.floor(
+            math.log10(r.fisher_p_holm)))
+    for s in ("%.2f" % r.fold, _ps):
+        hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, r.row))
+
+print()
+print("=" * 74)
+print("1m. fold versus chance-corrected agreement at ten loci (S43), against 142a")
+print("=" * 74)
+# "at ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10 and colorectal
+# 2.52, while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung
+# 0.330". This is the sentence that says the two statistics rank the outcomes
+# almost in reverse, so it is exactly the place a transposed pair would hide.
+_pmx = pd.read_csv(_find("142a_power_matched.tsv"), sep=TAB)
+_k10 = _pmx[_pmx.matched_k == 10]
+for _, r in _k10.iterrows():
+    # NaN fails every comparison, so "<= 0" let prostate through and "%.2f"
+    # rendered it as the string "nan", which then matched text and reported OK.
+    # A check that passes on a missing value is worse than no check.
+    if pd.isna(r.fold) or pd.isna(r.A_chance_corrected) or r.fold <= 0:
+        continue                          # prostate has no matched draw at k=10
+    for s in ("%.2f" % r.fold, "%.3f" % r.A_chance_corrected):
+        hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s, r.outcome))
 
 print()
 print("=" * 74)
