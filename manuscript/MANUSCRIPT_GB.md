@@ -418,7 +418,7 @@ density — record count, span and gene count, with complete matched coverage
 required and the whole tolerance scan reported, under rules fixed in
 Supplementary S38 before the run — gives **4.87-fold (P = 0.0050)** there,
 6.14-fold on whole blood, 8.24-fold for HCC-high on whole blood, 12.85- and
-13.53-fold for the two HCC-low cells, and **4.52-fold for RA on CD4⁺ T cells**.
+12.09-fold for the two HCC-low cells, and **4.52-fold for RA on CD4⁺ T cells**.
 Values quoted at ≤ 1 × 10⁻⁴ sit at the resolution floor of 10,000 permutations
 and are not point estimates. On bounded loci, density matching therefore barely
 attenuates the melanoma cell, 4.96-fold unmatched against 4.87-fold matched.

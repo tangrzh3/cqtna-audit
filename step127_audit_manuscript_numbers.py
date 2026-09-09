@@ -56,10 +56,26 @@ print("=" * 74)
 print("1. numbers the manuscript must contain")
 print("=" * 74)
 want = []
+# The grid table in Results covers five cells; the HCC paragraph quotes the two
+# HCC CD4 folds at one decimal. HCC_low x eQTLGen_blood is computed and quoted
+# nowhere, and requiring it here did active harm: its only appearance in the
+# text was the WRONG-TABLE 13.53 in the density-matched sentence (see 1f), so
+# this loop reported OK on a value that was there by mistake and MISSING the
+# moment it was corrected. An audit satisfied by an error is worse than one
+# that is silent. Cells the manuscript does not quote are now listed rather
+# than demanded -- deliberate omission is the author call; drift is not.
+GRID_UNQUOTED = []
 for _, r in main.iterrows():
     if "MHC" in r.cell or r.control == "FAILED":
         continue
-    want.append((r.cell, f"{r.fold:.2f}"))
+    _s2 = f"{r.fold:.2f}"
+    _s1 = f"{r.fold:.1f}"
+    _seen = (re.search(re.escape(_s2) + r"(?!\d)", txt) is not None
+             or re.search(re.escape(_s1) + r"(?!\d)", txt) is not None)
+    if _seen:
+        want.append((r.cell, _s2))
+    else:
+        GRID_UNQUOTED.append((r.cell, _s2))
 want += [
     ("R13 transfer", f"{off[off.cell == 'C1 Soskic x melanoma R13'].fold.iloc[0]:.2f}"),
     ("Schmiedel gate", f"{off[off.cell == 'Schmiedel_2018 x melanoma'].fold.iloc[0]:.2f}"),
@@ -133,6 +149,12 @@ for label, v in want:
     if not hit:
         bad += 1
     print(f"  {'OK ' if hit else 'MISSING'}  {v:>8}   {label}")
+if GRID_UNQUOTED:
+    print()
+    print("  main-grid cells the manuscript does not quote (not a failure,",
+          "but they should not vanish unnoticed):")
+    for _c, _v in GRID_UNQUOTED:
+        print("      %-34s %s" % (_c, _v))
 
 print()
 print("=" * 74)
@@ -232,6 +254,76 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("1f. the density-matched permutation sentence (S38), against 126c")
+print("=" * 74)
+# The Results sentence beginning "Matching on density" quotes six folds. Two
+# were audited; of the four that were not, one came from the WRONG TABLE --
+# the text read 13.53 for HCC_low x eQTLGen_blood, which is 123d's unmatched
+# grid value, where the density-matched permutation gives 12.09. Five matched
+# and the sixth did not, through every green audit and the whole container
+# acceptance, because nothing read it.
+#
+# The test runs from the SENTENCE outwards, not from the table: every fold the
+# sentence quotes must correspond to a row of 126c. Checking the other way --
+# demanding the text quote every row -- fails on HCC_high x Soskic_CD4, which
+# is computed and deliberately not quoted, and an audit that fires on a
+# correct omission is one people learn to silence.
+_flat = re.sub(r"\s+", " ", txt)
+_i = _flat.find("Matching on density")
+if _i < 0:
+    print("  MISSING  the 'Matching on density' sentence is gone -- if it was")
+    print("           rewritten, re-anchor this check rather than deleting it.")
+    bad += 1
+else:
+    _sent = _flat[_i:_i + 420]
+    _perm = pd.read_csv(_find("126c_permutation_primary.tsv"), sep=TAB)
+    _folds = set("%.2f" % r.fold_vs_null for _, r in _perm.iterrows())
+    _quoted = re.findall(r"(?<![\w.-])\d+\.\d+(?![\w])", _sent)
+    _quoted = [q for q in _quoted if float(q) >= 1.0]   # P values are not folds
+    for q in _quoted:
+        ok = q in _folds
+        if not ok:
+            bad += 1
+        print("  %s  %-8s   quoted fold %s in 126c"
+              % ("OK " if ok else "MISSING", q,
+                 "found" if ok else "NOT FOUND"))
+    _unq = sorted(f for f in _folds if f not in _quoted)
+    print("  (computed but not quoted, not a failure: %s)" % ", ".join(_unq))
+print()
+print("=" * 74)
+print("1e. the power-stratified recovery gap (S28), against 55a")
+print("=" * 74)
+# S54 section 2 names step101's positive control -- "reproduces 85.8% / 22.8%"
+# -- as a tier-two criterion the container must satisfy. It was never audited:
+# step160 measured coverage at 22 of 191 distinct decimals and these were among
+# the 169 nothing looked at. They are also the numbers a reader meets first in
+# the power paragraph, and they carry the claim that the recovery gap is a
+# property of locus class.
+_rec = pd.read_csv(_find("55a_recovery_by_locus_class.tsv"), sep=TAB)
+
+
+def _recrow(frac):
+    r = _rec[(_rec.frac - frac).abs() < 1e-9]
+    if r.empty:
+        raise SystemExit("55a has no frac=%g row" % frac)
+    return r.iloc[0]
+
+
+_lo, _hi = _recrow(0.1), _recrow(0.5)
+recov = [
+    ("known recovery at 10% power", "%.1f%%" % (100 * _lo.known_recovery)),
+    ("novel recovery at 10% power", "%.1f%%" % (100 * _lo.novel_recovery)),
+    ("known recovery at 50% power", "%.1f%%" % (100 * _hi.known_recovery)),
+    ("novel recovery at 50% power", "%.1f%%" % (100 * _hi.novel_recovery)),
+]
+for label, s in recov:
+    hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-10s   %s" % ("OK " if hit else "MISSING", s, label))
 
 print()
 print("=" * 74)

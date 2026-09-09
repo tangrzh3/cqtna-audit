@@ -1,0 +1,18 @@
+==========================================================================
+audit coverage of the manuscript's arithmetic
+==========================================================================
+  decimal values in the body : 279 occurrences, 191 distinct
+  reconciled by step127      : 29 distinct
+  numeric forms in 360 result files: 636828 (coincidence is cheap here,
+    which is why presence is not treated as evidence)
+
+  COVERAGE: 29 of 191 distinct values reconciled (15%)
+
+  2 value(s) appear in NO result table -- derived, quoted, or unbacked:
+    0.015631     line 1004  controls (N = 801,629, case fraction 0.015631). Rashkin reports odds ratios and P
+    0.014962     line 1047  sizes, SD exposure units, log-odds outcome units and outcome prevalence 0.014962;
+
+  wrote 160a_audit_coverage.tsv (191 rows)
+
+  This is a coverage report, not a verdict. A row marked NOT AUDITED
+  is not a row known to be wrong -- it is a row nothing looks at.
