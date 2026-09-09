@@ -295,6 +295,38 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("1x. the MC1R-region colocalisation and HEIDI (S46), against 07 and 08")
+print("=" * 74)
+# "PP.H3 dominant and PP.H4 at or near zero (CHMP1A 0.99; VPS9D1-AS1 0.96;
+# SPATA33 0.92-1.00)" and "VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086,
+# 0.081)". These carry the argument that the strongest MR signals in the paper
+# point at DIFFERENT causal variants, which is a conclusion against the
+# study's own headline and therefore worth pinning.
+#
+# The HEIDI values come from 08, the single-round table, NOT 15, the meta one --
+# 15 gives VPS9D1-AS1 0.634 where the text says 0.649. Checking the wrong table
+# first made the text look wrong; recording which table is right stops the next
+# reader repeating that.
+_cl = pd.read_csv(_find("07_coloc_results.tsv"), sep=TAB)
+for _sym in ("CHMP1A", "VPS9D1-AS1", "SPATA33"):
+    for _, r in _cl[_cl.SYMBOL == _sym].iterrows():
+        s = "%.2f" % r["PP.H3"]
+        hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   PP.H3 %s" % ("OK " if hit else "MISSING", s, _sym))
+_hd = pd.read_csv(_find("08_SMR_HEIDI_results.tsv"), sep=TAB)
+for _sym, _n in (("VPS9D1-AS1", 1), ("CDK10", 2)):
+    _v = sorted(_hd[_hd.SYMBOL == _sym].p_HEIDI.dropna(), reverse=True)[:_n]
+    for _x in _v:
+        s = "%.3f" % _x
+        hit = re.search(re.escape(s) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   P_HEIDI %s" % ("OK " if hit else "MISSING", s, _sym))
+
+print()
+print("=" * 74)
 print("1v. the voided RA whole-blood cell (S33), against 123d")
 print("=" * 74)
 # "3.94-fold (P = 3.3e-17), but its pre-registered mismatched-list control also

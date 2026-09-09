@@ -64,3 +64,28 @@ numbers no audit checks rather than inferring that a green run means every
 number was verified. Two errors have already been found inside that uncovered
 set (S54 §9.8's wrong-table 13.53, and the Steiger lower bound), which is the
 argument for keeping the list visible rather than quoting a coverage headline.
+
+## 5. One number I could not reconcile: HEIDI's "253 (86.9%)"
+
+Main text: "HEIDI failed to reject homogeneity for 253 (86.9%)". 253/291 =
+86.94%, so the denominator implied is 291.
+
+Neither HEIDI table reproduces it under the obvious readings:
+
+| source / filter | result |
+|---|---|
+| `08_SMR_HEIDI_results.tsv`, p > 0.05 | 239 / 276 = 86.6% |
+| `15_SMR_meta_results.tsv`, p > 0.05 | 309 / 352 = 87.8% |
+| `15_`, restricted to `p_SMR` < 0.05 | 250 / 285 = 87.7% |
+| `15_`, restricted to `MR_FDR` < 0.05 | 13 / 18 = 72.2% |
+
+⚠ **This is not a claim that the number is wrong.** The percentage is
+internally consistent with its own count (253/291), so it was computed from
+*some* well-defined set; I have not found which. The adjacent numbers in the
+same passage all reconcile exactly (`§1x`: PP.H3 for CHMP1A, VPS9D1-AS1 and
+SPATA33; P_HEIDI 0.649, 0.086, 0.081), which argues the passage was not
+written carelessly.
+
+**Needs the author to say which set of tests the 291 denominator counts.**
+Until then it stays in `160a_audit_coverage.tsv` as NOT AUDITED rather than
+being wrapped in a check that guesses a filter and then passes.
