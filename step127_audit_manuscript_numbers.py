@@ -17,6 +17,7 @@ Run it after any edit to MANUSCRIPT_GB.md or to any of the tables below.
 Exits non-zero if anything is stale or missing.
 """
 import io
+import json
 import math
 import os
 import re
@@ -255,6 +256,48 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("1n. the Software section, against 150a and requirements.txt")
+print("=" * 74)
+# The Methods name twenty package versions. None was audited, and a version
+# claim is exactly the kind of number that rots quietly: nothing recomputes it,
+# so it stays as first typed while the environment moves. Checked against the
+# deposited lock (R) and the pinned requirements (Python), normalising the
+# lock's dashes to the dots the text uses (1.7-0 -> 1.7.0).
+_SOFT_R = {
+    "Seurat": "5.5.1", "Matrix": "1.7.0", "data.table": "1.16.0",
+    "coloc": "5.2.3", "TwoSampleMR": "0.7.5", "susieR": "0.14.2",
+    "arrow": "25.0.0", "hdf5r": "1.3.12", "TFBSTools": "1.42.0",
+    "JASPAR2020": "0.99.10", "motifmatchr": "1.26.0", "chromVAR": "1.26.0",
+    "BSgenome.Hsapiens.UCSC.hg38": "1.4.5", "survival": "3.8.9",
+    "org.Hs.eg.db": "3.19.1",
+}
+_SOFT_PY = {"numpy": "2.0.0", "pandas": "2.2.2", "scipy": "1.18.0",
+            "pyarrow": "25.0.0", "matplotlib": "3.11.1"}
+_lockp = json.load(io.open(_find("150a_environment.lock"),
+                           encoding="utf-8"))["Packages"]
+for _pk, _pv in sorted(_SOFT_R.items()):
+    _got = _lockp.get(_pk, {}).get("Version")
+    if _got is None:
+        bad += 1
+        print("  MISSING  %-28s text %-9s NOT IN 150a" % (_pk, _pv))
+    else:
+        _ok = _got.replace("-", ".") == _pv
+        if not _ok:
+            bad += 1
+        print("  %s  %-28s text %-9s lock %s"
+              % ("OK " if _ok else "MISSING", _pk, _pv, _got))
+_req = io.open(_find("container", "requirements.txt"), encoding="utf-8").read()
+for _pk, _pv in sorted(_SOFT_PY.items()):
+    _m = re.search(r"^%s==(\S+)$" % re.escape(_pk), _req, re.M)
+    _ok = _m is not None and _m.group(1) == _pv
+    if not _ok:
+        bad += 1
+    print("  %s  %-28s text %-9s req %s"
+          % ("OK " if _ok else "MISSING", _pk, _pv,
+             _m.group(1) if _m else "ABSENT"))
 
 print()
 print("=" * 74)
