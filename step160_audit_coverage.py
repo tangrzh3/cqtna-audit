@@ -32,6 +32,7 @@ Outputs: 160a_audit_coverage.tsv   every text number, covered or not
          160b_console.log
 """
 import glob
+import gzip
 import io
 import os
 import re
@@ -120,23 +121,35 @@ def step127_checked():
     return vals
 
 
-def table_forms():
-    """Every numeric cell in every result table, as rounded strings.
+def table_forms(wanted=None):
+    """Rounded renderings of every numeric cell, for the negative check only.
 
-    Used ONLY to answer "does this value exist anywhere at all", which is
-    informative when the answer is no.
+    Two passes, because correctness and speed pull opposite ways here. The
+    plain .tsv/.csv files are cheap. The twelve gzipped tables are 1.8 GB and
+    parsing every cell of them takes minutes -- unacceptable for an audit
+    people are meant to run often, and skipping them outright was worse: until
+    2026-09-10 this function never opened them, so a value living only in a
+    compressed table was reported as "in NO result table", the strongest signal
+    this script emits.
+
+    So: scan the plain files first, then open the compressed ones ONLY if some
+    wanted value is still unaccounted for. In the normal case that set is empty
+    or tiny and the gz pass is skipped entirely, while a value that really is
+    missing still gets the exhaustive search before being called missing.
     """
     forms = set()
-    numeric = re.compile(r'^-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$')
-    for fn in sorted(glob.glob(os.path.join(MR, "*.tsv"))) + \
-              sorted(glob.glob(os.path.join(MR, "*.csv"))):
-        sep = "\t" if fn.endswith("tsv") else ","
-        try:
-            with io.open(fn, encoding="utf-8", errors="replace") as f:
-                for line in f:
-                    for cell in line.rstrip("\n").split(sep):
-                        c = cell.strip().strip('"')
-                        if c and numeric.match(c):
+    numeric = re.compile(r"^-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?$")
+
+    def scan(paths, opener):
+        for fn in paths:
+            sep = "\t" if ".tsv" in fn else ","
+            try:
+                with opener(fn, "rt", encoding="utf-8", errors="replace") as f:
+                    for line in f:
+                        for cell in line.rstrip("\n").split(sep):
+                            c = cell.strip().strip('"')
+                            if not c or not numeric.match(c):
+                                continue
                             try:
                                 v = float(c)
                             except Exception:
@@ -146,9 +159,16 @@ def table_forms():
                                 forms.add(s)
                                 if s.startswith("0."):
                                     forms.add(s[1:])
-        except Exception:
-            continue
+            except Exception:
+                continue
+
+    scan(sorted(glob.glob(os.path.join(MR, "*.tsv")))
+         + sorted(glob.glob(os.path.join(MR, "*.csv"))), io.open)
+    gz = sorted(glob.glob(os.path.join(MR, "*.tsv.gz"))) +          sorted(glob.glob(os.path.join(MR, "*.csv.gz")))
+    if gz and (wanted is None or (set(wanted) - forms)):
+        scan(gz, gzip.open)
     return forms
+
 
 
 def main():
@@ -170,7 +190,7 @@ def main():
         return 1
     say("  reconciled by step127      : %d distinct" % len(checked & set(uniq)))
 
-    forms = table_forms()
+    forms = table_forms(uniq)
     say("  numeric forms in 360 result files: %d (coincidence is cheap here,"
         % len(forms))
     say("    which is why presence is not treated as evidence)")

@@ -22,6 +22,8 @@ import math
 import os
 import re
 
+import numpy as np
+
 import pandas as pd
 
 import sys
@@ -292,6 +294,35 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("2j. the glycolysis kill criterion (S49), recomputed from 43a")
+print("=" * 74)
+# "if R2(glycolysis ~ activation + depth) > 0.70 the axis is not separable from
+# activation and the analysis stops. Observed R2 = 0.024." A pre-registered
+# kill criterion and the value that cleared it -- if the observed R2 were
+# wrong, an analysis that should have stopped would have continued.
+#
+# step43 PRINTS this and never lands it, the same pattern as step101's
+# 68-80% before 101d existed. Recomputed here from 43a, which is gzipped;
+# nothing in the audit chain read compressed tables until 2026-09-10.
+_cs = pd.read_csv(_find("43a_GSE282266_cell_scores.tsv.gz"), sep=TAB,
+                  compression="gzip")
+_X = np.column_stack([np.ones(len(_cs)), _cs.Activation, np.log1p(_cs.nFeature)])
+_beta, *_rest = np.linalg.lstsq(_X, _cs.Glycolysis.values, rcond=None)
+_res = _cs.Glycolysis.values - _X @ _beta
+_r2 = 1 - _res.var() / _cs.Glycolysis.var()
+for label, s2 in (("observed R2", "%.3f" % _r2),
+                  ("kill threshold", "0.70")):
+    hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s2, label))
+if _r2 > 0.70:
+    print("  ⚠ R2 exceeds the pre-registered threshold; the analysis should")
+    print("    have stopped. This is a kill criterion, not a diagnostic.")
+    bad += 1
 
 print()
 print("=" * 74)
