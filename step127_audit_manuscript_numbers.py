@@ -23,6 +23,7 @@ import os
 import re
 
 import numpy as np
+from scipy import stats
 
 import pandas as pd
 
@@ -303,6 +304,37 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("2q. the identity, confirmed numerically (Abstract), against 12")
+print("=" * 74)
+# "Benjamini-Hochberg at 0.05 corresponds to an outcome P of 2.1e-4." This is
+# the identity itself made concrete in the Abstract: the FDR threshold on the
+# MR side maps to a threshold on the OUTCOME side alone, because |z| =
+# |b_out|/se_out and the exposure contributes nothing to significance. Of every
+# number in this paper it is the one most directly carrying the central claim,
+# and it was unaudited. Recomputed from the outcome columns rather than read
+# off a table, since no table stores it.
+_ms = pd.read_csv(_find("12_MR_meta_strict.tsv"), sep=TAB)
+_fc = next((c for c in _ms.columns if c.upper() in ("FDR", "FDR_BH")), None)
+_bc = next((c for c in _ms.columns
+            if "beta_out" in c.lower() or c in ("beta.outcome", "beta_outcome")), None)
+_sc = next((c for c in _ms.columns
+            if "se_out" in c.lower() or c in ("se.outcome", "se_outcome")), None)
+if None in (_fc, _bc, _sc):
+    print("  MISSING  12_MR_meta_strict lacks the outcome columns this needs")
+    bad += 1
+else:
+    _sig = _ms[_ms[_fc] < 0.05]
+    _z = (_sig[_bc] / _sig[_sc]).abs()
+    _pout = 2 * stats.norm.sf(_z)
+    s2 = _num_in_text(float(_pout.max()))
+    ok = s2 is not None
+    if not ok:
+        bad += 1
+    print("  %s  %-8s   outcome P at the BH boundary (%d records at FDR < 0.05)"
+          % ("OK " if ok else "MISSING", s2 or "?", len(_sig)))
 
 print()
 print("=" * 74)
