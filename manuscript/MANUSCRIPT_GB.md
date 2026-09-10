@@ -170,8 +170,8 @@ reproduce published numbers (Methods). Applied unchanged to five other cancers,
 each scored against its own known-locus list rather than against melanoma's
 (Supplementary S41), the attribution recurs: own-list enrichment survives Holm
 correction across all five outcomes that have a usable list — melanoma 4.96-fold
-(P = 0.0097 corrected), lung 3.85-fold (0.0138), colorectal 3.15-fold (0.0029),
-breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
+(P = 0.0097 corrected), lung 3.85 (0.0138), colorectal 3.15 (0.0029),
+breast 2.25 (0.0011) and prostate 2.04 (2.3 × 10⁻⁵). Pancreas has no
 list that clears the size and build-rate gates and is not scored. The five
 outcomes share almost no significant loci with one another (melanoma and lung
 share none; 5 of 69 distinct loci are significant in more than one outcome). Two
@@ -182,8 +182,8 @@ melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
 diseases on power by scaling each until it yields the same number of significant
 loci, and scoring them with the chance-corrected share
 A = (p_sig − p_bg)/(1 − p_bg), the two statistics rank them almost in reverse: at
-ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10 and colorectal 2.52,
-while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
+ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10, colorectal 2.52;
+A gives breast 0.859, colorectal 0.707, melanoma 0.555, lung 0.330
 (Supplementary S43). **Melanoma's apparent lead is a property of its reference
 list being sparse, not of melanoma.** The second is that only melanoma exceeds
 every mismatched list by a margin (2.30-fold against
@@ -222,8 +222,8 @@ was seen — the list survives it unchanged: at 6,226 cases the significant list
 the same six genes at the same two loci, still with no novel-locus gene, and
 locus attribution is 10.0-fold (P = 9.1×10⁻⁵), all four significant loci known. The stability is not an artefact of
 reusing data: the two releases' statistics correlate at |z| r = 0.937 rather than
-being identical, standard errors shrink by a median 3.85% against the 3.8% the
-added cases predict — the internal check that R13 is the higher-powered
+being identical, standard errors shrink by a median 3.85% against the 3.8% predicted by the
+added cases — the internal check that R13 is the higher-powered
 computation and not a copy — and 51 of the 275 nominally significant records are
 replaced. What holds still is the
 significant tier; the tier below it churns. Because the extra cases and the
