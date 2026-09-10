@@ -295,6 +295,47 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2f. the instrument-strength floor (Methods), against 01, 04 and 12")
+print("=" * 74)
+# "The minimum F statistic was 36.1 in either strict set and 22.2 across the
+# harmonised set before instrument selection, so the F > 10 filter was never
+# binding at any stage." The claim is that a filter never bound, which is only
+# as good as the two minima it rests on -- and a minimum is the one summary a
+# single new row can change without touching anything else.
+for _f, _lab in (("04_MR_results_strict_all.tsv", "strict set"),
+                 ("12_MR_meta_strict.tsv", "strict meta set"),
+                 ("01_harmonised_all.tsv", "harmonised set")):
+    _d = pd.read_csv(_find(_f), sep=TAB)
+    _fc = next((c for c in ("F_stat", "F") if c in _d.columns), None)
+    if _fc is None:
+        continue
+    s2 = "%.1f" % _d[_fc].min()
+    hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   minimum F, %s" % ("OK " if hit else "MISSING", s2, _lab))
+
+print()
+print("=" * 74)
+print("2g. C6's mixed-pipeline ceiling (S51), against 156e")
+print("=" * 74)
+# "at most 37.8% if every mixed pipeline is counted as partly single-variant".
+# Section 1d checks the 22.2% headline and its interval; this is the upper
+# bound the paper offers AGAINST itself, derived as (W + X) / ascertainable and
+# stored nowhere, so no cell comparison could reach it.
+_c6d = dict((r.quantity, float(r.value)) for _, r in
+            pd.read_csv(_find("156e_C6_result.tsv"), sep=TAB).iterrows())
+_ceil = 100.0 * (_c6d["n_W"] + _c6d["n_X"]) / _c6d["n_ascertainable"]
+s3 = "%.1f%%" % _ceil
+hit = re.search(re.escape(s3) + r"(?!\d)", txt) is not None
+if not hit:
+    bad += 1
+print("  %s  %-8s   (W %d + X %d) / %d ascertainable"
+      % ("OK " if hit else "MISSING", s3, int(_c6d["n_W"]), int(_c6d["n_X"]),
+         int(_c6d["n_ascertainable"])))
+
+print()
+print("=" * 74)
 print("2c. the two conditionings' P values (S42), against 141b")
 print("=" * 74)
 # Section 1 checks 141b's FOLDS -- 2.07 and 5.28 -- and never their P values.

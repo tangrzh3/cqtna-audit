@@ -12,10 +12,10 @@ value	coverage	in_any_table	first_line	context
 46.0	step127	yes	472	apparent stability: at 10% of observed power, 46.0% of known pigmentation and
 45.6	NOT AUDITED	yes	508	sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
 44.1	step127	yes	436	44.1% improving. Three explanations were tested and rejected, including
-37.8	NOT AUDITED	yes	665	12.5–36.3%)**, or at most 37.8% if every mixed pipeline is counted as partly
+37.8	step127	yes	665	12.5–36.3%)**, or at most 37.8% if every mixed pipeline is counted as partly
 36.6	NOT AUDITED	yes	508	sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
 36.3	step127	yes	29	Wilson 95% CI 12.5–36.3%) used the exact single-variant Wald design.
-36.1	NOT AUDITED	yes	1026	The minimum F statistic was 36.1 in either strict set and 22.2 across the
+36.1	step127	yes	1026	The minimum F statistic was 36.1 in either strict set and 22.2 across the
 35.5	step127	yes	619	Those are corrected figures. Automated matching returned 7.9% and 35.5%; **two
 30.8	NOT AUDITED	yes	1117	whole-blood resource it chains a chromosome arm into a single 30.8 Mb "locus" of
 30.3	step127	yes	260	HCC study carries 30.3% of melanoma's effective sample size, so we down-sampled
@@ -147,8 +147,8 @@ value	coverage	in_any_table	first_line	context
 0.45	NOT AUDITED	yes	1087	multi-allelic sites. The `--diff-freq` QC removed 0.45% of variants at the
 0.41	step127	yes	24	and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 0.403	step127	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
-0.40	step127	yes	141	one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
 0.4	step127	yes	473	naevus-locus genes are recovered against **0.4%** of novel-locus genes; at 50%
+0.40	step127	yes	141	one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
 0.36	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.330	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
 0.249	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
@@ -163,8 +163,8 @@ value	coverage	in_any_table	first_line	context
 0.123	step127	yes	241	it does not reach significance (P = 0.123). The single novel nomination, SUPV3L1,
 0.11	step127	yes	457	from 9.3×10⁻⁴ to 0.11 — and six different genes took their place. **The two lists
 0.101	step127	yes	180	the reciprocal of that share, and across our lists the share runs from 0.101 for
-0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.1	NOT AUDITED	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
+0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.095	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.086	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.081	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
