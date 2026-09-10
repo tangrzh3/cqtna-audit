@@ -743,15 +743,20 @@ Eight checks follow from the failures above. Each is stated in full, with the
 numbers behind it, in Supplementary S49, and all nine — these eight plus the
 decomposition of S42 — are implemented in the `cqtna` package.
 
-**(i)** Annotate the signal against the outcome's own known loci, counting.
+**(i)** Annotate the signal against the outcome's own known loci, counting
+bounded loci rather than gene records.
 **(ii)** Require colocalisation, preferably with explicit multiple-signal modelling.
 **(iii)** Do not assume that more outcome power will resolve the disagreement.
-**(iv)** Report the physical distance between GWAS and eQTL peaks alongside.
+**(iv)** Report the physical distance between GWAS and eQTL peaks alongside
+posteriors, and test whether posterior movement survives explicit modelling of
+multiple causal signals.
 **(v)** Compute the nominated gene's cell-type expression ratio in an annotated
 single-cell dataset for the tissue, before any functional interpretation.
 **(vi)** Report instrument availability at each of the three levels it passes.
-**(vii)** When splitting cells by a score, match on lineage composition as well as.
-**(viii)** Before comparing candidate lists across releases of the same GWAS.
+**(vii)** When splitting cells by a score, match on lineage composition as well
+as depth, at the cell level.
+**(viii)** Before comparing candidate lists across releases of the same GWAS
+resource, verify code-by-code that the endpoint definition is the same one.
 
 The worked example is best read as a ladder rather than a verdict, the same
 layered reporting Howe et al. use when a cellular model proves only partly
@@ -1378,10 +1383,18 @@ the installed scipy.
 All datasets are public and identified by accession above. Analysis code,
 intermediate result tables and the seventeen pre-registration documents will be
 deposited at ⟨repository DOI⟩, comprising every numbered analysis and figure
-script together with the tables needed to reproduce each figure and every number
-reported in the text. CQTNA, a runnable implementation of the diagnostics in the
-Discussion, is included in the deposit, as is a container definition pinning
-R, Python and the two external binaries to the versions used here. The
+script together with the tables behind the figures and behind the numbers
+reported in the text. Four gaps in that claim are listed in the deposit rather
+than left to be found: three quoted values are derived from other quoted
+numbers or taken from external sources and therefore sit in no table; one
+calibration rate cannot be recovered exactly from its stored column, because
+the count was made before that column was rounded on write; the environment
+lock omits two packages the Software section names; and PLINK 2.0.0-a.7.2 has
+been withdrawn upstream, so the container carries SMR 1.3.1 with a recorded
+checksum and states PLINK's absence rather than substituting a different build.
+CQTNA, a runnable implementation of the diagnostics in the Discussion, is
+included in the deposit, as is a container definition pinning R and Python to
+the versions used here. The
 analyses were run on Windows and the container is Linux, so it fixes the
 software versions and not the machine; the deposit states which numbers were
 checked across the two and which were not.

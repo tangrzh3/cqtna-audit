@@ -1,0 +1,46 @@
+section	source_tables	regenerated_in_container	n_values
+1	123d_fixed_anchor_full_grid.tsv,126a_offgrid_attribution.tsv,126c_permutation_primary.tsv,130c_multilist_verdict.tsv,140d_threshold.tsv,141a_enrichment_decomposition.tsv,141b_reviewer_conditioning.tsv,85e_matched_background_fixed_anchor.tsv	no	17
+1d	156e_C6_result.tsv	yes	5
+1e	55a_recovery_by_locus_class.tsv	no	4
+1f	126c_permutation_primary.tsv	yes	7
+1g		no	2
+1h	101a_zdist.tsv	yes	5
+1i	148b_litaudit_doublecoded.tsv	yes	3
+1j	53b_calibration.tsv	no	5
+1k	07_coloc_results.tsv,14_coloc_meta_results.tsv	no	5
+1l	138b_transport_verdict.tsv	yes	10
+1m	142a_power_matched.tsv	yes	8
+1n	150a_environment.lock	no	16
+1o	101b_matched.tsv	yes	6
+1p	128a_known_kb_sweep.tsv	yes	8
+1q	130a_multilist_main.tsv	yes	13
+1r		no	6
+1s		no	4
+1t	09_steiger_filtering.tsv	no	3
+1u	130a_multilist_main.tsv,130c_multilist_verdict.tsv	yes	3
+1v		no	6
+1w	142a_power_matched.tsv	yes	4
+1x	07_coloc_results.tsv,08_SMR_HEIDI_results.tsv	no	7
+1y		no	2
+2a	148a_litaudit_corpus.tsv	yes	3
+2b	135a_hcc_gate_distance.tsv	yes	1
+2c	141b_reviewer_conditioning.tsv	yes	3
+2d	85e_matched_background_fixed_anchor.tsv	no	4
+2e		no	1
+2f		no	2
+2g	156e_C6_result.tsv	yes	1
+2h	15_SMR_meta_results.tsv,16_coloc_meta_results.tsv	no	1
+2i	07_coloc_results.tsv,16_coloc_meta_results.tsv	no	2
+2j	43a_GSE282266_cell_scores.tsv.gz	no	2
+2k	138a_transport_main.tsv	yes	5
+2l	126a_offgrid_attribution.tsv	yes	2
+2m	104c_validation.tsv	no	6
+2n	139c_leave_one_out.tsv	yes	2
+2o	23g_ST_within_lymphoid.tsv	no	2
+2p		no	1
+2q	12_MR_meta_strict.tsv	no	2
+2r	44b_family_composition.tsv	no	1
+2s	47a_axis_differential_peaks.tsv.gz,47b_activation_differential_peaks.tsv.gz	no	1
+2t	13_meta_locus_annotation.tsv	no	4
+2u	68c_tests.tsv	no	1
+2v		no	1

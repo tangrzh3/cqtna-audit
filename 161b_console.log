@@ -1,0 +1,17 @@
+==========================================================================
+what the container actually recomputed, of the numbers the text cites
+==========================================================================
+  A  distinct values in the body            : 191
+  B  of those, reconciled by step127        : 174
+  C  of B, source table regenerated here    : 82
+     audited but NOT regenerated            : 92
+
+  S54 section 8 threshold is C / A >= 50%: 82 / 191 = 42.9%
+
+  NOTE Being audited is not being recomputed. step127 checks a number
+  against a table; that table may have been mounted in from the
+  authoring machine. The tables behind the coloc, SMR, meta,
+  single-cell and chromatin numbers are not regenerated in the
+  container because their inputs are not distributed.
+
+  wrote 161a_container_number_coverage.tsv
