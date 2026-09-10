@@ -937,6 +937,23 @@ for crit, g in _dc.groupby("criterion"):
     print("  %s  %-8s   %s, %d of %d, %d disagreement(s)"
           % ("OK " if hit else "MISSING", s, crit, int(agree.sum()), len(g),
              int((~agree).sum())))
+    # Cohen's kappa alongside the raw rate, recomputed the same way. The paper
+    # reports 0.00 for locus attribution as a PREVALENCE ARTEFACT -- with one
+    # positive in 46 the expected agreement equals the observed -- so the zero
+    # is a claim about the statistic, not a coding failure, and it should be
+    # reproduced rather than taken on trust.
+    _a = g["manual"].to_numpy()
+    _b = g["coder2"].to_numpy()
+    _po = float((_a == _b).mean())
+    _cats = sorted(set(_a) | set(_b))
+    _pe = sum(float((_a == c).mean()) * float((_b == c).mean()) for c in _cats)
+    _k = (_po - _pe) / (1 - _pe) if _pe < 1 else 0.0
+    _ks = "%.2f" % _k
+    _khit = re.search(re.escape(_ks) + r"(?!\d)", txt) is not None
+    if not _khit:
+        bad += 1
+    print("  %s  %-8s   Cohen kappa, %s"
+          % ("OK " if _khit else "MISSING", _ks, crit))
 
 print()
 print("=" * 74)
