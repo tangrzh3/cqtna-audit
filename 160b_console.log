@@ -7,9 +7,9 @@ audit coverage of the manuscript's arithmetic
     which is why presence is not treated as evidence)
 
   reconciled          : 168
-  un-auditable        : 21  (threshold, external, derived, version)
+  un-auditable        : 16  (threshold, external, derived, version)
   auditable, not done : 7
-  COVERAGE of what CAN be reconciled: 168 of 170 (99%)
+  COVERAGE of what CAN be reconciled: 168 of 175 (96%)
 
   Un-auditable is a curated claim, not an inference -- see UNAUDITABLE
   in this file. A value is listed there only with a stated reason, so

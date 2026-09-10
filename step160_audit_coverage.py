@@ -213,7 +213,7 @@ def main():
         ln, ctx = first_line[n]
         if n in checked:
             cov = "step127"
-        elif n in UNAUDITABLE:
+        elif n in UNAUDITABLE:   # only reached when not in `checked`
             cov = "unauditable:" + UNAUDITABLE[n][0]
         else:
             cov = "NOT AUDITED"
@@ -224,10 +224,19 @@ def main():
         if n not in forms:
             unbacked.append((n, ln, ctx))
 
+    # Mutually exclusive, with "actually checked" winning. Some values were
+    # classified un-auditable and then audited anyway -- the 0.70 kill
+    # threshold and the 10.0-fold transfer figure among them -- and counting
+    # them in both buckets made the three categories sum to 196 out of 191 and
+    # inflated the percentage. Being checked is a fact; being un-auditable was
+    # a judgement, and the fact wins.
     _rec = len(checked & set(uniq))
-    _una = len([n for n in uniq if n in UNAUDITABLE])
+    _una = len([n for n in uniq if n in UNAUDITABLE and n not in checked])
     _pend = len(unchecked)
     _auditable = len(uniq) - _una
+    assert _rec + _una + _pend == len(uniq), (
+        "categories must partition the values: %d + %d + %d != %d"
+        % (_rec, _una, _pend, len(uniq)))
     say("  reconciled          : %d" % _rec)
     say("  un-auditable        : %d  (threshold, external, derived, version)" % _una)
     say("  auditable, not done : %d" % _pend)
