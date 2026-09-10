@@ -121,22 +121,36 @@ Both are marked `unauditable` in `step160` with these reasons attached, so
 neither drags the coverage figure down as though someone had simply not got to
 them.
 
-## 8. Four values whose producing table I could not locate
+## 8. RESOLVED (2026-09-10): all four were traceable, and I had not looked
 
-⚠ **These are NOT classified un-auditable.** They stay in the "auditable, not
-done" column, because "I did not find it" and "it cannot be found" are
-different claims and only the second belongs in that category. Recording what
-was searched so the next attempt does not start over:
+This section previously listed four values "whose producing table I could not
+locate". **All four are now reconciled**, and every definition was written down
+in this repository the whole time.
 
-| value | claim | searched |
-|---|---|---|
-| `5.33` / `1.59` | significant-Q rate, correct vs `exp(-Q/2)` form | `11b_heterogeneity` is the only table carrying Cochran's Q and gives 18.25% / 33.46% over 263 records; `12`/`13` (the two-study meta sets) carry no Q column |
-| `1.82` | melanoma cell's margin over its best rival BEFORE the prostate comparator was repaired | `130c` holds the post-repair 2.31; the pre-repair value is historical and no table found retains it |
-| `2.75` | TPI1 log2 units higher in malignant cells than CD4⁺, 16 of 16 patients | `77b` gives 0.83 for a different dataset (Pozniak); no 16-row per-patient compartment table located |
-| `88.86` / `89.73` / `89.87` | the two chr16 bounded-locus windows | `125a` carries locus coordinates but only for the mismatch cells, not melanoma × CD4; derivable by re-running the fixed-centre partition, which is not the same as reading it off a table |
+| value | where it actually was |
+|---|---|
+| `2.75` | `68c_tests.tsv`, the H1 TPI1 row: diff 2.75, 16 of 16, P = 3.1e-5. Produced by `step68_celltype_attribution.R`, described in `FINDINGS_step5_pigmentation.md`. I had checked `77b`, a different dataset. |
+| `5.33` / `1.59` | `meta_finngen_rashkin.py` computes it over the 8.79 M variants present in both studies. I had checked `11b_heterogeneity`, which is a different analysis at 263 records. |
+| `1.82` | A **superseded** value: 4.962/2.73 with the pre-repair prostate comparator. Derivation in `findings.md`; the repaired 2.31 is checked in `step127` 1u. |
+| `88.86` / `89.73` / `89.87` | Recomputable with `step85e`'s `assign_loci`, whose docstring states it is identical to `cqtna:::cq_assign_loci`. Reusing the deposited implementation removed the risk that had stopped me. |
 
-The last one is worth separating: it **is** recomputable, by applying the
-partition to melanoma's significant records. I did not, because three of my
-"discrepancies" in this exercise turned out to be my own reconstruction being
-wrong, and a fourth guess at a definition is a poor trade against three
-coordinate digits.
+### ⚠ A rounding trap worth keeping
+
+`5.33%` cannot be reproduced from the deposited meta file, and the reason is
+not an error in the paper. `meta_finngen_rashkin.py` counts `qp < 0.05` on the
+**unrounded** value, then writes `f"{qp:.4g}"`. Ninety-two records round to
+exactly `"0.05"` on the way out, so recomputing from the stored column gives
+5.32% while the script's own count gave 5.33%. `step127` 2v reproduces the
+number by counting those ninety-two back in, and says why in the code.
+
+**The stored column cannot answer the question that produced it.** Anywhere a
+count is made before a rounding write, the file is not a substitute for the
+computation.
+
+### What this cost
+
+Three times in this audit I reported "the paper is probably right and I cannot
+confirm it" and handed the question back, when the answer was in a script or a
+findings note I had not opened. Deferring looks careful and is not: it moves
+work to someone who has to re-derive what the repository already records.
+**Search the producing code before declaring anything unreconcilable.**

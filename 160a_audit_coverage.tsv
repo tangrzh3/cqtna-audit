@@ -55,7 +55,7 @@ value	coverage	in_any_table	first_line	context
 5.52	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
 5.5	step127	yes	1366	R 4.4.1 with Seurat 5.5.1, Matrix 1.7.0, data.table 1.16.0, coloc 5.2.3,
 5.45	unauditable:definitional	yes	934	a ray through the origin, |β| = 5.45 × SE. The resting profile sits highest on
-5.33	NOT AUDITED	yes	1008	initially gave a significant-Q rate of 1.59% against 5.33% for the correct form.
+5.33	step127	yes	1008	initially gave a significant-Q rate of 1.59% against 5.33% for the correct form.
 5.28	step127	yes	154	against a background of 52 of 641: 5.28-fold, P = 0.014 (Supplementary S42).
 5.2	step127	yes	484	residual is **+5.2 percentage points [−1.6, +12.0] by bounded locus** and
 4.96	step127	yes	21	reported for the outcome, 4.96-fold by bounded locus (P = 0.0048) — but that
@@ -86,7 +86,7 @@ value	coverage	in_any_table	first_line	context
 3.05	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
 3.03	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 2.9	step127	yes	302	P = 2.9×10⁻⁴ — and S33 §5 voids a cell whose mismatched list enriches. It stays
-2.75	NOT AUDITED	yes	592	Fig. 7). In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
+2.75	step127	yes	592	Fig. 7). In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
 2.55	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
 2.52	step127	yes	185	ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10 and colorectal 2.52,
 2.5	step127	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
@@ -105,7 +105,7 @@ value	coverage	in_any_table	first_line	context
 2.0	step127	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 1.98	step127	yes	24	and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 1.83	step127	yes	303	void: excluding the MHC does not clean it (1.83-fold, P = 0.0052), and the
-1.82	NOT AUDITED	yes	1145	comparator to one; the cell's margin over its best rival widens from 1.82- to
+1.82	unauditable:superseded	yes	1145	comparator to one; the cell's margin over its best rival widens from 1.82- to
 1.71	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 1.7	step127	yes	1366	R 4.4.1 with Seurat 5.5.1, Matrix 1.7.0, data.table 1.16.0, coloc 5.2.3,
 1.69	step127	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and

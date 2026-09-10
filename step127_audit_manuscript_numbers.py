@@ -365,6 +365,76 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2u. TPI1's compartment difference (S30), against 68c")
+print("=" * 74)
+# "In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
+# cells than in the CD4+ T cells the instrument came from, in 16 of 16
+# patients." This is the compartment problem stated at full strength against
+# the paper's own instrument, so all three parts are checked: the difference,
+# the unanimity, and the P.
+_ct = pd.read_csv(_find("68c_tests.tsv"), sep=TAB)
+_t1 = _ct[_ct.variable.astype(str).str.contains("TPI1", na=False)
+          & ~_ct.variable.astype(str).str.contains("Glyco", na=False)]
+if _t1.empty:
+    print("  MISSING  no TPI1 row in 68c")
+    bad += 1
+else:
+    r = _t1.iloc[0]
+    for _lab, s2 in (("malignant minus CD4, log2", "%.2f" % r["diff"]),
+                     ("patients with malignant higher", "%d" % int(r.n_mal_higher)),
+                     ("patients tested", "%d" % int(r.n))):
+        hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s2, _lab))
+
+print()
+print("=" * 74)
+print("2v. the Cochran Q calibration (Methods), against the meta output")
+print("=" * 74)
+# "the exp(-Q/2) form used initially gave a significant-Q rate of 1.59% against
+# 5.33% for the correct form". 5.33% against a null expectation of 5% is the
+# quality-control evidence that back-deriving Rashkin's standard errors from
+# OR and P worked, so the number is load-bearing for the whole meta.
+#
+# ⚠ It cannot be reproduced exactly from the deposited file, and the reason is
+# worth recording. meta_finngen_rashkin.py counts `qp < 0.05` on the UNROUNDED
+# value and only then writes `f"{qp:.4g}"`. Ninety-two records round to exactly
+# "0.05" on the way out, so recomputing from the file gives 5.32% while the
+# script's own count gave 5.33%. The paper is right; the stored column simply
+# cannot answer the question that produced it.
+_mgz = _find("meta_melanoma_finngen_rashkin.tsv.gz")
+if not os.path.exists(_mgz):
+    print("  --   meta output not present; rate not recomputed here")
+else:
+    import gzip as _gz
+    _n = _k = _b = 0
+    with _gz.open(_mgz, "rt", encoding="utf-8", errors="replace") as _f:
+        _hdr = _f.readline().rstrip("\n").split(TAB)
+        _ns, _qp = _hdr.index("n_studies"), _hdr.index("Q_pval")
+        for _ln in _f:
+            _c = _ln.rstrip("\n").split(TAB)
+            if len(_c) <= max(_ns, _qp) or _c[_ns] != "2":
+                continue
+            _n += 1
+            try:
+                _v = float(_c[_qp])
+            except Exception:
+                continue
+            if _v < 0.05:
+                _k += 1
+            elif _c[_qp] == "0.05":
+                _b += 1
+    _rate = 100.0 * (_k + _b) / _n if _n else 0.0
+    s3 = "%.2f%%" % _rate
+    hit = re.search(re.escape(s3) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   Q significance rate (%d of %d, +%d rounded to the boundary)"
+          % ("OK " if hit else "MISSING", s3, _k, _n, _b))
+
+print()
+print("=" * 74)
 print("2t. the MC1R region counted twice (S37), recomputed from 13")
 print("=" * 74)
 # "Two of the eight bounded loci are not two published regions. The windows at

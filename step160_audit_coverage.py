@@ -76,6 +76,14 @@ UNAUDITABLE = {
     "3.19": ("version", "fragment of org.Hs.eg.db 3.19.1"),
     "3.12": ("version", "fragment of Python 3.12.4"),
     "25.0": ("version", "fragment of arrow/pyarrow 25.0.0"),
+    # A SUPERSEDED value the paper itself reports as superseded. 1.82 was the
+    # melanoma cell's margin when the best rival was the pre-repair prostate
+    # comparator of 2.73 (4.962/2.73 = 1.82); after the repair the best rival
+    # is breast at 2.15 and the margin is 2.31, which step127 1u checks. The
+    # 2.73 no longer exists in any table -- 130a now carries the repaired 1.24
+    # -- so the old margin cannot be recomputed, and should not be: the
+    # sentence's point is that it CHANGED. Derivation recorded in findings.md.
+    "1.82": ("superseded", "pre-repair margin, 4.962/2.73; the repaired 2.31 is checked in 1u"),
     # No producing code in the deposit, or produced by an external tool's log
     # rather than by a script here. Recorded in DEPOSIT_GAPS.md section 7.
     "0.937": ("no producing script", "R12 vs R13 |z| correlation; no script computes it"),
