@@ -26,7 +26,7 @@ value	coverage	in_any_table	first_line	context
 19.5	unauditable:external	yes	508	sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
 16.1	step127	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 15.99	step127	yes	481	3.73 and 4.55, while known-locus candidates reach 15.99 (medians 4.23 and 11.07) —
-15.5	NOT AUDITED	yes	239	the chr19 *TM6SF2* region at both levels. Enrichment is 15.5-fold in the
+15.5	step127	yes	239	the chr19 *TM6SF2* region at both levels. Enrichment is 15.5-fold in the
 12.85	step127	yes	420	6.14-fold on whole blood, 8.24-fold for HCC-high on whole blood, 12.85- and
 12.5	step127	yes	29	Wilson 95% CI 12.5–36.3%) used the exact single-variant Wald design.
 12.09	step127	yes	421	12.09-fold for the two HCC-low cells, and **4.52-fold for RA on CD4⁺ T cells**.
@@ -135,8 +135,8 @@ value	coverage	in_any_table	first_line	context
 0.79	step127	yes	632	0.79 for list stability and **0.00 for locus attribution — a prevalence artefact,
 0.73	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.707	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
-0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.70	step127	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
+0.7	step127	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.649	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.647	NOT AUDITED	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
 0.555	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
@@ -147,8 +147,8 @@ value	coverage	in_any_table	first_line	context
 0.45	unauditable:tool log	yes	1087	multi-allelic sites. The `--diff-freq` QC removed 0.45% of variants at the
 0.41	step127	yes	24	and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 0.403	step127	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
-0.40	step127	yes	141	one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
 0.4	step127	yes	473	naevus-locus genes are recovered against **0.4%** of novel-locus genes; at 50%
+0.40	step127	yes	141	one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
 0.36	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.330	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
 0.249	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only

@@ -117,7 +117,12 @@ for _, r in main.iterrows():
     _seen = (re.search(re.escape(_s2) + r"(?!\d)", txt) is not None
              or re.search(re.escape(_s1) + r"(?!\d)", txt) is not None)
     if _seen:
-        want.append((r.cell, _s2))
+        # Record the rendering the manuscript ACTUALLY uses. The grid table
+        # prints 15.49 but the HCC paragraph writes 15.5-fold, and reporting
+        # only the two-decimal form left the one-decimal one looking
+        # unaudited when it is the same number from the same cell.
+        want.append((r.cell, _s2 if re.search(re.escape(_s2)
+                     + r"(?!\d)", txt) else _s1))
     else:
         GRID_UNQUOTED.append((r.cell, _s2))
 want += [
@@ -631,9 +636,13 @@ print("=" * 74)
 # which is the automated C2 rate.
 _cp = pd.read_csv(_find("148a_litaudit_corpus.tsv"), sep=TAB)
 _n = len(_cp)
+# The strict rate is quoted too -- "0.7% for the second criterion was too
+# strict and falls below the corrected interval" -- and it is the number that
+# makes the case that BOTH matchers were wrong, in opposite directions.
 for _col, _lab in (("wide_C1_known_locus", "wide matcher, locus attribution"),
                    ("wide_C3_power_stability", "wide matcher, power stability"),
-                   ("automated_C2_coloc", "automated, colocalisation")):
+                   ("automated_C2_coloc", "automated, colocalisation"),
+                   ("strict_C3_power_stability", "strict matcher, power stability")):
     if _col not in _cp.columns:
         continue
     _k = int((pd.to_numeric(_cp[_col], errors="coerce").fillna(0) > 0).sum())
