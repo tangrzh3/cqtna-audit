@@ -301,6 +301,37 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2o. the chained locus and the discarded spatial test, against 123d and 23g")
+print("=" * 74)
+# "on the whole-blood resource it chains a chromosome arm into a single 30.8 Mb
+# locus" -- the concrete demonstration that single-linkage is unusable on a
+# dense resource, which is why the fixed-anchor partition exists at all. From
+# the single_linkage rows of 123d, not the fixed_centre ones the rest of the
+# audit reads.
+_sl = grid[grid.partition == "single_linkage"]
+if not _sl.empty:
+    s2 = "%.1f" % (_sl.max_sig_span_kb.max() / 1000.0)
+    hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   widest single-linkage locus, Mb" % ("OK " if hit else "MISSING", s2))
+
+# "a test whose positive control fails is discarded rather than interpreted --
+# the within-lymphoid-subset spatial test (HLA-C P = 0.23) ... discarded under
+# this rule". A number quoted to justify DISCARDING a result: if it were
+# actually significant the discard would look like suppression, so it is worth
+# checking that the test really is null.
+_sp = pd.read_csv(_find("23g_ST_within_lymphoid.tsv"), sep=TAB)
+_hl = _sp[(_sp.gene == "HLA-C") & _sp.subset.astype(str).str.contains("lymphoid")]
+if not _hl.empty:
+    s3 = "%.2f" % float(_hl.iloc[0].p)
+    hit = re.search(re.escape(s3) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   HLA-C within-lymphoid P" % ("OK " if hit else "MISSING", s3))
+
+print()
+print("=" * 74)
 print("2m. the corrected literature rates and their intervals (S23), against 104c")
 print("=" * 74)
 # "not one paper ... compared its significant signal against previously
