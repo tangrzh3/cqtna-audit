@@ -301,6 +301,66 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2m. the corrected literature rates and their intervals (S23), against 104c")
+print("=" * 74)
+# "not one paper ... compared its significant signal against previously
+# reported loci for its own outcome trait (0% [0-3.4]), and an estimated 7.1%
+# [2.5-16.1] report how the candidate list depends on the outcome GWAS used".
+# These are the paper's headline claims about the literature, they are
+# CORRECTED figures with the automated matcher's precision folded in, and not
+# one of the six numbers was audited. The precisions themselves -- 0.00 and
+# 0.20 -- are what justify calling the raw rates wrong, so they are checked too.
+_vl = pd.read_csv(_find("104c_validation.tsv"), sep=TAB)
+for _, r in _vl.iterrows():
+    for _lab, _v, _fmt in (("corrected rate", r.corrected_pct, "%.1f%%"),
+                           ("interval low", r.corrected_lo_pct, "%.1f"),
+                           ("interval high", r.corrected_hi_pct, "%.1f"),
+                           ("matcher precision", r.precision, "%.2f")):
+        if pd.isna(_v):
+            continue
+        s2 = _fmt % _v
+        # A rate of exactly zero is written "0%", not "0.0%". Accept both
+        # renderings of the same value rather than reporting a correct number
+        # as missing because of a trailing digit.
+        _alts = [s2]
+        if _fmt.endswith("%%") and float(_v) == 0:
+            _alts.append("0%")
+        _m = next((a for a in _alts
+                   if re.search(re.escape(a) + r"(?!\d)", txt)), None)
+        if _m is None:
+            bad += 1
+        print("  %s  %-8s   %s, %s" % ("OK " if _m else "MISSING", _m or s2,
+                                       _lab, r.criterion))
+
+print()
+print("=" * 74)
+print("2n. lung's leave-one-out (S41), against 139c")
+print("=" * 74)
+# "lung's result does not survive dropping its single strongest locus
+# (P = 0.0138 to 0.0569 without the chr11 FADS1/TMEM258 cluster)". The paper
+# reporting that one of its own five outcomes is fragile, with the named
+# cluster; if the dropped locus or the resulting P were wrong the concession
+# would be misdescribed, and nothing checked either.
+_lo1 = pd.read_csv(_find("139c_leave_one_out.tsv"), sep=TAB)
+_lg = _lo1[_lo1.row.astype(str).str.contains("Lung", case=False, na=False)]
+if not _lg.empty:
+    r = _lg.iloc[0]
+    for _lab, s2 in (("P, full", _num_in_text(r.p_full) or "?"),
+                     ("P, worst locus dropped", _num_in_text(r.p_worst_drop) or "?")):
+        hit = s2 != "?" and re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+        if not hit:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s2, _lab))
+    for _g in str(r.worst_genes).split(","):
+        _g = _g.strip()
+        if _g and _g not in txt:
+            bad += 1
+            print("  MISSING  %-8s   named as the dropped cluster" % _g)
+        elif _g:
+            print("  OK   %-8s   named as the dropped cluster" % _g)
+
+print()
+print("=" * 74)
 print("2l. the R13 transfer comparator (S22), against 126a")
 print("=" * 74)
 # "at 6,226 cases the significant list is the same six genes at the same two

@@ -24,7 +24,7 @@ value	coverage	in_any_table	first_line	context
 22.2	step127	yes	28	replaced the list entirely. Among 45 ascertainable papers in a two-coder subsample of 46, 10 (22.2%;
 21.3	NOT AUDITED	yes	589	axis the gene marks is enriched 21.3-fold for glycolysis and is not specific to
 19.5	unauditable:external	yes	508	sets in the region (log₁₀BF 45.6, 36.6, 19.5), so it genuinely carries multiple
-16.1	NOT AUDITED	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
+16.1	step127	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 15.99	step127	yes	481	3.73 and 4.55, while known-locus candidates reach 15.99 (medians 4.23 and 11.07) —
 15.5	NOT AUDITED	yes	239	the chr19 *TM6SF2* region at both levels. Enrichment is 15.5-fold in the
 12.85	step127	yes	420	6.14-fold on whole blood, 8.24-fold for HCC-high on whole blood, 12.85- and
@@ -44,7 +44,7 @@ value	coverage	in_any_table	first_line	context
 7.9	step127	yes	240	lower-powered outcome (P = 0.0041) and 7.9-fold in the higher-powered one, where
 7.88	step127	yes	400	| HCC-high × CD4⁺ | 7.88 | 0.123 |
 7.30	step127	yes	340	(3.91- to 7.30-fold), the direction every other cell moves in. It is the control
-7.1	NOT AUDITED	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
+7.1	step127	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 6.66	step127	yes	416	gives 6.66-fold (empirical P = 0.0016) for melanoma on CD4⁺ T cells. Matching on
 6.55	step127	yes	280	locus of the same eQTL-p decile and allele-frequency quintile (6.55-fold,
 6.4	step127	yes	485	+6.4 [+0.9, +12.0] by gene, against raw gaps of 47.6 and 63.0. Only one known
@@ -75,7 +75,7 @@ value	coverage	in_any_table	first_line	context
 3.70	step127	yes	339	locus widths (3.70- to 3.96-fold) and rises as the known-locus window narrows
 3.5	unauditable:derived	yes	475	known-locus genes and 8,771 for novel-locus genes — 3.5-fold. Studies using this
 3.44	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
-3.4	NOT AUDITED	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
+3.4	step127	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 3.32	step127	yes	355	carcinoma's at 3.05-fold (P = 0.0028), lung's at 3.32-fold (P = 1.5 × 10⁻⁵),
 3.3	step127	yes	300	3.94-fold (P = 3.3×10⁻¹⁷), but its pre-registered mismatched-list control also
 3.19	unauditable:version	yes	1369	BSgenome.Hsapiens.UCSC.hg38 1.4.5, survival 3.8.9 and org.Hs.eg.db 3.19.1.
@@ -89,12 +89,12 @@ value	coverage	in_any_table	first_line	context
 2.75	NOT AUDITED	yes	592	Fig. 7). In melanoma single-cell data TPI1 is 2.75 log2 units higher in malignant
 2.55	step127	yes	326	the same mismatch curve (4.11-, 3.44-, 2.55-, 1.59-fold as the window widens) and
 2.52	step127	yes	185	ten loci, fold gives melanoma 5.95, lung 3.85, breast 3.10 and colorectal 2.52,
-2.5	NOT AUDITED	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
+2.5	step127	yes	613	its own outcome trait (0% [0–3.4]), and an estimated 7.1% [2.5–16.1] report how
 2.48	step127	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
 2.38	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 2.31	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
-2.3	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.30	step127	yes	189	every mismatched list by a margin (2.30-fold against
+2.3	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.25	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.2	step127	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 2.15	step127	yes	1144	2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
@@ -135,8 +135,8 @@ value	coverage	in_any_table	first_line	context
 0.79	step127	yes	632	0.79 for list stability and **0.00 for locus attribution — a prevalence artefact,
 0.73	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.707	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
-0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.70	step127	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
+0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.649	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.647	NOT AUDITED	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
 0.555	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
@@ -147,15 +147,15 @@ value	coverage	in_any_table	first_line	context
 0.45	unauditable:tool log	yes	1087	multi-allelic sites. The `--diff-freq` QC removed 0.45% of variants at the
 0.41	step127	yes	24	and no locus-level attribution signal we can detect (1.98-fold, P = 0.41).
 0.403	step127	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
-0.40	step127	yes	141	one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
 0.4	step127	yes	473	naevus-locus genes are recovered against **0.4%** of novel-locus genes; at 50%
+0.40	step127	yes	141	one of them known: 1.98-fold, one-sided P = 0.41, and 2.07-fold, P = 0.40 when
 0.36	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.330	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
 0.249	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.23	NOT AUDITED	yes	1344	interpreted — the within-lymphoid-subset spatial test (HLA-C P = 0.23) and the
 0.207	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.202	step127	yes	438	PP.H3+H4 (0.125 versus 0.202).
-0.20	NOT AUDITED	yes	622	0.00 and 0.20. Most hits were spurious — three of five on the first criterion lay
+0.20	step127	yes	622	0.00 and 0.20. Most hits were spurious — three of five on the first criterion lay
 0.184	step127	yes	1050	R² = F/(F + N − 2) (range 0.184–0.933) is additionally reported.
 0.14	step127	yes	1367	susieR 0.14.2, arrow 25.0.0, hdf5r 1.3.12, TFBSTools 1.42.0,
 0.125	step127	yes	438	PP.H3+H4 (0.125 versus 0.202).
@@ -163,12 +163,12 @@ value	coverage	in_any_table	first_line	context
 0.123	step127	yes	241	it does not reach significance (P = 0.123). The single novel nomination, SUPV3L1,
 0.11	step127	yes	457	from 9.3×10⁻⁴ to 0.11 — and six different genes took their place. **The two lists
 0.101	step127	yes	180	the reciprocal of that share, and across our lists the share runs from 0.101 for
-0.1	unauditable:parameter	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
 0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
+0.1	unauditable:parameter	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
 0.095	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.086	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.081	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
-0.0569	NOT AUDITED	yes	192	0.0569 without the chr11 FADS1/TMEM258 cluster, the same cluster identified as
+0.0569	step127	yes	192	0.0569 without the chr11 FADS1/TMEM258 cluster, the same cluster identified as
 0.05	unauditable:threshold	yes	19	numerically; Benjamini–Hochberg at 0.05 corresponds to an outcome P of
 0.0495	step127	yes	1144	2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
 0.026	step127	yes	357	prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
