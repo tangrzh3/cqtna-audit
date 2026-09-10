@@ -56,6 +56,64 @@ off = pd.read_csv(_find("126a_offgrid_attribution.tsv"), sep=TAB)
 perm = pd.read_csv(_find("126c_permutation_primary.tsv"), sep=TAB)
 mb = pd.read_csv(_find("85e_matched_background_fixed_anchor.tsv"), sep=TAB)
 ml = pd.read_csv(_find("130c_multilist_verdict.tsv"), sep=TAB)
+def _load_module(fname):
+    """Import a deposited step script so its own functions can be reused.
+
+    Reusing the published implementation beats reimplementing it. The scripts
+    have no __main__ guard, so importing runs their analysis; stdout is
+    swallowed and any SystemExit absorbed. Their outputs are deterministic and
+    identical to what is committed -- verified for step85e, whose table is
+    byte-identical after an import -- so the side effect is a rerun, not a
+    change.
+    """
+    import contextlib
+    import importlib.util
+    try:
+        spec = importlib.util.spec_from_file_location(
+            "_dep_" + fname.replace(".", "_"), _find(fname))
+        mod = importlib.util.module_from_spec(spec)
+        # An audit must not modify result tables. Importing runs the script,
+        # which rewrites its outputs -- byte-identical in content, but enough
+        # to dirty the working tree on every run, and a permanently noisy
+        # `git status` is how a real change goes unnoticed. Snapshot the
+        # tracked files before, restore exactly what the import touched after;
+        # the same approach step159's run() uses for failed steps.
+        import subprocess
+        def _tracked():
+            try:
+                # status, not diff. The imported script writes CRLF on
+                # Windows while the repository normalises to LF, so `git diff`
+                # correctly reports no CONTENT change and would leave the file
+                # looking modified anyway. Cleaning the tree is the point.
+                r = subprocess.run(["git", "status", "--porcelain"], cwd=MR,
+                                   capture_output=True, text=True, timeout=60)
+                if r.returncode != 0:
+                    return None
+                return set(ln[3:].strip() for ln in r.stdout.splitlines()
+                           if ln[:2].strip() == "M")
+            except Exception:
+                return None
+        _before = _tracked()
+        _argv = sys.argv
+        sys.argv = [fname, MR]
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                spec.loader.exec_module(mod)
+        except SystemExit:
+            pass
+        finally:
+            sys.argv = _argv
+            _after = _tracked()
+            if _before is not None and _after is not None:
+                _touched = sorted(_after - _before)
+                if _touched:
+                    subprocess.run(["git", "checkout", "--"] + _touched,
+                                   cwd=MR, capture_output=True, timeout=60)
+        return mod
+    except Exception:
+        return None
+
+
 def _num_in_text(v, decimals=(2, 3, 4), sci_below=0.01):
     """Is v printed in the manuscript, at any precision the paper uses?
 
@@ -304,6 +362,49 @@ for label, s_ in c6:
         bad += 1
     print("  %s  %-34s   %s" % ("OK " if hit else "MISSING", s_.replace(chr(10), " "),
                                 label))
+
+print()
+print("=" * 74)
+print("2t. the MC1R region counted twice (S37), recomputed from 13")
+print("=" * 74)
+# "Two of the eight bounded loci are not two published regions. The windows at
+# 16:88.86-89.73 Mb and 16:89.87 Mb fall within 1 Mb of an identical set of
+# seven Landi lead variants, so the fixed-anchor partition counts the MC1R
+# region twice." The paper reporting a flaw in its OWN partition, and the
+# coordinates are what make the claim checkable at all.
+#
+# No table stores locus boundaries for this cell, so they are recomputed with
+# step85e's assign_loci -- whose docstring states it is identical to
+# cqtna:::cq_assign_loci including the ">" boundary. Reusing the deposited
+# implementation rather than reimplementing the partition is the point: three
+# of my apparent discrepancies in this audit were my own reconstructions being
+# wrong, and a partition is exactly the kind of thing that is easy to get
+# subtly wrong.
+_s85 = _load_module("step85e_matched_background.py")
+if _s85 is None or not hasattr(_s85, "assign_loci"):
+    print("  MISSING  cannot load assign_loci from step85e")
+    bad += 1
+else:
+    _ml = pd.read_csv(_find("13_meta_locus_annotation.tsv"), sep=TAB)
+    _ml[["chr", "pos"]] = _ml.SNP.str.split(":", expand=True)
+    _ml["pos"] = _ml.pos.astype(int)
+    _sn = _ml.groupby(["chr", "pos"], as_index=False).size()
+    _lo = _s85.assign_loci(_sn)
+    _ml["locus"] = [_lo[(c, p)] for c, p in zip(_ml.chr, _ml.pos)]
+    _sg = _ml.groupby("locus").agg(is_sig=("FDR", lambda s: (s < .05).any()))
+    _sig = set(_sg[_sg.is_sig].index)
+    print("  OK   %-8s   bounded loci reaching FDR < 0.05" % len(_sig))
+    for _L in sorted(_sig):
+        _w = _ml[_ml.locus == _L]
+        if _w.chr.iloc[0] != "16":
+            continue
+        for _v in (_w.pos.min() / 1e6, _w.pos.max() / 1e6):
+            s2 = "%.2f" % _v
+            hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+            if not hit:
+                bad += 1
+            print("  %s  %-8s   chr16 window boundary, Mb"
+                  % ("OK " if hit else "MISSING", s2))
 
 print()
 print("=" * 74)
