@@ -307,6 +307,26 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2r. the residual axis's glycolysis enrichment (S31), against 44b")
+print("=" * 74)
+# "The axis the gene marks is enriched 21.3-fold for glycolysis and is not
+# specific to TPI1". The fold is the evidence that the axis is glycolytic at
+# all -- the claim the leave-one-out then defends -- and it was unchecked.
+_fam = pd.read_csv(_find("44b_family_composition.tsv"), sep=TAB)
+_gly = _fam[(_fam.direction == "up") & (_fam.family == "glycolysis")]
+if _gly.empty:
+    print("  MISSING  no up/glycolysis row in 44b")
+    bad += 1
+else:
+    s2 = "%.1f" % float(_gly.iloc[0].enrichment)
+    hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   glycolysis enrichment, residual axis up-genes"
+          % ("OK " if hit else "MISSING", s2))
+
+print()
+print("=" * 74)
 print("2q. the identity, confirmed numerically (Abstract), against 12")
 print("=" * 74)
 # "Benjamini-Hochberg at 0.05 corresponds to an outcome P of 2.1e-4." This is
