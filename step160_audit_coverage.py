@@ -190,7 +190,11 @@ def main():
         return 1
     say("  reconciled by step127      : %d distinct" % len(checked & set(uniq)))
 
-    forms = table_forms(uniq)
+    # Only values without an explanation already count as "still unaccounted
+    # for". Passing all of them meant the two external GWAS constants -- which
+    # are in no table by definition -- triggered the 1.8 GB compressed scan on
+    # every single run, so the optimisation never once fired.
+    forms = table_forms([n for n in uniq if n not in UNAUDITABLE])
     say("  numeric forms in 360 result files: %d (coincidence is cheap here,"
         % len(forms))
     say("    which is why presence is not treated as evidence)")
