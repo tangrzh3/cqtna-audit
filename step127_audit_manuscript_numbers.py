@@ -301,6 +301,32 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2l. the R13 transfer comparator (S22), against 126a")
+print("=" * 74)
+# "at 6,226 cases the significant list is the same six genes at the same two
+# loci ... locus attribution is 10.0-fold (P = 9.1e-5), all four significant
+# loci known". Section 1 checks the fold as 10.02; the text prints 10.0, and
+# the P and the counts were unchecked. This is the pre-registered transfer
+# test, so the numbers showing the list SURVIVES it are the ones a reader
+# would want pinned.
+_og = pd.read_csv(_find("126a_offgrid_attribution.tsv"), sep=TAB)
+_r13 = _og[_og.note.astype(str).str.contains("R13 transfer", na=False)]
+if _r13.empty:
+    print("  MISSING  the R13 transfer comparator row is gone from 126a")
+    bad += 1
+else:
+    r = _r13.iloc[0]
+    for label, s2 in (("fold, as printed", "%.1f" % r.fold),
+                      ("P", _num_in_text(r.fisher_p) or "?"),
+                      ("significant loci", "%d" % int(r.sig_loci)),
+                      ("of them known", "%d" % int(r.sig_known))):
+        ok = s2 != "?" and re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+        if not ok:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if ok else "MISSING", s2, label))
+
+print()
+print("=" * 74)
 print("2k. the transport margins (S41), recomputed from 138a")
 print("=" * 74)
 # "only melanoma exceeds every mismatched list by a margin (2.30-fold against

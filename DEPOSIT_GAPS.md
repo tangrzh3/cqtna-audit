@@ -97,3 +97,26 @@ carried over. Encoded in `step127` section 2i.
 Both definitions now live in `step127` rather than only in a figure script and
 a findings note, so neither number depends on anyone re-reading a file that
 nobody opens.
+
+## 7. Two Results numbers with no producing code in the deposit
+
+**`r = 0.937`** — "the two releases' statistics correlate at |z| r = 0.937".
+No script in the repository computes a correlation between the R12 and R13
+statistics: searched every `step*.py` that mentions R13 for `corrcoef`,
+`spearmanr`, `pearsonr` or `.corr(`, and none has one. The R13 outputs that do
+exist (`99a`–`99c`) carry counts and attribution, not per-record statistics, so
+the number cannot be recomputed from what is deposited either.
+
+⚠ This is the same class of defect `step143` was written to address for the
+lung and colorectal locus lists: **a number in the Results whose producing code
+is not in the repository.** It is recorded rather than quietly recomputed by a
+guessed method, because a reader cannot check the value against anything.
+
+**`0.45%`** — the `--diff-freq` QC removal rate. This comes from SMR's own log
+output, documented in `FINDINGS_step5_pigmentation.md`, not from any table
+here. Not a defect so much as a category: a figure quoted from an external
+tool's console, which no audit over deposited tables can reach.
+
+Both are marked `unauditable` in `step160` with these reasons attached, so
+neither drags the coverage figure down as though someone had simply not got to
+them.

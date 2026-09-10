@@ -76,6 +76,10 @@ UNAUDITABLE = {
     "3.19": ("version", "fragment of org.Hs.eg.db 3.19.1"),
     "3.12": ("version", "fragment of Python 3.12.4"),
     "25.0": ("version", "fragment of arrow/pyarrow 25.0.0"),
+    # No producing code in the deposit, or produced by an external tool's log
+    # rather than by a script here. Recorded in DEPOSIT_GAPS.md section 7.
+    "0.937": ("no producing script", "R12 vs R13 |z| correlation; no script computes it"),
+    "0.45": ("tool log", "SMR --diff-freq QC rate, from the tool's output"),
     # Arithmetic on numbers that ARE audited, carrying no independent content.
     "86.9": ("derived", "253/291, both quoted in the same sentence"),
     "3.5": ("derived", "8771/2506, both quoted in the same sentence"),

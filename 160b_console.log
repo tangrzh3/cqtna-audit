@@ -2,14 +2,14 @@
 audit coverage of the manuscript's arithmetic
 ==========================================================================
   decimal values in the body : 278 occurrences, 191 distinct
-  reconciled by step127      : 152 distinct
+  reconciled by step127      : 154 distinct
   numeric forms in 360 result files: 636828 (coincidence is cheap here,
     which is why presence is not treated as evidence)
 
-  reconciled          : 152
-  un-auditable        : 19  (threshold, external, derived, version)
-  auditable, not done : 23
-  COVERAGE of what CAN be reconciled: 152 of 172 (88%)
+  reconciled          : 154
+  un-auditable        : 21  (threshold, external, derived, version)
+  auditable, not done : 20
+  COVERAGE of what CAN be reconciled: 154 of 170 (91%)
 
   Un-auditable is a curated claim, not an inference -- see UNAUDITABLE
   in this file. A value is listed there only with a stated reason, so
