@@ -295,6 +295,56 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2h. HEIDI on the signals coloc calls distinct (S46), against 16 and 15")
+print("=" * 74)
+# "HEIDI failed to reject homogeneity for 253 (86.9%)". I could not reproduce
+# this at first and nearly filed it as an open question for the author. Two
+# mistakes of mine: the wrong tables (14 and 08 rather than 16 and 15), and no
+# PP.H4 < 0.2 filter -- the denominator is not every HEIDI test, it is the
+# records coloc calls DISTINCT causal variants, which is the whole point of the
+# sentence. The definition is in figures/make_gb_fig4_coloc_heidi.py, which
+# draws the same panel; it is encoded here so the number stops depending on a
+# figure script nobody re-reads.
+_hc = pd.read_csv(_find("16_coloc_meta_results.tsv"), sep=TAB)
+_hs = pd.read_csv(_find("15_SMR_meta_results.tsv"), sep=TAB)
+_hs["_k"] = _hs["gene"].astype(str) + "|" + _hs["profile"].astype(str)
+_hm = _hc.merge(_hs[["_k", "p_HEIDI"]], left_on="exposure", right_on="_k")
+_hm = _hm[_hm["PP.H4"].notna() & _hm["p_HEIDI"].notna() & (_hm["p_HEIDI"] > 0)]
+_lo = _hm[_hm["PP.H4"] < 0.2]
+_ps = _lo[_lo["p_HEIDI"] > 0.05]
+for label, s2 in (("records coloc calls distinct", "%d" % len(_lo)),
+                  ("of them, HEIDI does not reject", "%d" % len(_ps)),
+                  ("share", "%.1f%%" % (100.0 * len(_ps) / len(_lo)))):
+    hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s" % ("OK " if hit else "MISSING", s2, label))
+
+print()
+print("=" * 74)
+print("2i. winner's curse, tested and rejected (S44), against 07 and 16")
+print("=" * 74)
+# "newly entering candidates had LOWER PP.H3+H4 (0.125 versus 0.202)" -- an
+# explanation the paper tested and rejected. Same story as 2h: I reconstructed
+# it against 14 and got 0.126 / 0.207, decided my definition was wrong, and was
+# right about that but wrong about why. It is 16, and the groups are the 244
+# exposures new to the meta round against the 127 carried over
+# (FINDINGS_step5_pigmentation.md, the winner's-curse entry).
+_w2 = pd.read_csv(_find("16_coloc_meta_results.tsv"), sep=TAB)
+_prev = set(pd.read_csv(_find("07_coloc_results.tsv"),
+                        sep=TAB)["exposure"].astype(str))
+_isnew = ~_w2["exposure"].astype(str).isin(_prev)
+for label, _sub in (("newly entering", _w2[_isnew]),
+                    ("carried over", _w2[~_isnew])):
+    _md = (_sub["PP.H3"] + _sub["PP.H4"]).median()
+    for s2 in ("%d" % len(_sub), "%.3f" % _md):
+        hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+        if s2.startswith("0.") and not hit:
+            bad += 1
+        print("  %s  %-8s   %s" % ("OK " if hit else "-- ", s2, label))
+
+print()
+print("=" * 74)
 print("2f. the instrument-strength floor (Methods), against 01, 04 and 12")
 print("=" * 74)
 # "The minimum F statistic was 36.1 in either strict set and 22.2 across the

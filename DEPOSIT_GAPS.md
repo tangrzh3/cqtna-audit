@@ -65,44 +65,35 @@ number was verified. Two errors have already been found inside that uncovered
 set (S54 §9.8's wrong-table 13.53, and the Steiger lower bound), which is the
 argument for keeping the list visible rather than quoting a coverage headline.
 
-## 5. One number I could not reconcile: HEIDI's "253 (86.9%)"
+## 5-6. RESOLVED (2026-09-10): both were my errors, not the paper's
 
-Main text: "HEIDI failed to reject homogeneity for 253 (86.9%)". 253/291 =
-86.94%, so the denominator implied is 291.
+Two entries here previously read "I could not reconcile this" -- the HEIDI
+denominator and the winner's-curse medians. **Both now reconcile exactly, and
+both failures were mine.**
 
-Neither HEIDI table reproduces it under the obvious readings:
+**HEIDI 253 / 291 = 86.9%.** I had used the wrong tables (`14` and `08` rather
+than `16` and `15`) and, more importantly, applied no `PP.H4 < 0.2` filter. The
+denominator is not every HEIDI test: it is the records **coloc calls distinct
+causal variants**, which is the entire point of the sentence. Encoded in
+`step127` section 2h.
 
-| source / filter | result |
-|---|---|
-| `08_SMR_HEIDI_results.tsv`, p > 0.05 | 239 / 276 = 86.6% |
-| `15_SMR_meta_results.tsv`, p > 0.05 | 309 / 352 = 87.8% |
-| `15_`, restricted to `p_SMR` < 0.05 | 250 / 285 = 87.7% |
-| `15_`, restricted to `MR_FDR` < 0.05 | 13 / 18 = 72.2% |
+**Winner's curse, 0.125 versus 0.202.** Again `14` where it should have been
+`16`. The groups are the 244 exposures new to the meta round against the 127
+carried over. Encoded in `step127` section 2i.
 
-⚠ **This is not a claim that the number is wrong.** The percentage is
-internally consistent with its own count (253/291), so it was computed from
-*some* well-defined set; I have not found which. The adjacent numbers in the
-same passage all reconcile exactly (`§1x`: PP.H3 for CHMP1A, VPS9D1-AS1 and
-SPATA33; P_HEIDI 0.649, 0.086, 0.081), which argues the passage was not
-written carelessly.
+> ### Worth keeping as a record of how this went wrong
+>
+> In both cases I reported "the paper is probably right and I cannot confirm
+> it" and filed the question for the author -- when the definitions were
+> written down in this repository the whole time: the HEIDI one in
+> `figures/make_gb_fig4_coloc_heidi.py`, which draws the very same panel, and
+> the winner's-curse one in `FINDINGS_step5_pigmentation.md`.
+>
+> **I did not look.** Deferring to the author was the cautious-LOOKING move and
+> it was the wrong one. Asking a person to resolve something the repository
+> already answers has a real cost, and here it was entirely avoidable by
+> reading the code that had computed the number in the first place.
 
-**Needs the author to say which set of tests the 291 denominator counts.**
-Until then it stays in `160a_audit_coverage.tsv` as NOT AUDITED rather than
-being wrapped in a check that guesses a filter and then passes.
-
-## 6. A second pair I could not reconstruct: the winner's-curse medians
-
-Main text: "newly entering candidates had *lower* PP.H3+H4 (0.125 versus
-0.202)" — the paper naming an explanation it tested and rejected.
-
-Reconstructing "newly entering" as the meta-round records whose
-gene/profile key is absent from the single round gives **0.126 versus 0.207**.
-Both are one digit off, and the comparison group's 0.207 is exactly the
-median over *all* 127 exposures (`§1k`), which says my second group is the
-wrong set rather than that the text is wrong.
-
-⚠ **Almost certainly my definition, not an error in the paper.** A check
-written against a guessed definition would go green the moment the guess was
-tuned to match, which is the failure this file already records five times over.
-Left uncovered and listed here until the author states how "newly entering" was
-defined.
+Both definitions now live in `step127` rather than only in a figure script and
+a findings note, so neither number depends on anyone re-reading a file that
+nobody opens.

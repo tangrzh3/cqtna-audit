@@ -79,9 +79,6 @@ UNAUDITABLE = {
     "86.9": ("derived", "253/291, both quoted in the same sentence"),
     "3.5": ("derived", "8771/2506, both quoted in the same sentence"),
     "1.6": ("derived", "the lower end of [-1.6, +12.0], checked in step127 1o"),
-    # Tried and could not reproduce; see DEPOSIT_GAPS.md.
-    "0.125": ("unreconciled", "winner's curse median, definition unclear"),
-    "0.202": ("unreconciled", "winner's curse median, definition unclear"),
 }
 
 def manuscript_numbers(path):
