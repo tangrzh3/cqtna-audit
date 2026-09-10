@@ -93,8 +93,8 @@ value	coverage	in_any_table	first_line	context
 2.48	step127	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
 2.38	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 2.31	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
-2.30	NOT AUDITED	yes	189	every mismatched list by a margin (2.30-fold against
 2.3	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
+2.30	NOT AUDITED	yes	189	every mismatched list by a margin (2.30-fold against
 2.25	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.2	step127	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 2.15	step127	yes	1144	2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
@@ -135,8 +135,8 @@ value	coverage	in_any_table	first_line	context
 0.79	step127	yes	632	0.79 for list stability and **0.00 for locus attribution — a prevalence artefact,
 0.73	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).
 0.707	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
-0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.70	step127	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
+0.7	NOT AUDITED	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.649	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.647	NOT AUDITED	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
 0.555	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
@@ -163,8 +163,8 @@ value	coverage	in_any_table	first_line	context
 0.123	step127	yes	241	it does not reach significance (P = 0.123). The single novel nomination, SUPV3L1,
 0.11	step127	yes	457	from 9.3×10⁻⁴ to 0.11 — and six different genes took their place. **The two lists
 0.101	step127	yes	180	the reciprocal of that share, and across our lists the share runs from 0.101 for
-0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.1	unauditable:parameter	yes	1037	`--clump-r2 0.1 --clump-kb 1000` against 525 unrelated 1000 Genomes GRCh38 EUR
+0.10	step127	yes	354	this study designated, at 1.71-fold (P = 0.10) — while **hepatocellular
 0.095	step127	yes	435	PP.H3+H4 fell from 0.249 to 0.207 and median PP.H4 from 0.124 to 0.095, with only
 0.086	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
 0.081	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
@@ -179,7 +179,7 @@ value	coverage	in_any_table	first_line	context
 0.0138	step127	yes	173	(P = 0.0097 corrected), lung 3.85-fold (0.0138), colorectal 3.15-fold (0.0029),
 0.0097	step127	yes	173	(P = 0.0097 corrected), lung 3.85-fold (0.0138), colorectal 3.15-fold (0.0029),
 0.0052	step127	yes	303	void: excluding the MHC does not clean it (1.83-fold, P = 0.0052), and the
-0.0050	NOT AUDITED	yes	419	Supplementary S38 before the run — gives **4.87-fold (P = 0.0050)** there,
+0.0050	step127	yes	419	Supplementary S38 before the run — gives **4.87-fold (P = 0.0050)** there,
 0.0048	step127	yes	21	reported for the outcome, 4.96-fold by bounded locus (P = 0.0048) — but that
 0.0042	step127	yes	356	colorectal's at 1.71-fold (P = 0.0018), breast's at 1.69-fold (P = 0.0042) and
 0.0041	step127	yes	240	lower-powered outcome (P = 0.0041) and 7.9-fold in the higher-powered one, where

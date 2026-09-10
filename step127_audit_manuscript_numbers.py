@@ -105,11 +105,15 @@ want = []
 # that is silent. Cells the manuscript does not quote are now listed rather
 # than demanded -- deliberate omission is the author call; drift is not.
 GRID_UNQUOTED = []
+GRID_RENDERINGS = []
 for _, r in main.iterrows():
     if "MHC" in r.cell or r.control == "FAILED":
         continue
     _s2 = f"{r.fold:.2f}"
     _s1 = f"{r.fold:.1f}"
+    # Both renderings get recorded: the grid table prints 15.49 while the HCC
+    # paragraph writes 15.5-fold, and step160 counts those as separate values.
+    GRID_RENDERINGS.append((r.cell, _s2, _s1))
     _seen = (re.search(re.escape(_s2) + r"(?!\d)", txt) is not None
              or re.search(re.escape(_s1) + r"(?!\d)", txt) is not None)
     if _seen:
@@ -1071,6 +1075,18 @@ else:
         print("  %s  %-8s   quoted fold %s in 126c"
               % ("OK " if ok else "MISSING", q,
                  "found" if ok else "NOT FOUND"))
+    # The sentence also quotes the empirical P for the melanoma cell. Checked
+    # against the same table so a P and the fold it belongs to cannot drift
+    # apart -- which is exactly how 13.53 survived: right table for five
+    # numbers, wrong table for the sixth.
+    _mp = _perm[_perm.cell == "melanoma x Soskic_CD4"]
+    if not _mp.empty:
+        _ep = "%.4f" % float(_mp.iloc[0].empirical_p)
+        _eok = re.search(re.escape(_ep) + r"(?!\d)", txt) is not None
+        if not _eok:
+            bad += 1
+        print("  %s  %-8s   empirical P, melanoma x Soskic_CD4"
+              % ("OK " if _eok else "MISSING", _ep))
     _unq = sorted(f for f in _folds if f not in _quoted)
     print("  (computed but not quoted, not a failure: %s)" % ", ".join(_unq))
 print()
