@@ -301,6 +301,31 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2k. the transport margins (S41), recomputed from 138a")
+print("=" * 74)
+# "only melanoma exceeds every mismatched list by a margin (2.30-fold against
+# the best rival, against 1.29 for lung and below 1 for the rest)". The margin
+# is own fold divided by the strongest comparator's, stored nowhere, and it is
+# the number the word "only" rests on -- if a rival's fold rose, the claim
+# would fail before the margin looked wrong.
+_tm = pd.read_csv(_find("138a_transport_main.tsv"), sep=TAB)
+for _row, _own in (("Melanoma", "melanoma"), ("Lung", "lung")):
+    _sub = _tm[_tm.row == _row]
+    if _sub.empty:
+        continue
+    _o = float(_sub[_sub.list_name == _own].fold.iloc[0])
+    _rivals = _sub[_sub.list_name != _own].fold.astype(float)
+    if _rivals.empty or _rivals.max() <= 0:
+        continue
+    _mg = "%.2f" % (_o / _rivals.max())
+    hit = re.search(re.escape(_mg) + r"(?!\d)", txt) is not None
+    if not hit:
+        bad += 1
+    print("  %s  %-8s   %s margin over best rival (%.2f / %.2f)"
+          % ("OK " if hit else "MISSING", _mg, _row, _o, _rivals.max()))
+
+print()
+print("=" * 74)
 print("2j. the glycolysis kill criterion (S49), recomputed from 43a")
 print("=" * 74)
 # "if R2(glycolysis ~ activation + depth) > 0.70 the axis is not separable from

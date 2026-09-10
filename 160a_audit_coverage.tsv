@@ -93,8 +93,8 @@ value	coverage	in_any_table	first_line	context
 2.48	step127	yes	181	melanoma to 0.403 for prostate — ceilings of 9.92 and 2.48. Matching the
 2.38	step127	yes	313	enriches **more**, monotonically — 1.71-, 2.38-, 3.03- and 4.17-fold at 1000,
 2.31	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
+2.30	step127	yes	189	every mismatched list by a margin (2.30-fold against
 2.3	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
-2.30	NOT AUDITED	yes	189	every mismatched list by a margin (2.30-fold against
 2.25	step127	yes	174	breast 2.25-fold (0.0011) and prostate 2.04-fold (2.3 × 10⁻⁵); pancreas has no
 2.2	step127	yes	1370	Python 3.12.4 with numpy 2.0.0, pandas 2.2.2, scipy 1.18.0, pyarrow 25.0.0 and
 2.15	step127	yes	1144	2.15-fold (P = 0.0495), so its multi-list verdict moves from no enriching
@@ -117,7 +117,7 @@ value	coverage	in_any_table	first_line	context
 1.39	step127	yes	357	prostate's at 1.39-fold (P = 0.026) would each have voided it.** Whether this cell survives
 1.32	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
 1.3	step127	yes	278	10.7% background (P = 1.3×10⁻¹⁵)**, against 4.96-fold in CD4⁺ T cells. A
-1.29	NOT AUDITED	yes	190	the best rival, against 1.29 for lung and below 1 for the rest), while lung's
+1.29	step127	yes	190	the best rival, against 1.29 for lung and below 1 for the rest), while lung's
 1.26	step127	yes	1368	JASPAR2020 0.99.10, motifmatchr 1.26.0, chromVAR 1.26.0,
 1.18	step127	yes	364	2.31- to 5.52-fold while **the two RA cells sit at 1.18- and 1.32-fold, the
 1.16	step127	yes	1366	R 4.4.1 with Seurat 5.5.1, Matrix 1.7.0, data.table 1.16.0, coloc 5.2.3,
