@@ -306,6 +306,37 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2p. the single novel HCC nomination (S44), against 85a")
+print("=" * 74)
+# "The single novel nomination, SUPV3L1, appears only at high power and has
+# FDR = 0.98 at low power." Both halves are checked, because the claim is a
+# contrast: 0.98 alone would say nothing without the high-power value being
+# significant, and if the two were swapped the sentence would invert.
+_SUPV = "ENSG00000156502"
+for _f, _lab, _sig in (("85a_HCC_high_annotated.tsv", "high power", True),
+                       ("85a_HCC_low_annotated.tsv", "low power", False)):
+    _t = pd.read_csv(_find(_f), sep=TAB)
+    _r = _t[_t.gene_id == _SUPV]
+    if _r.empty:
+        print("  MISSING  SUPV3L1 absent from %s" % _f)
+        bad += 1
+        continue
+    _fdr = float(_r.iloc[0].fdr)
+    if _sig:
+        ok = _fdr < 0.05
+        print("  %s  %-8s   SUPV3L1 FDR, %s (significant: %s)"
+              % ("OK " if ok else "MISSING", "%.4f" % _fdr, _lab, ok))
+        if not ok:
+            bad += 1
+    else:
+        s2 = "%.2f" % _fdr
+        ok = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+        if not ok:
+            bad += 1
+        print("  %s  %-8s   SUPV3L1 FDR, %s" % ("OK " if ok else "MISSING", s2, _lab))
+
+print()
+print("=" * 74)
 print("2o. the chained locus and the discarded spatial test, against 123d and 23g")
 print("=" * 74)
 # "on the whole-blood resource it chains a chromosome arm into a single 30.8 Mb
