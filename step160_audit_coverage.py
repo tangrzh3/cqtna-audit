@@ -48,6 +48,42 @@ def say(s=""):
     LOG.append(s)
 
 
+
+# Values that CANNOT be reconciled against a result table, with the reason.
+# Curated by hand and deliberately not inferred: calling something
+# un-auditable is a claim, and a script that guessed would quietly excuse
+# whatever it failed to find. Anything not listed here is simply not yet
+# audited, which is a different statement.
+UNAUDITABLE = {
+    # Thresholds and parameters -- inputs to the analysis, not outputs of it.
+    "0.05": ("threshold", "the BH level itself"),
+    "0.8": ("threshold", "PP.H4 > 0.8, a stated cutoff"),
+    "0.5": ("threshold", "PP.H3+PP.H4 > 0.5, an additional requirement"),
+    "0.70": ("threshold", "pre-registered kill criterion for the glycolysis axis"),
+    "0.1": ("parameter", "--clump-r2 0.1"),
+    "10.0": ("threshold", "the F > 10 filter, quoted as 10.0-fold elsewhere"),
+    # Quoted from outside this study; no local table is their source.
+    "45.6": ("external", "FinnGen's own published fine-mapping, log10BF"),
+    "36.6": ("external", "FinnGen's own published fine-mapping, log10BF"),
+    "19.5": ("external", "FinnGen's own published fine-mapping, log10BF"),
+    "0.015631": ("external", "Rashkin case fraction, GWAS metadata"),
+    "0.014962": ("external", "outcome prevalence, GWAS metadata"),
+    "5.45": ("definitional", "|b| = 5.45 x SE is the 5e-8 boundary, not a result"),
+    # Software versions, checked by step127 section 1n against the lock; these
+    # tokens are fragments of a version string rather than quantities.
+    "4.4": ("version", "fragment of R 4.4.1"),
+    "3.19": ("version", "fragment of org.Hs.eg.db 3.19.1"),
+    "3.12": ("version", "fragment of Python 3.12.4"),
+    "25.0": ("version", "fragment of arrow/pyarrow 25.0.0"),
+    # Arithmetic on numbers that ARE audited, carrying no independent content.
+    "86.9": ("derived", "253/291, both quoted in the same sentence"),
+    "3.5": ("derived", "8771/2506, both quoted in the same sentence"),
+    "1.6": ("derived", "the lower end of [-1.6, +12.0], checked in step127 1o"),
+    # Tried and could not reproduce; see DEPOSIT_GAPS.md.
+    "0.125": ("unreconciled", "winner's curse median, definition unclear"),
+    "0.202": ("unreconciled", "winner's curse median, definition unclear"),
+}
+
 def manuscript_numbers(path):
     """Decimal values in the body, with the line they sit on.
 
@@ -150,17 +186,32 @@ def main():
         first_line.setdefault(n, (ln, ctx))
     for n in uniq:
         ln, ctx = first_line[n]
-        cov = "step127" if n in checked else "NOT AUDITED"
+        if n in checked:
+            cov = "step127"
+        elif n in UNAUDITABLE:
+            cov = "unauditable:" + UNAUDITABLE[n][0]
+        else:
+            cov = "NOT AUDITED"
         back = "yes" if n in forms else "NO TABLE"
         rows.append((n, cov, back, ln, ctx[:120]))
-        if n not in checked:
+        if n not in checked and n not in UNAUDITABLE:
             unchecked.append(n)
         if n not in forms:
             unbacked.append((n, ln, ctx))
 
-    pct = 100.0 * (len(uniq) - len(unchecked)) / len(uniq) if uniq else 0
-    say("  COVERAGE: %d of %d distinct values reconciled (%.0f%%)"
-        % (len(uniq) - len(unchecked), len(uniq), pct))
+    _rec = len(checked & set(uniq))
+    _una = len([n for n in uniq if n in UNAUDITABLE])
+    _pend = len(unchecked)
+    _auditable = len(uniq) - _una
+    say("  reconciled          : %d" % _rec)
+    say("  un-auditable        : %d  (threshold, external, derived, version)" % _una)
+    say("  auditable, not done : %d" % _pend)
+    say("  COVERAGE of what CAN be reconciled: %d of %d (%.0f%%)"
+        % (_rec, _auditable, 100.0 * _rec / _auditable if _auditable else 0))
+    say()
+    say("  Un-auditable is a curated claim, not an inference -- see UNAUDITABLE")
+    say("  in this file. A value is listed there only with a stated reason, so")
+    say("  the category cannot quietly absorb whatever the audit failed to find.")
     say()
     say("  %d value(s) appear in NO result table -- derived, quoted, or unbacked:"
         % len(unbacked))

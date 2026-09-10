@@ -6,7 +6,14 @@ audit coverage of the manuscript's arithmetic
   numeric forms in 360 result files: 636828 (coincidence is cheap here,
     which is why presence is not treated as evidence)
 
-  COVERAGE: 144 of 191 distinct values reconciled (75%)
+  reconciled          : 144
+  un-auditable        : 21  (threshold, external, derived, version)
+  auditable, not done : 27
+  COVERAGE of what CAN be reconciled: 144 of 170 (85%)
+
+  Un-auditable is a curated claim, not an inference -- see UNAUDITABLE
+  in this file. A value is listed there only with a stated reason, so
+  the category cannot quietly absorb whatever the audit failed to find.
 
   2 value(s) appear in NO result table -- derived, quoted, or unbacked:
     0.015631     line 1004  controls (N = 801,629, case fraction 0.015631). Rashkin reports odds ratios and P
