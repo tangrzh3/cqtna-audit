@@ -67,18 +67,26 @@ Consequences worth naming rather than hoping about:
    Upstream can replace the bytes behind a stable URL. Record the checksums of
    what you actually built with.
 
-## 4. The acceptance test, which has not been run
+## 4. The acceptance test, run 2026-09-09 in `cqtna-audit:0.3.0`
 
-Building the image is not the deliverable; measuring the gap is. Run these
-inside the container and record what agrees:
+Building the image is not the deliverable; measuring the gap is.
 
 | Phase | Check | Result |
 |---|---|---|
-| 0 | snapshot the mounted tables as an immutable baseline | not yet run |
-| 1 (gate) | package suite + the four audits — **mount check only** | not yet run |
-| 2 | rerun every analysis that can run here | not yet run |
-| 3 (**acceptance**) | the same four audits, now against container tables | not yet run |
-| 4 | container tables against the phase-0 baseline, cell by cell | not yet run |
+| 0 | snapshot the mounted tables as an immutable baseline | 18 tables, reused from the 09-07 snapshot |
+| 1 (gate) | package suite + closure + the four audits — **mount check only** | **226/226 closure**, testthat and all four clean |
+| 2 | rerun every analysis that can run here | 29 ok, 4 not rerunnable (external data) |
+| 3 (**acceptance**) | the same four audits, now against container tables | **all four clean** |
+| 4 | container tables against the phase-0 baseline, cell by cell | 13 differ, 10 by zero cells; 3 real, none visible at printed precision |
+
+**Verdict: no number changed at any printed precision and no verdict flipped.**
+Full record in `manuscript/PREREG_container_canonical.md` section 9.10.
+
+⚠ Two earlier runs (2026-09-07/08) used the SLIM image
+`container/Dockerfile.acceptance`, whose closure was 42 of 226 with 11 packages
+at wrong versions. Section 8 of S54 makes that a stop condition, so those runs
+were damaged and **their conclusions do not count**. The table above is the
+full image only. See S54 section 9.9.
 
 ⚠ Phase 1 is not the acceptance test and must not be reported as one. It
 audits the tables that arrived with the repository, so it shows the mount is
@@ -211,7 +219,13 @@ free: any digit that moves has to be traced through
 against the new tables, and a verdict that flips has to be reported as having
 flipped rather than quietly adopted.
 
-**The author chose (b) on 2026-09-07.** What a moved number means was decided
+**The author chose (b) on 2026-09-07 and CONFIRMED it on 2026-09-10 against
+the completed acceptance run** (S54 section 9.6). All rerunnable numbers are
+the container's. What that does and does not mean is set out there; briefly, it
+does not mean every number in the paper was produced by the container, and it
+does not mean `150a_environment.lock` is a complete environment record — it
+omits two packages the Methods names and lists only CRAN among its
+repositories, so it cannot be restored as deposited (`DEPOSIT_GAPS.md`). What a moved number means was decided
 in advance and is fixed in `manuscript/PREREG_container_canonical.md` (S54),
 committed before this image was built: two tiers of acceptance criterion, an
 all-or-nothing clause forbidding a mixture of container and authoring-machine
