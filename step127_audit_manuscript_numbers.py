@@ -307,6 +307,31 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2s. axis versus activation at the chromatin level (S49), recomputed")
+print("=" * 74)
+# "Because axis and activation log2 fold-changes correlate at r = 0.647 at the
+# chromatin level despite near-orthogonality at the RNA level, the analysis was
+# repeated restricted to activation-invariant peaks". The correlation is the
+# REASON the restricted analysis exists; if it were small the extra work would
+# be unmotivated, and if it were larger the axis would be harder to separate
+# from activation at all. step49 prints it and lands it nowhere.
+_ax = pd.read_csv(_find("47a_axis_differential_peaks.tsv.gz"), sep=TAB,
+                  compression="gzip")
+_ct = pd.read_csv(_find("47b_activation_differential_peaks.tsv.gz"), sep=TAB,
+                  compression="gzip")
+_pk = _ax.merge(_ct[["peak", "rest_cpm", "act_cpm", "lfc"]], on="peak",
+                suffixes=("", "_act")).rename(columns={"lfc": "act_lfc"})
+_pk = _pk[_pk.consistent & (_pk.total >= 100)]
+_rr = stats.pearsonr(_pk.mean_lfc, _pk.act_lfc)
+s2 = "%.3f" % _rr.statistic
+hit = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+if not hit:
+    bad += 1
+print("  %s  %-8s   axis vs activation log2FC, %d peaks"
+      % ("OK " if hit else "MISSING", s2, len(_pk)))
+
+print()
+print("=" * 74)
 print("2r. the residual axis's glycolysis enrichment (S31), against 44b")
 print("=" * 74)
 # "The axis the gene marks is enriched 21.3-fold for glycolysis and is not

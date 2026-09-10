@@ -138,7 +138,7 @@ value	coverage	in_any_table	first_line	context
 0.70	step127	yes	1263	criterion — if R²(glycolysis ~ activation + depth) > 0.70 the axis is not
 0.7	step127	yes	627	0.7% for the second criterion was too strict and falls below the corrected
 0.649	step127	yes	514	including VPS9D1-AS1 (P_HEIDI = 0.649) and CDK10 (0.086, 0.081), on 8–20 variants
-0.647	NOT AUDITED	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
+0.647	step127	yes	1292	r = 0.647 at the chromatin level despite near-orthogonality at the RNA level, the
 0.555	step127	yes	186	while A gives breast 0.859, colorectal 0.707, melanoma 0.555 and lung 0.330
 0.534	step127	yes	655	and Cohen's κ 0.534, both before adjudication; the thirteen disagreements were
 0.52	step127	yes	467	discoveries; simulated Jaccard 0.52 [0.36, 0.73] containing the observed 0.455).

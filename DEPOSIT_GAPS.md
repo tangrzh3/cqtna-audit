@@ -120,3 +120,23 @@ tool's console, which no audit over deposited tables can reach.
 Both are marked `unauditable` in `step160` with these reasons attached, so
 neither drags the coverage figure down as though someone had simply not got to
 them.
+
+## 8. Four values whose producing table I could not locate
+
+⚠ **These are NOT classified un-auditable.** They stay in the "auditable, not
+done" column, because "I did not find it" and "it cannot be found" are
+different claims and only the second belongs in that category. Recording what
+was searched so the next attempt does not start over:
+
+| value | claim | searched |
+|---|---|---|
+| `5.33` / `1.59` | significant-Q rate, correct vs `exp(-Q/2)` form | `11b_heterogeneity` is the only table carrying Cochran's Q and gives 18.25% / 33.46% over 263 records; `12`/`13` (the two-study meta sets) carry no Q column |
+| `1.82` | melanoma cell's margin over its best rival BEFORE the prostate comparator was repaired | `130c` holds the post-repair 2.31; the pre-repair value is historical and no table found retains it |
+| `2.75` | TPI1 log2 units higher in malignant cells than CD4⁺, 16 of 16 patients | `77b` gives 0.83 for a different dataset (Pozniak); no 16-row per-patient compartment table located |
+| `88.86` / `89.73` / `89.87` | the two chr16 bounded-locus windows | `125a` carries locus coordinates but only for the mismatch cells, not melanoma × CD4; derivable by re-running the fixed-centre partition, which is not the same as reading it off a table |
+
+The last one is worth separating: it **is** recomputable, by applying the
+partition to melanoma's significant records. I did not, because three of my
+"discrepancies" in this exercise turned out to be my own reconstruction being
+wrong, and a fourth guess at a definition is a poor trade against three
+coordinate digits.
