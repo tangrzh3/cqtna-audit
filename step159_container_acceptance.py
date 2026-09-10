@@ -100,10 +100,25 @@ ANALYSES = [
 # than comfortably clear of it. Logged as a post-execution amendment in S54
 # section 10.2: results had already been observed when this was found, and the
 # change widens what is tested rather than loosening any criterion.
-GROUP7_GLOBS = ["step1[2-5][0-9]_*.py", "step1[2-5][0-9]_*.R"]
-# The tier-one criterion in S54 section 2 is "every number the text cites", so
-# the producers of the tables step127 reads are attempted by name regardless of
-# where they sit in the numbering.
+#
+# SECOND WIDENING, and for the same reason a second time. The glob above was
+# still "step1[2-5][0-9]" -- steps 120-159 -- so the 118 scripts numbered below
+# 120 had never been ATTEMPTED, which is not the same as their being unable to
+# run here. Three were tried by hand (step53, step55, step104): all three ran,
+# and all three produced byte-identical tables. So "the container recomputes
+# 42.9% of the numbers the text cites" was measuring the glob, not the
+# container. S54 section 3 row 7 says "step*" and now this does too.
+#   Timing, on the record: this was changed AFTER the 42.9% figure was
+#   observed and after it was seen to fall below the section 8 fallback
+#   threshold. Same disclosure as section 10.2, and it has to be read the same
+#   way -- widening what gets executed cannot make a criterion easier to pass,
+#   but the order of events is part of the finding and is logged in S54
+#   section 9.6 rather than left to the final number.
+GROUP7_GLOBS = ["step*.py", "step*.R"]
+# Subsumed by the glob above now; kept so the intent survives if the glob is
+# ever narrowed again. The tier-one criterion in S54 section 2 is "every number
+# the text cites", so the producers of the tables step127 reads are attempted
+# by name regardless of where they sit in the numbering.
 GROUP7_EXTRA = ["step85e_matched_background.py"]
 GROUP7_SKIP = {  # already run above, or not analyses
     "step151_instrument_count_in_literature.py",
@@ -132,6 +147,20 @@ GROUP7_SKIP = {  # already run above, or not analyses
     # compares against -- and it would do it silently, since the file would
     # still be present and still parse. Never in group 7.
     "step150_environment_lock.R",
+    # ⚠ Brought in by the widened glob, and excluded for step150's reason, not
+    # for convenience: these two are package INSTALLERS, not analyses. They
+    # produce no table. What they do produce is a different R library than the
+    # one phase 1 just certified closed against 150a_environment.lock
+    # (226/226), and every R script after them in the same run would then be
+    # executing in an environment no longer described by that check --
+    # silently, because the run would carry on looking fine. step46 also pulls
+    # BSgenome.Hsapiens.UCSC.hg38, ~800 MB, over the network.
+    #   Everything ELSE the widened glob brings in is attempted, including the
+    # scripts that query live external services and the ones whose GEO inputs
+    # were never part of the deposit. Those fail, and "not rerunnable" with a
+    # reason is a result S54 wants; skipping them would be the thing this
+    # amendment exists to stop.
+    "step20_install.R", "step46_install_motif.R",
 }
 
 # Tier-two tables (S54 section 2) plus the ones the manuscript quotes from.
