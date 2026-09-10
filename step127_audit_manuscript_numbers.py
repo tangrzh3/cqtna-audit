@@ -295,6 +295,65 @@ for label, s_ in c6:
 
 print()
 print("=" * 74)
+print("2c. the two conditionings' P values (S42), against 141b")
+print("=" * 74)
+# Section 1 checks 141b's FOLDS -- 2.07 and 5.28 -- and never their P values.
+# The Abstract leans on "1.98-fold, P = 0.41" as its statement that the
+# locus-level signal is undetectable, so the P is the load-bearing half.
+_cd = pd.read_csv(_find("141b_reviewer_conditioning.tsv"), sep=TAB)
+for _, r in _cd.iterrows():
+    m = _num_in_text(r.fisher_p)
+    if m is None:
+        bad += 1
+    print("  %s  %-8s   P for %s" % ("OK " if m else "MISSING", m or "?", r.analysis))
+
+print()
+print("=" * 74)
+print("2d. the matched-background permutation (S38), against 85e")
+print("=" * 74)
+# 6.55 and 5.66 for eQTLGen, 6.66 with its empirical P of 0.0016 for melanoma.
+# 6.55 is the value migrated on 2026-09-09 after the lead-record tie-break was
+# made deterministic (PRESPEC_lead_record_tiebreak.md), so it is exactly the
+# number that must not drift back unnoticed.
+_mb = pd.read_csv(_find("85e_matched_background_fixed_anchor.tsv"), sep=TAB)
+for _, r in _mb.iterrows():
+    if pd.isna(r.fold) or r.fold <= 0:
+        continue
+    _lab = "%s %s" % (r.dataset, r.matching)
+    s2 = "%.2f" % r.fold
+    _fq = re.search(re.escape(s2) + r"(?!\d)", txt) is not None
+    if not _fq:
+        # Row not quoted at all, so its P is not quoted either. Checking the P
+        # anyway found HCC_high's 0.12549 "present" because the text contains
+        # 0.125 in a completely unrelated sentence about winner's curse. A P is
+        # only checked when its own fold is quoted, which ties it to its row.
+        print("  --   %-8s   %s (not quoted)" % (s2, _lab))
+        continue
+    print("  OK   %-8s   %s" % (s2, _lab))
+    if r.emp_p > 1e-4:
+        m = _num_in_text(r.emp_p)
+        if m is None:
+            bad += 1
+        print("  %s  %-8s   empirical P, %s"
+              % ("OK " if m else "MISSING", m or "?", _lab))
+
+print()
+print("=" * 74)
+print("2e. the CD4 background share (S42), against 123d")
+print("=" * 74)
+# "enrichment over the 10.1% background" -- the denominator the headline
+# 4.96-fold is a fold OVER. The fold was audited from the first version of this
+# script; the number it is relative to was not.
+_bm = main[main.cell == "melanoma x Soskic_CD4"].iloc[0]
+s3 = "%.1f%%" % (100.0 * _bm.bg_known / _bm.bg_loci)
+hit = re.search(re.escape(s3) + r"(?!\d)", txt) is not None
+if not hit:
+    bad += 1
+print("  %s  %-8s   CD4 background (%d/%d)"
+      % ("OK " if hit else "MISSING", s3, int(_bm.bg_known), int(_bm.bg_loci)))
+
+print()
+print("=" * 74)
 print("2a. the automated matcher's own rates (S23), against 148a")
 print("=" * 74)
 # "Automated matching returned 7.9% and 35.5%" -- the figures the paper reports
