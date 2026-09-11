@@ -514,6 +514,40 @@ def main():
             say("  ⚠ S54 section 8: dependency resolution does not match 150a.")
             say("  Fix the image before rerunning. Not a run to interpret.")
             gate_bad = True
+        # The three packages 150a never framed -- chromVAR, org.Hs.eg.db and
+        # testthat, the last being what the cqtna suite above just ran on.
+        # 226/226 says nothing about them: a package the lock omits is outside
+        # the closure check's frame, which is the whole point of
+        # DEPOSIT_GAPS.md section 1. Reported separately so the 226 keeps
+        # meaning what it means.
+        srep = "/opt/150c_closure_report.tsv"
+        if os.path.exists(srep):
+            sok = sbad = 0
+            for ln in io.open(srep, encoding="utf-8").read().splitlines()[1:]:
+                f = ln.split("	")
+                if len(f) < 4:
+                    continue
+                if f[3] == "match":
+                    sok += 1
+                else:
+                    sbad += 1
+                    say("      150c MISMATCH: %s recorded %s, installed %s"
+                        % (f[0], f[1], f[2]))
+            say("  150c supplementary: %d match, %d MISMATCH" % (sok, sbad))
+            rows.append(dict(phase=1, step="150c supplementary",
+                             status="ok" if sbad == 0 else "MISMATCH", rc=sbad))
+            if sbad:
+                gate_bad = True
+        else:
+            # Not a gate failure: images built before 2026-09-11 predate the
+            # pin. Say so rather than implying the packages are verified --
+            # "absent report" and "report says fine" must not read the same.
+            say("  150c supplementary: this image predates the 150c pin, so")
+            say("  the three packages outside 150a are UNENFORCED here. Their")
+            say("  versions were checked by hand against 150c on 2026-09-11")
+            say("  and matched; a rebuild makes the check part of the build.")
+            rows.append(dict(phase=1, step="150c supplementary",
+                             status="unenforced (image predates pin)", rc=0))
     else:
         say("  ⚠ no /opt/150a_closure_report.tsv in this image, so whether its")
         say("  closure matches 150a is UNVERIFIED. S54 section 8 requires that")

@@ -6,32 +6,104 @@ cannot simply be repaired.
 
 ---
 
-## 1. `150a_environment.lock` omits two packages the Methods names
+## 1. `150a_environment.lock` omits three packages the image needs
 
-`chromVAR 1.26.0` and `org.Hs.eg.db 3.19.1` appear in the Software section and
-in `container/install_r_packages.R`'s `need` list, but **not** among the lock's
-226 entries. Confirmed by key against every entry, not by a failed lookup.
+`chromVAR 1.26.0` and `org.Hs.eg.db 3.19.1` appear in the Methods Software
+paragraph and in `container/install_r_packages.R`'s `need` list, but **not**
+among the lock's 226 entries. **`testthat 3.2.1.1` is absent too** — not named
+in the Methods, but it is what `step159` phase 1 runs the 271 `cqtna`
+assertions with, so the gate's own instrument was the unpinned one. Confirmed
+by key against every entry, not by a failed lookup. (S54 §9.1 already noted
+testthat as a test-time dependency; what was wrong here was the count.)
 
-In `cqtna-audit:0.3.0` both are present **at exactly the stated versions** —
-installed by the fallback that handles anything `renv::restore()` did not
-restore. ⚠ **That path is not version-pinned**, so they are correct by luck
-rather than by record; a rebuild on another day could get different versions
-and nothing would say so.
+### ⚠ What this section said until 2026-09-11, and why it was wrong
 
-**Why it is not simply fixed**: regenerating the lock means running `step150`,
-which rebuilds it from `installed.packages()` on the **current** machine. That
-machine has drifted — numpy 2.5.2 against the recorded 2.0.0 (S54 §9.8) — so
-regenerating would overwrite the authoring-machine record with a later one and
-destroy the baseline every S54 comparison is made against. **The record being
-incomplete is better than the record being wrong.**
+It said the gap could not be fixed, and gave as the reason that regenerating
+the lock would overwrite the authoring machine's record with a drifted one.
+
+**That reason is correct and still stands** — `step150` rebuilds from
+`installed.packages()` on the current machine, which has moved (numpy 2.5.2
+against the recorded 2.0.0, S54 §9.8) — **but it establishes only that `150a`
+must not be REGENERATED.** It says nothing about whether the gap can be closed
+some other way, and no other way had been considered. Third-party review made
+the point. The section had substituted one claim for another in the project's
+own favour, which is the failure mode this file exists to catch.
+
+### The repair, which does not touch `150a`
+
+`150c_unlocked_packages.tsv` — a supplementary record deposited beside the
+lock, written by hand and never by a script, naming each package the lock omits,
+the version this image must produce, and where that version comes from.
+
+`container/install_r_packages.R` now reads it and pins. Bioconductor packages
+cannot be pinned by package version, so those are pinned by **release** and
+then asserted; CRAN packages go through `remotes::install_version`. Every entry
+is checked whether or not it was missing, because a base image supplying one at
+some other version is exactly the drift this is for. A mismatch stops the build
+with both versions named.
+
+The closure report is now two files, deliberately not merged:
+`/opt/150a_closure_report.tsv` keeps its 226 rows, so **226/226 goes on meaning
+"everything `150a` records is present at the recorded version"**, and
+`/opt/150c_closure_report.tsv` carries the three the lock never framed.
+`step159` phase 1 reads both.
+
+### ⚠ What is verified, and what is not
+
+**The pin is in the build recipe; the image in hand predates it.**
+`cqtna-audit:0.3.0` was built on 2026-09-08. Running the 150c logic against
+that image on 2026-09-11 gives `chromVAR 1.26.0`, `org.Hs.eg.db 3.19.1`,
+`testthat 3.2.1.1` — all three matching, with the Bioconductor release pin
+(3.19) matching the image's own — and nothing absent from both records. So the
+record is **corroborated for this image**. What a rebuild adds is that the pin
+is **enforced at install time** rather than confirmed after the fact, and
+`step159` says exactly which of the two it is looking at rather than letting an
+absent report read like a passing one.
+
+⚠ The record remains made **after** the fact, from what the image resolved,
+not from the authoring machine. For `chromVAR` and `org.Hs.eg.db` the Methods
+states the same versions independently, so those two are corroborated twice
+over. For `testthat` **nothing states a version** — 3.2.1.1 is simply what the
+image had, now written down so it stops moving. That is pinning, not
+provenance, and the file's own `how_the_version_was_established` column says so.
+
+⚠ Also unchanged: S54 §9.1 records the image as carrying `testthat 3.3.2`.
+That line describes the **slim** image, whose runs are void under §9.9. The
+full image has 3.2.1.1. The line is stale, not wrong about its own subject.
 
 **Reported by**: `step127` §1n, as `GAP`, every run.
 
-⚠ **Consequence for the closure check**: `step159`'s gate compares installed
-packages against the lock, so a package the lock omits is outside its frame.
-226/226 was green while these two went unexamined. The closure figure means
-"everything the lock records is present at the recorded version", not
-"everything the paper uses is pinned".
+⚠ **Consequence for the closure check, unchanged**: a package the lock omits is
+outside the 226-row frame. 226/226 was green while these three went unexamined.
+The closure figure means "everything the lock records is present at the recorded
+version", not "everything the paper uses is pinned" — which is why the second
+report exists.
+
+## 1b. ⚠ 102 of 158 analysis scripts named one machine — fixed 2026-09-11
+
+Until 2026-09-11, `MR = r"D:/R_ex/MR"` with no override appeared in **102 of the
+158 `step*` scripts**. A reader holding the container and the repository could
+not run them: they failed on a path, not on absent data. By number range, 79 of
+95 below `step100`, 20 of 21 in 100–119, 3 of 42 from 120 up — the later the
+script, the likelier it took an argument.
+
+⚠ **This distorted the coverage figure S54 §8 turns on, and did so invisibly.**
+`step159`'s group 7 globbed `step1[2-5][0-9]`, which almost exactly traced the
+portability boundary, so widening it to `step*` — the whole point of the
+first 2026-09-11 amendment — moved measured coverage by **zero**, 82/191 both
+times. The number had been reporting which scripts happen to be portable, not
+what the container can reproduce. With the paths fixed the same run reaches
+131/191, and group 7 goes from 50 scripts running to 102.
+
+Fixed by giving every one the `argv` / `CQTNA_DIR` / same-default form that
+`step101` already used; the default is unchanged in every file, so behaviour on
+the authoring machine with no argument is what it always was.
+
+⚠ The fix was made **after** the shortfall was observed and required the
+author's explicit authorisation; registered in S54 §10.3 with the ordering, on
+the precedent of §9.8. §10.3 also records that the mechanical check first
+offered as verification checked the shape of the changed lines and not what
+`argv[1]` already meant, and that two scripts had meant something else by it.
 
 ## 2. PLINK 2.0.0-a.7.2 is no longer obtainable
 
@@ -47,14 +119,28 @@ absence.
 **No analysis on S54's must-run list invokes either binary**, so the acceptance
 is unaffected; a reader trying to rerun everything is.
 
-## 3. Four analyses cannot run inside the container
+## 3. Analyses that cannot run inside the container
 
 `step158` (S53 visibility overlap) needs externally downloaded bulk RNA-seq;
-`step120`, `step121`, `step122` point at authoring-machine paths and at
-`landi2020_known_loci_grch38.csv`, which is not distributed. These are data
-distribution decisions taken before the container existed, not container
-defects, and `step159` records them as `not rerunnable` rather than as
-failures.
+`step120`, `step121`, `step122` need `landi2020_known_loci_grch38.csv`, which
+is not distributed. These are data distribution decisions taken before the
+container existed, not container defects, and `step159` records them as
+`not rerunnable` rather than as failures.
+
+⚠ **This section used to say those three "point at authoring-machine paths",
+folding two different defects into one sentence.** They are different: an
+undistributed input is a deposit decision, a hardcoded path is a portability
+bug, and the second turned out to affect 102 scripts rather than three — see
+§1b. The paths are fixed; the absent input remains absent, and that is the only
+reason these three still cannot run.
+
+After the 2026-09-11 fix, group 7 attempts 141 scripts and 102 run. The 43 that
+do not divide into: undistributed GSE raw data (single-cell, spatial,
+chromatin, `GSE199994`); **no producing script in the deposit at all** (see
+§7b); scripts needing a caller-supplied input file (`step91` a PMID list,
+`step21` a ligand-receptor table); and one live-service timeout (`step137`,
+which queries the GWAS Catalog and exceeded the 3600 s cap after completing in
+888 s a run earlier — the duration is not under this project's control).
 
 ## 4. Audit coverage of the manuscript's arithmetic is partial
 
@@ -120,6 +206,35 @@ tool's console, which no audit over deposited tables can reach.
 Both are marked `unauditable` in `step160` with these reasons attached, so
 neither drags the coverage figure down as though someone had simply not got to
 them.
+
+## 7b. Six tables `step127` audits have no producing script in the deposit
+
+Established 2026-09-11 while tracing why widening group 7 changed nothing:
+
+| table | producer |
+|---|---|
+| `08_SMR_HEIDI_results.tsv` | **none in the repository** |
+| `09_steiger_filtering.tsv` | **none** |
+| `13_meta_locus_annotation.tsv` | **none** |
+| `14_coloc_meta_results.tsv` | **none** |
+| `15_SMR_meta_results.tsv` | **none** |
+| `16_coloc_meta_results.tsv` | **none** |
+| `12_MR_meta_strict.tsv` | `rerun_mr_meta.py` — exists, but is **not** named `step*`, so S54 §3 row 7 never reached it |
+| `07_coloc_results.tsv` | `step6_coloc.R` — the table number and the step number differ by one |
+
+Only readers of these files are in the repository. `git log --all
+--diff-filter=A` confirms **the only file ever committed named `step0`–`step18`
+is `step6_coloc.R`**: steps 7 to 18 were never scripts. They are the early
+pigmentation-stage work recorded in `FINDINGS_step5_pigmentation.md`, which
+predates the `stepNN_*.py` convention.
+
+⚠ **This is a ceiling on rerunnable coverage that no amount of widening can
+lift**, and it is the same class as §7 — a number whose producing code is not
+deposited — but at the level of whole tables rather than single values. The
+`step127` sections affected are 1k, 1t, 1x, 2h, 2i and 2t.
+
+It is recorded here rather than argued around in the coverage figure: S54
+§9.11.1 counts these as not regenerated, which is what they are.
 
 ## 8. RESOLVED (2026-09-10): all four were traceable, and I had not looked
 

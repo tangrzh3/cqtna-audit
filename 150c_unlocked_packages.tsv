@@ -1,0 +1,4 @@
+package	version	repository	named_in_methods	how_the_version_was_established	how_it_is_pinned
+chromVAR	1.26.0	Bioconductor 3.19	yes	Methods Software paragraph (MANUSCRIPT_GB.md L1373); matches what cqtna-audit:0.3.0 resolved	BiocManager under the pinned Bioc release, version asserted after install
+org.Hs.eg.db	3.19.1	Bioconductor 3.19	yes	Methods Software paragraph (MANUSCRIPT_GB.md L1374); matches what cqtna-audit:0.3.0 resolved	BiocManager under the pinned Bioc release, version asserted after install
+testthat	3.2.1.1	CRAN	no	not stated anywhere; measured in cqtna-audit:0.3.0 and recorded here so that it stops floating	remotes::install_version, exact version

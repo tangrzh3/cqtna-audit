@@ -102,12 +102,71 @@ need <- c("susieR", "data.table", "coloc", "Matrix", "arrow", "dplyr",
           "Seurat", "hdf5r", "TFBSTools", "motifmatchr", "JASPAR2020",
           "Biostrings", "BSgenome.Hsapiens.UCSC.hg38", "chromVAR",
           "survival", "org.Hs.eg.db", "testthat")
-missing <- need[!vapply(need, requireNamespace, logical(1), quietly = TRUE)]
-if (length(missing)) {
-  message("not restored from the lock, installing from the snapshot: ",
-          paste(missing, collapse = ", "))
-  BiocManager::install(missing, ask = FALSE, update = FALSE)
+## ---------------------------------------------------------------------------
+## THREE of those are absent from 150a_environment.lock: chromVAR and
+## org.Hs.eg.db, which the Methods names WITH versions, and testthat, which S54
+## section 9.1 records as a test-time dependency and which step159 phase 1 then
+## runs the cqtna suite with.
+##
+## What used to be here installed whatever was missing with
+## BiocManager::install(), no version. cqtna-audit:0.3.0 happened to resolve
+## chromVAR 1.26.0 and org.Hs.eg.db 3.19.1 -- exactly the versions the Methods
+## states -- and nothing in the image would have said otherwise had it resolved
+## anything else. Correct by luck is not correct by record, and DEPOSIT_GAPS.md
+## section 1 called this unfixable when the argument it gave established only
+## that 150a must not be REGENERATED. Third-party review, item 3.
+##
+## 150c_unlocked_packages.tsv is the repair: a deposited supplementary record,
+## written by hand and never by a script, naming each package the lock omits
+## and the version this image must produce. Bioconductor cannot be pinned by
+## package version, so those are pinned by RELEASE and then asserted; CRAN
+## packages go through remotes::install_version. Every entry is checked whether
+## or not it was missing, because the base image supplying one at some other
+## version is exactly the drift this exists to catch.
+supp <- Sys.getenv("CQTNA_SUPP", "/repo/150c_unlocked_packages.tsv")
+if (!file.exists(supp)) {
+  stop("150c_unlocked_packages.tsv not found at ", supp, ". The packages the ",
+       "lock omits would then be installed unpinned, which is the defect ",
+       "DEPOSIT_GAPS.md section 1 records. Refusing to build that image.")
 }
+sp <- read.delim(supp, stringsAsFactors = FALSE, check.names = FALSE)
+if (!all(c("package", "version", "repository") %in% names(sp))) {
+  stop("150c_unlocked_packages.tsv must carry package/version/repository")
+}
+unrecorded <- setdiff(need[!need %in% names(jsonlite::fromJSON(lock)$Packages)],
+                      sp$package)
+if (length(unrecorded)) {
+  stop("absent from BOTH 150a and 150c: ", paste(unrecorded, collapse = ", "),
+       ". Record the version this image must produce in ",
+       "150c_unlocked_packages.tsv rather than letting the resolver pick one.")
+}
+if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+for (i in seq_len(nrow(sp))) {
+  nm <- sp$package[i]; want <- sp$version[i]; repo <- sp$repository[i]
+  have <- tryCatch(as.character(packageVersion(nm)),
+                   error = function(e) NA_character_)
+  if (!identical(have, want)) {
+    if (grepl("^Bioconductor", repo)) {
+      want_rel <- sub("^Bioconductor[[:space:]]+", "", repo)
+      got_rel <- as.character(BiocManager::version())
+      if (!identical(want_rel, got_rel)) {
+        stop(nm, " is pinned to Bioconductor ", want_rel, " but this image is ",
+             "on Bioconductor ", got_rel, ". Change the base image or amend ",
+             "150c; do not install whatever this release happens to carry.")
+      }
+      BiocManager::install(nm, ask = FALSE, update = FALSE)
+    } else {
+      remotes::install_version(nm, version = want, upgrade = "never")
+    }
+  }
+  got <- tryCatch(as.character(packageVersion(nm)), error = function(e) "<absent>")
+  if (!identical(got, want)) {
+    stop(nm, ": 150c requires ", want, ", this image resolved ", got,
+         ". Fix the image; do not proceed on a version no record names.")
+  }
+  cat(sprintf("pinned from 150c: %-30s %s\n", nm, got))
+}
+
 missing2 <- need[!vapply(need, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing2)) stop("still missing: ", paste(missing2, collapse = ", "))
 
@@ -147,6 +206,24 @@ write.table(rows, "/opt/150a_closure_report.tsv", sep = "\t",
 ## when this runs and is reported as "later-layer" rather than counted as a
 ## failure -- the build-time check there loads it. Miscounting it would train
 ## the reader to ignore this report, which is the one thing it must not be.
+## The supplementary record gets its own report, deliberately NOT merged into
+## the 226-row one: "226/226" has to keep meaning "everything 150a records is
+## present at the recorded version". What it never meant, and what
+## DEPOSIT_GAPS.md section 1 spells out, is "everything the paper uses is
+## pinned" -- the packages outside the lock were outside the closure check's
+## frame too. This is that frame's missing edge, reported beside it.
+supp_rows <- do.call(rbind, lapply(seq_len(nrow(sp)), function(i) {
+  nm <- sp$package[i]
+  got <- tryCatch(as.character(packageVersion(nm)), error = function(e) "<absent>")
+  data.frame(package = nm, recorded = sp$version[i], installed = got,
+             status = if (identical(got, sp$version[i])) "match" else "MISMATCH",
+             source = "150c_unlocked_packages.tsv", stringsAsFactors = FALSE)
+}))
+write.table(supp_rows, "/opt/150c_closure_report.tsv", sep = "\t",
+            row.names = FALSE, quote = FALSE)
+cat("\n150c supplementary:", sum(supp_rows$status == "match"), "match,",
+    sum(supp_rows$status == "MISMATCH"), "mismatch, of", nrow(supp_rows), "\n")
+
 cat("\n150a closure:", sum(rows$status == "match"), "match,",
     sum(rows$status == "MISMATCH"), "mismatch,",
     sum(rows$status == "absent"), "absent, of", nrow(rows), "\n")
