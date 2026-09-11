@@ -19,15 +19,13 @@ cS2G   pmid 35668300   doi 10.1038/s41588-022-01087-y
 ==============================================================================
 FLAMES   pmid 39930082   doi 10.1038/s41588-025-02084-7
 ==============================================================================
-  PMC id: 13370342
-  full text: 50,260 chars
-  passages mentioning a gold/benchmark set: 3
+  PMC id: 13472937
+  full text: 150,273 chars
+  passages mentioning a gold/benchmark set: 1
   of which ALSO mention eQTL/S2G/coloc/TWAS: 0
 
   --- first passages describing the set ---
-    * Since ground-truth effector genes are generally unavailable, we used the closest gene to the lead SNP as a proxy ground truth for evaluation.
-    * Treating the closest gene as the proxy ground truth, we defined a “correct prediction” for a locus if K-PoPS score nominated the closest gene.
-    * Unlike supervised learning settings where ground truth labels are available, we generally don’t have well-defined metrics and ground truth for XAI tasks 39 .
+    * The model’s predictive weights were established by training it on external GWAS loci, in which ‘silver-standard’ causal genes had been identified via missense or predicted loss-of-function variants from exome studies.
 
 ==============================================================================
 wrote 112a_goldstandard_passages.txt

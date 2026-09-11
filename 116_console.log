@@ -6,7 +6,7 @@ Schmiedel_2018   genes tested  15305   instruments at P<5e-8  1286   min F 29.7 
 Nathan_2022      genes tested  10696   instruments at P<5e-8   204   min F 29.9   [contrast_unstimulated]
 
 unique instrument positions to look up: 1,948
-  outcome rows 0, matched 0  outcome rows 5,000,000, matched 321  outcome rows 10,000,000, matched 634  outcome rows 15,000,000, matched 985  outcome rows 20,000,000, matched 1,435
+  outcome rows 0, matched 0  outcome rows 5,000,000, matched 321  outcome rows 10,000,000, matched 634  outcome rows 15,000,000, matched 985  outcome rows 20,000,000, matched 1,435
 outcome positions matched: 1,502 of 1,948
 known melanoma loci: 157
 

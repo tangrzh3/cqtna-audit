@@ -3,13 +3,13 @@ what the container actually recomputed, of the numbers the text cites
 ==========================================================================
   A  distinct values in the body            : 191
   B  of those, reconciled by step127        : 173
-  C  of B, source table regenerated here    : 113
-     audited but NOT regenerated            : 60
+  C  of B, source table regenerated here    : 131
+     audited but NOT regenerated            : 42
      source not established either way      : 1
 
-  S54 section 8 threshold is C / A >= 50%: 113 / 191 = 59.2%
+  S54 section 8 threshold is C / A >= 50%: 131 / 191 = 68.6%
   with the 1 unestablished values counted the other way,
-  the figure is 114 / 191 = 59.7%. The threshold is MET either
+  the figure is 132 / 191 = 69.1%. The threshold is MET either
   way only if those two agree -- here they do.
 
   NOTE Being audited is not being recomputed. step127 checks a number

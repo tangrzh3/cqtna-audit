@@ -52,7 +52,11 @@ import pandas as pd
 from scipy import stats
 
 ST_DIR = "D:/Downloads/ST-Melanoma-Datasets_1"
-MR = (sys.argv[1] if len(sys.argv) > 1
+# ⚠ argv[1] and argv[2] are ALREADY TAKEN here: this script was written to be
+# called as `step21.py <LR_FILE> <TAG>`. The 2026-09-11 portability pass gave
+# every script the argv[1] form without checking, which would have made MR and
+# LR_FILE read the same argument. argv[3], so both keep their meaning.
+MR = (sys.argv[3] if len(sys.argv) > 3
       else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 # usage: python step21_spatial_LR_coloc.py [LR_file] [output_tag]

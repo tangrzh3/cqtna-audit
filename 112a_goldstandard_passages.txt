@@ -14,9 +14,5 @@ GWAS catalog https://www.ebi.ac.uk/gwas/api/search/downloads/full Open Targets S
 ==============================================================================
 ### FLAMES  pmid:39930082 doi:10.1038/s41588-025-02084-7
 ==============================================================================
-Since ground-truth effector genes are generally unavailable, we used the closest gene to the lead SNP as a proxy ground truth for evaluation.
-
-Treating the closest gene as the proxy ground truth, we defined a “correct prediction” for a locus if K-PoPS score nominated the closest gene.
-
-Unlike supervised learning settings where ground truth labels are available, we generally don’t have well-defined metrics and ground truth for XAI tasks 39 .
+The model’s predictive weights were established by training it on external GWAS loci, in which ‘silver-standard’ causal genes had been identified via missense or predicted loss-of-function variants from exome studies.
 

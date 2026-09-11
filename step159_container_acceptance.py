@@ -180,6 +180,26 @@ GROUP7_SKIP = {  # already run above, or not analyses
     # it would measure a deposit that does not exist.
     "step33_get_GSE282266.py", "step41_get_GSE166188.py",
     "step51_get_GSE199994.py",
+    # ⚠ Added 2026-09-11, and this one is not about cost or noise -- rerunning
+    # these DESTROYS EVIDENCE. step94b queries the live GWAS Catalog REST API
+    # for known-locus lists; step94c rebuilds 94d_grid.tsv from them. But
+    # 94d_grid.tsv is not a live result: PREREG_generality_grid.md §8.2 voided
+    # its lung and colorectal rows for bad coordinates, and step119 copies
+    # those two rows out of it VERBATIM so the rebuilt grid can display them
+    # marked "void_bad_coords" beside a fixed explanation -- "a background of
+    # only 2/559 and 5/559 known loci against 58/554 for melanoma".
+    #   Rerun on today's Catalog, those rows come back as bg_known 70 and 203,
+    # fold 2.99 and 2.00. Measured, not predicted: running step119 after this
+    # run's step94c produced a 119a_grid_main.tsv whose void rows carry the
+    # corrected numbers while the sentence beside them still says 2/559 and
+    # 5/559. The row would then refute the reason for its own voiding, and the
+    # record of the defect would be gone.
+    #   Ordering hid it here: group 7 runs step119 before step94c (string
+    # order), so step119 read the pre-run 94d and 119a came out unchanged. A
+    # reader running them the other way round gets the contradiction. 94d and
+    # 94e are frozen evidence, not results; they are restored to their
+    # committed state and their producers do not run.
+    "step94b_known_loci.py", "step94c_grid.py",
 }
 
 # Tier-two tables (S54 section 2) plus the ones the manuscript quotes from.
@@ -231,6 +251,49 @@ WATCH = [
 def say(s=""):
     print(s, flush=True)
     LOG.append(s)
+
+
+def argv_guard(paths):
+    """Does any script mean something OTHER than the repository by argv[1]?
+
+    This runner invokes every group-7 script as `<runner> <script> <MR>`, so it
+    is asserting that argv[1] is the repository directory. The 2026-09-11
+    portability pass then gave 102 scripts `MR = sys.argv[1] ...` on that
+    assumption -- and two of them already used argv[1] for something else:
+    step91 reads it as the path to a PMID JSON, step21 as a ligand-receptor
+    table (with argv[2] as a tag). Both would have silently set MR to a
+    filename on the authoring machine.
+
+    The check that passed those two was the wrong kind: it verified the SHAPE
+    of every changed line and reported zero violations, which says nothing
+    about what argv[1] already meant. So the check lives here now, next to the
+    call that makes the assumption, rather than in a one-off script someone
+    has to remember to run.
+    """
+    bad = []
+    for p in paths:
+        if not p.endswith(".py") or not os.path.exists(p):
+            continue
+        try:
+            s = io.open(p, encoding="utf-8", errors="replace").read()
+        except Exception:
+            continue
+        m = re.search(r'MR\s*=\s*\(?sys\.argv\[(\d)\]', s)
+        if not m:
+            continue
+        idx = m.group(1)
+        rest = s[m.end():]
+        if re.search(r'sys\.argv\[%s\]' % idx, rest):
+            bad.append((os.path.basename(p), idx))
+    if bad:
+        say("  ⚠ argv guard: %d script(s) read argv[%s] for something other"
+            % (len(bad), ", ".join(sorted({b[1] for b in bad}))))
+        say("    than the repository, and would take this runner's MR for it:")
+        for n, i in bad:
+            say("      %-44s argv[%s] reused" % (n, i))
+        say("    Give MR the next free index, as step157/step158 do.")
+    else:
+        say("  argv guard: no script reuses the index it takes MR from.")
 
 
 def watch_guard():
@@ -494,6 +557,7 @@ def main():
         cand += glob.glob(os.path.join(MR, g))
     cand = sorted(cand)
     cand += [os.path.join(MR, x) for x in GROUP7_EXTRA]
+    argv_guard(cand)
     done = set()
     for path in cand:
         name = os.path.basename(path)

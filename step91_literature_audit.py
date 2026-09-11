@@ -40,7 +40,14 @@ import time
 import urllib.parse
 import urllib.request
 
-MR = (sys.argv[1] if len(sys.argv) > 1
+# ⚠ argv[1] is ALREADY TAKEN here -- main() reads it as the path to the PMID
+# JSON (`src = sys.argv[1]`). The 2026-09-11 portability pass gave every script
+# the argv[1]/CQTNA_DIR form without checking for that, so for one run of this
+# file MR and src both read argv[1] and `python step91.py ids.json` would have
+# set MR="ids.json". The mechanical diff check could not see it: it verifies
+# the SHAPE of the changed lines, not whether argv[1] already meant something.
+# Corrected to argv[2], the convention step157 and step158 already use.
+MR = (sys.argv[2] if len(sys.argv) > 2
       else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SCRATCH = os.path.join(MR, "litaudit")
 os.makedirs(SCRATCH, exist_ok=True)

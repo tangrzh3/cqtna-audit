@@ -4,8 +4,8 @@ Step 109 -- S34 file A, written before any truth set is opened
 source: 96a_attribution_selfcheck.tsv  sha256 2765481f49247932...
 loci with a significant nomination under the eQTLGen exposure: 20
 
-file A written: D:/R_ex/MR/109a_fileA_nominations.tsv
-  loci: 20   sha256: 7a48420844a6eb01...
+file A written: /repo/109a_fileA_nominations.tsv
+  loci: 20   sha256: 53e6d2d5096f9407...
   columns: ['locus', 'n_named', 'named', 'named_truncated']  <- contains no accepted-gene information
   !! 3 loci have a TRUNCATED gene list in the source table
      (cell ends in '...'), so file A cannot be scored strictly for
@@ -42,7 +42,7 @@ per-locus:
   6_0     IRF4              1  True    True   IRF4
   9_0     MTAP;CDKN2A       1  False   False  C9orf66
 
-wrote D:/R_ex/MR/109b_selfcheck_rescored.tsv
+wrote /repo/109b_selfcheck_rescored.tsv
 
 NOT done here, and deliberately: no external truth set has been opened,
 scored against S34 §3.1, or joined to file A. That is step 110, and it

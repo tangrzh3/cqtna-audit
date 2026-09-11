@@ -7,13 +7,13 @@ S34 §3.1 is a hand judgement recorded in §9.1 of that document.
 --- L2G / Open Targets
     query: locus-to-gene OR (locus AND gene AND prioritisation) AND GWAS AND (gold standard OR benchmark)
     2025  Nature genetics                 Prioritizing effector genes at trait-associated loci using multimodal 
+    2024  BMC genomics                    Leveraging large-scale multi-omics evidences to identify therapeutic t
     2021  American journal of human gene  A catalog of GWAS fine-mapping efforts in autoimmune disease.
     2026  Genome medicine                 Integration of genetic evidence to identify approved drug targets.
     2024  Nature communications           A polygenic score method boosted by non-additive models.
     2026  PLoS genetics                   Simplifying causal gene identification in GWAS loci.
-    2024  BMC genomics                    Leveraging large-scale multi-omics evidences to identify therapeutic t
-    2019  Nucleic acids research          ProGeM: a framework for the prioritization of candidate causal genes a
     2026  bioRxiv : the preprint server   Predicted Effector Gene Aggregation, Standards and Unified Schema (PEG
+    2019  Nucleic acids research          ProGeM: a framework for the prioritization of candidate causal genes a
 
 --- gold-standard gene sets
     query: GWAS gold standard causal gene set benchmark locus assignment
@@ -36,39 +36,39 @@ wrote 110a_benchmark_candidates.tsv  (8 unique records)
 BioGRID ORCS: resolving the reference cited but not listed
 ==============================================================================
 --- pubmed: BioGRID ORCS CRISPR screen database
+    2019  Nucleic acids research          The BioGRID interaction database: 2019 update.
+           doi:10.1093/nar/gky1079  pmid:30476227
     2021  Protein science : a publicatio  The BioGRID database: A comprehensive biomedical resource of curated p
            doi:10.1002/pro.3978  pmid:33070389
     2021  Nucleic acids research          iCSDB: an integrated database of CRISPR screens.
            doi:10.1093/nar/gkaa989  pmid:33137185
-    2019  Nucleic acids research          The BioGRID interaction database: 2019 update.
-           doi:10.1093/nar/gky1079  pmid:30476227
     2023  Cancer biomarkers : section A   A small Rho GTPase RAB25 with a potential role in chemotherapy resista
            doi:10.3233/CBM-220214  pmid:36565104
 --- pubmed: BioGRID Open Repository CRISPR Screens
-    2021  Protein science : a publicatio  The BioGRID database: A comprehensive biomedical resource of curated p
-           doi:10.1002/pro.3978  pmid:33070389
     2019  Nucleic acids research          The BioGRID interaction database: 2019 update.
            doi:10.1093/nar/gky1079  pmid:30476227
+    2021  Protein science : a publicatio  The BioGRID database: A comprehensive biomedical resource of curated p
+           doi:10.1002/pro.3978  pmid:33070389
     2023  Cancer biomarkers : section A   A small Rho GTPase RAB25 with a potential role in chemotherapy resista
            doi:10.3233/CBM-220214  pmid:36565104
 
 --- crossref bibliographic query (filtering preprints / recommendations)
     2006  Nucleic Acids Research          BioGRID: a general repository for interaction datasets
            doi:10.1093/nar/gkj109  type:journal-article
-    None                                  Optimized metrics for orthogonal combinatorial CRISPR screens
-           doi:10.21248/gups.98260  type:dissertation
     None                                  Supplementary file 4. Primers used in CRISPR/Cas9 screens.
            doi:10.7554/elife.40009.029  type:component
+    None                                  Optimized metrics for orthogonal combinatorial CRISPR screens
+           doi:10.21248/gups.98260  type:dissertation
     None                                  CRISPR screens to uncover regulators of genomic imprinting
            doi:10.70675/2897b4f0zb632z4dfaza80ez4079e1754ec6  type:dissertation
     None                                  Minimized combinatorial CRISPR screens identify genetic interactions i
            doi:10.21248/gups.67332  type:dissertation
-    None                                  Network-Based Combinatorial CRISPR-Cas9 Screens Identify Synergistic M
-           doi:10.1021/acssynbio.8b00237.s001  type:component
-    2019  The CRISPR Journal              CRISPR Screens: The Right Tool for the Job
-           doi:10.1089/crispr.2019.29045.adr  type:journal-article
     2022  Quantitative Biology            Bioinformatics approaches to analyzing CRISPR screen data: from dropou
            doi:10.15302/j-qb-022-0299  type:journal-article
+    None                                  Supplementary file 7. Overlap between RNAi, CRISPR-Cas9 and small-mole
+           doi:10.7554/elife.44161.026  type:component
+    2019  The CRISPR Journal              CRISPR Screens: The Right Tool for the Job
+           doi:10.1089/crispr.2019.29045.adr  type:journal-article
 
 wrote 110b_orcs_reference.tsv
 

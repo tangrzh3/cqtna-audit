@@ -3,7 +3,7 @@ audit coverage of the manuscript's arithmetic
 ==========================================================================
   decimal values in the body : 280 occurrences, 191 distinct
   reconciled by step127      : 174 distinct
-  numeric forms in 360 result files: 636828 (coincidence is cheap here,
+  numeric forms in 360 result files: 636855 (coincidence is cheap here,
     which is why presence is not treated as evidence)
 
   reconciled          : 174

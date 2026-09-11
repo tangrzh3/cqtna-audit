@@ -12,30 +12,30 @@ phase	step	status	rc
 2	step151 corpus scan	ok	0
 2	step156 C6 score	ok	0
 2	step158 visibility	not rerunnable	2
-2	step100_inference_unit.py	not rerunnable	1
+2	step100_inference_unit.py	ok	0
 2	step101_effect_size_matching.py	ok	0
-2	step102_hcc_decircularise.py	not rerunnable	1
-2	step103_density_matched.py	not rerunnable	1
-2	step104_litaudit_validation.py	not rerunnable	1
-2	step105_prepare_blind_coding.py	not rerunnable	1
+2	step102_hcc_decircularise.py	ok	0
+2	step103_density_matched.py	ok	0
+2	step104_litaudit_validation.py	ok	0
+2	step105_prepare_blind_coding.py	ok	0
 2	step106_axis_leave_tpi1_out.py	not rerunnable	1
 2	step107_axis_replication.py	not rerunnable	1
-2	step108_noncancer_outcome.py	not rerunnable	1
-2	step109_benchmark_prep.py	not rerunnable	1
-2	step110a_candidate_search.py	not rerunnable	1
-2	step110b_candidate_detail.py	not rerunnable	1
-2	step111_rebuild_selfcheck.py	not rerunnable	1
-2	step112_goldstandard_provenance.py	not rerunnable	1
-2	step113_benchmark_coverage.py	not rerunnable	1
-2	step114_resource_survey_refresh.py	not rerunnable	1
-2	step115_s35_gates.py	not rerunnable	1
-2	step116_multiresource_attribution.py	not rerunnable	1
-2	step117_condition_scan.py	not rerunnable	1
-2	step118_dice_controls.py	not rerunnable	1
-2	step119_grid_rebuild.py	not rerunnable	1
+2	step108_noncancer_outcome.py	ok	0
+2	step109_benchmark_prep.py	ok	0
+2	step110a_candidate_search.py	ok	0
+2	step110b_candidate_detail.py	ok	0
+2	step111_rebuild_selfcheck.py	ok	0
+2	step112_goldstandard_provenance.py	ok	0
+2	step113_benchmark_coverage.py	ok	0
+2	step114_resource_survey_refresh.py	ok	0
+2	step115_s35_gates.py	ok	0
+2	step116_multiresource_attribution.py	ok	0
+2	step117_condition_scan.py	ok	0
+2	step118_dice_controls.py	ok	0
+2	step119_grid_rebuild.py	ok	0
 2	step120_tpi1_window.py	not rerunnable	1
-2	step121_window_sensitivity.py	not rerunnable	1
-2	step122_locus_convention_recheck.py	not rerunnable	1
+2	step121_window_sensitivity.py	ok	0
+2	step122_locus_convention_recheck.py	ok	0
 2	step123_fixed_centre_grid.R	ok	0
 2	step124_cells.R	ok	0
 2	step124_full_grid.R	ok	0
@@ -49,7 +49,7 @@ phase	step	status	rc
 2	step133_projection_reading_b.R	ok	0
 2	step134_candidate_cohorts.R	ok	0
 2	step135_hcc_gate_distance.R	ok	0
-2	step137_rebuild_known_lists.py	ok	0
+2	step137_rebuild_known_lists.py	not rerunnable	124
 2	step138_transport_grid.R	ok	0
 2	step139_transport_independence.R	ok	0
 2	step142_power_matched_transport.R	ok	0
@@ -66,30 +66,29 @@ phase	step	status	rc
 2	step20b_cellchat_GSE115978.R	not rerunnable	1
 2	step21_spatial_LR_coloc.py	not rerunnable	1
 2	step22_TPI1_eqtl_timecourse.py	not rerunnable	1
-2	step23_glycolysis_module.R	not rerunnable	1
-2	step23b_glyco_gene_by_gene.R	not rerunnable	1
-2	step23c_glyco_module_refined.R	not rerunnable	1
-2	step24_purity_control.R	not rerunnable	1
-2	step24b_lineage_residual.R	not rerunnable	1
-2	step24c_response_purity.R	not rerunnable	1
-2	step25_CD4_redefinition.R	not rerunnable	1
-2	step25b_object_reconciliation.R	not rerunnable	1
-2	step25c_decisive.R	not rerunnable	1
-2	step25d_definitive.R	not rerunnable	1
-2	step26_rerun_corrected.R	not rerunnable	1
+2	step23_glycolysis_module.R	ok	0
+2	step23b_glyco_gene_by_gene.R	ok	0
+2	step23c_glyco_module_refined.R	ok	0
+2	step24_purity_control.R	ok	0
+2	step24b_lineage_residual.R	ok	0
+2	step24c_response_purity.R	ok	0
+2	step25_CD4_redefinition.R	ok	0
+2	step25b_object_reconciliation.R	ok	0
+2	step25c_decisive.R	ok	0
+2	step25d_definitive.R	ok	0
+2	step26_rerun_corrected.R	ok	0
 2	step27_GSE115978_recheck.R	not rerunnable	1
 2	step27b_GSE115978_scale.R	not rerunnable	1
 2	step28_glyco_pathway_MR.R	not rerunnable	1
-2	step29_glyco_pathway_genetics.py	not rerunnable	1
-2	step29a_map.R	not rerunnable	1
+2	step29_glyco_pathway_genetics.py	ok	0
+2	step29a_map.R	ok	0
 2	step30a_check_endpoints.py	ok	0
-2	step30b_extract_cancers.py	not rerunnable	1
-2	step30c_crosscancer_MR.py	not rerunnable	1
-2	step30d_locus_attribution_bg.py	not rerunnable	1
-2	step30e_locus_level_and_fig.py	not rerunnable	1
+2	step30b_extract_cancers.py	ok	0
+2	step30c_crosscancer_MR.py	ok	0
+2	step30d_locus_attribution_bg.py	ok	0
+2	step30e_locus_level_and_fig.py	ok	0
 2	step31_check_GSE199994.py	ok	0
 2	step32_check_geo.py	ok	0
-2	step33_get_GSE282266.py	ok	0
 2	step34_inspect_GSE282266.py	not rerunnable	1
 2	step35_atac_activation.py	ok	0
 2	step35b_diagnose_rows.py	not rerunnable	1
@@ -104,55 +103,53 @@ phase	step	status	rc
 2	step39b_circularity_check.py	not rerunnable	1
 2	step40_tpi1_artifact_check.py	not rerunnable	1
 2	step40b_pseudogene_check.R	ok	0
-2	step41_get_GSE166188.py	ok	0
-2	step42_protein_vs_mrna_purity.py	ok	0
+2	step42_protein_vs_mrna_purity.py	not rerunnable	1
 2	step43_glyco_vs_activation.py	not rerunnable	1
 2	step43b_module_detection.py	not rerunnable	1
 2	step44_unbiased_axis.py	not rerunnable	1
 2	step45_nuclear_contamination.py	not rerunnable	1
-2	step47_differential_peaks.py	not rerunnable	1
-2	step48_motif_enrichment.R	not rerunnable	1
-2	step49_axis_vs_activation_chromatin.py	not rerunnable	1
-2	step50_motif_activation_invariant.R	not rerunnable	1
-2	step51_get_GSE199994.py	not rerunnable	-15
-2	step52_variance_decomposition.py	ok	0
+2	step47_differential_peaks.py	ok	0
+2	step48_motif_enrichment.R	ok	0
+2	step49_axis_vs_activation_chromatin.py	ok	0
+2	step50_motif_activation_invariant.R	ok	0
+2	step52_variance_decomposition.py	not rerunnable	1
 2	step52b_icc_patients_only.py	ok	0
-2	step53_power_stability.py	not rerunnable	1
-2	step54_multitrait_power_curves.py	not rerunnable	1
-2	step55_recovery_by_locus_class.py	not rerunnable	1
-2	step58_finngen_reference_predictions.py	not rerunnable	1
-2	step59a_extract_finngen_releases.py	not rerunnable	1
-2	step59b_release_trajectory.py	not rerunnable	1
+2	step53_power_stability.py	ok	0
+2	step54_multitrait_power_curves.py	ok	0
+2	step55_recovery_by_locus_class.py	ok	0
+2	step58_finngen_reference_predictions.py	ok	0
+2	step59a_extract_finngen_releases.py	ok	0
+2	step59b_release_trajectory.py	ok	0
 2	step60a_extract_regions.py	ok	0
-2	step60b_build_ld.py	not rerunnable	1
+2	step60b_build_ld.py	ok	0
 2	step60c_susie_regions.R	ok	0
 2	step63_locked_signature.py	not rerunnable	1
-2	step65_motif_disruption.R	not rerunnable	1
+2	step65_motif_disruption.R	ok	0
 2	step66_GSE316760_compartment.R	not rerunnable	1
 2	step67_GSE300445_compartment.R	not rerunnable	1
 2	step68_celltype_attribution.R	not rerunnable	1
 2	step69_depth_matched_and_replication.R	not rerunnable	1
 2	step6_coloc.R	not rerunnable	1
 2	step70_tcga_compartment_demo.R	not rerunnable	1
-2	step74_patient_level_inference.R	not rerunnable	1
+2	step74_patient_level_inference.R	ok	0
 2	step77_pozniak_replication.R	not rerunnable	1
 2	step78_cd4_definition_audit.R	not rerunnable	1
 2	step79_pozniak_authoritative.R	not rerunnable	1
 2	step80_tissue_confounding.R	not rerunnable	1
 2	step81_coloc_sensitivity.R	not rerunnable	1
 2	step84_hcc_generalisation.py	ok	0
-2	step85_hcc_tests.py	not rerunnable	1
+2	step85_hcc_tests.py	ok	0
 2	step85e_matched_background.py	ok	0
 2	step87_hcc_part2.py	not rerunnable	1
 2	step91_literature_audit.py	not rerunnable	1
-2	step91b_rescore.py	not rerunnable	1
-2	step92_eqtlgen_exposure.py	not rerunnable	1
-2	step94a_extract_cancers_eqtlgen.py	not rerunnable	1
+2	step91b_rescore.py	ok	0
+2	step92_eqtlgen_exposure.py	ok	0
+2	step94a_extract_cancers_eqtlgen.py	ok	0
 2	step94b2_rsid_positions.py	ok	0
 2	step94b_known_loci.py	ok	0
-2	step94c_grid.py	not rerunnable	1
-2	step94d_eqtlgen_hcc.py	not rerunnable	1
-2	step99_r13_transfer.py	not rerunnable	1
+2	step94c_grid.py	ok	0
+2	step94d_eqtlgen_hcc.py	ok	0
+2	step99_r13_transfer.py	ok	0
 3	step127 numbers (post)	ok	0
 3	step153 pre-registrations (post)	ok	0
 3	step154 cross-references (post)	ok	0
