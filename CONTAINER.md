@@ -10,15 +10,23 @@ docker run --rm -v "$PWD:/repo" -w /repo cqtna-audit:0.3.0 \
     python3 step127_audit_manuscript_numbers.py /repo
 ```
 
-**This image has not been built yet.** It was written from
-`150b_session.txt` and the Methods, on a machine with no Docker. Three
-things are most likely to need adjusting on the first build: the base tag
-(`bioconductor/bioconductor_docker:RELEASE_3_19`, chosen because Bioc 3.19
-is the release carrying the Bioc package versions in the lockfile), the
-Ubuntu codename in the Posit snapshot URL in
-`container/install_r_packages.R`, and the two external-binary URLs. Fix
-them, then record what you built in section 4 rather than deleting this
-paragraph.
+**Built 2026-09-08, on the seventh attempt** — `cqtna-audit:0.3.0`, closure
+**226 / 226** against `150a_environment.lock`, 0 mismatched, 0 absent.
+
+The paragraph that stood here said the image had never been built and listed
+what would probably break first. It is kept in git history rather than quietly
+replaced, because what actually broke is more useful than what was predicted:
+**two of the seven failures were defects in the deposit, not in the image**,
+and only building the full 226-package closure could have exposed them (S54
+§9.10.4). `150a`'s `Repositories` names CRAN alone while forty-odd of its
+packages are Bioconductor, and `cqtna` — the local package built from
+`cqtna_r/` — is recorded as coming from a repository. **The lockfile cannot be
+restored as deposited.** The image derives a corrected copy at build time,
+adding only the repository list and the Bioconductor release, and then checks
+the result back against the untouched original; 226/226 is that check.
+
+⚠ Three packages sit outside that frame entirely — see `DEPOSIT_GAPS.md` §1
+and `150c_unlocked_packages.tsv`.
 
 ---
 
@@ -109,14 +117,31 @@ rules say a claim of that shape is what an audit is for.
 
 ### Which image
 
-There are two, and for the acceptance run you want the small one.
+There are two, and for the acceptance run you want **the full one**,
+`container/Dockerfile`. This said the opposite until 2026-09-11.
+
+⚠ **The slim image is now rejected by the acceptance run's own gate.** Its
+closure is **42 of the lock's 226** packages at the right version, with **11 at
+outright different ones** (`Rcpp`, `matrixStats` and `survival` among them),
+because the build fix that made it work at all — pointing `remotes` at a
+rolling snapshot — pinned the six packages named by hand and let every
+transitive dependency resolve to current. S54 §8's first stop rule is
+"dependency resolution does not match `150a` → fix the image, do not rerun
+damaged", so the two runs made on it in 2026-09-07/08 were damaged reruns and
+**their conclusions do not stand** (S54 §9.9). `step159` phase 1 now reads the
+closure report the full image writes at build time, so the rule is enforced by
+the run rather than by someone remembering to check.
+
+The table below is kept because the trade-off it describes is real and the slim
+image may still serve as a quick smoke test. **It is not a basis for an
+acceptance run.**
 
 | | `container/Dockerfile` | `container/Dockerfile.acceptance` |
 |---|---|---|
 | Restores | all 226 packages from the lock | the 4 R packages S54's list actually imports, at their locked versions |
 | Carries | Seurat, Bioconductor, BSgenome, TFBSTools, chromVAR | none of them |
 | Size / time | tens of GB, hours. Budget **40 GB peak** — build layers and the package cache roughly double the final size | roughly 2 GB, minutes |
-| Can run | everything whose inputs are in the deposit | S54's must-run list; group 7 partially |
+| Can run | everything whose inputs are in the deposit | **nothing S54 will accept** — see the gate note above |
 
 Every R script on S54's must-run list imports, between them, only `cqtna`
 (which itself imports nothing outside base R), `data.table`, `susieR` and
@@ -161,9 +186,10 @@ From the repository root:
 docker build -f container/Dockerfile -t cqtna-audit:0.3.0 .
 ```
 
-**Expect the first build to fail.** The image has never been built; the
-Dockerfile was written from `150b_session.txt` and the Methods. Three things
-are most likely to break, in this order:
+**Seven builds were needed.** What follows is what actually failed, not what
+was predicted to fail; the rows marked *deposit* are defects in the deposited
+lockfile rather than in the Dockerfile, and are why §1 above says the lock
+cannot be restored as it stands.
 
 | Symptom | Cause | Fix |
 |---|---|---|
@@ -178,8 +204,14 @@ does not resolve to `150a_environment.lock` is not a build to rerun on.
 ### Run the acceptance test
 
 ```bash
-docker run --rm -v "D:/R_ex/MR:/repo" -w /repo cqtna-audit:0.3.0     python3 step159_container_acceptance.py /repo
+docker run --rm -v "D:/R_ex/MR:/repo" -w /repo cqtna-audit:0.3.0     python3 step159_container_acceptance.py /repo --reuse-baseline
 ```
+
+⚠ **`--reuse-baseline` is not optional after the first run.** Phase 0 snapshots
+the incoming tables as the comparison baseline, and phase 2 then overwrites the
+tables in place. Run it a second time without the flag and the snapshot is
+taken from container output, so phase 4 compares the container against itself
+and reports zero differences. See S54 §10.2.
 
 In PowerShell use `-v "${PWD}:/repo"`; in cmd.exe, `-v "%cd%:/repo"`.
 
@@ -219,13 +251,25 @@ free: any digit that moves has to be traced through
 against the new tables, and a verdict that flips has to be reported as having
 flipped rather than quietly adopted.
 
-**The author chose (b) on 2026-09-07 and CONFIRMED it on 2026-09-10 against
-the completed acceptance run** (S54 section 9.6). All rerunnable numbers are
-the container's. What that does and does not mean is set out there; briefly, it
-does not mean every number in the paper was produced by the container, and it
-does not mean `150a_environment.lock` is a complete environment record — it
-omits two packages the Methods names and lists only CRAN among its
-repositories, so it cannot be restored as deposited (`DEPOSIT_GAPS.md`). What a moved number means was decided
+**The author chose (b) on 2026-09-07 and confirmed it on 2026-09-10 against
+the completed acceptance run** (S54 section 9.6).
+
+⚠ **That 2026-09-10 confirmation rested on a coverage figure that was wrong.**
+Section 9.6 recorded "41/41 = 100%, denominator: numbers cited in the text";
+41 was `step127`'s audited set, not the text's 191, and being audited is not
+being recomputed. The figure measured properly is in S54 section 9.11:
+**131/191 = 68.6%** after 102 scripts stopped naming one machine, against
+82/191 = 42.9% before. It clears section 8's 50% line, but the confirmation
+itself is marked in 9.6 as awaiting the author's re-reading against 9.11, and
+section 9.11.2 records the sequence by which 68.6% was reached — including the
+two wrong turns — because the figure must not be quoted without it.
+
+All rerunnable numbers are the container's. What that does and does not mean is
+set out there; briefly, it does not mean every number in the paper was produced
+by the container, and it does not mean `150a_environment.lock` is a complete
+environment record — it omits **three** packages the image needs and lists only
+CRAN among its repositories, so it cannot be restored as deposited
+(`DEPOSIT_GAPS.md` §1, and `150c_unlocked_packages.tsv` for the repair). What a moved number means was decided
 in advance and is fixed in `manuscript/PREREG_container_canonical.md` (S54),
 committed before this image was built: two tiers of acceptance criterion, an
 all-or-nothing clause forbidding a mixture of container and authoring-machine
