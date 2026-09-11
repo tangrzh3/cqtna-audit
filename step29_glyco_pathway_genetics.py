@@ -173,7 +173,26 @@ for _ in range(5000):
             pool = bg[bg.p_bin == pb]
         if len(pool) == 0:
             continue
-        draw.append(pool.absz.sample(len(sub), replace=True, random_state=None).values)
+        # random_state=rng, not None. Until 2026-09-11 this read
+        # random_state=None, so the 5000 matched draws used numpy's global
+        # unseeded state and the three summary columns of
+        # 35e_pathway_enrichment.tsv came out different on every run --
+        # measured across two runs of the SAME container image on the SAME
+        # machine, which leaves nothing but the draw itself to explain it.
+        #   The seeded generator on line 38 existed the whole time and was
+        # never reached from here, which is worse than having no seed at all:
+        # it tells anyone reading the file that this permutation reproduces.
+        # S54 section 1 rules randomness out as an explanation for a moved
+        # number precisely on that assumption.
+        #   The spread was ordinary Monte Carlo error for 5000 draws -- the
+        # two empirical P values were 0.5363 and 0.5303 against a standard
+        # error of 0.0071, 0.85 SE apart, and neither is near significance --
+        # so no verdict ever moved. What was broken was reproducibility, not
+        # the result. Authorised by the author 2026-09-11; registered in S54
+        # section 9.12.4, and the value it now fixes on is one arbitrary draw
+        # replacing another, not a correction of a wrong number.
+        draw.append(pool.absz.sample(len(sub), replace=True,
+                                     random_state=rng).values)
     if draw:
         null.append(np.concatenate(draw).mean())
 null = np.array(null)

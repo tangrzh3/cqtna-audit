@@ -86,8 +86,20 @@ def supplement_brackets():
     for pat in ("manuscript/SUPP_*.md", "manuscript/PREREG_*.md", "SUPP_*.md"):
         for f in sorted(glob.glob(os.path.join(MR, pat))):
             txt = io.open(f, encoding="utf-8", errors="replace").read()
+            fenced = False
             for i, line in enumerate(txt.split(chr(10)), 1):
-                for m in re.finditer(r"\[\d{1,2}(?:,\d{1,2})*\]", line):
+                # Code is not citation. A fenced block or an inline span can
+                # hold sys.argv[1] or x[0,1], and reporting those buries the
+                # real cases: on 2026-09-11, eight of eighteen hits were
+                # argv[1]/argv[2]/argv[3] inside a paragraph about argument
+                # parsing. A warning nobody can scan is a warning nobody reads.
+                if line.lstrip().startswith("```"):
+                    fenced = not fenced
+                    continue
+                if fenced or line.startswith("    "):
+                    continue
+                bare = re.sub(r"`[^`]*`", "", line)
+                for m in re.finditer(r"\[\d{1,2}(?:,\d{1,2})*\]", bare):
                     out.append((os.path.relpath(f, MR), i, m.group(0)))
     return out
 
@@ -161,7 +173,26 @@ def main():
             print("      ... and %d more" % (len(sb) - 20))
 
     if not APPLY:
-        print("\nreport only; re-run with --apply to write")
+        # ⚠ The exit code has to mean something, because step159 reads
+        # it as one of S54's four acceptance audits. Until 2026-09-11 this
+        # returned 0 unconditionally in report mode, so "step155 reference
+        # order ok" meant "the script ran" -- an out-of-order list would
+        # have printed a whole non-identity map above and still exited
+        # clean. Same shape as the testthat skip in S54 section 9.11.7: a
+        # check whose green says less than it reads.
+        #   Report mode now exits non-zero when work is outstanding, the
+        # convention a --check flag follows elsewhere. Nothing is written
+        # either way; --apply is still what writes.
+        moved = sorted(o for o in new if new[o] != o)
+        if moved or dropped:
+            print("\nreference list is NOT in citation order: "
+                  "%d entry(ies) would move, %d would be dropped."
+                  % (len(moved), len(dropped)))
+            print("re-run with --apply to write the corrected list")
+            return 1
+        print("\nreference list is already in citation order "
+              "(%d entries, none moved, none dropped); nothing to write"
+              % len(new))
         return 0
     io.open(MS, "w", encoding="utf-8", newline="\n").write(new_body + new_refs)
     print("\nwrote %s" % MS)

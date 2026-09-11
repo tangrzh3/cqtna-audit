@@ -105,7 +105,7 @@ the precedent of §9.8. §10.3 also records that the mechanical check first
 offered as verification checked the shape of the changed lines and not what
 `argv[1]` already meant, and that two scripts had meant something else by it.
 
-## 1c. ⚠ A permutation that looks seeded and is not (`step29`) — open, needs a decision
+## 1c. A permutation that looked seeded and was not (`step29`) — fixed 2026-09-11
 
 `step29_glyco_pathway_genetics.py` line 38 creates `rng =
 np.random.default_rng(1)`. The 5000 matched draws at line 176 do not use it:
@@ -139,12 +139,24 @@ the text cites. `step127` does not reconcile it and none of its values appear in
 `160a_audit_coverage.tsv`'s 191 rows. No acceptance criterion and no migration
 under S54 §5 is affected.
 
-**Not fixed.** Adding a seed replaces one arbitrary draw with another, which is
-a change to analysis logic made after results were observed and needs the
-author's authorisation on the S54 §9.8 precedent. Recorded here for that
-decision. The obvious repair is to pass the existing `rng` through:
-`random_state=rng` (or a fixed integer), and to say in S54 §5 that the value
-moved because it was never reproducible, not because the environment changed.
+**Fixed 2026-09-11, on the author's authorisation** (S54 §9.8 precedent, since
+this is analysis logic changed after results were observed): line 176 now reads
+`random_state=rng`, passing the generator that line 38 had been creating and
+never using. Verified by running `step29` twice in the container — the two
+`35e_pathway_enrichment.tsv` are byte-identical. The values it now fixes on are
+
+| column | value |
+|---|---|
+| `null_mean` | 0.9411048379462176 |
+| `null_sd` | 0.26801494613776417 |
+| `p_matched_permutation` | 0.5366926614677064 |
+
+⚠ **This is one arbitrary draw replacing another, not a correction of a wrong
+number.** The two pre-fix P values were 0.5363 and 0.5303 against a Monte Carlo
+standard error of 0.0071 for 5000 draws — 0.85 SE apart, neither near
+significance. Nothing about the finding changed; what changed is that it can now
+be reproduced. No §5 migration is registered because no value here reaches the
+text.
 
 ⚠ **Only running the same container twice finds this.** A cross-environment
 comparison cannot: both sides vary, so the difference is charged to the
