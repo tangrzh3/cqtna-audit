@@ -3,10 +3,10 @@ what the container actually recomputed, of the numbers the text cites
 ==========================================================================
   A  distinct values in the body            : 191
   B  of those, reconciled by step127        : 174
-  C  of B, source table regenerated here    : 82
-     audited but NOT regenerated            : 92
+  C  of B, source table regenerated here    : 96
+     audited but NOT regenerated            : 78
 
-  S54 section 8 threshold is C / A >= 50%: 82 / 191 = 42.9%
+  S54 section 8 threshold is C / A >= 50%: 96 / 191 = 50.3%
 
   NOTE Being audited is not being recomputed. step127 checks a number
   against a table; that table may have been mounted in from the

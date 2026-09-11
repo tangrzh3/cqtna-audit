@@ -28,6 +28,7 @@ distributed.
 
 Outputs: 161a_container_number_coverage.tsv, 161b_console.log
 """
+import glob
 import io
 import os
 import re
@@ -93,16 +94,55 @@ def main():
         say("159a_container_acceptance.tsv missing; run step159 first.")
         return 1
 
-    def regen(t):
-        m = re.match(r'([0-9]{1,3})[a-z]?_', t)
+    steps = {os.path.basename(f)[4:].split("_")[0]
+             for f in glob.glob(os.path.join(MR, "step*.py"))
+             + glob.glob(os.path.join(MR, "step*.R"))}
+
+    def producer(t):
+        """The step id that produced table `t`, or None.
+
+        Two naming conventions collide here and reducing the table name to its
+        digits silently picks the wrong one. In `140d_threshold.tsv` the letter
+        is an OUTPUT index and the producer is step140. In
+        `85e_matched_background_fixed_anchor.tsv` the letter is part of the
+        STEP id and the producer is step85e -- there is no step85 output "e".
+        The first version took the digits in both cases, so 85e was looked up
+        as "85", which the run never records, and section 1 of step127 -- 17 of
+        the numbers the text cites -- was reported as not regenerated while the
+        container had in fact produced that table, with the two migrated cells
+        S54 section 9.10.2 enumerates sitting in 159e_table_diff.tsv as proof.
+
+        Resolve it by asking the repository instead of guessing: take the
+        LONGEST id that prefixes the table name and actually exists as a
+        script. It keeps the property the first version was written for, that
+        "12_" must not be satisfied by step120, because the match is still
+        against a whole step id and never a substring of a longer number.
+
+        ⚠ WHAT THIS CHANGED, AND WHEN. The rule can withdraw credit as
+        readily as grant it, but on this repository it does not: it moves
+        exactly one table, 85e, and only into the regenerated set. C goes
+        82 -> 96 of A = 191, i.e. 42.9% -> 50.3%, across S54 section 8's 50%
+        line, by ONE number. It was written AFTER 42.9% had been observed and
+        after the shortfall was known. Both of those have to be read together
+        and neither cancels the other: the correction is right on the facts
+        -- 159e_table_diff.tsv records the container's own 85e output, two
+        migrated cells and all -- and it is also a post-observation change to
+        a measurement whose threshold it then crosses by the smallest possible
+        margin. S54 section 9.6 carries both figures and the ordering; do not
+        quote 50.3% without them.
+        """
+        m = re.match(r'([0-9]{1,3}[a-z]?)_', t)
         if not m:
-            return False
-        p = m.group(1)   # numeric part only: table 101a comes from step101
-        # A table's producer is the step whose number prefixes it. Match on the
-        # exact prefix, never a substring: "12_" must not be satisfied by
-        # step120, nor "16_" by step160, which is how a first pass at this
-        # counted five meta tables as regenerated when none of them was.
-        return p in ok
+            return None
+        full = m.group(1)
+        for cand in (full, full.rstrip("abcdefghijklmnopqrstuvwxyz")):
+            if cand in steps:
+                return cand
+        return None
+
+    def regen(t):
+        pr = producer(t)
+        return pr is not None and pr in ok
 
     p = subprocess.run([sys.executable, "step127_audit_manuscript_numbers.py", MR],
                        cwd=MR, capture_output=True, text=True, timeout=3600)

@@ -1,7 +1,7 @@
 ==========================================================================
 audit coverage of the manuscript's arithmetic
 ==========================================================================
-  decimal values in the body : 278 occurrences, 191 distinct
+  decimal values in the body : 280 occurrences, 191 distinct
   reconciled by step127      : 174 distinct
   numeric forms in 360 result files: 636828 (coincidence is cheap here,
     which is why presence is not treated as evidence)
@@ -16,8 +16,8 @@ audit coverage of the manuscript's arithmetic
   the category cannot quietly absorb whatever the audit failed to find.
 
   2 value(s) appear in NO result table -- derived, quoted, or unbacked:
-    0.015631     line 1004  controls (N = 801,629, case fraction 0.015631). Rashkin reports odds ratios and P
-    0.014962     line 1047  sizes, SD exposure units, log-odds outcome units and outcome prevalence 0.014962;
+    0.015631     line 1009  controls (N = 801,629, case fraction 0.015631). Rashkin reports odds ratios and P
+    0.014962     line 1052  sizes, SD exposure units, log-odds outcome units and outcome prevalence 0.014962;
 
   wrote 160a_audit_coverage.tsv (191 rows)
 

@@ -178,6 +178,34 @@ WATCH = [
     # never compared it -- found by hand, which is exactly the failure mode
     # WATCH_GUARD below now makes mechanical.
     "126c_permutation_primary.tsv",
+    # Added 2026-09-11, on the guard's own report. Widening step127 from 41
+    # numbers to 174 widened the set of tables it reads, and WATCH did not
+    # follow: the guard listed EIGHTEEN audited tables phase 4 was not
+    # comparing. Ten of them the container had actually regenerated, so a
+    # moved cell in any of them would have gone unreported -- the same defect
+    # 126c had, at ten times the size, caught mechanically this time instead
+    # of by hand.
+    #   ⚠ For the 2026-09-11 run itself these were still uncompared, and
+    # adding them here does not retroactively compare them: 159d_baseline/
+    # holds only the eighteen tables phase 0 snapshotted before the first
+    # container run, and re-snapshotting now would compare the container
+    # against itself. They were checked a different way instead, and it is
+    # recorded in S54 section 9.11 rather than left implied: all ten were last
+    # committed between 2026-08-19 and 08-24, before any container existed,
+    # and all ten are unmodified in the working tree after this run -- so they
+    # are byte-identical between the authoring machine and the container,
+    # across two container runs. The other eight were never regenerated here
+    # (their producers fail on absent inputs or on a hardcoded authoring path)
+    # and so have nothing to compare.
+    "104c_validation.tsv", "128a_known_kb_sweep.tsv",
+    "128b_locus_kb_sweep.tsv", "130a_multilist_main.tsv",
+    "135a_hcc_gate_distance.tsv", "138a_transport_main.tsv",
+    "138b_transport_verdict.tsv", "139c_leave_one_out.tsv",
+    "142a_power_matched.tsv", "148a_litaudit_corpus.tsv",
+    "148b_litaudit_doublecoded.tsv", "23g_ST_within_lymphoid.tsv",
+    "44b_family_composition.tsv", "53b_calibration.tsv",
+    "55a_recovery_by_locus_class.tsv", "68c_tests.tsv",
+    "85a_HCC_high_annotated.tsv", "85a_HCC_low_annotated.tsv",
 ]
 
 

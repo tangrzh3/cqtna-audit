@@ -1,5 +1,5 @@
 section	source_tables	regenerated_in_container	n_values
-1	123d_fixed_anchor_full_grid.tsv,126a_offgrid_attribution.tsv,126c_permutation_primary.tsv,130c_multilist_verdict.tsv,140d_threshold.tsv,141a_enrichment_decomposition.tsv,141b_reviewer_conditioning.tsv,85e_matched_background_fixed_anchor.tsv	no	17
+1	123d_fixed_anchor_full_grid.tsv,126a_offgrid_attribution.tsv,126c_permutation_primary.tsv,130c_multilist_verdict.tsv,140d_threshold.tsv,141a_enrichment_decomposition.tsv,141b_reviewer_conditioning.tsv,85e_matched_background_fixed_anchor.tsv	yes	17
 1d	156e_C6_result.tsv	yes	5
 1e	55a_recovery_by_locus_class.tsv	no	4
 1f	126c_permutation_primary.tsv	yes	7
@@ -25,7 +25,7 @@ section	source_tables	regenerated_in_container	n_values
 2a	148a_litaudit_corpus.tsv	yes	3
 2b	135a_hcc_gate_distance.tsv	yes	1
 2c	141b_reviewer_conditioning.tsv	yes	3
-2d	85e_matched_background_fixed_anchor.tsv	no	4
+2d	85e_matched_background_fixed_anchor.tsv	yes	4
 2e		no	1
 2f		no	2
 2g	156e_C6_result.tsv	yes	1
