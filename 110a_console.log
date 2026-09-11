@@ -7,10 +7,10 @@ S34 §3.1 is a hand judgement recorded in §9.1 of that document.
 --- L2G / Open Targets
     query: locus-to-gene OR (locus AND gene AND prioritisation) AND GWAS AND (gold standard OR benchmark)
     2025  Nature genetics                 Prioritizing effector genes at trait-associated loci using multimodal 
-    2024  BMC genomics                    Leveraging large-scale multi-omics evidences to identify therapeutic t
     2021  American journal of human gene  A catalog of GWAS fine-mapping efforts in autoimmune disease.
     2026  Genome medicine                 Integration of genetic evidence to identify approved drug targets.
     2024  Nature communications           A polygenic score method boosted by non-additive models.
+    2024  BMC genomics                    Leveraging large-scale multi-omics evidences to identify therapeutic t
     2026  PLoS genetics                   Simplifying causal gene identification in GWAS loci.
     2026  bioRxiv : the preprint server   Predicted Effector Gene Aggregation, Standards and Unified Schema (PEG
     2019  Nucleic acids research          ProGeM: a framework for the prioritization of candidate causal genes a

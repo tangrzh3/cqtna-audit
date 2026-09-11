@@ -1,5 +1,6 @@
 phase	step	status	rc
 1	150a closure	ok	0
+1	150c supplementary	unenforced (image predates pin)	0
 1	cqtna testthat	ok	0
 1	step127 numbers (pre)	ok	0
 1	step153 pre-registrations (pre)	ok	0
@@ -146,8 +147,6 @@ phase	step	status	rc
 2	step92_eqtlgen_exposure.py	ok	0
 2	step94a_extract_cancers_eqtlgen.py	ok	0
 2	step94b2_rsid_positions.py	ok	0
-2	step94b_known_loci.py	ok	0
-2	step94c_grid.py	ok	0
 2	step94d_eqtlgen_hcc.py	ok	0
 2	step99_r13_transfer.py	ok	0
 3	step127 numbers (post)	ok	0

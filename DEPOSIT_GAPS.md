@@ -105,6 +105,51 @@ the precedent of §9.8. §10.3 also records that the mechanical check first
 offered as verification checked the shape of the changed lines and not what
 `argv[1]` already meant, and that two scripts had meant something else by it.
 
+## 1c. ⚠ A permutation that looks seeded and is not (`step29`) — open, needs a decision
+
+`step29_glyco_pathway_genetics.py` line 38 creates `rng =
+np.random.default_rng(1)`. The 5000 matched draws at line 176 do not use it:
+
+```python
+pool.absz.sample(len(sub), replace=True, random_state=None)
+```
+
+So three columns of `35e_pathway_enrichment.tsv` differ on every run. Measured
+across two runs of the **same image on the same machine**, which removes the
+environment as an explanation:
+
+| column | run 2 | run 3 |
+|---|---|---|
+| `null_mean` | 0.9384705771575401 | 0.9376783838308392 |
+| `null_sd` | 0.26708658312065875 | 0.27100291396109 |
+| `p_matched_permutation` | 0.5362927414517097 | 0.5302939412117577 |
+
+`obs_mean_absz` and `p_mannwhitney_unmatched` are identical across both runs,
+so the deterministic parts are deterministic.
+
+⚠ **The unused seeded generator on line 38 is worse than no seed at all**: it
+tells anyone reading the file that the permutation is reproducible. S54 §1
+rules randomness out as an explanation precisely on the grounds that seeded RNGs
+are deterministic, and directs that any variation be traced to one of five
+listed causes rather than called random fluctuation — here it really is random
+fluctuation, because nothing seeded it.
+
+**Scope, checked rather than assumed**: no value in `35e` is among the numbers
+the text cites. `step127` does not reconcile it and none of its values appear in
+`160a_audit_coverage.tsv`'s 191 rows. No acceptance criterion and no migration
+under S54 §5 is affected.
+
+**Not fixed.** Adding a seed replaces one arbitrary draw with another, which is
+a change to analysis logic made after results were observed and needs the
+author's authorisation on the S54 §9.8 precedent. Recorded here for that
+decision. The obvious repair is to pass the existing `rng` through:
+`random_state=rng` (or a fixed integer), and to say in S54 §5 that the value
+moved because it was never reproducible, not because the environment changed.
+
+⚠ **Only running the same container twice finds this.** A cross-environment
+comparison cannot: both sides vary, so the difference is charged to the
+environment. A single run cannot see it at all.
+
 ## 2. PLINK 2.0.0-a.7.2 is no longer obtainable
 
 `s3://plink2-assets/alpha7/` now holds only 2026 builds;
