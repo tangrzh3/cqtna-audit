@@ -190,7 +190,16 @@ def main():
         return 1
 
     nums = manuscript_numbers(ms)
-    uniq = sorted(set(n for n, _, _ in nums), key=lambda x: -float(x))
+    # (-float(x), x), not -float(x) alone. The key ties whenever two spellings
+    # of one value appear -- "0.70" and "0.7" both give -0.7 -- and sorted() is
+    # stable, so the tie preserved the iteration order of a set of STRINGS,
+    # which Python varies between processes under hash randomisation. The file
+    # was therefore not byte-reproducible: two runs of the same container, same
+    # 192 rows, two of them swapped. Content was never affected; what it cost
+    # was the ability to say "identical" without qualifying it, in a deposit
+    # whose point is that one can. Found 2026-09-11 by diffing two acceptance
+    # runs against each other.
+    uniq = sorted(set(n for n, _, _ in nums), key=lambda x: (-float(x), x))
     say("=" * 74)
     say("audit coverage of the manuscript's arithmetic")
     say("=" * 74)
