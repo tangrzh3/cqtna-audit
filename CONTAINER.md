@@ -259,10 +259,14 @@ Section 9.6 recorded "41/41 = 100%, denominator: numbers cited in the text";
 41 was `step127`'s audited set, not the text's 191, and being audited is not
 being recomputed. The figure measured properly is in S54 section 9.11:
 **131/191 = 68.6%** after 102 scripts stopped naming one machine, against
-82/191 = 42.9% before. It clears section 8's 50% line, but the confirmation
-itself is marked in 9.6 as awaiting the author's re-reading against 9.11, and
-section 9.11.2 records the sequence by which 68.6% was reached — including the
-two wrong turns — because the figure must not be quoted without it.
+82/191 = 42.9% before.
+
+**The author re-confirmed (b) on 2026-09-11 against that corrected figure**,
+and did so after reading section 9.11.2 — which records how 68.6% was arrived
+at, including the two wrong turns and the fact that every defect found in the
+measurement pushed the number the same way, each found only after the number
+came in short. What was confirmed is that sequence, not the number. **68.6%
+must not be quoted apart from 9.11.2.**
 
 All rerunnable numbers are the container's. What that does and does not mean is
 set out there; briefly, it does not mean every number in the paper was produced
