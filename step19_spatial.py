@@ -10,6 +10,7 @@ falsification test for Limitation #2 of the manuscript.
 Data: D:/Downloads/ST-Melanoma-Datasets_1/ST_mel{1-4}_rep{1,2}_counts.tsv
       rows = "SYMBOL ENSG...", columns = spots named "<x>x<y>"
 """
+import sys
 import os
 import re
 import glob
@@ -45,7 +46,8 @@ def ols(y, X):
     return pd.Series(beta, index=names), pd.Series(pv, index=names), r2, resid
 
 ST_DIR = "D:/Downloads/ST-Melanoma-Datasets_1"
-OUT = "D:/R_ex/MR"
+OUT = (sys.argv[1] if len(sys.argv) > 1
+       else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 MIN_SPOT_COUNTS = 500        # legacy ST spots; Thrane used ~500 as usable depth
 MIN_SPOT_GENES = 200

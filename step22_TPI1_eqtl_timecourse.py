@@ -18,6 +18,7 @@ evidence that the causal effect is absent there. The only claim available is
 
 Output: 27a_TPI1_eqtl_timecourse.tsv
 """
+import sys
 import glob
 import os
 import numpy as np
@@ -26,7 +27,8 @@ import pyarrow.parquet as pq
 import pyarrow.compute as pc
 
 PARQ = "D:/Downloads/CD4_eqtl_step1_clean"
-MR = "D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 GENES = {
     "TPI1":    "ENSG00000111669",

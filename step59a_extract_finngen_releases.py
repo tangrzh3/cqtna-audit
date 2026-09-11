@@ -12,6 +12,7 @@ Step 59a  流式下载 FinnGen R8–R11 的黑色素瘤 sumstats，只保留工�
     R8/R9/R10/R11 : summary_stats/finngen_R{N}_C3_MELANOMA_SKIN_EXALLC.gz
     R12           : summary_stats/release/finngen_R12_...（本项目已在本地）
 """
+import sys
 import csv
 import gzip
 import io
@@ -19,7 +20,8 @@ import os
 import time
 import urllib.request
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 OUT = os.path.join(MR, "release_extracts")
 os.makedirs(OUT, exist_ok=True)
 

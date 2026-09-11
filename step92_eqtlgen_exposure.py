@@ -26,6 +26,7 @@ an approximation, because nothing downstream of the P value depends on it.
 
 Output: 92a (instruments), 92b (MR records), 92c (locus attribution), 92d (summary)
 """
+import sys
 import csv
 import gzip
 import io
@@ -37,7 +38,8 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 EQTLGEN = f"{MR}/eqtlgen/cis-eQTLsFDR0.05.txt.gz"
 OUTCOME = f"{MR}/meta_melanoma_final.tsv.gz"
 KNOWN = f"{MR}/landi2020_known_loci_grch38.csv"

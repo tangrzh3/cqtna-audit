@@ -13,10 +13,13 @@ group, so the ICC is recomputed among the eight patients alone. The random-modul
 floor is recomputed the same way, since a smaller, more homogeneous set changes
 the floor too.
 """
+import sys
+import os
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 d = pd.read_csv(f"{MR}/52c_cell_scores.tsv.gz", sep="\t")
 allicc = pd.read_csv(f"{MR}/52a_icc_all.tsv", sep="\t")
 

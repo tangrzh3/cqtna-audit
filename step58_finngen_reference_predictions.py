@@ -21,11 +21,14 @@ FinnGen R12（5,753 例），否则预测的是另一个量。
 
 输出：58a_finngen_reference_predictions.tsv
 """
+import sys
+import os
 import numpy as np
 import pandas as pd
 from scipy import stats
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 rng = np.random.default_rng(1)
 N_REP = 2000                      # 比 53 更多，因为参照名单更小、抖动更大
 FDR_MAIN = 0.05

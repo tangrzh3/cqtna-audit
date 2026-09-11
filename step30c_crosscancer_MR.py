@@ -31,13 +31,15 @@ orientation applies to every endpoint.
 Wald ratio only (one instrument per exposure), as in the main analysis.
 Output: 36a-36d
 """
+import sys
 import csv
 import math
 import os
 import collections
 from statistics import NormalDist
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 EXT = os.path.join(MR, "cancer_extracts")
 ND = NormalDist()
 

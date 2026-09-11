@@ -25,10 +25,13 @@ Output: 102a_hcc_decirc.tsv
 """
 from math import lgamma, exp
 
+import sys
+import os
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 KNOWN_KB = 1000
 
 # resting on GCST90809296 alone -- see S29 section 0.1 and hcc/known_locus_independence.json

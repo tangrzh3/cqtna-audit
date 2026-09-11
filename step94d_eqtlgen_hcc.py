@@ -8,6 +8,8 @@ GWAS Catalog rsID lists could not be placed on GRCh38 reliably (see step94b2).
 
 Output: 94f_eqtlgen_hcc.tsv
 """
+import sys
+import os
 import csv
 import gzip
 import io
@@ -17,7 +19,8 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 LOCUS_KB = KNOWN_KB = 1000
 
 

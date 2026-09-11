@@ -2,9 +2,13 @@
 that snRNA-seq cannot measure, in a system that cannot produce the cell state,
 returns a null for reasons that have nothing to do with the axis being tested."""
 import gzip
+import sys
 import os
 import numpy as np
 import pandas as pd
+
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 D = r"D:/Downloads/GSE282266"
 MODULES = {
@@ -67,6 +71,6 @@ for mod, gs in MODULES.items():
     if pcts:
         print(f"    -> median detection {np.median(pcts):.1f}%, "
               f"{sum(p < 5 for p in pcts)}/{len(pcts)} genes under 5%\n")
-pd.DataFrame(out).to_csv(r"D:/R_ex/MR/43d_module_gene_detection.tsv",
+pd.DataFrame(out).to_csv(os.path.join(MR, "43d_module_gene_detection.tsv"),
                          sep="\t", index=False)
 print("written: 43d")

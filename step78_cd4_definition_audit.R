@@ -16,7 +16,7 @@
 # ============================================================================
 
 suppressPackageStartupMessages({library(Seurat); library(Matrix); library(data.table)})
-P <- "D:/Downloads/Pozniak"; MR <- "D:/R_ex/MR"
+P <- "D:/Downloads/Pozniak"; MR <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 
 TCELL <- c("CD3D","CD3E","CD3G","TRAC","TRBC2","CD2")
 CD4P  <- c("CD4","IL7R","CD40LG","MAL","LTB","TRAT1","ANXA1","CCR7","AQP3")

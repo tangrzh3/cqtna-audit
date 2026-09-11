@@ -17,13 +17,15 @@ Step 63  锁定三套数据共用的糖酵解 signature，并做 leave-TPI1-out 
 
 输出：63a_locked_signature.tsv、63b_timing_locked.tsv、63c_patient_locked.tsv
 """
+import sys
 import csv
 import os
 import numpy as np
 import pyarrow.parquet as pq
 from math import comb
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 P = r"D:/Downloads/CD4_eqtl_step1_clean"
 
 PROFILES = [("CD4_Naive_uns_0h", "Naive", "0h"), ("CD4_Naive_stim_16h", "Naive", "16h"),

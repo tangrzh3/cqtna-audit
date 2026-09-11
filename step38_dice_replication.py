@@ -33,13 +33,16 @@ METHOD NOTE
 
 Output: 38a, 38b
 """
+import sys
+import os
 import json
 import time
 import urllib.request
 import urllib.parse
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 API = "https://www.ebi.ac.uk/eqtl/api/v2"
 UA = {"User-Agent": "Mozilla/5.0"}
 

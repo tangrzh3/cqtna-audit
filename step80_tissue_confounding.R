@@ -17,7 +17,7 @@
 # ============================================================================
 
 suppressPackageStartupMessages({library(Seurat); library(Matrix); library(data.table)})
-MR <- "D:/R_ex/MR"; P <- "D:/Downloads/Pozniak"; set.seed(1); N_PERM <- 20000
+MR <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"; P <- "D:/Downloads/Pozniak"; set.seed(1); N_PERM <- 20000
 LOCKED <- c("SLC2A1","SLC2A3","HK1","HK2","GPI","PFKL","PFKP","PFKFB3",
             "ALDOA","TPI1","GAPDH","PGK1","PGAM1","ENO1","PKM","LDHA")
 

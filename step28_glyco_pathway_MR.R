@@ -17,7 +17,7 @@
 ## =====================================================================
 
 suppressPackageStartupMessages({library(data.table)})
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 GLYCO <- c("SLC2A1", "SLC2A3", "HK1", "HK2", "HK3", "GPI", "PFKL", "PFKM",
            "PFKP", "ALDOA", "ALDOB", "ALDOC", "TPI1", "GAPDH", "PGK1",

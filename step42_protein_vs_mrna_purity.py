@@ -19,13 +19,15 @@ STEPS
 
 Output: 42a-42c
 """
+import sys
 import gzip
 import os
 import numpy as np
 import pandas as pd
 
 D = r"D:/Downloads/GSE166188"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 SAMPLES = {
     "LLL_stim": dict(

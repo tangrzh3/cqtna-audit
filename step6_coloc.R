@@ -6,7 +6,7 @@
 # ============================================================
 
 library(arrow); library(data.table); library(dplyr); library(coloc)
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 PARQUET_DIR <- "D:/Downloads/CD4_eqtl_step1_clean"
 

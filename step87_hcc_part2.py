@@ -9,6 +9,8 @@ cannot reach significance (4 vs 2 -> minimum one-sided p = 0.0667).
 
 Output: 87a (sample-level scores), 87b (arm-level results), 87c (positive controls)
 """
+import sys
+import os
 import collections
 from math import comb
 from itertools import combinations
@@ -17,7 +19,8 @@ import h5py
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 H5 = f"{MR}/hcc/GSE235863/GSE235863_nine_patients_scRNAseq_cd45_raw_counts.h5ad"
 CHUNK = 20000
 MIN_CD4 = 20

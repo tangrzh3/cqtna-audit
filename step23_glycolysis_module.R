@@ -25,7 +25,7 @@ suppressPackageStartupMessages({
   library(Seurat); library(data.table); library(ggplot2)
 })
 set.seed(1)
-MR <- "D:/R_ex/MR"
+MR <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 setwd(MR)
 
 ## core glycolysis, TPI1 deliberately EXCLUDED (it is the variable under test)

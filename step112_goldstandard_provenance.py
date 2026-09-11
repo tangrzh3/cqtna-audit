@@ -16,6 +16,7 @@ locus-to-gene table is downloaded, per S34 §3.2.
 
 Outputs: 112a_goldstandard_passages.txt, 112_console.log
 """
+import os
 import io
 import json
 import re
@@ -24,7 +25,8 @@ import time
 import urllib.parse
 import urllib.request
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 UA = {"User-Agent": "Mozilla/5.0 (attribution-benchmark-survey)"}
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 

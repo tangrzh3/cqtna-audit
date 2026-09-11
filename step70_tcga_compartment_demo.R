@@ -27,7 +27,7 @@
 
 suppressPackageStartupMessages({library(data.table); library(survival)})
 SP  <- "C:/Users/a1197/AppData/Local/Temp/claude/D--------/63f94216-98ba-4480-9b61-1857f0a83e1b/scratchpad"
-OUT <- "D:/R_ex/MR"
+OUT <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 
 LOCKED <- c("SLC2A1","SLC2A3","HK1","HK2","GPI","PFKL","PFKP","PFKFB3",
             "ALDOA","TPI1","GAPDH","PGK1","PGAM1","ENO1","PKM","LDHA")

@@ -16,12 +16,14 @@ enrichment is real melanoma biology, not an artefact of the instrument panel.
 
 Output: 36d
 """
+import sys
 import csv
 import os
 import collections
 from math import lgamma, exp, log
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 NOVEL = "潜在新位点"
 
 

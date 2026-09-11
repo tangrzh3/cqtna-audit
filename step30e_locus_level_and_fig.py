@@ -17,6 +17,7 @@ annotated to a Landi 2020 melanoma/nevus/pigmentation lead SNP.
 
 Output: 36e (table), figures/Fig7_crosscancer.{png,pdf}
 """
+import sys
 import os
 import csv
 import collections
@@ -28,7 +29,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 OUT = os.path.join(MR, "figures")
 NOVEL = "潜在新位点"
 LOCUS_KB = 1000

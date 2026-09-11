@@ -16,6 +16,7 @@ Registered criterion: TPI1 in the top 5% with the same direction in both arms.
 
 Output: 107a_replication.tsv
 """
+import sys
 import gzip
 import os
 
@@ -23,7 +24,8 @@ import numpy as np
 import pandas as pd
 
 D = r"D:/Downloads/GSE166188"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 MIN_DETECT = 0.05
 TOP_N = 300
 CRIT_PCT = 5.0

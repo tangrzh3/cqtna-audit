@@ -23,6 +23,7 @@ Outputs: 113a_goldstandard_coords.tsv  (coordinates + class + trait, NO gene_id)
          113b_coverage.tsv
          113_console.log
 """
+import os
 import io
 import sys
 import urllib.request
@@ -30,7 +31,8 @@ import urllib.request
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 UA = {"User-Agent": "Mozilla/5.0 (attribution-benchmark-survey)"}
 URL = ("https://raw.githubusercontent.com/opentargets/genetics-gold-standards/"
        "master/gold_standards/processed/gwas_gold_standards.191108.tsv")

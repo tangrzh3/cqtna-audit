@@ -1,10 +1,15 @@
 """Which DICE datasets actually quantify TPI1? Without this, NaN in the D2 table
 cannot be told apart from a genuine null."""
 import json
+import os
+import sys
 import time
 import urllib.request
 import urllib.parse
 import pandas as pd
+
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 API = "https://www.ebi.ac.uk/eqtl/api/v2"
 UA = {"User-Agent": "Mozilla/5.0"}
@@ -51,7 +56,7 @@ for d in dice:
           flush=True)
 
 t = pd.DataFrame(rows)
-t.to_csv(r"D:/R_ex/MR/38c_DICE_gene_coverage.tsv", sep="\t", index=False)
+t.to_csv(os.path.join(MR, "38c_DICE_gene_coverage.tsv"), sep="\t", index=False)
 print("\n" + "=" * 78)
 print(f"TPI1  quantified in {t.TPI1_quantified.sum()}/{len(t)} DICE datasets")
 print(f"SPSB2 quantified in {t.SPSB2_quantified.sum()}/{len(t)} DICE datasets")

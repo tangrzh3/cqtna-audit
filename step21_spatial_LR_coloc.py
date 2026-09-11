@@ -52,7 +52,8 @@ import pandas as pd
 from scipy import stats
 
 ST_DIR = "D:/Downloads/ST-Melanoma-Datasets_1"
-MR = "D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 # usage: python step21_spatial_LR_coloc.py [LR_file] [output_tag]
 #   default is the glycolysis-module split from step20

@@ -13,12 +13,14 @@ again to get kappa in 105b_kappa.tsv.
 
 Outputs: 105a_blind_coding.tsv, 105b_kappa.tsv
 """
+import sys
 import os
 import random
 
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SEED = 105
 BLIND = f"{MR}/105a_blind_coding.tsv"
 

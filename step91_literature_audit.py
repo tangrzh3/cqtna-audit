@@ -40,7 +40,8 @@ import time
 import urllib.parse
 import urllib.request
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SCRATCH = os.path.join(MR, "litaudit")
 os.makedirs(SCRATCH, exist_ok=True)
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"

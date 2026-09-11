@@ -30,7 +30,7 @@ suppressPackageStartupMessages({
 })
 
 DIR <- "D:/Downloads/GSE316760"
-OUT <- "D:/R_ex/MR"
+OUT <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 
 SAMPLES <- c(mel2 = "GSM9459774_mel2_filtered_feature_bc_matrix.h5",
              mel3 = "GSM9459775_mel3_filtered_feature_bc_matrix.h5")

@@ -26,7 +26,7 @@
 suppressPackageStartupMessages({library(Matrix); library(data.table)})
 
 DIR <- "D:/Downloads/GSE300445"
-OUT <- "D:/R_ex/MR"
+OUT <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 
 MARK <- list(
   Tumour   = c("MLANA","PMEL","TYR","DCT","TYRP1","SOX10","MITF","S100B","PRAME"),

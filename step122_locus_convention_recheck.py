@@ -30,7 +30,8 @@ try:
 except Exception:
     pass
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 KB = [100, 250, 500, 1000]
 
 

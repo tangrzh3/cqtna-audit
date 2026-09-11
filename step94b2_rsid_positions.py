@@ -14,6 +14,7 @@ Fixed here by resolving rsIDs against Ensembl GRCh38 directly, independent of an
 instrument list. The lung and colorectal numbers produced before this fix are void
 and are not reported.
 """
+import sys
 import io
 import json
 import os
@@ -22,7 +23,8 @@ import urllib.request
 
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 URL = "https://rest.ensembl.org/variation/homo_sapiens?pops=0"
 DISEASES = ["lung", "colorectal", "pancreas", "breast", "prostate"]
 

@@ -20,6 +20,7 @@ mapping failure here rather than reported as a result.
 
 Output: 108a_ra_attribution.tsv
 """
+import sys
 import csv
 import gzip
 import os
@@ -28,7 +29,8 @@ from math import exp, lgamma
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 RA = f"{MR}/ra/finngen_R13_M13_RHEUMA.gz"
 LOCUS_KB = KNOWN_KB = 1000
 FDR = 0.05

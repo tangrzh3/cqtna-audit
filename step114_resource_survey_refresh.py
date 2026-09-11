@@ -20,13 +20,15 @@ and per-timepoint sample sizes match the Soskic exposure used in this paper.
 
 Outputs: 114a_stim_datasets.tsv, 114b_circularity.tsv, 114_console.log
 """
+import os
 import io
 import sys
 import urllib.request
 
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 UA = {"User-Agent": "Mozilla/5.0 (dynamic-eqtl-survey)"}
 BASE = ("https://raw.githubusercontent.com/eQTL-Catalogue/"
         "eQTL-Catalogue-resources/master/data_tables/")

@@ -161,6 +161,25 @@ GROUP7_SKIP = {  # already run above, or not analyses
     # reason is a result S54 wants; skipping them would be the thing this
     # amendment exists to stop.
     "step20_install.R", "step46_install_motif.R",
+    # ⚠ Added 2026-09-11 on evidence, not on suspicion. These three are data
+    # ACQUISITION, not analysis: they fetch GEO archives into D:/Downloads,
+    # which is outside the repository and which the container cannot see, so
+    # inside the image that path resolves to /repo/D:/Downloads and the
+    # download lands IN THE REPOSITORY. On the 2026-09-11 run that is exactly
+    # what happened -- 20.8 GB written into the working tree, on a disk with
+    # 14 GB to spare, every file a byte-size duplicate of one already sitting
+    # at D:/Downloads on the authoring machine. step51 had to be killed at
+    # 1942 s to stop it (recorded rc=-15, a termination, not a natural
+    # failure).
+    #   Their absence costs no coverage. What they fetch is the single-cell,
+    # spatial and chromatin input the deposit does not distribute, so the
+    # analyses downstream of them are "not rerunnable" either way; running
+    # the downloader only changes whether the reader's disk fills up first.
+    # ⚠ And the fix is NOT to mount D:/Downloads into the image: S54's whole
+    # premise is that a reader has the repository and nothing else. Mounting
+    # it would measure a deposit that does not exist.
+    "step33_get_GSE282266.py", "step41_get_GSE166188.py",
+    "step51_get_GSE199994.py",
 }
 
 # Tier-two tables (S54 section 2) plus the ones the manuscript quotes from.

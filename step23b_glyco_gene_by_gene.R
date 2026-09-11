@@ -16,7 +16,7 @@
 
 suppressPackageStartupMessages({library(Seurat); library(data.table)})
 set.seed(1)
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 GLYCO <- c("TPI1", "SLC2A1", "SLC2A3", "HK1", "HK2", "HK3", "GPI", "PFKL",
            "PFKM", "PFKP", "ALDOA", "ALDOC", "GAPDH", "PGK1", "PGAM1", "ENO1",

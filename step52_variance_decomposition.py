@@ -31,6 +31,7 @@ Depth is regressed out per cell before scoring, as in Steps 43-44.
 
 Output: 52a-52c
 """
+import sys
 import glob
 import gzip
 import os
@@ -42,7 +43,8 @@ import pandas as pd
 
 D = r"D:/Downloads/GSE199994"
 WORK = r"D:/Downloads/GSE199994/extracted"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 rng = np.random.default_rng(1)
 
 GLYCO = ["SLC2A1", "SLC2A3", "HK1", "HK2", "GPI", "PFKL", "PFKP", "ALDOA",

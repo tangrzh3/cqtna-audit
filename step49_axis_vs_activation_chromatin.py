@@ -20,11 +20,14 @@ Three checks, on the same consensus reference:
 
 Output: 49a
 """
+import sys
+import os
 import numpy as np
 import pandas as pd
 from scipy import stats
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 N_TOP = 2000
 
 ax = pd.read_csv(f"{MR}/47a_axis_differential_peaks.tsv.gz", sep="\t")

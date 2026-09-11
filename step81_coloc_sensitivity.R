@@ -23,7 +23,7 @@
 # ============================================================================
 
 suppressPackageStartupMessages({library(arrow); library(data.table); library(coloc)})
-MR <- "D:/R_ex/MR"; PARQ <- "D:/Downloads/CD4_eqtl_step1_clean"
+MR <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"; PARQ <- "D:/Downloads/CD4_eqtl_step1_clean"
 
 N_EQTL <- c(CD4_Naive_uns_0h=99, CD4_Naive_stim_16h=99, CD4_Naive_stim_40h=89,
             CD4_Naive_stim_5d=85, CD4_Memory_uns_0h=100, CD4_Memory_stim_16h=95,

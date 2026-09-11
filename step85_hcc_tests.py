@@ -14,13 +14,15 @@ all fixed in that document.
 
 Output: 85a-85d
 """
+import sys
 import os
 from math import lgamma, exp
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 LOCUS_KB = 1000          # same 1 Mb single-linkage rule as Step 30e
 KNOWN_KB = 1000          # instrument within 1 Mb of a known lead SNP -> known locus
 NOVEL_MEL = "潜在新位点"

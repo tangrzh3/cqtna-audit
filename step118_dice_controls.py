@@ -20,6 +20,7 @@ Inputs:  116b_mr_Schmiedel_2018.tsv, landi2020_known_loci_grch38.csv,
          84a_hcc_known_loci_grch38.csv
 Outputs: 118a_dice_controls.tsv, 118_console.log
 """
+import os
 import io
 import sys
 from math import exp, lgamma
@@ -27,7 +28,8 @@ from math import exp, lgamma
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SRC = f"{MR}/116b_mr_Schmiedel_2018.tsv"
 KNOWN_MEL = f"{MR}/landi2020_known_loci_grch38.csv"
 KNOWN_HCC = f"{MR}/84a_hcc_known_loci_grch38.csv"

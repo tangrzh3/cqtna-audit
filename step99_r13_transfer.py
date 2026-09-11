@@ -38,7 +38,8 @@ from statistics import NormalDist
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 ND = NormalDist()
 FDR_MAIN = 0.05
 NOVEL = "潜在新位点"

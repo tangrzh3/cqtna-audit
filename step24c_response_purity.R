@@ -20,7 +20,7 @@
 ## =====================================================================
 
 suppressPackageStartupMessages({library(data.table); library(Seurat)})
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 obj  <- readRDS("GSE120575_CD4_clusters_1_5_6_12_15.rds")   # 3,878 fixed CD4
 d    <- GetAssayData(obj, assay = "RNA", layer = "data")

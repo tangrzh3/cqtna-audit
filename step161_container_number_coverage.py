@@ -46,15 +46,47 @@ def say(s=""):
 
 
 def section_tables():
-    """Which result tables each step127 section reads, from its own source."""
+    """Which result tables each step127 section reads, from its own source.
+
+    Two sources, because _find alone is not enough. Nine sections call no
+    _find at all -- they reuse a dataframe step127 loads at module level, line
+    53 onward -- and the first version of this recorded them as having NO
+    source table, which `all(regen(...))` then reports as "not regenerated".
+    That is not a measurement of the container; it is the audit's internal
+    code structure leaking into a coverage figure. 1g, 1r, 1v and 2e read
+    123d and 1s reads 128a/128b, every one of which the container regenerated.
+
+    The second source is the section's own title, which states its provenance
+    in the author's words -- "1s. the RA sweeps quoted as ranges (S37),
+    against 128a and 128b". 39 of the 48 titles carry such a clause. Tokens
+    that resolve to a table file present in the repository are added; tokens
+    that do not ("against the meta output", "against 01, 04 and 12", whose
+    tables no deposited script produces) are recorded as UNRESOLVED rather
+    than silently counted either way, and main() reports them as their own
+    band. A coverage figure that cannot say which side of the line those
+    values fall on should say so, not pick.
+    """
     src = io.open(os.path.join(MR, "step127_audit_manuscript_numbers.py"),
                   encoding="utf-8").read()
     parts = re.split(r'print\("(\d[a-z]?\..*?)"\)', src)
-    out = {}
+    present = [f for f in os.listdir(MR)
+               if re.match(r'[0-9]{1,3}[a-z]?_', f)]
+    out, unresolved = {}, {}
     for i in range(1, len(parts), 2):
         name = parts[i].split(".")[0]
         tabs = set(re.findall(r'_find\("([0-9]{1,3}[a-z]?_[A-Za-z0-9_.]+?)"\)',
                               parts[i + 1]))
+        if not tabs:
+            clause = re.search(r'\bagainst\s+(.+)$', parts[i])
+            if clause:
+                for tok in re.findall(r'\b([0-9]{1,3}[a-z]?)\b', clause.group(1)):
+                    hit = [f for f in present if re.match(re.escape(tok) + r'_', f)]
+                    if hit:
+                        tabs.update(hit)
+                    else:
+                        unresolved.setdefault(name, set()).add(tok)
+                if not tabs and not unresolved.get(name):
+                    unresolved.setdefault(name, set()).add(clause.group(1)[:40])
         if tabs:
             out.setdefault(name, set()).update(tabs)
     # Section 1 reads its tables at module level, before any banner is printed.
@@ -64,7 +96,7 @@ def section_tables():
         "141a_enrichment_decomposition.tsv", "140d_threshold.tsv",
         "141b_reviewer_conditioning.tsv",
         "85e_matched_background_fixed_anchor.tsv"})
-    return out
+    return out, unresolved
 
 
 def regenerated_prefixes():
@@ -88,7 +120,7 @@ def regenerated_prefixes():
 
 
 def main():
-    tabs = section_tables()
+    tabs, unres = section_tables()
     ok = regenerated_prefixes()
     if ok is None:
         say("159a_container_acceptance.tsv missing; run step159 first.")
@@ -168,15 +200,29 @@ def main():
             if f:
                 body.add(f[0])
 
-    recomputed, audited_only = set(), set()
+    recomputed, audited_only, unknown = set(), set(), set()
     rows = []
     for s, vs in sorted(vals.items()):
         t = tabs.get(s, set())
-        is_re = bool(t) and all(regen(x) for x in t)
         vs = {v for v in vs if not body or v in body}
-        (recomputed if is_re else audited_only).update(vs)
-        rows.append((s, ",".join(sorted(t)), "yes" if is_re else "no", len(vs)))
+        if not t:
+            # No source could be established, from _find or from the title.
+            # Counting these as not-regenerated would be a guess in the
+            # project's own favour in one direction and against it in the
+            # other; they get their own band instead.
+            verdict = "unknown"
+            unknown.update(vs)
+        elif all(regen(x) for x in t):
+            verdict = "yes"
+            recomputed.update(vs)
+        else:
+            verdict = "no"
+            audited_only.update(vs)
+        rows.append((s, ",".join(sorted(t)) or
+                     "?" + ",".join(sorted(unres.get(s, {"unstated"}))),
+                     verdict, len(vs)))
     audited_only -= recomputed
+    unknown -= (recomputed | audited_only)
 
     # the text's own count, from step160's output file
     total = None
@@ -193,10 +239,23 @@ def main():
         % len(recomputed | audited_only))
     say("  C  of B, source table regenerated here    : %d" % len(recomputed))
     say("     audited but NOT regenerated            : %d" % len(audited_only))
+    say("     source not established either way      : %d" % len(unknown))
     if total:
+        lo = 100.0 * len(recomputed) / total
+        hi = 100.0 * (len(recomputed) + len(unknown)) / total
         say()
         say("  S54 section 8 threshold is C / A >= 50%%: %d / %d = %.1f%%"
-            % (len(recomputed), total, 100.0 * len(recomputed) / total))
+            % (len(recomputed), total, lo))
+        if unknown:
+            say("  with the %d unestablished values counted the other way,"
+                % len(unknown))
+            say("  the figure is %d / %d = %.1f%%. The threshold is %s either"
+                % (len(recomputed) + len(unknown), total, hi,
+                   "MET" if lo >= 50 else "NOT met"))
+            say("  way only if those two agree -- here they do%s."
+                % ("" if (lo >= 50) == (hi >= 50)
+                   else " NOT, so the band straddles the line and the"
+                        " figure cannot decide section 8 on its own"))
         say()
         say("  NOTE Being audited is not being recomputed. step127 checks a number")
         say("  against a table; that table may have been mounted in from the")

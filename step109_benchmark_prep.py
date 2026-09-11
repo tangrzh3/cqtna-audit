@@ -30,7 +30,8 @@ import sys
 
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SRC = f"{MR}/96a_attribution_selfcheck.tsv"
 FILE_A = f"{MR}/109a_fileA_nominations.tsv"
 RESCORED = f"{MR}/109b_selfcheck_rescored.tsv"

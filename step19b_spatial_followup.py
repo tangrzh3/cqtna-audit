@@ -13,11 +13,14 @@ the CD4 hypothesis its best shot:
   (3) HLA-C run identically as a positive control (an immune gene must pass)
   (4) gene-by-gene correlations against individual T-cell / melanocyte markers
 """
+import sys
+import os
 import numpy as np
 import pandas as pd
 from scipy import stats
 
-OUT = "D:/R_ex/MR"
+OUT = (sys.argv[1] if len(sys.argv) > 1
+       else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 spots = pd.read_csv(f"{OUT}/23a_ST_spot_level.tsv", sep="\t")
 
 # region labels reproduce the main script

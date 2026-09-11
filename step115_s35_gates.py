@@ -13,6 +13,7 @@ for resources that pass this gate.
 
 Outputs: 115a_study_evidence.txt, 115b_gate1.tsv, 115_console.log
 """
+import os
 import io
 import json
 import re
@@ -23,7 +24,8 @@ import urllib.request
 
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 UA = {"User-Agent": "Mozilla/5.0 (s35-gate-check)"}
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 META = ("https://raw.githubusercontent.com/eQTL-Catalogue/"

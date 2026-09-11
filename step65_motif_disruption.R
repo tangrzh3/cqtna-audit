@@ -31,7 +31,7 @@ suppressPackageStartupMessages({
   library(motifmatchr); library(BSgenome.Hsapiens.UCSC.hg38); library(Biostrings)
 })
 
-MR   <- "D:/R_ex/MR"
+MR   <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 GEN  <- BSgenome.Hsapiens.UCSC.hg38
 CHR  <- "chr12"; POS <- 6867132L; REF <- "C"; ALT <- "T"
 FLANK <- 30L                 # 覆盖 JASPAR 最长基序

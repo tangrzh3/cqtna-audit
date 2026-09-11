@@ -22,6 +22,7 @@ Both use the full cis windows in CD4_eqtl_step1_clean (8 profiles x ~8M rows),
 not the instrument subset, so genes without instruments are included.
 Outputs 35b-35f.
 """
+import sys
 import os
 import glob
 import gzip
@@ -31,7 +32,8 @@ import pyarrow.parquet as pq
 from scipy import stats
 
 PARQ = "D:/Downloads/CD4_eqtl_step1_clean"
-MR = "D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 GWAS = os.path.join(MR, "meta_melanoma_final.tsv.gz")
 rng = np.random.default_rng(1)
 

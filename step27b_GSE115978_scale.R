@@ -7,7 +7,7 @@
 ## the stored rds may be right after all).
 
 suppressPackageStartupMessages({library(data.table)})
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 raw <- fread("D:/数据/黑色素瘤单细胞人/GSE115978/GSE115978_counts.csv.gz")
 m <- as.matrix(raw[, -1]); storage.mode(m) <- "double"

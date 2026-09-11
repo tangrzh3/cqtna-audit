@@ -19,6 +19,7 @@ literals currently in the figure script and any disagreement is printed.
 
 Output: 120a_tpi1_instrument_window.tsv
 """
+import sys
 import os
 
 import numpy as np
@@ -26,7 +27,8 @@ import pandas as pd
 import pyarrow.parquet as pq
 import pyarrow.compute as pc
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 PARQ = r"D:/Downloads/CD4_eqtl_step1_clean"
 
 GENE = "ENSG00000111669"          # TPI1

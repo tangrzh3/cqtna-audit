@@ -29,6 +29,7 @@ Focus is C1 and C3, the two criteria the paper's own claims rest on (7.9% and
 
 Outputs: 104a_prisma.tsv, 104b_adjudication.tsv (to be filled), 104c_validation.tsv
 """
+import sys
 import csv
 import glob
 import os
@@ -37,7 +38,8 @@ import re
 
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SCRATCH = os.path.join(MR, "litaudit")
 SEED = 104
 SUBSAMPLE_FRAC = 0.30

@@ -28,7 +28,7 @@
 suppressPackageStartupMessages({library(data.table); library(Matrix)})
 
 D   <- "D:/数据/黑色素瘤单细胞人/GSE115978"
-OUT <- "D:/R_ex/MR"
+OUT <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 MIN_CELLS <- 10L
 
 LOCKED <- c("SLC2A1","SLC2A3","HK1","HK2","GPI","PFKL","PFKP","PFKFB3",

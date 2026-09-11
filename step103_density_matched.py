@@ -22,10 +22,13 @@ Design fixed in S30 section 3 and not altered here:
 
 Output: 103a_density_matched.tsv
 """
+import sys
+import os
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 LOCUS_KB = KNOWN_KB = 1000
 N_PERM = 10000
 NOVEL = "潜在新位点"

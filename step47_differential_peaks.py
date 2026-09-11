@@ -24,6 +24,7 @@ reference can be changed later without re-parsing any matrix.
 
 Output: 47a (axis), 47b (activation control)
 """
+import sys
 import gzip
 import os
 import time
@@ -31,7 +32,8 @@ import numpy as np
 import pandas as pd
 
 D = r"D:/Downloads/GSE282266"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 CACHE = os.path.join(MR, "cache_47")
 os.makedirs(CACHE, exist_ok=True)
 SETS = [1, 2, 3, 4]

@@ -22,6 +22,7 @@ PRE-SPECIFIED
 
 Output: 44a (ranked genes), 44b (family composition), 44c (top lists)
 """
+import sys
 import gzip
 import os
 import re
@@ -30,7 +31,8 @@ import numpy as np
 import pandas as pd
 
 D = r"D:/Downloads/GSE282266"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SETS = [1, 2, 3, 4]
 TP = "act_15"
 MIN_DETECT = 0.05

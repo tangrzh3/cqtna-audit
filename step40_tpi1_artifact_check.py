@@ -24,6 +24,7 @@ CHECKS
      agree with the catalogue's Cytoimmgen values? If they do, our pipeline is
      sound and TPI1's absence there is their filtering choice, not our error.
 """
+import sys
 import glob
 import json
 import os
@@ -35,7 +36,8 @@ import pandas as pd
 import pyarrow.parquet as pq
 
 PARQ = r"D:/Downloads/CD4_eqtl_step1_clean"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 API = "https://www.ebi.ac.uk/eqtl/api/v2"
 UA = {"User-Agent": "Mozilla/5.0"}
 

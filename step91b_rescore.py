@@ -21,13 +21,15 @@ TWO CHANGES, KEPT SEPARATE ON PURPOSE
 
 Output: 91d_rescored.tsv, 91e_summary_both.tsv
 """
+import sys
 import csv
 import glob
 import io
 import os
 import re
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SCRATCH = os.path.join(MR, "litaudit")
 
 STRICT = {

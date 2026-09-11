@@ -28,12 +28,14 @@ is truncated. This is a recovery, not a regeneration, and is labelled as such.
 Inputs:  92c_locus_annotated.tsv, 96a_attribution_selfcheck.tsv
 Outputs: 111a_selfcheck_rebuilt.tsv, 111_console.log
 """
+import os
 import io
 import sys
 
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 
 
 class Tee:

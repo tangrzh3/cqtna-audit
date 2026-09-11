@@ -13,7 +13,8 @@ import time
 import urllib.parse
 import urllib.request
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 API = ("https://www.ebi.ac.uk/gwas/rest/api/associations/"
        "search/findByEfoTrait?efoTrait={}&size=3000")
 TRAITS = {"breast": ["breast carcinoma"],

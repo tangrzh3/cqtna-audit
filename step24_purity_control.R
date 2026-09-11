@@ -29,7 +29,7 @@
 ## =====================================================================
 
 suppressPackageStartupMessages({library(data.table); library(Seurat)})
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 OBJ_RDS   <- "24_checkpoint_Post_Step23CD4_GlycoScore.rds"   # Seurat, 2427 Post CD4
 GLYCO_RDS <- "24_checkpoint_Glyco_Post_matched.rds"          # 584/584 matched

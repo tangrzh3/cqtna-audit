@@ -13,7 +13,7 @@
 #   不通过 = 代理 LD 不够用 = 整段分析记为无信息（不得当作"未推翻结论"）。
 
 suppressPackageStartupMessages({library(susieR); library(data.table)})
-MR  <- "D:/R_ex/MR"; REG <- file.path(MR, "regions")
+MR  <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"; REG <- file.path(MR, "regions")
 N_FG   <- 384502    # FinnGen R12: 5,753 例 / 378,749 对照
 N_META <- 801629    # meta: 12,530 / 789,099
 

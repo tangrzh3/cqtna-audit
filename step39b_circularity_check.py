@@ -14,6 +14,8 @@ finding in it would be circular and must not be done. This script gathers the
 study metadata needed to decide, and separately identifies which stimulated
 T-cell datasets come from genuinely independent studies AND quantify TPI1.
 """
+import sys
+import os
 import json
 import time
 import urllib.request
@@ -22,7 +24,8 @@ import pandas as pd
 
 API = "https://www.ebi.ac.uk/eqtl/api/v2"
 UA = {"User-Agent": "Mozilla/5.0"}
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 TPI1, SPSB2 = "ENSG00000111669", "ENSG00000111671"
 
 SOSKIC_N = {("Naive", "0h"): 99, ("Naive", "16h"): 99, ("Naive", "40h"): 89,

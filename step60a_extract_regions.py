@@ -14,10 +14,12 @@ MC1R 区已有 FinnGen 官方用**样本内 LD** 做出的答案：3 个高纯�
 
 输出：regions/{region}_{finngen,meta}.tsv
 """
+import sys
 import gzip
 import os
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 OUT = os.path.join(MR, "regions")
 os.makedirs(OUT, exist_ok=True)
 

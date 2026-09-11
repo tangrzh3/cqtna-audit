@@ -22,7 +22,7 @@
 
 suppressPackageStartupMessages({library(data.table); library(Seurat)})
 set.seed(1)
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 obj_all   <- readRDS("24_checkpoint_GSE120575_annotated_obj.rds")
 fixed_cd4 <- colnames(readRDS("GSE120575_CD4_clusters_1_5_6_12_15.rds"))

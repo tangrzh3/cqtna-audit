@@ -21,11 +21,14 @@ PREDICTION, stated before running
 
 Output: 55a
 """
+import sys
+import os
 import numpy as np
 import pandas as pd
 from scipy import stats
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 rng = np.random.default_rng(1)
 N_REP = 400
 FDR_THR = 0.05

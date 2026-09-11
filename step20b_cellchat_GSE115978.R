@@ -21,7 +21,7 @@ suppressPackageStartupMessages({
 set.seed(1)
 options(stringsAsFactors = FALSE, future.globals.maxSize = 8 * 1024^3)
 
-MR      <- "D:/R_ex/MR"
+MR      <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 CNT_GZ  <- "D:/数据/黑色素瘤单细胞人/GSE115978/GSE115978_counts.csv.gz"
 ANN_GZ  <- "D:/数据/黑色素瘤单细胞人/GSE115978/GSE115978_cell.annotations.csv.gz"
 setwd(MR)

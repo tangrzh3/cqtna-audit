@@ -22,7 +22,7 @@ suppressPackageStartupMessages({
   library(BSgenome.Hsapiens.UCSC.hg38)
 })
 set.seed(1)
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 GEN <- BSgenome.Hsapiens.UCSC.hg38
 N_FG <- 2000        # peaks per direction
 N_BG_PER_FG <- 5    # matched background peaks per foreground peak

@@ -38,7 +38,8 @@ import numpy as np
 import pandas as pd
 
 D = r"D:/Downloads/GSE282266"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 TPS = ["rest", "act_2.5", "act_5", "act_15"]
 SETS = [1, 2, 3, 4]
 WIN_PRIMARY, WIN_SENS = 2000, 10000

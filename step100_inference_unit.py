@@ -30,10 +30,13 @@ beside it -- if the two agree, the collapse is not driving anything.
 
 Outputs: 100a_unit_sensitivity.tsv, 100b_unit_lists.tsv
 """
+import sys
+import os
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 FDR = 0.05
 LOCUS_KB = 1000
 NOVEL = "潜在新位点"

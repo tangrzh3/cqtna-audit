@@ -36,7 +36,8 @@ try:
 except Exception:
     pass
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 KB = [100, 250, 500, 1000]
 PUBLISHED = {          # 1000 kb 下必须重现的倍数（保留两位小数）
     "melanoma x Soskic_CD4": 4.09,

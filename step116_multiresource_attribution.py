@@ -32,6 +32,7 @@ from the nominal p-value as a chi-square deviate. Both are recorded per cell.
 Outputs: 116a_instruments_<res>.tsv, 116b_mr_<res>.tsv, 116c_attribution.tsv,
          116_console.log
 """
+import os
 import csv
 import gzip
 import io
@@ -43,7 +44,8 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm, chi2
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 OUTCOME = f"{MR}/meta_melanoma_final.tsv.gz"
 KNOWN = f"{MR}/landi2020_known_loci_grch38.csv"
 FTP = "https://ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats"

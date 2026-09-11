@@ -16,6 +16,7 @@ BH-FDR 的检验家族、位点标注、1 Mb 位点合并规则。唯一系统�
 
 输出：59a_release_trajectory.tsv、59b_release_lists.tsv、59c_prediction_check.tsv
 """
+import sys
 import csv
 import math
 import os
@@ -24,7 +25,8 @@ from statistics import NormalDist
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 EXT = os.path.join(MR, "release_extracts")
 ND = NormalDist()
 FDR_MAIN, FDR_STRAT = 0.05, 0.20

@@ -31,6 +31,7 @@ the positive control matters.
 
 Output: 43a-43c
 """
+import sys
 import gzip
 import os
 import time
@@ -39,7 +40,8 @@ import pandas as pd
 from scipy import stats
 
 D = r"D:/Downloads/GSE282266"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SETS = [1, 2, 3, 4]
 TP = "act_15"
 rng = np.random.default_rng(1)

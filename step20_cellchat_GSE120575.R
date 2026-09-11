@@ -32,7 +32,7 @@ suppressPackageStartupMessages({
 set.seed(1)
 options(stringsAsFactors = FALSE, future.globals.maxSize = 8 * 1024^3)
 
-MR      <- "D:/R_ex/MR"
+MR      <- if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR"
 TPM_GZ  <- "D:/Downloads/GSE120575_Sade_Feldman_melanoma_single_cells_TPM_GEO.txt.gz"
 ANNO_GZ <- "D:/Downloads/GSE120575_patient_ID_single_cells.txt.gz"
 setwd(MR)

@@ -2,7 +2,7 @@
 ## and record their genomic locations -- a cross-chromosome pseudogene cannot
 ## produce a clean cis peak at TPI1's own promoter, so location matters.
 suppressPackageStartupMessages({library(org.Hs.eg.db); library(AnnotationDbi)})
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 sym <- keys(org.Hs.eg.db, keytype = "SYMBOL")
 pg <- grep("^TPI1", sym, value = TRUE)

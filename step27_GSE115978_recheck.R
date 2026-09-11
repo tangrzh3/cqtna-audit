@@ -18,7 +18,7 @@
 
 suppressPackageStartupMessages({library(data.table); library(Seurat); library(Matrix)})
 set.seed(1)
-setwd("D:/R_ex/MR")
+setwd(if (length(commandArgs(trailingOnly = TRUE))) commandArgs(trailingOnly = TRUE)[1] else if (nzchar(Sys.getenv("CQTNA_DIR"))) Sys.getenv("CQTNA_DIR") else "D:/R_ex/MR")
 
 CNT <- "D:/数据/黑色素瘤单细胞人/GSE115978/GSE115978_counts.csv.gz"
 ANN <- "D:/数据/黑色素瘤单细胞人/GSE115978/GSE115978_cell.annotations.csv.gz"

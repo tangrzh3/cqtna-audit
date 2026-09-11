@@ -24,13 +24,15 @@ Why this exists (三条，都在 FIGURES_GB_mapping.md §三 记过):
   · 倍数 = (显著位点中已知的比例) / (背景位点中已知的比例)
   · P = 单侧 Fisher
 """
+import sys
 import os
 from math import lgamma, exp
 
 import numpy as np
 import pandas as pd
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 LOCUS_KB = 1000
 KNOWN_KB = 1000
 

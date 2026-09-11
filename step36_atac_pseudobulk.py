@@ -23,6 +23,7 @@ PRE-SPECIFIED
 Windows fixed at +/-2 kb (primary) and +/-10 kb (sensitivity).
 Output: 37a-37d
 """
+import sys
 import gzip
 import os
 import time
@@ -31,7 +32,8 @@ import pandas as pd
 from scipy import stats
 
 D = r"D:/Downloads/GSE282266"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 TPS = ["rest", "act_2.5", "act_5", "act_15"]
 SETS = [1, 2, 3, 4]
 WINDOWS = {"w2k": 2000, "w10k": 10000}

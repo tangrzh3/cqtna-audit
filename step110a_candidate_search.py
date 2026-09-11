@@ -19,6 +19,7 @@ Outputs: 110a_benchmark_candidates.tsv
          110b_orcs_reference.tsv
          110a_console.log
 """
+import os
 import io
 import json
 import sys
@@ -26,7 +27,8 @@ import time
 import urllib.parse
 import urllib.request
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 UA = {"User-Agent": "Mozilla/5.0 (attribution-benchmark-survey)"}
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 CROSSREF = "https://api.crossref.org/works"

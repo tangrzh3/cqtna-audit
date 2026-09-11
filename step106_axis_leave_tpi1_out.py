@@ -21,6 +21,7 @@ in the axis derived without it is the quantity of interest.
 
 Outputs: 106a_axis_noTPI1_ranked.tsv, 106b_family_noTPI1.tsv, 106c_comparison.tsv
 """
+import sys
 import gzip
 import os
 import re
@@ -30,7 +31,8 @@ import numpy as np
 import pandas as pd
 
 D = r"D:/Downloads/GSE282266"
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 SETS = [1, 2, 3, 4]
 TP = "act_15"
 MIN_DETECT = 0.05

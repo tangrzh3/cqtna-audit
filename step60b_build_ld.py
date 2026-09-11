@@ -15,7 +15,8 @@ import os
 import subprocess
 import sys
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 REG = os.path.join(MR, "regions")
 PLINK = os.path.join(MR, "bin", "plink2.exe")
 PFILE = os.path.join(MR, "ref", "all_hg38")

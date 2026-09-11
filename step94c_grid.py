@@ -18,6 +18,7 @@ so no liftover is involved and every disease is scored in its own build.
 
 Output: 94d_grid.tsv, 94e_grid_summary.tsv
 """
+import sys
 import csv
 import gzip
 import io
@@ -28,7 +29,8 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
-MR = r"D:/R_ex/MR"
+MR = (sys.argv[1] if len(sys.argv) > 1
+      else os.environ.get("CQTNA_DIR") or r"D:/R_ex/MR")
 LOCUS_KB = 1000
 KNOWN_KB = 1000
 
