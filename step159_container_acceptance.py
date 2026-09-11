@@ -557,11 +557,41 @@ def main():
                          status="unverified", rc=-1))
         gate_bad = True
 
-    rc, _ = run("cqtna testthat", ["Rscript", "-e",
-                                   'testthat::test_local("cqtna_r")'])
-    rows.append(dict(phase=1, step="cqtna testthat",
-                     status="ok" if rc == 0 else "FAIL", rc=rc))
-    gate_bad |= rc != 0
+    # ⚠ CQTNA_DIR has to be set before this, and nothing used to set it.
+    # cqtna_r/tests/testthat/test-decomposition.R opens with
+    #   skip_if_not(file.exists(file.path(Sys.getenv("CQTNA_DIR"),
+    #                                     "13_meta_locus_annotation.tsv")))
+    # so with the variable empty the suite SKIPS the one test that reads the
+    # paper's own tables -- and then reports success. Measured 2026-09-11 in
+    # cqtna-audit:0.3.0: without it, FAIL 0 SKIP 1 PASS 263; with it, FAIL 0
+    # SKIP 0 PASS 271. Every acceptance run so far has been green on 263 while
+    # S54 section 2 and section 9.6 cite "271 assertions, all passing", and the
+    # missing eight are exactly the ones that touch the deposited tables, which
+    # is the part a cross-environment check is for.
+    os.environ["CQTNA_DIR"] = MR
+    rc, tout = run("cqtna testthat", ["Rscript", "-e",
+                                      'testthat::test_local("cqtna_r")'])
+    # Read the tally rather than the exit code. testthat exits 0 on a skip.
+    m = re.search(r'FAIL\s+(\d+)\s*\|\s*WARN\s+(\d+)\s*\|\s*SKIP\s+(\d+)'
+                  r'\s*\|\s*PASS\s+(\d+)', tout)
+    if m:
+        nf, nw, ns, np_ = (int(x) for x in m.groups())
+        say("      FAIL %d  WARN %d  SKIP %d  PASS %d" % (nf, nw, ns, np_))
+        if ns:
+            say("      ⚠ %d test(s) SKIPPED -- a skip is not a pass. S54"
+                " section 2 counts 271." % ns)
+        bad_tests = rc != 0 or nf or ns
+        rows.append(dict(phase=1, step="cqtna testthat",
+                         status="ok" if not bad_tests
+                         else "FAIL (%d fail, %d skip)" % (nf, ns), rc=rc))
+    else:
+        say("      ⚠ could not read testthat's tally from its output, so"
+            " 'ok' here means only that Rscript exited 0.")
+        bad_tests = rc != 0
+        rows.append(dict(phase=1, step="cqtna testthat",
+                         status="ok (tally unread)" if rc == 0 else "FAIL",
+                         rc=rc))
+    gate_bad |= bool(bad_tests)
     for label, cmd in AUDITS:
         rc, _ = run(label + " (pre)", cmd)
         rows.append(dict(phase=1, step=label + " (pre)",
