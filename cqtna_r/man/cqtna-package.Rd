@@ -15,11 +15,11 @@ every report rather than omitted; see [cqtna_not_automated()]. Nothing reaches
 `target-supported` from this tool, by design.
 }
 \author{
-\strong{Maintainer}: RuiZhi Tang \email{tangrz@sysucc.org.cn}
+\strong{Maintainer}: RuiZhi Tang \email{tangrz@sysucc.org.cn} (\href{https://orcid.org/0009-0009-2078-3384}{ORCID})
 
 Authors:
 \itemize{
-  \item RuiZhi Tang \email{tangrz@sysucc.org.cn}
+  \item RuiZhi Tang \email{tangrz@sysucc.org.cn} (\href{https://orcid.org/0009-0009-2078-3384}{ORCID})
 }
 
 }
