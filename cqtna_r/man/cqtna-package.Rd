@@ -15,11 +15,11 @@ every report rather than omitted; see [cqtna_not_automated()]. Nothing reaches
 `target-supported` from this tool, by design.
 }
 \author{
-\strong{Maintainer}: MR audit project \email{noreply@example.com}
+\strong{Maintainer}: RuiZhi Tang \email{tangrz@sysucc.org.cn}
 
 Authors:
 \itemize{
-  \item MR audit project \email{noreply@example.com}
+  \item RuiZhi Tang \email{tangrz@sysucc.org.cn}
 }
 
 }

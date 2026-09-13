@@ -2,8 +2,9 @@ Package: cqtna
 Title: Context-Specific QTL Target Nomination Audit
 Version: 0.3.0
 Authors@R:
-    person("MR audit project", role = c("aut", "cre"),
-           email = "noreply@example.com")
+    person("RuiZhi", "Tang", role = c("aut", "cre"),
+           email = "tangrz@sysucc.org.cn",
+           comment = c(ORCID = "0009-0009-2078-3384"))
 Description: Runs the automatable part of eight diagnostics on a candidate list
     produced by any cis-eQTL-instrumented Mendelian randomization pipeline, and
     reports what kind of evidence each gene actually carries. Checks locus

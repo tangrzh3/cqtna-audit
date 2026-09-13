@@ -71,6 +71,11 @@ def write(p, t):
 
 
 def outstanding(t):
+    # Judge the text a reader sees, not the commands that search for leftovers:
+    # the freeze checklist's grep must keep the placeholder literals, and
+    # counting those as unfilled would make "all sites filled" unreachable.
+    t = "\n".join(ln for ln in t.split("\n")
+                  if not re.search(r"\b(grep|rg|findstr|Select-String)\b", ln))
     out = []
     if NAME_PH in t:
         out.append("name")
@@ -115,6 +120,16 @@ def main(argv):
     if orcid and not re.match(r"^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$", orcid):
         print("refusing: --orcid must look like 0000-0002-1825-0097")
         return 2
+    # ⚠ --given/--family without --name used to fill NOTHING. The substitution
+    # loop below only ever reads `name`, so the placeholder name survived in all
+    # five metadata files; _fix_person then searched DESCRIPTION for
+    # person("<given> <family>" and found the placeholder instead; and
+    # _add_orcid, which waits for the placeholder to be gone, silently wrote the
+    # ORCID nowhere. DEPOSIT.md section 5 documents exactly that invocation, so
+    # the documented command was the one that did not work. Found 2026-09-13 on
+    # its first real use.
+    if not name and given and family:
+        name = "%s %s" % (given, family)
 
     changed = []
     for path, _kind in SITES:
@@ -124,9 +139,9 @@ def main(argv):
         t0 = read(path)
         t = t0
         if name:
-            t = t.replace(NAME_PH, name)
+            t = _replace_outside_checks(t, NAME_PH, name)
         if email:
-            t = t.replace(MAIL_PH, email)
+            t = _replace_outside_checks(t, MAIL_PH, email)
         if doi:
             # Prose cites a resolvable URL; metadata files want the bare DOI.
             rendered = ("https://doi.org/" + doi
@@ -190,6 +205,26 @@ def main(argv):
     return 0 if bad == 0 else 1
 
 
+def _replace_outside_checks(text, old, new):
+    """Replace a placeholder everywhere EXCEPT inside a command that searches for it.
+
+    cqtna_r/RELEASE.md's freeze checklist carries
+        grep -rn "OWNER\\|noreply@example.com\\|MR audit project" ...
+    whose whole job is to find leftover placeholders. A blind str.replace turned
+    it into a grep for the author's real address -- which is guaranteed to be
+    present once filled, so the check could only ever report failure, and the
+    one tool meant to confirm the placeholders are gone would have been broken
+    by the act of removing them. Lines that search are left as they are.
+    """
+    out = []
+    for ln in text.split("\n"):
+        if old in ln and re.search(r"\b(grep|rg|findstr|Select-String)\b", ln):
+            out.append(ln)
+        else:
+            out.append(ln.replace(old, new))
+    return "\n".join(out)
+
+
 def _fix_person(name, given, family, changed):
     """R's person() takes given and family separately. person("Ada Lovelace")
     records a mononym whose given name is the whole string, which citation()
@@ -219,7 +254,12 @@ def _fill_title_page(name, email, changed):
     p = "manuscript/MANUSCRIPT_GB.md"
     t0 = t = read(p)
     if name:
-        t = t.replace("⟨author list⟩", name)
+        # ⟨author list⟩ is deliberately NOT filled from --name. The flag names
+        # the package maintainer; the author list is every author of the paper,
+        # with order and affiliations, and the manuscript's own "author
+        # contributions, by initials" section implies more than one. Writing the
+        # maintainer in as the whole list would clear a visible blank with a
+        # plausible wrong answer, which is worse than leaving it bracketed.
         t = t.replace("⟨corresponding author⟩", name)
     if email:
         t = t.replace("⟨corresponding email⟩", email)
@@ -243,6 +283,14 @@ def _brackets(paths):
 
 def _add_orcid(orcid, changed):
     """ORCID has a field of its own in three of the four metadata files."""
+    # Each block below is gated on the placeholder name being gone, because the
+    # ORCID attaches to the real name's entry. When that gate failed it used to
+    # do nothing and say nothing -- the ORCID was simply lost. Say so now.
+    for p in ("cqtna_r/DESCRIPTION", "cqtna_r/CITATION.cff", "cqtna_r/.zenodo.json"):
+        if NAME_PH in read(p):
+            print("[!] ORCID NOT written to %s: the placeholder name is still" % p)
+            print("    there, so there is no author entry to attach it to.")
+            print("    Supply --name (or --given and --family) in the same run.")
     p = "cqtna_r/DESCRIPTION"
     t = read(p)
     if "comment = c(ORCID" not in t and NAME_PH not in t:

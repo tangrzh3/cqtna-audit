@@ -1,6 +1,8 @@
 # 冻结投稿版本的操作清单
 
 版本 **0.3.0**，建议标签 **`v0.3.0-paper`**。
+**仓库**：https://github.com/tangrzh3/cqtna-audit
+
 
 ---
 
